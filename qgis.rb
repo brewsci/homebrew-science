@@ -22,8 +22,8 @@ end
 class Qgis <Formula
   homepage 'http://www.qgis.org'
   head 'git://github.com/qgis/Quantum-GIS.git', :branch => 'master'
-  url 'http://qgis.org/downloads/qgis-1.7.0.tar.bz2'
-  md5 'd8506990f52563d39c7b916f500f282f'
+  url 'http://qgis.org/downloads/qgis-1.7.1.tar.bz2'
+  md5 '677dcb9d0d53cc7c2a6451590a362477'
 
   def options
     [
@@ -44,33 +44,42 @@ class Qgis <Formula
   depends_on 'postgis' if postgis?
 
   def install
-    internal_qwt = prefix + 'qwt52'
+    internal_qwt = Pathname.new(Dir.getwd) + 'qwt52'
 
     Qwt52.new.brew do
       inreplace 'qwtconfig.pri' do |s|
         # change_make_var won't work because there are leading spaces
         s.gsub! /^\s*QWT_INSTALL_PREFIX\s*=(.*)$/, "QWT_INSTALL_PREFIX=#{internal_qwt}"
         s.gsub! /^\s*INSTALLBASE\s*=(.*)$/, "INSTALLBASE=#{internal_qwt}"
+        # Removing the `QwtDll` config option will cause Qwt to build as a
+        # satic library. We could build dynamic, but we would need to hit the
+        # results with `install_name_tool` to make sure the paths are right. As
+        # the QGIS main executable seems to be the only thing that links
+        # against this, I'm keeping it simple with a static lib.
+        s.gsub! /^(\s*CONFIG.*QwtDll)$/, ''
       end
 
-      system "qmake -config release"
-      system "make install"
+      system 'qmake -spec macx-g++ -config release'
+      system 'make install'
     end
-
-    Dir.mkdir('build')
-    Dir.chdir('build')
 
     cmake_args = std_cmake_parameters.split
     cmake_args << "-DQWT_INCLUDE_DIR=#{internal_qwt}/include"
-    cmake_args << "-DQWT_LIBRARY=#{internal_qwt}/lib/libqwt.dylib"
+    cmake_args << "-DQWT_LIBRARY=#{internal_qwt}/lib/libqwt.a"
 
     if grass?
-      grass = Formula.factory('grass')
+      grass = Formula.factory 'grass'
+      gettext = Formula.factory 'gettext'
       cmake_args << "-DGRASS_PREFIX=#{Dir[grass.prefix + 'grass-*']}"
+      # So that `libintl.h` can be found
+      ENV.append 'CXXFLAGS', "-I#{gettext.include}"
     end
 
-    system "cmake", "..", *cmake_args
-    system "make install"
+    Dir.mkdir 'build'
+    Dir.chdir 'build' do
+      system "cmake", "..", *cmake_args
+      system "make install"
+    end
 
     # Create script to launch QGIS app
     (bin + 'qgis').write <<-EOS.undent
@@ -80,6 +89,8 @@ class Qgis <Formula
 
     # Symlink the PyQGIS Python module somewhere convienant for users to put on
     # their PYTHONPATH
+    #
+    # NOTE: It looks like there may now be a CMake option to do this for us.
     py_lib = lib + "python#{py_version}/site-packages"
     qgis_modules = prefix + 'QGIS.app/Contents/Resources/python/qgis'
 
