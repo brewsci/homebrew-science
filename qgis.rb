@@ -12,18 +12,27 @@ def py_version
   `python -c 'import sys;print sys.version[:3]'`.chomp
 end
 
-# QGIS can't build against QWT 6.x. So, we use an internal brew of QWT 5.2.2.
+# QWT 6.x has an insane build system---can't use the framework files it
+# produces asy the don't link properly. So, we use an internal static brew of
+# QWT 5.2.2.
 class Qwt52 < Formula
   url 'http://sourceforge.net/projects/qwt/files/qwt/5.2.2/qwt-5.2.2.tar.bz2'
   homepage 'http://qwt.sourceforge.net'
   md5 '70d77e4008a6cc86763737f0f24726ca'
 end
 
+# QGIS 1.8.0 requires a newer version of bison than OS X provides.
+class Bison < Formula
+  url 'http://ftpmirror.gnu.org/bison/bison-2.4.3.tar.bz2'
+  homepage 'http://www.gnu.org/software/bison/'
+  md5 'c1d3ea81bc370dbd43b6f0b2cd21287e'
+end
+
 class Qgis <Formula
   homepage 'http://www.qgis.org'
-  head 'git://github.com/qgis/Quantum-GIS.git', :branch => 'master'
-  url 'http://qgis.org/downloads/qgis-1.7.1.tar.bz2'
-  md5 '677dcb9d0d53cc7c2a6451590a362477'
+  head 'https://github.com/qgis/Quantum-GIS.git', :branch => 'master'
+  url 'https://github.com/qgis/Quantum-GIS.git', :branch => 'release-1_8'
+  version '1.8'
 
   def options
     [
@@ -45,6 +54,12 @@ class Qgis <Formula
 
   def install
     internal_qwt = Pathname.new(Dir.getwd) + 'qwt52'
+    internal_bison = Pathname.new(Dir.getwd) + 'bison'
+
+    Bison.new.brew do
+      system "./configure", "--prefix=#{internal_bison}", "--disable-debug", "--disable-dependency-tracking"
+      system "make install"
+    end
 
     Qwt52.new.brew do
       inreplace 'qwtconfig.pri' do |s|
@@ -66,6 +81,7 @@ class Qgis <Formula
     cmake_args = std_cmake_parameters.split
     cmake_args << "-DQWT_INCLUDE_DIR=#{internal_qwt}/include"
     cmake_args << "-DQWT_LIBRARY=#{internal_qwt}/lib/libqwt.a"
+    cmake_args << "-DBISON_EXECUTABLE=#{internal_bison}/bin/bison"
 
     if grass?
       grass = Formula.factory 'grass'
