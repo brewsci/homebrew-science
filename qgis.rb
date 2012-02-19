@@ -64,7 +64,7 @@ class Qgis <Formula
 
     Bison.new.brew do
       system "./configure", "--prefix=#{internal_bison}", "--disable-debug", "--disable-dependency-tracking"
-      system "make install"
+      system 'make install'
     end
 
     Qwt52.new.brew do
@@ -85,9 +85,11 @@ class Qgis <Formula
     end
 
     cmake_args = std_cmake_parameters.split
-    cmake_args << "-DQWT_INCLUDE_DIR=#{internal_qwt}/include"
-    cmake_args << "-DQWT_LIBRARY=#{internal_qwt}/lib/libqwt.a"
-    cmake_args << "-DBISON_EXECUTABLE=#{internal_bison}/bin/bison"
+    cmage_args.concat %W[
+      -DQWT_INCLUDE_DIR=#{internal_qwt}/include
+      -DQWT_LIBRARY=#{internal_qwt}/lib/libqwt.a
+      -DBISON_EXECUTABLE=#{internal_bison}/bin/bison
+    ]
 
     if grass?
       grass = Formula.factory 'grass'
@@ -99,44 +101,43 @@ class Qgis <Formula
 
     Dir.mkdir 'build'
     Dir.chdir 'build' do
-      system "cmake", "..", *cmake_args
-      system "make install"
+      system 'cmake', '..', *cmake_args
+      system 'make install'
     end
-
-    # Create script to launch QGIS app
-    (bin + 'qgis').write <<-EOS.undent
-      #!/bin/sh
-      open #{prefix}/QGIS.app
-    EOS
 
     # Symlink the PyQGIS Python module somewhere convienant for users to put on
     # their PYTHONPATH
-    #
-    # NOTE: It looks like there may now be a CMake option to do this for us.
     py_lib = lib + "python#{py_version}/site-packages"
     qgis_modules = prefix + 'QGIS.app/Contents/Resources/python/qgis'
 
     py_lib.mkpath
     ln_s qgis_modules, py_lib + 'qgis'
+
+    # Create script to launch QGIS app
+    (bin + 'qgis').write <<-EOS.undent
+      #!/bin/sh
+
+      # Ensure Python modules can be found when QGIS is running.
+      env PYTHONPATH=#{HOMEBREW_PREFIX}/lib/python#{py_version}/site-packages:$PYTHONPATH\\
+        open #{prefix}/QGIS.app
+    EOS
   end
 
   def caveats
     <<-EOS
-QGIS has been built as an application bundle. To make it easily available, you
-may want to consider running:
+QGIS has been built as an application bundle. To make it easily available, a
+wrapper script has been written that launches the app with environment
+variables set so that Python modules will be functional:
 
-    brew linkapps
-
-or:
-
-    ln -s #{prefix}/QGIS.app /Applications
+    qgis
 
 The QGIS python modules have been symlinked to:
 
   #{HOMEBREW_PREFIX}/lib/python#{py_version}/site-packages
 
-If you are interested in PyQGIS development, then you will need to ensure this
-directory is on your PYTHONPATH.
+If you are interested in PyQGIS development and are not using the Homebrew
+Python formula, then you will need to ensure this directory is on your
+PYTHONPATH.
     EOS
   end
 end
