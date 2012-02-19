@@ -13,7 +13,7 @@ def py_version
 end
 
 # QWT 6.x has an insane build system---can't use the framework files it
-# produces asy the don't link properly. So, we use an internal static brew of
+# produces as they don't link properly. So, we use an internal static brew of
 # QWT 5.2.2.
 class Qwt52 < Formula
   url 'http://sourceforge.net/projects/qwt/files/qwt/5.2.2/qwt-5.2.2.tar.bz2'
@@ -21,7 +21,7 @@ class Qwt52 < Formula
   md5 '70d77e4008a6cc86763737f0f24726ca'
 end
 
-# QGIS 1.8.0 requires a newer version of bison than OS X provides.
+# QGIS requires a newer version of bison than OS X provides.
 class Bison < Formula
   url 'http://ftpmirror.gnu.org/bison/bison-2.4.3.tar.bz2'
   homepage 'http://www.gnu.org/software/bison/'
@@ -30,9 +30,15 @@ end
 
 class Qgis <Formula
   homepage 'http://www.qgis.org'
+  url 'http://qgis.org/downloads/qgis-1.7.4.tar.bz2'
+  md5 '18e774ea2bb8b6784de6eb3fc5a0f72e'
+
   head 'https://github.com/qgis/Quantum-GIS.git', :branch => 'master'
-  url 'https://github.com/qgis/Quantum-GIS.git', :branch => 'release-1_8'
-  version '1.8'
+
+  devel do
+    url 'https://github.com/qgis/Quantum-GIS.git', :branch => 'release-1_8'
+    version '1.8dev'
+  end
 
   def options
     [
@@ -127,7 +133,7 @@ or:
 
 The QGIS python modules have been symlinked to:
 
-  #{HOMEBREW_PREFIX}/python#{py_version}/site-packages
+  #{HOMEBREW_PREFIX}/lib/python#{py_version}/site-packages
 
 If you are interested in PyQGIS development, then you will need to ensure this
 directory is on your PYTHONPATH.
