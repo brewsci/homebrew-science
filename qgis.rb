@@ -85,7 +85,7 @@ class Qgis <Formula
     end
 
     cmake_args = std_cmake_parameters.split
-    cmage_args.concat %W[
+    cmake_args.concat %W[
       -DQWT_INCLUDE_DIR=#{internal_qwt}/include
       -DQWT_LIBRARY=#{internal_qwt}/lib/libqwt.a
       -DBISON_EXECUTABLE=#{internal_bison}/bin/bison
