@@ -31,7 +31,7 @@ end
 class Qgis <Formula
   homepage 'http://www.qgis.org'
   url 'http://qgis.org/downloads/qgis-1.7.4.tar.bz2'
-  md5 '18e774ea2bb8b6784de6eb3fc5a0f72e'
+  md5 'ad6e2bd8c5eb0c486939c420af5d8c44'
 
   head 'https://github.com/qgis/Quantum-GIS.git', :branch => 'master'
 
