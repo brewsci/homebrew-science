@@ -58,6 +58,11 @@ class Qgis <Formula
 
   depends_on 'postgis' if postgis?
 
+  fails_with :clang do
+    build 318
+    cause 'Cant resolve std::ostrem<< in SpatialIndex.h'
+  end
+
   def install
     internal_qwt = Pathname.new(Dir.getwd) + 'qwt52'
     internal_bison = Pathname.new(Dir.getwd) + 'bison'
