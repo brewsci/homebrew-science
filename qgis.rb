@@ -75,7 +75,6 @@ class Qgis <Formula
     Qwt52.new.brew do
       inreplace 'qwtconfig.pri' do |s|
         # change_make_var won't work because there are leading spaces
-        s.gsub! /^\s*QWT_INSTALL_PREFIX\s*=(.*)$/, "QWT_INSTALL_PREFIX=#{internal_qwt}"
         s.gsub! /^\s*INSTALLBASE\s*=(.*)$/, "INSTALLBASE=#{internal_qwt}"
         # Removing the `QwtDll` config option will cause Qwt to build as a
         # satic library. We could build dynamic, but we would need to hit the
