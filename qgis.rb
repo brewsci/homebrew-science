@@ -35,11 +35,6 @@ class Qgis <Formula
 
   head 'https://github.com/qgis/Quantum-GIS.git', :branch => 'master'
 
-  devel do
-    url 'https://github.com/qgis/Quantum-GIS.git', :branch => 'release-1_8'
-    version '1.8dev'
-  end
-
   def options
     [
       ['--with-grass', 'Build support for GRASS GIS.'],
