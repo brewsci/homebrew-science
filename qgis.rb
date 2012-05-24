@@ -28,7 +28,7 @@ class Bison < Formula
   md5 'c1d3ea81bc370dbd43b6f0b2cd21287e'
 end
 
-class Qgis <Formula
+class Qgis < Formula
   homepage 'http://www.qgis.org'
   url 'http://qgis.org/downloads/qgis-1.7.4.tar.bz2'
   md5 'ad6e2bd8c5eb0c486939c420af5d8c44'
@@ -83,8 +83,7 @@ class Qgis <Formula
       system 'make install'
     end
 
-    cmake_args = std_cmake_parameters.split
-    cmake_args.concat %W[
+    args = std_cmake_args.concat %W[
       -DQWT_INCLUDE_DIR=#{internal_qwt}/include
       -DQWT_LIBRARY=#{internal_qwt}/lib/libqwt.a
       -DBISON_EXECUTABLE=#{internal_bison}/bin/bison
@@ -93,14 +92,14 @@ class Qgis <Formula
     if grass?
       grass = Formula.factory 'grass'
       gettext = Formula.factory 'gettext'
-      cmake_args << "-DGRASS_PREFIX=#{Dir[grass.prefix + 'grass-*']}"
+      args << "-DGRASS_PREFIX='#{Dir[grass.prefix + 'grass-*']}'"
       # So that `libintl.h` can be found
-      ENV.append 'CXXFLAGS', "-I#{gettext.include}"
+      ENV.append 'CXXFLAGS', "-I'#{gettext.include}'"
     end
 
     Dir.mkdir 'build'
     Dir.chdir 'build' do
-      system 'cmake', '..', *cmake_args
+      system 'cmake', '..', *args
       system 'make install'
     end
 
@@ -117,7 +116,7 @@ class Qgis <Formula
       #!/bin/sh
 
       # Ensure Python modules can be found when QGIS is running.
-      env PYTHONPATH=#{HOMEBREW_PREFIX}/lib/python#{py_version}/site-packages:$PYTHONPATH\\
+      env PYTHONPATH='#{HOMEBREW_PREFIX}/lib/python#{py_version}/site-packages':$PYTHONPATH\\
         open #{prefix}/QGIS.app
     EOS
   end
