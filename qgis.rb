@@ -47,6 +47,7 @@ class Qgis < Formula
   depends_on 'gsl'
   depends_on 'PyQt'
   depends_on 'gdal'
+  depends_on 'spatialindex' if ARGV.build_head?
 
   depends_on 'grass' if grass?
   depends_on 'gettext' if grass? # For libintl
@@ -89,13 +90,26 @@ class Qgis < Formula
       -DBISON_EXECUTABLE=#{internal_bison}/bin/bison
     ]
 
-    if grass?
+    # Some test programs invoke binaries during construction that have
+    # incorrect library load paths---this causes the builds to fail.
+    #
+    # Set bundling level back to 0 (the default in all versions prior to 1.8.0)
+    # so that no time and energy is wasted copying the Qt frameworks into QGIS.
+    args.concat %W[
+      -DENABLE_TESTS=NO
+      -DQGIS_MACAPP_BUNDLE=0
+      -DQGIS_MACAPP_DEV_PREFIX='#{lib}'
+      -DQGIS_MACAPP_INSTALL_DEV=YES
+    ] if ARGV.build_head?
+
+    ARGV.filter_for_dependencies do
+      # Ensure --HEAD flags get stripped.
       grass = Formula.factory 'grass'
       gettext = Formula.factory 'gettext'
       args << "-DGRASS_PREFIX='#{Dir[grass.prefix + 'grass-*']}'"
       # So that `libintl.h` can be found
       ENV.append 'CXXFLAGS', "-I'#{gettext.include}'"
-    end
+    end if grass?
 
     Dir.mkdir 'build'
     Dir.chdir 'build' do
