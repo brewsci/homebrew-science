@@ -135,21 +135,27 @@ class Qgis < Formula
     EOS
   end
 
-  def caveats
-    <<-EOS
-QGIS has been built as an application bundle. To make it easily available, a
-wrapper script has been written that launches the app with environment
-variables set so that Python modules will be functional:
+  def caveats; <<-EOS.undent
+    QGIS has been built as an application bundle. To make it easily available, a
+    wrapper script has been written that launches the app with environment
+    variables set so that Python modules will be functional:
 
-    qgis
+      qgis
 
-The QGIS python modules have been symlinked to:
+    You may also symlink QGIS.app into ~/Applications:
+      brew linkapps
+      mkdir -p #{ENV['HOME']}/.MacOSX
+      defaults write #{ENV['HOME']}/.MacOSX/environment.plist PYTHONPATH -string "#{HOMEBREW_PREFIX}/lib/python#{py_version}/site-packages"
 
-  #{HOMEBREW_PREFIX}/lib/python#{py_version}/site-packages
+    You will need to log out and log in again to make environment.plist effective.
 
-If you are interested in PyQGIS development and are not using the Homebrew
-Python formula, then you will need to ensure this directory is on your
-PYTHONPATH.
+    The QGIS python modules have been symlinked to:
+
+      #{HOMEBREW_PREFIX}/lib/python#{py_version}/site-packages
+
+    If you are interested in PyQGIS development and are not using the Homebrew
+    Python formula, then you will need to ensure this directory is on your
+    PYTHONPATH.
     EOS
   end
 end
