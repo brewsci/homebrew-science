@@ -18,20 +18,20 @@ end
 class Qwt52 < Formula
   url 'http://sourceforge.net/projects/qwt/files/qwt/5.2.2/qwt-5.2.2.tar.bz2'
   homepage 'http://qwt.sourceforge.net'
-  md5 '70d77e4008a6cc86763737f0f24726ca'
+  sha1 '77de405c5f9867a001f0e0a668154023faccb0a0'
 end
 
 # QGIS requires a newer version of bison than OS X provides.
 class Bison < Formula
   url 'http://ftpmirror.gnu.org/bison/bison-2.5.tar.bz2'
   homepage 'http://www.gnu.org/software/bison/'
-  md5 '9dba20116b13fc61a0846b0058fbe004'
+  sha1 '907319624fe4f4c5f9e2c3e23601041ac636ae31'
 end
 
 class Qgis < Formula
   homepage 'http://www.qgis.org'
-  url 'http://qgis.org/downloads/qgis-1.7.4.tar.bz2'
-  md5 'ad6e2bd8c5eb0c486939c420af5d8c44'
+  url 'http://qgis.org/downloads/qgis-1.8.0.tar.bz2'
+  sha1 '99c0d716acbe0dd70ad0774242d01e9251c5a130'
 
   head 'https://github.com/qgis/Quantum-GIS.git', :branch => 'master'
 
@@ -47,17 +47,12 @@ class Qgis < Formula
   depends_on 'gsl'
   depends_on 'PyQt'
   depends_on 'gdal'
-  depends_on 'spatialindex' if ARGV.build_head?
+  depends_on 'spatialindex'
 
   depends_on 'grass' if grass?
   depends_on 'gettext' if grass? # For libintl
 
   depends_on 'postgis' if postgis?
-
-  fails_with :clang do
-    build 318
-    cause 'Cant resolve std::ostrem<< in SpatialIndex.h'
-  end
 
   def install
     internal_qwt = Pathname.new(Dir.getwd) + 'qwt52'
@@ -84,23 +79,20 @@ class Qgis < Formula
       system 'make install'
     end
 
-    args = std_cmake_args.concat %W[
-      -DQWT_INCLUDE_DIR=#{internal_qwt}/include
-      -DQWT_LIBRARY=#{internal_qwt}/lib/libqwt.a
-      -DBISON_EXECUTABLE=#{internal_bison}/bin/bison
-    ]
-
     # Some test programs invoke binaries during construction that have
     # incorrect library load paths---this causes the builds to fail.
     #
     # Set bundling level back to 0 (the default in all versions prior to 1.8.0)
     # so that no time and energy is wasted copying the Qt frameworks into QGIS.
-    args.concat %W[
+    args = std_cmake_args.concat %W[
+      -DQWT_INCLUDE_DIR=#{internal_qwt}/include
+      -DQWT_LIBRARY=#{internal_qwt}/lib/libqwt.a
+      -DBISON_EXECUTABLE=#{internal_bison}/bin/bison
       -DENABLE_TESTS=NO
       -DQGIS_MACAPP_BUNDLE=0
       -DQGIS_MACAPP_DEV_PREFIX='#{lib}'
       -DQGIS_MACAPP_INSTALL_DEV=YES
-    ] if ARGV.build_head?
+    ]
 
     ARGV.filter_for_dependencies do
       # Ensure --HEAD flags get stripped.
