@@ -3,24 +3,18 @@ require 'formula'
 class SpatialiteGis < Formula
   homepage 'https://www.gaia-gis.it/fossil/spatialite_gis/index'
   url 'http://www.gaia-gis.it/gaia-sins/spatialite_gis-1.0.0c.tar.gz'
-  md5 '81de8d7f3e20038bd2ec721edc02dfb0'
+  sha1 '45508b27fbdc7166ef874ce3f79216d6c01f3c4f'
 
   depends_on 'libspatialite'
   depends_on 'librasterlite'
+
+  depends_on 'wxmac'
 
   def patches
     DATA
   end
 
   def install
-    opoo <<-EOS.undent
-      At the moment, this formula is extremely experimental and requires wxmac
-      to be installed using the --devel flag. No effort is made to detect this
-      dependency and the formula may fail.
-
-      Hopefully, this will be improved in the future.
-    EOS
-
     # These libs don't get picked up by configure.
     ENV.append 'LDFLAGS', '-lwx_osx_cocoau_aui-2.9 -liconv'
 
