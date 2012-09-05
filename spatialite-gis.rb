@@ -11,7 +11,12 @@ class SpatialiteGis < Formula
   depends_on 'wxmac'
 
   def patches
-    DATA
+    {
+      # Upstream fix for bad test of string equality. Remove on next release.
+      :p0 => 'https://www.gaia-gis.it/fossil/spatialite_gis/vpatch?from=0506d89e65c692d7&to=0783daf1178ee1dc',
+      # Allow `spatialite_gis` to run without being packaged as an .app bundle.
+      :p1 => DATA
+    }
   end
 
   def install
@@ -25,33 +30,6 @@ class SpatialiteGis < Formula
 end
 
 __END__
-Fix bad tests for string equality?
-
-
-diff --git a/MapView.cpp b/MapView.cpp
-index 11cd5df..9ab5689 100644
---- a/MapView.cpp
-+++ b/MapView.cpp
-@@ -1160,7 +1160,7 @@ void MyMapView::OnTimerIdentify(wxTimerEvent & WXUNUSED(event))
-       if (layer->GetType() == VECTOR_LAYER)
-         {
-           if (layer->GetTableName() == active->GetTableName() &&
--              layer->GetGeometryColumn() && active->GetGeometryColumn())
-+              layer->GetGeometryColumn() == active->GetGeometryColumn())
-             {
-               // OK: performing Identify
-               Identify(layer, IdentifyMouseX, IdentifyMouseY);
-@@ -1789,7 +1789,7 @@ void MyMapView::OnCmdIdentify(wxCommandEvent & WXUNUSED(event))
-           if (layer->GetType() == VECTOR_LAYER)
-             {
-               if (layer->GetTableName() == active->GetTableName() &&
--                  layer->GetGeometryColumn() && active->GetGeometryColumn())
-+                  layer->GetGeometryColumn() == active->GetGeometryColumn())
-                 {
-                   // OK: performing Identify
-                   Identify(layer, MouseIdentifyX, MouseIdentifyY);
-
-
 Fix GUI so it can run without needing to construct an app bundle.
 
 diff --git a/Main.cpp b/Main.cpp
