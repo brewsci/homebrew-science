@@ -3,7 +3,7 @@ require 'formula'
 class Openblas < Formula
   homepage 'http://xianyi.github.com/OpenBLAS/'
   url 'http://github.com/xianyi/OpenBLAS/zipball/v0.1.0'
-  md5 '4a33238f68b84bd628701556f12131e0'
+  sha1 '73b6df95993db106b922d8739e273699055c6e79'
 
   keg_only :provided_by_osx
 

@@ -3,7 +3,7 @@ require 'formula'
 class Xmgredit < Formula
   url 'http://dl.dropbox.com/u/72178/dist/xmgredit-5.tar.gz'
   homepage 'http://www.stccmop.org/~pturner/'
-  md5 '5fdc737142881868f0e475f86ee3e205'
+  sha1 '7580e10e0779e5ea9d154fa27c1c9a852d86a0da'
 
   depends_on 'lesstif'
   depends_on 'netcdf'

@@ -5,7 +5,7 @@ require 'formula'
 class Nco < Formula
   homepage 'http://nco.sourceforge.net'
   url 'http://nco.sourceforge.net/src/nco_4.1.0.orig.tar.gz'
-  md5 '7abcbc336c9c0eef4c5b868f1544f701'
+  sha1 'ae708d5b81fe8296ca47cb2110aef6aec2f65a2b'
 
   depends_on 'netcdf'
   depends_on 'gsl'
