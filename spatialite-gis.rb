@@ -7,7 +7,7 @@ class SpatialiteGis < Formula
 
   depends_on 'libspatialite'
   depends_on 'librasterlite'
-
+  depends_on 'libharu'
   depends_on 'wxmac'
 
   def patches
