@@ -11,6 +11,17 @@ class Blat < Formula
   end
 
   def test
-    system "#{bin}/blat"
+    mktemp do
+      Pathname.new('db.fa').write <<-EOF.undent
+        >gi|5524211|gb|AAD44166.1| cytochrome b [Elephas maximus maximus]
+        LCLYTHIGRNIYYGSYLYSETWNTGIMLLLITMATAFMGYVLPWGQMSFWGATVITNLFSAIPYIGTNLV
+      EOF
+      Pathname.new('query.fa').write <<-EOF.undent
+        >spam
+        CLYTHIGRNIYYGSY
+      EOF
+      system "#{bin}/blat", "-prot", "db.fa", "query.fa", "out.fa"
+      system "cat out.fa | grep spam"
+    end
   end
 end
