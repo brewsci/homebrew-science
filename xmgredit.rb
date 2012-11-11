@@ -5,6 +5,8 @@ class Xmgredit < Formula
   homepage 'http://www.stccmop.org/~pturner/'
   sha1 '7580e10e0779e5ea9d154fa27c1c9a852d86a0da'
 
+  depends_on :x11
+
   depends_on 'lesstif'
   depends_on 'netcdf'
   depends_on 'triangle'
@@ -14,8 +16,6 @@ class Xmgredit < Formula
   end
 
   def install
-    ENV.x11
-
     inreplace 'Makefile' do |s|
       s.change_make_var! 'INSTALLDIR', prefix
     end
