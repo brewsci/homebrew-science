@@ -2,16 +2,16 @@ require 'formula'
 
 class GmapGsnap < Formula
   homepage 'http://research-pub.gene.com/gmap'
-  url 'http://research-pub.gene.com/gmap/src/gmap-gsnap-2012-07-20.tar.gz'
-  sha1 '9edb7750b923842f9c877f59934cdfd9f5cdf2b7'
-  version "2012-07-20"
+  url 'http://research-pub.gene.com/gmap/src/gmap-gsnap-2012-07-20.v2.tar.gz'
+  sha1 'e53970e67134fb2e3e3f3c3b4ffe2c0e02471cc9'
+  version "2012-07-20.v2"
 
   depends_on "samtools"
 
   def install
-    ENV['CC'] = "#{ENV.cc} -O3 -m#{MacOS.prefer_64_bit? ? 64 : 32}"
     system "./configure", "--prefix=#{prefix}"
     system "make"
+    system "make check"
     system "make install"
   end
 
