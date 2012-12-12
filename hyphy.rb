@@ -18,11 +18,14 @@ class Hyphy < Formula
     system "cmake", "-DINSTALL_PREFIX=#{prefix}", ".", *std_cmake_args
     system "make SP"
     system "make install"
+    (share/'hyphy').install('help')
   end
 
   def caveats; <<-EOS.undent
     This formula builds a single-threaded version of HyPhy, as multithreaded
     builds occasionally hang on certain analyses.
+
+    The help has been installed to #{HOMEBREW_PREFIX}/share/hyphy.
     EOS
   end
 end
