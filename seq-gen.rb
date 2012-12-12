@@ -15,7 +15,7 @@ class SeqGen < Formula
   end
 
   def caveats
-    "The manual and examples are installed to #{share}/seq-gen."
+    "The manual and examples are installed to #{HOMEBREW_PREFIX}/share/seq-gen."
   end
 
   def test
