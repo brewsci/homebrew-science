@@ -7,6 +7,11 @@ class Abyss < Formula
   head 'https://github.com/sjackman/abyss.git'
 
   # Only header files are used from these packages, so :build is appropriate
+  if build.head?
+    depends_on 'autoconf' => :build
+    depends_on 'automake' => :build
+    depends_on 'multimarkdown' => :build
+  end
   depends_on 'boost149' => :build
   depends_on 'google-sparsehash' => :build
 
@@ -20,10 +25,11 @@ class Abyss < Formula
   # This issue is fixed upstream:
   # https://github.com/sjackman/abyss/issues/13
   def patches
-    DATA
+    DATA unless build.head?
   end
 
   def install
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make install"
