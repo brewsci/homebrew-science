@@ -5,19 +5,15 @@ class Viennarna < Formula
   url 'http://www.tbi.univie.ac.at/~ronny/RNA/ViennaRNA-2.0.7.tar.gz'
   sha1 'eced95b1cb5d09acb4dbd372a2b11ac48e19344b'
 
+  option 'with-perl', 'build and install Perl interfaces'
+
   def install
     ENV['ARCHFLAGS'] = "-arch x86_64"
-    config_command = ["./configure", "--disable-debug", "--disable-dependency-tracking",
+    args = ["./configure", "--disable-debug", "--disable-dependency-tracking",
                       "--prefix=#{prefix}", "--disable-openmp"]
-    config_command.push('--without-perl') unless ARGV.include? '--with-perl'
-    system *config_command
+    args << '--without-perl' unless build.include? 'with-perl'
+    system(*args)
     system "make install"
-  end
-
-  def options
-    [
-      ['--with-perl', 'Build and Install Perl Interfaces.']
-    ]
   end
 
   def patches

@@ -34,7 +34,7 @@ class Mrbayes < Formula
       # therefore open-mpi attempts to run llvm-gcc instead of clang.
       # But MrBayes hangs with llvm-gcc!
       # https://sourceforge.net/tracker/index.php?func=detail&aid=3426528&group_id=129302&atid=714418
-      ENV['OMPI_CC'] = 'clang'
+      ENV['OMPI_CC'] = ENV.cc
       args << "--enable-mpi=yes"
     end
 

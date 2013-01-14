@@ -1,11 +1,11 @@
 require 'formula'
 
 def grass?
-  ARGV.include? "--with-grass"
+  build.include? "with-grass"
 end
 
 def postgis?
-  ARGV.include? "--with-postgis"
+  build.include? "with-postgis"
 end
 
 def py_version
@@ -35,12 +35,8 @@ class Qgis < Formula
 
   head 'https://github.com/qgis/Quantum-GIS.git', :branch => 'master'
 
-  def options
-    [
-      ['--with-grass', 'Build support for GRASS GIS.'],
-      ['--with-postgis', 'Build support for PostGIS databases.']
-    ]
-  end
+  option 'with-postgis', 'Build support for PostGIS databases.'
+  option 'with-grass', 'Build support for GRASS GIS'
 
   depends_on 'cmake' => :build
 

@@ -2,9 +2,9 @@ require 'formula'
 
 class NvidiaCudaRequirement < Requirement
   fatal true
-	env :userpaths  # because nvcc has to be used
+  env :userpaths  # because nvcc has to be used
 
-	def satisfied?
+  def satisfied?
     # we have to assure the ENV is (almost) as during the build
     require 'superenv'
     ENV.setup_build_environment
@@ -25,7 +25,7 @@ class NvidiaCudaRequirement < Requirement
 
       The `nvcc` has to be in your PATH then (which is normally the case).
 
-	EOS
+  EOS
   end
 end
 
@@ -41,17 +41,17 @@ class Beagle < Formula
   depends_on NvidiaCudaRequirement.new if build.include? 'with-cuda'
 
   def patches
-	DATA
+  DATA
   end
 
   def install
-		system "./autogen.sh"
+    system "./autogen.sh"
 
-		args = "--prefix=#{prefix}"
-		args << "--with-cuda=#{Pathname(which 'nvcc').dirname}" if build.include? 'with-cuda'
-		# Help us!
-		# If you want JNI bindings (Java), you need the JDK and we have to
-		# pass --with-jdk=/path/to/jdk to configure
+    args = "--prefix=#{prefix}"
+    args << "--with-cuda=#{Pathname(which 'nvcc').dirname}" if build.include? 'with-cuda'
+    # Help us!
+    # If you want JNI bindings (Java), you need the JDK and we have to
+    # pass --with-jdk=/path/to/jdk to configure
 
     system "./configure", *args
     system "make"

@@ -12,11 +12,11 @@ class Abyss < Formula
     depends_on 'automake' => :build
     depends_on 'multimarkdown' => :build
   end
-  depends_on 'boost149' => :build
-  depends_on 'google-sparsehash' => :build
+  depends_on 'boost149'
+  depends_on 'google-sparsehash'
+  depends_on :x11 => :optional
 
-  # Snow Leopard comes with mpi but Lion does not
-  depends_on 'open-mpi' if MacOS.version >= :lion
+  depends_on MPIDependency.new(:cc)
 
   # strip breaks the ability to read compressed files.
   skip_clean 'bin'

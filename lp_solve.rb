@@ -9,7 +9,7 @@ class NumpyHasHeaders < Requirement
     true
   end
 
-  def message; 
+  def message
     s = <<-EOS.undent
       Apple ships NumPy without the header files :-/
       To fix this, do either of the following options:
