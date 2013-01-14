@@ -5,7 +5,7 @@ class Lammps < Formula
   url 'http://lammps.sandia.gov/tars/lammps-11Jan13.tar.gz'
   sha1 '6ee291fe91360c241a6c5a6f3caac11048c004d8'
   # lammps releases are named after their release date. We transform it to
-  # YYYY.MM.DD so that we get a comparable version numbering (for brew outdated)
+  # YYYY.MM.RR (year.month.revision) so that we get a comparable version numbering (for brew outdated)
   version '2013.01.11'
   head 'http://git.icms.temple.edu/lammps-ro.git'
 
