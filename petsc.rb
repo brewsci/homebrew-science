@@ -2,7 +2,7 @@ require 'formula'
 
 class Petsc < Formula
   homepage 'http://www.mcs.anl.gov/petsc/index.html'
-  url 'http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.3-p5.tar.gz '
+  url 'http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-3.3-p5.tar.gz'
   sha1 'ac8e64b1b266c3b8779a6dd91f21e09cf3442321'
 
   depends_on MPIDependency.new(:cc)
