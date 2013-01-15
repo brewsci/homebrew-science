@@ -5,7 +5,8 @@ class Sga < Formula
   url 'https://github.com/jts/sga/tarball/v0.9.37'
   sha1 '7bd04b2001e03dcd959215a4dd6a0fe2bbd3ff89'
 
-  head 'https://github.com/jts/sga.git'
+  # Currently deactivated due to "undeclared identifier omp_set_num_threads"
+  # head 'https://github.com/jts/sga.git'
 
   depends_on :autoconf => :build
   depends_on :automake => :build
