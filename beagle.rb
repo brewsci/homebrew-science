@@ -52,11 +52,14 @@ class Beagle < Formula
     args << "--enable-osx-leopard" if MacOS.version <= :leopard
     args << "--with-cuda=#{Pathname(which 'nvcc').dirname}" if build.include? 'with-cuda'
     args << "--enable-opencl"
-    # Help us! If you want JNI bindings (Java), you need the JDK and we have to
-    # pass --with-jdk=/path/to/jdk to configure
-    args << "--without-jdk"
 
     system "./configure", *args
+    
+    # The JNI bindings cannot be built in parallel, else we get
+    # "ld: library not found for -lhmsbeagle"
+    # (https://github.com/Homebrew/homebrew-science/issues/67)
+    ENV.deparallelize 
+    
     system "make"
     system "make install"
     system "make check"
