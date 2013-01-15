@@ -17,7 +17,9 @@ class Ray < Formula
   def install
     system "make", "PREFIX=#{prefix}"
     system "make install"
+    # The binary 'Ray' is installed in the prefix, but we want it in bin:
     bin.install 'Ray'
+    rm prefix/'Ray'
   end
 
   test do
