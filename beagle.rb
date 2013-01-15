@@ -38,6 +38,7 @@ class Beagle < Formula
   depends_on :autoconf => :build
   depends_on :automake => :build
   depends_on :libtool
+  depends_on 'doxygen' => :build
   depends_on NvidiaCudaRequirement.new if build.include? 'with-cuda'
 
   def patches
@@ -48,10 +49,12 @@ class Beagle < Formula
     system "./autogen.sh"
 
     args = "--prefix=#{prefix}"
+    args << "--enable-osx-leopard" if MacOS.version <= :leopard
     args << "--with-cuda=#{Pathname(which 'nvcc').dirname}" if build.include? 'with-cuda'
-    # Help us!
-    # If you want JNI bindings (Java), you need the JDK and we have to
+    args << "--enable-opencl"
+    # Help us! If you want JNI bindings (Java), you need the JDK and we have to
     # pass --with-jdk=/path/to/jdk to configure
+    args << "--without-jdk"
 
     system "./configure", *args
     system "make"
