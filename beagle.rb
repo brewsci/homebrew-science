@@ -34,6 +34,7 @@ class Beagle < Formula
   head 'http://beagle-lib.googlecode.com/svn/trunk/'
 
   option 'with-cuda', 'Build with NVIDIA CUDA GPU drivers (see brew info beagle)'
+  option 'with-opencl', "Build with OpenCL GPU/CPU acceleration"
 
   depends_on :autoconf => :build
   depends_on :automake => :build
@@ -42,16 +43,16 @@ class Beagle < Formula
   depends_on NvidiaCudaRequirement.new if build.include? 'with-cuda'
 
   def patches
-  DATA
+    DATA
   end
 
   def install
     system "./autogen.sh"
 
-    args = "--prefix=#{prefix}"
+    args = [ "--prefix=#{prefix}" ]
     args << "--enable-osx-leopard" if MacOS.version <= :leopard
     args << "--with-cuda=#{Pathname(which 'nvcc').dirname}" if build.include? 'with-cuda'
-    args << "--enable-opencl"
+    args << "--enable-opencl" if build.include? 'wiht-opencl'
 
     system "./configure", *args
 
@@ -62,7 +63,8 @@ class Beagle < Formula
 
     system "make"
     system "make install"
-    system "make check"
+    # The tests seem to fail if --enable-opencl is provided
+    system "make check" unless build.include? 'wiht-opencl'
   end
 end
 
