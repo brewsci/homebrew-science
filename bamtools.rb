@@ -5,7 +5,9 @@ class Bamtools < Formula
   url 'https://github.com/downloads/pezmaster31/bamtools/bamtools-1.0.2.tar.gz'
   sha1 '70d4a1f8d7da73dd381b609b618ed19b6184366e'
 
-  head 'https://github.com/pezmaster31/bamtools.git'
+  # Unfortunately, our patch does not apply to head but the upstream issue #55
+  # is still not fixed.
+  # head 'https://github.com/pezmaster31/bamtools.git'
 
   depends_on 'cmake' => :build
 
