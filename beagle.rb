@@ -54,12 +54,12 @@ class Beagle < Formula
     args << "--enable-opencl"
 
     system "./configure", *args
-    
+
     # The JNI bindings cannot be built in parallel, else we get
     # "ld: library not found for -lhmsbeagle"
     # (https://github.com/Homebrew/homebrew-science/issues/67)
-    ENV.deparallelize 
-    
+    ENV.deparallelize
+
     system "make"
     system "make install"
     system "make check"
