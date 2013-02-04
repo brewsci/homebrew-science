@@ -2,8 +2,8 @@ require 'formula'
 
 class Bowtie2 < Formula
   homepage 'http://bowtie-bio.sourceforge.net/bowtie2/index.shtml'
-  url 'http://downloads.sourceforge.net/project/bowtie-bio/bowtie2/2.0.5/bowtie2-2.0.5-source.zip'
-  sha1 '2f0cc813abec0e297e728352e350b561aff95347'
+  url 'http://downloads.sourceforge.net/project/bowtie-bio/bowtie2/2.0.6/bowtie2-2.0.6-source.zip'
+  sha1 '86068dd90312fca2f8068412cbf469c056366220'
 
   def install
     system "make"
