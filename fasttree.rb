@@ -2,17 +2,17 @@ require 'formula'
 
 class Fasttree < Formula
   homepage 'http://meta.microbesonline.org/fasttree/'
-  url 'http://meta.microbesonline.org/fasttree/FastTree.c'
-  version '2.1.3'
-  sha1 '371f12d6177822f20d240327b4cdfd7c4a6923e4'
+  url 'http://www.microbesonline.org/fasttree/FastTree-2.1.7.c'
+  version '2.1.7'
+  sha1 'd9381924829e7d19d56154ebbde0e44044b4b7ab'
 
   fails_with :clang do
-    build 421
+    build 425
     cause "segmentation fault when running Fasttree"
   end
 
   def install
-    system "#{ENV.cc} -lm -O3 -finline-functions -funroll-loops -Wall -o FastTree FastTree.c"
+    system "#{ENV.cc} -lm -O3 -finline-functions -funroll-loops -Wall -o FastTree FastTree-#{@version}.c"
     bin.install "FastTree"
   end
 
