@@ -6,16 +6,16 @@ class Abyss < Formula
   sha1 '763dc423054421829011844ceaa5e18dc43f1ca9'
   head 'https://github.com/sjackman/abyss.git'
 
+  option 'disable-popcnt', 'do not use the POPCNT instruction'
+
   # Only header files are used from these packages, so :build is appropriate
   if build.head?
-    depends_on 'autoconf' => :build
-    depends_on 'automake' => :build
+    depends_on :autoconf => :build
+    depends_on :automake => :build
     depends_on 'multimarkdown' => :build
   end
-  depends_on 'boost149'
-  depends_on 'google-sparsehash'
-  depends_on :x11 => :optional
-
+  depends_on 'boost' => :build
+  depends_on 'google-sparsehash' => :build
   depends_on MPIDependency.new(:cc)
 
   # strip breaks the ability to read compressed files.
@@ -30,8 +30,11 @@ class Abyss < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = [
+      '--disable-dependency-tracking',
+      "--prefix=#{prefix}"]
+    args << '--disable-popcnt' if build.include? 'disable-popcnt'
+    system "./configure", *args
     system "make install"
   end
 
