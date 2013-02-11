@@ -16,12 +16,12 @@ class Wcslib < Formula
   def install
     ENV.fortran if build.include? 'with-fortran' or build.include? 'with-pgsbox'
 
-    args = [ "--disable-debug", 
+    args = [ "--disable-debug",
              "--disable-dependency-tracking",
              "--prefix=#{prefix}",
              "--with-cfitsiolib=#{Formula.factory('cfitsio').opt_prefix}/lib",
              "--with-cfitsioinc=#{Formula.factory('cfitsio').opt_prefix}/include" ]
-    
+
     if build.include? 'with-pgsbox'
       args << "--with-pgplotlib=#{Formula.factory('pgplot').opt_prefix}/lib"
       args << "--with-pgplotinc=#{Formula.factory('pgplot').opt_prefix}/include"
@@ -31,7 +31,7 @@ class Wcslib < Formula
     end
 
     system "./configure", *args
-                          
+
     ENV.deparallelize
     system "make"
     system "make check" if build.include? 'check'
