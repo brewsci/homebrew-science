@@ -1,15 +1,21 @@
 require 'formula'
 
 class NvidiaCudaRequirement < Requirement
-  fatal true
-  env :userpaths  # because nvcc has to be used
+  def initialize *tags
+    @name = 'cuda' # to autogenerate `--with-cuda` option
+    super(*tags)
+  end
 
-  def satisfied?
-    # we have to assure the ENV is (almost) as during the build
-    require 'superenv'
-    ENV.setup_build_environment
-    ENV.userpaths!
-    which 'nvcc'
+  build true
+  fatal true
+
+  satisfy { which 'nvcc' }
+
+  env do
+    # Nvidia CUDA installs (externally) into this dir (hard-coded):
+    ENV.append 'CFLAGS', "-F/Library/Frameworks"
+    # # because nvcc has to be used
+    ENV.append 'PATH', which('nvcc').dirname, ':'
   end
 
   def message
@@ -33,14 +39,13 @@ class Beagle < Formula
   homepage 'http://beagle-lib.googlecode.com/'
   head 'http://beagle-lib.googlecode.com/svn/trunk/'
 
-  option 'with-cuda', 'Build with NVIDIA CUDA GPU drivers (see brew info beagle)'
   option 'with-opencl', "Build with OpenCL GPU/CPU acceleration"
 
   depends_on :autoconf => :build
   depends_on :automake => :build
-  depends_on :libtool
   depends_on 'doxygen' => :build
-  depends_on NvidiaCudaRequirement.new if build.include? 'with-cuda'
+  depends_on :libtool
+  depends_on NvidiaCudaRequirement => :optional
 
   def patches
     DATA
@@ -51,8 +56,8 @@ class Beagle < Formula
 
     args = [ "--prefix=#{prefix}" ]
     args << "--enable-osx-leopard" if MacOS.version <= :leopard
-    args << "--with-cuda=#{Pathname(which 'nvcc').dirname}" if build.include? 'with-cuda'
-    args << "--enable-opencl" if build.include? 'wiht-opencl'
+    args << "--with-cuda=#{Pathname(which 'nvcc').dirname}" if build.with? 'cuda'
+    args << "--enable-opencl" if build.with? 'opencl'
 
     system "./configure", *args
 
@@ -64,7 +69,7 @@ class Beagle < Formula
     system "make"
     system "make install"
     # The tests seem to fail if --enable-opencl is provided
-    system "make check" unless build.include? 'wiht-opencl'
+    system "make check" unless build.with? 'opencl'
   end
 end
 
