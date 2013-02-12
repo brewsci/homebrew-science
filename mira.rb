@@ -8,12 +8,19 @@ class Mira < Formula
   depends_on 'boost'
   depends_on 'google-perftools'
   depends_on 'docbook'
+  # On Xcode-only systems, Mira's configure is unable to find expat
+  depends_on 'expat'
+  # FlexLexer.h is not in the 10.8 SDK (only in 10.7 SDK and in xctoolchain/usr/include)
+  # Further, an ugly patch would be needed to work with OS X's flex (on 10.8)
+  # http://www.freelists.org/post/mira_talk/Type-mismatch-of-LexerInput-and-LexerOutput-PATCH
+  depends_on 'flex'
 
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-boost=#{HOMEBREW_PREFIX}"
+                          "--with-expat=#{Formula.factory('expat').opt_prefix}",
+                          "--with-boost=#{Formula.factory('boost').opt_prefix}"
     # Link with boost_system for boost::system::system_category().
     # http://www.freelists.org/post/mira_talk/Linking-requires-boost-system
     system "make LIBS=-lboost_system-mt install"
