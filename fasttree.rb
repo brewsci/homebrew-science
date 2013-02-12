@@ -9,6 +9,7 @@ class Fasttree < Formula
   fails_with :clang do
     build 425
     cause "segmentation fault when running Fasttree"
+    # See also discussion to use -DNO_SSE (https://github.com/Homebrew/homebrew-science/pull/96)
   end
 
   def install
