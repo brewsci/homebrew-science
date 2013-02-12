@@ -2,24 +2,25 @@ require 'formula'
 
 class Lammps < Formula
   homepage 'http://lammps.sandia.gov'
-  url 'http://lammps.sandia.gov/tars/lammps-12Jan13.tar.gz'
-  sha1 'da31b931dc38d00fef2e5d61b924154c5d538240'
+  url 'http://lammps.sandia.gov/tars/lammps-14Feb13.tar.gz'
+  sha1 'f2af5bef5414f1f57e6c4e6454b7721b02ad9402'
   # lammps releases are named after their release date. We transform it to
-  # YYYY.MM.RR (year.month.revision) so that we get a comparable version numbering (for brew outdated)
-  version '2013.01.12'
+  # YYYY.MM.DD (year.month.day) so that we get a comparable version numbering (for brew outdated)
+  version '2013.02.14'
   head 'http://git.icms.temple.edu/lammps-ro.git'
 
   # user-submitted packages not considered "standard"
+  # 'user-omp' must be last
   USER_PACKAGES= %W[
     user-misc
     user-awpmd
     user-cg-cmm
     user-colvars
     user-eff
-    user-omp
     user-molfile
     user-reaxc
     user-sph
+    user-omp
   ]
 
   # could not get gpu or user-cuda to install (hardware problem?)
@@ -44,40 +45,43 @@ class Lammps < Formula
 
   depends_on 'fftw'
   depends_on 'jpeg'
+  depends_on 'voro++'
+  depends_on 'homebrew/dupes/gcc' if build.include? "enable-user-omp"
   depends_on MPIDependency.new(:cxx, :f90) if build.include? "with-mpi"
 
-  def build_f90_lib(lmp_lib)
-    # we currently assume gfortran is our fortran library
+  def build_lib(comp, lmp_lib, opts={})
+    change_compiler_var = opts[:change_compiler_var]  # a non-standard compiler name to replace
+    prefix_make_var = opts[:prefix_make_var] || ""                    # prepended to makefile variable names
+
     cd "lib/"+lmp_lib do
-      make_file = "Makefile.gfortran"
-      if build.include? "with-mpi"
-        inreplace make_file do |s|
-          s.change_make_var! "F90", ENV["MPIFC"]
-        end
+      if comp == "FC"
+        make_file = "Makefile.gfortran" # make file
+        compiler_var = "F90"                    # replace compiler
+      elsif comp == "CXX"
+        make_file = "Makefile.g++"      # make file
+        compiler_var = "CC"                     # replace compiler
+      elsif comp == "MPICXX"
+        make_file = "Makefile.openmpi"  # make file
+        compiler_var = "CC"                     # replace compiler
+        comp = "CXX" if not ENV["MPICXX"]
       end
+      compiler_var = change_compiler_var if change_compiler_var
+
+      # force compiler
+      inreplace make_file do |s|
+        s.change_make_var! compiler_var, ENV[comp]
+      end
+
       system "make", "-f", make_file
 
-      ENV.append 'LDFLAGS', "-lgfortran -L#{Formula.factory('gfortran').opt_prefix}/gfortran/lib"
-
-      # empty it to reduce chance of conflicts
-      inreplace "Makefile.lammps" do |s|
-        s.change_make_var! lmp_lib+"_SYSINC", ""
-        s.change_make_var! lmp_lib+"_SYSLIB", "-lgfortran"
-        s.change_make_var! lmp_lib+"_SYSPATH", ""
-      end
-    end
-  end
-
-  def build_cxx_lib(lmp_lib)
-    cd "lib/"+lmp_lib do
-      make_file = "Makefile.g++"
-      if build.include? "with-mpi"
-        make_file = "Makefile.openmpi" if File.exists? "Makefile.openmpi"
-        inreplace make_file do |s|
-          s.change_make_var! "CC" , ENV["MPICXX"]
+      if File.exists? "Makefile.lammps"
+        # empty it to reduce chance of conflicts
+        inreplace "Makefile.lammps" do |s|
+          s.change_make_var! prefix_make_var+lmp_lib+"_SYSINC", ""
+          s.change_make_var! prefix_make_var+lmp_lib+"_SYSLIB", ""
+          s.change_make_var! prefix_make_var+lmp_lib+"_SYSPATH", ""
         end
       end
-      system "make", "-f", make_file
     end
   end
 
@@ -85,22 +89,41 @@ class Lammps < Formula
     ENV.j1      # not parallel safe (some packages have race conditions :meam:)
     ENV.fortran # we need fortran for many packages, so just bring it along
 
-    build_f90_lib "reax"
-    build_f90_lib "meam"
-    build_cxx_lib "poems"
-    build_cxx_lib "awpmd" if build.include? "enable-user-awpmd" and build.include? "with-mpi"
-    if build.include? "enable-user-colvars"
-      # the makefile is craeted by a user and is not of standard format
-      cd "lib/colvars" do
-        make_file = "Makefile.g++"
-        if build.include? "with-mpi"
-          inreplace make_file do |s|
-            s.change_make_var! "CXX" , ENV["MPICXX"]
-          end
-        end
-        system "make", "-f", make_file
-      end
+    # make sure to optimize the installation
+    ENV.append "CFLAGS","-O"
+    ENV.append "LDFLAGS","-O"
+
+    if build.include? "enable-user-omp"
+      # OpenMP requires the latest gcc
+      ENV["CXX"] = Formula.factory('homebrew/dupes/gcc').opt_prefix/"bin/g++-4.7"
+
+      # The following should be part of MPIDependency: mxcl/homebrew#17370
+      ENV["OMPI_MPICXX"] = ENV["CXX"]              # correct the openmpi wrapped compiler
+      # mpich2 needs this, but it would throw an error without mpich2. Therefore, I leave it out
+      # ENV.append "CFLAGS", "-CC=#{ENV['CXX']}"     # mpich2   wrapped compiler
+
+      # Build with OpenMP
+      ENV.append "CFLAGS",  "-fopenmp"
+      ENV.append "LDFLAGS", "-L#{Formula.factory('homebrew/dupes/gcc').opt_prefix}/gcc/lib -lgomp"
     end
+    if build.include? "with-mpi"
+      # Simplify by relying on the mpi compilers
+      ENV["FC"]  = ENV["MPIFC"]
+      ENV["CXX"] = ENV["MPICXX"]
+    end
+
+    # build package libraries
+    build_lib "FC",    "reax"
+    build_lib "FC",    "meam"
+    build_lib "CXX",   "poems"
+    build_lib "CXX",   "colvars", :change_compiler_var => "CXX"  if build.include? "enable-user-colvars"
+    if build.include? "enable-user-awpmd"
+      build_lib "MPICXX","awpmd",   :prefix_make_var => "user-"
+      ENV.append 'LDFLAGS', "-lblas -llapack"
+    end
+
+    # Assuming gfortran library
+    ENV.append 'LDFLAGS', "-L#{Formula.factory('gfortran').opt_prefix}/gfortran/lib -lgfortran"
 
     # build the lammps program and library
     cd "src" do
@@ -110,15 +133,13 @@ class Lammps < Formula
         # "make mac_mpi" because it has some unnecessary
         # settings. We get a nice clean slate with "mac"
         if build.include? "with-mpi"
-          # compiler info
-          s.change_make_var! "CC"     , ENV["MPICXX"]
-          s.change_make_var! "LINK"   , ENV["MPICXX"]
-
           #-DOMPI_SKIP_MPICXX is to speed up c++ compilation
-          s.change_make_var! "MPI_INC"  , "-DOMPI_SKIP_MPICXX -I#{HOMEBREW_PREFIX}/include"
-          s.change_make_var! "MPI_PATH" , "-L#{HOMEBREW_PREFIX}/lib"
+          s.change_make_var! "MPI_INC"  , "-DOMPI_SKIP_MPICXX"
+          s.change_make_var! "MPI_PATH" , ""
           s.change_make_var! "MPI_LIB"  , ""
         end
+        s.change_make_var! "CC"   , ENV["CXX"]
+        s.change_make_var! "LINK" , ENV["CXX"]
 
         # installing with FFTW and JPEG
         s.change_make_var! "FFT_INC"  , "-DFFT_FFTW3 -I#{Formula.factory('fftw').opt_prefix}/include"
@@ -129,9 +150,12 @@ class Lammps < Formula
         s.change_make_var! "JPG_PATH" , "-L#{Formula.factory('jpeg').opt_prefix}/lib"
         s.change_make_var! "JPG_LIB"  , "-ljpeg"
 
-        # add link-flags
-        s.change_make_var! "LINKFLAGS"  , ENV["LDFLAGS"]
-        s.change_make_var! "SHLIBFLAGS" , "-shared #{ENV['LDFLAGS']}"
+        s.change_make_var! "CCFLAGS" , ENV["CFLAGS"]
+        s.change_make_var! "LIB"     , ENV["LDFLAGS"]
+      end
+
+      inreplace "VORONOI/Makefile.lammps" do |s|
+        s.change_make_var! "voronoi_SYSINC", "-I#{HOMEBREW_PREFIX}/include/voro++"
       end
 
       # setup standard packages
