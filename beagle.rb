@@ -1,11 +1,6 @@
 require 'formula'
 
-class NvidiaCudaRequirement < Requirement
-  def initialize *tags
-    @name = 'cuda' # to autogenerate `--with-cuda` option
-    super(*tags)
-  end
-
+class CudaRequirement < Requirement
   build true
   fatal true
 
@@ -45,7 +40,7 @@ class Beagle < Formula
   depends_on :automake => :build
   depends_on 'doxygen' => :build
   depends_on :libtool
-  depends_on NvidiaCudaRequirement => :optional
+  depends_on CudaRequirement => :optional
 
   def patches
     DATA
