@@ -6,6 +6,8 @@ class Glimmer3 < Formula
   version "3.02"
   sha1 '27fbd2498f997e0a47026b348b2fc95b073b712a'
 
+  depends_on "elph"
+
   def install
     cd 'src' do
       system 'make'
@@ -20,10 +22,16 @@ class Glimmer3 < Formula
                      entropy-profile anomaly multi-extract extract build-icm]
     end
 
-    libexec.install Dir.glob('scripts/*.awk')
+    Dir.glob('scripts/*.awk').each do |script|
+      inreplace script, '/bin/awk', '/usr/bin/awk'
+      libexec.install script
+    end
 
     (share/"#{name}").install Dir.glob('sample-run/*.predict')
     (share/"#{name}").install 'sample-run/tpall.fna'
+
+    inreplace 'scripts/g3-iterated.csh', '/nfshomes/adelcher', HOMEBREW_PREFIX
+    inreplace 'scripts/g3-from-training.csh', '/nfshomes/adelcher', HOMEBREW_PREFIX
 
     Dir.glob('scripts/*.csh').each do |script|
       inreplace script, '/fs/szgenefinding/Glimmer3/scripts', libexec
