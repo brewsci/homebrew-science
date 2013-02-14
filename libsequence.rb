@@ -2,15 +2,10 @@ require 'formula'
 
 class Libsequence < Formula
   homepage 'http://molpopgen.org/software/libsequence.html'
-  url 'http://molpopgen.org/software/libsequence/libsequence-1.7.5.tar.gz'
-  sha1 '29606adb46dc5564b24d8785620c2c24ac712c11'
+  url 'http://molpopgen.org/software/libsequence/libsequence-1.7.6.tar.gz'
+  sha1 '19c96a60767a317d1f4ac76cebb32cd07bd23f01'
 
-  depends_on 'boost'
-
-  fails_with :clang do
-    build 425
-    cause "Inconsistent exception declarations"
-  end
+  depends_on 'boost' => :build
 
   def install
     system "./configure", "--enable-shared=no", "--prefix=#{prefix}"
