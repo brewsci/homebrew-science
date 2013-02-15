@@ -2,7 +2,7 @@ require 'formula'
 
 class Kalign < Formula
   homepage 'http://msa.sbc.su.se/'
-  url 'http://msa.sbc.su.se/downloads/kalign/kalign-2.03.tar.gz'
+  url 'http://msa.sbc.su.se/downloads/kalign/kalign-2.04.tar.gz'
   sha1 '8bf4c1afe90e8d529840c0906c7b740299fe4041'
 
   def install
