@@ -9,7 +9,7 @@ class Pymol < Formula
   depends_on "glew"
   depends_on 'Pmw'
   depends_on 'python' => 'with-brewed-tk'
-  depends_on 'homebrew/dupes/tk' => 'enable-threads'
+  depends_on 'homebrew/dupes/tcl-tk' => ['enable-threads','with-x11']
   depends_on :freetype
   depends_on :libpng
   depends_on :x11
@@ -37,7 +37,7 @@ class Pymol < Formula
 
     # build the pymol libraries
     system "python", "-s", "setup.py", *args
-    system "python", "-s", "setup2.py", "install"
+    system "python", "-s", "setup2.py", "install" unless build.head?
 
     # get the executable
     bin.install("pymol")
@@ -75,7 +75,7 @@ class Pymol < Formula
     gui. This requires a thread enabled tk installation and python
     linked to it. Install these with the following commands.
       brew tap homebrew/dupes
-      brew install homebrew/dupes/tk --enable-threads
+      brew install homebrew/dupes/tcl-tk --enable-threads --with-x11
       brew install python --with-brewed-tk
 
     On some macs, the graphics drivers do not properly support stereo
