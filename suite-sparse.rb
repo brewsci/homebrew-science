@@ -13,7 +13,7 @@ class SuiteSparse < Formula
   # Metis is optional for now because of
   # cholmod_metis.c:164:21: error: use of undeclared identifier 'idxtype'
   depends_on "metis" if build.include? "with-metis"
-  depends_on "homebrew/science/openblas" if build.include? "with-openblas"
+  depends_on "openblas" if build.include? "with-openblas"
 
   def install
     # SuiteSparse doesn't like to build in parallel
