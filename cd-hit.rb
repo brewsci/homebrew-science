@@ -1,10 +1,10 @@
 require 'formula'
 
 class CdHit < Formula
-  homepage 'http://bioinformatics.org/cd-hit/'
-  url 'http://www.bioinformatics.org/downloads/index.php/cd-hit/cd-hit-v4.5.4-2011-03-07.tgz'
-  version '4.5.4'
-  sha1 '743c4b6ec79b9d5acd1e1171587e96c03e3e3003'
+  homepage 'https://code.google.com/p/cdhit/'
+  url 'https://cdhit.googlecode.com/files/cd-hit-v4.6.1-2012-08-27.tgz'
+  version '4.6.1'
+  sha1 '744be987a963e368ad46efa59227ea313c35ef5d'
 
   def install
     system "make"
