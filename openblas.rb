@@ -9,7 +9,7 @@ class OpenblasLapack < Formula
 end
 
 class Openblas < Formula
-  homepage 'http://xianyi.github.com/OpenBLAS/'
+  homepage 'http://xianyi.github.io/OpenBLAS/'
   # Maintainers, remember to update the LAPACK url in OpenblasLapack above.
   # See the "LAPACK_URL" in the openblas Makefile for the right version.
   url 'https://github.com/xianyi/OpenBLAS/archive/v0.2.6.tar.gz'

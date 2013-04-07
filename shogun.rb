@@ -23,14 +23,14 @@ class Shogun < Formula
   depends_on 'r' => :optional
   depends_on 'lua' => :optional
   depends_on 'octave' => :optional
-  
+
   # Todo: support additional deps: arpack, mosek, superlu, cplex, lpsolve
   #       Help us by hacking on this and open a pull request! Thanks.
 
   def install
     pydir = "#{which_python}/site-packages"
 
-    args = [ "--prefix=#{prefix}", 
+    args = [ "--prefix=#{prefix}",
              "--pydir=#{pydir}",
              "--enable-hmm-parallel" ]
     args << "--disable-svm-light" if build.include? 'disable-svm-light'
@@ -41,7 +41,7 @@ class Shogun < Formula
 
     unless MacOS::CLT.installed?
       # fix: "Checking for Mac OS vector library ... no"
-      ["src/configure", "src/shogun/mathematics/lapack.h"].each do |f| 
+      ["src/configure", "src/shogun/mathematics/lapack.h"].each do |f|
         inreplace f, "#include </System/Library/Frameworks/vecLib.framework",
                      "#include <#{MacOS.sdk_path}/System/Library/Frameworks/vecLib.framework"
       end

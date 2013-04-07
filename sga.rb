@@ -2,8 +2,8 @@ require 'formula'
 
 class Sga < Formula
   homepage 'https://github.com/jts/sga'
-  url 'https://github.com/jts/sga/tarball/v0.9.42'
-  sha1 'dd2c778cbfc763f2877d07a6b67d35a59c71ce61'
+  url 'https://github.com/jts/sga/archive/v0.9.42.tar.gz'
+  sha1 '99b2de74edc70c8c7d945374490f06777bd9eab7'
   head 'https://github.com/jts/sga.git'
 
   depends_on :autoconf => :build
