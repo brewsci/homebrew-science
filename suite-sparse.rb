@@ -3,7 +3,7 @@ require 'formula'
 class SuiteSparse < Formula
   homepage 'http://www.cise.ufl.edu/research/sparse/SuiteSparse'
   url 'http://www.cise.ufl.edu/research/sparse/SuiteSparse/SuiteSparse-4.1.0.tar.gz'
-  sha1 '4f0bd70a87c89ed734558ece724a1bf99616f27b'
+  sha1 '93a0ae741b399d0dbecd43235d2f8977cdd9bc47'
 
   option "without-tbb", "Do not link with tbb (Threading Building Block)"
   option "with-metis", "Compile in metis libraries"
