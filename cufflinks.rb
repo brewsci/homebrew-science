@@ -2,8 +2,8 @@ require 'formula'
 
 class Cufflinks < Formula
   homepage 'http://cufflinks.cbcb.umd.edu/'
-  url 'http://cufflinks.cbcb.umd.edu/downloads/cufflinks-2.0.2.tar.gz'
-  sha1 '91954b4945c49ca133b39bffadf51bdf9ec2ff26'
+  url 'http://cufflinks.cbcb.umd.edu/downloads/cufflinks-2.1.1.tar.gz'
+  sha1 '9c5bf3d3872e8dd358ba7d7407644ab2cbbfdcb6'
 
   depends_on 'boost'    => :build
   depends_on 'samtools' => :build
@@ -11,11 +11,6 @@ class Cufflinks < Formula
 
   fails_with :clang do
     build 425
-  end
-
-  def patches
-    # Fix a build error: ‘aNode’ was not declared in this scope
-    DATA
   end
 
   def install
@@ -39,20 +34,3 @@ class Cufflinks < Formula
     system "#{bin}/cuffdiff 2>&1 |grep -q cuffdiff"
   end
 end
-
-__END__
---- a/src/lemon/bits/base_extender.h	2014-06-27 11:36:54.364248892 -0700
-+++ b/src/lemon/bits/base_extender.h	2013-06-27 11:36:58.268248818 -0700
-@@ -359,10 +359,10 @@
- 		}
- 		
- 		Node source(const UEdge& edge) const {
--			return aNode(edge);
-+			return this->aNode(edge);
- 		}
- 		Node target(const UEdge& edge) const {
--			return bNode(edge);
-+			return this->bNode(edge);
- 		}
- 		
- 		void firstInc(UEdge& edge, bool& dir, const Node& node) const {
