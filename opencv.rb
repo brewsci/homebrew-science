@@ -2,8 +2,8 @@ require 'formula'
 
 class Opencv < Formula
   homepage 'http://opencv.org/'
-  url 'http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.4/OpenCV-2.4.4a.tar.bz2'
-  sha1 '6e518c0274a8392c0c98d18ef0ef754b9c596aca'
+  url 'http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.5/opencv-2.4.5.tar.gz'
+  sha1 '9e25f821db9e25aa454a31976ba6b5a3a50b6fa4'
 
   env :std # to find python
 
@@ -26,10 +26,6 @@ class Opencv < Formula
   # Can also depend on ffmpeg, but this pulls in a lot of extra stuff that
   # you don't need unless you're doing video analysis, and some of it isn't
   # in Homebrew anyway. Will depend on openexr if it's installed.
-
-  # Fix non-ASCII characters breaking in Java 1.7
-  # https://github.com/Itseez/opencv/pull/718
-  def patches; DATA; end
 
   def install
     args = std_cmake_args + %w[
@@ -106,21 +102,3 @@ class Opencv < Formula
     EOS
   end
 end
-
-__END__
-diff --git a/modules/java/build.xml.in b/modules/java/build.xml.in
-index 98ba2e3..c1c1854 100644
---- a/modules/java/build.xml.in
-+++ b/modules/java/build.xml.in
-@@ -8,8 +8,9 @@
-     <!-- http://stackoverflow.com/questions/3584968/ant-how-to-compile-jar-that-includes-source-attachment -->
-     <javac sourcepath="" srcdir="src" destdir="src" debug="on" includeantruntime="false" >
-       <include name="**/*.java"/>
-+      <compilerarg line="-encoding utf-8"/>
-     </javac>
- 
-     <jar basedir="src" destfile="bin/@JAR_NAME@"/>
-   </target>
--</project>
-\ No newline at end of file
-+</project>
