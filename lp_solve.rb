@@ -1,5 +1,9 @@
 require 'formula'
 
+def numpy_include_dir
+  "#{`python -c "import numpy.distutils.misc_util as u; print(u.get_numpy_include_dirs())[0]"`.strip}"
+end
+
 class NumpyHasHeaders < Requirement
   def satisfied?
     not Dir["#{numpy_include_dir}/numpy/*.h"].empty?
@@ -112,6 +116,10 @@ class LpSolve < Formula
     end
   end
 
+  def which_python
+    "python" + `python -c 'import sys;print(sys.version[:3])'`.strip
+  end
+
   def caveats; <<-EOS.undent
     For non-homebrew Python, you need to amend your PYTHONPATH like so:
       export PYTHONPATH=#{HOMEBREW_PREFIX}/lib/#{which_python}/site-packages:$PYTHONPATH
@@ -139,14 +147,6 @@ class LpSolve < Formula
       system 'python', "#{HOMEBREW_PREFIX}/share/lp_solve/lpdemo.py"
     end
   end
-end
-
-def which_python
-  "python" + `python -c 'import sys;print(sys.version[:3])'`.strip
-end
-
-def numpy_include_dir
-  "#{`python -c "import numpy.distutils.misc_util as u; print(u.get_numpy_include_dirs())[0]"`.strip}"
 end
 
 __END__

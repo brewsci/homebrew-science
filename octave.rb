@@ -1,13 +1,5 @@
 require 'formula'
 
-# Leading underscore because this method is defined differently
-# in compat, and anything that loads this file would end up with
-# this definition instead!
-def _snow_leopard_64?
-  # 64 bit builds on 10.6 require some special handling.
-  MacOS.version == :snow_leopard and MacOS.prefer_64_bit?
-end
-
 class Octave < Formula
   homepage 'http://www.gnu.org/software/octave/index.html'
   url 'http://ftpmirror.gnu.org/octave/octave-3.6.4.tar.bz2'
@@ -30,7 +22,7 @@ class Octave < Formula
   #   http://www.macresearch.org/lapackblas-fortran-106
   #
   # We can work around the issues using dotwrp.
-  depends_on 'dotwrp' if _snow_leopard_64?
+  depends_on 'dotwrp' if MacOS.version == :snow_leopard and MacOS.prefer_64_bit?
   # octave refuses to work with BSD readline, so it's either this or --disable-readline
   depends_on 'readline'
   depends_on 'curl' if MacOS.version == :leopard # Leopard's libcurl is too old
@@ -51,6 +43,15 @@ class Octave < Formula
     depends_on 'fltk'
   end
 
+  def blas_flags
+    flags = []
+    flags << "-ldotwrp" if MacOS.version == :snow_leopard and MacOS.prefer_64_bit?
+    # Cant use `-framework Accelerate` because `mkoctfile`, the tool used to
+    # compile extension packages, can't parse `-framework` flags.
+    flags << "-Wl,-framework,Accelerate"
+    flags.join(" ")
+  end
+
   def install
     ENV.fortran
 
@@ -63,9 +64,7 @@ class Octave < Formula
     args = [
       "--disable-dependency-tracking",
       "--prefix=#{prefix}",
-      # Cant use `-framework Accelerate` because `mkoctfile`, the tool used to
-      # compile extension packages, can't parse `-framework` flags.
-      "--with-blas=#{'-ldotwrp ' if _snow_leopard_64?}-Wl,-framework -Wl,Accelerate",
+      "--with-blas=#{blas_flags}",
       # SuiteSparse-4.x.x fix, see http://savannah.gnu.org/bugs/?37031
       "--with-umfpack=-lumfpack -lsuitesparseconfig",
     ]

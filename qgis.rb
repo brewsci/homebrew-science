@@ -1,9 +1,5 @@
 require 'formula'
 
-def which_python
-  "python"+`python -c 'import sys;print(sys.version[:3])'`.chomp
-end
-
 class PyQtImportable < Requirement
   fatal true
   satisfy { quiet_system 'python', '-c', 'from PyQt4 import QtCore' }
@@ -84,6 +80,10 @@ class Qgis < Formula
       env PATH='#{HOMEBREW_PREFIX}/bin':$PATH PYTHONPATH='#{HOMEBREW_PREFIX}/lib/#{which_python}/site-packages':$PYTHONPATH\\
         open #{prefix}/QGIS.app
     EOS
+  end
+
+  def which_python
+    "python"+`python -c 'import sys;print(sys.version[:3])'`.chomp
   end
 
   def caveats; <<-EOS.undent

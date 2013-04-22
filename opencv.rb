@@ -1,13 +1,5 @@
 require 'formula'
 
-def which_python
-  "python" + `python -c 'import sys;print(sys.version[:3])'`.strip
-end
-
-def site_package_dir
-  "lib/#{which_python}/site-packages"
-end
-
 class Opencv < Formula
   homepage 'http://opencv.org/'
   url 'http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.4/OpenCV-2.4.4a.tar.bz2'
@@ -96,6 +88,14 @@ class Opencv < Formula
       system "make"
       system "make install"
     end
+  end
+
+  def which_python
+    "python" + `python -c 'import sys;print(sys.version[:3])'`.strip
+  end
+
+  def site_package_dir
+    "lib/#{which_python}/site-packages"
   end
 
   def caveats; <<-EOS.undent
