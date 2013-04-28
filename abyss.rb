@@ -4,7 +4,7 @@ class Abyss < Formula
   homepage 'http://www.bcgsc.ca/platform/bioinfo/software/abyss'
   url 'http://www.bcgsc.ca/downloads/abyss/abyss-1.3.5.tar.gz'
   sha1 '43c3caceb91f768290cb7a1b70f6b3113b8a36fc'
-  head 'https://github.com/sjackman/abyss.git'
+  head 'https://github.com/bcgsc/abyss.git'
 
   option 'disable-popcnt', 'do not use the POPCNT instruction'
 
