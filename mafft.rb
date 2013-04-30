@@ -2,8 +2,8 @@ require 'formula'
 
 class Mafft < Formula
   homepage 'http://mafft.cbrc.jp/alignment/software/index.html'
-  url 'http://align.bmr.kyushu-u.ac.jp/mafft/software/mafft-6.717-with-extensions-src.tgz'
-  sha1 '18d82340918949bbcdce659d4a09421ce06d67b1'
+  url 'http://mafft.cbrc.jp/alignment/software/mafft-7.037-with-extensions-src.tgz'
+  sha1 '9bfbd95873be90761e474c807de0527168a71b18'
 
   fails_with :clang do
     build 421
