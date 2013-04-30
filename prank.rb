@@ -2,8 +2,8 @@ require 'formula'
 
 class Prank < Formula
   homepage 'http://code.google.com/p/prank-msa/'
-  url 'http://prank-msa.googlecode.com/files/prank.src.121218.tgz'
-  sha1 'bda3f1a8a696e8908bca2e6621dc5fa77dd9bfbc'
+  url 'http://prank-msa.googlecode.com/files/prank.src.130410.tgz'
+  sha1 '8bfaec6e9bed1b0276188752609e753088e28acf'
   head 'https://code.google.com/p/prank-msa/', :using => :git
 
   depends_on 'mafft'
