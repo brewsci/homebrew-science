@@ -10,7 +10,7 @@ class Opencv < Formula
   option '32-bit'
   option 'with-qt',  'Build the Qt4 backend to HighGUI'
   option 'with-tbb', 'Enable parallel code in OpenCV using Intel TBB'
-  option 'with-opencl', 'Enable gpu code in OpenCV using OpenCL'
+  option 'without-opencl', 'Disable gpu code in OpenCV using OpenCL'
 
   depends_on 'cmake' => :build
   depends_on 'pkg-config' => :build
@@ -46,7 +46,7 @@ class Opencv < Formula
     end
     args << '-DWITH_QT=ON' if build.with? 'qt'
     args << '-DWITH_TBB=ON' if build.with? 'tbb'
-    args << '-DWITH_OPENCL=ON' if build.with? 'opencl'
+    args << '-DWITH_OPENCL=OFF' if build.without? 'opencl'
 
     # The CMake `FindPythonLibs` Module is dumber than a bag of hammers when
     # more than one python installation is available---for example, it clings
