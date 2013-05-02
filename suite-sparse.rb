@@ -2,8 +2,8 @@ require 'formula'
 
 class SuiteSparse < Formula
   homepage 'http://www.cise.ufl.edu/research/sparse/SuiteSparse'
-  url 'http://www.cise.ufl.edu/research/sparse/SuiteSparse/SuiteSparse-4.2.0.tar.gz'
-  sha1 'd99f88afc69ee4d073541ff7a68bc4f26bda5853'
+  url 'http://www.cise.ufl.edu/research/sparse/SuiteSparse/SuiteSparse-4.2.1.tar.gz'
+  sha1 'ea6688bd6f6adf81e2e5aacdc71d7dcf9a5d208d'
 
   depends_on "tbb" => :recommended
   depends_on "openblas" => :optional
