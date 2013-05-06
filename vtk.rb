@@ -31,8 +31,10 @@ class Vtk < Formula
     args = std_cmake_args + %W[
       -DVTK_REQUIRED_OBJCXX_FLAGS=''
       -DVTK_USE_CARBON=OFF
+      -DVTK_USE_TK=OFF
       -DBUILD_TESTING=OFF
       -DBUILD_SHARED_LIBS=ON
+      -DIOKit:FILEPATH=#{MacOS.sdk_path}/System/Library/Frameworks/IOKit.framework
       -DCMAKE_INSTALL_RPATH:STRING='#{lib}/vtk-5.10'
       -DCMAKE_INSTALL_NAME_DIR:STRING='#{lib}/vtk-5.10'
     ]
@@ -45,6 +47,9 @@ class Vtk < Formula
       # Cmake picks up the system's python dylib, even if we have a brewed one.
       python_prefix = `python-config --prefix`.strip
       args << "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
+      args << "-DPYTHON_DEBUG_LIBRARY:FILEPATH='#{python_prefix}/Python'"
+      args << "-DPYTHON_EXECUTABLE:FILEPATH='#{python_prefix}/bin/python'"
+      args << "-DPYTHON_INCLUDE_PATH:FILEPATH='#{python_prefix}/Headers'"
 
       # Install to lib and let installer symlink to global python site-packages.
       # The path in lib needs to exist first and be listed in PYTHONPATH.
