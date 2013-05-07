@@ -2,8 +2,8 @@ require 'formula'
 
 class CeresSolver < Formula
   homepage 'http://code.google.com/p/ceres-solver/'
-  url 'http://ceres-solver.googlecode.com/files/ceres-solver-1.5.0.tar.gz'
-  sha1 '68851761f5af9f8bd872ca97726c8871c38975d0'
+  url 'http://ceres-solver.googlecode.com/files/ceres-solver-1.6.0.tar.gz'
+  sha1 '0fdd7a931498bd09dc167827f4412c368f89bd25'
 
   depends_on 'cmake' => :build
   depends_on 'glog'
