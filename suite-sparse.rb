@@ -18,7 +18,7 @@ class SuiteSparse < Formula
     # Switch to the Mac base config, per SuiteSparse README.txt
     system "mv SuiteSparse_config/SuiteSparse_config.mk SuiteSparse_config/SuiteSparse_config_orig.mk"
     system "mv SuiteSparse_config/SuiteSparse_config_Mac.mk SuiteSparse_config/SuiteSparse_config.mk"
-    
+
     inreplace "SuiteSparse_config/SuiteSparse_config.mk" do |s|
       if build.include? 'with-openblas'
         s.change_make_var! "BLAS", "-lopenblas"
