@@ -7,6 +7,10 @@ class Abyss < Formula
   head 'https://github.com/bcgsc/abyss.git'
 
   option 'disable-popcnt', 'do not use the POPCNT instruction'
+  MAXK = [32, 64, 96, 128, 256]
+  MAXK.each do |k|
+    option "enable-maxk=#{k}", "set the maximum k-mer length to #{k}"
+  end
 
   # Only header files are used from these packages, so :build is appropriate
   if build.head?
@@ -27,6 +31,9 @@ class Abyss < Formula
       '--disable-dependency-tracking',
       "--prefix=#{prefix}"]
     args << '--disable-popcnt' if build.include? 'disable-popcnt'
+    MAXK.each do |k|
+      args << "--enable-maxk=#{k}" if build.include? "enable-maxk=#{k}"
+    end
     system "./configure", *args
     system "make install"
   end
