@@ -32,4 +32,8 @@ class Mafft < Formula
                      "install"
     end
   end
+
+  def test
+    system 'mafft --version 2>&1 |grep -q mafft'
+  end
 end
