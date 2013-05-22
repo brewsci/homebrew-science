@@ -20,12 +20,18 @@ class Velvet < Formula
 
     system "make", "velveth", "velvetg", *args
     bin.install 'velveth', 'velvetg'
+
+    # install additional contributed scripts
+    (share/'velvet/contrib').install Dir['contrib/shuffleSequences_fasta/shuffleSequences_*']
   end
 
   def caveats
     <<-EOS.undent
       If you want to build with a different kmer length, you can set
       MAXKMERLENGTH=X to a value (X) *before* you brew this formula.
+
+      Some additional user contributed scripts are installed here:
+      #{share}/velvet/contrib
     EOS
   end
 
