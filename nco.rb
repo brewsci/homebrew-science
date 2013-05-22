@@ -4,8 +4,8 @@ require 'formula'
 
 class Nco < Formula
   homepage 'http://nco.sourceforge.net'
-  url 'http://nco.sourceforge.net/src/nco-4.2.2.tar.gz'
-  sha1 'f3cb8c47c5fa8bf7d6673f1619428d74c12fd9d5'
+  url 'http://nco.sourceforge.net/src/nco-4.3.1.tar.gz'
+  sha1 '0f8cb342905bb310f54c45179ee2c0d0479f905a'
 
   depends_on 'netcdf'
   depends_on 'gsl'
