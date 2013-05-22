@@ -2,15 +2,14 @@ require 'formula'
 
 class Lammps < Formula
   homepage 'http://lammps.sandia.gov'
-  url 'http://lammps.sandia.gov/tars/lammps-14Feb13.tar.gz'
-  sha1 'f2af5bef5414f1f57e6c4e6454b7721b02ad9402'
+  url 'http://lammps.sandia.gov/tars/lammps-14May13.tar.gz'
+  sha1 '5e522e9e3d4a4cbbe80c01c36002489777fb65d8'
   # lammps releases are named after their release date. We transform it to
   # YYYY.MM.DD (year.month.day) so that we get a comparable version numbering (for brew outdated)
-  version '2013.02.14'
+  version '2013.05.14'
   head 'http://git.icms.temple.edu/lammps-ro.git'
 
   # user-submitted packages not considered "standard"
-  # 'user-omp' must be last
   USER_PACKAGES= %W[
     user-misc
     user-awpmd
@@ -20,15 +19,16 @@ class Lammps < Formula
     user-molfile
     user-reaxc
     user-sph
-    user-omp
   ]
 
   # could not get gpu or user-cuda to install (hardware problem?)
   # kim requires openkim software, which is not currently in homebrew.
   # user-atc would not install without mpi and then would not link to blas-lapack
+  # user-omp requires gcc dependency (tricky). clang does not have OMP support, yet.
   DISABLED_PACKAGES = %W[
     gpu
     kim
+    user-omp
   ]
   DISABLED_USER_PACKAGES = %W[
     user-atc
@@ -46,7 +46,6 @@ class Lammps < Formula
   depends_on 'fftw'
   depends_on 'jpeg'
   depends_on 'voro++'
-  depends_on 'homebrew/dupes/gcc' if build.include? "enable-user-omp"
   depends_on MPIDependency.new(:cxx, :f90) if build.include? "with-mpi"
 
   def build_lib(comp, lmp_lib, opts={})
@@ -93,19 +92,6 @@ class Lammps < Formula
     ENV.append "CFLAGS","-O"
     ENV.append "LDFLAGS","-O"
 
-    if build.include? "enable-user-omp"
-      # OpenMP requires the latest gcc
-      ENV["CXX"] = Formula.factory('homebrew/dupes/gcc').opt_prefix/"bin/g++-4.7"
-
-      # The following should be part of MPIDependency: mxcl/homebrew#17370
-      ENV["OMPI_MPICXX"] = ENV["CXX"]              # correct the openmpi wrapped compiler
-      # mpich2 needs this, but it would throw an error without mpich2. Therefore, I leave it out
-      # ENV.append "CFLAGS", "-CC=#{ENV['CXX']}"     # mpich2   wrapped compiler
-
-      # Build with OpenMP
-      ENV.append "CFLAGS",  "-fopenmp"
-      ENV.append "LDFLAGS", "-L#{Formula.factory('homebrew/dupes/gcc').opt_prefix}/gcc/lib -lgomp"
-    end
     if build.include? "with-mpi"
       # Simplify by relying on the mpi compilers
       ENV["FC"]  = ENV["MPIFC"]
