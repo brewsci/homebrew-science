@@ -2,8 +2,8 @@ require 'formula'
 
 class Velvet < Formula
   homepage 'http://www.ebi.ac.uk/~zerbino/velvet/'
-  url 'http://www.ebi.ac.uk/~zerbino/velvet/velvet_1.2.08.tgz'
-  sha1 '81432982c6a0a7fe8e5dd46fd5e88193dbd832aa'
+  url 'http://www.ebi.ac.uk/~zerbino/velvet/velvet_1.2.09.tgz'
+  sha1 'e40d59806599ac06e4b13408205b8978427177d0'
 
   head 'https://github.com/dzerbino/velvet.git'
 
