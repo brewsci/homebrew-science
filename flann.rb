@@ -2,8 +2,8 @@ require 'formula'
 
 class Flann < Formula
   homepage 'http://www.cs.ubc.ca/~mariusm/index.php/FLANN/FLANN'
-  url 'http://people.cs.ubc.ca/~mariusm/uploads/FLANN/flann-1.8.2-src.zip'
-  sha1 '62ace1c41365dfc8ceabde1381febc5c8b71ad98'
+  url 'http://people.cs.ubc.ca/~mariusm/uploads/FLANN/flann-1.8.4-src.zip'
+  sha1 'e03d9d458757f70f6af1d330ff453e3621550a4f'
 
   option 'enable-python', 'Enable python bindings'
   option 'enable-matlab', 'Enable matlab/octave bindings'
