@@ -7,6 +7,7 @@ class Populations < Formula
   version '1.2.33-2'
 
   depends_on 'cmake' => :build
+  depends_on 'gettext'
   depends_on 'qt'
 
   def patches
@@ -34,7 +35,7 @@ index 2279570..ce70e59 100644
  
  	void Suppr(unsigned long pos) {
 -		erase(vector<T>::begin() + pos);
-+		vector<T>::erase(vector<T>::begin() + pos);
++		this->erase(vector<T>::begin() + pos);
  	}
  
  };
