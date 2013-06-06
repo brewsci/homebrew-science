@@ -10,7 +10,7 @@ class Samtools < Formula
   url 'http://sourceforge.net/projects/samtools/files/samtools/0.1.19/samtools-0.1.19.tar.bz2'
   homepage 'http://samtools.sourceforge.net/'
   sha1 'ff3f4cf40612d4c2ad26e6fcbfa5f8af84cbe881'
-  head 'https://samtools.svn.sourceforge.net/svnroot/samtools/trunk/samtools'
+  head 'https://github.com/samtools/samtools.git'
 
   option 'with-dwgsim', 'Build with "Whole Genome Simulation"'
 
