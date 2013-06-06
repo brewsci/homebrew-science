@@ -46,7 +46,8 @@ class Opencv < Formula
     end
     args << '-DWITH_QT=ON' if build.with? 'qt'
     args << '-DWITH_TBB=ON' if build.with? 'tbb'
-    args << '-DWITH_OPENCL=OFF' if build.without? 'opencl'
+    # OpenCL 1.1 is required, but Snow Leopard and older come with 1.0
+    args << '-DWITH_OPENCL=OFF' if build.without? 'opencl' or MacOS.version < :lion
 
     # The CMake `FindPythonLibs` Module is dumber than a bag of hammers when
     # more than one python installation is available---for example, it clings
