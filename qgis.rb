@@ -23,6 +23,7 @@ class Qgis < Formula
   head 'https://github.com/qgis/Quantum-GIS.git', :branch => 'master'
 
   depends_on 'cmake' => :build
+  depends_on :python
   depends_on PyQtImportable
 
   depends_on 'gsl'
@@ -58,55 +59,47 @@ class Qgis < Formula
     ENV.append 'CXXFLAGS', "-I'#{Formula.factory('gettext').opt_prefix}/include'" if build.with? 'grass'
 
     # Avoid ld: framework not found QtSql (https://github.com/Homebrew/homebrew-science/issues/23)
-    ENV.append 'CXXFLAGS', "-F#{Formula.factory('qt').opt_prefix}/lib -F#{Formula.factory('python').opt_prefix}/Frameworks"
+    ENV.append 'CXXFLAGS', "-F#{Formula.factory('qt').opt_prefix}/lib"
 
     Dir.mkdir 'build'
-    Dir.chdir 'build' do
-      system 'cmake', '..', *args
-      system 'make install'
+    python do
+      Dir.chdir 'build' do
+        system 'cmake', '..', *args
+        system 'make install'
+      end
+
+      py_lib = lib/"#{python.xy}/site-packages"
+      qgis_modules = prefix + 'QGIS.app/Contents/Resources/python/qgis'
+      py_lib.mkpath
+      ln_s qgis_modules, py_lib + 'qgis'
+
+      # Create script to launch QGIS app
+      (bin + 'qgis').write <<-EOS.undent
+        #!/bin/sh
+        # Ensure Python modules can be found when QGIS is running.
+        env PATH='#{HOMEBREW_PREFIX}/bin':$PATH PYTHONPATH='#{HOMEBREW_PREFIX}/lib/#{python.xy}/site-packages':$PYTHONPATH\\
+          open #{prefix}/QGIS.app
+      EOS
     end
-
-    # Symlink the qgis Python module somewhere convienant for users to put on
-    # their PYTHONPATH
-    py_lib = lib/"#{which_python}/site-packages"
-    qgis_modules = prefix + 'QGIS.app/Contents/Resources/python/qgis'
-    py_lib.mkpath
-    ln_s qgis_modules, py_lib + 'qgis'
-
-    # Create script to launch QGIS app
-    (bin + 'qgis').write <<-EOS.undent
-      #!/bin/sh
-      # Ensure Python modules can be found when QGIS is running.
-      env PATH='#{HOMEBREW_PREFIX}/bin':$PATH PYTHONPATH='#{HOMEBREW_PREFIX}/lib/#{which_python}/site-packages':$PYTHONPATH\\
-        open #{prefix}/QGIS.app
-    EOS
   end
 
-  def which_python
-    "python"+`python -c 'import sys;print(sys.version[:3])'`.chomp
-  end
+  def caveats
+    s = <<-EOS.undent
+      QGIS has been built as an application bundle. To make it easily available, a
+      wrapper script has been written that launches the app with environment
+      variables set so that Python modules will be functional:
 
-  def caveats; <<-EOS.undent
-    QGIS has been built as an application bundle. To make it easily available, a
-    wrapper script has been written that launches the app with environment
-    variables set so that Python modules will be functional:
+        qgis
 
-      qgis
+      You may also symlink QGIS.app into ~/Applications:
+        brew linkapps
+        mkdir -p #{ENV['HOME']}/.MacOSX
+        defaults write #{ENV['HOME']}/.MacOSX/environment.plist PYTHONPATH -string "#{HOMEBREW_PREFIX}/lib/#{which_python}/site-packages"
 
-    You may also symlink QGIS.app into ~/Applications:
-      brew linkapps
-      mkdir -p #{ENV['HOME']}/.MacOSX
-      defaults write #{ENV['HOME']}/.MacOSX/environment.plist PYTHONPATH -string "#{HOMEBREW_PREFIX}/lib/#{which_python}/site-packages"
+      You will need to log out and log in again to make environment.plist effective.
 
-    You will need to log out and log in again to make environment.plist effective.
-
-    The QGIS python modules have been symlinked to:
-
-      #{HOMEBREW_PREFIX}/lib/#{which_python}/site-packages
-
-    If you are interested in PyQGIS development and are not using the Homebrew
-    Python formula, then you will need to ensure this directory is on your
-    PYTHONPATH.
     EOS
+    s += python.standard_caveats if python
+    s
   end
 end
