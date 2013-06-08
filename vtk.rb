@@ -6,21 +6,26 @@ class Vtk < Formula
   sha1 'deb834f46b3f7fc3e122ddff45e2354d69d2adc3'
 
   depends_on 'cmake' => :build
-  depends_on :x11 if build.include? 'x11'
-  depends_on 'qt' if build.include? 'qt'
+  depends_on :x11 => :optional
+  depends_on 'qt' => :optional
+  depends_on :python => :recommended
+  depends_on :python3 => :optional # experimental!!
 
-  if build.include? 'pyqt' and build.include? 'python'
-    depends_on  'sip'
-    depends_on  'pyqt'
+  # If --with-qt and --with-python requested, then we use PyQt, too!
+  if build.with? 'qt'
+    if build.with? :python
+      depends_on 'sip'
+      depends_on 'pyqt'
+    end
+    if build.with? :python3
+      depends_on 'sip'  => 'with-python3' # because python3 is optional for sip
+      depends_on 'pyqt' => 'with-python3' # because python3 is optional for pyqt
+    end
   end
 
   option 'examples',  'Compile and install various examples'
-  option 'python',    'Enable python wrapping of VTK classes'
-  option 'pyqt',      'Make python wrapped classes available to SIP/PyQt'
-  option 'qt',        'Enable Qt4 extension via the Homebrew qt formula'
   option 'qt-extern', 'Enable Qt4 extension via non-Homebrew external Qt4'
   option 'tcl',       'Enable Tcl wrapping of VTK classes'
-  option 'x11',       'Enable X11 extension rather than OSX native Aqua'
 
   def patches
     # Fix bug in Wrapping/Python/setup_install_paths.py: http://vtk.org/Bug/view.php?id=13699
@@ -41,35 +46,7 @@ class Vtk < Formula
 
     args << '-DBUILD_EXAMPLES=' + ((build.include? 'examples') ? 'ON' : 'OFF')
 
-    if build.include? 'python'
-      args << '-DVTK_WRAP_PYTHON=ON'
-
-      # Cmake picks up the system's python dylib, even if we have a brewed one.
-      python_prefix = `python-config --prefix`.strip
-      args << "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
-      args << "-DPYTHON_DEBUG_LIBRARY:FILEPATH='#{python_prefix}/Python'"
-      args << "-DPYTHON_EXECUTABLE:FILEPATH='#{python_prefix}/bin/python'"
-      args << "-DPYTHON_INCLUDE_PATH:FILEPATH='#{python_prefix}/Headers'"
-
-      # Install to lib and let installer symlink to global python site-packages.
-      # The path in lib needs to exist first and be listed in PYTHONPATH.
-      pydir = lib/which_python/'site-packages'
-      pydir.mkpath
-      ENV['PYTHONPATH'] = pydir
-      args << "-DVTK_PYTHON_SETUP_ARGS:STRING='--prefix=#{prefix} --install-lib=#{pydir} --single-version-externally-managed --record=installed-files.txt'"
-
-      # For Xcode-only systems, the headers of system's python are inside of Xcode
-      if !MacOS::CLT.installed? and python_prefix.start_with? '/System/Library'
-        args << "-DPYTHON_INCLUDE_DIR='#{MacOS.sdk_path}/System/Library/Frameworks/Python.framework/Versions/2.7/Headers'"
-      end
-
-      if build.include? 'pyqt'
-        args << '-DVTK_WRAP_PYTHON_SIP=ON'
-        args << "-DSIP_PYQT_DIR='#{HOMEBREW_PREFIX}/share/sip'"
-      end
-    end
-
-    if build.include? 'qt' or build.include? 'qt-extern'
+    if build.with? 'qt' or build.include? 'qt-extern'
       args << '-DVTK_USE_GUISUPPORT=ON'
       args << '-DVTK_USE_QT=ON'
       args << '-DVTK_USE_QVTK=ON'
@@ -78,7 +55,7 @@ class Vtk < Formula
     args << '-DVTK_WRAP_TCL=ON' if build.include? 'tcl'
 
     # Cocoa for everything except x11
-    if build.include? 'x11'
+    if build.with? 'x11'
       args << '-DVTK_USE_COCOA=OFF'
       args << '-DVTK_USE_X=ON'
     else
@@ -92,11 +69,29 @@ class Vtk < Formula
       args << "-DTK_INTERNAL_PATH:PATH=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Headers/tk-private"
     end
 
-    args << ".."
-
     mkdir 'build' do
-      system 'cmake', *args
-      system 'make'
+      python do
+        args << '-DVTK_WRAP_PYTHON=ON'
+        # For Xcode-only systems, the headers of system's python are inside of Xcode:
+        args << "-DPYTHON_INCLUDE_DIR='#{python.incdir}'"
+        # Cmake picks up the system's python dylib, even if we have a brewed one:
+        args << "-DPYTHON_LIBRARY='#{python.libdir}/lib#{python.xy}.dylib'"
+        # Set the prefix for the python bindings to the Cellar
+        args << "-DVTK_PYTHON_SETUP_ARGS:STRING='--prefix=#{prefix}'"
+        if build.with? 'pyqt'
+          args << '-DVTK_WRAP_PYTHON_SIP=ON'
+          args << "-DSIP_PYQT_DIR='#{HOMEBREW_PREFIX}/share/sip#{python.if3then3}'"
+        end
+        args << ".."
+        system 'cmake', *args
+        system 'make'
+        # system 'make clean'  # because `python do` may run twice
+      end
+      if not python then  # no python bindings
+        args << ".."
+        system 'cmake', *args
+        system 'make'
+      end
       system 'make install'
     end
 
@@ -105,20 +100,16 @@ class Vtk < Formula
 
   def caveats
     s = ''
-    vtk = Tab.for_formula 'vtk'
-    if build.include? 'python' or vtk.include? 'python'
-      s += <<-EOS.undent
-        For non-homebrew Python, you need to amend your PYTHONPATH like so:
-        export PYTHONPATH=#{HOMEBREW_PREFIX}/lib/#{which_python}/site-packages:$PYTHONPATH
-
+    s += python.standard_caveats if python
+    s += <<-EOS.undent
         Even without the --pyqt option, you can display native VTK render windows
         from python. Alternatively, you can integrate the RenderWindowInteractor
-        in PyQt, PySide, Tk or Wx at runtime. Look at
+        in PyQt, PySide, Tk or Wx at runtime. Read more:
             import vtk.qt4; help(vtk.qt4) or import vtk.wx; help(vtk.wx)
 
-      EOS
-    end
-    if build.include? 'examples' or vtk.include? 'examples'
+    EOS
+
+    if build.include? 'examples'
       s += <<-EOS.undent
 
         The scripting examples are stored in #{HOMEBREW_PREFIX}/share/vtk
@@ -128,9 +119,6 @@ class Vtk < Formula
     return s.empty? ? nil : s
   end
 
-  def which_python
-    "python" + `python -c 'import sys;print(sys.version[:3])'`.strip
-  end
 end
 
 __END__
