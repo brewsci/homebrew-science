@@ -13,13 +13,12 @@ class Vtk < Formula
 
   # If --with-qt and --with-python requested, then we use PyQt, too!
   if build.with? 'qt'
-    if build.with? :python
-      depends_on 'sip'
-      depends_on 'pyqt'
-    end
-    if build.with? :python3
+    if build.with? 'python3'
       depends_on 'sip'  => 'with-python3' # because python3 is optional for sip
       depends_on 'pyqt' => 'with-python3' # because python3 is optional for pyqt
+    elsif build.with? 'python'
+      depends_on 'sip'
+      depends_on 'pyqt'
     end
   end
 
