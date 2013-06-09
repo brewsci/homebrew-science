@@ -49,9 +49,9 @@ class Qgis < Formula
       -DQGIS_MACAPP_BUNDLE=0
       -DQGIS_MACAPP_DEV_PREFIX='#{prefix}/Frameworks'
       -DQGIS_MACAPP_INSTALL_DEV=YES
+      -DPYTHON_INCLUDE_DIR='#{python.incdir}'
+      -DPYTHON_LIBRARY='#{python.libdir}/lib#{python.xy}.dylib'
     ]
-
-    # todo: set the python executable
 
     args << "-DGRASS_PREFIX='#{Formula.factory('grass').opt_prefix}'" if build.with? 'grass'
 
