@@ -100,7 +100,7 @@ class Vtk < Formula
     s = ''
     s += python.standard_caveats if python
     s += <<-EOS.undent
-        Even without the --pyqt option, you can display native VTK render windows
+        Even without the --with-pyqt option, you can display native VTK render windows
         from python. Alternatively, you can integrate the RenderWindowInteractor
         in PyQt, PySide, Tk or Wx at runtime. Read more:
             import vtk.qt4; help(vtk.qt4) or import vtk.wx; help(vtk.wx)
