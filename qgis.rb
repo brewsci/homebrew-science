@@ -94,7 +94,7 @@ class Qgis < Formula
       You may also symlink QGIS.app into ~/Applications:
         brew linkapps
         mkdir -p #{ENV['HOME']}/.MacOSX
-        defaults write #{ENV['HOME']}/.MacOSX/environment.plist PYTHONPATH -string "#{HOMEBREW_PREFIX}/lib/#{which_python}/site-packages"
+        defaults write #{ENV['HOME']}/.MacOSX/environment.plist PYTHONPATH -string "#{HOMEBREW_PREFIX}/lib/#{python.xy}/site-packages"
 
       You will need to log out and log in again to make environment.plist effective.
 
