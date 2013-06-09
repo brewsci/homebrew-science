@@ -9,7 +9,6 @@ class Vtk < Formula
   depends_on :x11 => :optional
   depends_on 'qt' => :optional
   depends_on :python => :recommended
-  depends_on :python3 => :optional # experimental!!
 
   # If --with-qt and --with-python requested, then we use PyQt, too!
   if build.with? 'qt'
