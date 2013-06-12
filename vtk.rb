@@ -10,7 +10,7 @@ class Vtk < Formula
   depends_on 'qt' => :optional
   depends_on :python => :recommended
 
-  # If --with-qt and --with-python requested, then we use PyQt, too!
+  # If --with-qt and --with-python, then we automatically use PyQt, too!
   if build.with? 'qt'
     if build.with? 'python3'
       depends_on 'sip'  => 'with-python3' # because python3 is optional for sip
@@ -100,7 +100,7 @@ class Vtk < Formula
     s = ''
     s += python.standard_caveats if python
     s += <<-EOS.undent
-        Even without the --with-pyqt option, you can display native VTK render windows
+        Even without the --with-qt option, you can display native VTK render windows
         from python. Alternatively, you can integrate the RenderWindowInteractor
         in PyQt, PySide, Tk or Wx at runtime. Read more:
             import vtk.qt4; help(vtk.qt4) or import vtk.wx; help(vtk.wx)
