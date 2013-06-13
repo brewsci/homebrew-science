@@ -9,9 +9,9 @@ class FastxToolkit < Formula
   depends_on 'libgtextutils'
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    # --disable-debug causes fastx_trimmer to crash. See #216.
+    system './configure', '--disable-dependency-tracking',
+      "--prefix=#{prefix}"
     system "make install"
   end
 
