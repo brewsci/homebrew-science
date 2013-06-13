@@ -75,7 +75,7 @@ class Vtk < Formula
         # Cmake picks up the system's python dylib, even if we have a brewed one:
         args << "-DPYTHON_LIBRARY='#{python.libdir}/lib#{python.xy}.dylib'"
         # Set the prefix for the python bindings to the Cellar
-        args << "-DVTK_PYTHON_SETUP_ARGS:STRING='--prefix=#{prefix}'"
+        args << "-DVTK_PYTHON_SETUP_ARGS:STRING='--prefix=#{prefix} --single-version-externally-managed --record=installed.txt'"
         if build.with? 'pyqt'
           args << '-DVTK_WRAP_PYTHON_SIP=ON'
           args << "-DSIP_PYQT_DIR='#{HOMEBREW_PREFIX}/share/sip#{python.if3then3}'"
