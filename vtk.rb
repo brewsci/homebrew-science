@@ -80,17 +80,19 @@ class Vtk < Formula
           args << '-DVTK_WRAP_PYTHON_SIP=ON'
           args << "-DSIP_PYQT_DIR='#{HOMEBREW_PREFIX}/share/sip#{python.if3then3}'"
         end
+        # The make and make install have to be inside the python do loop
+        # because the PYTHONPATH is defined by this block (and not outside)
         args << ".."
         system 'cmake', *args
         system 'make'
-        # system 'make clean'  # because `python do` may run twice
+        system 'make install'
       end
       if not python then  # no python bindings
         args << ".."
         system 'cmake', *args
         system 'make'
+        system 'make install'
       end
-      system 'make install'
     end
 
     (share+'vtk').install 'Examples' if build.include? 'examples'
