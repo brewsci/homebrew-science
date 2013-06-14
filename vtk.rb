@@ -2,8 +2,10 @@ require 'formula'
 
 class Vtk < Formula
   homepage 'http://www.vtk.org'
-  url 'http://www.vtk.org/files/release/5.10/vtk-5.10.1.tar.gz'
+  url 'http://www.vtk.org/files/release/5.10/vtk-5.10.1.tar.gz'  # update libdir below, too!
   sha1 'deb834f46b3f7fc3e122ddff45e2354d69d2adc3'
+
+  head 'https://github.com/Kitware/VTK.git'
 
   depends_on 'cmake' => :build
   depends_on :x11 => :optional
@@ -26,11 +28,13 @@ class Vtk < Formula
   option 'tcl',       'Enable Tcl wrapping of VTK classes'
 
   def patches
-    # Fix bug in Wrapping/Python/setup_install_paths.py: http://vtk.org/Bug/view.php?id=13699
-    DATA
+      # Fix bug in Wrapping/Python/setup_install_paths.py: http://vtk.org/Bug/view.php?id=13699
+      DATA unless build.head?  # fixed in head already
   end
 
   def install
+    libdir = if build.head? then lib; else "#{lib}/vtk-5.10"; end
+
     args = std_cmake_args + %W[
       -DVTK_REQUIRED_OBJCXX_FLAGS=''
       -DVTK_USE_CARBON=OFF
@@ -38,8 +42,8 @@ class Vtk < Formula
       -DBUILD_TESTING=OFF
       -DBUILD_SHARED_LIBS=ON
       -DIOKit:FILEPATH=#{MacOS.sdk_path}/System/Library/Frameworks/IOKit.framework
-      -DCMAKE_INSTALL_RPATH:STRING='#{lib}/vtk-5.10'
-      -DCMAKE_INSTALL_NAME_DIR:STRING='#{lib}/vtk-5.10'
+      -DCMAKE_INSTALL_RPATH:STRING=#{libdir}
+      -DCMAKE_INSTALL_NAME_DIR:STRING=#{libdir}
     ]
 
     args << '-DBUILD_EXAMPLES=' + ((build.include? 'examples') ? 'ON' : 'OFF')
