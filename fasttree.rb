@@ -12,7 +12,7 @@ class Fasttree < Formula
   end
 
   def install
-    system "#{ENV.cc} -lm -O3 -finline-functions -funroll-loops -Wall -o FastTree FastTree-#{@version}.c"
+    system "#{ENV.cc} -lm -O3 -finline-functions -funroll-loops -Wall -o FastTree FastTree-#{version}.c"
     bin.install "FastTree"
   end
 
