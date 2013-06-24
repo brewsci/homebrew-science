@@ -6,12 +6,11 @@ class Cgns < Formula
   version '3.1.3.4'  # Release d of version a.b.c (we add the release to the version)
   sha1 '148396af2b9f6b6b273561cf4e474e667adc7508'
 
-  depends_on 'hdf5'
+  depends_on :fortran
   depends_on 'cmake' => :build
+  depends_on 'hdf5'
 
   def install
-    ENV.fortran
-
     cmake_args = std_cmake_args + [
       '-DENABLE_FORTRAN=YES',
       '-DENABLE_HDF5=YES',
@@ -21,8 +20,7 @@ class Cgns < Formula
 
     cmake_args << '-DENABLE64_BIT' if Hardware.is_64_bit? and MacOS.version >= 10.6
 
-    mkdir 'build'
-    cd 'build' do
+    mkdir 'build' do
       system "cmake .. #{std_cmake_parameters} #{cmake_args}"
       system 'make install'
     end
