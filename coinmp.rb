@@ -5,11 +5,11 @@ class Coinmp < Formula
   url 'http://www.coin-or.org/download/source/CoinMP/CoinMP-1.6.0.tgz'
   sha1 '1f9dd57e4cdb4d0fa1594851ae411d366c3e8836'
 
+  depends_on :fortran
+
   conflicts_with 'coinutils', :because => 'CoinMP includes CoinUtils.'
 
   def install
-    ENV.fortran
-
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
