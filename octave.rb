@@ -9,6 +9,8 @@ class Octave < Formula
   option 'without-fltk', 'Compile without fltk (disables native graphics)'
   option 'test', 'Run tests before installing'
 
+  depends_on :fortran
+
   depends_on 'pkg-config' => :build
   depends_on 'gnu-sed' => :build
   depends_on 'texinfo' => :build     # OS X's makeinfo won't work for this
@@ -53,11 +55,6 @@ class Octave < Formula
   end
 
   def install
-    ENV.fortran
-
-    # yes, compiling octave takes a long time, but using -O2 gives negligible savings
-    # build time with -O2: user 58m5.295s   sys 7m29.064s
-    # build time with -O3: user 58m58.054s  sys 7m52.221s
     ENV.m64 if MacOS.prefer_64_bit?
     ENV.append_to_cflags "-D_REENTRANT"
 
