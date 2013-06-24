@@ -1,19 +1,17 @@
 require 'formula'
 
-# HOPDM: A interior-point linear optimizer designed for solving large systems.
-
 class Hopdm < Formula
   homepage 'http://www.maths.ed.ac.uk/~gondzio/software/hopdm.html'
   url 'http://dl.dropbox.com/u/72178/dist/hopdm-2.13.tar.gz'
   sha1 '5d4df64f1a03251c0c22f9d292c26da2f2cea1eb'
 
+  depends_on :fortran
+
   def patches
-    {:p1 => DATA}
+    DATA
   end
 
   def install
-    ENV.fortran
-
     inreplace 'makefile' do |s|
       s.remove_make_var! 'FC'
       s.change_make_var! 'LIBS', '-Wl,-framework -Wl,Accelerate'
@@ -28,6 +26,7 @@ class Hopdm < Formula
     bin.install 'hopdm'
   end
 end
+
 __END__
 Patch to disable timing routines.
 
