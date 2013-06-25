@@ -2,8 +2,8 @@ require 'formula'
 
 class Viennarna < Formula
   homepage 'http://www.tbi.univie.ac.at/~ivo/RNA/'
-  url 'http://www.tbi.univie.ac.at/~ronny/RNA/ViennaRNA-2.1.1.tar.gz'
-  sha256 'bfea440dface4562d5dfb0a1c83bf226c0697bb18aacae0dc84c555282cedebe'
+  url 'http://www.tbi.univie.ac.at/~ronny/RNA/ViennaRNA-2.1.2.tar.gz'
+  sha256 '8aee684aa39f6588379071d50a7a5f6779fd84fedc8111546042464f0013570f'
 
   option 'with-perl', 'build and install Perl interfaces'
 
@@ -16,7 +16,7 @@ class Viennarna < Formula
     system "make install"
   end
 
-  def test
-    system "echo 'GGGGCUAUAGCUCAGCUGGGAGAGCGCUUGCAUGGCAUGCAAGAGGUCAGCGGUUCGAUCCCGCUUAGCUCCACCA' |RNAfold"
+  test do
+    system "echo 'CGACGUAGAUGCUAGCUGACUCGAUGC' | #{bin}/RNAfold --MEA -p"
   end
 end
