@@ -26,7 +26,6 @@ class Shogun < Formula
 
   # Todo: support additional deps: arpack, mosek, superlu, cplex, lpsolve
   #       Help us by hacking on this and open a pull request! Thanks.
-
   def install
     pydir = "#{which_python}/site-packages"
 
@@ -59,7 +58,7 @@ class Shogun < Formula
   end
 
   test do
-    Pathname.new('test.sg').write <<-EOF.undent
+    (testpath/'test.sg').write <<-EOF.undent
       new_classifier LIBSVM
       save_classifier test.model
       exit
@@ -67,9 +66,9 @@ class Shogun < Formula
     system bin/"shogun", "test.sg"
     raise "failed" unless File.exist?("test.model")
 
-    if build.with? 'python'
-      system "python", share/"examples/documented/python_modular/graphical/svm.py"
-    end
+    # if build.with? 'python'
+    #   system "python", share/"examples/documented/python_modular/graphical/svm.py"
+    # end
   end
 
   def which_python

@@ -62,10 +62,10 @@ class Pymol < Formula
   def test
     # commandline test
     system "pymol","-c"
-    if build.include? "gui"
-        # serious bench test
-        system "pymol","-b","-d","quit"
-    end
+    # if build.include? "gui"
+    #   # serious bench test
+    #   system "pymol","-b","-d","quit"
+    # end
   end
 
   def caveats
