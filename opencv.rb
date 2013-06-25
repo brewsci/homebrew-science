@@ -44,6 +44,7 @@ class Opencv < Formula
       -DBUILD_PERF_TESTS=OFF
       -DPYTHON_INCLUDE_DIR='#{python.incdir}'
       -DPYTHON_LIBRARY='#{python.libdir}/lib#{python.xy}.dylib'
+      -DPYTHON_EXECUTABLE='#{python.binary}'
     ]
 
     if build.build_32_bit?
