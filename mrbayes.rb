@@ -13,7 +13,7 @@ class Mrbayes < Formula
   depends_on :autoconf => :build
   depends_on :automake => :build
   depends_on MPIDependency.new(:cc) if build.include? 'with-mpi'
-  depends_on 'beagle' => :optional if build.include? 'with-beagle'
+  depends_on 'beagle' => :optional
 
   fails_with :llvm do
     build 2336
@@ -23,7 +23,7 @@ class Mrbayes < Formula
   def install
     args = ["--disable-debug", "--prefix=#{prefix}"]
 
-    if build.include? 'with-beagle'
+    if build.with? 'beagle'
       args << "--with-beagle=#{Formula.factory('beagle').opt_prefix}"
     else
       args << "--with-beagle=no"
