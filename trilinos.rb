@@ -14,9 +14,9 @@ class Trilinos < Formula
 
   depends_on MPIDependency.new(:cc, :cxx)
   depends_on 'cmake' => :build
-  depends_on 'boost'      if build.include? 'with-boost'
-  depends_on 'scotch'     if build.include? 'with-scotch'
-  depends_on 'netcdf'     if build.include? 'with-netcdf'
+  depends_on 'boost' => :optional
+  depends_on 'scotch' => :optional
+  depends_on 'netcdf' => :optional
 
   def install
 
@@ -34,13 +34,13 @@ class Trilinos < Formula
     args << "-DZoltan_ENABLE_ULLONG_IDS:Bool=ON"
 
     # Extra non-default packages
-    args << "-DTrilinos_ENABLE_ShyLU:BOOL=ON"  if build.include? 'with-shylu'
-    args << "-DTrilinos_ENABLE_Teko:BOOL=ON"   if build.include? 'with-teko'
+    args << "-DTrilinos_ENABLE_ShyLU:BOOL=ON"  if build.with? 'shylu'
+    args << "-DTrilinos_ENABLE_Teko:BOOL=ON"   if build.with? 'teko'
 
     # Third-party libraries
-    args << "-DTPL_ENABLE_Boost:BOOL=ON"    if build.include? 'with-boost'
-    args << "-DTPL_ENABLE_Scotch:BOOL=ON"   if build.include? 'with-scotch'
-    args << "-DTPL_ENABLE_Netcdf:BOOL=ON"   if build.include? 'with-netcdf'
+    args << "-DTPL_ENABLE_Boost:BOOL=ON"    if build.with? 'boost'
+    args << "-DTPL_ENABLE_Scotch:BOOL=ON"   if build.with? 'scotch'
+    args << "-DTPL_ENABLE_Netcdf:BOOL=ON"   if build.with? 'netcdf'
 
     mkdir 'build' do
       system "cmake", "..", *args
