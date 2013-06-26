@@ -10,7 +10,7 @@ class Cufflinks < Formula
   depends_on 'eigen'    => :build
 
   fails_with :clang do
-    build 421
+    build 425
   end
 
   def install
