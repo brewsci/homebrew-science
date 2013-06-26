@@ -2,8 +2,8 @@ require 'formula'
 
 class Tophat < Formula
   homepage 'http://tophat.cbcb.umd.edu/'
-  url 'http://tophat.cbcb.umd.edu/downloads/tophat-2.0.6.tar.gz'
-  sha1 '13a293a6fe37fa26b98324b028a29a7e577d6e3e'
+  url 'http://tophat.cbcb.umd.edu/downloads/tophat-2.0.8b.tar.gz'
+  sha1 '0744801fc5216104026259bcdf8b1846bf681d42'
 
   depends_on 'samtools'
   depends_on 'boost'
@@ -23,12 +23,16 @@ class Tophat < Formula
                           "--prefix=#{prefix}"
     system "make install"
   end
+
+  test do
+    system "#{bin}/tophat", "--version"
+  end
 end
 
 __END__
---- a/src/tophat_reports.cpp	2012-10-18 10:43:09.000000000 -0700
-+++ b/src/tophat_reports.cpp	2012-10-27 22:39:31.000000000 -0700
-@@ -2420,10 +2420,10 @@
+--- a/src/tophat_reports.cpp
++++ b/src/tophat_reports.cpp
+@@ -2465,10 +2465,10 @@
      fprintf(stderr, "Warning: %lu small overhang junctions!\n", (long unsigned int)small_overhangs);
    */
  
