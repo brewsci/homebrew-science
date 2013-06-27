@@ -34,6 +34,10 @@ class Cufflinks < Formula
     ENV.j1
     system 'make install'
   end
+
+  test do
+    system "#{bin}/cuffdiff 2>&1 |grep -q cuffdiff"
+  end
 end
 
 __END__
