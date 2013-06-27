@@ -16,12 +16,12 @@ class Openblas < Formula
   sha1 'f5c040660cb83630f9ac3e34a907889dcfac3415'
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
+  depends_on :fortran
+
   # OS X provides the Accelerate.framework, which is a BLAS/LAPACK impl.
   keg_only :provided_by_osx
 
   def install
-    ENV.fortran
-
     lapack = OpenblasLapack.new
     lapack.brew{}  # download and checksum
     ohai "Using LAPACK: #{lapack.cached_download}"
