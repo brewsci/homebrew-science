@@ -13,6 +13,11 @@ class Cufflinks < Formula
     build 425
   end
 
+  def patches
+    # Fix a build error: ‘aNode’ was not declared in this scope
+    DATA
+  end
+
   def install
     ENV['EIGEN_CPPFLAGS'] = '-I'+Formula.factory('eigen').include/'eigen3'
     ENV.append 'LDFLAGS', '-lboost_system-mt'
@@ -30,3 +35,20 @@ class Cufflinks < Formula
     system 'make install'
   end
 end
+
+__END__
+--- a/src/lemon/bits/base_extender.h	2014-06-27 11:36:54.364248892 -0700
++++ b/src/lemon/bits/base_extender.h	2013-06-27 11:36:58.268248818 -0700
+@@ -359,10 +359,10 @@
+ 		}
+ 		
+ 		Node source(const UEdge& edge) const {
+-			return aNode(edge);
++			return this->aNode(edge);
+ 		}
+ 		Node target(const UEdge& edge) const {
+-			return bNode(edge);
++			return this->bNode(edge);
+ 		}
+ 		
+ 		void firstInc(UEdge& edge, bool& dir, const Node& node) const {
