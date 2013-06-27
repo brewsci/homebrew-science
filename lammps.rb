@@ -47,6 +47,7 @@ class Lammps < Formula
   depends_on 'jpeg'
   depends_on 'voro++'
   depends_on MPIDependency.new(:cxx, :f90) if build.include? "with-mpi"
+  depends_on :fortran
 
   def build_lib(comp, lmp_lib, opts={})
     change_compiler_var = opts[:change_compiler_var]  # a non-standard compiler name to replace
@@ -86,7 +87,6 @@ class Lammps < Formula
 
   def install
     ENV.j1      # not parallel safe (some packages have race conditions :meam:)
-    ENV.fortran # we need fortran for many packages, so just bring it along
 
     # make sure to optimize the installation
     ENV.append "CFLAGS","-O"
