@@ -12,7 +12,7 @@ class Mrbayes < Formula
 
   depends_on :autoconf => :build
   depends_on :automake => :build
-  depends_on MPIDependency.new(:cc) if build.include? 'with-mpi'
+  depends_on :mpi => [:cc, :optional]
   depends_on 'beagle' => :optional
 
   fails_with :llvm do
