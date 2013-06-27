@@ -7,7 +7,7 @@ class Ray < Formula
   # The head does not build right now. Can you help us?
   # head 'https://github.com/sebhtml/ray.git'
 
-  depends_on MPIDependency.new(:cxx)
+  depends_on :mpi => :cxx
 
   fails_with :llvm do
     build 2336
