@@ -20,7 +20,7 @@ class Cufflinks < Formula
 
   def install
     ENV['EIGEN_CPPFLAGS'] = '-I'+Formula.factory('eigen').include/'eigen3'
-    ENV.append 'LDFLAGS', '-lboost_system-mt'
+    ENV.append 'LIBS', '-lboost_system-mt -lboost_thread-mt'
     cd 'src' do
       # Fixes 120 files redefining `foreach` that break building with boost
       # See http://seqanswers.com/forums/showthread.php?t=16637
