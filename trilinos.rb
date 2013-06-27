@@ -12,7 +12,7 @@ class Trilinos < Formula
   option "with-teko",     "Enable 'Teko' secondary-stable package"
   option "with-shylu",    "Enable 'ShyLU' experimental package"
 
-  depends_on MPIDependency.new(:cc, :cxx)
+  depends_on :mpi => [:cc, :cxx]
   depends_on 'cmake' => :build
   depends_on 'boost' => :optional
   depends_on 'scotch' => :optional
