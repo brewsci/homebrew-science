@@ -5,7 +5,7 @@ class Scotch < Formula
   url 'https://gforge.inria.fr/frs/download.php/31831/scotch_6.0.0.tar.gz'
   sha1 'eb32d846bb14449245b08c81e740231f7883fea6'
 
-  depends_on MPIDependency.new(:cc)
+  depends_on :mpi => :cc
 
   def install
     cd 'src' do
