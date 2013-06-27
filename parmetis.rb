@@ -6,7 +6,7 @@ class Parmetis < Formula
   sha1 '1699453f0bd2ffed34e5a755dec92048d797476d'
 
   depends_on 'cmake' => :build
-  depends_on MPIDependency.new(:cc)
+  depends_on :mpi => :cc
 
   def install
     system "make", "config", "prefix=#{prefix}"
