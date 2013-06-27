@@ -46,7 +46,7 @@ class Lammps < Formula
   depends_on 'fftw'
   depends_on 'jpeg'
   depends_on 'voro++'
-  depends_on MPIDependency.new(:cxx, :f90) if build.include? "with-mpi"
+  depends_on :mpi => [:cxx, :f90, :optional]
   depends_on :fortran
 
   def build_lib(comp, lmp_lib, opts={})
