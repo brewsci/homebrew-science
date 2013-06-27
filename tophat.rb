@@ -17,7 +17,7 @@ class Tophat < Formula
     ENV.deparallelize
 
     # Must add this to fix missing boost symbols. Autoconf doesn't include it.
-    ENV.append 'LDFLAGS', '-lboost_system-mt'
+    ENV.append 'LIBS', '-lboost_system-mt -lboost_thread-mt'
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
