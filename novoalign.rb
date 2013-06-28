@@ -13,8 +13,7 @@ class Novoalign < Formula
       novoindex novomethyl novope2bed.pl novorun.pl novosort novoutil]
     # Conflicts with samtools
     #bin.install 'novo2sam.pl'
-    doc.install %w[NovoBarcode.pdf NovoCraftV3.00.pdf
-      ReleaseNotesV3.00.pdf readme.txt readme_novomethyl.txt]
+    doc.install Dir['*.pdf', '*.txt']
   end
 
   test do
