@@ -3,7 +3,7 @@ require 'formula'
 class BamReadcount < Formula
   homepage 'https://github.com/genome/bam-readcount'
   url 'https://github.com/genome/bam-readcount.git', :tag => 'v0.4.4'
-  version '0.4.4'
+
   head 'https://github.com/genome/bam-readcount.git'
 
   depends_on 'cmake' => :build
