@@ -2,8 +2,8 @@ require 'formula'
 
 class Spades < Formula
   homepage 'http://bioinf.spbau.ru/spades/'
-  url 'http://spades.bioinf.spbau.ru/release2.4.0/SPAdes-2.4.0.tar.gz'
-  sha1 '25f9d09d08f542204f4b70ed0caac5c62b51353c'
+  url 'http://spades.bioinf.spbau.ru/release2.5.0/SPAdes-2.5.0.tar.gz'
+  sha1 '35a40c617f0202ba3bfb5022a9f703fea0eccb4e'
 
   def install
     mkdir 'src/build' do
