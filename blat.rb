@@ -5,6 +5,8 @@ class Blat < Formula
   url 'http://users.soe.ucsc.edu/~kent/src/blatSrc35.zip'
   sha1 'a2cae7407e512166bf7b1ed300db9be6649693bd'
 
+  depends_on 'libpng' => :build
+
   def install
     bin.mkpath
     system "make", "MACHTYPE=darwin", "BINDIR=#{bin}"
