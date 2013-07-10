@@ -8,7 +8,7 @@ class Sickle < Formula
 
   # Fix a linker error
   def patches
-    'https://github.com/sjackman/sickle/commit/895207a5e9b97a64d579dc629b3641d0322828b3.diff'
+    'https://github.com/sjackman/sickle/commit/895207a.diff' unless build.head?
   end
 
   def install
