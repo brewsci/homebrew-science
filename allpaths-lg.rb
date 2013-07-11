@@ -6,9 +6,9 @@ class AllpathsLg < Formula
   sha1 'c53cfe3443d769ddd2a77b61e2c600b3cb49bb2a'
 
   def install
-    system *%w'./configure --disable-debug --disable-dependency-tracking',
+    system './configure', '--disable-debug', '--disable-dependency-tracking',
       "--prefix=#{prefix}"
-    system *%w'make install'
+    system 'make', 'install'
   end
 
   test do
