@@ -8,7 +8,7 @@ class Amos < Formula
   depends_on 'blat' => :optional # for minimus2-blat
   depends_on 'boost' => :recommended # for Bambus 2
   depends_on 'mummer' => :recommended # for minimus2
-  depends_on 'qt' => [:optional, '--with-qt3support'] # for AMOS GUIs
+  depends_on 'qt' => [:optional, 'with-qt3support'] # for AMOS GUIs
   depends_on 'Statistics::Descriptive' => [:perl, :recommended]
 
   def install
