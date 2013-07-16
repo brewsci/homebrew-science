@@ -11,17 +11,17 @@ class Cgns < Formula
   depends_on 'hdf5'
 
   def install
-    cmake_args = std_cmake_args + [
+    args = std_cmake_args + [
       '-DENABLE_FORTRAN=YES',
       '-DENABLE_HDF5=YES',
       '-DHDF5_NEED_ZIP=YES',
       '-DCMAKE_SHARED_LINKER_FLAGS=-lhdf5'
     ]
 
-    cmake_args << '-DENABLE64_BIT' if Hardware.is_64_bit? and MacOS.version >= 10.6
+    args << '-DENABLE64_BIT' if Hardware.is_64_bit? and MacOS.version >= 10.6
 
     mkdir 'build' do
-      system "cmake .. #{std_cmake_parameters} #{cmake_args}"
+      system 'cmake', '..', *args
       system 'make install'
     end
   end
