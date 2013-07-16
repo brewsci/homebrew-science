@@ -17,7 +17,7 @@ class Shogun < Formula
   depends_on 'lzo' => :recommended
   depends_on 'snappy' => :recommended
   depends_on 'xz' => :recommended  # provides lzma
-  depends_on 'swig' => :recommended # needef for dynamic python bindings
+  depends_on 'swig' => [:recommended, :build] # needef for dynamic python bindings
   depends_on 'numpy' => :python # You may want `brew tap samueljohn/python && brew install numpy`
   depends_on 'matplotlib' => :python # You may want `brew tap samueljohn/python && brew install matplotlib`
   depends_on 'r' => :optional
