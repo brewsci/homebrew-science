@@ -2,7 +2,7 @@ require 'formula'
 
 class Maxima < Formula
   homepage 'http://maxima.sourceforge.net/'
-  url 'http://sourceforge.net/projects/maxima/files/Maxima-source/5.28.0-source/maxima-5.28.0.tar.gz'
+  url 'http://downloads.sourceforge.net/project/maxima/Maxima-source/5.28.0-source/maxima-5.28.0.tar.gz'
   sha1 '52d7dad4681711a6ead73b72835b177107363b9c'
 
   depends_on 'gettext'

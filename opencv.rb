@@ -2,7 +2,7 @@ require 'formula'
 
 class Opencv < Formula
   homepage 'http://opencv.org/'
-  url 'http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/2.4.5/opencv-2.4.5.tar.gz'
+  url 'http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.5/opencv-2.4.5.tar.gz'
   sha1 '9e25f821db9e25aa454a31976ba6b5a3a50b6fa4'
 
   option '32-bit'

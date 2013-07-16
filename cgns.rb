@@ -2,7 +2,7 @@ require 'formula'
 
 class Cgns < Formula
   homepage 'http://cgns.sourceforge.net'
-  url 'http://sourceforge.net/projects/cgns/files/cgnslib_3.1/cgnslib_3.1.3-4.tar.gz'
+  url 'http://downloads.sourceforge.net/project/cgns/cgnslib_3.1/cgnslib_3.1.3-4.tar.gz'
   version '3.1.3.4'  # Release d of version a.b.c (we add the release to the version)
   sha1 '148396af2b9f6b6b273561cf4e474e667adc7508'
 

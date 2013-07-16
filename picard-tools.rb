@@ -2,7 +2,7 @@ require 'formula'
 
 class PicardTools < Formula
   homepage 'http://picard.sourceforge.net/'
-  url 'http://sourceforge.net/projects/picard/files/picard-tools/1.82/picard-tools-1.82.zip'
+  url 'http://downloads.sourceforge.net/project/picard/picard-tools/1.82/picard-tools-1.82.zip'
   sha1 '89ab83988425560acbbd2294763d4f8429a7e70d'
 
   def install

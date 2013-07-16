@@ -2,7 +2,7 @@ require 'formula'
 
 class Primer3 < Formula
   homepage 'http://primer3.sourceforge.net/'
-  url 'https://sourceforge.net/projects/primer3/files/primer3/2.3.4/primer3-2.3.4.tar.gz'
+  url 'https://downloads.sourceforge.net/project/primer3/primer3/2.3.4/primer3-2.3.4.tar.gz'
   sha1 '850d8e5cfbe84cdf3e4955a3974a6531a8ac6516'
 
   def install
