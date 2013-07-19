@@ -2,9 +2,10 @@ require 'formula'
 
 class Radx < Formula
   homepage 'http://www.ral.ucar.edu/projects/titan/docs/radial_formats/radx.html'
-  url 'ftp://ftp.rap.ucar.edu/pub/titan/radx/Radx-20130702.src.tgz'
-  version '20130702'
-  sha1 '0bdef17bc886b7493e9b76cfc830255e7c6d347c'
+  url 'ftp://ftp.rap.ucar.edu/pub/titan/radx/Radx-20130712.src.tgz'
+  mirror 'ftp://ftp.rap.ucar.edu/pub/titan/radx/previous_releases/Radx-20130712.src.tgz'
+  version '20130712'
+  sha1 '0d077891b43e363beeb2926e2464760186158568'
 
   depends_on 'hdf5'
   depends_on 'udunits'
