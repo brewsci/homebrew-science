@@ -6,12 +6,8 @@ class Sllib < Formula
   sha1 'b55522796ac43fa6f9c8341fc54367f1cf334a28'
 
   def install
-    system  ("sh", "configure", "--prefix=#{prefix}")
+    system "sh", "configure", "--prefix=#{prefix}"
     system "make"
-    system ("make", "install")
-  end
-
-  def test
-    return true
+    system "make", "install"
   end
 end
