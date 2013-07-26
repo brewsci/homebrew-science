@@ -2,15 +2,15 @@ require 'formula'
 
 class Phylip < Formula
   homepage 'http://evolution.genetics.washington.edu/phylip.html'
-  url 'http://evolution.gs.washington.edu/phylip/download/phylip-3.69.tar.gz'
-  sha1 'ada364d1a588935ff59a23c08337d9dd99109c5e'
+  url 'http://evolution.gs.washington.edu/phylip/download/phylip-3.695.tar.gz'
+  sha1 '1505d1b3bb1378244e1733a6ecb173b3259c3d0f'
 
   depends_on :x11
 
   def install
     cd 'src' do
-      system "make all"
-      system "make put EXEDIR=#{bin}"
+      system "make -f Makefile.unx all"
+      system "make -f Makefile.unx put EXEDIR=#{bin}"
       # Perhaps one day the Mac apps will work (with cocoa) "make -f Makefile.osx apps"
     end
 
