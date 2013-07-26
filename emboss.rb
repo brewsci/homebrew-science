@@ -2,8 +2,8 @@ require 'formula'
 
 class Emboss < Formula
   homepage 'http://emboss.sourceforge.net/'
-  url 'ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.5.7.tar.gz'
-  sha1 '907231eafe07917ae0bf9c5da2e7cdc3e9bae03a'
+  url 'ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz'
+  sha1 '93749ebd0a777efd3749974d2401c3a2a013a3fe'
 
   option 'without-x', 'Build without X11 support'
 
