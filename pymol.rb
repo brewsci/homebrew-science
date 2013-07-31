@@ -2,8 +2,8 @@ require 'formula'
 
 class Pymol < Formula
   homepage 'http://pymol.org'
-  url 'http://sourceforge.net/projects/pymol/files/pymol/1.5.0.1/pymol-v1.5.0.1.tar.bz2'
-  sha1 'b59ff50437d34f21ca8ffd007a600de4df684073'
+  url 'http://downloads.sourceforge.net/project/pymol/pymol/1.6/pymol-v1.6.0.0.tar.bz2'
+  sha1 '0446fd67ef22594eb5060ab07e69993c384b2e41'
   head 'https://pymol.svn.sourceforge.net/svnroot/pymol/trunk/pymol'
 
   depends_on "glew"
@@ -37,7 +37,6 @@ class Pymol < Formula
 
     # build the pymol libraries
     system "python", "-s", "setup.py", *args
-    system "python", "-s", "setup2.py", "install" unless build.head?
 
     # get the executable
     bin.install("pymol")
@@ -45,13 +44,10 @@ class Pymol < Formula
 
   def patches
     p = []
-    # Head works already, but 1.5.0.1 needs to be patched, so I just took
-    # the part of the setup.py from head and applied it here:
-    p << DATA unless build.head?
     # This patch adds checks that force mono as default
-    p << 'https://gist.github.com/raw/1b84b2ad3503395f1041/2a85dc56b4bd1ea28d99ce0b94acbf7ac880deff/pymol_disable_stereo.diff' unless build.include? 'default-stereo'
+    p << 'https://gist.github.com/scicalculator/1b84b2ad3503395f1041/raw/2a85dc56b4bd1ea28d99ce0b94acbf7ac880deff/pymol_disable_stereo.diff' unless build.include? 'default-stereo'
     # This patch disables the vmd plugin. VMD is not something we can depend on for now. The plugin is set to always install as of revision 4019.
-    p << 'https://gist.github.com/scicalculator/4966279/raw/9eb79bf5b6a36bd8f684bae46be2fcf834fea8de/pymol_disable_vmd_plugin.diff' if build.head?
+    p << 'https://gist.github.com/scicalculator/4966279/raw/9eb79bf5b6a36bd8f684bae46be2fcf834fea8de/pymol_disable_vmd_plugin.diff'
     p
   end
 
@@ -93,81 +89,3 @@ class Pymol < Formula
   end
 
 end
-
-__END__
-diff --git a/setup.py b/setup.py
-index 18866a2..a18d793 100755
---- a/setup.py
-+++ b/setup.py
-@@ -100,16 +127,43 @@ elif sys.platform=='darwin':
-         #
-         # REMEMEBER to use "./ext/bin/python ..."
-         #
--        EXT = os.getcwd()+"/ext"
-+        # create shader text
-+        try:
-+            os.makedirs("generated/include")
-+        except OSError:
-+            # ignore error if directory already exists
-+            pass
-+
-+        try:
-+            os.makedirs("generated/src")
-+        except OSError:
-+            # ignore error if directory already exists
-+            pass
-+
-+        import create_shadertext
-+
-+        outputheader = open("generated/include/ShaderText.h",'w')
-+        outputfile = open("generated/src/ShaderText.c",'w')
-+
-+        create_shadertext.create_shadertext("data/shaders",
-+                                            "shadertext.txt",
-+                                            outputheader,
-+                                            outputfile)
-+
-+        outputheader.close()
-+        outputfile.close()
-+
-+        EXT = "/opt/local"
-         inc_dirs=["ov/src",
-                   "layer0","layer1","layer2",
--                  "layer3","layer4","layer5", 
--                  "/usr/X11R6/include",
-+                  "layer3","layer4","layer5",
-                   EXT+"/include",
-                   EXT+"/include/GL",
-                   EXT+"/include/freetype2",
--		  "modules/cealign/src",
--		  "modules/cealign/src/tnt",
-+      "modules/cealign/src",
-+      "modules/cealign/src/tnt",
-+                  "generated/include",
-+                  "generated/src",
-                   ]
-         libs=[]
-         pyogl_libs = []
-@@ -117,11 +171,19 @@ elif sys.platform=='darwin':
-         def_macros=[("_PYMOL_MODULE",None),
-                     ("_PYMOL_LIBPNG",None),
-                     ("_PYMOL_FREETYPE",None),
-+                    ("_PYMOL_INLINE",None),
-+                    ("_PYMOL_NUMPY",None),
-+                    ("_PYMOL_OPENGL_SHADERS",None),
-+                    ("NO_MMLIBS",None),
-+                    ("_PYMOL_CGO_DRAWARRAYS",None),
-+                    ("_PYMOL_CGO_DRAWBUFFERS",None),
-+                    ("_CGO_DRAWARRAYS",None),
-+                    ("_PYMOL_GL_CALLLISTS",None),
-+                    ("OPENGL_ES_2",None),
-                     ]
--        ext_comp_args=[]
-+        ext_comp_args=["-ffast-math","-funroll-loops","-O3","-fcommon"]
-         ext_link_args=[
--            "-L/usr/X11R6/lib64", "-lGL", "-lXxf86vm",
--            "-L"+EXT+"/lib", "-lpng", "-lglut", "-lfreetype"
-+                    "-L"+EXT+"/lib", "-lpng", "-lGL", "-lglut", "-lGLEW", "-lfreetype"
-             ]
- #============================================================================
- else: # linux or other unix
