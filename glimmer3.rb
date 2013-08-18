@@ -1,10 +1,10 @@
 require 'formula'
 
 class Glimmer3 < Formula
-  homepage 'http://www.cbcb.umd.edu/software/glimmer/'
-  url 'http://www.cbcb.umd.edu/software/glimmer/glimmer302a.tar.gz'
-  version "3.02"
-  sha1 '27fbd2498f997e0a47026b348b2fc95b073b712a'
+  homepage 'http://ccb.jhu.edu/software/glimmer/index.shtml'
+  url 'http://ccb.jhu.edu/software/glimmer/glimmer302b.tar.gz'
+  version "3.02b"
+  sha1 '665ed5c676c6d495e4354893e67ee605ec3e00da'
 
   depends_on "elph"
 
