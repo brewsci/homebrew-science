@@ -11,6 +11,7 @@ class Opencv < Formula
   option "with-tbb", "Enable parallel code in OpenCV using Intel TBB"
   option "with-tests", "Build with accuracy & performance tests"
   option "without-opencl", "Disable GPU code in OpenCV using OpenCL"
+  option "with-cuda", "Build with CUDA support"
 
   option :cxx11
 
@@ -41,7 +42,6 @@ class Opencv < Formula
     ENV.cxx11 if build.cxx11?
     args = std_cmake_args + %W(
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
-      -DWITH_CUDA=OFF
       -DBUILD_ZLIB=OFF
       -DBUILD_TIFF=OFF
       -DBUILD_PNG=OFF
@@ -63,6 +63,13 @@ class Opencv < Formula
     args << "-DWITH_QT=" + ((build.with? "qt") ? "ON" : "OFF")
     args << "-DWITH_TBB=" + ((build.with? "tbb") ? "ON" : "OFF")
     args << "-DWITH_FFMPEG=" + ((build.with? "ffmpeg") ? "ON" : "OFF")
+
+    if build.with? "cuda"
+      args << "-DWITH_CUDA=ON"
+      args << "-DCMAKE_CXX_FLAGS=-stdlib=libstdc++"
+    else
+      args << "-DWITH_CUDA=OFF"
+    end
 
     # OpenCL 1.1 is required, but Snow Leopard and older come with 1.0
     args << "-DWITH_OPENCL=OFF" if build.without? "opencl" or MacOS.version < :lion
