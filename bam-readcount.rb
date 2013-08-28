@@ -9,12 +9,6 @@ class BamReadcount < Formula
   depends_on 'cmake' => :build
   depends_on 'samtools'
 
-  def patches
-    unless build.head?
-      'https://github.com/genome/bam-readcount/commit/da6a8c626564c741a39e2b807a41ea31bc097052.diff'
-    end
-  end
-
   def install
     samtools = Formula.factory('samtools').opt_prefix
     ENV['SAMTOOLS_ROOT'] = "#{samtools}:#{samtools}/include/bam"
