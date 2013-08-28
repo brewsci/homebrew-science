@@ -2,8 +2,8 @@ require 'formula'
 
 class Metis < Formula
   homepage 'http://glaros.dtc.umn.edu/gkhome/views/metis'
-  url 'http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.0.2.tar.gz'
-  sha1 'b5a278fa06c581e068a8296d158576a4b750f983'
+  url 'http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz'
+  sha1 '4722c647024271540f2adcf83456ebdeb1b7d6a6'
 
   option :universal
 
