@@ -2,7 +2,7 @@ require 'formula'
 
 class BamReadcount < Formula
   homepage 'https://github.com/genome/bam-readcount'
-  url 'https://github.com/genome/bam-readcount.git', :tag => 'v0.4.4'
+  url 'https://github.com/genome/bam-readcount.git', :tag => 'v0.4.5'
 
   head 'https://github.com/genome/bam-readcount.git'
 
