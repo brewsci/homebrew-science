@@ -14,22 +14,24 @@ class Mafft < Formula
   end
 
   def install
+    make_args = %W[CC=#{ENV.cc} CXX=#{ENV.cxx} CFAGS=#{ENV.cflags}
+                   CXXFLAGS=#{ENV.cxxflags} PREFIX=#{prefix} MANDIR=#{man1}]
+    make_args << "ENABLE_MULTITHREAD=" if MacOS.version <= :snow_leopard
     cd 'core' do
-      system "make", "CC=#{ENV.cc}",
-                     "CFLAGS=#{ENV.cflags}",
-                     "PREFIX=#{prefix}",
-                     "MANDIR=#{man1}",
-                     "install"
+      system "make", *make_args
     end
 
     cd 'extensions' do
-      system "make", "CC=#{ENV.cc}",
-                     "CXX=#{ENV.cxx}",
-                     "CXXFLAGS=#{ENV.cxxflags}",
-                     "CFLAGS=#{ENV.cflags}",
-                     "PREFIX=#{prefix}",
-                     "MANDIR=#{man1}",
-                     "install"
+      system "make", *make_args
+    end
+  end
+
+  def caveats
+    if MacOS.version <= :snow_leopard
+        <<-EOS.undent
+        This build of MAFFT is not multithreaded on Snow Leopard
+        because its compiler does not support thread-local storage.
+        EOS
     end
   end
 
