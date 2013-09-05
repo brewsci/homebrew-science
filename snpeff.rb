@@ -3,8 +3,8 @@ require 'formula'
 class Snpeff < Formula
   homepage 'http://snpeff.sourceforge.net/'
   url 'http://downloads.sourceforge.net/project/snpeff/snpEff_v3_3_core.zip'
-  version '3.3'
-  sha1 '700d4dfbd6b02c7a5c0284730e294174d1cd3684'
+  version '3.3H'
+  sha1 'ae69eee82e1c5a859c1fd0eb185cf2d5c81b38ba'
 
   def install
     java = share / 'java'
