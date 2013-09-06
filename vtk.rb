@@ -2,8 +2,8 @@ require 'formula'
 
 class Vtk < Formula
   homepage 'http://www.vtk.org'
-  url 'http://www.vtk.org/files/release/5.10/vtk-5.10.1.tar.gz'  # update libdir below, too!
-  sha1 'deb834f46b3f7fc3e122ddff45e2354d69d2adc3'
+  url 'http://www.vtk.org/files/release/6.0/vtk-6.0.0.tar.gz'  # update libdir below, too!
+  sha1 '51dd3b4a779d5442dd74375363f0f0c2d6eaf3fa'
 
   head 'https://github.com/Kitware/VTK.git'
 
@@ -27,13 +27,8 @@ class Vtk < Formula
   option 'qt-extern', 'Enable Qt4 extension via non-Homebrew external Qt4'
   option 'tcl',       'Enable Tcl wrapping of VTK classes'
 
-  def patches
-      # Fix bug in Wrapping/Python/setup_install_paths.py: http://vtk.org/Bug/view.php?id=13699
-      DATA unless build.head?  # fixed in head already
-  end
-
   def install
-    libdir = if build.head? then lib; else "#{lib}/vtk-5.10"; end
+    libdir = if build.head? then lib; else "#{lib}/vtk-6.0.0"; end
 
     args = std_cmake_args + %W[
       -DVTK_REQUIRED_OBJCXX_FLAGS=''
@@ -124,18 +119,3 @@ class Vtk < Formula
   end
 
 end
-
-__END__
-diff --git a/Wrapping/Python/setup_install_paths.py b/Wrapping/Python/setup_install_paths.py
-index 00f48c8..014b906 100755
---- a/Wrapping/Python/setup_install_paths.py
-+++ b/Wrapping/Python/setup_install_paths.py
-@@ -35,7 +35,7 @@ def get_install_path(command, *args):
-                 option, value = string.split(arg,"=")
-                 options[option] = value
-             except ValueError:
--                options[option] = 1
-+                options[arg] = 1
-
-     # check for the prefix and exec_prefix
-     try:
