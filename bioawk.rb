@@ -7,7 +7,8 @@ class Bioawk < Formula
   def install
     ENV.j1
     system 'make'
-    bin.install({'awk' => 'bioawk'})
+    bin.install 'bioawk'
+    doc.install 'README.md'
     man1.install({'awk.1' => 'bioawk.1'})
   end
 
