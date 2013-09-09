@@ -1,8 +1,8 @@
 require 'formula'
 
 class BaliPhy < Formula
-  homepage 'http://www.biomath.ucla.edu/msuchard/bali-phy/'
-  url 'http://www.biomath.ucla.edu/msuchard/bali-phy/bali-phy-2.1.1.tar.gz'
+  homepage 'http://www.bali-phy.org/'
+  url 'http://www.bali-phy.org/bali-phy-2.1.1.tar.gz'
   sha1 'e72073a1c5b05c797668e476bfd8517594f074e6'
 
   depends_on 'pkg-config' => :build
