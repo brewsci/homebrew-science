@@ -1,11 +1,11 @@
 require 'formula'
 
 class Viennarna < Formula
-  homepage 'http://www.tbi.univie.ac.at/~ivo/RNA/'
-  url 'http://www.tbi.univie.ac.at/~ronny/RNA/ViennaRNA-2.1.2.tar.gz'
-  sha256 '8aee684aa39f6588379071d50a7a5f6779fd84fedc8111546042464f0013570f'
+  homepage 'http://www.tbi.univie.ac.at/~ronny/RNA/'
+  url 'http://www.tbi.univie.ac.at/~ronny/RNA/packages/source/ViennaRNA-2.1.3.tar.gz'
+  sha256 'b2cd1141fada1f33dbf334fc0e797ef45939ce31d80b7da28fa22c309a39d767'
 
-  option 'with-perl', 'build and install Perl interfaces'
+  option 'with-perl', 'Build and install Perl interface'
 
   def install
     ENV['ARCHFLAGS'] = "-arch x86_64"
