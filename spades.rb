@@ -2,8 +2,8 @@ require 'formula'
 
 class Spades < Formula
   homepage 'http://bioinf.spbau.ru/spades/'
-  url 'http://spades.bioinf.spbau.ru/release2.5.0/SPAdes-2.5.0.tar.gz'
-  sha1 '35a40c617f0202ba3bfb5022a9f703fea0eccb4e'
+  url 'http://spades.bioinf.spbau.ru/release2.5.1/SPAdes-2.5.1.tar.gz'
+  sha1 '10ea07038cf47ad0a5a9d55c2a2664c0be2fbf52'
 
   depends_on 'cmake' => :build
 
