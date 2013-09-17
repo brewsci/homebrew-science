@@ -2,8 +2,8 @@ require 'formula'
 
 class CeresSolver < Formula
   homepage 'http://code.google.com/p/ceres-solver/'
-  url 'http://ceres-solver.googlecode.com/files/ceres-solver-1.6.0.tar.gz'
-  sha1 '0fdd7a931498bd09dc167827f4412c368f89bd25'
+  url 'http://ceres-solver.googlecode.com/files/ceres-solver-1.7.0.tar.gz'
+  sha1 '412af6f267852554eae47d3bfe412607ee41c7c5'
   head 'https://ceres-solver.googlesource.com/ceres-solver.git'
 
   depends_on 'cmake' => :build
@@ -11,7 +11,6 @@ class CeresSolver < Formula
   depends_on 'gflags'
   depends_on 'eigen'
   depends_on 'suite-sparse' => :recommended
-  depends_on 'protobuf' => :optional
 
   def install
     system "cmake", ".", *std_cmake_args
