@@ -33,9 +33,8 @@ class Root < Formula
     # the --etcdir flag to the configure script.  This is
     # due to a long-known issue with ROOT where it will
     # not display any graphical components if the directory
-    # is not specified
-    #
-    # => http://root.cern.ch/phpBB3/viewtopic.php?f=3&t=15072
+    # is not specified:
+    # http://root.cern.ch/phpBB3/viewtopic.php?f=3&t=15072
     system "./configure",
            "#{arch}",
            "--all",
@@ -57,7 +56,6 @@ class Root < Formula
     system "make -C #{prefix}/test/ hsimple"
     system "#{prefix}/test/hsimple"
   end
-
 
   def caveats; <<-EOS.undent
     Because ROOT depends on several installation-dependent
