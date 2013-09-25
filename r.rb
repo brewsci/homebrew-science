@@ -2,8 +2,8 @@ require 'formula'
 
 class R < Formula
   homepage 'http://www.r-project.org'
-  url 'http://cran.r-project.org/src/base/R-3/R-3.0.1.tar.gz'
-  sha1 '5cc65476837926fdf04105954ea94efa53ac85ce'
+  url 'http://cran.r-project.org/src/base/R-3/R-3.0.2.tar.gz'
+  sha1 'f5d9daef00e09d36a465ff7b0bf4cab136bea227'
 
   head 'https://svn.r-project.org/R/trunk'
 
