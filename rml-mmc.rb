@@ -14,11 +14,7 @@ class RmlMmc < Formula
 
   def install
     ENV.j1
-    # Change the next lines to Formula.factory("smlnj").prefix/'SMLNJ_HOME'
-    # once https://github.com/mxcl/homebrew/pull/16355 is pulled!
-    # Setting the path will no longer be necessary, then.
-    ENV['SMLNJ_HOME'] = Formula.factory("smlnj").libexec
-    ENV.append 'PATH', "#{ENV['SMLNJ_HOME']}/bin"
+    ENV['SMLNJ_HOME'] = Formula.factory("smlnj").prefix/'SMLNJ_HOME'
 
     system "./configure --prefix=#{prefix}"
     system "make install"
