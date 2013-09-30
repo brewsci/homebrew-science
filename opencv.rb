@@ -25,6 +25,7 @@ class Opencv < Formula
   # Can also depend on ffmpeg, but this pulls in a lot of extra stuff that
   # you don't need unless you're doing video analysis, and some of it isn't
   # in Homebrew anyway. Will depend on openexr if it's installed.
+  depends_on 'ffmpeg' => :optional
 
   def install
     args = std_cmake_args + %W[
@@ -51,6 +52,7 @@ class Opencv < Formula
     args << '-DWITH_TBB=ON' if build.with? 'tbb'
     # OpenCL 1.1 is required, but Snow Leopard and older come with 1.0
     args << '-DWITH_OPENCL=OFF' if build.without? 'opencl' or MacOS.version < :lion
+    args << '-DWITH_FFMPEG=OFF' unless build.with? 'ffmpeg'
 
     args << '..'
     mkdir 'macbuild' do
