@@ -3,7 +3,7 @@ require 'formula'
 class SuiteSparse < Formula
   homepage 'http://www.cise.ufl.edu/research/sparse/SuiteSparse'
   url 'http://www.cise.ufl.edu/research/sparse/SuiteSparse/SuiteSparse-4.2.1.tar.gz'
-  sha1 '2fec3bf93314bd14cbb7470c0a2c294988096ed6'
+  sha1 'ea6688bd6f6adf81e2e5aacdc71d7dcf9a5d208d'
 
   depends_on "tbb" => :recommended
   depends_on "openblas" => :optional
