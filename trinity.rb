@@ -2,9 +2,9 @@ require 'formula'
 
 class Trinity < Formula
   homepage 'http://trinityrnaseq.sourceforge.net'
-  version 'r2013-02-25'
-  url 'http://downloads.sourceforge.net/trinityrnaseq/trinityrnaseq_r2013-02-25.tgz'
-  sha1 '5fdb2682f861828750add2152154ec515e6e78c8'
+  version 'r2013_08_14'
+  url 'http://downloads.sourceforge.net/trinityrnaseq/trinityrnaseq_r2013_08_14.tgz'
+  sha1 '3ca275e79e7740974a949a7fbe469e2e74471e3f'
 
   depends_on 'bowtie'
 
@@ -16,6 +16,7 @@ class Trinity < Formula
   end
 
   def install
+    ENV.j1
     system "make"
     # The Makefile is designed to build in place, so we copy all of the needed
     # subdirectories to the prefix.
