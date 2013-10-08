@@ -2,9 +2,9 @@ require 'formula'
 
 class Root < Formula
   homepage 'http://root.cern.ch'
-  url 'ftp://root.cern.ch/root/root_v5.34.11.source.tar.gz'
-  version '5.34.11'
-  sha1 '1bda865a38f05f6f447671d1904bd1ca52d42932'
+  url 'ftp://root.cern.ch/root/root_v5.34.12.source.tar.gz'
+  version '5.34.12'
+  sha1 'c7889d5859c840955f801df9413dc84f1272bc04'
   head 'https://github.com/root-mirror/root.git', :branch => 'v5-34-00-patches'
 
   bottle do
@@ -13,10 +13,16 @@ class Root < Formula
     sha1 'a4f560c56436285635e03fdcd693d7e69320bbe9' => :snow_leopard
   end
 
+  option 'with-cocoa', "Use Cocoa for graphics backend instead of X11 (useful on Retina displays)"
   depends_on 'xrootd' => :recommended
   depends_on 'fftw' => :optional
   depends_on :x11
   depends_on :python
+
+  def patches
+    # http://trac.macports.org/ticket/36777
+    { :p0 => "http://trac.macports.org/raw-attachment/ticket/36777/patch-builtin-afterimage-disabletiff.diff" } if build.with? 'cocoa'
+  end
 
   def install
     # brew audit doesn't like non-executables in bin
@@ -29,6 +35,7 @@ class Root < Formula
 
     # Determine architecture
     arch = MacOS.prefer_64_bit? ? 'macosx64' : 'macosx'
+    cocoa_flag = (build.with? 'cocoa') ? "--enable-cocoa" : "--disable-cocoa"
 
     # N.B. that it is absolutely essential to specify
     # the --etcdir flag to the configure script.  This is
@@ -40,6 +47,7 @@ class Root < Formula
            "#{arch}",
            "--all",
            "--enable-builtin-glew",
+           "#{cocoa_flag}",
            "--prefix=#{prefix}",
            "--etcdir=#{prefix}/etc/root",
            "--mandir=#{man}"
