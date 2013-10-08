@@ -9,7 +9,7 @@ class Trinity < Formula
   depends_on 'bowtie'
 
   fails_with :clang do
-    build 425
+    build 500
     cause <<-EOS.undent
       clang does not support OpenMP, and including omp.h fails
     EOS
