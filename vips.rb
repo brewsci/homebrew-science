@@ -2,17 +2,18 @@ require 'formula'
 
 class Vips < Formula
   homepage 'http://www.vips.ecs.soton.ac.uk/'
-  url 'http://www.vips.ecs.soton.ac.uk/supported/7.32/vips-7.32.1.tar.gz'
-  sha1 'f07cb324c9695129d2de0c140943865dcb99268f'
+  url 'http://www.vips.ecs.soton.ac.uk/supported/7.36/vips-7.36.1.tar.gz'
+  sha1 '13d20390936ab2ba17d9d21fa33e550b14fb4670'
+
+  option 'without-check', 'Disable build time checks (not recommended)'
 
   depends_on 'pkg-config' => :build
-  depends_on :libpng
   depends_on :fontconfig
   depends_on 'gettext'
   depends_on 'glib'
-  # Removed the optional flag to jpeg library as a temporary workaround since it fails to build
-  # Already reported on project here https://github.com/jcupitt/libvips/issues/57
-  depends_on 'jpeg'
+  depends_on :libpng => :optional
+  depends_on 'jpeg' => :optional
+  depends_on 'orc' => :optional
   depends_on 'openslide' => :optional
   depends_on 'libtiff' => :optional
   depends_on 'imagemagick' => :optional
@@ -20,13 +21,14 @@ class Vips < Formula
   depends_on 'little-cms' => :optional
   depends_on 'pango' => :optional
   depends_on 'libexif' => :optional
-  depends_on 'liboil' => :optional
   depends_on 'openexr' => :optional
   depends_on 'cfitsio' => :optional
+  depends_on 'webp' => :optional
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make install"
+    system 'make', 'check' if build.with? 'check'
+    system 'make', 'install'
   end
 end
