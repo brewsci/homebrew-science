@@ -9,7 +9,7 @@ class Insighttoolkit < Formula
 
   depends_on 'cmake' => :build
   depends_on 'vtk' => :build
-  depends_on :python => :optional
+  depends_on :python => :recommended
 
   option 'examples', 'Compile and install various examples'
   option 'with-opencv-bridge', 'Include OpenCV bridge'
@@ -19,7 +19,7 @@ class Insighttoolkit < Formula
     # Add a patch for ITK 4.4.2, so it can build with VTK 6.0.0 while ITKVtkGlue is set to ON
     # Needs to be removed for ITK 4.4.3
     # See : https://github.com/Kitware/ITK/commit/f715cc5c431186165480b8f5e3df9f78de9d141f
-    DATA
+    DATA unless build.head?
   end
 
   def install
@@ -38,14 +38,7 @@ class Insighttoolkit < Formula
           -DITK_WRAP_PYTHON=ON
           -DModule_ITKVtkGlue=ON
           -DCMAKE_C_FLAGS='-ansi'
-          -DITK_USE_SYSTEM_GCCXML=OFF
         ]
-        # Do not use the system's gccxml. ITK will download a more recent one.
-        # Module_ITKVtkGlue allows you to link ITK and VTK, see eg http://paulnovo.us/wrapitktutorial
-        # -ansi necessary to fix dependencies of WRAP_PYTHON
-
-        # These environment variables are necessary for gccxml to work properly
-        ENV['GCCXML_COMPILER']='llvm-gcc'
         # Cmake picks up the system's python dylib, even if we have a brewed one.
         args << "-DPYTHON_LIBRARY='#{python.libdir}/lib#{python.xy}.dylib'"
         # The make and make install have to be inside the python do loop
