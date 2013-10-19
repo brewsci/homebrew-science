@@ -40,4 +40,8 @@ class Samtools < Formula
     (share+'samtools').install %w{examples}
     (include+'bam').install Dir['*.h']
   end
+
+  test do
+    system 'samtools 2>&1 |grep -q samtools'
+  end
 end
