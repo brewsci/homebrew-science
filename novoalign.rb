@@ -4,8 +4,8 @@ class Novoalign < Formula
   homepage 'http://www.novocraft.com/'
   version '3.00.05'
   url 'http://www.novocraft.com/homebrew/novocraftV%s.%s.tar.gz' %
-    [version, if MACOS then 'MacOSX' else 'gcc' end]
-  sha1(if MACOS then 'fde9f3e0d5aeb0fd6b7ac81e61c4a0163c19b2d7'
+    [version, if OS.mac? then 'MacOSX' else 'gcc' end]
+  sha1(if OS.mac? then 'fde9f3e0d5aeb0fd6b7ac81e61c4a0163c19b2d7'
     else 'e3856070e91a86e693f14d36c16b478f4cc4b80d' end)
 
   def install
