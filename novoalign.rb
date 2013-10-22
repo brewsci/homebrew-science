@@ -2,11 +2,11 @@ require 'formula'
 
 class Novoalign < Formula
   homepage 'http://www.novocraft.com/'
-  version '3.00.05'
+  version '3.02.00'
   url 'http://www.novocraft.com/homebrew/novocraftV%s.%s.tar.gz' %
-    [version, if OS.mac? then 'MacOSX' else 'gcc' end]
-  sha1(if OS.mac? then 'fde9f3e0d5aeb0fd6b7ac81e61c4a0163c19b2d7'
-    else 'e3856070e91a86e693f14d36c16b478f4cc4b80d' end)
+    [version, if OS.mac? then 'MacOSX' else 'Linux2.6' end]
+  sha1(if OS.mac? then '1a3f89f6dd9cd33d61ac143d622a8394dcd69b65'
+    else '4877eef6b236f2a00d47faf2adc74b2d313c5260' end)
 
   def install
     bin.install %w[isnovoindex novo2maq novo2paf novoalign novobarcode
