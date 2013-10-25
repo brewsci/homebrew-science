@@ -27,6 +27,12 @@ class Vtk < Formula
   option 'qt-extern', 'Enable Qt4 extension via non-Homebrew external Qt4'
   option 'tcl',       'Enable Tcl wrapping of VTK classes'
 
+  def patches
+    # fixes build on OS X 10.9. This patch is taken from upstream and should be droped when upstrem does a new
+    # release including it. 
+    "https://github.com/Kitware/VTK/commit/b9658e5decdbe36b11a8947fb9ba802b92bac8b4.patch"
+  end
+  
   def install
     args = std_cmake_args + %W[
       -DVTK_REQUIRED_OBJCXX_FLAGS=''
