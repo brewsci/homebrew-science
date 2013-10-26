@@ -18,7 +18,7 @@ class Cgns < Formula
       '-DCMAKE_SHARED_LINKER_FLAGS=-lhdf5'
     ]
 
-    args << '-DENABLE64_BIT' if Hardware.is_64_bit? and MacOS.version >= 10.6
+    args << '-DENABLE64_BIT' if Hardware.is_64_bit? and MacOS.version >= :snow_leopard
 
     mkdir 'build' do
       system 'cmake', '..', *args
