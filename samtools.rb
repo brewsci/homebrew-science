@@ -11,15 +11,27 @@ class Samtools < Formula
   url 'http://downloads.sourceforge.net/project/samtools/samtools/0.1.19/samtools-0.1.19.tar.bz2'
   sha1 'ff3f4cf40612d4c2ad26e6fcbfa5f8af84cbe881'
 
+  devel do
+    version '0.2.0-rc3'
+    url "https://github.com/samtools/samtools/archive/#{version}.tar.gz"
+    sha1 '9e855ccfe08e0929923a120ed2dddc5c2cca2e35'
+    depends_on 'htslib'
+  end
+
   head 'https://github.com/samtools/samtools.git'
 
   option 'with-dwgsim', 'Build with "Whole Genome Simulation"'
 
   def install
-    system "make"
-    system "make razip"
-    cd 'bcftools' do
-      system "make"
+    if build.devel?
+      inreplace 'Makefile', 'include $(HTSDIR)/htslib.mk', ''
+      htslib = Formula.factory('Htslib').opt_prefix
+      system 'make', "HTSDIR=#{htslib}/include", "HTSLIB=#{htslib}/lib/libhts.a"
+      system 'make', 'razip', "LDFLAGS=-L#{htslib}/lib", 'LDLIBS=-lhts -lz'
+    else
+      system 'make'
+      system 'make', 'razip'
+      system 'make', '-C', 'bcftools'
     end
 
     if build.include? 'with-dwgsim'
@@ -32,7 +44,8 @@ class Samtools < Formula
       end
     end
 
-    bin.install %w{samtools razip bcftools/bcftools bcftools/vcfutils.pl}
+    bin.install %w{samtools razip}
+    bin.install %w{bcftools/bcftools bcftools/vcfutils.pl} unless build.devel?
     bin.install %w{misc/maq2sam-long misc/maq2sam-short misc/md5fa misc/md5sum-lite misc/wgsim}
     bin.install Dir['misc/*.pl']
     lib.install 'libbam.a'
