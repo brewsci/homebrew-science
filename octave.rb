@@ -38,6 +38,11 @@ class Octave < Formula
   depends_on 'qhull'
   depends_on 'qrupdate'
 
+  def patches
+    # Fixes a bug in configure regarding std::unordered_map.
+    DATA
+  end
+
   if build.include? 'without-fltk'
     # required for plotting if we don't have native graphics
     depends_on 'gnuplot'
@@ -100,3 +105,18 @@ class Octave < Formula
     s = native_caveats + s unless build.include? 'without-fltk'
   end
 end
+
+__END__
+diff --git a/configure b/configure
+index a2fa70b..40559a6 100755
+--- a/configure
++++ b/configure
+@@ -58248,7 +58248,7 @@ int
+ main ()
+ {
+ 
+-      std::unordered_map m;
++      std::unordered_map<char, char> m;
+ 
+   ;
+   return 0;
