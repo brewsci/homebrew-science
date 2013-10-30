@@ -2,9 +2,10 @@ require 'formula'
 
 class Root < Formula
   homepage 'http://root.cern.ch'
-  url 'ftp://root.cern.ch/root/root_v5.34.10.source.tar.gz'
-  version '5.34.10'
-  sha1 '2dc0af12e531c4f2314a9fbd7dd4f5fee924d71c'
+  url 'ftp://root.cern.ch/root/root_v5.34.11.source.tar.gz'
+  version '5.34.11'
+  sha1 '1bda865a38f05f6f447671d1904bd1ca52d42932'
+  head 'https://github.com/root-mirror/root.git', :branch => 'v5-34-00-patches'
 
   bottle do
     sha1 '7f6abbf1bf9373764d8564e90552e8a1a03ed52d' => :mountain_lion
