@@ -30,7 +30,7 @@ class Vtk < Formula
   def patches
     # fixes build on OS X 10.9. This patch is taken from upstream and should be droped when upstrem does a new
     # release including it. 
-    "https://github.com/Kitware/VTK/commit/b9658e5decdbe36b11a8947fb9ba802b92bac8b4.patch"
+    "https://github.com/Kitware/VTK/commit/b9658e5decdbe36b11a8947fb9ba802b92bac8b4.patch" unless build.head?
   end
   
   def install
@@ -76,7 +76,16 @@ class Vtk < Formula
         # Cmake picks up the system's python dylib, even if we have a brewed one:
         args << "-DPYTHON_LIBRARY='#{python.libdir}/lib#{python.xy}.dylib'"
         # Set the prefix for the python bindings to the Cellar
-        args << "-DVTK_PYTHON_SETUP_ARGS:STRING='--prefix=#{prefix} --single-version-externally-managed --record=installed.txt'"
+        if !build.head?
+          args << "-DVTK_PYTHON_SETUP_ARGS:STRING='--prefix=#{prefix} --single-version-externally-managed --record=installed.txt'"
+        else
+          # For HEAD, use the new way to define the path for the python files
+          # See https://github.com/Kitware/VTK/commit/bec283263e682a172729b47d31d49e3528d783ac
+          # There is also no more support for setup.py, so no need for :
+          # --single-version-externally-managed --record=installed.txt
+          # For vtk 6.1 we should clean this up and use only the new VTK_INSTALL_PYTHON_MODULE_DIR
+          args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{prefix}/lib/#{python.xy}/site-packages'"
+        end
         if build.with? 'pyqt'
           args << '-DVTK_WRAP_PYTHON_SIP=ON'
           args << "-DSIP_PYQT_DIR='#{HOMEBREW_PREFIX}/share/sip#{python.if3then3}'"
