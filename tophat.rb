@@ -8,6 +8,14 @@ class Tophat < Formula
   depends_on 'samtools'
   depends_on 'boost'
 
+  fails_with :clang do
+    build 500
+    cause <<-EOS.undent
+      segment_juncs.cpp:50:17: error: expected namespace name
+      using namespace __gnu_cxx;
+    EOS
+  end
+
   def install
     # Variable length arrays using non-POD element types. Initialize with length=1
     # Reported upstream via email to tophat-cufflinks@gmail.com on 28OCT2012
