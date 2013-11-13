@@ -2,8 +2,8 @@ require 'formula'
 
 class Hdf5 < Formula
   homepage 'http://www.hdfgroup.org/HDF5'
-  url 'http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.11/src/hdf5-1.8.11.tar.bz2'
-  sha1 '87ded0894b104cf23a4b965f4ac0a567f8612e5e'
+  url 'http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.12/src/hdf5-1.8.12.tar.bz2'
+  sha1 '9b266ebde9287130fc07ce9f07f20cd0f753591b'
 
   # TODO - warn that these options conflict
   option :universal
