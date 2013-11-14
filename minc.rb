@@ -11,6 +11,7 @@ class Minc < Formula
 
   head 'https://github.com/BIC-MNI/minc.git'
 
+  depends_on :autoconf
   depends_on :automake
   depends_on :libtool
 
@@ -24,7 +25,7 @@ class Minc < Formula
   end
 
   def install
-    system "autoreconf", "--force", "--install"
+    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make install"
   end
