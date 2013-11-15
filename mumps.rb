@@ -72,6 +72,7 @@ class Mumps < Formula
       end
     end
 
+    ENV.deparallelize  # Build fails in parallel on Mavericks.
     system 'make all'
 
     prefix.install 'Makefile.inc'  # For the record.
