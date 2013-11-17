@@ -3,6 +3,7 @@ require 'formula'
 class Netcdf < Formula
   homepage 'http://www.unidata.ucar.edu/software/netcdf'
   url 'ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.3.0.tar.gz'
+  mirror 'http://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.3.0.tar.gz'
   sha1 '31b4b3b17146cc8c14a8c7be3fe5f28e5a8a5deb'
 
   depends_on :fortran if build.include? 'enable-fortran'
@@ -11,6 +12,7 @@ class Netcdf < Formula
   option 'enable-fortran', 'Compile Fortran bindings'
   option 'disable-cxx', "Don't compile C++ bindings"
   option 'enable-cxx-compat', 'Compile C++ bindings for compatibility'
+  option 'without-check', 'Disable checks (not recommended)'
 
   resource 'cxx' do
     url 'https://github.com/Unidata/netcdf-cxx4/archive/v4.2.1.tar.gz'
@@ -53,6 +55,9 @@ class Netcdf < Formula
     args.concat %w[--enable-netcdf4 --disable-doxygen]
 
     system './configure', *args
+    system 'make'
+    ENV.deparallelize if build.with? 'check' # Required for `make check`.
+    system 'make check' if build.with? 'check'
     system 'make install'
 
     # Add newly created installation to paths so that binding libraries can
@@ -63,16 +68,22 @@ class Netcdf < Formula
 
     resource('cxx').stage do
       system './configure', *common_args
+      system 'make'
+      system 'make check' if build.with? 'check'
       system 'make install'
     end unless build.include? 'disable-cxx'
 
     resource('cxx-compat').stage do
       system './configure', *common_args
+      system 'make'
+      system 'make check' if build.with? 'check'
       system 'make install'
     end if build.include? 'enable-cxx-compat'
 
     resource('fortran').stage do
       system './configure', *common_args
+      system 'make'
+      system 'make check' if build.with? 'check'
       system 'make install'
     end if build.include? 'enable-fortran'
   end
