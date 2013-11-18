@@ -15,9 +15,23 @@ class Trinity < Formula
     EOS
   end
 
+  def patches
+    # Fix building on a case insensitive file system
+    DATA
+  end
+
   def install
     ENV.j1
-    system "make"
+    inreplace 'trinity-plugins/coreutils/build_parallel_sort.sh', 'make -j', 'make'
+
+    # Build jellyfish with the desired compiler
+    inreplace 'Makefile', 'CC=gcc CXX=g++', "CC=#{ENV.cc} CXX=#{ENV.cxx}"
+
+    # Fix the undefined OpenMP symbols in parafly
+    inreplace 'Makefile', 'parafly && ./configure', 'parafly && ./configure LDFLAGS=-fopenmp'
+
+    system 'make'
+
     # The Makefile is designed to build in place, so we copy all of the needed
     # subdirectories to the prefix.
     prefix.install %w(Trinity.pl Inchworm Chrysalis Butterfly trinity-plugins util)
@@ -39,3 +53,16 @@ class Trinity < Formula
     system "./cleanme.pl"
   end
 end
+
+__END__
+--- a/Makefile.orig	2013-11-18 15:21:52.000000000 -0800
++++ b/Makefile	2013-11-18 15:22:23.000000000 -0800
+@@ -18,6 +18,8 @@
+ all: ${TARGETS}
+ 	sh install_tests.sh
+ 
++.PHONY: $(TARGETS)
++
+ inchworm:
+ 	@echo Using $(TRINITY_COMPILER) compiler for Inchworm and Chrysalis
+ 	cd Inchworm && (test -e configure || autoreconf) \
