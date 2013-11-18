@@ -8,11 +8,14 @@ class Bowtie < Formula
   head 'https://github.com/BenLangmead/bowtie.git'
 
   def install
-    system "make"
-    bin.install %W(bowtie bowtie-build bowtie-inspect)
+    system 'make'
+    bin.install %w[bowtie bowtie-build bowtie-inspect]
+    doc.install %w[AUTHORS LICENSE MANUAL MANUAL.markdown NEWS TUTORIAL
+      doc/manual.html]
+    libexec.install Dir['scripts/*']
   end
 
   def test
-    system "bowtie", "--version"
+    system *%w[bowtie --version]
   end
 end
