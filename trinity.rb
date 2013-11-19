@@ -2,9 +2,9 @@ require 'formula'
 
 class Trinity < Formula
   homepage 'http://trinityrnaseq.sourceforge.net'
-  version 'r2013_08_14'
-  url 'http://downloads.sourceforge.net/trinityrnaseq/trinityrnaseq_r2013_08_14.tgz'
-  sha1 '3ca275e79e7740974a949a7fbe469e2e74471e3f'
+  version 'r20131110'
+  url "http://downloads.sourceforge.net/trinityrnaseq/trinityrnaseq_#{version}.tar.gz"
+  sha1 '3207147a1ece0d7f2b4b9dc5aa8e735b3d55cb1d'
 
   depends_on 'bowtie'
 
@@ -13,11 +13,6 @@ class Trinity < Formula
     cause <<-EOS.undent
       clang does not support OpenMP, and including omp.h fails
     EOS
-  end
-
-  def patches
-    # Fix building on a case insensitive file system
-    DATA
   end
 
   def install
@@ -53,16 +48,3 @@ class Trinity < Formula
     system "./cleanme.pl"
   end
 end
-
-__END__
---- a/Makefile.orig	2013-11-18 15:21:52.000000000 -0800
-+++ b/Makefile	2013-11-18 15:22:23.000000000 -0800
-@@ -18,6 +18,8 @@
- all: ${TARGETS}
- 	sh install_tests.sh
- 
-+.PHONY: $(TARGETS)
-+
- inchworm:
- 	@echo Using $(TRINITY_COMPILER) compiler for Inchworm and Chrysalis
- 	cd Inchworm && (test -e configure || autoreconf) \
