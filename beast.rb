@@ -2,8 +2,8 @@ require 'formula'
 
 class Beast < Formula
   homepage 'http://beast.bio.ed.ac.uk/'
-  url 'https://beast-mcmc.googlecode.com/files/BEASTv1.7.5.tgz'
-  sha1 '825ddd87b67e4f13e078010810b028af78238c44'
+  url 'https://beast-mcmc.googlecode.com/files/BEASTv1.8.0.tgz'
+  sha1 'e4e483cee01263115a827b8c992be02a7bf9cf8e'
   head 'http://beast-mcmc.googlecode.com/svn/trunk/'
 
   depends_on :ant if build.head?
