@@ -7,8 +7,11 @@ class Armadillo < Formula
 
   depends_on 'cmake' => :build
   depends_on 'boost'
+  
+  option :cxx11
 
   def install
+    ENV.cxx11 if build.cxx11?
     system "cmake", ".", *std_cmake_args
     system "make install"
   end
