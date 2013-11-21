@@ -12,6 +12,7 @@ class Hdf5 < Formula
   option 'enable-threadsafe', 'Trade performance and C++ or Fortran support for thread safety'
   option 'enable-parallel', 'Compile parallel bindings'
   option 'enable-fortran2003', 'Compile Fortran 2003 bindings. Requires enable-fortran.'
+  option :cxx11
 
   depends_on :fortran if build.include? 'enable-fortran' or build.include? 'enable-fortran2003'
   depends_on 'szip'
@@ -19,6 +20,7 @@ class Hdf5 < Formula
 
   def install
     ENV.universal_binary if build.universal?
+    ENV.cxx11 if build.cxx11?
     args = %W[
       --prefix=#{prefix}
       --enable-production
