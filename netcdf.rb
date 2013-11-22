@@ -4,7 +4,7 @@ class Netcdf < Formula
   homepage 'http://www.unidata.ucar.edu/software/netcdf'
   url 'ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.3.0.tar.gz'
   mirror 'http://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.3.0.tar.gz'
-  sha1 '31b4b3b17146cc8c14a8c7be3fe5f28e5a8a5deb'
+  sha1 '246e4963e66e1c175563cc9a714e9da0a19b8b07'
 
   depends_on :fortran if build.include? 'enable-fortran'
   depends_on 'hdf5'
