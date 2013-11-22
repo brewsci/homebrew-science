@@ -8,6 +8,11 @@ class Stacks < Formula
   depends_on "google-sparsehash" => :recommended
   depends_on "samtools"          => :recommended
 
+  fails_with :clang do
+    build 500
+    cause %q[error: 'tr1/unordered_map' file not found]
+  end
+
   def patches
     # Fixes samtools dependency. Submitted to upstream:
     # https://groups.google.com/d/msg/stacks-users/0_zeYCGjexU/S0E4AcE4K3UJ
