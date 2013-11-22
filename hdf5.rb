@@ -3,7 +3,7 @@ require 'formula'
 class Hdf5 < Formula
   homepage 'http://www.hdfgroup.org/HDF5'
   url 'http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.12/src/hdf5-1.8.12.tar.bz2'
-  sha1 '9b266ebde9287130fc07ce9f07f20cd0f753591b'
+  sha1 '8414ca0e6ff7d08e423955960d641ec5f309a55f'
 
   # TODO - warn that these options conflict
   option :universal
