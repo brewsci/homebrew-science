@@ -2,8 +2,8 @@ require 'formula'
 
 class Stacks < Formula
   homepage 'http://creskolab.uoregon.edu/stacks/'
-  url 'http://creskolab.uoregon.edu/stacks/source/stacks-1.08.tar.gz'
-  sha1 'c8cd1c75d8dc4e00f869900f538836a35e0f4f86'
+  url 'http://creskolab.uoregon.edu/stacks/source/stacks-1.09.tar.gz'
+  sha1 'a74d0877a1d24f481ba0bb1481d0259d5ebffe30'
 
   depends_on "google-sparsehash" => :recommended
   depends_on "samtools"          => :recommended
