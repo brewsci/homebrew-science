@@ -2,8 +2,8 @@ require 'formula'
 
 class Stacks < Formula
   homepage 'http://creskolab.uoregon.edu/stacks/'
-  url 'http://creskolab.uoregon.edu/stacks/source/stacks-1.06.tar.gz'
-  sha1 '5294404195d223b3dcb48f72cdd64b598eaae029'
+  url 'http://creskolab.uoregon.edu/stacks/source/stacks-1.07.tar.gz'
+  sha1 'a006be1924cebf5e4df42247afefe9e364cb5608'
 
   depends_on "google-sparsehash" => :recommended
   depends_on "samtools"          => :recommended
@@ -49,10 +49,8 @@ class Stacks < Formula
   end
 end
 __END__
-diff --git a/src/Bam.h b/src/Bam.h
-index dce20d8..9d077eb 100644
---- a/src/Bam.h
-+++ b/src/Bam.h
+--- a/src/BamI.h
++++ b/src/BamI.h
 @@ -29,7 +29,7 @@
  #ifdef HAVE_BAM
  
