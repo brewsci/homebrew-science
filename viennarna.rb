@@ -2,8 +2,8 @@ require 'formula'
 
 class Viennarna < Formula
   homepage 'http://www.tbi.univie.ac.at/~ronny/RNA/'
-  url 'http://www.tbi.univie.ac.at/~ronny/RNA/packages/source/ViennaRNA-2.1.3.tar.gz'
-  sha256 'b2cd1141fada1f33dbf334fc0e797ef45939ce31d80b7da28fa22c309a39d767'
+  url 'http://www.tbi.univie.ac.at/~ronny/RNA/packages/source/ViennaRNA-2.1.5.tar.gz'
+  sha256 '2d02103b6a5d1536df26607ee00b8be364758f2cb796aeb010517c311e861d58'
 
   option 'with-perl', 'Build and install Perl interface'
 
