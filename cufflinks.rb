@@ -10,7 +10,8 @@ class Cufflinks < Formula
   depends_on 'eigen'    => :build
 
   fails_with :clang do
-    build 425
+    build 500
+    cause %q[error: unknown type name 'shared_ptr']
   end
 
   def install
