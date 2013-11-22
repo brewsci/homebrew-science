@@ -112,7 +112,13 @@ class Octave < Formula
       if you are using Aquaterm, use "GNUTERM=aqua".
     EOS
 
-    s = gnuplot_caveats
+    glpk_caveats = <<-EOS.undent
+
+      GLPK functionality has been disabled due to API incompatibility.
+    EOS
+
+    s = glpk_caveats
+    s = gnuplot_caveats + s
     s = native_caveats + s unless build.include? 'without-fltk'
   end
 end
