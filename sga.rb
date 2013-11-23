@@ -12,13 +12,19 @@ class Sga < Formula
   depends_on 'google-sparsehash' => :build
   depends_on 'bamtools'
 
+  # Reported upstream: https://github.com/jts/sga/issues/56
+  fails_with :clang do
+    build 500
+    cause "error: 'tr1/unordered_set' file not found"
+  end
+
   def install
     cd 'src' do
       system "./autogen.sh"
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{prefix}",
                             "--with-bamtools=#{Formula.factory('bamtools').opt_prefix}",
-                            "--with-sparsehash=#{Formula.factory('google-sparsehash').opt_prefix}/header"
+                            "--with-sparsehash=#{Formula.factory('google-sparsehash').opt_prefix}"
       system "make install"
     end
   end
