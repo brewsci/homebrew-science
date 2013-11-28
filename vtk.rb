@@ -48,9 +48,7 @@ class Vtk < Formula
     args << '-DBUILD_EXAMPLES=' + ((build.include? 'examples') ? 'ON' : 'OFF')
 
     if build.with? 'qt' or build.include? 'qt-extern'
-      args << '-DVTK_USE_GUISUPPORT=ON'
-      args << '-DVTK_USE_QT=ON'
-      args << '-DVTK_USE_QVTK=ON'
+      args << '-DVTK_Group_Qt=ON'
     end
 
     args << '-DVTK_WRAP_TCL=ON' if build.include? 'tcl'
