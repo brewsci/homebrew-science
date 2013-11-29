@@ -23,6 +23,10 @@ class Blast < Formula
       system './configure', '--without-debug', '--with-mt', *args
       system "make"
       system "make install"
+
+      # libproj.a conflicts with the formula proj
+      libexec.mkdir
+      mv Dir[lib / 'lib*.a'], libexec
     end
   end
 
@@ -34,6 +38,8 @@ class Blast < Formula
     Static binaries should be used for speed if the executable requires
     fast startup time, such as if another program is frequently restarting
     the blast executables.
+
+    Static libraries are installed in #{libexec}
     EOS
   end
 end
