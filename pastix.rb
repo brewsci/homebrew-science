@@ -2,15 +2,15 @@ require 'formula'
 
 class Pastix < Formula
   homepage 'http://pastix.gforge.inria.fr'
-  url 'https://gforge.inria.fr/frs/download.php/32932/pastix_release_4492.tar.bz2'
-  sha1 '87acd507048e416e1758c9ef9461c59b4e7223a5'
-  head 'svn://scm.gforge.inria.fr/svnroot/ricar/tags/5.2.1'
-  version '5.2.1'
+  url 'https://gforge.inria.fr/frs/download.php/33176/pastix_release_edcb9ab.tar.bz2'
+  sha1 '21e687f2fd1f7ce5243d969ff417659aeb7e5cbe'
+  head 'git://scm.gforge.inria.fr/ricar/ricar.git'
+  version '5.2.2'
 
   depends_on 'scotch'   => :build
+  depends_on 'hwloc'
   depends_on 'metis4'   => :optional     # Use METIS ordering.
   depends_on 'openblas' => :optional     # Use Accelerate by default.
-  depends_on 'open-mpi' => 'enable-mpi-thread-multiple'
 
   depends_on :mpi       => [:cc, :f90]
   depends_on :fortran
@@ -26,6 +26,7 @@ class Pastix < Formula
         libgfortran = `mpif90 --print-file-name libgfortran.a`.chomp
         s.change_make_var! "EXTRALIB", "-L#{File.dirname(libgfortran)} -lgfortran -lm"
 
+        # set prefix
         s.gsub! /#\s*ROOT\s*=/, "ROOT = "
         s.change_make_var! "ROOT", prefix
         s.gsub! /#\s*INCLUDEDIR\s*=/, "INCLUDEDIR = "
@@ -34,21 +35,26 @@ class Pastix < Formula
         s.change_make_var! "LIBDIR", lib
         s.gsub! /#\s*BINDIR\s*=/, "BINDIR = "
         s.change_make_var! "BINDIR", bin
+        s.gsub! /#\s*PYTHON_PREFIX\s*=/, " PYTHON_PREFIX = "
 
+        # shared library building
         s.gsub! /#\s*SHARED\s*=/, "SHARED = "
         s.change_make_var! "SHARED", 1
         s.gsub! /#\s*SOEXT\s*=/, "SOEXT = "
         s.gsub! /#\s*SHARED_FLAGS\s*=/, "SHARED_FLAGS = "
 
+        # activate FUNNELED mode
+        s.gsub! /#\s*CCPASTIX\s*:=\s*\$\(CCPASTIX\)\s+-DPASTIX_FUNNELED/, "CCPASTIX := \$(CCPASTIX) -DPASTIX_FUNNELED"
+
         s.gsub! /#\s*CCFDEB\s*:=/, "CCFDEB := "
         s.gsub! /#\s*CCFOPT\s*:=/, "CCFOPT := "
         s.gsub! /#\s*CFPROG\s*:=/, "CFPROG := "
 
-        s.gsub! /#\s*VERSIONINT\s+=\s+_int32/, "VERSIONINT = _int32"
-        s.gsub! /#\s*CCTYPES\s+=\s+\-DINTSIZE32/, "CCTYPES = -DINTSIZE32"
-
         s.gsub! /SCOTCH_HOME\s*\?=/, "SCOTCH_HOME="
         s.change_make_var! "SCOTCH_HOME", Formula.factory('scotch').prefix
+
+        s.gsub! /HWLOC_HOME\s*\?=/, "HWLOC_HOME="
+        s.change_make_var! "HWLOC_HOME", Formula.factory('hwloc').prefix
 
         if build.with? 'metis4'
           s.gsub! /#\s*VERSIONORD\s*=\s*_metis/, "VERSIONORD = _metis"
@@ -75,12 +81,12 @@ class Pastix < Formula
 
   def test
     Dir.foreach("#{share}/example/bin") do |example|
-      next if example =~ /^\./ or example =~ /plot_memory_usage/
+      next if example =~ /^\./ or example =~ /plot_memory_usage/ or example =~ /mem_trace.o/ or example =~ /murge_sequence/
       next if example == 'reentrant'  # May fail due to thread handling. See http://goo.gl/SKDGPV
       if example == 'murge-product'
         system "#{share}/example/bin/#{example} 100 10 1"
       elsif example =~ /murge/
-        system "#{share}/example/bin/#{example} 100 100"
+        system "#{share}/example/bin/#{example} 100 4"
       else
         system "#{share}/example/bin/#{example} -lap 100"
       end
