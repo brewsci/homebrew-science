@@ -10,6 +10,11 @@ class Blast < Formula
 
   option 'with-dll', "Create dynamic binaries instead of static"
 
+  fails_with :clang do
+    build 500
+    cause "error: 'bits/c++config.h' file not found"
+  end
+
   def patches
     # Support recent versions of gnutls
     'http://www.ncbi.nlm.nih.gov/viewvc/v1/trunk/c%2B%2B/src/connect/ncbi_gnutls.c?view=patch&r1=57856&r2=57915'
