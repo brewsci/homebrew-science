@@ -7,12 +7,6 @@ class Root < Formula
   sha1 'c7889d5859c840955f801df9413dc84f1272bc04'
   head 'https://github.com/root-mirror/root.git', :branch => 'v5-34-00-patches'
 
-  bottle do
-    sha1 '7f6abbf1bf9373764d8564e90552e8a1a03ed52d' => :mountain_lion
-    sha1 '6fb8a9c43c8ab9908571677634319c18d15ff8ea' => :lion
-    sha1 'a4f560c56436285635e03fdcd693d7e69320bbe9' => :snow_leopard
-  end
-
   option 'with-cocoa', "Use Cocoa for graphics backend instead of X11 (useful on Retina displays)"
   depends_on 'xrootd' => :recommended
   depends_on 'fftw' => :optional
