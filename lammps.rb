@@ -40,9 +40,6 @@ class Lammps < Formula
     option "enable-#{package}", "Build lammps with the '#{package}' package"
   end
 
-  # additional options
-  option "with-mpi", "Build lammps with MPI support"
-
   depends_on 'fftw'
   depends_on 'jpeg'
   depends_on 'voro++'
@@ -92,7 +89,7 @@ class Lammps < Formula
     ENV.append "CFLAGS","-O"
     ENV.append "LDFLAGS","-O"
 
-    if build.include? "with-mpi"
+    if build.with? :mpi
       # Simplify by relying on the mpi compilers
       ENV["FC"]  = ENV["MPIFC"]
       ENV["CXX"] = ENV["MPICXX"]
@@ -118,7 +115,7 @@ class Lammps < Formula
         # We will stick with "make mac" type and forget about
         # "make mac_mpi" because it has some unnecessary
         # settings. We get a nice clean slate with "mac"
-        if build.include? "with-mpi"
+        if build.with? :mpi
           #-DOMPI_SKIP_MPICXX is to speed up c++ compilation
           s.change_make_var! "MPI_INC"  , "-DOMPI_SKIP_MPICXX"
           s.change_make_var! "MPI_PATH" , ""
@@ -155,7 +152,7 @@ class Lammps < Formula
         system "make", "yes-" + pkg if build.include? "enable-" + pkg
       end
 
-      unless build.include? "with-mpi"
+      unless build.with? :mpi
         # build fake mpi library
         cd "STUBS" do
           system "make"
