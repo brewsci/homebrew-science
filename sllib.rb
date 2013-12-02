@@ -1,9 +1,9 @@
 require 'formula'
 
 class Sllib < Formula
-  url "http://www.ir.isas.jaxa.jp/~cyamauch/sli/sllib-1.4.2e.tar.gz"
   homepage 'http://www.ir.isas.jaxa.jp/~cyamauch/sli/index.html'
-  sha1 'b55522796ac43fa6f9c8341fc54367f1cf334a28'
+  url 'http://www.ir.isas.jaxa.jp/~cyamauch/sli/sllib-1.4.2f.tar.gz'
+  sha1 '41c71ca93cab0552f9edcc6e46917aa26e7121dc'
 
   def install
     system "sh", "configure", "--prefix=#{prefix}"
