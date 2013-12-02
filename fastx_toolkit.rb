@@ -13,6 +13,11 @@ class FastxToolkit < Formula
 
   depends_on 'pkg-config' => :build
 
+  fails_with :clang do
+    build 500
+    cause "error: Your version of gcc does not support the 'std::tr1' standard"
+  end
+
   def install
     Libgtextutils.new.brew do
       system './configure', '--disable-debug',
