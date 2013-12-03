@@ -35,7 +35,7 @@ class UcscGenomeBrowser < Formula
         "DOCUMENTROOT=#{prefix}/htdocs",
         "PNGLIB=-L#{HOMEBREW_PREFIX}/lib -lpng",
         "MYSQLLIBS=-lmysqlclient -lz",
-        "MYSQLINC=#{HOMEBREW_PREFIX}/include"
+        "MYSQLINC=#{HOMEBREW_PREFIX}/include/mysql"
     end
     mv "#{prefix}/cgi-bin-#{user}", prefix/'cgi-bin'
     mv "#{prefix}/htdocs-#{user}", prefix/'htdocs'
