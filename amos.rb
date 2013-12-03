@@ -11,6 +11,11 @@ class Amos < Formula
   depends_on 'qt' => [:optional, 'with-qt3support'] # for AMOS GUIs
   depends_on 'Statistics::Descriptive' => [:perl, :recommended]
 
+  fails_with :clang do
+    build 500
+    cause "error: reference to 'hash' is ambiguous"
+  end
+
   def install
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}",
