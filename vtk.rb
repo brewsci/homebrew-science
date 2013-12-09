@@ -29,10 +29,10 @@ class Vtk < Formula
 
   def patches
     # fixes build on OS X 10.9. This patch is taken from upstream and should be droped when upstrem does a new
-    # release including it. 
+    # release including it.
     "https://github.com/Kitware/VTK/commit/b9658e5decdbe36b11a8947fb9ba802b92bac8b4.patch" unless build.head?
   end
-  
+
   def install
     args = std_cmake_args + %W[
       -DVTK_REQUIRED_OBJCXX_FLAGS=''
@@ -84,7 +84,7 @@ class Vtk < Formula
           # There is also no more support for setup.py, so no need for :
           # --single-version-externally-managed --record=installed.txt
           # For vtk 6.1 we should clean this up and use only the new VTK_INSTALL_PYTHON_MODULE_DIR
-          args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{prefix}/lib/#{python.xy}/site-packages'"
+          args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{lib}/#{python.xy}/site-packages'"
         end
         if build.with? 'pyqt'
           args << '-DVTK_WRAP_PYTHON_SIP=ON'

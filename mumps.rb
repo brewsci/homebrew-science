@@ -5,7 +5,6 @@ class Mumps < Formula
   url 'http://mumps.enseeiht.fr/MUMPS_4.10.0.tar.gz'
   mirror 'http://graal.ens-lyon.fr/MUMPS/MUMPS_4.10.0.tar.gz'
   sha1 '904b1d816272d99f1f53913cbd4789a5be1838f7'
-  version '4.10.0'
 
   depends_on 'scotch5' => :optional     # Scotch 6 support currently broken.
   depends_on 'openblas' => :optional

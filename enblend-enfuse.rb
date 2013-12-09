@@ -12,7 +12,7 @@ class EnblendEnfuse < Formula
   depends_on 'boost'
   depends_on 'gsl'
   depends_on 'jpeg'
-  depends_on 'lcms2'
+  depends_on 'little-cms2'
   depends_on 'libtiff'
   depends_on 'homebrew/science/vigra'
   depends_on 'openexr' => :optional
@@ -37,7 +37,7 @@ class EnblendEnfuse < Formula
     end
 
     args << "--enable-gpu-support=#{enable_gpu}"
-    
+
     system "./configure", *args
     system "make install"
   end

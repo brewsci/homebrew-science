@@ -7,7 +7,7 @@ class Armadillo < Formula
 
   depends_on 'cmake' => :build
   depends_on 'boost'
-  
+
   option :cxx11
 
   def install

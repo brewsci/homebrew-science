@@ -13,7 +13,6 @@ class Ipopt < Formula
   depends_on :fortran
 
   def install
-    ENV.fortran
     mumps_libs = ['-ldmumps', '-lmumps_common', '-lpord']
 
     # See whether the parallel or sequential MUMPS library was built.
