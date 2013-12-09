@@ -16,6 +16,7 @@ class Snid < Formula
   sha1 '0ba81c23584388065169b88bf54a9c3975b12460'
 
   depends_on :x11
+  depends_on :fortran
   depends_on 'pgplot' => 'with-button'
 
   # no libbutton compilation and patch for new templates
@@ -23,8 +24,6 @@ class Snid < Formula
   def patches; DATA; end
 
   def install
-    ENV.fortran
-
     # new templates
     SnidTemplates.new.brew do
       prefix.install '../templates-2.0'
