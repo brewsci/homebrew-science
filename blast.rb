@@ -30,8 +30,13 @@ class Blast < Formula
       system "make install"
 
       # libproj.a conflicts with the formula proj
+      # mv gives the error message:
+      # fileutils.rb:1552:in `stat'
+      # Errno::ENOENT: No such file or directory -
+      # $HOMEBREW_PREFIX/Cellar/blast/2.2.28/lib/libaccess-static.a
       libexec.mkdir
-      mv Dir[lib / 'lib*.a'], libexec
+      # Does not work: mv Dir[lib / 'lib*.a'], libexec
+      system "mv #{lib}/lib*.a #{libexec}/"
     end
   end
 
