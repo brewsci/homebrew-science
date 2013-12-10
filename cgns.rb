@@ -8,20 +8,23 @@ class Cgns < Formula
 
   depends_on :fortran
   depends_on 'cmake' => :build
-  depends_on 'hdf5'
+  depends_on 'hdf5' => :recommended
   depends_on 'szip'
 
   def install
     args = std_cmake_args + [
       '-DENABLE_FORTRAN=YES',
-      '-DENABLE_HDF5=YES',
       '-DHDF5_NEED_SZIP=YES',
-      '-DHDF5_NEED_ZLIB=YES',
-      '-DCMAKE_SHARED_LINKER_FLAGS=-lhdf5',
       '-DENABLE_TESTS=YES'
     ]
 
     args << '-DENABLE_64BIT=ON' if Hardware.is_64_bit? and MacOS.version >= :snow_leopard
+
+    if build.with? 'hdf5'
+      args << '-DENABLE_HDF5=YES'
+      args << '-DHDF5_NEED_ZLIB=YES'
+      args << '-DCMAKE_SHARED_LINKER_FLAGS=-lhdf5'
+    end
 
     mkdir 'build' do
       system 'cmake', '..', *args
@@ -30,5 +33,4 @@ class Cgns < Formula
       system 'make install'
     end
   end
-
 end
