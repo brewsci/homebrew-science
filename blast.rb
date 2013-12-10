@@ -55,4 +55,8 @@ class Blast < Formula
     Static libraries are installed in #{libexec}
     EOS
   end
+
+  test do
+    system 'blastn -version'
+  end
 end
