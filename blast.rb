@@ -9,7 +9,7 @@ class Blast < Formula
   depends_on 'gnutls' => :optional
 
   option 'with-dll', "Create dynamic binaries instead of static"
-  option 'disable-tests', 'Skip the self tests'
+  option 'without-check', 'Skip the self tests'
 
   fails_with :clang do
     build 500
@@ -25,7 +25,7 @@ class Blast < Formula
     args = ["--prefix=#{prefix}"]
     args << "--with-dll" if build.include? 'with-dll'
     # Boost is used only for unit tests.
-    args << '--without-boost' if build.include? 'disable-tests'
+    args << '--without-boost' if build.without? 'check'
 
     cd 'c++' do
       system './configure', '--without-debug', '--with-mt', *args
