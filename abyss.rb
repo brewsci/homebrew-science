@@ -7,7 +7,7 @@ class Abyss < Formula
   head 'https://github.com/bcgsc/abyss.git'
 
   option 'disable-popcnt', 'do not use the POPCNT instruction'
-  MAXK = [32, 64, 96, 128, 256]
+  MAXK = [32, 64, 96, 128, 256, 512]
   MAXK.each do |k|
     option "enable-maxk=#{k}", "set the maximum k-mer length to #{k}"
   end
