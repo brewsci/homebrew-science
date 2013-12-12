@@ -2,8 +2,8 @@ require 'formula'
 
 class Abyss < Formula
   homepage 'http://www.bcgsc.ca/platform/bioinfo/software/abyss'
-  url 'http://www.bcgsc.ca/downloads/abyss/abyss-1.3.6.tar.gz'
-  sha1 'ac5004972c90cedfb116b307dcf051fb30b7a102'
+  url 'http://www.bcgsc.ca/platform/bioinfo/software/abyss/releases/1.3.7/abyss-1.3.7.tar.gz'
+  sha1 '3d0831b1b7fd0601ded7c2d01938a24b3fc1931a'
   head 'https://github.com/bcgsc/abyss.git'
 
   option 'disable-popcnt', 'do not use the POPCNT instruction'
@@ -21,11 +21,6 @@ class Abyss < Formula
   depends_on 'boost' => :build
   depends_on 'google-sparsehash' => :build
   depends_on :mpi => :cc
-
-  fails_with :clang do
-    build 500
-    cause "error: implicit instantiation of undefined template 'std::__1::hash<cstring>'"
-  end
 
   # strip breaks the ability to read compressed files.
   skip_clean 'bin'
