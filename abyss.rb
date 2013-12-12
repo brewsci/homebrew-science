@@ -22,6 +22,11 @@ class Abyss < Formula
   depends_on 'google-sparsehash' => :build
   depends_on :mpi => :cc
 
+  fails_with :clang do
+    build 500
+    cause "error: implicit instantiation of undefined template 'std::__1::hash<cstring>'"
+  end
+
   # strip breaks the ability to read compressed files.
   skip_clean 'bin'
 
