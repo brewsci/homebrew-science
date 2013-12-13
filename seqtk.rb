@@ -8,7 +8,8 @@ class Seqtk < Formula
 
   def install
     system 'make'
-    bin.install 'seqtk'
+    bin.install (if build.head? then %w[seqtk tabtk] else 'seqtk' end)
+    doc.install 'README.md'
   end
 
   test do
