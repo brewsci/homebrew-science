@@ -11,7 +11,7 @@ class SnidBSNIPTemplates < Formula
 end
 
 class Snid < Formula
-  homepage 'http://www.oamp.fr/people/blondin/software/snid/'
+  homepage 'http://people.lam.fr/blondin.stephane/software/snid'
   url 'http://people.lam.fr/blondin.stephane/software/snid/snid-5.0.tar.gz'
   sha1 '0ba81c23584388065169b88bf54a9c3975b12460'
 
