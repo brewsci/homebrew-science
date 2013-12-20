@@ -2,9 +2,9 @@ require 'formula'
 
 class PicardTools < Formula
   homepage 'http://picard.sourceforge.net/'
-  version '1.103'
+  version '1.105'
   url "http://downloads.sourceforge.net/project/picard/picard-tools/#{version}/picard-tools-#{version}.zip"
-  sha1 'b7d5010be975a17efddf99de3d6dbe361b8cfc3e'
+  sha1 '34e9e6a959b8d5e2c4c2751516da596f9c4ac777'
 
   def install
     (share/'java').install Dir['*.jar', "picard-tools-#{version}/*.jar"]
