@@ -20,7 +20,7 @@ class Abyss < Formula
   end
   depends_on 'boost' => :build
   depends_on 'google-sparsehash' => :build
-  depends_on :mpi => :cc
+  depends_on :mpi => [:cc, :recommended]
 
   # strip breaks the ability to read compressed files.
   skip_clean 'bin'
