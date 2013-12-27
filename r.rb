@@ -4,12 +4,9 @@ class R < Formula
   homepage 'http://www.r-project.org'
   url 'http://cran.r-project.org/src/base/R-3/R-3.0.2.tar.gz'
   sha1 'f5d9daef00e09d36a465ff7b0bf4cab136bea227'
-
   head 'https://svn.r-project.org/R/trunk'
 
-  option 'with-openblas', 'Compile linking to OpenBLAS'
-  option 'with-valgrind', 'Compile an unoptimized build with support for the Valgrind debugger'
-  option 'test', 'Run tests before installing'
+  option 'without-check', 'Skip build-time tests (not recommended)'
 
   depends_on :fortran
   depends_on 'readline'
@@ -17,7 +14,7 @@ class R < Formula
   depends_on 'jpeg'
   depends_on :x11
   depends_on 'valgrind' => :optional
-  depends_on 'homebrew/science/openblas' if build.with? 'openblas'
+  depends_on 'openblas' => :optional
 
   # This is the same script that Debian packages use.
   resource 'completion' do
@@ -31,7 +28,6 @@ class R < Formula
       "--prefix=#{prefix}",
       "--with-aqua",
       "--enable-R-framework",
-      "--with-lapack"
     ]
 
     if build.with? 'valgrind'
@@ -39,15 +35,16 @@ class R < Formula
       ENV.Og
     end
 
-    args << '--with-blas="-lgoto2"' if build.with? 'openblas'
+    args << '--with-lapack' + ((build.with? 'openblas') ? '=-lopenblas' : '')
+    args << '--with-blas=-lopenblas' if build.with? 'openblas'
 
     # Pull down recommended packages if building from HEAD.
     system './tools/rsync-recommended' if build.head?
 
     system "./configure", *args
     system "make"
-    ENV.j1 # Serialized installs, please
-    system "make check 2>&1 | tee make-check.log" if build.include? 'test'
+    ENV.deparallelize # Serialized installs, please
+    system "make check 2>&1 | tee make-check.log" if build.with? 'check'
     system "make install"
 
     # Link binaries and manpages from the Framework
@@ -62,7 +59,7 @@ class R < Formula
 
     bash_completion.install resource('completion')
 
-    prefix.install 'make-check.log' if build.include? 'test'
+    prefix.install 'make-check.log' if build.with? 'check'
   end
 
   def caveats; <<-EOS.undent
