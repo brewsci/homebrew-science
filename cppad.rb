@@ -2,9 +2,9 @@ require 'formula'
 
 class Cppad < Formula
   homepage 'http://www.coin-or.org/CppAD'
-  url 'http://www.coin-or.org/download/source/CppAD/cppad-20131101.epl.tgz'
-  version '20131101'
-  sha1 '343a7cee69ae8c25e50519753447255a2fafae23'
+  url 'http://www.coin-or.org/download/source/CppAD/cppad-20140000.0.epl.tgz'
+  version '20140000'
+  sha1 '27ecae20785c95ac5af0f285b54be292aad75008'
   head 'https://projects.coin-or.org/svn/CppAD/trunk', :using => :svn
 
   # Only one of --with-boost, --with-eigen and --with-std should be given.
@@ -41,15 +41,11 @@ class Cppad < Formula
       cppad_testvector = 'std'
     end
     cmake_args << "-Dcppad_testvector=#{cppad_testvector}"
-
     cmake_args << "-Dadolc_prefix=#{Formula.factory('adol-c').prefix}" if build.with? 'adol-c'
 
     mkdir 'build' do
       system "cmake", "..", *cmake_args
-      if build.with? 'check'
-        ohai 'Running tests. Please be patient.'
-        system 'make check'
-      end
+      system 'make check' if build.with? 'check'
       system 'make install'
     end
   end
