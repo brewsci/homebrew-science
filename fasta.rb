@@ -3,7 +3,7 @@ require 'formula'
 class Fasta < Formula
   homepage 'http://faculty.virginia.edu/wrpearson/fasta/'
   url 'http://faculty.virginia.edu/wrpearson/fasta/fasta36/fasta-36.3.6d.tar.gz'
-  sha1 'add828f56abf02e2d330a3b376b920e6ba95b06a'
+  sha1 '2a6931d7e47684b7460928ad2da9d06828accf65'
 
   def install
     cd 'src' do
