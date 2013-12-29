@@ -23,4 +23,12 @@ Docs
 ----
 `brew help`, `man brew`, or the Homebrew [wiki][].
 
+
+Contributing
+------------
+
+Please see the [contributing][] wiki page.
+
+
 [wiki]:http://wiki.github.com/mxcl/homebrew
+[contributing]: https://github.com/Homebrew/homebrew-science/wiki/Contributing-to-Homebrew-Science
