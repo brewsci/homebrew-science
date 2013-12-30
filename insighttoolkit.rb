@@ -9,10 +9,10 @@ class Insighttoolkit < Formula
 
   depends_on 'cmake' => :build
   depends_on 'vtk' => :build
+  depends_on 'opencv' => :optional
   depends_on :python => :optional
 
   option 'examples', 'Compile and install various examples'
-  option 'with-opencv-bridge', 'Include OpenCV bridge'
   option 'with-itkv3-compatibility', 'Include ITKv3 compatibility'
 
   def install
@@ -22,7 +22,7 @@ class Insighttoolkit < Formula
     ]
     args << ".."
     args << '-DBUILD_EXAMPLES=' + ((build.include? 'examples') ? 'ON' : 'OFF')
-    args << '-DModule_ITKVideoBridgeOpenCV=' + ((build.include? 'with-opencv-bridge') ? 'ON' : 'OFF')
+    args << '-DModule_ITKVideoBridgeOpenCV=' + ((build.with? 'opencv') ? 'ON' : 'OFF')
     args << '-DITKV3_COMPATIBILITY:BOOL=' + ((build.include? 'with-itkv3-compatibility') ? 'ON' : 'OFF')
 
     mkdir 'itk-build' do
