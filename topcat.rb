@@ -6,6 +6,14 @@ class Topcat < Formula
   sha1 '71ef9e3a6b749eb7baceb434e318a51da4ae669c'
 
   def install
-    bin.install Dir['*']
+    bin.install 'topcat'
+    (share+'java').install 'topcat-full.jar'
+  end
+
+  def caveats
+    <<-EOS.undent
+      The Java JAR files are installed to
+        #{share}/java
+    EOS
   end
 end
