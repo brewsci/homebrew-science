@@ -68,14 +68,15 @@ class Octave < Formula
     ENV.append_to_cflags "-D_REENTRANT"
 
     args = [
-      "--disable-dependency-tracking",
+      '--disable-dependency-tracking',
       "--prefix=#{prefix}",
       "--with-blas=#{blas_flags}",
       "--with-lapack=#{blas_flags}",
       # SuiteSparse-4.x.x fix, see http://savannah.gnu.org/bugs/?37031
-      "--with-umfpack=-lumfpack -lsuitesparseconfig",
+      '--with-umfpack=-lumfpack -lsuitesparseconfig',
+      '--disable-jit'
     ]
-    args << "--without-framework-carbon" if MacOS.version >= :lion
+    args << '--without-framework-carbon' if MacOS.version >= :lion
     # avoid spurious 'invalid assignment to cs-list' erorrs on 32 bit installs:
     args << 'CXXFLAGS=-O0' unless MacOS.prefer_64_bit?
     args << '--disable-docs' if build.without? 'docs'
