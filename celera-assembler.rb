@@ -2,8 +2,8 @@ require 'formula'
 
 class CeleraAssembler < Formula
   homepage 'http://wgs-assembler.sourceforge.net/'
-  url 'http://downloads.sourceforge.net/project/wgs-assembler/wgs-assembler/wgs-8.0/wgs-8.0.tar.bz2'
-  sha1 'b05b2bc275998ba65646ce849adfd0bac806655c'
+  url 'http://downloads.sourceforge.net/project/wgs-assembler/wgs-assembler/wgs-8.1/wgs-8.1.tar.bz2'
+  sha1 '76f38c869b4876b414794b59e90d4f36c3e13488'
 
   def install
     ENV.j1
