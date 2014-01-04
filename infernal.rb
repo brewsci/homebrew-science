@@ -2,8 +2,8 @@ require 'formula'
 
 class Infernal < Formula
   homepage 'http://infernal.janelia.org/'
-  url 'ftp://selab.janelia.org/pub/software/infernal/infernal-1.1rc1.tar.gz'
-  sha1 '89077437c53d36fac37ba1e677ce05c112cd7588'
+  url 'http://selab.janelia.org/software/infernal/infernal-1.1.tar.gz'
+  sha1 'b3bd2659fdda1c1af35c3b3e40f61fcdac23c3a3'
 
   option 'check', 'Run the test suite (`make check`). Takes a couple of minutes.'
 
