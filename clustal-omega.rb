@@ -2,8 +2,8 @@ require 'formula'
 
 class ClustalOmega < Formula
   homepage 'http://www.clustal.org/omega/'
-  url 'http://www.clustal.org/omega/clustal-omega-1.1.0.tar.gz'
-  sha1 'b8c8ac500811c50a335c9dc2fcaf47a7245fa6a0'
+  url 'http://www.clustal.org/omega/clustal-omega-1.2.0.tar.gz'
+  sha1 '3416bdc81328fa955a500aaf6c3a77414c8e0c2b'
 
   depends_on 'argtable'
 
