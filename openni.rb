@@ -45,7 +45,7 @@ class Openni < Formula
     lib.install Dir['Lib/*']
     (include+'ni').install Dir['Include/*']
     (share+'java').install Dir['Jar/*']
-    (share+'samples').install Dir['Samples/*']
+    (share+'openni/samples').install Dir['Samples/*']
     doc.install 'Documentation'
   end
 
