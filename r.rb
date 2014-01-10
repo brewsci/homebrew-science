@@ -12,6 +12,7 @@ class R < Formula
   depends_on 'readline'
   depends_on 'libtiff'
   depends_on 'jpeg'
+  depends_on 'cairo'
   depends_on :x11
   depends_on 'valgrind' => :optional
   depends_on 'openblas' => :optional
