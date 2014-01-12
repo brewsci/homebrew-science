@@ -1,10 +1,9 @@
 require 'formula'
 
 class Raxml < Formula
-  homepage 'http://sco.h-its.org/exelixis/software.html'
-  url 'http://sco.h-its.org/exelixis/countSource728.php'
-  version '7.2.8-alpha'
-  sha1 '06088d8db5e66193604b6837cb1aec226895aa58'
+  homepage 'http://sco.h-its.org/exelixis/web/software/raxml/index.html'
+  url 'https://github.com/stamatak/standard-RAxML/archive/v8.0.1.tar.gz'
+  sha1 'ddfeea52f0e7e64e7165e6c030b2a7cea4be6c7a'
 
   head 'https://github.com/stamatak/standard-RAxML.git'
 
