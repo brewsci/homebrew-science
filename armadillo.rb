@@ -6,7 +6,7 @@ class Armadillo < Formula
   sha1 '93c40772f1d20ca4c0de4e0f758cc2c59f2ab20f'
 
   depends_on 'cmake' => :build
-  depends_on 'boost'
+  depends_on 'arpack'
 
   option :cxx11
 
