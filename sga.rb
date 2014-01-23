@@ -2,8 +2,8 @@ require 'formula'
 
 class Sga < Formula
   homepage 'https://github.com/jts/sga'
-  url 'https://github.com/jts/sga/archive/v0.10.12.tar.gz'
-  sha1 'b51a5f6bb70dd4cedae303afeca98bed171d79c3'
+  url 'https://github.com/jts/sga/archive/v0.10.13.tar.gz'
+  sha1 '36d5a23a393c968120988dd94bad9d561b0e0c4e'
   head 'https://github.com/jts/sga.git'
 
   depends_on :autoconf => :build
@@ -11,12 +11,6 @@ class Sga < Formula
   # Only header files are used, so :build is appropriate
   depends_on 'google-sparsehash' => :build
   depends_on 'bamtools'
-
-  # Reported upstream: https://github.com/jts/sga/issues/56
-  fails_with :clang do
-    build 500
-    cause "error: 'tr1/unordered_set' file not found"
-  end
 
   def install
     cd 'src' do
