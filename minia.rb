@@ -2,8 +2,8 @@ require 'formula'
 
 class Minia < Formula
   homepage 'http://minia.genouest.org/'
-  url 'http://minia.genouest.org/files/minia-1.5418.tar.gz'
-  sha1 '25299d6d236b80c044f153c101c4266c88698a87'
+  url 'http://minia.genouest.org/files/minia-1.6088.tar.gz'
+  sha1 'ce3252e4fce9c86d3bba9cac9a3a90f50cfb3284'
 
   def install
     system 'make'
