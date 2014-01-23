@@ -13,10 +13,10 @@ class Velvet < Formula
       s.change_make_var! "CFLAGS", "-Wall -m64"
     end
 
-    args = ["OPENMP=1", "LONGSEQUENCES=1"]
-    if ENV['MAXKMERLENGTH']
-      args << ("MAXKMERLENGTH=" + ENV['MAXKMERLENGTH'])
-    end
+    args = ["LONGSEQUENCES=1"]
+    args << "OPENMP=1" unless ENV.compiler == :clang
+    args << ("MAXKMERLENGTH=" + ENV['MAXKMERLENGTH']) if ENV['MAXKMERLENGTH']
+    args << ("CATEGORIES=" + ENV['CATEGORIES']) if ENV['CATEGORIES']
 
     system "make", "velveth", "velvetg", *args
     bin.install 'velveth', 'velvetg'
@@ -28,7 +28,15 @@ class Velvet < Formula
   def caveats
     <<-EOS.undent
       If you want to build with a different kmer length, you can set
-      MAXKMERLENGTH=X to a value (X) *before* you brew this formula.
+      the environmental variable MAXKMERLENGTH=X to a value (X) *before*
+      you brew this formula.
+      
+      If you want to build with support for multiple categories, you
+      can set the environmental variable CATEGORIES=X to a value (X)
+      *before* you brew this formula.
+      
+      The values used at build time were:
+      #{args}
 
       Some additional user contributed scripts are installed here:
       #{share}/velvet/contrib
