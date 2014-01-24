@@ -49,8 +49,7 @@ class Qgis < Formula
       -DQGIS_MACAPP_BUNDLE=0
       -DQGIS_MACAPP_DEV_PREFIX='#{prefix}/Frameworks'
       -DQGIS_MACAPP_INSTALL_DEV=YES
-      -DPYTHON_INCLUDE_DIR='#{python.incdir}'
-      -DPYTHON_LIBRARY='#{python.libdir}/lib#{python.xy}.dylib'
+      -DPYTHON_LIBRARY='#{%x(python-config --prefix).chomp}/lib/libpython2.7.dylib'
     ]
 
     args << "-DGRASS_PREFIX='#{Formula.factory('grass').opt_prefix}'" if build.with? 'grass'
@@ -62,25 +61,23 @@ class Qgis < Formula
     ENV.append 'CXXFLAGS', "-F#{Formula.factory('qt').opt_prefix}/lib"
 
     Dir.mkdir 'build'
-    python do
-      Dir.chdir 'build' do
-        system 'cmake', '..', *args
-        system 'make install'
-      end
-
-      py_lib = lib/"#{python.xy}/site-packages"
-      qgis_modules = prefix + 'QGIS.app/Contents/Resources/python/qgis'
-      py_lib.mkpath
-      ln_s qgis_modules, py_lib + 'qgis'
-
-      # Create script to launch QGIS app
-      (bin + 'qgis').write <<-EOS.undent
-        #!/bin/sh
-        # Ensure Python modules can be found when QGIS is running.
-        env PATH='#{HOMEBREW_PREFIX}/bin':$PATH PYTHONPATH='#{HOMEBREW_PREFIX}/lib/#{python.xy}/site-packages':$PYTHONPATH\\
-          open #{prefix}/QGIS.app
-      EOS
+    Dir.chdir 'build' do
+      system 'cmake', '..', *args
+      system 'make install'
     end
+
+    py_lib = lib/"python2.7/site-packages"
+    qgis_modules = prefix + 'QGIS.app/Contents/Resources/python/qgis'
+    py_lib.mkpath
+    ln_s qgis_modules, py_lib + 'qgis'
+
+    # Create script to launch QGIS app
+    (bin + 'qgis').write <<-EOS.undent
+      #!/bin/sh
+      # Ensure Python modules can be found when QGIS is running.
+      env PATH='#{HOMEBREW_PREFIX}/bin':$PATH PYTHONPATH='#{HOMEBREW_PREFIX}/lib/python2.7/site-packages':$PYTHONPATH\\
+        open #{prefix}/QGIS.app
+    EOS
   end
 
   def caveats
@@ -94,12 +91,11 @@ class Qgis < Formula
       You may also symlink QGIS.app into ~/Applications:
         brew linkapps
         mkdir -p #{ENV['HOME']}/.MacOSX
-        defaults write #{ENV['HOME']}/.MacOSX/environment.plist PYTHONPATH -string "#{HOMEBREW_PREFIX}/lib/#{python.xy}/site-packages"
+        defaults write #{ENV['HOME']}/.MacOSX/environment.plist PYTHONPATH -string "#{HOMEBREW_PREFIX}/lib/python2.7/site-packages"
 
       You will need to log out and log in again to make environment.plist effective.
 
     EOS
-    s += python.standard_caveats if python
     s
   end
 end
