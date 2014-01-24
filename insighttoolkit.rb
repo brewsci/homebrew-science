@@ -51,23 +51,17 @@ class Insighttoolkit < Formula
     ENV.cxx11 if build.cxx11?
 
     mkdir 'itk-build' do
-      python do
-        args = args + %W[
+      if build.with? "python"
+        args += %W[
           -DITK_WRAP_PYTHON=ON
           -DModule_ITKVtkGlue=ON
           -DCMAKE_C_FLAGS='-ansi'
         ]
-        # Cmake picks up the system's python dylib, even if we have a brewed one.
-        args << "-DPYTHON_LIBRARY='#{python.libdir}/lib#{python.xy}.dylib'"
-        # The make and make install have to be inside the python do loop
-        # because the PYTHONPATH is defined by this block (and not outside)
-        system "cmake", *args
-        system "make install"
+        # CMake picks up the system's python dylib, even if we have a brewed one.
+        args << "-DPYTHON_LIBRARY='#{%x(python-config --prefix).chomp}/lib/libpython2.7.dylib'"
       end
-      if not python then  # no python bindings
-        system "cmake", *args
-        system "make install"
-      end
+      system "cmake", *args
+      system "make", "install"
     end
   end
 end
