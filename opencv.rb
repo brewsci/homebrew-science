@@ -47,9 +47,7 @@ class Opencv < Formula
       -DBUILD_JASPER=OFF
       -DBUILD_TESTS=OFF
       -DBUILD_PERF_TESTS=OFF
-      -DPYTHON_INCLUDE_DIR='#{python.incdir}'
-      -DPYTHON_LIBRARY='#{python.libdir}/lib#{python.xy}.dylib'
-      -DPYTHON_EXECUTABLE='#{python.binary}'
+      -DPYTHON_LIBRARY='#{%x(python-config --prefix).chomp}/lib/libpython2.7.dylib'
     ]
 
     if build.build_32_bit?
@@ -76,10 +74,6 @@ class Opencv < Formula
       system "make"
       system "make install"
     end
-  end
-
-  def caveats
-    python.standard_caveats if python
   end
 end
 # If openni was installed using homebrew, look for it on the proper path
