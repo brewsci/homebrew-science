@@ -24,10 +24,7 @@ class Vtk < Formula
 
   # If --with-qt and --with-python, then we automatically use PyQt, too!
   if build.with? 'qt'
-    if build.with? 'python3'
-      depends_on 'sip'  => 'with-python3' # because python3 is optional for sip
-      depends_on 'pyqt' => 'with-python3' # because python3 is optional for pyqt
-    elsif build.with? 'python'
+    if build.with? 'python'
       depends_on 'sip'
       depends_on 'pyqt'
     end
@@ -101,12 +98,10 @@ class Vtk < Formula
     ENV.cxx11 if build.cxx11?
 
     mkdir 'build' do
-      python do
+      if build.with? "python"
         args << '-DVTK_WRAP_PYTHON=ON'
-        # For Xcode-only systems, the headers of system's python are inside of Xcode:
-        args << "-DPYTHON_INCLUDE_DIR='#{python.incdir}'"
-        # Cmake picks up the system's python dylib, even if we have a brewed one:
-        args << "-DPYTHON_LIBRARY='#{python.libdir}/lib#{python.xy}.dylib'"
+        # CMake picks up the system's python dylib, even if we have a brewed one.
+        args << "-DPYTHON_LIBRARY='#{%x(python-config --prefix).chomp}/lib/libpython2.7.dylib'"
         # Set the prefix for the python bindings to the Cellar
         if !build.head?
           args << "-DVTK_PYTHON_SETUP_ARGS:STRING='--prefix=#{prefix} --single-version-externally-managed --record=installed.txt'"
@@ -116,25 +111,17 @@ class Vtk < Formula
           # There is also no more support for setup.py, so no need for :
           # --single-version-externally-managed --record=installed.txt
           # For vtk 6.1 we should clean this up and use only the new VTK_INSTALL_PYTHON_MODULE_DIR
-          args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{lib}/#{python.xy}/site-packages'"
+          args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{lib}/python2.7/site-packages'"
         end
         if build.with? 'pyqt'
           args << '-DVTK_WRAP_PYTHON_SIP=ON'
-          args << "-DSIP_PYQT_DIR='#{HOMEBREW_PREFIX}/share/sip#{python.if3then3}'"
+          args << "-DSIP_PYQT_DIR='#{HOMEBREW_PREFIX}/share/sip'"
         end
-        # The make and make install have to be inside the python do loop
-        # because the PYTHONPATH is defined by this block (and not outside)
-        args << ".."
-        system 'cmake', *args
-        system 'make'
-        system 'make install'
       end
-      if not python then  # no python bindings
-        args << ".."
-        system 'cmake', *args
-        system 'make'
-        system 'make install'
-      end
+      args << ".."
+      system "cmake", *args
+      system "make"
+      system "make", "install"
     end
 
     (share+'vtk').install 'Examples' if build.include? 'examples'
@@ -142,7 +129,6 @@ class Vtk < Formula
 
   def caveats
     s = ''
-    s += python.standard_caveats if python
     s += <<-EOS.undent
         Even without the --with-qt option, you can display native VTK render windows
         from python. Alternatively, you can integrate the RenderWindowInteractor
