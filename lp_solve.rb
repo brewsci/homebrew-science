@@ -21,7 +21,7 @@ class NumpyHasHeaders < Requirement
     unless MacOS::CLT.installed?
       s += "  * Install the 'Command Line Tools for Xcode' via the Preferences in Xcode.\n"
     end
-    s += "  * `brew tap samueljohn/python` and `brew install numpy`\n"
+    s += "  * `brew tap homebrew/python` and `brew install numpy`\n"
     s += "  * `pip install numpy`\n"
     s
   end
