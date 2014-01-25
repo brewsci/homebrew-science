@@ -2,8 +2,8 @@ require 'formula'
 
 class Pymol < Formula
   homepage 'http://pymol.org'
-  url 'http://downloads.sourceforge.net/project/pymol/pymol/1.6/pymol-v1.6.0.0.tar.bz2'
-  sha1 '0446fd67ef22594eb5060ab07e69993c384b2e41'
+  url 'http://downloads.sourceforge.net/project/pymol/pymol/1.7/pymol-v1.7.0.0.tar.bz2'
+  sha1 'b663c3779fc50a709adb8bfd8c275a7e44c4b54d'
   head 'https://pymol.svn.sourceforge.net/svnroot/pymol/trunk/pymol'
 
   depends_on "glew"
