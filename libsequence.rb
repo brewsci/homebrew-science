@@ -2,8 +2,9 @@ require 'formula'
 
 class Libsequence < Formula
   homepage 'http://molpopgen.org/software/libsequence.html'
-  url 'http://molpopgen.org/software/libsequence/libsequence-1.7.6.tar.gz'
-  sha1 '19c96a60767a317d1f4ac76cebb32cd07bd23f01'
+  url 'http://molpopgen.org/software/libsequence/libsequence-1.8.0.tar.gz'
+  sha1 'c69b59226878b6eea399f67bab7ff2700eab26f5'
+  head 'https://github.com/molpopgen/libsequence.git'
 
   depends_on 'boost' => :build
 
