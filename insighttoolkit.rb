@@ -23,6 +23,15 @@ class Insighttoolkit < Formula
   option 'with-itkv3-compatibility', 'Include ITKv3 compatibility'
   option 'remove-legacy', 'Disable legacy APIs'
   option 'with-review', 'Enable modules under review'
+  
+  if build.with? 'python'
+    onoe <<-EOS.undent
+      Building ITK with Python Wrapping is currently not working out of the box on Mac.
+      A fix will eventually come as the ITK community is currently working on this.
+      Working Python binaries can be found here : https://github.com/iMichka/homebrew-MacVTKITKPythonBottles
+      EOS
+    exit 1
+  end
 
   def install
     args = std_cmake_args + %W[
