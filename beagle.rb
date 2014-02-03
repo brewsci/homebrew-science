@@ -32,6 +32,7 @@ end
 
 class Beagle < Formula
   homepage 'http://beagle-lib.googlecode.com/'
+  url 'http://beagle-lib.googlecode.com/svn/tags/beagle_release_2_1/'
   head 'http://beagle-lib.googlecode.com/svn/trunk/'
 
   option 'with-opencl', "Build with OpenCL GPU/CPU acceleration"
