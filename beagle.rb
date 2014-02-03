@@ -42,10 +42,6 @@ class Beagle < Formula
   depends_on :libtool
   depends_on CudaRequirement => :optional
 
-  def patches
-    DATA
-  end
-
   def install
     system "./autogen.sh"
 
@@ -67,18 +63,3 @@ class Beagle < Formula
     system "make check" unless build.with? 'opencl'
   end
 end
-
-__END__
-diff --git a/configure.ac b/configure.ac
-index eba488f..e7d7e36 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -64,7 +64,7 @@ AM_DISABLE_STATIC
- AC_PROG_LIBTOOL
- AM_PROG_LIBTOOL
-
--AM_CONFIG_HEADER(libhmsbeagle/config.h)
-+AC_CONFIG_HEADERS(libhmsbeagle/config.h)
-
- # needed to support old automake versions
- AC_SUBST(abs_top_builddir)
