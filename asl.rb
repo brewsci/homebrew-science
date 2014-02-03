@@ -2,8 +2,8 @@ require 'formula'
 
 class Asl < Formula
   url 'http://www.ampl.com/netlib/ampl/solvers.tgz'
-  sha1 'e5c8f11fc20a33cddb724d0909959b555e9da869'
-  version '20131209'
+  sha1 '7ed479eaabba072f248cafb46ae668d8c6f00813'
+  version '20140131'
   homepage 'http://www.ampl.com/hooking.html'
 
   def install
