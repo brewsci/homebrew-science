@@ -73,6 +73,8 @@ class LpSolve < Formula
     # Note, the demo does not build with lpsolve55. Upstream issue.
 
     include.install Dir['*.h']
+    include.install 'shared/commonlib.h', 'shared/myblas.h'
+    include.install Dir['bfp/bfp_LUSOL/LUSOL/lusol*.h']
 
     if build.include? 'python' then
       # In order to install into the Cellar, the dir must exist and be in the
