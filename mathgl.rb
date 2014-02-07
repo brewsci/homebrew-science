@@ -2,26 +2,20 @@ require 'formula'
 
 class Mathgl < Formula
   homepage 'http://mathgl.sourceforge.net/'
-  url 'http://downloads.sourceforge.net/mathgl/mathgl-2.1.3.1.tar.gz'
-  sha1 '09a2cacc146c77c69d007579fc787ec3fb5019a2'
-
-  option 'fltk',   'Build the fltk widget and mglview using X11'
-  option 'qt4',    'Build the Qt widget, the udav gui, and mglview using Qt4'
-  option 'wx',     'Build the wxWidget widget'
-  option 'gif',    'Build support for GIF'
-  option 'hdf5',   'Build support for hdf5'
+  url 'http://downloads.sourceforge.net/mathgl/mathgl-2.2.1.tar.gz'
+  sha1 '49279952f97a65f8ec5ba89ed66313b48e06573d'
 
   depends_on 'cmake'   => :build
   depends_on 'gsl'     => :recommended
   depends_on 'jpeg'    => :recommended
   depends_on 'libharu' => :recommended
   depends_on :libpng   => :recommended
-  depends_on 'hdf5'   if build.include? 'hdf5'
-  depends_on 'fltk'   if build.include? 'fltk'
-  depends_on 'qt'     if build.include? 'qt4'
-  depends_on 'wxmac'  if build.include? 'wx'
-  depends_on 'giflib' if build.include? 'gif'
-  depends_on :x11 if build.include? 'fltk'
+  depends_on 'hdf5'    => :optional
+  depends_on 'fltk'    => :optional
+  depends_on 'qt'      => :optional
+  depends_on 'wxmac'   => :optional
+  depends_on 'giflib'  => :optional
+  depends_on :x11 if build.with? 'fltk'
 
   def install
     args = std_cmake_args + %w[
@@ -34,11 +28,12 @@ class Mathgl < Formula
       -Denable-octave=OFF
     ]
 
-    args << '-Denable-qt=ON'      if build.include? 'qt4'
-    args << '-Denable-gif=ON'     if build.include? 'gif'
-    args << '-Denable-hdf5_18=ON' if build.include? 'hdf5'
-    args << '-Denable-fltk=ON'    if build.include? 'fltk'
-    args << '-Denable-wx=ON'      if build.include? 'wx'
+    args << '-Denable-openmp=' + ((ENV.compiler == :clang) ? 'OFF' : 'ON')
+    args << '-Denable-qt=ON'      if build.with? 'qt'
+    args << '-Denable-gif=ON'     if build.with? 'giflib'
+    args << '-Denable-hdf5_18=ON' if build.with? 'hdf5'
+    args << '-Denable-fltk=ON'    if build.with? 'fltk'
+    args << '-Denable-wx=ON'      if build.with? 'wxmac'
     args << '..'
     rm 'ChangeLog' if File.exist? 'ChangeLog' # rm this problematic symlink.
     mkdir 'brewery' do
