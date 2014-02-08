@@ -20,6 +20,11 @@ class FastxToolkit < Formula
   end
   depends_on 'pkg-config' => :build
 
+  fails_with :clang do
+     build 425
+     cause 'Requires C++11 available in clang build 500 or newer.'
+  end
+
   def install
     Libgtextutils.new.brew do
       if build.head?
