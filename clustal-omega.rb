@@ -12,4 +12,8 @@ class ClustalOmega < Formula
                           "--prefix=#{prefix}"
     system "make install"
   end
+
+  test do
+    system bin/'clustalo', '--version'
+  end
 end
