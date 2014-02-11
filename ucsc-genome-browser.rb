@@ -15,6 +15,9 @@ class UcscGenomeBrowser < Formula
   depends_on :mysql
 
   def install
+    # Patch for v294, fixed in HEAD
+    inreplace "src/hg/js/makefile", "cp -p --update", "rsync -a" unless build.head?
+
     ENV.j1
     machtype = `uname -m`.chomp
     user = `whoami`.chomp
