@@ -3,6 +3,7 @@ require 'formula'
 class R < Formula
   homepage 'http://www.r-project.org'
   url 'http://cran.r-project.org/src/base/R-3/R-3.0.3.tar.gz'
+  mirror 'http://cran.cnr.berkeley.edu/src/base/R-3/R-3.0.3.tar.gz'
   sha1 '82e83415d27a2fbbdcacb41c4aa14d8b36fdf470'
   head 'https://svn.r-project.org/R/trunk'
 
@@ -10,6 +11,7 @@ class R < Formula
 
   depends_on :fortran
   depends_on 'readline'
+  depends_on 'gettext'
   depends_on 'libtiff'
   depends_on 'jpeg'
   depends_on 'cairo'
@@ -28,6 +30,7 @@ class R < Formula
     args = [
       "--prefix=#{prefix}",
       "--with-aqua",
+      "--with-libintl-prefix=#{Formula['gettext'].prefix}",
       "--enable-R-framework",
     ]
 
@@ -38,6 +41,9 @@ class R < Formula
 
     args << '--with-lapack' + ((build.with? 'openblas') ? '=-lopenblas' : '')
     args << '--with-blas=-lopenblas' if build.with? 'openblas'
+
+    # Also add gettext include so that libintl.h can be found when installing packages.
+    ENV.append "CPPFLAGS", "-I#{Formula['gettext'].include}"
 
     # Pull down recommended packages if building from HEAD.
     system './tools/rsync-recommended' if build.head?
