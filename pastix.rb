@@ -2,8 +2,8 @@ require 'formula'
 
 class Pastix < Formula
   homepage 'http://pastix.gforge.inria.fr'
-  url 'https://gforge.inria.fr/frs/download.php/33176/pastix_release_edcb9ab.tar.bz2'
-  sha1 '21e687f2fd1f7ce5243d969ff417659aeb7e5cbe'
+  url 'https://gforge.inria.fr/frs/download.php/33274/pastix_release_bugfix3_6eafa91.tar.bz2'
+  sha1 '9ab64ed4243928255102a980a85c4b9ae222401e'
   head 'git://scm.gforge.inria.fr/ricar/ricar.git'
   version '5.2.2'
 
@@ -16,6 +16,8 @@ class Pastix < Formula
   depends_on :fortran
 
   def install
+    ENV.deparallelize
+
     cd 'src' do
       cp 'config/MAC.in', 'config.in'
       inreplace 'config.in' do |s|
