@@ -8,8 +8,10 @@ class Root < Formula
   head 'https://github.com/root-mirror/root.git', :branch => 'v5-34-00-patches'
 
   option 'with-x11', "Use X11 for graphics backend instead of Cocoa"
+  option 'with-qt', "Build with Qt graphics backend and GSI's Qt integration"
   depends_on 'xrootd' => :recommended
   depends_on 'fftw' => :optional
+  depends_on 'qt' => [:optional, 'with-qt3support']
   depends_on :x11
   depends_on :python
 
@@ -31,6 +33,9 @@ class Root < Formula
     arch = MacOS.prefer_64_bit? ? 'macosx64' : 'macosx'
     cocoa_flag = (build.with? 'x11') ? "--disable-cocoa" : "--enable-cocoa"
 
+    qt_flag = (build.with? 'qt') ? "--enable-qt" : "--disable-qt"
+    qtgsi_flag = (build.with? 'qt') ? "--enable-qtgsi" : "--disable-qtgsi"
+
     # N.B. that it is absolutely essential to specify
     # the --etcdir flag to the configure script.  This is
     # due to a long-known issue with ROOT where it will
@@ -42,9 +47,19 @@ class Root < Formula
            "--all",
            "--enable-builtin-glew",
            "#{cocoa_flag}",
+	   "#{qt_flag}", "#{qtgsi_flag}",
            "--prefix=#{prefix}",
            "--etcdir=#{prefix}/etc/root",
            "--mandir=#{man}"
+
+    # ROOT configure script does not search for Qt framework
+    if build.with? 'qt'
+      inreplace "config/Makefile.config" do |s|
+	s.gsub! /^QTLIBDIR .*/, "QTLIBDIR := -F #{HOMEBREW_PREFIX}/lib"
+	s.gsub! /^QTLIB .*/, "QTLIB := -framework QtCore -framework QtGui -framework Qt3Support"
+      end
+    end
+
     system "make"
     system "make install"
 
