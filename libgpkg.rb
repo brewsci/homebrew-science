@@ -44,10 +44,10 @@ class Libgpkg < Formula
 
   def caveats; <<-EOS.undent
       Custom SQLite command-line shell that autoloads static GeoPackage extension:
-	#{opt_prefix}/bin/gpkg
+      #{opt_prefix}/bin/gpkg
 
       Make sure to review Usage (extension loading) and Function Reference docs:
-	https://bitbucket.org/luciad/libgpkg/wiki/Home
+      https://bitbucket.org/luciad/libgpkg/wiki/Home
 
   EOS
   end
