@@ -9,8 +9,10 @@ class Bowtie2 < Formula
   def patches
     # Handle bowtie2 being a relative symlink. Reported upstream:
     # https://github.com/BenLangmead/bowtie2/pull/3
-    'https://github.com/sjackman/bowtie2/commit/3c3ef74afd4984b5506a19445c6a8b1cdfbc1f42.patch'
-  end unless build.head?
+    unless build.head?
+      'https://github.com/sjackman/bowtie2/commit/3c3ef74afd4984b5506a19445c6a8b1cdfbc1f42.patch'
+    end
+  end
 
   def install
     system "make"
