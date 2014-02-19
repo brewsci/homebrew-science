@@ -11,13 +11,15 @@ class FastxToolkit < Formula
   homepage 'http://hannonlab.cshl.edu/fastx_toolkit/'
   url 'https://github.com/agordon/fastx_toolkit/releases/download/0.0.14/fastx_toolkit-0.0.14.tar.bz2'
   sha1 'd8434af2dd647e303506a54ab14fe667aabc1a86'
-  head 'https://github.com/agordon/fastx_toolkit.git'
 
-  if build.head?
+  head do
+    url 'https://github.com/agordon/fastx_toolkit.git'
+
     depends_on :autoconf => :build
     depends_on :automake => :build
     depends_on :libtool => :build
   end
+
   depends_on 'pkg-config' => :build
 
   fails_with :clang do
