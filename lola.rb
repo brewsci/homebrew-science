@@ -2,16 +2,19 @@ require 'formula'
 
 class Lola < Formula
   homepage 'http://www.informatik.uni-rostock.de/tpp/lola/'
-  head 'http://svn.gna.org/svn/service-tech/trunk/lola'
   url 'http://download.gna.org/service-tech/lola/lola-1.17.tar.gz'
   sha1 '05e45e46f2fb2681ef369c2fd63f88115a912c55'
 
-  depends_on 'autoconf' if build.head?
-  depends_on 'automake' if build.head?
-  depends_on 'flex' if build.head?
-  depends_on 'bison' if build.head?
-  depends_on 'gengetopt' if build.head?
-  depends_on 'help2man' if build.head?
+  head do
+    url 'http://svn.gna.org/svn/service-tech/trunk/lola'
+
+    depends_on 'autoconf' => :build
+    depends_on 'automake' => :build
+    depends_on 'flex' => :build
+    depends_on 'bison' => :build
+    depends_on 'gengetopt' => :build
+    depends_on 'help2man' => :build
+  end
 
   def install
     ENV.deparallelize
