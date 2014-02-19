@@ -23,7 +23,7 @@ class Insighttoolkit < Formula
   option 'with-itkv3-compatibility', 'Include ITKv3 compatibility'
   option 'remove-legacy', 'Disable legacy APIs'
   option 'with-review', 'Enable modules under review'
-  
+
   if build.with? 'python'
     onoe <<-EOS.undent
       Building ITK with Python Wrapping is currently not working out of the box on Mac.
