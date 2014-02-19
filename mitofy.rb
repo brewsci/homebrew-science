@@ -19,6 +19,19 @@ class Mitofy < Formula
     end
   end
 
+  def caveats; <<-EOS.undent
+    To use the Mitofy web app, run the following commands:
+      sudo cp #{opt_prefix}/libexec/cgi/* /Library/WebServer/CGI-Executables/
+      sudo mkdir /Library/WebServer/CGI-Executables/cgi_out
+      sudo chown _www:_www /Library/WebServer/CGI-Executables/cgi_out
+      sudo apachectl start
+    To start the web server Apache when your computer boots, run this command:
+      sudo defaults write /System/Library/LaunchDaemons/org.apache.httpd Disabled -bool false
+    Annotation results will be stored in
+      /Library/WebServer/CGI-Executables/cgi_out
+    EOS
+  end
+
   test do
     system 'mitofy'
   end
