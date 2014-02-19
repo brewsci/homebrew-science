@@ -7,7 +7,7 @@ class Root < Formula
   sha1 'e229e6c2fb9b0e158d5bd1af964b9e938b83172c'
   head 'https://github.com/root-mirror/root.git', :branch => 'v5-34-00-patches'
 
-  option 'with-cocoa', "Use Cocoa for graphics backend instead of X11 (useful on Retina displays)"
+  option 'with-x11', "Use X11 for graphics backend instead of Cocoa"
   depends_on 'xrootd' => :recommended
   depends_on 'fftw' => :optional
   depends_on :x11
@@ -15,7 +15,7 @@ class Root < Formula
 
   def patches
     # http://trac.macports.org/ticket/36777
-    { :p0 => "http://trac.macports.org/raw-attachment/ticket/36777/patch-builtin-afterimage-disabletiff.diff" } if build.with? 'cocoa'
+    { :p0 => "http://trac.macports.org/raw-attachment/ticket/36777/patch-builtin-afterimage-disabletiff.diff" } if build.without? 'x11'
   end
 
   def install
@@ -29,7 +29,7 @@ class Root < Formula
 
     # Determine architecture
     arch = MacOS.prefer_64_bit? ? 'macosx64' : 'macosx'
-    cocoa_flag = (build.with? 'cocoa') ? "--enable-cocoa" : "--disable-cocoa"
+    cocoa_flag = (build.with? 'x11') ? "--disable-cocoa" : "--enable-cocoa"
 
     # N.B. that it is absolutely essential to specify
     # the --etcdir flag to the configure script.  This is
