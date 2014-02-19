@@ -29,8 +29,10 @@ class Ray < Formula
   end
 
   def patches
-    'https://github.com/sebhtml/ray/commit/e1ad06d8cb55427ff4bcca647b7bd4e4416619e3.patch'
-  end unless build.head?
+    unless build.head?
+      'https://github.com/sebhtml/ray/commit/e1ad06d8cb55427ff4bcca647b7bd4e4416619e3.patch'
+    end
+  end
 
   def install
     if build.head?
