@@ -1,28 +1,45 @@
 require 'formula'
 
 class Bedops < Formula
-  homepage 'https://code.google.com/p/bedops/'
-  url 'https://bedops.googlecode.com/files/bedops_macosx_intel_fat-v2.0.0b.tgz'
-  sha1 '4ca3844e626dae4b16a710078a3a37994fab0e69'
+  homepage 'https://github.com/bedops/bedops'
+  head 'https://github.com/bedops/bedops.git'
 
-  def install
-    bin.install 'bedops'
-    libexec.install %W(bam2bed bam2starch bbms bbms.py bedextract
-      bedmap closest-features gff2bed gtf2bed sam2bed sam2starch
-      sort-bed starch starchcat starchcluster starchcluster.gnu_parallel
-      unstarch vcf2bed wig2bed)
+  url 'https://github.com/bedops/bedops/archive/v2.3.0.tar.gz'
+  sha1 'ffb82320a8071af94bbf6e7d2d5834e5c8c14fc7'
+
+  devel do
+    version '2.4.1-rc1'
+    url 'https://github.com/bedops/bedops/archive/v2.4.1-rc1.tar.gz'
+    sha1 '436c769af8ffac70f4d7f02922915d3c71c5af88'
   end
 
-  def caveats
-    <<-EOS.undent
-      `bedops` is installed in
-        #{bin}
-      and other executables are installed in
-        #{libexec}
-    EOS
+  # Fixed in 2.4.1-rc1
+  fails_with :clang do
+    build 500
+    cause "error: no matching constructor for initialization of 'Ext::Assert<UE>'"
+  end unless build.devel? || build.head?
+
+  fails_with :gcc do
+    build 5666
+    cause 'error: unrecognized command line option "-std=c++11"'
+  end
+
+  def install
+    ENV.deparallelize
+
+    # Fix for
+    # error: assigning to 'struct object_key *' from incompatible type 'void *'
+    # See https://github.com/Homebrew/homebrew-science/issues/666
+    ENV.delete 'CC'
+    ENV.delete 'CXX'
+
+    system 'make'
+    system 'make', 'install'
+    bin.install Dir['bin/*']
+    doc.install %w[LICENSE README.md]
   end
 
   test do
-    system 'bedops', '--help'
+    system "#{bin}/bedops", '--version'
   end
 end
