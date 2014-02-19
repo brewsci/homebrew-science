@@ -4,8 +4,8 @@ class Bedops < Formula
   homepage 'https://github.com/bedops/bedops'
   head 'https://github.com/bedops/bedops.git'
 
-  url 'https://github.com/bedops/bedops/archive/v2.3.0.tar.gz'
-  sha1 'ffb82320a8071af94bbf6e7d2d5834e5c8c14fc7'
+  url 'https://github.com/bedops/bedops/archive/v2.4.0.tar.gz'
+  sha1 'fc369ba3f521b0664786e9b4018f39f9a67b6701'
 
   devel do
     version '2.4.1-rc1'
