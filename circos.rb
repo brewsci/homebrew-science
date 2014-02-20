@@ -21,6 +21,15 @@ class Circos < Formula
     bin.install_symlink '../libexec/bin/circos' => 'circos'
   end
 
+  def caveats
+    <<-EOS.undent
+      GD::Polyline fails to install with cpan. Download and install GD.pm manually:
+        perl Makefile.PL && make && make install
+      Alternatively, force install with cpanminus:
+        cpanm --force GD::Polyline
+    EOS
+  end
+
   test do
     system 'circos --version |grep -q ^circos'
   end
