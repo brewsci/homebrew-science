@@ -2,9 +2,9 @@ require 'formula'
 
 class Snpeff < Formula
   homepage 'http://snpeff.sourceforge.net/'
-  url 'http://downloads.sourceforge.net/project/snpeff/snpEff_v3_4_core.zip'
-  version '3.4i'
-  sha1 'd28c11878d718a1ca62b95f27a1d01045a21b196'
+  url 'http://downloads.sourceforge.net/project/snpeff/snpEff_v3_5_core.zip'
+  version '3.5'
+  sha1 'a252d6287d6d15a69676bbcc8502ee83de452bec'
 
   def install
     java = share / 'java'
