@@ -21,16 +21,24 @@ class Circos < Formula
     bin.install_symlink '../libexec/bin/circos' => 'circos'
   end
 
-  def caveats
-    <<-EOS.undent
-      GD::Polyline fails to install with cpan. Download and install GD.pm manually:
-        perl Makefile.PL && make && make install
-      Alternatively, force install with cpanminus:
-        cpanm --force GD::Polyline
+  def caveats; <<-EOS.undent
+    GD::Polyline fails to install with cpan.
+    To install gd and circos, run the following commands:
+      brew remove gd
+      brew install gd --with-freetype
+      brew install cpanminus
+      sudo chown "$USER":admin /Library/Perl/5.16
+      cpanm Config::General Font::TTF::Font Math::Bezier Math::VecStat Readonly Set::IntSpan Text::Format
+      cpanm --force GD::Polyline
+      brew install circos
+    Alternatively, download and install GD.pm manually:
+      perl Makefile.PL && make install
     EOS
   end
 
   test do
-    system 'circos --version |grep -q ^circos'
+    system "cd #{libexec}/bin && ./test.modules"
+    system "#{bin}/circos --version |grep -q ^circos"
+    system "#{bin}/circos -conf #{libexec}/example/etc/circos.conf"
   end
 end
