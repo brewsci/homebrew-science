@@ -2,8 +2,8 @@ require 'formula'
 
 class Bwa < Formula
   homepage 'http://bio-bwa.sourceforge.net/'
-  url 'http://downloads.sourceforge.net/project/bio-bwa/bwa-0.7.5a.tar.bz2'
-  sha1 '3ba4a2df24dc2a2578fb399dc77b3c240a5a18be'
+  url 'http://downloads.sourceforge.net/project/bio-bwa/bwa-0.7.6a.tar.bz2'
+  sha1 'd79ce11e5eee0d958a80909deece30dd1c92bc51'
 
   head 'https://github.com/lh3/bwa.git'
 
