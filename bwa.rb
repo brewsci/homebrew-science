@@ -10,6 +10,7 @@ class Bwa < Formula
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
     bin.install "bwa"
+    doc.install %w[README.md NEWS]
     man1.install "bwa.1"
   end
 end
