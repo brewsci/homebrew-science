@@ -3,7 +3,7 @@ require 'formula'
 class Snpeff < Formula
   homepage 'http://snpeff.sourceforge.net/'
   url 'http://downloads.sourceforge.net/project/snpeff/snpEff_v3_5_core.zip'
-  version '3.5'
+  version '3.5b'
   sha1 'a252d6287d6d15a69676bbcc8502ee83de452bec'
 
   def install
