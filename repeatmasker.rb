@@ -2,9 +2,9 @@ require 'formula'
 
 class Repeatmasker < Formula
   homepage 'http://www.repeatmasker.org/'
-  version '4.0.3'
-  url 'http://www.repeatmasker.org/RepeatMasker-open-4-0-3.tar.gz'
-  sha1 'a9cb37000672c5bb58748d8b5b6169775364ab4c'
+  version '4.0.5'
+  url 'http://www.repeatmasker.org/RepeatMasker-open-4-0-5.tar.gz'
+  sha1 '9b00047639845bcff6dccf4148432ab2378d095c'
 
   option 'without-configure', 'Do not run configure'
 
