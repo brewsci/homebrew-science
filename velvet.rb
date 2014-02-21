@@ -34,9 +34,6 @@ class Velvet < Formula
       If you want to build with support for multiple categories, you
       can set the environmental variable CATEGORIES=X to a value (X)
       *before* you brew this formula.
-      
-      The values used at build time were:
-      #{args}
 
       Some additional user contributed scripts are installed here:
       #{share}/velvet/contrib
