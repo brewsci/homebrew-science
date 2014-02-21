@@ -4,7 +4,7 @@ class Snpeff < Formula
   homepage 'http://snpeff.sourceforge.net/'
   url 'http://downloads.sourceforge.net/project/snpeff/snpEff_v3_5_core.zip'
   version '3.5b'
-  sha1 'a252d6287d6d15a69676bbcc8502ee83de452bec'
+  sha1 '45a0f83b537cfd3c89e4c3b878b298f2614b0e4e'
 
   def install
     java = share / 'java'
