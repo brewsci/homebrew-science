@@ -27,7 +27,7 @@ class Circos < Formula
       brew remove gd
       brew install gd --with-freetype
       brew install cpanminus
-      sudo chown "$USER":admin /Library/Perl/5.16
+      sudo chown -R "$USER":admin /Library/Perl
       cpanm Config::General Font::TTF::Font Math::Bezier Math::VecStat Readonly Set::IntSpan Text::Format
       cpanm --force GD::Polyline
       brew install circos
