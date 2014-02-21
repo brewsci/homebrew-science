@@ -52,16 +52,20 @@ class Mumps < Formula
 
       # Build a shared library.
       s.change_make_var! 'LIBEXT', '.dylib'
-      s.change_make_var! 'CC', "#{ENV.cc} -fPIC"
-      s.change_make_var! 'FC', "#{ENV.fc} -fPIC"
-      s.change_make_var! 'FL', "#{ENV.fc} -fPIC"
       s.change_make_var! 'AR', "$(FL) -shared -Wl,-install_name -Wl,#{lib}/$(notdir $@) -undefined dynamic_lookup -o "  # Must have a trailing whitespace!
       s.change_make_var! 'RANLIB', 'echo'
 
       if build.with? :mpi
+        s.change_make_var! 'CC', "#{ENV['MPICC']} -fPIC"
+        s.change_make_var! 'FC', "#{ENV['MPIFC']} -fPIC"
+        s.change_make_var! 'FL', "#{ENV['MPIFC']} -fPIC"
         s.change_make_var! 'SCALAP', "-L#{Formula.factory('scalapack').lib} -lscalapack"
         s.change_make_var! 'INCPAR', "-I#{Formula.factory('open-mpi').include}"
         s.change_make_var! 'LIBPAR', "$(SCALAP) -L#{Formula.factory('open-mpi').lib} -lmpi -lmpi_mpifh"
+      else
+        s.change_make_var! 'CC', "#{ENV['CC']} -fPIC"
+        s.change_make_var! 'FC', "#{ENV['FC']} -fPIC"
+        s.change_make_var! 'FL', "#{ENV['FC']} -fPIC"
       end
 
       if build.with? 'openblas'
