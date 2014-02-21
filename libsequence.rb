@@ -7,6 +7,7 @@ class Libsequence < Formula
   head 'https://github.com/molpopgen/libsequence.git'
 
   depends_on 'boost' => :build
+  depends_on 'gsl'
 
   def install
     system "./configure", "--enable-shared=no", "--prefix=#{prefix}"
