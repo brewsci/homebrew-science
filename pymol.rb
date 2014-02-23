@@ -55,13 +55,9 @@ class Pymol < Formula
     "python" + `python -c 'import sys;print(sys.version[:3])'`.strip
   end
 
-  def test
-    # commandline test
-    system "pymol","-c"
-    # if build.include? "gui"
-    #   # serious bench test
+  test do
+    system "#{bin}/pymol #{lib}/python2.7/site-packages/pymol/pymol_path/data/demo/pept.pdb"
     #   system "pymol","-b","-d","quit"
-    # end
   end
 
   def caveats
