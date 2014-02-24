@@ -23,7 +23,7 @@ class Snpeff < Formula
     puts <<-EOS.undent
       Download the human database using the command
           snpeff download -v GRCh37.74
-      The databases will be installed in ~/snpEff/data
+      The databases will be installed in #{share}/java/data
     EOS
   end
 
