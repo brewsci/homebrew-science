@@ -12,8 +12,8 @@ class Maker < Formula
   depends_on 'repeatmasker'
   depends_on 'snap'
 
+  depends_on 'Bio::Perl' => :perl
   depends_on 'Bit::Vector' => :perl
-  depends_on 'Bundle::BioPerl' => :perl
   depends_on 'DBD::SQLite' => :perl
   depends_on 'DBI' => :perl
   depends_on 'File::Which' => :perl
