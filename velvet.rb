@@ -30,7 +30,7 @@ class Velvet < Formula
       If you want to build with a different kmer length, you can set
       the environmental variable MAXKMERLENGTH=X to a value (X) *before*
       you brew this formula.
-      
+
       If you want to build with support for multiple categories, you
       can set the environmental variable CATEGORIES=X to a value (X)
       *before* you brew this formula.
