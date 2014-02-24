@@ -2,9 +2,9 @@ require 'formula'
 
 class Root < Formula
   homepage 'http://root.cern.ch'
-  url 'ftp://root.cern.ch/root/root_v5.34.15.source.tar.gz'
-  version '5.34.15'
-  sha1 'e229e6c2fb9b0e158d5bd1af964b9e938b83172c'
+  url 'ftp://root.cern.ch/root/root_v5.34.17.source.tar.gz'
+  version '5.34.17'
+  sha1 '57c8f70fe4f72d1a9b8aea2044fece8756b8c977'
   head 'https://github.com/root-mirror/root.git', :branch => 'v5-34-00-patches'
 
   option 'with-x11', "Use X11 for graphics backend instead of Cocoa"
