@@ -17,6 +17,7 @@ class Viennarna < Formula
   end
 
   test do
-    system "echo 'CGACGUAGAUGCUAGCUGACUCGAUGC' | #{bin}/RNAfold --MEA -p"
+    output = `echo CGACGUAGAUGCUAGCUGACUCGAUGC |#{bin}/RNAfold --MEA`
+    assert output.include?("-1.90 MEA=22.32")
   end
 end
