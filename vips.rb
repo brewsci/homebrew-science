@@ -11,17 +11,17 @@ class Vips < Formula
   depends_on :fontconfig
   depends_on 'gettext'
   depends_on 'glib'
-  depends_on :libpng => :optional
-  depends_on 'jpeg' => :optional
-  depends_on 'orc' => :optional
+  depends_on :libpng => :recommended
+  depends_on 'jpeg' => :recommended
+  depends_on 'orc' => :recommended
   depends_on 'openslide' => :optional
-  depends_on 'libtiff' => :optional
+  depends_on 'libtiff' => :recommended
   depends_on 'imagemagick' => :optional
   depends_on 'graphicsmagick' => :optional
-  depends_on 'fftw' => :optional
-  depends_on 'little-cms' => :optional
-  depends_on 'pango' => :optional
-  depends_on 'libexif' => :optional
+  depends_on 'fftw' => :recommended
+  depends_on 'little-cms' => :recommended
+  depends_on 'pango' => :recommended
+  depends_on 'libexif' => :recommended
   depends_on 'openexr' => :optional
   depends_on 'cfitsio' => :optional
   depends_on 'webp' => :optional
