@@ -10,7 +10,7 @@ class BamReadcount < Formula
   depends_on 'samtools'
 
   def install
-    samtools = Formula.factory('samtools').opt_prefix
+    samtools = Formula["samtools"].opt_prefix
     ENV['SAMTOOLS_ROOT'] = "#{samtools}:#{samtools}/include/bam"
     system 'cmake', '.', *std_cmake_args
     system 'make'

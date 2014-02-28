@@ -18,7 +18,7 @@ class Arpack < Formula
     args << '--enable-mpi' if build.with? :mpi
     if build.with? 'openblas'
       ['blas', 'lapack'].each do |pkg|
-        args << "--with-#{pkg}=-L#{Formula.factory('openblas').lib} -lopenblas"
+        args << "--with-#{pkg}=-L#{Formula["openblas"].lib} -lopenblas"
       end
     end
 

@@ -19,8 +19,8 @@ class Mira < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-expat=#{Formula.factory('expat').opt_prefix}",
-                          "--with-boost=#{Formula.factory('boost').opt_prefix}"
+                          "--with-expat=#{Formula["expat"].opt_prefix}",
+                          "--with-boost=#{Formula["boost"].opt_prefix}"
     # Link with boost_system for boost::system::system_category().
     # http://www.freelists.org/post/mira_talk/Linking-requires-boost-system
     system "make LIBS=-lboost_system-mt install"

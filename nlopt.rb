@@ -17,7 +17,7 @@ class Nlopt < Formula
     if build.with? 'octave'
       ENV['OCT_INSTALL_DIR'] = share/'nlopt/oct'
       ENV['M_INSTALL_DIR'] = share/'nlopt/m'
-      ENV['MKOCTFILE'] = "#{Formula.factory('octave').bin}/mkoctfile"
+      ENV['MKOCTFILE'] = "#{Formula["octave"].bin}/mkoctfile"
     end
     system "./configure", *args
     system "make"

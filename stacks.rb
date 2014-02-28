@@ -14,7 +14,7 @@ class Stacks < Formula
     args << "--enable-sparsehash" if build.with? "google-sparsehash"
 
     if build.with? "samtools"
-      samtools = Formula.factory("samtools").opt_prefix
+      samtools = Formula["samtools"].opt_prefix
       args += ["--enable-bam",
         "--with-bam-include-path=#{samtools}/include/bam",
         "--with-bam-lib-path=#{samtools}/lib"]

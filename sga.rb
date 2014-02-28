@@ -17,8 +17,8 @@ class Sga < Formula
       system "./autogen.sh"
       system "./configure", "--disable-dependency-tracking",
                             "--prefix=#{prefix}",
-                            "--with-bamtools=#{Formula.factory('bamtools').opt_prefix}",
-                            "--with-sparsehash=#{Formula.factory('google-sparsehash').opt_prefix}"
+                            "--with-bamtools=#{Formula["bamtools"].opt_prefix}",
+                            "--with-sparsehash=#{Formula["google-sparsehash"].opt_prefix}"
       system "make install"
     end
   end

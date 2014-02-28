@@ -24,7 +24,7 @@ class Mrbayes < Formula
     args = ["--disable-debug", "--prefix=#{prefix}"]
 
     if build.with? 'beagle'
-      args << "--with-beagle=#{Formula.factory('beagle').opt_prefix}"
+      args << "--with-beagle=#{Formula["beagle"].opt_prefix}"
     else
       args << "--with-beagle=no"
     end

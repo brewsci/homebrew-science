@@ -9,7 +9,7 @@ class Dssp < Formula
 
   def install
     # Create a make.config file that contains the configuration for boost
-    boost = Formula.factory('boost').opt_prefix
+    boost = Formula["boost"].opt_prefix
     File.open('make.config', 'w') do |makeconf|
       makeconf.puts "BOOST_LIB_SUFFIX = -mt"
       makeconf.puts "BOOST_LIB_DIR = #{boost / 'lib'}"

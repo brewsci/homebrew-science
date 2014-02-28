@@ -53,7 +53,7 @@ class Octave < Formula
   def blas_flags
     flags = []
     if build.with? 'openblas'
-      flags << "-L#{Formula.factory('openblas').lib} -lopenblas"
+      flags << "-L#{Formula["openblas"].lib} -lopenblas"
     else
       flags << "-ldotwrp" if MacOS.version == :snow_leopard and MacOS.prefer_64_bit?
       # Cant use `-framework Accelerate` because `mkoctfile`, the tool used to

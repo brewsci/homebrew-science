@@ -32,7 +32,7 @@ class SuiteSparse < Formula
 
       if build.include? "with-metis4"
         s.remove_make_var! "METIS_PATH"
-        s.change_make_var! "METIS", Formula.factory("metis4").lib + "libmetis.a"
+        s.change_make_var! "METIS", "#{Formula["metis4"].lib}/libmetis.a"
       end
 
       s.change_make_var! "INSTALL_LIB", lib

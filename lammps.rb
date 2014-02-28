@@ -107,7 +107,7 @@ class Lammps < Formula
     end
 
     # Assuming gfortran library
-    ENV.append 'LDFLAGS', "-L#{Formula.factory('gfortran').opt_prefix}/gfortran/lib -lgfortran"
+    ENV.append 'LDFLAGS', "-L#{Formula["gfortran"].opt_prefix}/gfortran/lib -lgfortran"
 
     # build the lammps program and library
     cd "src" do
@@ -126,12 +126,12 @@ class Lammps < Formula
         s.change_make_var! "LINK" , ENV["CXX"]
 
         # installing with FFTW and JPEG
-        s.change_make_var! "FFT_INC"  , "-DFFT_FFTW3 -I#{Formula.factory('fftw').opt_prefix}/include"
-        s.change_make_var! "FFT_PATH" , "-L#{Formula.factory('fftw').opt_prefix}/lib"
+        s.change_make_var! "FFT_INC"  , "-DFFT_FFTW3 -I#{Formula["fftw"].opt_prefix}/include"
+        s.change_make_var! "FFT_PATH" , "-L#{Formula["fftw"].opt_prefix}/lib"
         s.change_make_var! "FFT_LIB"  , "-lfftw3"
 
-        s.change_make_var! "JPG_INC"  , "-DLAMMPS_JPEG -I#{Formula.factory('jpeg').opt_prefix}/include"
-        s.change_make_var! "JPG_PATH" , "-L#{Formula.factory('jpeg').opt_prefix}/lib"
+        s.change_make_var! "JPG_INC"  , "-DLAMMPS_JPEG -I#{Formula["jpeg"].opt_prefix}/include"
+        s.change_make_var! "JPG_PATH" , "-L#{Formula["jpeg"].opt_prefix}/lib"
         s.change_make_var! "JPG_LIB"  , "-ljpeg"
 
         s.change_make_var! "CCFLAGS" , ENV["CFLAGS"]

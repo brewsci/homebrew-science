@@ -19,11 +19,11 @@ class Amos < Formula
   def install
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}",
-      "--with-Boost-dir=#{Formula.factory('boost').opt_prefix}",
-      "--with-qmake-qt4=#{Formula.factory('qt').opt_prefix}/bin/qmake",
-      "BLAT=#{Formula.factory('blat').opt_prefix}/bin/blat",
-      "DELTAFILTER=#{Formula.factory('mummer').opt_prefix}/libexec/delta-filter",
-      "SHOWCOORDS=#{Formula.factory('mummer').opt_prefix}/libexec/show-coords"
+      "--with-Boost-dir=#{Formula["boost"].opt_prefix}",
+      "--with-qmake-qt4=#{Formula["qt"].opt_prefix}/bin/qmake",
+      "BLAT=#{Formula["blat"].opt_prefix}/bin/blat",
+      "DELTAFILTER=#{Formula["mummer"].opt_prefix}/libexec/delta-filter",
+      "SHOWCOORDS=#{Formula["mummer"].opt_prefix}/libexec/show-coords"
     system "make install"
   end
 

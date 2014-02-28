@@ -32,13 +32,13 @@ class Ipopt < Formula
     # See whether the parallel or sequential MUMPS library was built.
     if @@mumps_options.include? 'without-mpi'
       mumps_libs << '-lmpiseq'
-      mumps_incdir = Formula.factory('mumps').libexec / 'include'
+      mumps_incdir = Formula["mumps"].libexec / 'include'
     else
       # The MPI libs were installed as a MUMPS dependency.
       mumps_libs += %w[-lmpi_cxx -lmpi_mpifh]
-      mumps_incdir = Formula.factory('mumps').include
+      mumps_incdir = Formula["mumps"].include
     end
-    mumps_libcmd = "-L#{Formula.factory('mumps').lib} " + mumps_libs.join(' ')
+    mumps_libcmd = "-L#{Formula["mumps"].lib} " + mumps_libs.join(' ')
 
     args = ["--disable-debug",
             "--disable-dependency-tracking",
@@ -49,15 +49,15 @@ class Ipopt < Formula
             "--enable-static"]
 
     if build.with? 'openblas'
-      args << "--with-blas-incdir=#{Formula.factory('openblas').include}"
-      args << "--with-blas-lib=-L#{Formula.factory('openblas').lib} -lopenblas"
-      args << "--with-lapack-incdir=#{Formula.factory('openblas').include}"
-      args << "--with-lapack-lib=-L#{Formula.factory('openblas').lib} -lopenblas"
+      args << "--with-blas-incdir=#{Formula["openblas"].include}"
+      args << "--with-blas-lib=-L#{Formula["openblas"].lib} -lopenblas"
+      args << "--with-lapack-incdir=#{Formula["openblas"].include}"
+      args << "--with-lapack-lib=-L#{Formula["openblas"].lib} -lopenblas"
     end
 
     if build.with? 'asl'
-      args << "--with-asl-incdir=#{Formula.factory('asl').include}/asl"
-      args << "--with-asl-lib=-L#{Formula.factory('asl').lib} -lasl -lfuncadd0"
+      args << "--with-asl-incdir=#{Formula["asl"].include}/asl"
+      args << "--with-asl-lib=-L#{Formula["asl"].lib} -lasl -lfuncadd0"
     end
 
     system "./configure", *args

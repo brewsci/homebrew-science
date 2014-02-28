@@ -15,7 +15,7 @@ class Tao < Formula
   def install
     ENV.deparallelize
     ENV['TAO_DIR'] = Dir.getwd
-    ENV['PETSC_DIR'] = Formula.factory('petsc').prefix
+    ENV['PETSC_DIR'] = Formula["petsc"].prefix
     # Contrary to the TAO documentation, it's important to leave PETSC_ARCH undefined.
     # This is because PETSc wasn't installed to $(brew --prefix petsc)/$PETSC_ARCH.
     ENV['PETSC_ARCH'] = ''

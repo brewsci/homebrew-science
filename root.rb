@@ -47,7 +47,7 @@ class Root < Formula
            "--all",
            "--enable-builtin-glew",
            "#{cocoa_flag}",
-	   "#{qt_flag}", "#{qtgsi_flag}",
+           "#{qt_flag}", "#{qtgsi_flag}",
            "--prefix=#{prefix}",
            "--etcdir=#{prefix}/etc/root",
            "--mandir=#{man}"
@@ -55,8 +55,8 @@ class Root < Formula
     # ROOT configure script does not search for Qt framework
     if build.with? 'qt'
       inreplace "config/Makefile.config" do |s|
-	s.gsub! /^QTLIBDIR .*/, "QTLIBDIR := -F #{HOMEBREW_PREFIX}/lib"
-	s.gsub! /^QTLIB .*/, "QTLIB := -framework QtCore -framework QtGui -framework Qt3Support"
+        s.gsub! /^QTLIBDIR .*/, "QTLIBDIR := -F #{HOMEBREW_PREFIX}/lib"
+        s.gsub! /^QTLIB .*/, "QTLIB := -framework QtCore -framework QtGui -framework Qt3Support"
       end
     end
 

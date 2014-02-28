@@ -25,9 +25,9 @@ class Mumps < Formula
     inreplace 'Makefile.inc' do |s|
       if build.with? 'scotch5'
         s.gsub! /#\s*SCOTCHDIR\s*=/, 'SCOTCHDIR = '
-        s.change_make_var! 'SCOTCHDIR', Formula.factory('scotch5').prefix
+        s.change_make_var! 'SCOTCHDIR', Formula["scotch5"].prefix
         s.gsub! /#\s*ISCOTCH\s*=/, 'ISCOTCH = '
-        s.change_make_var! 'ISCOTCH', "-I#{Formula.factory('scotch5').include}"
+        s.change_make_var! 'ISCOTCH', "-I#{Formula["scotch5"].include}"
 
         if build.with? :mpi
           s.gsub! /#\s*LSCOTCH\s*=\s*-L\$\(SCOTCHDIR\)\/lib -lptesmumps -lptscotch -lptscotcherr/, 'LSCOTCH = -L$(SCOTCHDIR)/lib -lptesmumps -lptscotch -lptscotcherr'
@@ -40,11 +40,11 @@ class Mumps < Formula
 
       if build.with? 'metis4'
         s.gsub! /#\s*LMETISDIR\s*=/, 'LMETISDIR = '
-        s.change_make_var! 'LMETISDIR', Formula.factory('metis4').lib
+        s.change_make_var! 'LMETISDIR', Formula["metis4"].lib
         s.gsub! /#\s*IMETIS\s*=/, 'IMETIS = '
-        s.change_make_var! 'IMETIS', Formula.factory('metis4').include
+        s.change_make_var! 'IMETIS', Formula["metis4"].include
         s.sub! /#\s*LMETIS\s*=/, 'LMETIS = '
-        s.change_make_var! 'LMETIS', "-L#{Formula.factory('metis4').lib} -lmetis"
+        s.change_make_var! 'LMETIS', "-L#{Formula["metis4"].lib} -lmetis"
         orderingsf << ' -Dmetis'
       end
 
@@ -59,9 +59,9 @@ class Mumps < Formula
         s.change_make_var! 'CC', "#{ENV['MPICC']} -fPIC"
         s.change_make_var! 'FC', "#{ENV['MPIFC']} -fPIC"
         s.change_make_var! 'FL', "#{ENV['MPIFC']} -fPIC"
-        s.change_make_var! 'SCALAP', "-L#{Formula.factory('scalapack').lib} -lscalapack"
-        s.change_make_var! 'INCPAR', "-I#{Formula.factory('open-mpi').include}"
-        s.change_make_var! 'LIBPAR', "$(SCALAP) -L#{Formula.factory('open-mpi').lib} -lmpi -lmpi_mpifh"
+        s.change_make_var! 'SCALAP', "-L#{Formula["scalapack"].lib} -lscalapack"
+        s.change_make_var! 'INCPAR', "-I#{Formula["open-mpi"].include}"
+        s.change_make_var! 'LIBPAR', "$(SCALAP) -L#{Formula["open-mpi"].lib} -lmpi -lmpi_mpifh"
       else
         s.change_make_var! 'CC', "#{ENV['CC']} -fPIC"
         s.change_make_var! 'FC', "#{ENV['FC']} -fPIC"
@@ -69,7 +69,7 @@ class Mumps < Formula
       end
 
       if build.with? 'openblas'
-        s.change_make_var! 'LIBBLAS', "-L#{Formula.factory('openblas').lib} -lopenblas"
+        s.change_make_var! 'LIBBLAS', "-L#{Formula["openblas"].lib} -lopenblas"
       else
         s.change_make_var! 'LIBBLAS', '-lblas -llapack'
       end

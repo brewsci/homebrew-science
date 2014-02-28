@@ -15,8 +15,8 @@ class TransAbyss < Formula
   depends_on 'pysam' => :python
 
   def install
-    abyss = Formula.factory('abyss').opt_prefix
-    picard = Formula.factory('picard-tools').opt_prefix
+    abyss = Formula["abyss"].opt_prefix
+    picard = Formula["picard-tools"].opt_prefix
 
     inreplace 'check-prereqs.sh', '``', '`' # Fix a typo
     inreplace 'setup.sh' do |s|

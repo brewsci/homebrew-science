@@ -61,7 +61,7 @@ class Osgearth < Formula
       args << "-DV8_ICUI18N_LIBRARY=''" << "-DV8_ICUUC_LIBRARY=''"
     end
     # define libminizip paths (skips the only pkconfig dependency in cmake modules)
-    mzo = Formula.factory("minizip").opt_prefix
+    mzo = Formula["minizip"].opt_prefix
     args << "-DMINIZIP_INCLUDE_DIR=#{(build.with? "minizip") ? mzo/"include/minizip" : "''"}"
     args << "-DMINIZIP_LIBRARY=#{(build.with? "minizip") ? mzo/"lib/libminizip.dylib" : "''"}"
 
@@ -82,7 +82,7 @@ class Osgearth < Formula
   end
 
   def caveats
-    osg = Formula.factory("open-scene-graph")
+    osg = Formula["open-scene-graph"]
     osgver = (osg.linked_keg.exist?) ? osg.version : "#.#.# (version)"
     <<-EOS.undent
     This formula installs Open Scene Graph plugins. To ensure access when using

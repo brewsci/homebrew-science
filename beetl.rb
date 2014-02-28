@@ -24,8 +24,8 @@ class Beetl < Formula
   end
 
   def install
-    boost = Formula.factory('boost').opt_prefix
-    seqan = Formula.factory('seqan').opt_prefix/'include'
+    boost = Formula["boost"].opt_prefix
+    seqan = Formula["seqan"].opt_prefix/'include'
     args = [
       '--disable-dependency-tracking',
       '--disable-silent-rules',

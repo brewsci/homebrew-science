@@ -19,12 +19,12 @@ class Wcslib < Formula
     args = [ "--disable-debug",
              "--disable-dependency-tracking",
              "--prefix=#{prefix}",
-             "--with-cfitsiolib=#{Formula.factory('cfitsio').opt_prefix}/lib",
-             "--with-cfitsioinc=#{Formula.factory('cfitsio').opt_prefix}/include" ]
+             "--with-cfitsiolib=#{Formula["cfitsio"].opt_prefix}/lib",
+             "--with-cfitsioinc=#{Formula["cfitsio"].opt_prefix}/include" ]
 
     if build.include? 'with-pgsbox'
-      args << "--with-pgplotlib=#{Formula.factory('pgplot').opt_prefix}/lib"
-      args << "--with-pgplotinc=#{Formula.factory('pgplot').opt_prefix}/include"
+      args << "--with-pgplotlib=#{Formula["pgplot"].opt_prefix}/lib"
+      args << "--with-pgplotinc=#{Formula["pgplot"].opt_prefix}/include"
     else
       args << "--without-pgplot"
       args << "--disable-fortran" unless build.with? 'fortran'
