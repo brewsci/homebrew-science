@@ -15,13 +15,15 @@ class Ipopt < Formula
 
   depends_on :fortran
 
-  @@mumps_options = Tab.for_formula(Formula.factory('mumps')).used_options
+  def mumps_options
+    Tab.for_formula(Formula["mumps"]).used_options
+  end
 
   def patches
     # http://list.coin-or.org/pipermail/ipopt/2014-February/003651.html
     # This patch may need to be removed in future updates.
-    DATA
-  end unless @@mumps_options.include? 'without-mpi'
+    DATA unless mumps_options.include? "without-mpi"
+  end
 
   def install
     ENV.delete('MPICC')  # configure will pick these up and use them to link
@@ -30,7 +32,7 @@ class Ipopt < Formula
     mumps_libs = %w[-ldmumps -lmumps_common -lpord]
 
     # See whether the parallel or sequential MUMPS library was built.
-    if @@mumps_options.include? 'without-mpi'
+    if mumps_options.include? 'without-mpi'
       mumps_libs << '-lmpiseq'
       mumps_incdir = Formula["mumps"].libexec / 'include'
     else
