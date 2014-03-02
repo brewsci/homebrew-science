@@ -18,4 +18,21 @@ class Igraph < Formula
                           "--prefix=#{prefix}"
     system "make install"
   end
+
+  test do
+    # Adapted from http://igraph.org/c/doc/igraph-tutorial.html
+    (testpath/"igraph_test.c").write <<-EOS.undent
+      #include <igraph.h>
+
+      int main(void)
+      {
+          igraph_integer_t diameter;
+          igraph_t graph;
+          return 0;
+      }
+      EOS
+    system ENV.cc, "igraph_test.c", "-I#{include}/igraph", "-L#{lib}",
+                   "-ligraph", "-o", "igraph_test"
+    system "./igraph_test"
+  end
 end
