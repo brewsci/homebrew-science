@@ -21,7 +21,7 @@ class SpatialiteGis < Formula
 
   def install
     # These libs don't get picked up by configure.
-    ENV.append 'LDFLAGS', '-lwx_osx_cocoau_aui-2.9 -liconv'
+    ENV.append 'LDFLAGS', '-liconv'
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
