@@ -15,7 +15,7 @@ class Openni < Formula
 
   depends_on :automake
   depends_on :libtool
-  depends_on 'libusb' => (build.universal?) ? ['universal'] : []
+  depends_on 'libusb'
   depends_on 'doxygen' => :build
 
   def patches
