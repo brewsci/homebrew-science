@@ -2,7 +2,7 @@ require 'formula'
 
 class Rainbow < Formula
   homepage 'http://sourceforge.net/projects/bio-rainbow/'
-  url 'http://downloads.sourceforge.net/project/bio-rainbow/rainbow_2.0.2.tar.gz'
+  url 'https://downloads.sourceforge.net/project/bio-rainbow/rainbow_2.0.2.tar.gz'
   sha1 'e3b91dd0900d9ec3e033a844eee1d156a4b33b71'
 
   def install

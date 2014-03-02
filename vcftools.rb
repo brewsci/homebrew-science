@@ -2,7 +2,7 @@ require 'formula'
 
 class Vcftools < Formula
   homepage 'http://vcftools.sourceforge.net/index.html'
-  url 'http://downloads.sourceforge.net/project/vcftools/vcftools_0.1.11.tar.gz'
+  url 'https://downloads.sourceforge.net/project/vcftools/vcftools_0.1.11.tar.gz'
   sha1 '00081e99c0f66316d92ee356580885331cadb46f'
 
   def install

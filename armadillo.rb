@@ -2,7 +2,7 @@ require 'formula'
 
 class Armadillo < Formula
   homepage 'http://arma.sourceforge.net/'
-  url 'http://downloads.sourceforge.net/project/arma/armadillo-4.000.4.tar.gz'
+  url 'https://downloads.sourceforge.net/project/arma/armadillo-4.000.4.tar.gz'
   sha1 '0c583fad5fac7714d51e5b6304e3b11ea6e42486'
 
   depends_on 'cmake' => :build

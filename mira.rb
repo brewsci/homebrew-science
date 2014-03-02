@@ -2,7 +2,7 @@ require 'formula'
 
 class Mira < Formula
   homepage 'http://sourceforge.net/apps/mediawiki/mira-assembler/'
-  url 'http://downloads.sourceforge.net/project/mira-assembler/MIRA/stable/mira-3.4.1.1.tar.gz'
+  url 'https://downloads.sourceforge.net/project/mira-assembler/MIRA/stable/mira-3.4.1.1.tar.gz'
   sha1 '86bcf87f88296df4c3cce1d871e99a5bc3ca1dfd'
 
   depends_on 'boost'

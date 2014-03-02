@@ -29,14 +29,14 @@ end
 
 class LpSolvePython < Formula
   homepage 'http://lpsolve.sourceforge.net/5.5/Python.htm'
-  url 'http://downloads.sourceforge.net/lpsolve/lp_solve_5.5.2.0_Python_source.tar.gz'
+  url 'https://downloads.sourceforge.net/lpsolve/lp_solve_5.5.2.0_Python_source.tar.gz'
   sha1 '058cced6b6a27cc160c9c5054c6b94b0eae6d989'
   version '5.5.2.0'
 end
 
 class LpSolve < Formula
   homepage 'http://sourceforge.net/projects/lpsolve/'
-  url 'http://downloads.sourceforge.net/lpsolve/lp_solve_5.5.2.0_source.tar.gz'
+  url 'https://downloads.sourceforge.net/lpsolve/lp_solve_5.5.2.0_source.tar.gz'
   version '5.5.2.0'  # automatic version parser spits out "solve" as version
   sha1 'e2830053cf079839b9ce21662cbc886ac6d31c80'
 

@@ -2,7 +2,7 @@ require 'formula'
 
 class CeleraAssembler < Formula
   homepage 'http://wgs-assembler.sourceforge.net/'
-  url 'http://downloads.sourceforge.net/project/wgs-assembler/wgs-assembler/wgs-8.1/wgs-8.1.tar.bz2'
+  url 'https://downloads.sourceforge.net/project/wgs-assembler/wgs-assembler/wgs-8.1/wgs-8.1.tar.bz2'
   sha1 '76f38c869b4876b414794b59e90d4f36c3e13488'
 
   def install

@@ -2,7 +2,7 @@ require 'formula'
 
 class Ray < Formula
   homepage 'http://denovoassembler.sourceforge.net'
-  url 'http://downloads.sourceforge.net/project/denovoassembler/Ray-2.3.1.tar.bz2'
+  url 'https://downloads.sourceforge.net/project/denovoassembler/Ray-2.3.1.tar.bz2'
   sha1 'cf7de83f671b38b51177de21604944c49e161f89'
   head 'https://github.com/sebhtml/ray.git'
 

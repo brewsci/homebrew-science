@@ -2,7 +2,7 @@ require 'formula'
 
 class Fann < Formula
   homepage 'http://leenissen.dk/fann/wp/'
-  url 'http://downloads.sourceforge.net/project/fann/fann/2.2.0/FANN-2.2.0-Source.tar.gz'
+  url 'https://downloads.sourceforge.net/project/fann/fann/2.2.0/FANN-2.2.0-Source.tar.gz'
   sha1 'ff8341e4104bdbc0f3ab7ad39aef33285f8512d4'
 
   depends_on 'cmake' => :build

@@ -2,7 +2,7 @@ require 'formula'
 
 class Pymol < Formula
   homepage 'http://pymol.org'
-  url 'http://downloads.sourceforge.net/project/pymol/pymol/1.7/pymol-v1.7.0.0.tar.bz2'
+  url 'https://downloads.sourceforge.net/project/pymol/pymol/1.7/pymol-v1.7.0.0.tar.bz2'
   sha1 'b663c3779fc50a709adb8bfd8c275a7e44c4b54d'
   head 'https://pymol.svn.sourceforge.net/svnroot/pymol/trunk/pymol'
 

@@ -2,7 +2,7 @@ require 'formula'
 
 class Snpeff < Formula
   homepage 'http://snpeff.sourceforge.net/'
-  url 'http://downloads.sourceforge.net/project/snpeff/snpEff_v3_5_core.zip'
+  url 'https://downloads.sourceforge.net/project/snpeff/snpEff_v3_5_core.zip'
   version '3.5c'
   sha1 '45a0f83b537cfd3c89e4c3b878b298f2614b0e4e'
 

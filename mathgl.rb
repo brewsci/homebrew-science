@@ -2,7 +2,7 @@ require 'formula'
 
 class Mathgl < Formula
   homepage 'http://mathgl.sourceforge.net/'
-  url 'http://downloads.sourceforge.net/mathgl/mathgl-2.2.1.tar.gz'
+  url 'https://downloads.sourceforge.net/mathgl/mathgl-2.2.1.tar.gz'
   sha1 '49279952f97a65f8ec5ba89ed66313b48e06573d'
 
   depends_on 'cmake'   => :build

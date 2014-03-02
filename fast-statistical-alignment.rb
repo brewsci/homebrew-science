@@ -2,7 +2,7 @@ require 'formula'
 
 class FastStatisticalAlignment < Formula
   homepage 'http://fsa.sourceforge.net/'
-  url 'http://downloads.sourceforge.net/project/fsa/fsa-1.15.7.tar.gz'
+  url 'https://downloads.sourceforge.net/project/fsa/fsa-1.15.7.tar.gz'
   sha1 '322c8270d027b573b0781d8729f0917206e9d775'
 
   fails_with :clang do
