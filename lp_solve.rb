@@ -27,13 +27,6 @@ class NumpyHasHeaders < Requirement
   end
 end
 
-class LpSolvePython < Formula
-  homepage 'http://lpsolve.sourceforge.net/5.5/Python.htm'
-  url 'https://downloads.sourceforge.net/lpsolve/lp_solve_5.5.2.0_Python_source.tar.gz'
-  sha1 '058cced6b6a27cc160c9c5054c6b94b0eae6d989'
-  version '5.5.2.0'
-end
-
 class LpSolve < Formula
   homepage 'http://sourceforge.net/projects/lpsolve/'
   url 'https://downloads.sourceforge.net/lpsolve/lp_solve_5.5.2.0_source.tar.gz'
@@ -43,6 +36,13 @@ class LpSolve < Formula
   option 'python', 'Python extension to interface with lp_solve'
   depends_on 'numpy' => :python if build.include? 'python'
   depends_on NumpyHasHeaders.new if build.include? 'python'
+
+  resource 'lp_solve_python' do
+    # 'http://lpsolve.sourceforge.net/5.5/Python.htm'
+    url 'https://downloads.sourceforge.net/lpsolve/lp_solve_5.5.2.0_Python_source.tar.gz'
+    sha1 '058cced6b6a27cc160c9c5054c6b94b0eae6d989'
+    version '5.5.2.0'
+  end
 
   def patches
     # Prefer OS X's fast BLAS implementation (patch stolen from fink-project)
@@ -89,17 +89,17 @@ class LpSolve < Formula
         "--install-lib=#{temp_site_packages}",
         "--record=installed-files.txt"
       ]
-      lp_solve_prefix = prefix
-      LpSolvePython.new.brew do |b|
+
+      resource("lp_solve_python").stage do
         cd 'extra/Python' do
           # On OS X malloc there is <sys/malloc.h> and <malloc/malloc.h>
           inreplace "hash.c", "#include <malloc.h>", "#include <sys/malloc.h>"
           # We know where the lpsolve55 lib is...
-          inreplace "setup.py", "LPSOLVE55 = '../../lpsolve55/bin/ux32'", "LPSOLVE55 = '#{lp_solve_prefix}/lib'"
+          inreplace "setup.py", "LPSOLVE55 = '../../lpsolve55/bin/ux32'", "LPSOLVE55 = '#{lib}'"
           # Correct path to lpsolve's include dir and go the official way to find numpy include_dirs
           inreplace "setup.py",
                     "include_dirs=['../..', NUMPYPATH],",
-                    "include_dirs=['#{lp_solve_prefix}/include', '#{numpy_include_dir}'],"
+                    "include_dirs=['#{include}', '#{numpy_include_dir}'],"
           inreplace 'setup.py', "(NUMPY, '1')", "('NUMPY', '1')"
           # Even their version number is broken ...
           inreplace "setup.py", 'version = "5.5.0.9",', "version = '#{version}',"
@@ -107,10 +107,7 @@ class LpSolve < Formula
           system "python", "setup.py", *args
 
           # Save the examples
-          (lp_solve_prefix/'share/lp_solve').install Dir['ex*.py']
-          (lp_solve_prefix/'share/lp_solve').install 'lpdemo.py'
-          (lp_solve_prefix/'share/lp_solve').install 'Python.htm'
-
+          (share/'lp_solve').install Dir['ex*.py'], 'lpdemo.py', 'Python.htm'
         end
       end
     end
