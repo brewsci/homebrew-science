@@ -1,15 +1,5 @@
 require 'formula'
 
-class SnidTemplates < Formula
-  url 'http://people.lam.fr/blondin.stephane/software/snid/templates-2.0.tgz'
-  sha1 '1e5c33ee998203abc171e7fdda7114a27130d418'
-end
-
-class SnidBSNIPTemplates < Formula
-  url 'http://hercules.berkeley.edu/database/BSNIPI/bsnip_v7_snid_templates.tar.gz'
-  sha1 '1d1d2534d9201c864ad60e58acf6337cec0700e2'
-end
-
 class Snid < Formula
   homepage 'http://people.lam.fr/blondin.stephane/software/snid'
   url 'http://people.lam.fr/blondin.stephane/software/snid/snid-5.0.tar.gz'
@@ -19,17 +9,28 @@ class Snid < Formula
   depends_on :fortran
   depends_on 'pgplot' => 'with-button'
 
+  resource 'templates' do
+    url 'http://people.lam.fr/blondin.stephane/software/snid/templates-2.0.tgz'
+    sha1 '1e5c33ee998203abc171e7fdda7114a27130d418'
+  end
+
+  resource 'bsnip_templates' do
+    url 'http://hercules.berkeley.edu/database/BSNIPI/bsnip_v7_snid_templates.tar.gz'
+    sha1 '1d1d2534d9201c864ad60e58acf6337cec0700e2'
+    version '7'
+  end
+
   # no libbutton compilation and patch for new templates
   # as per http://people.lam.fr/blondin.stephane/software/snid/README_templates-2.0
   def patches; DATA; end
 
   def install
     # new templates
-    SnidTemplates.new.brew do
+    resource('templates').stage do
       prefix.install '../templates-2.0'
     end
     # BSNIP
-    SnidBSNIPTemplates.new.brew do
+    resource('bsnip_templates').stage do
       safe_system 'ls *.lnw > templist'
       cp "#{buildpath}/templates/texplist", '.'
       cp "#{buildpath}/templates/tfirstlist", '.'
