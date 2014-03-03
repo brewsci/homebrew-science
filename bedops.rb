@@ -4,20 +4,8 @@ class Bedops < Formula
   homepage 'https://github.com/bedops/bedops'
   head 'https://github.com/bedops/bedops.git'
 
-  url 'https://github.com/bedops/bedops/archive/v2.4.0.tar.gz'
-  sha1 'fc369ba3f521b0664786e9b4018f39f9a67b6701'
-
-  devel do
-    version '2.4.1-rc1'
-    url 'https://github.com/bedops/bedops/archive/v2.4.1-rc1.tar.gz'
-    sha1 '436c769af8ffac70f4d7f02922915d3c71c5af88'
-  end
-
-  # Fixed in 2.4.1-rc1
-  fails_with :clang do
-    build 500
-    cause "error: no matching constructor for initialization of 'Ext::Assert<UE>'"
-  end unless build.devel? || build.head?
+  url 'https://github.com/bedops/bedops/archive/v2.4.1.tar.gz'
+  sha1 '0107aac81493b22f81e139a053d32bb926d0af7b'
 
   fails_with :gcc do
     build 5666
