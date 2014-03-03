@@ -1,39 +1,5 @@
 require 'formula'
 
-class J2kp4files < Formula
-  url 'http://pkgs.fedoraproject.org/repo/pkgs/openjpeg/j2kp4files_v1_5.zip/27780ed3254e6eb763ebd718a8ccc340/j2kp4files_v1_5.zip'
-  sha1 'a90cad94abbe764918175db72b49df6d2f63704b'
-end
-
-class Tiffpic < Formula
-  url 'ftp://ftp.remotesensing.org/pub/libtiff/pics-3.8.0.tar.gz'
-  sha1 'f50e14335fd98f73c6a235d3ff4d83cf4767ab37'
-end
-
-class Bmpsuite < Formula
-  url 'http://entropymine.com/jason/bmpsuite/bmpsuite.zip'
-  sha1 '2e43ec4d8e6f628f71a554c327433914000db7ba'
-  version '1.0.0'
-end
-
-class Tgautils < Formula
-  url 'http://makseq.com/materials/lib/Code/FileFormats/BitMap/TARGA/TGAUTILS.ZIP'
-  sha1 '0902c51e7b00ae70a460250f60d6adc41c8095df'
-  version '1.0.0'
-end
-
-class OpenexrImages < Formula
-  url 'http://download.savannah.nongnu.org/releases/openexr/openexr-images-1.5.0.tar.gz'
-  sha1 '22bb1a3d37841a88647045353f732ceac652fd3f'
-end
-
-class OiioImages < Formula
-  url 'https://github.com/OpenImageIO/oiio-images/tarball/9bf43561f5'
-  sha1 '8f12a86098120fd10ceb294a0d3aa1c95a0d3f80'
-  version '1.0.0'
-end
-
-
 class Openimageio < Formula
   homepage 'http://openimageio.org'
   url 'https://github.com/OpenImageIO/oiio/archive/Release-1.1.8.tar.gz'
@@ -58,6 +24,39 @@ class Openimageio < Formula
   depends_on 'webp'
   depends_on 'glew'
   depends_on 'qt'
+
+  resource 'j2kp4files' do
+    url 'http://pkgs.fedoraproject.org/repo/pkgs/openjpeg/j2kp4files_v1_5.zip/27780ed3254e6eb763ebd718a8ccc340/j2kp4files_v1_5.zip'
+    sha1 'a90cad94abbe764918175db72b49df6d2f63704b'
+  end
+
+  resource 'tiffpic' do
+    url 'ftp://ftp.remotesensing.org/pub/libtiff/pics-3.8.0.tar.gz'
+    sha1 'f50e14335fd98f73c6a235d3ff4d83cf4767ab37'
+  end
+
+  resource 'bmpsuite' do
+    url 'http://entropymine.com/jason/bmpsuite/bmpsuite.zip'
+    sha1 '2e43ec4d8e6f628f71a554c327433914000db7ba'
+    version '1.0.0'
+  end
+
+  resource 'tgautils' do
+    url 'http://makseq.com/materials/lib/Code/FileFormats/BitMap/TARGA/TGAUTILS.ZIP'
+    sha1 '0902c51e7b00ae70a460250f60d6adc41c8095df'
+    version '1.0.0'
+  end
+
+  resource 'openexrimages' do
+    url 'http://download.savannah.nongnu.org/releases/openexr/openexr-images-1.5.0.tar.gz'
+    sha1 '22bb1a3d37841a88647045353f732ceac652fd3f'
+  end
+
+  resource 'oiioimages' do
+    url 'https://github.com/OpenImageIO/oiio-images/tarball/9bf43561f5'
+    sha1 '8f12a86098120fd10ceb294a0d3aa1c95a0d3f80'
+    version '1.0.0'
+  end
 
   def install
     # Oiio is designed to have its testsuite images extracted one directory
@@ -109,12 +108,12 @@ class Openimageio < Formula
         curl "http://www.cv.nrao.edu/fits/data/tests/ftt4b/file00[1-3].fits", "-O"
         curl "http://www.cv.nrao.edu/fits/data/tests/ftt4b/file0{09,12}.fits", "-O"
       end
-      J2kp4files.new.brew { (d+'j2kp4files_v1_5').install Dir['J2KP4files/*'] }
-      Tiffpic.new.brew { (d+'libtiffpic').install Dir['*'] }
-      Bmpsuite.new.brew { (d+'bmpsuite').install Dir['*'] }
-      Tgautils.new.brew { (d+'TGAUTILS').install Dir['*'] }
-      OpenexrImages.new.brew { (d+'openexr-images-1.5.0').install Dir['*'] }
-      OiioImages.new('oiioimages').brew { (d+'oiio-images').install Dir['*'] }
+      resource('j2kp4files').stage { (d+'j2kp4files_v1_5').install Dir['J2KP4files/*'] }
+      resource('tiffpic').stage { (d+'libtiffpic').install Dir['*'] }
+      resource('bmpsuite').stage { (d+'bmpsuite').install Dir['*'] }
+      resource('tgautils').stage { (d+'TGAUTILS').install Dir['*'] }
+      resource('openexrimages').stage { (d+'openexr-images-1.5.0').install Dir['*'] }
+      resource('oiioimages').stage { (d+'oiio-images').install Dir['*'] }
     end
 
     # make is a shell wrapper for cmake crafted by the devs (who have Lion).
