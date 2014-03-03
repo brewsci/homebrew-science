@@ -1,16 +1,17 @@
 require 'formula'
 
-class Libgtextutils < Formula
-  homepage 'http://hannonlab.cshl.edu/fastx_toolkit/'
-  url 'https://github.com/agordon/libgtextutils/releases/download/0.7/libgtextutils-0.7.tar.gz'
-  sha1 '92aef0099369d2e57ce47599a5339ca14abfd953'
-  head 'https://github.com/agordon/libgtextutils.git'
-end
-
 class FastxToolkit < Formula
   homepage 'http://hannonlab.cshl.edu/fastx_toolkit/'
-  url 'https://github.com/agordon/fastx_toolkit/releases/download/0.0.14/fastx_toolkit-0.0.14.tar.bz2'
-  sha1 'd8434af2dd647e303506a54ab14fe667aabc1a86'
+
+  stable do
+    url 'https://github.com/agordon/fastx_toolkit/releases/download/0.0.14/fastx_toolkit-0.0.14.tar.bz2'
+    sha1 'd8434af2dd647e303506a54ab14fe667aabc1a86'
+
+    resource 'libgtextutils' do
+      url 'https://github.com/agordon/libgtextutils/releases/download/0.7/libgtextutils-0.7.tar.gz'
+      sha1 '92aef0099369d2e57ce47599a5339ca14abfd953'
+    end
+  end
 
   head do
     url 'https://github.com/agordon/fastx_toolkit.git'
@@ -18,6 +19,10 @@ class FastxToolkit < Formula
     depends_on :autoconf => :build
     depends_on :automake => :build
     depends_on :libtool => :build
+
+    resource 'libgtextutils' do
+      url 'https://github.com/agordon/libgtextutils.git'
+    end
   end
 
   depends_on 'pkg-config' => :build
@@ -28,7 +33,7 @@ class FastxToolkit < Formula
   end
 
   def install
-    Libgtextutils.new.brew do
+    resource('libgtextutils').stage do
       if build.head?
         inreplace 'reconf', 'libtoolize', 'glibtoolize'
         system 'sh', './reconf'
