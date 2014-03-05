@@ -8,9 +8,11 @@ class Maker < Formula
   depends_on 'augustus' => :recommended
   depends_on 'blast'
   depends_on 'exonerate'
+  depends_on 'infernal' => :optional
   depends_on :mpi => :optional
   depends_on 'repeatmasker'
   depends_on 'snap'
+  depends_on 'trnascan' => :optional
 
   depends_on 'Bio::Perl' => :perl
   depends_on 'Bit::Vector' => :perl
