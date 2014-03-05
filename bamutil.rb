@@ -2,8 +2,9 @@ require 'formula'
 
 class Bamutil < Formula
   homepage 'http://genome.sph.umich.edu/wiki/BamUtil'
-  url 'http://genome.sph.umich.edu/w/images/5/52/BamUtilLibStatGen.1.0.9.tgz'
-  sha1 '5997481f5668d6cc1c9570f3aae1383262af28c3'
+  url 'http://genome.sph.umich.edu/w/images/7/77/BamUtilLibStatGen.1.0.11.tar.gz'
+  sha1 'aada189439704d3881378566e16cb2cc789f43a1'
+
   head 'https://github.com/statgen/bamUtil.git'
 
   def install
