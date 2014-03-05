@@ -33,12 +33,6 @@ class Opencv < Formula
   def install
     ENV.cxx11 if build.cxx11?
 
-    # Set proper path for Homebrew's openni
-    inreplace "cmake/OpenCVFindOpenNI.cmake" do |s|
-      s.gsub! "/usr/include/ni", "#{Formula["openni"].opt_prefix}/include/ni"
-      s.gsub! "/usr/lib", "#{Formula["openni"].opt_prefix}/lib"
-    end
-
     args = std_cmake_args + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DWITH_CUDA=OFF
@@ -53,12 +47,20 @@ class Opencv < Formula
       -DPYTHON_INCLUDE_DIR=#{`python-config --prefix`.split}/Headers
     ]
 
-    args << "-DWITH_OPENNI=" + ((build.with? "openni") ? "ON" : "OFF")
     args << "-DWITH_QT=" + ((build.with? "qt") ? "ON" : "OFF")
     args << "-DWITH_TBB=" + ((build.with? "tbb") ? "ON" : "OFF")
     args << "-DWITH_FFMPEG=" + ((build.with? "ffmpeg") ? "ON" : "OFF")
     # OpenCL 1.1 is required, but Snow Leopard and older come with 1.0
     args << "-DWITH_OPENCL=OFF" if build.without? "opencl" or MacOS.version < :lion
+
+    if build.with? "openni"
+      args << "-DWITH_OPENNI=ON"
+      # Set proper path for Homebrew's openni
+      inreplace "cmake/OpenCVFindOpenNI.cmake" do |s|
+        s.gsub! "/usr/include/ni", "#{Formula["openni"].opt_prefix}/include/ni"
+        s.gsub! "/usr/lib", "#{Formula["openni"].opt_prefix}/lib"
+      end
+    end
 
     if build.include? "32-bit"
       args << "-DCMAKE_OSX_ARCHITECTURES=i386"
