@@ -2,8 +2,8 @@ require 'formula'
 
 class Analysis < Formula
   homepage 'http://molpopgen.org/software/lseqsoftware.html'
-  url 'http://molpopgen.org/software/analysis/analysis-0.8.3.tar.gz'
-  sha1 '83bb4607de2d8a8e8b95ea119da21cf354c77cd5'
+  url 'http://molpopgen.org/software/analysis/analysis-0.8.4.tar.gz'
+  sha1 '96d3e382216d34a0c2803087d6024323a8f20a2b'
 
   depends_on "boost"
   depends_on "gsl"
@@ -28,8 +28,8 @@ end
 
 
 __END__
---- analysis-0.8.3.orig/src/Makefile.am
-+++ analysis-0.8.3/src/Makefile.am
+--- analysis-0.8.4.orig/src/Makefile.am
++++ analysis-0.8.4/src/Makefile.am
 @@ -77,7 +77,7 @@
  GSL=
  endif
@@ -40,8 +40,8 @@ __END__
  if HAVE_STRSTREAM
  STRSTREAM = -DHAVE_STRSTREAM
 
---- analysis-0.8.3.orig/src/Makefile.in
-+++ analysis-0.8.3/src/Makefile.in
+--- analysis-0.8.4.orig/src/Makefile.in
++++ analysis-0.8.4/src/Makefile.in
 @@ -330,7 +330,7 @@
  @HAVE_GSL_HEADERS_TRUE@rsq_LDADD = -lgsl -lgslcblas
  @HAVE_GSL_HEADERS_FALSE@GSL = 
