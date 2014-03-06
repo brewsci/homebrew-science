@@ -2,9 +2,9 @@ require 'formula'
 
 class Netcdf < Formula
   homepage 'http://www.unidata.ucar.edu/software/netcdf'
-  url 'ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.3.0.tar.gz'
-  mirror 'http://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.3.0.tar.gz'
-  sha1 '246e4963e66e1c175563cc9a714e9da0a19b8b07'
+  url 'ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.3.1.1.tar.gz'
+  mirror 'http://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.3.1.1.tar.gz'
+  sha1 '6aed20fa906e4963017ce9d1591aab39d8a556e4'
 
   depends_on :fortran if build.include? 'enable-fortran'
   depends_on 'hdf5'
@@ -29,12 +29,6 @@ class Netcdf < Formula
     sha1 'f1887314455330f4057bc8eab432065f8f6f74ef'
   end
 
-  def patches
-    # Fix clang issue on Mavericks
-    # http://www.unidata.ucar.edu/software/netcdf/docs/known_problems.html#clang-ncgen3
-    DATA
-  end
-
   def install
     if build.include? 'enable-fortran'
       # fix for ifort not accepting the --force-load argument, causing
@@ -44,8 +38,16 @@ class Netcdf < Formula
       ENV['lt_cv_ld_force_load'] = 'no' if ENV.fc == 'ifort'
     end
 
+    # Intermittent availability of the DAP endpoints tested means that sometimes
+    # a perfectly working build fails. This has been documented
+    # [by others](http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg12090.html),
+    # and distributions like PLD linux
+    # [also disable these tests](http://lists.pld-linux.org/mailman/pipermail/pld-cvs-commit/Week-of-Mon-20110627/314985.html)
+    # because of this issue.
+
     common_args = %W[
       --disable-dependency-tracking
+      --disable-dap-remote-tests
       --prefix=#{prefix}
       --enable-static
       --enable-shared
@@ -88,16 +90,3 @@ class Netcdf < Formula
     end if build.include? 'enable-fortran'
   end
 end
-
-__END__
-index d34f85d..276fb6a 100644
---- a/ncgen3/genlib.h
-+++ b/ncgen3/genlib.h
-@@ -7,6 +7,7 @@
-  *********************************************************************/
- #include <stdlib.h>
- #include <limits.h>
-+#include "config.h"
-
- extern const char *progname;   /* for error messages */
- extern const char *cdlname;    /* for error messages */
