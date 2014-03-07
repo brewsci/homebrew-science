@@ -15,6 +15,7 @@ class Samtools < Formula
   head 'https://github.com/samtools/samtools.git'
 
   option 'with-dwgsim', 'Build with "Whole Genome Simulation"'
+  option 'without-bcftools', 'Do not install bcftools'
 
   resource 'dwgsim' do
     # http://sourceforge.net/apps/mediawiki/dnaa/index.php?title=Whole_Genome_Simulation
@@ -31,7 +32,7 @@ class Samtools < Formula
     else
       system 'make'
       system 'make', 'razip'
-      system 'make', '-C', 'bcftools'
+      system 'make', '-C', 'bcftools' if build.with? 'bcftools'
     end
 
     if build.include? 'with-dwgsim'
@@ -45,7 +46,8 @@ class Samtools < Formula
     end
 
     bin.install %w{samtools razip}
-    bin.install %w{bcftools/bcftools bcftools/vcfutils.pl} unless build.devel?
+    bin.install 'bcftools/bcftools' unless build.devel? || build.without?('bcftools')
+    bin.install 'bcftools/vcfutils.pl' unless build.devel?
     bin.install %w{misc/maq2sam-long misc/maq2sam-short misc/md5fa misc/md5sum-lite misc/wgsim}
     bin.install Dir['misc/*.pl']
     lib.install 'libbam.a'
