@@ -16,5 +16,6 @@ class Htslib < Formula
   def install
     system 'make'
     system 'make', 'install', 'prefix=' + prefix
+    (include/'htslib').install 'version.h'
   end
 end
