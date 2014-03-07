@@ -2,12 +2,12 @@ require 'formula'
 
 class Tophat < Formula
   homepage 'http://tophat.cbcb.umd.edu/'
-  url 'http://tophat.cbcb.umd.edu/downloads/tophat-2.0.10.tar.gz'
-  sha1 '1c9d273d929d9145a75c5468b31c2e6b56e59654'
+  url 'http://tophat.cbcb.umd.edu/downloads/tophat-2.0.11.tar.gz'
+  sha1 'd5fe268619a4d37bba5d330e8328954d6c66d0e0'
 
   depends_on 'samtools'
   depends_on 'boost'
-  # bowtie2 is required to execute tophat
+  # bowtie or bowtie2 is required to execute tophat
   depends_on 'bowtie2' => :recommended
 
   # 1. Fix namespace issue in segment_juncs.cpp
@@ -32,14 +32,14 @@ class Tophat < Formula
   end
 
   test do
-    system *%w[tophat --version]
-
     # Run a simple test as described in
     # http://tophat.cbcb.umd.edu/tutorial.shtml#ref
     curl *%w[-O http://tophat.cbcb.umd.edu/downloads/test_data.tar.gz]
     system *%w[tar xzf test_data.tar.gz]
-    cd 'test_data' do
-      system *%w[tophat -r 20 test_ref reads_1.fq reads_2.fq]
+    cd "test_data" do
+      system "#{bin}/tophat -r 20 test_ref reads_1.fq reads_2.fq"
+      File.read("tophat_out/align_summary.txt").include?("71.0% overall read mapping rate")
+      assert_equal 0, $?.exitstatus
     end
   end
 end
