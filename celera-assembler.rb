@@ -5,6 +5,11 @@ class CeleraAssembler < Formula
   url 'https://downloads.sourceforge.net/project/wgs-assembler/wgs-assembler/wgs-8.1/wgs-8.1.tar.bz2'
   sha1 '76f38c869b4876b414794b59e90d4f36c3e13488'
 
+  fails_with :clang do
+    build 500
+    cause "error: use of undeclared identifier 'use_safe_malloc_instead'"
+  end
+
   def install
     ENV.j1
     system *%w[make -C kmer install]
