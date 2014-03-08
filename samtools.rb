@@ -35,7 +35,7 @@ class Samtools < Formula
       system 'make', '-C', 'bcftools' if build.with? 'bcftools'
     end
 
-    if build.include? 'with-dwgsim'
+    if build.with? 'dwgsim'
       ohai "Building dwgsim"
       samtools = pwd
       resource('dwgsim').stage do
