@@ -2,26 +2,24 @@ require 'formula'
 
 class Bedops < Formula
   homepage 'https://github.com/bedops/bedops'
-  head 'https://github.com/bedops/bedops.git'
-
   url 'https://github.com/bedops/bedops/archive/v2.4.1.tar.gz'
   sha1 '0107aac81493b22f81e139a053d32bb926d0af7b'
 
+  head 'https://github.com/bedops/bedops.git'
+
+  env :std
+
   fails_with :gcc do
     build 5666
-    cause 'error: unrecognized command line option "-std=c++11"'
+    cause 'BEDOPS toolkit requires a C++11 compliant compiler'
   end
 
   def install
+    ENV.O3
     ENV.deparallelize
-
-    # Fix for
-    # error: assigning to 'struct object_key *' from incompatible type 'void *'
-    # See https://github.com/Homebrew/homebrew-science/issues/666
-    ENV.delete 'CC'
-    ENV.delete 'CXX'
-
-    system 'make'
+    ENV.delete('CFLAGS')
+    ENV.delete('CXXFLAGS')
+    system 'make', 'build_all_darwin_intel_fat'
     system 'make', 'install'
     bin.install Dir['bin/*']
     doc.install %w[LICENSE README.md]
