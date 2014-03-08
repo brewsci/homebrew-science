@@ -8,6 +8,7 @@ class R < Formula
   head 'https://svn.r-project.org/R/trunk'
 
   option 'without-check', 'Skip build-time tests (not recommended)'
+  option 'without-tcltk', 'Build without Tcl/Tk'
 
   depends_on :fortran
   depends_on 'readline'
@@ -15,7 +16,7 @@ class R < Formula
   depends_on 'libtiff'
   depends_on 'jpeg'
   depends_on 'cairo'
-  depends_on :x11
+  depends_on :x11 => :recommended
   depends_on 'valgrind' => :optional
   depends_on 'openblas' => :optional
 
@@ -41,6 +42,7 @@ class R < Formula
 
     args << '--with-lapack' + ((build.with? 'openblas') ? '=-lopenblas' : '')
     args << '--with-blas=-lopenblas' if build.with? 'openblas'
+    args << '--without-tcltk' if build.without? 'tcltk'
 
     # Also add gettext include so that libintl.h can be found when installing packages.
     ENV.append "CPPFLAGS", "-I#{Formula['gettext'].include}"
