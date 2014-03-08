@@ -4,7 +4,7 @@ class Littler < Formula
   homepage 'http://dirk.eddelbuettel.com/code/littler.html'
   url 'http://dirk.eddelbuettel.com/code/littler/littler-0.1.5.tar.gz'
   sha1 '0ef2866e5b938897349da46c071483898f823972'
-  head 'http://littler.googlecode.com/svn/trunk'
+  head 'https://littler.googlecode.com/svn/trunk'
 
   depends_on 'r'
 

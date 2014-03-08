@@ -2,7 +2,7 @@ require 'formula'
 
 class Alembic < Formula
   homepage 'http://opensource.imageworks.com/?p=alembic'
-  url 'http://alembic.googlecode.com/files/Alembic_1.1.5_2013041100.tgz'
+  url 'https://alembic.googlecode.com/files/Alembic_1.1.5_2013041100.tgz'
   sha1 '539813017342d156ed5b0efafc983bda9b2cb001'
   version '1.1.5'
 

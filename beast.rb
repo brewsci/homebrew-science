@@ -6,7 +6,7 @@ class Beast < Formula
   sha1 'e4e483cee01263115a827b8c992be02a7bf9cf8e'
 
   head do
-    url 'http://beast-mcmc.googlecode.com/svn/trunk/'
+    url 'https://beast-mcmc.googlecode.com/svn/trunk/'
     depends_on :ant
   end
 
