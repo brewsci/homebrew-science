@@ -1,10 +1,11 @@
 require 'formula'
 
 class R < Formula
-  homepage 'http://www.r-project.org'
-  url 'http://cran.r-project.org/src/base/R-3/R-3.0.3.tar.gz'
-  mirror 'http://cran.cnr.berkeley.edu/src/base/R-3/R-3.0.3.tar.gz'
+  homepage 'http://www.r-project.org/'
+  url 'http://cran.rstudio.com/src/base/R-3/R-3.0.3.tar.gz'
+  mirror 'http://cran.r-project.org/src/base/R-3/R-3.0.3.tar.gz'
   sha1 '82e83415d27a2fbbdcacb41c4aa14d8b36fdf470'
+
   head 'https://svn.r-project.org/R/trunk'
 
   option 'without-check', 'Skip build-time tests (not recommended)'
