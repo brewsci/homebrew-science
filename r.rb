@@ -43,6 +43,7 @@ class R < Formula
     args << '--with-lapack' + ((build.with? 'openblas') ? '=-lopenblas' : '')
     args << '--with-blas=-lopenblas' if build.with? 'openblas'
     args << '--without-tcltk' if build.without? 'tcltk'
+    args << '--without-x' if build.without? 'x11'
 
     # Also add gettext include so that libintl.h can be found when installing packages.
     ENV.append "CPPFLAGS", "-I#{Formula['gettext'].include}"
