@@ -2,8 +2,8 @@ require 'formula'
 
 class Vcftools < Formula
   homepage 'http://vcftools.sourceforge.net/index.html'
-  url 'https://downloads.sourceforge.net/project/vcftools/vcftools_0.1.11.tar.gz'
-  sha1 '00081e99c0f66316d92ee356580885331cadb46f'
+  url 'https://downloads.sourceforge.net/project/vcftools/vcftools_0.1.12.tar.gz'
+  sha1 '29a1ab67786e39be57cbb1ef4e0f6682110b7516'
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "CPP=#{ENV.cxx}"
