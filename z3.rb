@@ -11,15 +11,12 @@ class Z3 < Formula
   depends_on :automake
   depends_on :python
 
-  def patches
-    # Fixes compilation with Clang.
-    DATA
-  end
-
   def install
     package_dir = lib/"python2.7/site-packages"
     mkdir_p package_dir
-    inreplace 'scripts/mk_util.py', /^PYTHON_PACKAGE_DIR=.*/, "PYTHON_PACKAGE_DIR=\"#{package_dir}\""
+    inreplace "scripts/mk_util.py", /^PYTHON_PACKAGE_DIR=.*/, "PYTHON_PACKAGE_DIR=\"#{package_dir}\""
+    # Fixes compilation with Clang.
+    inreplace "src/util/hwf.cpp", "#include<float.h>", "#include <emmintrin.h>\n#include <float.h>"
 
     system 'autoconf'
     system './configure', "--prefix=#{prefix}"
@@ -38,17 +35,3 @@ class Z3 < Formula
       end
   end
 end
-
-__END__
-diff -aur z3.orig/src/util/hwf.cpp z3/src/util/hwf.cpp
---- z3.orig/src/util/hwf.cpp	2014-02-13 20:59:07.000000000 +0100
-+++ z3/src/util/hwf.cpp	2014-02-13 20:59:22.000000000 +0100
-@@ -16,6 +16,8 @@
- Revision History:
- 
- --*/
-+#include <emmintrin.h>
-+
- #include<float.h>
- 
- #ifdef _WINDOWS
