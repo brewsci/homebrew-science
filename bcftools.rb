@@ -13,6 +13,8 @@ class Bcftools < Formula
     inreplace "Makefile", "include $(HTSDIR)/htslib.mk", ""
     inreplace "Makefile", "$(HTSDIR)/version.h", "$(HTSDIR)/htslib/version.h"
     htslib = Formula["htslib"].opt_prefix
+    # Write version to avoid 0.0.1 version information output from Makefile
+    system "echo '#define BCFTOOLS_VERSION \"#{version}\"' > version.h"
     system *%W[make bcftools HTSDIR=#{htslib}/include HTSLIB=#{htslib}/lib/libhts.a]
     system *%W[make install prefix=#{prefix} HTSDIR=#{htslib}/include HTSLIB=#{htslib}/lib/libhts.a]
   end

@@ -14,6 +14,8 @@ class Htslib < Formula
   end
 
   def install
+    # Write version to avoid 0.0.1 version information output from Makefile
+    system "echo '#define HTS_VERSION \"#{version}\"' > version.h"
     system 'make'
     system 'make', 'install', 'prefix=' + prefix
     (include/'htslib').install 'version.h'
