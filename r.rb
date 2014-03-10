@@ -74,13 +74,6 @@ class R < Formula
   end
 
   def caveats; <<-EOS.undent
-    R.framework was installed to:
-      #{opt_prefix}/R.framework
-
-    To use this Framework with IDEs such as RStudio, it must be linked
-    to the standard OS X location:
-      sudo ln -s "#{opt_prefix}/R.framework" /Library/Frameworks
-
     To enable rJava support, run the following command:
       R CMD javareconf JAVA_CPPFLAGS=-I/System/Library/Frameworks/JavaVM.framework/Headers
     EOS
