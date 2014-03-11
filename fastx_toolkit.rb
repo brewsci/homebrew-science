@@ -28,8 +28,8 @@ class FastxToolkit < Formula
   depends_on 'pkg-config' => :build
 
   fails_with :clang do
-     build 425
-     cause 'Requires C++11 available in clang build 500 or newer.'
+     build (MacOS.version >= :mavericks ? 425 : 503)
+     cause 'clang build fails on Mountain Lion, but works on Mavericks. See issue #620'
   end
 
   def install
