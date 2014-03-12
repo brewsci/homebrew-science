@@ -8,7 +8,7 @@ class Bowtie < Formula
   head 'https://github.com/BenLangmead/bowtie.git'
 
   fails_with :clang do
-    build 500
+    build 503
     cause %q[error: reference to 'lock_guard' is ambiguous. See #476]
   end
 
