@@ -5,14 +5,15 @@ class Opencv < Formula
   url 'https://github.com/Itseez/opencv/archive/2.4.8.2.tar.gz'
   sha1 '15c91f8fc806d39735ac4ce6a1c381541d4b5c80'
 
-  option '32-bit'
-  option 'with-qt',  'Build the Qt4 backend to HighGUI'
-  option 'with-tbb', 'Enable parallel code in OpenCV using Intel TBB'
-  option 'without-opencl', 'Disable gpu code in OpenCV using OpenCL'
+  option "32-bit"
+  option "with-java", "Build with Java support"
+  option "with-qt", "Build the Qt4 backend to HighGUI"
+  option "with-tbb", "Enable parallel code in OpenCV using Intel TBB"
+  option "without-opencl", "Disable gpu code in OpenCV using OpenCL"
 
   option :cxx11
 
-  depends_on :ant
+  depends_on :ant if build.with? "java"
   depends_on 'cmake' => :build
   depends_on 'eigen' => :optional
   depends_on 'jasper'
@@ -47,6 +48,7 @@ class Opencv < Formula
       -DPYTHON_INCLUDE_DIR=#{`python-config --prefix`.split}/Headers
     ]
 
+    args << "-DBUILD_opencv_java=" + ((build.with? "java") ? "ON" : "OFF")
     args << "-DWITH_QT=" + ((build.with? "qt") ? "ON" : "OFF")
     args << "-DWITH_TBB=" + ((build.with? "tbb") ? "ON" : "OFF")
     args << "-DWITH_FFMPEG=" + ((build.with? "ffmpeg") ? "ON" : "OFF")
