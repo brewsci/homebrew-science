@@ -7,19 +7,13 @@ class Voroxx < Formula
   head 'https://codeforge.lbl.gov/anonscm/voro/trunk', :using => :svn
 
   def install
-    # configure the prefix
-    inreplace 'config.mk' do |s|
-      s.change_make_var! "PREFIX", prefix
-    end
-
-    system 'make', 'install'
-
-    (share/'voro++').install('examples')
-    mv prefix/'man', share/'man'
+    system "make", "install", "PREFIX=#{prefix}"
+    (share / "voro++").install("examples")
+    mv prefix / "man", share / "man"
   end
 
   def test
-    system 'voro++','-h'
+    system "voro++", "-h"
   end
 
   def caveats
