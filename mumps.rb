@@ -18,67 +18,58 @@ class Mumps < Formula
   depends_on :fortran
 
   def install
-    orderingsf = '-Dpord'
-    makefile = (build.with? :mpi) ? 'Make.inc/Makefile.gfortran.PAR' : 'Make.inc/Makefile.gfortran.SEQ'
+    make_args = ["LIBEXT=.dylib",
+                 "AR=$(FL) -shared -Wl,-install_name -Wl,#{lib}/$(notdir $@) -undefined dynamic_lookup -o ",  # Must have a trailing whitespace!
+                 "RANLIB=echo"]
+    orderingsf = "-Dpord"
 
-    cp makefile, 'Makefile.inc'
-    inreplace 'Makefile.inc' do |s|
-      if build.with? 'scotch5'
-        s.gsub! /#\s*SCOTCHDIR\s*=/, 'SCOTCHDIR = '
-        s.change_make_var! 'SCOTCHDIR', Formula["scotch5"].prefix
-        s.gsub! /#\s*ISCOTCH\s*=/, 'ISCOTCH = '
-        s.change_make_var! 'ISCOTCH', "-I#{Formula["scotch5"].include}"
+    makefile = (build.with? :mpi) ? "Makefile.gfortran.PAR" : "Makefile.gfortran.SEQ"
+    cp "Make.inc/" + makefile, "Makefile.inc"
 
-        if build.with? :mpi
-          s.gsub! /#\s*LSCOTCH\s*=\s*-L\$\(SCOTCHDIR\)\/lib -lptesmumps -lptscotch -lptscotcherr/, 'LSCOTCH = -L$(SCOTCHDIR)/lib -lptesmumps -lptscotch -lptscotcherr'
-          orderingsf << ' -Dptscotch'
-        else
-          s.gsub! /#\s*LSCOTCH\s*=\s*-L\$\(SCOTCHDIR\)\/lib -lesmumps -lscotch -lscotcherr/, 'LSCOTCH = -L$(SCOTCHDIR)/lib -lesmumps -lscotch -lscotcherr'
-          orderingsf << ' -Dscotch'
-        end
-      end
-
-      if build.with? 'metis4'
-        s.gsub! /#\s*LMETISDIR\s*=/, 'LMETISDIR = '
-        s.change_make_var! 'LMETISDIR', Formula["metis4"].lib
-        s.gsub! /#\s*IMETIS\s*=/, 'IMETIS = '
-        s.change_make_var! 'IMETIS', Formula["metis4"].include
-        s.sub! /#\s*LMETIS\s*=/, 'LMETIS = '
-        s.change_make_var! 'LMETIS', "-L#{Formula["metis4"].lib} -lmetis"
-        orderingsf << ' -Dmetis'
-      end
-
-      s.change_make_var! 'ORDERINGSF', orderingsf
-
-      # Build a shared library.
-      s.change_make_var! 'LIBEXT', '.dylib'
-      s.change_make_var! 'AR', "$(FL) -shared -Wl,-install_name -Wl,#{lib}/$(notdir $@) -undefined dynamic_lookup -o "  # Must have a trailing whitespace!
-      s.change_make_var! 'RANLIB', 'echo'
+    if build.with? 'scotch5'
+      make_args += ["SCOTCHDIR=#{Formula['scotch5'].prefix}",
+                    "ISCOTCH=-I#{Formula["scotch5"].include}"]
 
       if build.with? :mpi
-        s.change_make_var! 'CC', "#{ENV['MPICC']} -fPIC"
-        s.change_make_var! 'FC', "#{ENV['MPIFC']} -fPIC"
-        s.change_make_var! 'FL', "#{ENV['MPIFC']} -fPIC"
-        s.change_make_var! 'SCALAP', "-L#{Formula["scalapack"].lib} -lscalapack"
-        s.change_make_var! 'INCPAR', "-I#{Formula["open-mpi"].include}"
-        s.change_make_var! 'LIBPAR', "$(SCALAP) -L#{Formula["open-mpi"].lib} -lmpi -lmpi_mpifh"
+        make_args << "LSCOTCH=-L$(SCOTCHDIR)/lib -lptesmumps -lptscotch -lptscotcherr"
+        orderingsf << " -Dptscotch"
       else
-        s.change_make_var! 'CC', "#{ENV['CC']} -fPIC"
-        s.change_make_var! 'FC', "#{ENV['FC']} -fPIC"
-        s.change_make_var! 'FL', "#{ENV['FC']} -fPIC"
-      end
-
-      if build.with? 'openblas'
-        s.change_make_var! 'LIBBLAS', "-L#{Formula["openblas"].lib} -lopenblas"
-      else
-        s.change_make_var! 'LIBBLAS', '-lblas -llapack'
+        make_args << "LSCOTCH=-L$(SCOTCHDIR) -lesmumps -lscotch -lscotcherr"
+        orderingsf << " -Dscotch"
       end
     end
 
-    ENV.deparallelize  # Build fails in parallel on Mavericks.
-    system 'make all'
+    if build.with? "metis4"
+      make_args += ["LMETISDIR=#{Formula["metis4"].lib}",
+                    "IMETIS=#{Formula["metis4"].include}",
+                    "LMETIS=-L#{Formula["metis4"].lib} -lmetis"]
+      orderingsf << ' -Dmetis'
+    end
 
-    prefix.install 'Makefile.inc'  # For the record.
+    make_args << "ORDERINGSF=#{orderingsf}"
+
+    if build.with? :mpi
+      make_args += ["CC=#{ENV['MPICC']} -fPIC",
+                    "FC=#{ENV['MPIFC']} -fPIC",
+                    "FL=#{ENV['MPIFC']} -fPIC",
+                    "SCALAP=-L#{Formula["scalapack"].lib} -lscalapack",
+                    "INCPAR=-I#{Formula["open-mpi"].include}",
+                    "LIBPAR=$(SCALAP) -L#{Formula["open-mpi"].lib} -lmpi -lmpi_mpifh"]
+    else
+      make_args += ["CC=#{ENV['CC']} -fPIC",
+                    "FC=#{ENV['FC']} -fPIC",
+                    "FL=#{ENV['FC']} -fPIC"]
+    end
+
+    if build.with? 'openblas'
+      make_args << "LIBBLAS=-L#{Formula["openblas"].lib} -lopenblas"
+    else
+      make_args << "LIBBLAS=-lblas -llapack"
+    end
+
+    ENV.deparallelize  # Build fails in parallel on Mavericks.
+    system "make", "all", *make_args
+
     lib.install Dir['lib/*']
 
     if build.with? :mpi
@@ -86,14 +77,14 @@ class Mumps < Formula
     else
       lib.install 'libseq/libmpiseq.dylib'
       libexec.install 'include'
-      include.install_symlink Dir[libexec/'include/*']
+      include.install_symlink Dir[libexec / 'include/*']
       # The following .h files may conflict with others related to MPI
       # in /usr/local/include. Do not symlink them.
-      (libexec/'include').install Dir['libseq/*.h']
+      (libexec / 'include').install Dir['libseq/*.h']
     end
 
-    (share+'doc').install Dir['doc/*.pdf']
-    (share+'examples').install Dir['examples/*[^.o]']
+    (share + 'doc').install Dir['doc/*.pdf']
+    (share + 'examples').install Dir['examples/*[^.o]']
   end
 
   def caveats
