@@ -7,8 +7,6 @@ class SuiteSparse < Formula
 
   depends_on "tbb" => :recommended
   depends_on "openblas" => :optional
-  # Metis is optional for now because of
-  # cholmod_metis.c:164:21: error: use of undeclared identifier 'idxtype'
   depends_on "metis4" => :optional # metis 5.x is not yet supported by suite-sparse
 
   def install
@@ -20,10 +18,10 @@ class SuiteSparse < Formula
     system "mv SuiteSparse_config/SuiteSparse_config_Mac.mk SuiteSparse_config/SuiteSparse_config.mk"
 
     make_args = ["INSTALL_LIB=#{lib}", "INSTALL_INCLUDE=#{include}"]
-    make_args << "BLAS=\"" + ((build.with? 'openblas') ? "-L#{Formula['openblas'].lib} -lopenblas" : "-framework Accelerate") + "\""
+    make_args << "BLAS=" + ((build.with? 'openblas') ? "-L#{Formula['openblas'].lib} -lopenblas" : "-framework Accelerate")
     make_args << "LAPACK=$(BLAS)"
-    make_args += ["SPQR_CONFIG=-DHAVE_TBB", "TBB=\"-L#{Formula['tbb'].lib} -ltbb\""] if build.with? "tbb"
-    make_args += ["METIS_PATH=", "METIS=\"-L#{Formula['metis'].lib} -lmetis\""] if build.with? "metis4"
+    make_args += ["SPQR_CONFIG=-DHAVE_TBB", "TBB=-L#{Formula['tbb'].lib} -ltbb"] if build.with? "tbb"
+    make_args += ["METIS_PATH=", "METIS=-L#{Formula['metis'].lib} -lmetis"] if build.with? "metis4"
 
     system "make", "library", *make_args
     lib.mkpath
