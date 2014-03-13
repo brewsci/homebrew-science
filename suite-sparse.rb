@@ -13,36 +13,21 @@ class SuiteSparse < Formula
 
   def install
     # SuiteSparse doesn't like to build in parallel
-    ENV.j1
+    ENV.deparallelize
 
     # Switch to the Mac base config, per SuiteSparse README.txt
     system "mv SuiteSparse_config/SuiteSparse_config.mk SuiteSparse_config/SuiteSparse_config_orig.mk"
     system "mv SuiteSparse_config/SuiteSparse_config_Mac.mk SuiteSparse_config/SuiteSparse_config.mk"
 
-    inreplace "SuiteSparse_config/SuiteSparse_config.mk" do |s|
-      if build.include? 'with-openblas'
-        s.change_make_var! "BLAS", "-lopenblas"
-        s.change_make_var! "LAPACK", "$(BLAS)"
-      end
+    make_args = ["INSTALL_LIB=#{lib}", "INSTALL_INCLUDE=#{include}"]
+    make_args << "BLAS=\"" + ((build.with? 'openblas') ? "-L#{Formula['openblas'].lib} -lopenblas" : "-framework Accelerate") + "\""
+    make_args << "LAPACK=$(BLAS)"
+    make_args += ["SPQR_CONFIG=-DHAVE_TBB", "TBB=\"-L#{Formula['tbb'].lib} -ltbb\""] if build.with? "tbb"
+    make_args += ["METIS_PATH=", "METIS=\"-L#{Formula['metis'].lib} -lmetis\""] if build.with? "metis4"
 
-      unless build.include? "without-tbb"
-        s.change_make_var! "SPQR_CONFIG", "-DHAVE_TBB"
-        s.change_make_var! "TBB", "-ltbb"
-      end
-
-      if build.include? "with-metis4"
-        s.remove_make_var! "METIS_PATH"
-        s.change_make_var! "METIS", "#{Formula["metis4"].lib}/libmetis.a"
-      end
-
-      s.change_make_var! "INSTALL_LIB", lib
-      s.change_make_var! "INSTALL_INCLUDE", include
-    end
-
-    system "make library"
-
+    system "make", "library", *make_args
     lib.mkpath
     include.mkpath
-    system "make install"
+    system "make", "install", *make_args
   end
 end
