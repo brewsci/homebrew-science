@@ -11,17 +11,15 @@ class Scotch < Formula
     cd 'src' do
       ln_s 'Make.inc/Makefile.inc.i686_mac_darwin8', 'Makefile.inc'
 
+      make_args = ["CCS=#{ENV['CC']}", "CCP=#{ENV['MPICC']}", "CCD=#{ENV['MPICC']}"]
       inreplace 'Makefile.inc' do |s|
-        s.change_make_var! 'CCS', ENV['CC']
-        s.change_make_var! 'CCP', ENV['MPICC']
-        s.change_make_var! 'CCD', ENV['MPICC']
         # OS X doesn't implement pthread_barriers required by Scotch
         s.slice! '-DCOMMON_PTHREAD'
         s.slice! '-DSCOTCH_PTHREAD'
       end
-      system 'make', 'scotch','VERBOSE=ON'
-      system 'make', 'ptscotch','VERBOSE=ON'
-      system 'make', 'install', "prefix=#{prefix}"
+      system 'make', 'scotch', 'VERBOSE=ON', *make_args
+      system 'make', 'ptscotch', 'VERBOSE=ON', *make_args
+      system 'make', 'install', "prefix=#{prefix}", *make_args
     end
   end
 end
