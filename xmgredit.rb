@@ -12,16 +12,12 @@ class Xmgredit < Formula
   depends_on 'triangle'
 
   def patches
-    {:p1 => DATA}
+    { :p1 => DATA }
   end
 
   def install
-    inreplace 'Makefile' do |s|
-      s.change_make_var! 'INSTALLDIR', prefix
-    end
-
     bin.mkpath
-    system "make install"
+    system "make", "install", "INSTALLDIR=#{prefix}"
   end
 end
 __END__
