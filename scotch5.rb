@@ -22,16 +22,14 @@ class Scotch5 < Formula
       ln_s 'Make.inc/Makefile.inc.i686_mac_darwin8', 'Makefile.inc'
 
       # Use mpicc to compile the parallelized version
+      make_args = ["CCS=#{ENV['CC']}", "CCP=#{ENV['MPICC']}", "CCD=#{ENV['MPICC']}"]
       inreplace 'Makefile.inc' do |s|
-        s.change_make_var! 'CCS', ENV['CC']
-        s.change_make_var! 'CCP', ENV['MPICC']
-        s.change_make_var! 'CCD', ENV['MPICC']
         s.gsub! '-O3', '-O3 -fPIC'
       end
 
-      system 'make', 'scotch'
-      system 'make', 'ptscotch'
-      system 'make', 'install', "prefix=#{prefix}"
+      system 'make', 'scotch', *make_args
+      system 'make', 'ptscotch', *make_args
+      system 'make', 'install', "prefix=#{prefix}", *make_args
     end
   end
 end
