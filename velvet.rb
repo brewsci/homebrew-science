@@ -11,12 +11,7 @@ class Velvet < Formula
   option 'with-categories=<value>', 'Specify number of categories, any positive integer (default: 1)'
 
   def install
-    inreplace 'Makefile' do |s|
-      # recommended in Makefile for compiling on Mac OS X
-      s.change_make_var! "CFLAGS", "-Wall -m64"
-    end
-
-    args = ["LONGSEQUENCES=1"]
+    args = ["CFLAGS=-Wall -m64", "LONGSEQUENCES=1"]
     args << "OPENMP=1" unless ENV.compiler == :clang
     maxkmerlength = ARGV.value('with-maxkmerlength') || '-1'
     categories = ARGV.value('with-categories') || '-1'
@@ -27,7 +22,7 @@ class Velvet < Formula
     bin.install 'velveth', 'velvetg'
 
     # install additional contributed scripts
-    (share/'velvet/contrib').install Dir['contrib/shuffleSequences_fasta/shuffleSequences_*']
+    (share / 'velvet/contrib').install Dir['contrib/shuffleSequences_fasta/shuffleSequences_*']
   end
 
   def caveats
