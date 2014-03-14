@@ -22,7 +22,13 @@ class Scotch5 < Formula
       ln_s 'Make.inc/Makefile.inc.i686_mac_darwin8', 'Makefile.inc'
 
       # Use mpicc to compile the parallelized version
-      make_args = ["CCS=#{ENV['CC']}", "CCP=#{ENV['MPICC']}", "CCD=#{ENV['MPICC']}"]
+      make_args = ["CCS=#{ENV['CC']}",
+                   "CCP=#{ENV['MPICC']}",
+                   "CCD=#{ENV['MPICC']}",
+                   "LIB=.dylib",
+                   "AR=libtool",
+                   "ARFLAGS=-dynamic -install_name #{lib}/$(notdir $@) -undefined dynamic_lookup -o ",
+                   "RANLIB=echo"]
       inreplace 'Makefile.inc' do |s|
         s.gsub! '-O3', '-O3 -fPIC'
       end
