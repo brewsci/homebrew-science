@@ -6,6 +6,7 @@ class Scalapack < Formula
   sha1 'ff9532120c2cffa79aef5e4c2f38777c6a1f3e6a'
   head 'https://icl.cs.utk.edu/svn/scalapack-dev/scalapack/trunk', :using => :svn
 
+  option 'with-shared-libs', 'Build shared libs (some tests may fail)'
   option 'without-check', 'Skip build-time tests (not recommended)'
 
   depends_on :mpi => [:cc, :f90]
@@ -15,17 +16,10 @@ class Scalapack < Formula
   depends_on :fortran
 
   def install
-    if build.with? 'openblas'
-      args = std_cmake_args + [
-        '-DBLAS_LIBRARIES=-lopenblas',
-        '-DLAPACK_LIBRARIES=-lopenblas',
-      ]
-    else
-      args = std_cmake_args + [
-        '-DBLAS_LIBRARIES=-ldotwrp -Wl,-framework -Wl,Accelerate',
-        '-DLAPACK_LIBRARIES=-ldotwrp -Wl,-framework -Wl,Accelerate',
-      ]
-    end
+    args = std_cmake_args
+    args << "-DBUILD_SHARED_LIBS=ON" if build.with? "shared-libs"
+    blaslib = (build.with? "openblas") ? "-L#{Formula['openblas'].lib} -lopenblas" : "-ldotwrp -Wl,-framework -Wl,Accelerate"
+    args += ["-DBLAS_LIBRARIES=#{blaslib}", "-DLAPACK_LIBRARIES=#{blaslib}"]
 
     mkdir "build" do
       system 'cmake', '..', *args
