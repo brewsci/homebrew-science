@@ -2,9 +2,11 @@ require 'formula'
 
 class Petsc < Formula
   homepage 'http://www.mcs.anl.gov/petsc/index.html'
-  url 'http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.4.3.tar.gz'
-  sha1 '8c5d97ba4a28ea8fa830e513a9dcbfd61b51beaf'
+  url 'http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.4.4.tar.gz'
+  sha1 '2f507195a3142eb0599e78a909446175a597480a'
   head 'https://bitbucket.org/petsc/petsc', :using => :git
+
+  option 'without-check', 'Skip build-time tests (not recommended)'
 
   depends_on :mpi => :cc
   depends_on :fortran
@@ -20,8 +22,7 @@ class Petsc < Formula
     ENV['PETSC_ARCH'] = petsc_arch
     system "./configure", *args
     system "make all"
-    system "make test"
-    ohai 'Test results are in ~/Library/Logs/Homebrew/petsc. Please check.'
+    system "make test" if build.with? "check"
     system "make install"
 
     # Link only what we want.
