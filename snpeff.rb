@@ -3,20 +3,15 @@ require 'formula'
 class Snpeff < Formula
   homepage 'http://snpeff.sourceforge.net/'
   url 'https://downloads.sourceforge.net/project/snpeff/snpEff_v3_5_core.zip'
-  version '3.5c'
-  sha1 '45a0f83b537cfd3c89e4c3b878b298f2614b0e4e'
+  version '3.5e'
+  sha1 'edf0e0e0b50b9ec3821c445863dc2adae2486104'
 
   def install
-    java = share / 'java'
-    java.install 'snpEff.jar', 'SnpSift.jar', 'snpEff.config'
-    # Install a shell script to launch snpEff.
-    bin.mkdir
-    open(bin / 'snpeff', 'w') do |file|
-      file.write <<-EOS.undent
-        #!/bin/sh
-        exec java -jar #{java}/snpEff.jar "$@" -c #{java}/snpEff.config
-      EOS
-    end
+    libexec.install "snpEff.jar", "SnpSift.jar", "snpEff.config"
+    share.install "scripts", "galaxy"
+
+    inreplace "snpeff", /^jardir=.*/, "jardir=#{libexec}"
+    bin.install "snpeff"
   end
 
   def caveats
