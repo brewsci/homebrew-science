@@ -1,9 +1,9 @@
 require "formula"
 
 class Recon < Formula
-  homepage "http://selab.janelia.org/recon.html"
-  url "http://selab.janelia.org/software/recon/RECON1.05.tar.gz"
-  sha1 "9fe7a830f72f013357e08091b22a259ed07518a8"
+  homepage "http://www.repeatmasker.org/RepeatModeler.html"
+  url "http://www.repeatmasker.org/RECON-1.07.tar.gz"
+  sha1 "215ef7d47d41faf657bcb4ee211019ed713e399e"
 
   def install
     inreplace "scripts/recon.pl", '$path = "";', "$path = \"#{bin}\";"
