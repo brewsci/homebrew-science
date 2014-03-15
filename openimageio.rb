@@ -62,7 +62,7 @@ class Openimageio < Formula
     # Oiio is designed to have its testsuite images extracted one directory
     # above the source.  That's not a safe place for HB.  Do the opposite,
     # and move the entire source down into a subdirectory if --with-tests.
-    if build.include? 'with-tests' then
+    if build.with? 'tests' then
       (buildpath+'localpub').install Dir['*']
       chdir 'localpub'
     end
@@ -93,7 +93,7 @@ class Openimageio < Formula
     # Download standardized test images if the user throws --with-tests.
     # 90% of the images are in tarballs, so they are cached normally.
     # The webp and fits images are loose.  Curl them each install.
-    if build.include? 'with-tests' then
+    if build.with? 'tests' then
       d = buildpath
       mkdir d+'webp-images' do
         curl "http://www.gstatic.com/webp/gallery/[1-5].webp", "-O"
@@ -118,7 +118,7 @@ class Openimageio < Formula
 
     # make is a shell wrapper for cmake crafted by the devs (who have Lion).
     system "make", *args
-    system "make test" if build.include? 'with-tests'
+    system "make test" if build.with? 'tests'
     # There is no working make install in 1.1.6, devel or HEAD.
     Dir.chdir 'dist/macosx' do
       (lib + which_python ).install 'lib/python/site-packages'
