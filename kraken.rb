@@ -1,12 +1,12 @@
-require 'formula'
+require "formula"
 
 class Kraken < Formula
-  homepage 'http://ccb.jhu.edu/software/kraken/'
-  url 'http://ccb.jhu.edu/software/kraken/dl/kraken-0.10.0-beta.tgz'
-  sha1 '2506704b2cb927bc50498099f98aa625ff675daf'
+  homepage "http://ccb.jhu.edu/software/kraken/"
+  url "http://ccb.jhu.edu/software/kraken/dl/kraken-0.10.3-beta.tgz"
+  sha1 "64f88004c341871d883235f4ae7c876c0136b885"
 
   fails_with :clang do
-    build 500
+    build 503
     cause "error: 'omp.h' file not found"
   end
 
