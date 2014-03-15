@@ -12,7 +12,7 @@ class Blast < Formula
   option 'without-check', 'Skip the self tests'
 
   fails_with :clang do
-    build 500
+    build 503
     cause "error: 'bits/c++config.h' file not found"
   end
 

@@ -6,7 +6,7 @@ class Plink < Formula
   sha1 'd41a2d014ebc02bf11e5235292b50fad6dedd407'
 
   fails_with :clang do
-    build 500
+    build 503
     cause %q[sets.cpp:771:37: error: redefinition of 'i' with a different type]
   end
 

@@ -9,7 +9,7 @@ class CeleraAssembler < Formula
   #head 'https://svn.code.sf.net/p/wgs-assembler/svn/trunk'
 
   fails_with :clang do
-    build 500
+    build 503
     cause "error: use of undeclared identifier 'use_safe_malloc_instead'"
   end
 

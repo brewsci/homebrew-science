@@ -9,7 +9,7 @@ class Htqc < Formula
   depends_on 'boost'
 
   fails_with :clang do
-    build 500
+    build 503
     cause "error: call to constructor of 'htio::FastaIO' is ambiguous"
   end
 
