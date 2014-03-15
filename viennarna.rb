@@ -13,8 +13,8 @@ class Viennarna < Formula
             "--disable-debug",
             "--disable-dependency-tracking",
             "--disable-openmp"]
-    args << "--without-perl" unless build.include? "with-perl"
-    
+    args << "--without-perl" if build.without? "perl"
+
     system "./configure", *args
     system "make install"
   end
