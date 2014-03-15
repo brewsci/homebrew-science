@@ -16,16 +16,16 @@ class Giira < Formula
   end
 
   test do
-  	(testpath/"test.fasta").write <<-EOS.undent
-	  >gi|330443520|ref|NC_001136.10| Saccharomyces cerevisiae
-	  ACACCACACCCACACCACACCCACACACACCACACCCACACACCACACCCACACCCACACACCCACACCC
-  	EOS
-  	(testpath/"test.fastq").write <<-EOS.undent
-	  @scer_part1_c15.000000000 contig=lcl|NC_001136.10_cdsid_NP_010096.1
-	  CAATTTTTCGCATTCGCCATGGACTTCCTTTTCACCCCTGCTTGGTTCAA
-	EOS
+    (testpath/"test.fasta").write <<-EOS.undent
+    >gi|330443520|ref|NC_001136.10| Saccharomyces cerevisiae
+    ACACCACACCCACACCACACCCACACACACCACACCCACACACCACACCCACACCCACACACCCACACCC
+    EOS
+    (testpath/"test.fastq").write <<-EOS.undent
+    @scer_part1_c15.000000000 contig=lcl|NC_001136.10_cdsid_NP_010096.1
+    CAATTTTTCGCATTCGCCATGGACTTCCTTTTCACCCCTGCTTGGTTCAA
+    EOS
 
-  	output = `#{bin}/GIIRA -iG test.fasta -iR test.fastq -opti glpk`
-  	output.include? ("Gene identification finished")
+    output = `#{bin}/GIIRA -iG test.fasta -iR test.fastq -opti glpk`
+    output.include? ("Gene identification finished")
   end
 end
