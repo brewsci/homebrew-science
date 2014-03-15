@@ -8,7 +8,6 @@ class Mrbayes < Formula
   head 'https://mrbayes.svn.sourceforge.net/svnroot/mrbayes/trunk/'
 
   option 'with-beagle', 'Build with BEAGLE library support'
-  option 'with-mpi', 'Build with MPI parallel support'
 
   depends_on :autoconf => :build
   depends_on :automake => :build
@@ -29,7 +28,7 @@ class Mrbayes < Formula
       args << "--with-beagle=no"
     end
 
-    if build.include? 'with-mpi'
+    if build.with? "mpi"
       # Open-mpi builds only with llvm-gcc due to a bug (see open-mpi formula)
       # therefore open-mpi attempts to run llvm-gcc instead of clang.
       # But MrBayes hangs with llvm-gcc!
