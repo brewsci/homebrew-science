@@ -6,7 +6,6 @@ class AllpathsLg < Formula
   sha1 'c53cfe3443d769ddd2a77b61e2c600b3cb49bb2a'
 
   fails_with :clang do
-    build 500
     cause "The only supported compiler is GCC(>=4.7)."
   end
 
@@ -16,9 +15,9 @@ class AllpathsLg < Formula
   end
 
   def install
-    system './configure', '--disable-debug', '--disable-dependency-tracking',
-      "--prefix=#{prefix}"
-    system 'make', 'install'
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
+    system "make", "install"
   end
 
   test do
