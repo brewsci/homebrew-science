@@ -10,10 +10,11 @@ class TmvCpp < Formula
   option 'with-full-check', 'Go through all tests (time consuming)'
   depends_on 'scons' => :build
 
-  def patches
-    # Fix a bug with Xcode 5.1. Remove when upgrading to v0.72
-    # See https://code.google.com/p/tmv-cpp/issues/detail?id=9
-    { :p0 => 'https://tmv-cpp.googlecode.com/issues/attachment?aid=90002000&name=issue9.patch&token=Nn4yfV6CoV3nVsQNNzRfgp578V8%3A1394851189991' }
+  # Fix a bug with Xcode 5.1. Remove when upgrading to v0.72
+  # See https://code.google.com/p/tmv-cpp/issues/detail?id=9
+  patch :p0 do
+    url "https://tmv-cpp.googlecode.com/issues/attachment?aid=90002000&name=issue9.patch&token=Nn4yfV6CoV3nVsQNNzRfgp578V8%3A1394851189991"
+    sha1 "b45e55cafdb20db16ad8f0873e77838a258fa980"
   end
 
   def install
