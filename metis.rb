@@ -11,7 +11,9 @@ class Metis < Formula
 
   def install
     ENV.universal_binary if build.universal?
-    system "make", "config", "prefix=#{prefix}"
+    make_args = ["shared=1", "prefix=#{prefix}"]
+    make_args << "openmp=" + ((ENV.compiler == :clang) ? "0" : "1")
+    system "make", "config", *make_args
     system "make install"
   end
 end
