@@ -9,10 +9,9 @@ class H5utils < Formula
   depends_on 'hdf5'
 
   # A patch is required in order to build h5utils with libpng 1.5
-  def patches
-    {:p0 =>
-      "https://trac.macports.org/export/102291/trunk/dports/science/h5utils/files/patch-writepng.c"
-    }
+  patch :p0 do
+    url "https://trac.macports.org/export/102291/trunk/dports/science/h5utils/files/patch-writepng.c"
+    sha1 "026aa59f2e13388d0b7834de6dcbd48da2858cbe"
   end
 
   def install
