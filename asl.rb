@@ -2,12 +2,14 @@ require 'formula'
 
 class Asl < Formula
   url 'http://www.ampl.com/netlib/ampl/solvers.tgz'
-  sha1 '58bc9a250656e61fb7c906f8b19f10d3cf6b9c67'
+  sha1 '3d527e03fff6eea8d0eff43bdc72391d778f0e0b'
   version '20140205'
   homepage 'http://www.ampl.com/hooking.html'
 
   def install
-    args = ["CC=#{ENV.cc}", 'CFLAGS="-I. -O -fPIC"']
+    ENV.universal_binary
+    # ENV.remove "CFLAGS", "-arch #{Hardware::CPU.arch_64_bit}"
+    args = ["CC=#{ENV.cc}", "CFLAGS=-I. -O -fPIC -arch #{Hardware::CPU.arch_32_bit}"]
 
     # Dynamic libraries are more user friendly.
     # Inclusion of the following in ASL was suggested to David Gay.
@@ -15,18 +17,18 @@ class Asl < Formula
       include makefile.u
 
       libasl.dylib: ${a:.c=.o}
-      \t$(CC) -shared -Wl,-install_name -Wl,#{lib}/libasl.dylib -o libasl.dylib $?
+      \tlibtool -dynamic -undefined dynamic_lookup -install_name #{lib}/libasl.dylib -o libasl.dylib $?
 
       libfuncadd0.dylib: funcadd0.o
-      \t$(CC) -shared -Wl,-install_name -Wl,#{lib}/libfuncadd0.dylib -o libfuncadd0.dylib $?
+      \tlibtool -dynamic -undefined dynamic_lookup -install_name #{lib}/libfuncadd0.dylib -o libfuncadd0.dylib $?
     EOS
 
     ENV.deparallelize
     system *(%w[make -f makefile.brew arith.h stdio1.h libasl.dylib libfuncadd0.dylib] + args)
 
     lib.install 'libasl.dylib', 'libfuncadd0.dylib'
-    (include+'asl').install Dir['*.h']
-    (include+'asl').install Dir['*.hd']
+    (include / 'asl').install Dir["*.h"]
+    (include / 'asl').install Dir["*.hd"]
     doc.install 'README'
   end
 
