@@ -39,6 +39,8 @@ class Samtools < Formula
       ohai "Building dwgsim"
       samtools = pwd
       resource('dwgsim').stage do
+        # mut_get_ins_long_n: Not inline (https://github.com/nh13/DWGSIM/pull/8)
+        inreplace "src/mut.c", "inline uint8_t", "uint8_t"
         system "ln -s #{samtools} samtools"
         system "make"
         bin.install %w{dwgsim dwgsim_eval}
