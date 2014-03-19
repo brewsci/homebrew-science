@@ -6,7 +6,7 @@ class Mlpack < Formula
   sha1 "f7fce9d37964fb6ede017d29799155f0a08a3e0e"
 
   option :cxx11
-  cxx11dep = (build.cxx11?) ? ['cxx11'] : []
+  cxx11dep = (build.cxx11?) ? ['c++11'] : []
 
   depends_on "cmake" => :build
   depends_on "libxml2"
