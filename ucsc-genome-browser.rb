@@ -33,7 +33,7 @@ class UcscGenomeBrowser < Formula
       system 'make',
         "MACHTYPE=#{machtype}",
         "BINDIR=#{bin}",
-        "SCRIPTS=#{bin}/scripts",
+        "SCRIPTS=#{prefix}/scripts",
         "CGI_BIN=#{prefix}/cgi-bin",
         "DOCUMENTROOT=#{prefix}/htdocs",
         "PNGLIB=-L#{HOMEBREW_PREFIX}/lib -lpng",

@@ -10,12 +10,14 @@ class Genometools < Formula
   option 'without-pangocairo', 'Build without Pango/Cairo (disables AnnotationSketch tool)'
   option 'with-hmmer', 'Build with HMMER (to enable protein domain search functionality in the ltrdigest tool)'
 
-  depends_on 'cairo' unless build.include? 'without-pangocairo'
-  depends_on 'pango' unless build.include? 'without-pangocairo'
+  if build.with? "pangocairo"
+    depends_on "cairo"
+    depends_on "pango"
+  end
 
   def install
     args = ["prefix=#{prefix}"]
-    args << 'cairo=no' if build.include? 'without-pangocairo'
+    args << "cairo=no" if build.without? "pangocairo"
     args << 'with-hmmer=yes' if build.with? 'hmmer'
     args << 'universal=yes' if build.universal?
     args << '64bit=yes' if MacOS.prefer_64_bit?

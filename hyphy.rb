@@ -24,8 +24,8 @@ class Hyphy < Formula
 
   def install
     system "cmake", "-DINSTALL_PREFIX=#{prefix}", ".", *std_cmake_args
-    system "make SP" unless build.without? "single-threaded"
-    system "make MP2" unless build.without? "multi-threaded"
+    system "make SP" if build.with? "single-threaded"
+    system "make MP2" if build.with? "multi-threaded"
     system "make MPI" if build.with? :mpi
     system "make OCL" if build.with? "opencl"
 

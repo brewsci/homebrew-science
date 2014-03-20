@@ -37,7 +37,7 @@ class Cppad < Formula
       cppad_testvector = 'eigen'
       cmake_args << "-Deigen_prefix=#{Formula["eigen"].prefix}"
       cmake_args << "-Dcppad_cxx_flags=-I#{Formula["eigen"].include}/eigen3"
-    elsif build.include? 'with-std'
+    elsif build.with? 'std'
       cppad_testvector = 'std'
     end
     cmake_args << "-Dcppad_testvector=#{cppad_testvector}"

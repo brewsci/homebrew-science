@@ -29,7 +29,7 @@ class Flann < Formula
       args << '-DBUILD_PYTHON_BINDINGS:BOOL=OFF'
     end
 
-    inreplace 'CMakeLists.txt', 'add_subdirectory( examples )', '' unless build.include? 'with-examples'
+    inreplace 'CMakeLists.txt', 'add_subdirectory( examples )', '' if build.with? 'examples'
 
     mkdir 'build' do
       system 'cmake', '..', *args

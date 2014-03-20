@@ -26,7 +26,7 @@ class Wcslib < Formula
       args << "--with-pgplotinc=#{Formula["pgplot"].opt_include}"
     else
       args << "--without-pgplot"
-      args << "--disable-fortran" unless build.with? "fortran"
+      args << "--disable-fortran" if build.without? "fortran"
     end
 
     system "./configure", *args

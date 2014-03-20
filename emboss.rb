@@ -5,13 +5,11 @@ class Emboss < Formula
   url 'ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz'
   sha1 '93749ebd0a777efd3749974d2401c3a2a013a3fe'
 
-  option 'without-x', 'Build without X11 support'
-
   depends_on 'pkg-config' => :build
   depends_on 'libharu'    => :optional
   depends_on 'gd'         => :optional
   depends_on :libpng      => :recommended
-  depends_on :x11 unless build.include? 'without-x'
+  depends_on :x11         => :recommended
 
   def install
     args = %W[
@@ -21,7 +19,7 @@ class Emboss < Formula
       --enable-64
       --with-thread
     ]
-    args << '--without-x' if build.include? 'without-x'
+    args << '--without-x' if build.without? "x11"
     system './configure', *args
     system 'make install'
   end

@@ -153,7 +153,7 @@ class Lammps < Formula
         system "make", "yes-" + pkg if build.include? "enable-" + pkg
       end
 
-      unless build.with? :mpi
+      if build.without? :mpi
         # build fake mpi library
         cd "STUBS" do
           system "make"

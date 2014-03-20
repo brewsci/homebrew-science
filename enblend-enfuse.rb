@@ -28,7 +28,7 @@ class EnblendEnfuse < Formula
              "--disable-dependency-tracking",
              "--prefix=#{prefix}" ]
 
-    args << "--without-x" unless build.with? 'x11'
+    args << "--without-x" if build.without? 'x11'
 
     if build.include? 'disable-gpu'
       enable_gpu = "no"

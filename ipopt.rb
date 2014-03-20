@@ -65,7 +65,7 @@ class Ipopt < Formula
     system "./configure", *args
     system "make"
     ENV.deparallelize # Needs a serialized install
-    system "make test" unless build.without? 'check'
+    system "make test" if build.with? "check"
     system "make install"
   end
 end

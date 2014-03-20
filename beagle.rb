@@ -61,6 +61,6 @@ class Beagle < Formula
     system "make"
     system "make install"
     # The tests seem to fail if --enable-opencl is provided
-    system "make check" unless build.with? 'opencl'
+    system "make check" if build.without? "opencl"
   end
 end

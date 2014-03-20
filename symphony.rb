@@ -14,7 +14,7 @@ class Symphony < Formula
             "--enable-static-executable",
             "--prefix=#{prefix}"]
 
-    if build.include? "with-gmpl"
+    if build.with? "gmpl"
       # Symphony uses a patched version of GLPK for reading MPL files.
       # Use a private version rather than require the Homebrew version of GLPK.
       cd 'ThirdParty/Glpk' do

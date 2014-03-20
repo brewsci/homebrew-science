@@ -23,7 +23,7 @@ class Blast < Formula
 
   def install
     args = ["--prefix=#{prefix}"]
-    args << "--with-dll" if build.include? 'with-dll'
+    args << "--with-dll" if build.with? "dll"
     # Boost is used only for unit tests.
     args << '--without-boost' if build.without? 'check'
 
