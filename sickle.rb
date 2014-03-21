@@ -7,8 +7,11 @@ class Sickle < Formula
   head 'https://github.com/najoshi/sickle.git'
 
   # Fix a linker error
-  def patches
-    'https://github.com/sjackman/sickle/commit/895207a.diff' unless build.head?
+  unless build.head?
+    patch do
+      url "https://github.com/sjackman/sickle/commit/895207a.diff"
+      sha1 "dba25e09e700770767629d659e4f12f743bb5ca1"
+    end
   end
 
   def install
