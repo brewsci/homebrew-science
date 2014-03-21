@@ -6,10 +6,9 @@ class Arpack < Formula
   sha1 '1fb817346619b04d8fcdc958060cc0eab2c73c6f'
   head 'git://git.forge.scilab.org/arpack-ng.git'
 
-  depends_on 'openblas' => :optional
-
   depends_on :fortran
   depends_on :mpi => [:optional, :f77]
+  depends_on 'openblas' => :optional
 
   def install
     ENV.m64 if MacOS.prefer_64_bit?
@@ -17,9 +16,13 @@ class Arpack < Formula
     args = ['--disable-dependency-tracking', "--prefix=#{libexec}"]
     args << '--enable-mpi' if build.with? :mpi
     if build.with? 'openblas'
-      ['blas', 'lapack'].each do |pkg|
-        args << "--with-#{pkg}=-L#{Formula["openblas"].lib} -lopenblas"
-      end
+      args << "--with-blas=-L#{Formula["openblas"].lib} -lopenblas"
+    else
+      # We're using the -ff2c flag here to avoid having to depend on dotwrp.
+      # Because qrupdate exports only subroutines, the resulting library is
+      # compatible with packages compiled with or without the -ff2c flag.
+      args << "--with-blas=-framework vecLib"
+      ENV['FFLAGS'] = '-ff2c'
     end
 
     ENV['MPILIBS'] = '-lmpi_usempi -lmpi_mpifh -lmpi' if build.with? :mpi
