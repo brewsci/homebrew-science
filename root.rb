@@ -3,6 +3,7 @@ require 'formula'
 class Root < Formula
   homepage 'http://root.cern.ch'
   url 'ftp://root.cern.ch/root/root_v5.34.18.source.tar.gz'
+  mirror 'https://fossies.org/linux/misc/root_v5.34.18.source.tar.gz'
   version '5.34.18'
   sha1 'e24e9bf8b142f2780f6cec9503409d87e4b9f8da'
   head 'https://github.com/root-mirror/root.git', :branch => 'v5-34-00-patches'
@@ -15,9 +16,11 @@ class Root < Formula
   depends_on :x11
   depends_on :python
 
-  def patches
-    # http://trac.macports.org/ticket/36777
-    { :p0 => "http://trac.macports.org/raw-attachment/ticket/36777/patch-builtin-afterimage-disabletiff.diff" } if build.without? 'x11'
+  if build.without? "x11"
+    patch :p0 do
+      url "http://trac.macports.org/raw-attachment/ticket/36777/patch-builtin-afterimage-disabletiff.diff"
+      sha1 "de9e7c3a6b04e15e8a8219e8396ae4a16c15d973"
+    end
   end
 
   def install
