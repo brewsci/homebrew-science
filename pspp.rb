@@ -1,9 +1,9 @@
 require 'formula'
 
 class Pspp < Formula
-
   homepage 'http://www.gnu.org/software/pspp/'
   url 'http://ftpmirror.gnu.org/pspp/pspp-0.8.2.tar.gz'
+  mirror 'http://ftp.gnu.org/gnu/pspp/pspp-0.8.2.tar.gz'
   sha1 '6f277ea17e8e1886c10db90be42d84ff875e9428'
 
   option 'without-check', 'Skip running the PSPP test suite'
