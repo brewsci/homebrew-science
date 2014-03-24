@@ -19,7 +19,7 @@ class Arpack < Formula
       args << "--with-blas=-L#{Formula["openblas"].lib} -lopenblas"
     else
       # We're using the -ff2c flag here to avoid having to depend on dotwrp.
-      # Because qrupdate exports only subroutines, the resulting library is
+      # Because arpack exports only subroutines, the resulting library is
       # compatible with packages compiled with or without the -ff2c flag.
       args << "--with-blas=-framework vecLib"
       ENV['FFLAGS'] = '-ff2c'
