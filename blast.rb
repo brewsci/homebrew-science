@@ -2,9 +2,9 @@ require 'formula'
 
 class Blast < Formula
   homepage 'http://blast.ncbi.nlm.nih.gov/'
-  url 'ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.28/ncbi-blast-2.2.28+-src.tar.gz'
-  version '2.2.28'
-  sha1 '6941d2b83c410b2e2424266d8ee29ee7581c23d6'
+  url 'ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.29/ncbi-blast-2.2.29+-src.tar.gz'
+  version '2.2.29'
+  sha1 '6b1e8a4b172ae01dbf2ee1ec3b4c4fce392f3eca'
 
   depends_on 'gnutls' => :optional
 
@@ -14,11 +14,6 @@ class Blast < Formula
   fails_with :clang do
     build 503
     cause "error: 'bits/c++config.h' file not found"
-  end
-
-  def patches
-    # Support recent versions of gnutls
-    'http://www.ncbi.nlm.nih.gov/viewvc/v1/trunk/c%2B%2B/src/connect/ncbi_gnutls.c?view=patch&r1=57856&r2=57915'
   end
 
   def install
