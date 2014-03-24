@@ -12,8 +12,8 @@ class Nlopt < Formula
   def install
     ENV.deparallelize
     args = ["--with-cxx", "--enable-shared", "--prefix=#{prefix}"]
-    args += ["--without-octave"] unless build.with? 'octave'
-    args += ["--without-python"] unless build.with? :python
+    args += ["--without-octave"] if build.without? "octave"
+    args += ["--without-python"] if build.without? :python
     if build.with? 'octave'
       ENV['OCT_INSTALL_DIR'] = share/'nlopt/oct'
       ENV['M_INSTALL_DIR'] = share/'nlopt/m'
@@ -35,7 +35,7 @@ class Nlopt < Formula
       to the Octave path.
       EOS
     end
-    unless build.without? :python
+    if build.with? :python
       python_version = `python-config --libs`.match('-lpython(\d+\.\d+)').captures.at(0)
       s += <<-EOS.undent
       Please add
