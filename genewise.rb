@@ -20,9 +20,10 @@ class Genewise < Formula
     # getline conflicts with stdio
     inreplace 'src/HMMer2//sqio.c', 'getline', 'getline_ReadSeqVars'
 
+    # Fails to build with GCC 4.4 on Linux
     # undefined reference to `isnumber'
     # patch suggested in http://korflab.ucdavis.edu/datasets/cegma/ubuntu_instructions_1.txt
-    inreplace 'src/models/phasemodel.c', 'isnumber', 'isdigit' if OS.linux?
+    inreplace 'src/models/phasemodel.c', 'isnumber', 'isdigit'
 
     system *%w[make -C src all]
     bin.install Dir['src/bin/*']
