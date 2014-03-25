@@ -2,8 +2,8 @@ require "formula"
 
 class Wcslib < Formula
   homepage "http://www.atnf.csiro.au/people/mcalabre/WCS/"
-  url "ftp://ftp.atnf.csiro.au/pub/software/wcslib/wcslib-4.20.tar.bz2"
-  sha1 "d1decf98ee4220074ce75f1802b024314c207c70"
+  url "ftp://ftp.atnf.csiro.au/pub/software/wcslib/wcslib-4.21.tar.bz2"
+  sha1 "35267fb33dd4f4e2463e259bcf4b3822218feb5d"
 
   option "with-pgsbox", "Build PGSBOX, a general curvilinear axis drawing routine for PGPLOT"
   option "with-fortran", "Build Fortran wrappers. Needed for --with-pgsbox."
