@@ -4,6 +4,7 @@ class Vcftools < Formula
   homepage 'http://vcftools.sourceforge.net/index.html'
   url 'https://downloads.sourceforge.net/project/vcftools/vcftools_0.1.12a.tar.gz'
   sha1 '66b982c67d2441f2b7fdbf2895f0749547852b13'
+  version '0.1.12a_1' # detect new release, not an alpha version
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "CPP=#{ENV.cxx}"
