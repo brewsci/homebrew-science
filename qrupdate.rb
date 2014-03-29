@@ -6,7 +6,7 @@ class Qrupdate < Formula
   sha1 'f7403b646ace20f4a2b080b4933a1e9152fac526'
 
   depends_on :fortran
-  depends_on "homebrew/science/openblas" => :optional
+  depends_on "openblas" => :optional
 
   def install
     ENV.j1

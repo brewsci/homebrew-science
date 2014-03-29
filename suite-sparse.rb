@@ -7,11 +7,8 @@ class SuiteSparse < Formula
   sha1 '2fec3bf93314bd14cbb7470c0a2c294988096ed6'
 
   depends_on "tbb" => :recommended
-  # Taps explicitly defined to address a cross-tap dependency bug:
-  # https://github.com/Homebrew/homebrew-science/pull/767
-  # https://github.com/Homebrew/homebrew/issues/17730
-  depends_on "homebrew/science/openblas" => :optional
-  depends_on "homebrew/science/metis4" => :optional # metis 5.x is not yet supported by suite-sparse
+  depends_on "openblas" => :optional
+  depends_on "metis4" => :optional # metis 5.x is not yet supported by suite-sparse
 
   def install
     # SuiteSparse doesn't like to build in parallel

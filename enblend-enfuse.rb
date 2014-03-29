@@ -14,7 +14,7 @@ class EnblendEnfuse < Formula
   depends_on 'jpeg'
   depends_on 'little-cms2'
   depends_on 'libtiff'
-  depends_on 'homebrew/science/vigra'
+  depends_on 'vigra'
   depends_on 'openexr' => :optional
 
   def patches
