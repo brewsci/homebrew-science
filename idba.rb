@@ -18,7 +18,8 @@ class Idba < Formula
       "--disable-silent-rules",
       "--prefix=#{prefix}"
     system "make"
-    bin.install Dir["bin/*"].select { |x| File.executable? x }
+    bin.install Dir["bin/idba*"].select { |x| File.executable? x }
+    libexec.install Dir["bin/*"].select { |x| File.executable? x }
     doc.install %w[AUTHORS ChangeLog NEWS README]
   end
 
