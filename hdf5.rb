@@ -11,6 +11,7 @@ class Hdf5 < Formula
   option 'enable-threadsafe', 'Trade performance and C++ or Fortran support for thread safety'
   option 'enable-parallel', 'Compile parallel bindings'
   option 'enable-fortran2003', 'Compile Fortran 2003 bindings. Requires enable-fortran.'
+  option 'enable-cxx', 'Compile C++ bindings.'
   option :cxx11
 
   depends_on :fortran if build.include? 'enable-fortran' or build.include? 'enable-fortran2003'
@@ -33,6 +34,7 @@ class Hdf5 < Formula
     ]
 
     args << '--enable-parallel' if build.include? 'enable-parallel'
+    args << '--enable-cxx' if build.include? 'enable-cxx'
 
     if build.include? 'enable-threadsafe'
       raise "--enable-threadsafe conflicts with Fortran bindings." if build.include? "enable-fortran"
