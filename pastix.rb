@@ -2,8 +2,8 @@ require 'formula'
 
 class Pastix < Formula
   homepage 'http://pastix.gforge.inria.fr'
-  url 'https://gforge.inria.fr/frs/download.php/33274/pastix_release_bugfix3_6eafa91.tar.bz2'
-  sha1 '9ab64ed4243928255102a980a85c4b9ae222401e'
+  url 'https://gforge.inria.fr/frs/download.php/33499/pastix_release_bugfix7_e741af1.tar.bz2'
+  sha1 '74a9bf4fdd92d1bdf40b1c0c20e667b34f83d4c7'
   head 'git://scm.gforge.inria.fr/ricar/ricar.git'
   version '5.2.2'
 
