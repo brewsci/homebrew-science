@@ -19,8 +19,8 @@ class Samtools < Formula
 
   resource 'dwgsim' do
     # http://sourceforge.net/apps/mediawiki/dnaa/index.php?title=Whole_Genome_Simulation
-    url 'https://downloads.sourceforge.net/project/dnaa/dwgsim/dwgsim-0.1.10.tar.gz'
-    sha1 'f3127e84d54cdc52c9b5c988585358f69b4bb675'
+    url 'https://downloads.sourceforge.net/project/dnaa/dwgsim/dwgsim-0.1.11.tar.gz'
+    sha1 'e0275122618fa38dae815d2b43c4da87614c67dd'
   end
 
   def install
@@ -39,10 +39,8 @@ class Samtools < Formula
       ohai "Building dwgsim"
       samtools = pwd
       resource('dwgsim').stage do
-        # mut_get_ins_long_n: Not inline (https://github.com/nh13/DWGSIM/pull/8)
-        inreplace "src/mut.c", "inline uint8_t", "uint8_t"
         system "ln -s #{samtools} samtools"
-        system "make"
+        system "make", "CC=#{ENV.cc}"
         bin.install %w{dwgsim dwgsim_eval}
       end
     end
