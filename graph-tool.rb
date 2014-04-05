@@ -2,8 +2,8 @@ require 'formula'
 
 class GraphTool < Formula
   homepage 'http://graph-tool.skewed.de/'
-  url 'http://downloads.skewed.de/graph-tool/graph-tool-2.2.29.1.tar.bz2'
-  sha1 '1cf735e3379548b7140ad10f7791ff1e929d40e1'
+  url 'http://downloads.skewed.de/graph-tool/graph-tool-2.2.31.tar.bz2'
+  sha1 '5e0b1c215ecd76191a82c745df0fac17e33bfb09'
   head 'https://github.com/count0/graph-tool.git'
 
   depends_on 'pkg-config' => :build
@@ -21,6 +21,7 @@ class GraphTool < Formula
     config_args = %W[
       --disable-debug
       --disable-dependency-tracking
+      --disable-optimization
       --prefix=#{prefix}
       --with-python-module-path=#{lib}/python2.7/site-packages
     ]
