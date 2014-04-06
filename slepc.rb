@@ -2,8 +2,8 @@ require 'formula'
 
 class Slepc < Formula
   homepage 'http://www.grycap.upv.es/slepc'
-  url 'http://www.grycap.upv.es/slepc/download/download.php?filename=slepc-3.4.3.tar.gz'
-  sha1 '60ed95114f9b16e1214f583921ee0afb2943e1c3'
+  url 'http://www.grycap.upv.es/slepc/download/download.php?filename=slepc-3.4.4.tar.gz'
+  sha1 'd7c09f3e2bb8910758e488e84c16a6eb266cf379'
 
   depends_on 'petsc' => :build
   depends_on :mpi => [:cc, :f90]
