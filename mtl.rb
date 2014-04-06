@@ -2,8 +2,8 @@ require 'formula'
 
 class Mtl < Formula
   homepage 'http://www.simunova.com'
-  url 'http://www.simunova.com/downloads/mtl4/MTL-4.0.9486-Linux.tar.bz2'
-  sha1 'dea9d4eb4883588a24d0d6d73b061360904abf9f'
+  url 'http://www.simunova.com/downloads/mtl4/MTL-4.0.9507-Linux.tar.bz2'
+  sha1 '01e72c7d29537d3843d07755fea50c559323aacc'
 
   head do
     url 'https://simunova.zih.tu-dresden.de/svn/mtl4/trunk', :using => :svn
