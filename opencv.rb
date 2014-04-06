@@ -9,22 +9,25 @@ class Opencv < Formula
   option "with-java", "Build with Java support"
   option "with-qt", "Build the Qt4 backend to HighGUI"
   option "with-tbb", "Enable parallel code in OpenCV using Intel TBB"
-  option "without-opencl", "Disable gpu code in OpenCV using OpenCL"
+  option "with-tests", "Build with accuracy & performance tests"
+  option "without-opencl", "Disable GPU code in OpenCV using OpenCL"
 
   option :cxx11
 
   depends_on :ant if build.with? "java"
-  depends_on 'cmake' => :build
-  depends_on 'eigen' => :recommended
-  depends_on 'jasper'
+  depends_on "cmake"      => :build
+  depends_on "eigen"      => :recommended
+  depends_on "jasper"
+  depends_on "jpeg"
   depends_on :libpng
-  depends_on 'libtiff'
-  depends_on 'numpy' => :python
-  depends_on 'openni' => :optional
-  depends_on 'pkg-config' => :build
+  depends_on "libtiff"
+  depends_on "numpy"      => :python
+  depends_on "openexr"    => :recommended
+  depends_on "openni"     => :optional
+  depends_on "pkg-config" => :build
   depends_on :python
-  depends_on 'qt' => :optional
-  depends_on 'tbb' => :optional
+  depends_on "qt"         => :optional
+  depends_on "tbb"        => :optional
 
   # Can also depend on ffmpeg, but this pulls in a lot of extra stuff that
   # you don't need unless you're doing video analysis, and some of it isn't
@@ -32,26 +35,35 @@ class Opencv < Formula
   depends_on 'ffmpeg' => :optional
 
   def install
-    ENV.cxx11 if build.cxx11?
+    jpeg = Formula["jpeg"]
+    py_prefix = %x(python-config --prefix).chomp
 
-    args = std_cmake_args + %W[
+    ENV.cxx11 if build.cxx11?
+    args = std_cmake_args + %W(
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DWITH_CUDA=OFF
       -DBUILD_ZLIB=OFF
       -DBUILD_TIFF=OFF
       -DBUILD_PNG=OFF
-      -DBUILD_JPEG=ON
-      -DBUILD_JASPER=ON
-      -DBUILD_TESTS=OFF
-      -DBUILD_PERF_TESTS=OFF
-      -DPYTHON_LIBRARY=#{`python-config --prefix`.split}/Python
-      -DPYTHON_INCLUDE_DIR=#{`python-config --prefix`.split}/Headers
-    ]
+      -DBUILD_OPENEXR=OFF
+      -DBUILD_JASPER=OFF
+      -DBUILD_JPEG=OFF
+      -DJPEG_INCLUDE_DIR=#{jpeg.opt_include}
+      -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.dylib
+      -DPYTHON_LIBRARY=#{py_prefix}/Python
+      -DPYTHON_INCLUDE_DIR=#{py_prefix}/Headers
+    )
+
+    if build.without? "tests"
+      args << "-DBUILD_TESTS=OFF" << "-DBUILD_PERF_TESTS=OFF"
+    end
 
     args << "-DBUILD_opencv_java=" + ((build.with? "java") ? "ON" : "OFF")
+    args << "-DWITH_OPENEXR=" + ((build.with? "openexr") ? "ON" : "OFF")
     args << "-DWITH_QT=" + ((build.with? "qt") ? "ON" : "OFF")
     args << "-DWITH_TBB=" + ((build.with? "tbb") ? "ON" : "OFF")
     args << "-DWITH_FFMPEG=" + ((build.with? "ffmpeg") ? "ON" : "OFF")
+
     # OpenCL 1.1 is required, but Snow Leopard and older come with 1.0
     args << "-DWITH_OPENCL=OFF" if build.without? "opencl" or MacOS.version < :lion
 
@@ -59,8 +71,8 @@ class Opencv < Formula
       args << "-DWITH_OPENNI=ON"
       # Set proper path for Homebrew's openni
       inreplace "cmake/OpenCVFindOpenNI.cmake" do |s|
-        s.gsub! "/usr/include/ni", "#{Formula["openni"].opt_prefix}/include/ni"
-        s.gsub! "/usr/lib", "#{Formula["openni"].opt_prefix}/lib"
+        s.gsub! "/usr/include/ni", "#{Formula["openni"].opt_include}/ni"
+        s.gsub! "/usr/lib", "#{Formula["openni"].opt_lib}"
       end
     end
 
