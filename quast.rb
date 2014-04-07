@@ -2,8 +2,10 @@ require 'formula'
 
 class Quast < Formula
   homepage 'http://bioinf.spbau.ru/en/quast'
-  url 'https://downloads.sourceforge.net/project/quast/quast-2.2.tar.gz'
-  sha1 '78f4d2a6c2653d3f02dde873d20434d38322316e'
+  #doi '10.1093/bioinformatics/btt086'
+
+  url 'https://downloads.sourceforge.net/project/quast/quast-2.3.tar.gz'
+  sha1 '9bf176f852cf1b77f201b15e7d9262ae29cff727'
 
   depends_on 'matplotlib' => :python
 
