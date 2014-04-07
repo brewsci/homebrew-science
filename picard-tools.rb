@@ -15,4 +15,8 @@ class PicardTools < Formula
           #{HOMEBREW_PREFIX}/share/java
     EOS
   end
+
+  test do
+    system "java -jar #{share}/java/ViewSam.jar --version"
+  end
 end
