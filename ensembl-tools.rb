@@ -2,8 +2,8 @@ require "formula"
 
 class EnsemblTools < Formula
   homepage "http://www.ensembl.org/info/docs/tools/index.html"
-  url "https://github.com/Ensembl/ensembl-tools/archive/release/75.tar.gz"
-  sha1 "e369f0f245a703420bc0b317ed916d467cabc5c3"
+  url "https://github.com/Ensembl/ensembl-tools/archive/release/75.zip"
+  sha1 "2304d2c2290e9bb4901ecd5aa221cb1e51ed46d5"
 
   depends_on "Bio::Perl" => :perl
   depends_on "Mozilla::CA" => :perl
