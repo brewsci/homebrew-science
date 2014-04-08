@@ -2,17 +2,12 @@ require 'formula'
 
 class Cufflinks < Formula
   homepage 'http://cufflinks.cbcb.umd.edu/'
-  url 'http://cufflinks.cbcb.umd.edu/downloads/cufflinks-2.1.1.tar.gz'
-  sha1 '9c5bf3d3872e8dd358ba7d7407644ab2cbbfdcb6'
+  url 'http://cufflinks.cbcb.umd.edu/downloads/cufflinks-2.2.0.tar.gz'
+  sha1 '9745a6cc0515d2d1d7ed22b2ced3bda9243f2b17'
 
   depends_on 'boost'    => :build
   depends_on 'samtools' => :build
   depends_on 'eigen'    => :build
-
-  fails_with :clang do
-    build 503
-    cause %q[error: unknown type name 'shared_ptr']
-  end
 
   def install
     ENV['EIGEN_CPPFLAGS'] = "-I#{Formula["eigen"].include}/eigen3"
@@ -23,7 +18,8 @@ class Cufflinks < Formula
       `for x in *.cpp *.h; do sed 's/foreach/for_each/' $x > x; mv x $x; done`
       inreplace 'common.h', 'for_each.hpp', 'foreach.hpp'
     end
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system 'make'
