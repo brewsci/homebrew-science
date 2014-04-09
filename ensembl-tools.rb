@@ -3,7 +3,7 @@ require "formula"
 class EnsemblTools < Formula
   homepage "http://www.ensembl.org/info/docs/tools/index.html"
   url "https://github.com/Ensembl/ensembl-tools/archive/release/75.zip"
-  sha1 "2304d2c2290e9bb4901ecd5aa221cb1e51ed46d5"
+  sha1 "6ed8c69b34ef110e00058972e3985711c2371f1b"
 
   depends_on "Bio::Perl" => :perl
   depends_on "Mozilla::CA" => :perl
@@ -29,6 +29,12 @@ class EnsemblTools < Formula
       scripts/variant_effect_predictor/filter_vep.pl
       scripts/variant_effect_predictor/gtf2vep.pl
       scripts/variant_effect_predictor/variant_effect_predictor.pl]
+  end
+
+  def caveats; <<-EOS.undent
+    Add the following to your ~/.bash_profile or ~/.zprofile:
+      export PERL5LIB=$PERL5LIB:#{libexec}
+    EOS
   end
 
   test do
