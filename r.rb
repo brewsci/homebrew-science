@@ -2,9 +2,9 @@ require 'formula'
 
 class R < Formula
   homepage 'http://www.r-project.org/'
-  url 'http://cran.rstudio.com/src/base/R-3/R-3.0.3.tar.gz'
-  mirror 'http://cran.r-project.org/src/base/R-3/R-3.0.3.tar.gz'
-  sha1 '82e83415d27a2fbbdcacb41c4aa14d8b36fdf470'
+  url 'http://cran.rstudio.com/src/base/R-3/R-3.1.0.tar.gz'
+  mirror 'http://cran.r-project.org/src/base/R-3/R-3.1.0.tar.gz'
+  sha1 'a9d13932c739cc12667c6a17fabd9361624a1708'
 
   head 'https://svn.r-project.org/R/trunk'
 
