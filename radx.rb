@@ -1,4 +1,3 @@
-
 require 'formula'
 
 class Radx < Formula
@@ -7,15 +6,10 @@ class Radx < Formula
   version '20140401'
   sha1 'f0067681a24b8d83ab5360a58159aee72b140cc5'
 
-  depends_on 'hdf5'
+  depends_on 'hdf5' => 'enable-cxx'
   depends_on 'udunits'
   depends_on 'netcdf' => 'enable-cxx-compat'
   depends_on 'fftw'
-
-  fails_with :clang do
-    build 421
-    cause "DsMdvx/msg_add.cc:516:11: error: '_printVsectWayPtsBuf' is a protected member of 'Mdvx'"
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
@@ -26,4 +20,3 @@ class Radx < Formula
     system "#{bin}/RadxPrint", "-h"
   end
 end
-
