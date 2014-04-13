@@ -2,8 +2,8 @@ require 'formula'
 
 class Bedops < Formula
   homepage 'https://github.com/bedops/bedops'
-  url 'https://github.com/bedops/bedops/archive/v2.4.1.tar.gz'
-  sha1 '0107aac81493b22f81e139a053d32bb926d0af7b'
+  url 'https://github.com/bedops/bedops/archive/v2.4.2.tar.gz'
+  sha1 'a6084b13d4315182021b085f51d5ec355ce5f8e8'
 
   head 'https://github.com/bedops/bedops.git'
 
