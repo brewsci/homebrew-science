@@ -1,44 +1,44 @@
-require 'formula'
+require "formula"
 
 class Delly < Formula
-  homepage 'http://www.embl.de/~rausch/delly.html'
-  url 'http://www.embl.de/~rausch/delly_source_v0.0.11.tar.gz'
-  sha1 'd0e1cd95a0d526e308c5aff88c19212e558d9a1f'
+  homepage "https://github.com/tobiasrausch/delly"
+  url "https://github.com/tobiasrausch/delly/archive/v0.3.3.tar.gz"
+  sha1 "b3537ee3276784356019fbb5c1b624d64f82469e"
 
-  depends_on 'bamtools'
-  depends_on 'boost'
+  option "with-binary", "Install a statically linked binary for 64-bit Linux" if OS.linux?
 
-  def patches
-    # Allows Makefile to find boost and bamtools within Homebrew hierarchy
-    DATA
+  if build.without? "binary"
+    depends_on "bamtools"
+    depends_on "boost"
+    depends_on "htslib"
+  end
+
+  resource "linux-binary" do
+    url "https://github.com/tobiasrausch/delly/releases/download/v0.3.3/delly_v0.3.3_linux_x86_64bit"
+    sha1 "50db4727dc5d163338d59b48f79d9f7041b2bfd9"
   end
 
   def install
-    cd 'pemgr' do
-      inreplace 'Makefile', 'LDFLAGS += --static', ''
-      inreplace 'Makefile', /(-lboost[^ ]*)/, '\1-mt' if OS.mac?
-      system 'make', "CXX=#{ENV.cxx}"
-      bin.install %w{delly/delly duppy/duppy invy/invy jumpy/jumpy}
+    inreplace "Makefile" do |s|
+      s.gsub! "${BAMTOOLS}/include", "#{Formula["bamtools"].opt_include}/bamtools"
+      s.gsub! "${BAMTOOLS}/lib",     "#{Formula["bamtools"].opt_lib}"
+      s.gsub! "${BOOST}",            "#{Formula["boost"].opt_prefix}"
+      s.gsub! "${KSEQ}",             "#{Formula["htslib"].opt_include}/htslib"
     end
-    doc.install 'README'
+
+    if build.with? "binary"
+      resource("linux-binary").stage { bin.install "delly_v0.3.3_linux_x86_64bit" => "delly" }
+
+    else
+      system "make", "CXX=#{ENV.cxx}"
+      bin.install "src/delly"
+    end
+
+    share.install %W[src/somaticFilter.py src/populationFilter.py human.hg19.excl.tsv]
+    doc.install "README.md"
   end
 
   test do
     system 'delly 2>&1 |grep -q delly'
   end
 end
-__END__
---- a/pemgr/Makefile	2013-06-06 16:19:51.000000000 -0400
-+++ b/pemgr/Makefile	2013-10-17 06:29:19.132265246 -0400
-@@ -1,8 +1,8 @@
--BOOST=/g/solexa/bin/software/boost_1_53_0
--BAMTOOLS=/g/solexa/bin/software/bamtools/
-+BOOST=HOMEBREW_PREFIX
-+BAMTOOLS=HOMEBREW_PREFIX
- 
- CXX=g++
--CXXFLAGS += -isystem ${BOOST}/include -isystem ${BAMTOOLS}/include -I../torali
-+CXXFLAGS += -isystem ${BOOST}/include -isystem ${BAMTOOLS}/include/bamtools -I../torali
- CXXFLAGS += -O9 -pedantic -W -Wall
- 
- ### Valgrind
