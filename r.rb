@@ -42,7 +42,7 @@ class R < Formula
     end
 
     args << '--with-lapack' + ((build.with? 'openblas') ? '=-lopenblas' : '')
-    args << '--with-blas=-lopenblas' if build.with? 'openblas'
+    args << '--with-blas=' + ((build.with? 'openblas') ? '=-lopenblas' : '-framework Accelerate')
     args << '--without-tcltk' if build.without? 'tcltk'
     args << '--without-x' if build.without? 'x11'
 
