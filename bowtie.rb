@@ -2,8 +2,8 @@ require 'formula'
 
 class Bowtie < Formula
   homepage 'http://bowtie-bio.sourceforge.net/index.shtml'
-  url 'https://downloads.sourceforge.net/project/bowtie-bio/bowtie/1.0.0/bowtie-1.0.0-src.zip'
-  sha256 '51e434a78e053301f82ae56f4e94f71f97b19f7175324777a7305c8f88c5bac5'
+  url 'https://downloads.sourceforge.net/project/bowtie-bio/bowtie/1.0.1/bowtie-1.0.1-src.zip'
+  sha256 '41f6022652c65a7896b8daf0507fd7626241fd2a87894a02bc6fd428d4d0b447'
 
   head 'https://github.com/BenLangmead/bowtie.git'
 
