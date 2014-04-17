@@ -2,8 +2,8 @@ require "formula"
 
 class Hotspot < Formula
   homepage "https://github.com/rthurman/hotspot"
-  url "https://github.com/rthurman/hotspot/archive/4.0.0.tar.gz"
-  sha1 "5686637ac1653ba7d8a408f5f49b8d50cff61467"
+  url "https://github.com/rthurman/hotspot/archive/v4.1.0.tar.gz"
+  sha1 "d1b40651eabadd7de6110ce49ae2580cc1c1021b"
   head "https://github.com/rthurman/hotspot.git"
 
   depends_on "gsl"
