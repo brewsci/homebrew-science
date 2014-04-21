@@ -190,7 +190,7 @@ class Lammps < Formula
     end
 
     # install additional materials
-    (share/'lammps').install(["doc", "potentials", "tools", "bench"])
+    (share/'lammps').install(["doc", "potentials", "tools", "bench", "examples"])
   end
 
   def which_python
