@@ -18,9 +18,10 @@ class Beetl < Formula
     cause 'Requires C++11'
   end
 
-  def patches
+  patch do
     # Include necessary headers
-    'https://github.com/sjackman/BEETL/commit/c91ad73.patch'
+    url "https://github.com/sjackman/BEETL/commit/c91ad73.diff"
+    sha1 "6aca0f9a045e8831b15b050691a3ce1d5cd3609d"
   end
 
   def install

@@ -5,7 +5,7 @@ class Circos < Formula
   url 'http://circos.ca/distribution/circos-0.64.tgz'
   sha1 'f24a5806a533ae451d89bc441c03f77c87be0394'
 
-  depends_on 'gd' => '--with-freetype'
+  depends_on 'gd'
   depends_on 'Config::General' => :perl
   depends_on 'Font::TTF::Font' => :perl
   depends_on 'GD::Polyline' => :perl

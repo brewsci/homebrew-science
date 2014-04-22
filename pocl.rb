@@ -13,8 +13,8 @@ class Pocl < Formula
   # Check if ndebug flag is required for compiling pocl didn't work on osx.
   # https://github.com/pocl/pocl/pull/65
   patch do
-    url "https://github.com/pocl/pocl/commit/fa86bf.patch"
-    sha1 "0498e60449653c2e600c4896c566dce4ec7c2c72"
+    url "https://github.com/pocl/pocl/commit/fa86bf.diff"
+    sha1 "10f3a3cebce0003cab921c0a201b5e521882c2bc"
   end
 
   def install

@@ -24,7 +24,7 @@ class Scalapack < Formula
     mkdir "build" do
       system 'cmake', '..', *args
       system 'make all'
-      system 'make test' unless build.without? 'check'
+      system 'make test' if build.with? 'check'
       system 'make install'
     end
   end

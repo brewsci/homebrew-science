@@ -9,7 +9,7 @@ class Igvtools < Formula
     libexec.install "igvtools.jar"
     bin.write_jar_script libexec/"igvtools.jar", "igvtools"
     doc.install "igvtools_readme.txt"
-    share.install Dir["genomes"]
+    share.install "genomes"
   end
 
   test do

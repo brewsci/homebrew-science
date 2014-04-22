@@ -47,7 +47,7 @@ class Qgis < Formula
       -DBISON_EXECUTABLE=#{Formula["bison"].opt_prefix}/bin/bison
       -DENABLE_TESTS=NO
       -DQGIS_MACAPP_BUNDLE=0
-      -DQGIS_MACAPP_DEV_PREFIX='#{prefix}/Frameworks'
+      -DQGIS_MACAPP_DEV_PREFIX='#{frameworks}'
       -DQGIS_MACAPP_INSTALL_DEV=YES
       -DPYTHON_LIBRARY='#{%x(python-config --prefix).chomp}/lib/libpython2.7.dylib'
     ]
