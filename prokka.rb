@@ -2,6 +2,7 @@ require "formula"
 
 class Prokka < Formula
   homepage "http://www.vicbioinformatics.com/software.prokka.shtml"
+  #doi "10.1093/bioinformatics/btu153"
   version "1.8"
   url "http://www.vicbioinformatics.com/prokka-#{version}"
   sha1 "93758edf8c9702d6f4721139750f5c195af04b59"
