@@ -2,6 +2,7 @@ require 'formula'
 
 class Prodigal < Formula
   homepage 'http://prodigal.ornl.gov/'
+  #doi '10.1186/1471-2105-11-119'
   url 'https://github.com/hyattpd/Prodigal/archive/v2.60.tar.gz'
   sha1 '3de4d1c64c6250cb38f37853c0edef885e03b5f5'
 
