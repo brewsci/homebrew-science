@@ -14,11 +14,11 @@ class Prokka < Formula
   depends_on "tbl2asn"
   depends_on "parallel"
 
+  depends_on "barrnap" => :recommended # fast rRNA searching using NHMMER
   depends_on "infernal" => :recommended # for --rfam / non-coding RNA predictions
 
   # These optional dependencies have no formulae.
 =begin
-  depends_on "barrnap" => :recommended # fast rRNA searching using NHMMER
   depends_on "minced" => :recommended # find CRISPRs
   depends_on "rnammer" => :optional # requires patch to ensure it uses older HMMer 2.x
   depends_on "signalp" => :optional # for --gram / sig_peptide predictions
