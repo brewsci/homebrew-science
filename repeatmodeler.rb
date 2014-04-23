@@ -27,7 +27,7 @@ class Repeatmodeler < Formula
   # 3. Done
   def install
     prefix.install Dir["*"]
-    bin.install_symlink "../RepeatModeler"
+    bin.install_symlink %w[../BuildDatabase ../RepeatModeler]
     (prefix/"config.txt").write <<-EOS.undent
 
       /usr/bin/perl
