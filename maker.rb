@@ -14,6 +14,8 @@ class Maker < Formula
   depends_on 'repeatmasker'
   depends_on 'snap'
   depends_on 'trnascan' => :optional
+  # No formula: depends_on 'genemark-es' => :optional
+  # No formula: depends_on 'genemarks' => :optional
 
   depends_on 'Bio::Perl' => :perl
   depends_on 'Bit::Vector' => :perl
@@ -34,7 +36,9 @@ class Maker < Formula
       system *%w[./Build install]
     end
     libexec.install Dir['*']
-    bin.install_symlink '../libexec/bin/maker'
+    bin.install_symlink %w[
+      ../libexec/bin/gff3_merge
+      ../libexec/bin/maker]
   end
 
   def caveats; <<-EOS.undent
