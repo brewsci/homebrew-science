@@ -8,6 +8,7 @@ class R < Formula
 
   head 'https://svn.r-project.org/R/trunk'
 
+  option "without-accelerate", "Build without the Accelerate framework (use Rblas)"
   option 'without-check', 'Skip build-time tests (not recommended)'
   option 'without-tcltk', 'Build without Tcl/Tk'
 
@@ -41,8 +42,13 @@ class R < Formula
       ENV.Og
     end
 
-    args << '--with-lapack' + ((build.with? 'openblas') ? '=-lopenblas' : '')
-    args << '--with-blas=' + ((build.with? 'openblas') ? '=-lopenblas' : '-framework Accelerate')
+    if build.with? "openblas"
+      args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas" << "--with-lapack"
+    elsif build.with? "accelerate"
+      args << "--with-blas=-framework Accelerate" << "--with-lapack"
+      # Fall back to Rblas without-accelerate or -openblas
+    end
+
     args << '--without-tcltk' if build.without? 'tcltk'
     args << '--without-x' if build.without? 'x11'
 
