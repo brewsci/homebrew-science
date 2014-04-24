@@ -2,6 +2,7 @@ require 'formula'
 
 class Sailfish < Formula
   homepage 'http://www.cs.cmu.edu/~ckingsf/software/sailfish'
+  #doi '10.1038/nbt.2862'
   url 'https://github.com/kingsfordgroup/sailfish/releases/download/v0.6.2/Sailfish-0.6.2-Source.tar.gz'
   sha1 'b8bf01cab7b685fd9b9608bf3e97e25df28e0639'
 
