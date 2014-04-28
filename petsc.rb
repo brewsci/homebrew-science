@@ -10,7 +10,7 @@ class Petsc < Formula
 
   depends_on :mpi => :cc
   depends_on :fortran
-  depends_on :x11 => MacOS::X11.installed? ? :recommended : :optional
+  depends_on :x11 => :optional
 
   def install
     ENV.deparallelize
