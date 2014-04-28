@@ -173,7 +173,9 @@ This can come in handy in `test` methods, where build options are not visible:
     
 ### Optionally Depending Upon X11
 
-    depends_on :x11 => MacOS::X11.installed? ? :recommended : :optional
+    depends_on :x11 => :recommended  # or :optional
+
+    See Homebrew/homebrew#28096.
 
 ## Suggestions?
 
