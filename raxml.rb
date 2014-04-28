@@ -2,8 +2,8 @@ require 'formula'
 
 class Raxml < Formula
   homepage 'http://sco.h-its.org/exelixis/web/software/raxml/index.html'
-  url 'https://github.com/stamatak/standard-RAxML/archive/v8.0.5.tar.gz'
-  sha1 '15bc92181c64483f832f16c4a4340347b17c841d'
+  url 'https://github.com/stamatak/standard-RAxML/archive/v8.0.20.tar.gz'
+  sha1 '91eaa19974eefc869ad60b5224a0c8c31c88795b'
 
   head 'https://github.com/stamatak/standard-RAxML.git'
 
