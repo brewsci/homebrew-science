@@ -2,6 +2,8 @@ require 'formula'
 
 class Igv < Formula
   homepage 'http://www.broadinstitute.org/software/igv'
+  #doi '10.1093/bib/bbs017'
+  head 'https://github.com/broadinstitute/IGV.git'
   url 'http://www.broadinstitute.org/igv/projects/downloads/IGV_2.3.32.zip'
   sha1 '685af0ac3cd461749a0147e2b143f1d35c2df3be'
 
