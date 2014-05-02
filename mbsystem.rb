@@ -2,8 +2,8 @@ require "formula"
 
 class Mbsystem < Formula
   homepage "http://www.mbari.org/data/mbsystem/mb-cookbook/index.html"
-  url "ftp://ftp.ldeo.columbia.edu/pub/MB-System/mbsystem-5.4.2176.tar.gz"
-  sha1 "7918a61de4acd8e4ec5e7b62b7f1420d157b47a9"
+  url "ftp://ftp.ldeo.columbia.edu/pub/MB-System/mbsystem-5.4.2183.tar.gz"
+  sha1 "3a81a3e1c534995373036f5e240788109209773b"
 
   depends_on :x11
   depends_on "gmt4"
