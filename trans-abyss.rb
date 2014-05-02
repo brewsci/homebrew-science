@@ -2,6 +2,7 @@ require 'formula'
 
 class TransAbyss < Formula
   homepage 'http://www.bcgsc.ca/platform/bioinfo/software/trans-abyss'
+  #doi '10.1038/nmeth.1517'
   version '1.4.8'
   url 'http://www.bcgsc.ca/platform/bioinfo/software/trans-abyss/releases/1.4.8/trans-ABySS-v1.4.8_20130916.tar.gz'
   sha1 'c8f17ab737e564269784449a4feb85edd9498268'
