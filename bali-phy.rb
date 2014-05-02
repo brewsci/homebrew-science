@@ -2,8 +2,8 @@ require 'formula'
 
 class BaliPhy < Formula
   homepage 'http://www.bali-phy.org/'
-  url 'http://www.bali-phy.org/bali-phy-2.3.0.tar.gz'
-  sha1 'ab23123f7b0f0201a9826660c145ddade6ca5f31'
+  url 'http://www.bali-phy.org/bali-phy-2.3.1.tar.gz'
+  sha1 '3b2c96a13b971efe265ef044f66016ac7f83ae55'
 
   depends_on 'pkg-config' => :build
   depends_on 'cairo'
@@ -22,8 +22,8 @@ class BaliPhy < Formula
       system "../configure", "--disable-debug", "--disable-dependency-tracking",
                              "--prefix=#{prefix}",
                              "--enable-cairo",
-                             # Necessary for clang 5.0, which has a
-                             # default depth of 128.
+                             # Necessary for clang 5.0, which has a default depth of 128.
+                             # This is fixed in clang 5.1
                              "CXXFLAGS=-ftemplate-depth=256"
       system "make install"
     end
