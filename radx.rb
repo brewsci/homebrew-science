@@ -1,10 +1,11 @@
-require 'formula'
+require "formula"
 
 class Radx < Formula
-  homepage 'http://www.ral.ucar.edu/projects/titan/docs/radial_formats/radx.html'
-  url 'ftp://ftp.rap.ucar.edu/pub/titan/radx/radx-20140401.src.tgz'
-  version '20140401'
-  sha1 'f0067681a24b8d83ab5360a58159aee72b140cc5'
+  homepage "http://www.ral.ucar.edu/projects/titan/docs/radial_formats/radx.html"
+  url "ftp://ftp.rap.ucar.edu/pub/titan/radx/radx-20140417.src.tgz"
+  mirror "http://science-annex.org/pub/radx/radx-20140417.src.tgz"
+  version "20140417"
+  sha1 "2959154e6c8aea4502dbb9fe98723c54fcd1bf39"
 
   depends_on 'hdf5' => 'enable-cxx'
   depends_on 'udunits'
