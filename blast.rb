@@ -1,15 +1,23 @@
-require 'formula'
+require "formula"
 
 class Blast < Formula
-  homepage 'http://blast.ncbi.nlm.nih.gov/'
-  url 'ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.29/ncbi-blast-2.2.29+-src.tar.gz'
-  version '2.2.29'
-  sha1 '6b1e8a4b172ae01dbf2ee1ec3b4c4fce392f3eca'
+  homepage "http://blast.ncbi.nlm.nih.gov/"
+  url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.29/ncbi-blast-2.2.29+-src.tar.gz"
+  version "2.2.29"
+  sha1 "6b1e8a4b172ae01dbf2ee1ec3b4c4fce392f3eca"
 
-  depends_on 'gnutls' => :optional
+  option "with-dll", "Create dynamic binaries instead of static"
+  option "without-check", "Skip the self tests (Boost not needed)"
 
-  option 'with-dll', "Create dynamic binaries instead of static"
-  option 'without-check', 'Skip the self tests'
+  depends_on "boost" if build.with? "check"
+  depends_on "freetype" => :optional
+  depends_on "gnutls"   => :optional
+  depends_on "hdf5"     => :optional
+  depends_on "jpeg"     => :recommended
+  depends_on "libpng"   => :recommended
+  depends_on "pcre"     => :recommended
+  depends_on :mysql     => :optional
+  depends_on :python
 
   fails_with :clang do
     build 503
@@ -17,13 +25,20 @@ class Blast < Formula
   end
 
   def install
-    args = ["--prefix=#{prefix}"]
+    args = %W[--prefix=#{prefix} --without-debug --with-mt]
+
+    args << (build.with?("freetype") ? "--with-freetype=#{Formula["freetype"].opt_prefix}" : "--without-freetype")
+    args << (build.with?("gnutls") ? "--with-gnutls=#{Formula["gnutls"].opt_prefix}" : "--without-gnutls")
+    args << (build.with?("jpeg")   ? "--with-jpeg=#{Formula["jpeg"].opt_prefix}" : "--without-jpeg")
+    args << (build.with?("libpng") ? "--with-png=#{Formula["libpng"].opt_prefix}" : "--without-png")
+    args << (build.with?("pcre")   ? "--with-pcre=#{Formula["pcre"].opt_prefix}" : "--without-pcre")
+
     args << "--with-dll" if build.with? "dll"
     # Boost is used only for unit tests.
-    args << '--without-boost' if build.without? 'check'
+    args << (build.with?("check") ? "--with-check" : "--without-boost")
 
-    cd 'c++' do
-      system './configure', '--without-debug', '--with-mt', *args
+    cd "c++" do
+      system "./configure", *args
       system "make"
       system "make install"
 
@@ -33,8 +48,7 @@ class Blast < Formula
       # Errno::ENOENT: No such file or directory -
       # $HOMEBREW_PREFIX/Cellar/blast/2.2.28/lib/libaccess-static.a
       libexec.mkdir
-      # Does not work: mv Dir[lib / 'lib*.a'], libexec
-      system "mv #{lib}/lib*.a #{libexec}/"
+      system "mv #{lib}/lib*.a #{libexec}/." if build.without? "dll"
     end
   end
 
