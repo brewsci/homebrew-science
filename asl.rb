@@ -7,26 +7,37 @@ class Asl < Formula
   homepage 'http://www.ampl.com/hooking.html'
 
   def install
-    ENV.universal_binary
-    # ENV.remove "CFLAGS", "-arch #{Hardware::CPU.arch_64_bit}"
-    args = ["CC=#{ENV.cc}", "CFLAGS=-I. -O -fPIC -arch #{Hardware::CPU.arch_32_bit}"]
+    ENV.universal_binary if OS.mac?
+    cflags = %w[-I. -O -fPIC]
+
+    if OS.mac?
+      cflags += ["-arch", "#{Hardware::CPU.arch_32_bit}"]
+      soname = "dylib"
+      libtool_cmd = ["libtool", "-dynamic", "-undefined", "dynamic_lookup",
+                      "-install_name", "#{lib}/libasl.#{soname}"]
+    else
+      soname = "so"
+      libtool_cmd = ["ld", "-shared"]
+    end
 
     # Dynamic libraries are more user friendly.
-    # Inclusion of the following in ASL was suggested to David Gay.
     (buildpath / 'makefile.brew').write <<-EOS.undent
       include makefile.u
 
-      libasl.dylib: ${a:.c=.o}
-      \tlibtool -dynamic -undefined dynamic_lookup -install_name #{lib}/libasl.dylib -o libasl.dylib $?
+      libasl.#{soname}: ${a:.c=.o}
+      \t#{libtool_cmd.join(" ")} -o $@ $?
 
-      libfuncadd0.dylib: funcadd0.o
-      \tlibtool -dynamic -undefined dynamic_lookup -install_name #{lib}/libfuncadd0.dylib -o libfuncadd0.dylib $?
+      libfuncadd0.#{soname}: funcadd0.o
+      \t#{libtool_cmd.join(" ")} -o $@ $?
     EOS
 
     ENV.deparallelize
-    system *(%w[make -f makefile.brew arith.h stdio1.h libasl.dylib libfuncadd0.dylib] + args)
+    targets = ["arith.h", "stdio1.h"]
+    libs = ["libasl.#{soname}", "libfuncadd0.#{soname}"]
+    system "make", "-f", "makefile.brew",
+           "CFLAGS=#{cflags.join(' ')}", *(targets + libs)
 
-    lib.install 'libasl.dylib', 'libfuncadd0.dylib'
+    lib.install *libs
     (include / 'asl').install Dir["*.h"]
     (include / 'asl').install Dir["*.hd"]
     doc.install 'README'
