@@ -10,6 +10,7 @@ class Maker < Formula
   depends_on 'blast'
   depends_on 'exonerate'
   depends_on 'infernal' => :optional
+  depends_on 'mir-prefer' => :optional
   depends_on :mpi => :optional
   depends_on 'repeatmasker'
   depends_on 'snap'
