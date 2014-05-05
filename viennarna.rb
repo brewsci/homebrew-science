@@ -8,6 +8,7 @@ class Viennarna < Formula
   option "with-perl", "Build and install Perl interface"
 
   depends_on :python => :optional
+  depends_on :x11
 
   def install
     ENV['ARCHFLAGS'] = "-arch x86_64"
