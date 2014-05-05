@@ -20,6 +20,8 @@ class Viennarna < Formula
     args << "--with-python" if build.with? "python"
 
     system "./configure", *args
+    system "make"
+    ENV.deparallelize
     system "make install"
   end
 
