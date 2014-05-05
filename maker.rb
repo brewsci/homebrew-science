@@ -13,6 +13,7 @@ class Maker < Formula
   depends_on :mpi => :optional
   depends_on 'repeatmasker'
   depends_on 'snap'
+  depends_on 'snoscan' => :optional
   depends_on 'trnascan' => :optional
   # No formula: depends_on 'genemark-es' => :optional
   # No formula: depends_on 'genemarks' => :optional
