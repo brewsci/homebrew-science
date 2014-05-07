@@ -2,6 +2,7 @@ require 'formula'
 
 class Samtools < Formula
   homepage 'http://samtools.sourceforge.net/'
+  #doi '10.1093/bioinformatics/btp352'
   url 'https://downloads.sourceforge.net/project/samtools/samtools/0.1.19/samtools-0.1.19.tar.bz2'
   sha1 'ff3f4cf40612d4c2ad26e6fcbfa5f8af84cbe881'
 
