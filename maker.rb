@@ -3,8 +3,8 @@ require 'formula'
 class Maker < Formula
   homepage 'http://www.yandell-lab.org/software/maker.html'
   #doi '10.1101/gr.6743907' => 'MAKER', '10.1104/pp.113.230144' => 'MAKER-P'
-  url 'http://yandell.topaz.genetics.utah.edu/maker_downloads/static/maker-2.31.3.tgz'
-  sha1 'f9e8645e859f648badacdb243cf097305c3e95c7'
+  url 'http://yandell.topaz.genetics.utah.edu/maker_downloads/static/maker-2.31.4.tgz'
+  sha1 '436269854e5eda8a045eee929e934434e929e1c6'
 
   depends_on 'augustus' => :recommended
   depends_on 'blast'
