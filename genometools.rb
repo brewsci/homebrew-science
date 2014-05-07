@@ -10,6 +10,8 @@ class Genometools < Formula
   option 'without-pangocairo', 'Build without Pango/Cairo (disables AnnotationSketch tool)'
   option 'with-hmmer', 'Build with HMMER (to enable protein domain search functionality in the ltrdigest tool)'
 
+  depends_on "pkg-config" => :build
+
   if build.with? "pangocairo"
     depends_on "cairo"
     depends_on "pango"
