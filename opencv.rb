@@ -2,8 +2,8 @@ require 'formula'
 
 class Opencv < Formula
   homepage 'http://opencv.org/'
-  url 'https://github.com/Itseez/opencv/archive/2.4.8.2.tar.gz'
-  sha1 '15c91f8fc806d39735ac4ce6a1c381541d4b5c80'
+  url 'https://github.com/Itseez/opencv/archive/2.4.9.tar.gz'
+  sha1 'd16ced627db17f9864c681545f18f030c7a4cc0b'
   head 'https://github.com/Itseez/opencv.git'
 
   option "32-bit"
