@@ -45,10 +45,16 @@ class Maker < Formula
 
   def caveats; <<-EOS.undent
     Optional components of MAKER
-    1. Augustus 2.0 or higher. Download from http://bioinf.uni-greifswald.de/augustus/
-    2. GeneMark-ES. Download from http://exon.biology.gatech.edu
-    3. FGENESH 2.4 or higher. Purchase from http://www.softberry.com
-    4. GeneMarkS. Download from http://exon.biology.gatech.edu
+      GeneMarkS and GeneMark-ES. Download from http://exon.biology.gatech.edu
+      FGENESH 2.4 or higher. Purchase from http://www.softberry.com
+
+    MAKER is available for academic use under either the Artistic
+    License 2.0 developed by the Perl Foundation or the GNU General
+    Public License developed by the Free Software Foundation.
+
+    MAKER is not available for commercial use without a license. Those
+    wishing to license MAKER for commercial use should contact Beth
+    Drees at the University of Utah TCO to discuss your needs.
     EOS
   end
 
