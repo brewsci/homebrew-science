@@ -21,6 +21,8 @@ class Root < Formula
       url "http://trac.macports.org/raw-attachment/ticket/36777/patch-builtin-afterimage-disabletiff.diff"
       sha1 "de9e7c3a6b04e15e8a8219e8396ae4a16c15d973"
     end
+  else
+    patch :p1, :DATA
   end
 
   def install
@@ -93,3 +95,19 @@ class Root < Formula
     EOS
   end
 end
+
+__END__
+# Consider removing this once
+# /opt/X11/bin/freetype-config --ftversion
+# is reporting version >=2.5.1
+--- a/graf2d/freetype/Module.mk
++++ b/graf2d/freetype/Module.mk
+@@ -8,7 +8,7 @@
+ ifneq ($(BUILTINFREETYPE),yes)
+ 
+ FREETYPELIBF    := $(shell freetype-config --libs)
+-FREETYPEINC     := $(shell freetype-config --cflags)
++FREETYPEINC     := $(subst -I,-isystem,$(shell freetype-config --cflags)) -Wp,-v
+ FREETYPELIB     := $(filter -l%,$(FREETYPELIBF))
+ FREETYPELDFLAGS := $(filter-out -l%,$(FREETYPELIBF))
+ FREETYPEDEP     :=
