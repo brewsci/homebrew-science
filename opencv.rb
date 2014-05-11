@@ -18,13 +18,13 @@ class Opencv < Formula
 
   depends_on :ant if build.with? "java"
   depends_on "cmake"      => :build
-  depends_on "eigen"      => :recommended
+  depends_on "eigen"      => :optional
   depends_on "jasper"
   depends_on "jpeg"
   depends_on :libpng
   depends_on "libtiff"
   depends_on "numpy"      => :python
-  depends_on "openexr"    => :recommended
+  depends_on "openexr"    => :optional
   depends_on "openni"     => :optional
   depends_on "pkg-config" => :build
   depends_on :python
