@@ -19,7 +19,7 @@ class Opencv < Formula
   depends_on :ant if build.with? "java"
   depends_on "cmake"      => :build
   depends_on "eigen"      => :optional
-  depends_on "jasper"
+  depends_on "jasper"     => :optional
   depends_on "jpeg"
   depends_on :libpng
   depends_on "libtiff"
