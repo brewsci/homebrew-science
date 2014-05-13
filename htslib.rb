@@ -2,9 +2,9 @@ require 'formula'
 
 class Htslib < Formula
   homepage 'https://github.com/samtools/htslib'
-  version '0.2.0-rc6'
+  version '0.2.0-rc8'
   url "https://github.com/samtools/htslib/archive/#{version}.tar.gz"
-  sha1 '08cd1cb79321b3928167c777aca8fa473493fca9'
+  sha1 'c6db4573fba0cd189130add7d4d86c7d17295f34'
   head 'https://github.com/samtools/htslib.git'
 
   patch do
