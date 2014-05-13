@@ -49,7 +49,7 @@ class Openni < Formula
     doc.install 'Documentation'
 
     # Create and install a pkg-config file
-    (lib/"pkg-config/libopenni.pc").write <<-EOS.undent
+    (lib/"pkgconfig/libopenni.pc").write <<-EOS.undent
       prefix=#{prefix}
       exec_prefix=${prefix}
       libdir=${exec_prefix}/lib
