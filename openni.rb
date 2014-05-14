@@ -18,12 +18,16 @@ class Openni < Formula
   depends_on 'libusb'
   depends_on 'doxygen' => :build
 
-  def patches
-    # Fix for Mavericks (it's the same patch with different whitespaces)
-    if build.devel?
-      "https://github.com/OpenNI/OpenNI/pull/95.patch"
-    else
-      "https://github.com/OpenNI/OpenNI/pull/92.patch"
+  # Fix for Mavericks (it's the same patch with different whitespaces)
+  if build.stable?
+    patch do
+      url "https://github.com/OpenNI/OpenNI/pull/92.patch"
+      sha1 "7be9ed8fc00e0b03312839872246277590b2f3b8"
+    end
+  else
+    patch do
+      url "https://github.com/OpenNI/OpenNI/pull/95.patch"
+      sha1 "934789994d7242e53618ac4016070342af217bc1"
     end
   end
 
