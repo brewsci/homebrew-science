@@ -7,6 +7,9 @@ class Tabix < Formula
 
   head 'https://samtools.svn.sourceforge.net/svnroot/samtools/trunk/tabix'
 
+  conflicts_with "htslib",
+    :because => "tabix and bgzip binaries are now part of the HTSlib project"
+
   def install
     system "make"
     bin.install %w{tabix bgzip}
