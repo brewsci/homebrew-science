@@ -3,15 +3,8 @@ require "formula"
 class Prokka < Formula
   homepage "http://www.vicbioinformatics.com/software.prokka.shtml"
   #doi "10.1093/bioinformatics/btu153"
-  version "1.8"
-  url "http://www.vicbioinformatics.com/prokka-#{version}"
-  sha1 "93758edf8c9702d6f4721139750f5c195af04b59"
-
-  # The large database is distributed separately from the main script.
-  resource "db" do
-    url "http://www.vicbioinformatics.com/prokka-1.7.tar.gz"
-    sha1 "a889d2f103a2305c0b2d8b504286023545959fbb"
-  end
+  url "http://www.vicbioinformatics.com/prokka-1.9.tar.gz"
+  sha1 "7003f07777309b3f82ed42478bf27ab4bbb5382b"
 
   depends_on "Bio::Perl" => :perl
   depends_on "blast"
@@ -32,13 +25,7 @@ class Prokka < Formula
 =end
 
   def install
-    # Install the large database.
-    resource("db").stage do
-      rm "bin/prokka"
-      prefix.install Dir["*"]
-    end
-
-    bin.install "prokka-#{version}" => "prokka"
+    prefix.install Dir["*"]
   end
 
   test do
