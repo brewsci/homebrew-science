@@ -2,6 +2,7 @@ require 'formula'
 
 class Hmmer < Formula
   homepage 'http://hmmer.janelia.org/'
+  #doi '10.1371/journal.pcbi.1002195'
   url 'http://selab.janelia.org/software/hmmer3/3.1b1/hmmer-3.1b1.tar.gz'
   sha1 'e05907d28b7f03d4817bb714ff0a8b2ef0210220'
 
