@@ -8,10 +8,11 @@ class Bamtools < Formula
 
   depends_on 'cmake' => :build
 
-  def patches
+  patch do
     # Install libbamtools in /usr/local/lib.
     # https://github.com/pezmaster31/bamtools/pull/82
-    'https://github.com/sjackman/bamtools/commit/3b6b89d.diff'
+    url "https://github.com/sjackman/bamtools/commit/3b6b89d.diff"
+    sha1 "89f659243dac265684705b485b5580e7cac559f7"
   end
 
   def install
