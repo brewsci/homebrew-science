@@ -2,6 +2,7 @@ require 'formula'
 
 class Sga < Formula
   homepage 'https://github.com/jts/sga'
+  #doi '10.1101/gr.126953.111'
   url 'https://github.com/jts/sga/archive/v0.10.13.tar.gz'
   sha1 '36d5a23a393c968120988dd94bad9d561b0e0c4e'
   head 'https://github.com/jts/sga.git'
