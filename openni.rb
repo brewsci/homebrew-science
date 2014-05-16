@@ -22,12 +22,12 @@ class Openni < Formula
   if build.stable?
     patch do
       url "https://github.com/OpenNI/OpenNI/pull/92.patch"
-      sha1 "7be9ed8fc00e0b03312839872246277590b2f3b8"
+      sha1 "8aa65057dfc29d01713c824bb903598d2f851bf5"
     end
   else
     patch do
       url "https://github.com/OpenNI/OpenNI/pull/95.patch"
-      sha1 "934789994d7242e53618ac4016070342af217bc1"
+      sha1 "037b0b897ba3778ed45b70d258261d4493e97507"
     end
   end
 
