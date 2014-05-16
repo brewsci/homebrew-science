@@ -2,6 +2,7 @@ require 'formula'
 
 class Cegma < Formula
   homepage 'http://korflab.ucdavis.edu/datasets/cegma/'
+  #doi '10.1093/bioinformatics/btm071'
   url 'http://korflab.ucdavis.edu/datasets/cegma/cegma_v2.4.010312.tar.gz'
   sha1 '4c046fe0376d69f6969a32af3481c60088306b9b'
 

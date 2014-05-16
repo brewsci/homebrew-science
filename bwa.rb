@@ -2,6 +2,7 @@ require 'formula'
 
 class Bwa < Formula
   homepage 'http://bio-bwa.sourceforge.net/'
+  #doi '10.1093/bioinformatics/btp324'
   url 'https://downloads.sf.net/project/bio-bwa/bwa-0.7.8.tar.bz2'
   sha1 'cb63f7865b4b043c11ecf5082724d52576ee784e'
 

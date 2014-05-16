@@ -2,6 +2,7 @@ require 'formula'
 
 class Cgap < Formula
   homepage 'http://www.herbbol.org:8000/chloroplast/default/index'
+  #doi '10.1186/1471-2105-14-95'
   url 'http://www.herbbol.org:8000/chloroplast/static/AllSourceCode.rar'
   sha1 'e85b9205f32341347ee97e898f7e734fea0918bf'
   version '20130314'

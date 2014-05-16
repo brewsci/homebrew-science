@@ -2,6 +2,7 @@ require "formula"
 
 class Blast < Formula
   homepage "http://blast.ncbi.nlm.nih.gov/"
+  #doi "10.1016/S0022-2836(05)80360-2"
   url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.29/ncbi-blast-2.2.29+-src.tar.gz"
   version "2.2.29"
   sha1 "6b1e8a4b172ae01dbf2ee1ec3b4c4fce392f3eca"

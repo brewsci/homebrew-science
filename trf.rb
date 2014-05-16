@@ -2,6 +2,7 @@ require 'formula'
 
 class Trf < Formula
   homepage 'http://tandem.bu.edu/trf/trf.html'
+  #doi '10.1093/nar/27.2.573'
   version '4.07b'
 
   if OS.mac?

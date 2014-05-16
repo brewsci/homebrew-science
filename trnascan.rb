@@ -2,6 +2,7 @@ require 'formula'
 
 class Trnascan < Formula
   homepage 'http://selab.janelia.org/tRNAscan-SE/'
+  #doi '10.1093/nar/25.5.0955'
   url 'http://selab.janelia.org/software/tRNAscan-SE/tRNAscan-SE.tar.Z'
   sha1 'fd2db5b1bb059dfdcf0fced1c865909da601d71f'
   version '1.23'

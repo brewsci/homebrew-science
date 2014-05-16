@@ -2,6 +2,7 @@ require "formula"
 
 class Repeatscout < Formula
   homepage "http://bix.ucsd.edu/repeatscout/"
+  #doi "10.1093/bioinformatics/bti1018"
   url "http://repeatscout.bioprojects.org/RepeatScout-1.0.5.tar.gz"
   sha1 "507fe8813de341244c5380836ddcf4257bb46c81"
 
