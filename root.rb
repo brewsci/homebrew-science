@@ -8,21 +8,21 @@ class Root < Formula
   sha1 'e24e9bf8b142f2780f6cec9503409d87e4b9f8da'
   head 'https://github.com/root-mirror/root.git', :branch => 'v5-34-00-patches'
 
-  option 'with-cocoa', "Use Cocoa for graphics backend instead of X11 (useful on Retina displays)"
   option 'with-qt', "Build with Qt graphics backend and GSI's Qt integration"
   depends_on 'xrootd' => :recommended
   depends_on 'fftw' => :optional
   depends_on 'qt' => [:optional, 'with-qt3support']
-  depends_on :x11
+  depends_on :x11 => :optional
   depends_on :python
 
-  if build.with? "cocoa"
-    patch :p0 do
-      url "http://trac.macports.org/raw-attachment/ticket/36777/patch-builtin-afterimage-disabletiff.diff"
-      sha1 "de9e7c3a6b04e15e8a8219e8396ae4a16c15d973"
-    end
-  else
+  if build.with? "x11"
     patch :p1, :DATA
+  else
+    patch :p1 do
+      # https://sft.its.cern.ch/jira/browse/ROOT-6297
+      url "https://gist.githubusercontent.com/veprbl/9ab33daa07b68c28671c/raw/31317dfa11eba19595207dc32851a1bb2d836b0a/gistfile1.txt"
+      sha1 "6d8625fd63fce92976e27248e4ad3698741e7eba"
+    end
   end
 
   def install
@@ -37,26 +37,35 @@ class Root < Formula
     # Determine architecture
     arch = MacOS.prefer_64_bit? ? 'macosx64' : 'macosx'
 
-    cocoa_flag = (build.with? 'cocoa') ? "--enable-cocoa" : "--disable-cocoa"
-
-    qt_flag = (build.with? 'qt') ? "--enable-qt" : "--disable-qt"
-    qtgsi_flag = (build.with? 'qt') ? "--enable-qtgsi" : "--disable-qtgsi"
-
     # N.B. that it is absolutely essential to specify
     # the --etcdir flag to the configure script.  This is
     # due to a long-known issue with ROOT where it will
     # not display any graphical components if the directory
     # is not specified:
     # http://root.cern.ch/phpBB3/viewtopic.php?f=3&t=15072
-    system "./configure",
-           "#{arch}",
-           "--all",
-           "--enable-builtin-glew",
-           "#{cocoa_flag}",
-           "#{qt_flag}", "#{qtgsi_flag}",
-           "--prefix=#{prefix}",
-           "--etcdir=#{prefix}/etc/root",
-           "--mandir=#{man}"
+    args = %W[
+      #{arch}
+      --all
+      --enable-builtin-glew
+    ]
+
+    if build.with? 'x11'
+      args << "--disable-cocoa"
+      args << "--enable-x11"
+    end
+
+    if build.with? 'qt'
+      args << "--enable-qt"
+      args << "--enable-qtgsi"
+    end
+
+    args += %W[
+      --prefix=#{prefix}
+      --etcdir=#{prefix}/etc/root
+      --mandir=#{man}
+    ]
+
+    system "./configure", *args
 
     # ROOT configure script does not search for Qt framework
     if build.with? 'qt'
