@@ -6,14 +6,14 @@ class Maker < Formula
   url 'http://yandell.topaz.genetics.utah.edu/maker_downloads/static/maker-2.31.4.tgz'
   sha1 '436269854e5eda8a045eee929e934434e929e1c6'
 
-  depends_on 'augustus' => :recommended
-  depends_on 'blast'
-  depends_on 'exonerate'
+  depends_on 'augustus' => :optional
+  depends_on 'blast' => :recommended
+  depends_on 'exonerate' => :recommended
   depends_on 'infernal' => :optional
   depends_on 'mir-prefer' => :optional
   depends_on :mpi => :optional
-  depends_on 'repeatmasker'
-  depends_on 'snap'
+  depends_on 'repeatmasker' => :optional
+  depends_on 'snap' => :optional
   depends_on 'snoscan' => :optional
   depends_on 'trnascan' => :optional
   # No formula: depends_on 'genemark-es' => :optional
