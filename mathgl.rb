@@ -2,8 +2,8 @@ require 'formula'
 
 class Mathgl < Formula
   homepage 'http://mathgl.sourceforge.net/'
-  url 'https://downloads.sourceforge.net/mathgl/mathgl-2.2.1.tar.gz'
-  sha1 '49279952f97a65f8ec5ba89ed66313b48e06573d'
+  url 'http://downloads.sourceforge.net/mathgl/mathgl-2.2.2.1.tar.gz'
+  sha1 '7d450028728384782315d4d5f5c4dd8b67c29e3b'
 
   depends_on 'cmake'   => :build
   depends_on 'gsl'     => :recommended
