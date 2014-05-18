@@ -2,8 +2,8 @@ require 'formula'
 
 class LumpySv < Formula
   homepage 'https://github.com/arq5x/lumpy-sv'
-  url 'https://github.com/arq5x/lumpy-sv/archive/0.2.1.tar.gz'
-  sha1 '33a9ad0a7100d7152c1ef34512e2d6efdce6bab3'
+  url 'https://github.com/arq5x/lumpy-sv/releases/download/0.2.2.2/lumpy-sv-0.2.2.2.tar.gz'
+  sha1 '87c8c686a0f554c3b34cf69597a05b1d31f9c6ee'
 
   depends_on 'bamtools' => :recommended
   depends_on 'samtools' => :recommended
