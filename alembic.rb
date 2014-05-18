@@ -2,9 +2,10 @@ require "formula"
 
 class Alembic < Formula
   homepage "http://alembic.io"
-  url "http://alembic.googlecode.com/archive/1_05_04.zip"
-  sha1 "6d3ebdee8c4891bb949203e97baae283148b43e6"
+  url "https://alembic.googlecode.com/archive/1_05_04.tar.gz"
+  sha1 "f50e551b8e18779c4a8a6d818f68da1f28ad624b"
   version "1.5.4"
+  head "https://code.google.com/p/alembic/", :using => :hg
 
   needs :cxx11
 
