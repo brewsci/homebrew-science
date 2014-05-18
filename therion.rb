@@ -14,8 +14,8 @@ class Therion < Formula
 
   def install
     inreplace "makeinstall.tcl" do |s|
-      s.gsub! "/usr/bin", "#{bin}"
-      s.gsub! "/etc",     "#{etc}"
+      s.gsub! "/usr/bin", bin
+      s.gsub! "/etc", etc
     end
 
     etc.mkpath
