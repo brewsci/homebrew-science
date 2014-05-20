@@ -18,10 +18,12 @@ class Root < Formula
   if build.with? "x11"
     patch :p1, :DATA
   else
-    patch :p1 do
-      # https://sft.its.cern.ch/jira/browse/ROOT-6297
-      url "https://gist.githubusercontent.com/veprbl/9ab33daa07b68c28671c/raw/31317dfa11eba19595207dc32851a1bb2d836b0a/gistfile1.txt"
-      sha1 "6d8625fd63fce92976e27248e4ad3698741e7eba"
+    unless build.head?
+      patch :p1 do
+	# https://sft.its.cern.ch/jira/browse/ROOT-6297
+	url "https://gist.githubusercontent.com/veprbl/9ab33daa07b68c28671c/raw/31317dfa11eba19595207dc32851a1bb2d836b0a/gistfile1.txt"
+	sha1 "6d8625fd63fce92976e27248e4ad3698741e7eba"
+      end
     end
   end
 
