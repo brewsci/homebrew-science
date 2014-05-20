@@ -70,7 +70,7 @@ class Root < Formula
     # ROOT configure script does not search for Qt framework
     if build.with? 'qt'
       inreplace "config/Makefile.config" do |s|
-	s.gsub! /^QTLIBDIR .*/, "QTLIBDIR := -F #{Formula["qt"].opt_lib}"
+        s.gsub! /^QTLIBDIR .*/, "QTLIBDIR := -F #{Formula["qt"].opt_lib}"
         s.gsub! /^QTLIB .*/, "QTLIB := -framework QtCore -framework QtGui -framework Qt3Support"
       end
     end
