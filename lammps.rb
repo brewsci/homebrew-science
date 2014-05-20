@@ -110,8 +110,9 @@ class Lammps < Formula
       ENV.append 'LDFLAGS', "-lblas -llapack"
     end
 
-    # Assuming gfortran library
-    ENV.append 'LDFLAGS', "-L#{Formula["gfortran"].opt_prefix}/gfortran/lib -lgfortran"
+    # Locate gfortran library
+    libgfortran = `$FC --print-file-name libgfortran.a`.chomp
+    ENV.append "LDFLAGS", "-L#{File.dirname libgfortran} -lgfortran"
 
     # build the lammps program and library
     cd "src" do
