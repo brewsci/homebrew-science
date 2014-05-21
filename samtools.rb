@@ -48,7 +48,7 @@ class Samtools < Formula
 
     bin.install %w{samtools razip}
     bin.install 'bcftools/bcftools' unless build.devel? || build.head? || build.without?('bcftools')
-    bin.install 'bcftools/vcfutils.pl' unless build.devel? || build.head?
+    bin.install 'bcftools/vcfutils.pl' unless build.devel? || build.head? || build.without?('bcftools')
     bin.install %w{misc/maq2sam-long misc/maq2sam-short misc/md5fa misc/md5sum-lite misc/wgsim}
     bin.install Dir['misc/*.pl']
     lib.install 'libbam.a'
