@@ -1,31 +1,40 @@
-require 'formula'
+require "formula"
 
 class SpatialiteGis < Formula
-  homepage 'https://www.gaia-gis.it/fossil/spatialite_gis/index'
-  url 'http://www.gaia-gis.it/gaia-sins/spatialite_gis-1.0.0c.tar.gz'
-  sha1 '45508b27fbdc7166ef874ce3f79216d6c01f3c4f'
+  homepage "https://www.gaia-gis.it/fossil/spatialite_gis/index"
+  url "http://www.gaia-gis.it/gaia-sins/spatialite_gis-1.0.0c.tar.gz"
+  sha1 "45508b27fbdc7166ef874ce3f79216d6c01f3c4f"
 
-  depends_on 'libspatialite'
-  depends_on 'librasterlite'
-  depends_on 'libharu'
-  depends_on 'wxmac'
+  depends_on "pkg-config" => :build
+  depends_on "freexl"
+  depends_on "geos"
+  depends_on "libharu"
+  depends_on "librasterlite"
+  depends_on "libspatialite"
+  depends_on "proj"
+  depends_on "wxmac"
 
-  def patches
-    {
-      # Upstream fix for bad test of string equality. Remove on next release.
-      :p0 => 'https://www.gaia-gis.it/fossil/spatialite_gis/vpatch?from=0506d89e65c692d7&to=0783daf1178ee1dc',
-      # Allow `spatialite_gis` to run without being packaged as an .app bundle.
-      :p1 => DATA
-    }
+  patch :p0 do
+    # Upstream fix for bad test of string equality. Remove on next release.
+    # https://www.gaia-gis.it/fossil/spatialite_gis/tktview?name=f0658b3ead
+    url "https://www.gaia-gis.it/fossil/spatialite_gis/vpatch?from=0506d89e65c692d7&to=0783daf1178ee1dc"
+    sha1 "a82f5f6aef40ec1177fb8a28164c7ad9ea600b18"
   end
 
+  # Allow `spatialite_gis` to run without being packaged as an .app bundle.
+  patch :p1, :DATA
+
   def install
-    # These libs don't get picked up by configure.
-    ENV.append 'LDFLAGS', '-liconv'
+    # Failure to link aui library (see spatialite-gui)
+    # https://github.com/Homebrew/homebrew/pull/29358
+    inreplace "configure", "WX_LIBS=\"$(wx-config --libs)\"", "WX_LIBS=\"$(wx-config --libs std,aui)\""
+
+    # These libs don"t get picked up by configure.
+    ENV.append "LDFLAGS", "-liconv"
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install"
   end
 end
 
