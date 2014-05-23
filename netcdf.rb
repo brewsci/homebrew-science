@@ -29,6 +29,16 @@ class Netcdf < Formula
     sha1 'f1887314455330f4057bc8eab432065f8f6f74ef'
   end
 
+  # HDF5 1.8.13 removes symbols related to MPI POSIX VFD, leading to
+  # errors when linking hdf5 and netcdf5 such as "undefined reference to
+  # `_H5Pset_fapl_mpiposix`". This patch fixes those errors, and has been
+  # added upstream. It should be unnecessary once NetCDF releases a new
+  # stable version.
+  patch do
+    url 'https://github.com/Unidata/netcdf-c/commit/435d8a03ed28bb5ad63aff12cbc6ab91531b6bc8.diff'
+    sha1 '770ee66026e4625b80711174600fb8c038b48f5e'
+  end
+
   def install
     if build.include? 'enable-fortran'
       # fix for ifort not accepting the --force-load argument, causing
