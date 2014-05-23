@@ -2,6 +2,7 @@ require 'formula'
 
 class Mummer < Formula
   homepage 'http://mummer.sourceforge.net/'
+  #doi '10.1186/gb-2004-5-2-r12'
   url 'https://downloads.sourceforge.net/project/mummer/mummer/3.23/MUMmer3.23.tar.gz'
   sha1 '69261ed80bb77e7595100f0560973fe1f810c5fa'
 
