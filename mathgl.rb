@@ -1,9 +1,17 @@
 require 'formula'
 
+class BuildOptions
+  def with_qt? version
+    version.to_s == ARGV.value('with-qt')
+  end
+end
+
 class Mathgl < Formula
   homepage 'http://mathgl.sourceforge.net/'
   url 'https://downloads.sourceforge.net/mathgl/mathgl-2.2.2.1.tar.gz'
   sha1 '7d450028728384782315d4d5f5c4dd8b67c29e3b'
+
+  option 'with-qt=', 'Build with Qt 4 or 5 support'
 
   depends_on 'cmake'   => :build
   depends_on 'gsl'     => :recommended
@@ -12,10 +20,11 @@ class Mathgl < Formula
   depends_on :libpng   => :recommended
   depends_on 'hdf5'    => :optional
   depends_on 'fltk'    => :optional
-  depends_on 'qt'      => :optional
   depends_on 'wxmac'   => :optional
   depends_on 'giflib'  => :optional
-  depends_on :x11 if build.with? 'fltk'
+  depends_on 'qt'  if build.with_qt? 4
+  depends_on 'qt5' if build.with_qt? 5
+  depends_on :x11  if build.with? 'fltk'
 
   def install
     args = std_cmake_args + %w[
@@ -29,7 +38,8 @@ class Mathgl < Formula
     ]
 
     args << '-Denable-openmp=' + ((ENV.compiler == :clang) ? 'OFF' : 'ON')
-    args << '-Denable-qt=ON'      if build.with? 'qt'
+    args << '-Denable-qt4=ON'     if build.with_qt? 4
+    args << '-Denable-qt5=ON'     if build.with_qt? 5
     args << '-Denable-gif=ON'     if build.with? 'giflib'
     args << '-Denable-hdf5_18=ON' if build.with? 'hdf5'
     args << '-Denable-fltk=ON'    if build.with? 'fltk'
