@@ -2,8 +2,8 @@ require 'formula'
 
 class Openimageio < Formula
   homepage 'http://openimageio.org'
-  url 'https://github.com/OpenImageIO/oiio/archive/Release-1.1.8.tar.gz'
-  sha1 '14ce1bb9067e70717de3f8d72c56342fa378a1e6'
+  url 'https://github.com/OpenImageIO/oiio/archive/Release-1.4.8.tar.gz'
+  sha1 '412793b71ba5510709795a47395a78436a4c5344'
 
   head 'https://github.com/OpenImageIO/oiio.git'
 
@@ -14,7 +14,7 @@ class Openimageio < Formula
   depends_on 'opencolorio'
   depends_on 'ilmbase'
   depends_on 'openexr'
-  depends_on 'boost'
+  depends_on 'boost' => 'with-python'
   depends_on 'libtiff'
   depends_on 'jpeg'
   depends_on 'openjpeg'
@@ -24,6 +24,7 @@ class Openimageio < Formula
   depends_on 'webp'
   depends_on 'glew'
   depends_on 'qt'
+  depends_on 'freetype'
 
   resource 'j2kp4files' do
     url 'http://pkgs.fedoraproject.org/repo/pkgs/openjpeg/j2kp4files_v1_5.zip/27780ed3254e6eb763ebd718a8ccc340/j2kp4files_v1_5.zip'
@@ -67,9 +68,11 @@ class Openimageio < Formula
       chdir 'localpub'
     end
 
-    j2k = Formula["openjpeg"].linked_keg.realpath
     ENV.append 'MY_CMAKE_FLAGS', "-Wno-dev"   # stops a warning.
-    ENV.append 'MY_CMAKE_FLAGS', "-DOPENJPEG_INCLUDE_DIR=#{j2k}/include/openjpeg-1.5"
+    ENV.append 'MY_CMAKE_FLAGS', "-DOPENJPEG_INCLUDE_DIR=#{Formula["openjpeg"].opt_include}/openjpeg-1.5"
+
+    ENV.append 'MY_CMAKE_FLAGS', "-DFREETYPE_INCLUDE_DIRS=#{Formula["freetype"].opt_include}/freetype2"
+
     args = ["USE_TBB=1", "EMBEDPLUGINS=1"]
 
 
