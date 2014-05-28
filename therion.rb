@@ -2,8 +2,8 @@ require "formula"
 
 class Therion < Formula
   homepage "http://therion.speleo.sk"
-  url "http://therion.speleo.sk/downloads/therion-5.3.14.tar.gz"
-  sha1 "087658e9057d6ae520df12a6a07acf2898e657b3"
+  url "http://therion.speleo.sk/downloads/therion-5.3.15.tar.gz"
+  sha1 "c518482607bb7de861d7cbb395532b2af107daa2"
 
   depends_on :freetype
   depends_on "imagemagick"
