@@ -3,7 +3,8 @@ require "formula"
 class EnsemblTools < Formula
   homepage "http://www.ensembl.org/info/docs/tools/index.html"
   url "https://github.com/Ensembl/ensembl-tools/archive/release/75.tar.gz"
-  sha1 "a5a39b8913bbd1313e2544a271e07ebae49df6fe"
+  sha1 "ba83c471c53c2d3192d9632a8601d110831db767"
+  head "https://github.com/Ensembl/ensembl-tools.git"
 
   depends_on "Bio::Perl" => :perl
   depends_on "Mozilla::CA" => :perl
