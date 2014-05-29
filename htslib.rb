@@ -16,4 +16,9 @@ class Htslib < Formula
     system 'make', 'install', 'prefix=' + prefix
     (include/'htslib').install 'version.h'
   end
+
+  test do
+    system "#{bin}/bgzip --help 2>&1 |grep bgzip"
+    system "#{bin}/tabix --help 2>&1 |grep tabix"
+  end
 end
