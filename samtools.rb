@@ -7,9 +7,9 @@ class Samtools < Formula
   sha1 'ff3f4cf40612d4c2ad26e6fcbfa5f8af84cbe881'
 
   devel do
-    version '0.2.0-rc6'
+    version '0.2.0-rc8'
     url "https://github.com/samtools/samtools/archive/#{version}.tar.gz"
-    sha1 '35118bcbcd7c438855d614d53ed5033b1944aea0'
+    sha1 'c5140c5cd0d34419bea4665f55d130eccb3be481'
     depends_on 'htslib'
   end
 
