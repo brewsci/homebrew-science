@@ -27,7 +27,7 @@ class Samtools < Formula
   def install
     if build.devel? || build.head?
       inreplace 'Makefile', 'include $(HTSDIR)/htslib.mk', ''
-      htslib = Formula["Htslib"].opt_prefix
+      htslib = Formula["htslib"].opt_prefix
       system 'make', "HTSDIR=#{htslib}/include", "HTSLIB=#{htslib}/lib/libhts.a"
     else
       system 'make'
