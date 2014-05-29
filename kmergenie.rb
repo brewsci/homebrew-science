@@ -2,8 +2,9 @@ require 'formula'
 
 class Kmergenie < Formula
   homepage 'http://kmergenie.bx.psu.edu/'
-  url 'http://kmergenie.bx.psu.edu/kmergenie-1.6213.tar.gz'
-  sha1 'f93622c8f2ead32cb75ba0f36b91747e969d4b6e'
+  #doi '10.1093/bioinformatics/btt310'
+  url 'http://kmergenie.bx.psu.edu/kmergenie-1.6476.tar.gz'
+  sha1 '744ccd0f033af6be15fc9f6edfa31af08b316e40'
 
   depends_on 'r'
 
