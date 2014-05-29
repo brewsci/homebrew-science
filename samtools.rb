@@ -29,10 +29,8 @@ class Samtools < Formula
       inreplace 'Makefile', 'include $(HTSDIR)/htslib.mk', ''
       htslib = Formula["Htslib"].opt_prefix
       system 'make', "HTSDIR=#{htslib}/include", "HTSLIB=#{htslib}/lib/libhts.a"
-      system 'make', 'razip', "LDFLAGS=-L#{htslib}/lib", 'LDLIBS=-lhts -lz'
     else
       system 'make'
-      system 'make', 'razip'
       system 'make', '-C', 'bcftools' if build.with? 'bcftools'
     end
 
@@ -46,7 +44,7 @@ class Samtools < Formula
       end
     end
 
-    bin.install %w{samtools razip}
+    bin.install 'samtools'
     bin.install 'bcftools/bcftools' unless build.devel? || build.head? || build.without?('bcftools')
     bin.install 'bcftools/vcfutils.pl' unless build.devel? || build.head? || build.without?('bcftools')
     bin.install %w{misc/maq2sam-long misc/maq2sam-short misc/md5fa misc/md5sum-lite misc/wgsim}
