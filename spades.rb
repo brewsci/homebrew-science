@@ -16,6 +16,6 @@ class Spades < Formula
   end
 
   test do
-    system 'spades.py --help'
+    system 'spades.py --test'
   end
 end
