@@ -2,8 +2,8 @@ require 'formula'
 
 class Paml < Formula
   homepage 'http://abacus.gene.ucl.ac.uk/software/paml.html'
-  url 'http://abacus.gene.ucl.ac.uk/software/paml4.7.tgz'
-  sha1 '908cae1e81659f653df1030f4cdf62178947fd64'
+  url 'http://abacus.gene.ucl.ac.uk/software/paml4.8.tgz'
+  sha1 '831746bc497bb20d5d6f21c5ea4c00bcf0ec3956'
 
   def install
     cd 'src' do
