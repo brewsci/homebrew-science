@@ -2,9 +2,9 @@ require 'formula'
 
 class Cppad < Formula
   homepage 'http://www.coin-or.org/CppAD'
-  url 'http://www.coin-or.org/download/source/CppAD/cppad-20140000.0.epl.tgz'
-  version '20140000'
-  sha1 '27ecae20785c95ac5af0f285b54be292aad75008'
+  url 'http://www.coin-or.org/download/source/CppAD/cppad-20140000.3.epl.tgz'
+  version '20140000.3'
+  sha1 'dfed23c8aab18ae780bb276b3222bcfdfb207353'
   head 'https://projects.coin-or.org/svn/CppAD/trunk', :using => :svn
 
   # Only one of --with-boost, --with-eigen and --with-std should be given.
@@ -26,7 +26,7 @@ class Cppad < Formula
 
   def install
     if ENV.compiler == :clang
-      opoo 'OpenMP support will not be enabled. Use --use-gcc if you require OpenMP.'
+      opoo 'OpenMP support will not be enabled. Use --cc=gcc-4.8 if you require OpenMP.'
     end
 
     cmake_args = ["-Dcmake_install_prefix=#{prefix}", "-Dcppad_documentation=YES"]
