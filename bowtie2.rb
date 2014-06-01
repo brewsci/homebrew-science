@@ -2,8 +2,8 @@ require 'formula'
 
 class Bowtie2 < Formula
   homepage "http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
-  url "https://github.com/BenLangmead/bowtie2/archive/v2.2.2.tar.gz"
-  sha1 "7cccb06ee9e57e9566b0bb0fce4b9a3d01d0ffd7"
+  url "https://github.com/BenLangmead/bowtie2/archive/v2.2.3.tar.gz"
+  sha1 "3186cb730f363935d18907c7222df9e1884a67fa"
   head "https://github.com/BenLangmead/bowtie2.git"
 
   def install
