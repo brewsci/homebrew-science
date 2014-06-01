@@ -2,8 +2,8 @@ require "formula"
 
 class Nlopt < Formula
   homepage 'http://ab-initio.mit.edu/nlopt'
-  url 'http://ab-initio.mit.edu/nlopt/nlopt-2.4.1.tar.gz'
-  sha1 '181181a3f7dd052e0740771994eb107bd59886ad'
+  url 'http://ab-initio.mit.edu/nlopt/nlopt-2.4.2.tar.gz'
+  sha1 '838c399d8fffd7aa56b20231e0d7bd3462ca0226'
   head 'https://github.com/stevengj/nlopt.git'
 
   depends_on 'octave' => :optional
