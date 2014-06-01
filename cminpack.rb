@@ -2,8 +2,8 @@ require 'formula'
 
 class Cminpack < Formula
   homepage 'http://devernay.free.fr/hacks/cminpack/cminpack.html'
-  url 'http://devernay.free.fr/hacks/cminpack/cminpack-1.3.0.tar.gz'
-  sha1 '8bf19ce37b486707c402a046c33d823c9e359410'
+  url 'http://devernay.free.fr/hacks/cminpack/cminpack-1.3.4.tar.gz'
+  sha1 '58519c93e9d4e28a17eabb551e4c23b3d39e064d'
 
   depends_on 'cmake' => :build
 
