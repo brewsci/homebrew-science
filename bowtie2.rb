@@ -15,9 +15,12 @@ class Bowtie2 < Formula
 
     doc.install %W[AUTHORS LICENSE MANUAL
                    NEWS README TUTORIAL VERSION]
+
+    share.install %W[example scripts]
   end
 
-  def test
-    system "bowtie2", "--version"
+  test do
+    system "bowtie2-build", "#{share}/example/reference/lambda_virus.fa", "lambda_virus"
+    assert File.exist?("lambda_virus.1.bt2")
   end
 end
