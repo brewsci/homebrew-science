@@ -22,8 +22,8 @@ class Blasr < Formula
     build 5666
     cause <<-EOS.undent
       error: invalid conversion
-      from ‘void (*)(H5::H5Object&, std::string, void*)’
-      to ‘void (*)(H5::H5Location&, std::string, void*)’
+      from 'void (*)(H5::H5Object&, std::string, void*)'
+      to 'void (*)(H5::H5Location&, std::string, void*)'
     EOS
   end
 
