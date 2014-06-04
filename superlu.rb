@@ -14,13 +14,14 @@ class Superlu < Formula
     ENV.deparallelize
     cp "MAKE_INC/make.mac-x", "./make.inc"
     make_args = ["RANLIB=true", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}",
-                 "FORTRAN=#{ENV.fc}", "FFLAGS=#{ENV.fcflags}"]
+                 "FORTRAN=#{ENV.fc}", "FFLAGS=#{ENV.fcflags}",
+                 "SuperLUroot=#{buildpath}"]
 
     make_args << ((build.with? "openblas") ? "BLASLIB=-L#{Formula["openblas"].lib} -lopenblas" : "BLASLIB=-framework Accelerate")
 
     system "make", "lib", *make_args
     if build.with? "check"
-      system "make", "testing", "SuperLUroot=#{buildpath}", *make_args
+      system "make", "testing", *make_args
       cd "TESTING"
       system "make", *make_args
       %w[stest dtest ctest ztest].each do |tst|
