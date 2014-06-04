@@ -11,7 +11,7 @@ How do I install these formulae?
 --------------------------------
 Just `brew tap homebrew/science` and then `brew install <formula>`.
 
-If the formula conflicts with one from mxcl/master or another tap, you can `brew install homebrew/science/<formula>`.
+If the formula conflicts with one from another tap, you can `brew install homebrew/science/<formula>`.
 
 You can also install via URL:
 
@@ -27,8 +27,8 @@ Docs
 Contributing
 ------------
 
-Please see the [contributing][] wiki page.
+Please see the [contributing] guide.
 
 
-[wiki]:http://wiki.github.com/mxcl/homebrew
-[contributing]: https://github.com/Homebrew/homebrew-science/wiki/Contributing-to-Homebrew-Science
+[wiki]: https://github.com/Homebrew/homebrew/wiki
+[contributing]: https://github.com/Homebrew/homebrew-science/blob/master/CONTRIBUTING.md
