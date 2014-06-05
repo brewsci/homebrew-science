@@ -8,11 +8,12 @@ class Cdsclient < Formula
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make", "install"
+
+    man.mkpath # --mandir not respected
+    system "make", "install", "MANDIR=#{man}"
   end
 
   test do
-      system 'findusnob1 -help 2>&1 | grep -q findusnob1'
+    system 'findusnob1 -help 2>&1 | grep -q findusnob1'
   end
-
 end
