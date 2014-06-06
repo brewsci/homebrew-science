@@ -25,14 +25,14 @@ class Gmsh < Formula
                              "-DGMSH_LIB=#{lib}",
                              "-DGMSH_DOC=#{share}/gmsh",
                              "-DGMSH_MAN=#{man}"]
-    
+
     # Make sure native file dialogs are used
     args << "-DENABLE_NATIVE_FILE_CHOOSER=ON"
-                             
-    # Build a shared library such that others can link                             
+
+    # Build a shared library such that others can link
     args << "-DENABLE_BUILD_LIB=ON"
     args << "-DENABLE_BUILD_SHARED=ON"
-    
+
     # Todo: enable PETSc and SLEPc.
     args << "-DENABLE_PETSC=OFF"
     args << "-DENABLE_SLEPC=OFF"
