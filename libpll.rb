@@ -15,7 +15,7 @@ class Libpll < Formula
   # Don't include malloc.h (linux requirement)
   stable do
     patch do
-      url "https://gist.github.com/kgori/2e0d4075207fdbeebe7b/raw"
+      url "https://gist.githubusercontent.com/kgori/2e0d4075207fdbeebe7b/raw/217db2debf9e8eccca55e363f243b8f710bee6b6/mem_alloc_patch"
       sha1 "8885119361e6b7bcccefb0840cd2a6c3263419ba"
     end
   end
