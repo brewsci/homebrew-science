@@ -8,6 +8,13 @@ class Stacks < Formula
   depends_on "google-sparsehash" => :recommended
   depends_on "samtools"          => :recommended
 
+  needs :cxx11
+
+  fails_with :clang do
+    build 503
+    cause "error: comparison between pointer and integer ('const char *' and 'int')"
+  end
+
   def install
     # OpenMP doesn't yet work on OS X with Apple-provided compilers.
     args = ["--disable-dependency-tracking", "--disable-openmp", "--prefix=#{prefix}"]
