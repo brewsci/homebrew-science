@@ -2,13 +2,14 @@ require 'formula'
 
 class Gromacs < Formula
   homepage 'http://www.gromacs.org/'
-  url 'ftp://ftp.gromacs.org/pub/gromacs/gromacs-4.6.3.tar.gz'
-  mirror 'https://fossies.org/linux/privat/gromacs-4.6.3.tar.gz'
-  sha1 'bf01a19d0afdadc10b960faebbca1a68a10a4313'
+  url 'ftp://ftp.gromacs.org/pub/gromacs/gromacs-4.6.5.tar.gz'
+  mirror 'https://fossies.org/linux/privat/gromacs-4.6.5.tar.gz'
+  sha1 '6bf86bb514e5488bda988d5b0e98867706d4ecd4'
 
   option 'enable-mpi', "Enables MPI support"
   option 'enable-double',"Enables double precision"
   option 'with-x', "Enable the X11 visualizer"
+  option 'without-check', "Skip build-time tests (not recommended)"
 
   depends_on 'cmake' => :build
   depends_on 'fftw'
@@ -29,8 +30,9 @@ class Gromacs < Formula
     cd "src" do
       system "cmake", "..", *args
       system "make"
-      ENV.j1
-      system "make install"
+      system "make", "test" if build.with? "check"
+      ENV.deparallelize
+      system "make", "install"
     end
 
     bash_completion.install 'scripts/completion.bash' => 'gromacs-completion.bash'
