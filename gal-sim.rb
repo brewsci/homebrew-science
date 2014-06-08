@@ -2,13 +2,13 @@ require "formula"
 
 class GalSim < Formula
   homepage "https://github.com/GalSim-developers/GalSim"
-  url "https://github.com/GalSim-developers/GalSim/archive/v1.0.1.tar.gz"
-  sha1 '519c9f83c0f9092507185ba46cb21231f60df9fe'
+  url "https://github.com/GalSim-developers/GalSim/archive/v1.1.0.tar.gz"
+  sha1 'a1446f73053b4dc91f62d236193ba6ccb1fb9ae5'
   head "https://github.com/GalSim-developers/GalSim.git"
 
   depends_on "scons" => :build
   depends_on "fftw"
-  depends_on "boost"
+  depends_on "boost" => 'with-python'
   depends_on "tmv-cpp"
 
   # pyfits should come from pip
