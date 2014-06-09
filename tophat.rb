@@ -1,9 +1,9 @@
 require 'formula'
 
 class Tophat < Formula
-  homepage 'http://tophat.cbcb.umd.edu/'
-  url 'http://tophat.cbcb.umd.edu/downloads/tophat-2.0.11.tar.gz'
-  sha1 'd5fe268619a4d37bba5d330e8328954d6c66d0e0'
+  homepage 'http://ccb.jhu.edu/software/tophat'
+  url 'http://ccb.jhu.edu/software/tophat/downloads/tophat-2.0.12.tar.gz'
+  sha1 '966f8748a55820dfb64d3a5618f38105858dff3e'
 
   depends_on 'samtools'
   depends_on 'boost'
@@ -33,8 +33,8 @@ class Tophat < Formula
 
   test do
     # Run a simple test as described in
-    # http://tophat.cbcb.umd.edu/tutorial.shtml#ref
-    curl *%w[-O http://tophat.cbcb.umd.edu/downloads/test_data.tar.gz]
+    # http://ccb.jhu.edu/software/tophat/tutorial.shtml#test
+    curl *%w[-O http://ccb.jhu.edu/software/tophat/downloads/test_data.tar.gz]
     system *%w[tar xzf test_data.tar.gz]
     cd "test_data" do
       system "#{bin}/tophat -r 20 test_ref reads_1.fq reads_2.fq"
