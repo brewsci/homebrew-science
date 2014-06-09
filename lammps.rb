@@ -72,7 +72,7 @@ class Lammps < Formula
 
       system "make", "-f", make_file
 
-      if File.exists? "Makefile.lammps"
+      if File.exist? "Makefile.lammps"
         # empty it to reduce chance of conflicts
         inreplace "Makefile.lammps" do |s|
           s.change_make_var! prefix_make_var+lmp_lib+"_SYSINC", ""

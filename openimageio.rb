@@ -86,7 +86,7 @@ class Openimageio < Formula
       python_version = `python-config --libs`.match('-lpython(\d+\.\d+)').captures.at(0)
       python_lib = "#{python_prefix}/lib/libpython#{python_version}"
       ENV.append 'MY_CMAKE_FLAGS', "-DPYTHON_INCLUDE_DIR='#{python_prefix}/include/python#{python_version}'"
-      if File.exists? "#{python_lib}.a"
+      if File.exist? "#{python_lib}.a"
         ENV.append 'MY_CMAKE_FLAGS', "-DPYTHON_LIBRARY='#{python_lib}.a'"
       else
         ENV.append 'MY_CMAKE_FLAGS', "-DPYTHON_LIBRARY='#{python_lib}.dylib'"

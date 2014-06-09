@@ -140,8 +140,8 @@ class Octave < Formula
     system "make all"
     system "make check 2>&1 | tee make-check.log" if build.with? "check"
     system "make install"
-    prefix.install "make-check.log" if File.exists? "make-check.log"
-    prefix.install "test/fntests.log" if File.exists? "test/fntests.log"
+    prefix.install "make-check.log" if File.exist? "make-check.log"
+    prefix.install "test/fntests.log" if File.exist? "test/fntests.log"
   end
 
   def caveats
@@ -195,7 +195,7 @@ class Octave < Formula
     end
 
     logfile = "#{prefix}/make-check.log"
-    if File.exists? logfile
+    if File.exist? logfile
       logs = `grep 'libinterp/array/.*FAIL \\d' #{logfile}`
       unless logs.empty?
         s = s + <<-EOS.undent
