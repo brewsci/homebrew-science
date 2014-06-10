@@ -7,6 +7,15 @@ class Cube < Formula
 
   depends_on "qt" => :recommended
 
+  fails_with :clang do
+    build 503
+    cause <<-EOS.undent
+      Undefined symbols for architecture x86_64:
+      "cube::Cube::def_mirror(std::string const&)", referenced from:
+      MainWidget::readFile(QString) in cube-MainWidget.o
+    EOS
+  end if build.with? "qt"
+
   def install
     ENV.deparallelize
 
