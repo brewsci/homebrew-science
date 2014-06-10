@@ -1,12 +1,19 @@
 require 'formula'
 
+class RDownloadStrategy < SubversionDownloadStrategy
+  def stage
+    quiet_safe_system 'cp', '-r', @clone, Dir.pwd
+    Dir.chdir cache_filename
+  end
+end
+
 class R < Formula
   homepage 'http://www.r-project.org/'
   url 'http://cran.rstudio.com/src/base/R-3/R-3.1.0.tar.gz'
   mirror 'http://cran.r-project.org/src/base/R-3/R-3.1.0.tar.gz'
   sha1 'a9d13932c739cc12667c6a17fabd9361624a1708'
 
-  head 'https://svn.r-project.org/R/trunk'
+  head 'https://svn.r-project.org/R/trunk', :using => RDownloadStrategy
 
   option "without-accelerate", "Build without the Accelerate framework (use Rblas)"
   option 'without-check', 'Skip build-time tests (not recommended)'
@@ -21,6 +28,7 @@ class R < Formula
   depends_on :x11 => :recommended
   depends_on 'valgrind' => :optional
   depends_on 'openblas' => :optional
+  depends_on :tex if build.head?
 
   # This is the same script that Debian packages use.
   resource 'completion' do
