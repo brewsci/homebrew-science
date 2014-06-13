@@ -2,8 +2,8 @@ require "formula"
 
 class Opencascade < Formula
   homepage "http://www.opencascade.org/"
-  url "http://files.opencascade.com/OCCT/OCC_6.7.0_release/opencascade-6.7.0.tgz"
-  sha1 "5c22457c327b90d0256f6adefaee3853e0b0e251"
+  url "http://files.opencascade.com/OCCT/OCC_6.7.1_release/opencascade-6.7.1.tgz"
+  sha1 "53a7864c49893dcc722b8d6a487fd835e58d2f52"
 
   conflicts_with "oce", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
 
@@ -20,7 +20,6 @@ class Opencascade < Formula
   depends_on :macos => :snow_leopard
 
   def install
-
     # setting DYLD causes many issues; all tests work fine without; suppress
     inreplace "env.sh", "export DYLD_LIBRARY_PATH", "export OCCT_DYLD_LIBRARY_PATH"
 
@@ -35,7 +34,7 @@ class Opencascade < Formula
     cmake_args << "-D3RDPARTY_TBB_DIR:PATH=#{HOMEBREW_PREFIX}" if build.with? "tbb"
 
     # must specify, otherwise finds old ft2config.h in /usr/X11R6
-    cmake_args << "-D3RDPARTY_FREETYPE_INCLUDE_DIR:PATH=#{HOMEBREW_PREFIX}/include"
+    cmake_args << "-D3RDPARTY_FREETYPE_INCLUDE_DIR:PATH=#{HOMEBREW_PREFIX}/include/freetype2"
 
     %w{freeimage gl2ps opencl tbb}.each do |feature|
       cmake_args << "-DUSE_#{feature.upcase}:BOOL=ON" if build.with? feature
@@ -56,7 +55,12 @@ class Opencascade < Formula
     system "cmake", ".", *cmake_args
     system "make", "install"
 
-    prefix.install "doc", "samples" if build.with? "extras"
+    if build.with? "extras"
+      # 6.7.1 now installs samples/tcl by default, must move back before moving all
+      mv prefix/"samples/tcl", "samples/tcl"
+      rmdir prefix/"samples"
+      prefix.install "doc", "samples"
+    end
   end
 
   def caveats; <<-EOF.undent
