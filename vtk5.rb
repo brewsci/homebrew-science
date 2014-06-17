@@ -30,12 +30,14 @@ class Vtk5 < Formula
   option 'tcl',       'Enable Tcl wrapping of VTK classes'
   option 'remove-legacy', 'Disable legacy APIs'
 
-  def patches
-    # Fix bug in Wrapping/Python/setup_install_paths.py: http://vtk.org/Bug/view.php?id=13699
-    # and compilation on mavericks backported from head.
-    p = [DATA]
-    p << "https://gist.github.com/sxprophet/7463815/raw/85e57e0fd078d407b09a75e52ffe89350b8beef9/vtk5-cxx11-patch.diff" if build.cxx11?
-  end
+  # Fix bug in Wrapping/Python/setup_install_paths.py: http://vtk.org/Bug/view.php?id=13699
+  # and compilation on mavericks backported from head.
+  patch :DATA
+
+  patch do
+    url "https://gist.github.com/sxprophet/7463815/raw/85e57e0fd078d407b09a75e52ffe89350b8beef9/vtk5-cxx11-patch.diff"
+    sha1 "4bc426523f23c200047ee6500ee0286a1aed3fdd"
+  end if build.cxx11?
 
   def install
     libdir = if build.head? then lib; else "#{lib}/vtk-5.10"; end
