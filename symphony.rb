@@ -2,37 +2,54 @@ require 'formula'
 
 class Symphony < Formula
   homepage 'http://www.coin-or.org/projects/SYMPHONY.xml'
-  url 'http://www.coin-or.org/download/source/SYMPHONY/SYMPHONY-5.3.3.tgz'
-  sha1 'afc38ee5655b52fc3fa0a5854b5cc5a7f31618cc'
+  url 'http://www.coin-or.org/download/source/SYMPHONY/SYMPHONY-5.5.7.tgz'
+  sha1 '81ca23e92f6a126b39c57df81063cf1fc403a170'
 
-  option "enable-openmp", "Enable openmp support"
+  option "without-check", "Skip build-time tests (not recommended)"
+  option "with-openmp", "Enable openmp support"
   option "with-gmpl", "GNU Modeling Language support via GLPK"
+
+  depends_on "mysql" => :build if build.with? "gmpl"
+
+  fails_with :clang
+  fails_with :llvm
+
+  conflicts_with "coinutils", :because => "Symphony contains CoinUtils"
+  conflicts_with "coinmp", :because => "Symphony and CoinMP contain CoinUtils"
 
   def install
     args = ["--disable-debug", "--disable-dependency-tracking",
-            "--enable-shared=no", # can't get shared libs to work
-            "--enable-static-executable",
+            "--enable-dependency-linking", "--enable-shared=yes",
             "--prefix=#{prefix}"]
 
     if build.with? "gmpl"
       # Symphony uses a patched version of GLPK for reading MPL files.
       # Use a private version rather than require the Homebrew version of GLPK.
-      cd 'ThirdParty/Glpk' do
+      cd "ThirdParty/Glpk" do
         system "./get.Glpk"
       end
-
-      ENV.append "CPPFLAGS", "-I#{buildpath}/ThirdParty/Glpk/glpk/src"
-      ENV.append "CDEFS", "-DUSE_GLPMPL"
+      ENV.append "CPPFLAGS", "-I#{Formula['mysql'].include}/mysql"
       args << "--with-gmpl"
     end
 
-    if build.include? "enable-openmp"
-      inreplace 'SYMPHONY/config', /^SYM_COMPILE_IN_LP = TRUE/, "SYM_COMPILE_IN_LP = FALSE"
+    if build.with? "openmp"
       args << "--enable-openmp"
+      ENV.append "LDFLAGS", "-lgomp"
     end
 
     system "./configure",  *args
     system "make"
+    system "make", "test" if build.with? "check"
+    system "make", "fulltest" if build.with? "check"
+    ENV.deparallelize
     system "make install"
+
+    (share / "symphony/Datasets").install "SYMPHONY/Datasets/sample.mps"
+    (share / "symphony/Datasets").install "SYMPHONY/Datasets/sample.mod", "SYMPHONY/Datasets/sample.dat" if build.with? "gmpl"
+  end
+
+  test do
+    system "#{bin}/symphony", "-F", "#{share}/symphony/Datasets/sample.mps"
+    system "#{bin}/symphony", "-F", "#{share}/symphony/Datasets/sample.mod", "-D", "#{share}/symphony/Datasets/sample.dat" if build.with? "gmpl"
   end
 end
