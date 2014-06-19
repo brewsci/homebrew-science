@@ -8,7 +8,7 @@ class Velvet < Formula
   head 'https://github.com/dzerbino/velvet.git'
 
   option 'with-maxkmerlength=', 'Specify maximum k-mer length, any positive odd integer (default: 31)'
-  option 'with-categories=', 'Specify number of categories, any positive integer (default: 1)'
+  option 'with-categories=', 'Specify number of categories, any positive integer (default: 2)'
 
   def install
     args = ["CFLAGS=-Wall -m64", "LONGSEQUENCES=1"]
