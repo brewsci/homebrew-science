@@ -12,14 +12,15 @@ class Scalapack < Formula
   depends_on :mpi => [:cc, :f90]
   depends_on 'cmake' => :build
   depends_on 'openblas' => :optional
-  depends_on 'dotwrp' if build.without? 'openblas'
+  depends_on 'vecLibFort' if build.without? 'openblas'
   depends_on :fortran
 
   def install
     args = std_cmake_args
     args << "-DBUILD_SHARED_LIBS=ON" if build.with? "shared-libs"
-    blaslib = (build.with? "openblas") ? "-L#{Formula['openblas'].lib} -lopenblas" : "-ldotwrp -Wl,-framework -Wl,Accelerate"
-    args += ["-DBLAS_LIBRARIES=#{blaslib}", "-DLAPACK_LIBRARIES=#{blaslib}"]
+    blas = (build.with? "openblas") ? "openblas" : "vecLibFort"
+    blas = "-L#{Formula["#{blas}"].lib} -l#{blas}"
+    args += ["-DBLAS_LIBRARIES=#{blas}", "-DLAPACK_LIBRARIES=#{blas}"]
 
     mkdir "build" do
       system 'cmake', '..', *args
