@@ -51,6 +51,9 @@ class Getdp < Formula
     # Fixed test to work without access to gmsh
     inreplace "CMakeLists.txt", "../../gmsh/bin/gmsh", "./getdp"
 
+    # Fix GMSH library final destination
+    inreplace "CMakeLists.txt", "DESTINATION ${GMSH_LIB}", "DESTINATION #{lib}"
+
     mkdir "build" do
       system "cmake", "..", *args
       system "make"
