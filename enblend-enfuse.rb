@@ -5,7 +5,7 @@ class EnblendEnfuse < Formula
   url 'https://downloads.sourceforge.net/project/enblend/enblend-enfuse/enblend-enfuse-4.1/enblend-enfuse-4.1.1.tar.gz'
   sha1 'bc18fca3033b031d603b22678b2e680a0ffae1b6'
 
-  option 'disable-gpu', 'Build with GPU support'
+  option 'with-gpu', 'Build with GPU support'
 
   depends_on :libpng
   depends_on :x11 => :optional
@@ -23,20 +23,12 @@ class EnblendEnfuse < Formula
   end
 
   def install
-
     args = [ "--disable-debug",
              "--disable-dependency-tracking",
              "--prefix=#{prefix}" ]
 
     args << "--without-x" if build.without? 'x11'
-
-    if build.include? 'disable-gpu'
-      enable_gpu = "no"
-    else
-      enable_gpu = "yes"
-    end
-
-    args << "--enable-gpu-support=#{enable_gpu}"
+    args << "--enable-gpu-support=" + ((build.with? "gpu") ? "yes" : "no")
 
     system "./configure", *args
     system "make install"
