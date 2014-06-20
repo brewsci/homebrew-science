@@ -5,7 +5,7 @@ class Tisean < Formula
   url "http://www.mpipks-dresden.mpg.de/~tisean/TISEAN_3.0.1.tar.gz"
   sha1 "7fe71899b063abe1b3d9aae88f153988495d623b"
 
-  option "no-prefixed-binaries", "Do not prefix binaries with `tisean-`"
+  option "without-prefixed-binaries", "Do not prefix binaries with `tisean-`"
 
   depends_on :fortran
   depends_on "gnu-sed"
@@ -31,17 +31,20 @@ class Tisean < Formula
               "999  if(iv_io(iverb).eq.1) write(0,*) \"matrix size \", np"
     bin.mkpath
     system "make"
-    system "make install"
-    if not build.include? "no-prefixed-binaries"
+    system "make", "install"
+    if build.with? "prefixed-binaries"
       Tisean::BINS.each { |item| system "mv #{bin}/#{item} #{bin}/tisean-#{item}" }
     end
   end
 
+  def caveats; <<-EOS.undent
+    By default, all TISEAN binaries are prefixed with `tisean-`.
+    For unprefixed binaries, use `--without-prefixed-binaries`.
+    EOS
+  end if build.with? "prefixed-binaries"
+
   test do
-    if (Dir.glob "#{bin}/tisean-*").length > 0
-      Tisean::BINS.each { |item| system "#{bin}/tisean-#{item} -h" }
-    else
-      Tisean::BINS.each { |item| system "#{bin}/#{item} -h" }
-    end
+    pfx = (build.with? "prefixed-binaries") ? "tisean-" : ""
+    Tisean::BINS.each { |item| system "#{bin}/#{pfx}#{item} -h" }
   end
 end
