@@ -2,9 +2,18 @@ require 'formula'
 
 class Pnapi < Formula
   homepage 'http://service-technology.org/pnapi/'
-  head 'http://svn.gna.org/svn/service-tech/trunk/pnapi'
   url 'http://download.gna.org/service-tech/pnapi/pnapi-4.03.tar.gz'
   sha1 'd054018c4a2e580add680ffac28731461cf9e308'
+
+  head do
+    url "http://svn.gna.org/svn/service-tech/trunk/pnapi"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "gengetopt" => :build
+    depends_on "help2man" => :build
+    depends_on "gnu-sed" => :build
+  end
 
   option "without-check", "skip build-time checks (not recommended)"
 
@@ -12,14 +21,6 @@ class Pnapi < Formula
   depends_on "lola"
   depends_on 'pkg-config' => :build
   depends_on "genet" => :optional
-  if build.head?
-    depends_on 'autoconf'
-    depends_on 'automake'
-    depends_on 'gengetopt'
-    depends_on 'help2man'
-    depends_on 'gnu-sed'
-    depends_on 'libtool'
-  end
 
   def install
     ENV.deparallelize if build.head?
