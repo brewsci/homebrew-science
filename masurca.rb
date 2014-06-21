@@ -2,6 +2,7 @@ require 'formula'
 
 class Masurca < Formula
   homepage 'http://www.genome.umd.edu/masurca.html'
+  #doi "10.1093/bioinformatics/btt476"
   url 'ftp://ftp.genome.umd.edu/pub/MaSuRCA/MaSuRCA-2.0.4.tar.gz'
   sha1 '7e36afd82bd581566d46fd4dedd7ffc6cd751fb2'
 
