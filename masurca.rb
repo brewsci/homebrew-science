@@ -10,6 +10,7 @@ class Masurca < Formula
   depends_on "pkg-config"
 
   def install
+    raise "MaSuRCA fails to build on Mac OS. See https://github.com/Homebrew/homebrew-science/issues/344" if OS.mac?
     ENV.j1
     ENV['DEST'] = prefix
     system './install.sh'
