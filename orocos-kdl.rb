@@ -2,17 +2,19 @@ require "formula"
 
 class OrocosKdl < Formula
   homepage "http://www.orocos.org/kdl"
-  url "https://github.com/orocos/orocos_kinematics_dynamics/archive/v1.2.2.tar.gz"
-  sha1 "cfd18664a615c2babde96fb839b9bbc5dcd7a3ff"
-  head "https://github.com/orocos/orocos_kinematics_dynamics.git"
 
-  option "with-check", "Enable build-time checking (requires that cppunit was built with gcc)"
-
-  if build.head?
-    depends_on "eigen"
-  else
+  stable do
+    url "https://github.com/orocos/orocos_kinematics_dynamics/archive/v1.2.2.tar.gz"
+    sha1 "cfd18664a615c2babde96fb839b9bbc5dcd7a3ff"
     depends_on "eigen2"
   end
+
+  head do
+    url "https://github.com/orocos/orocos_kinematics_dynamics.git"
+    depends_on "eigen"
+  end
+
+  option "with-check", "Enable build-time checking (requires that cppunit was built with gcc)"
 
   depends_on "cmake"   => :build
   depends_on "cppunit" => :build if build.with? "check"
