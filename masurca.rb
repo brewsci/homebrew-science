@@ -7,6 +7,8 @@ class Masurca < Formula
 
   keg_only 'MaSuRCA conflicts with jellyfish.'
 
+  depends_on "pkg-config"
+
   def install
     ENV.j1
     ENV['DEST'] = prefix
