@@ -2,15 +2,17 @@ require 'formula'
 
 class Sara < Formula
   homepage 'http://service-technology.org/sara'
-  head 'http://svn.gna.org/svn/service-tech/trunk/sara'
   url 'http://download.gna.org/service-tech/sara/sara-1.13.tar.gz'
   sha1 'a4f03cc3ffc73613610ecce4c6b6a60b1a94171d'
 
-  depends_on 'autoconf' if build.head?
-  depends_on 'automake' if build.head?
-  depends_on 'gengetopt' if build.head?
-  depends_on 'help2man' if build.head?
-  depends_on 'libtool' if build.head?
+  head do
+    url "http://svn.gna.org/svn/service-tech/trunk/sara"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gengetopt" => :build
+    depends_on "help2man" => :build
+    depends_on "libtool" => :build
+  end
 
   option "without-check", "skip build-time checks (not recommended)"
 
