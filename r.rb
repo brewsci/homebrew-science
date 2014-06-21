@@ -13,7 +13,10 @@ class R < Formula
   mirror 'http://cran.r-project.org/src/base/R-3/R-3.1.0.tar.gz'
   sha1 'a9d13932c739cc12667c6a17fabd9361624a1708'
 
-  head 'https://svn.r-project.org/R/trunk', :using => RDownloadStrategy
+  head do
+    url 'https://svn.r-project.org/R/trunk', :using => RDownloadStrategy
+    depends_on :tex
+  end
 
   option "without-accelerate", "Build without the Accelerate framework (use Rblas)"
   option 'without-check', 'Skip build-time tests (not recommended)'
@@ -28,7 +31,6 @@ class R < Formula
   depends_on :x11 => :recommended
   depends_on 'valgrind' => :optional
   depends_on 'openblas' => :optional
-  depends_on :tex if build.head?
 
   # This is the same script that Debian packages use.
   resource 'completion' do
