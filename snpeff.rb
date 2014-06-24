@@ -10,6 +10,8 @@ class Snpeff < Formula
     inreplace "scripts/snpEff" do |s|
       s.gsub! /^jardir=.*/, "jardir=#{libexec}"
       s.gsub! "${jardir}/snpEff.config", "#{share}/snpEff.config"
+      # Fix bug in snpEff wrapper script. Fixed upstream can be removed on next release
+      s.gsub! '"$pass_args" != *-c*', '! "$pass_args" =~ "-c "'
     end
 
     bin.install "scripts/snpEff"
