@@ -2,8 +2,8 @@ require 'formula'
 
 class Mafft < Formula
   homepage 'http://mafft.cbrc.jp/alignment/software/index.html'
-  url 'http://mafft.cbrc.jp/alignment/software/mafft-7.130-with-extensions-src.tgz'
-  sha1 'a4456895f6ddc4245d86f5dcaa7e6f35e6032d8e'
+  url 'http://mafft.cbrc.jp/alignment/software/mafft-7.157-with-extensions-src.tgz'
+  sha1 '55cd5f1d6ef43cfe01c82770836c72ad32c221c4'
 
   fails_with :clang do
     build 421
@@ -17,6 +17,7 @@ class Mafft < Formula
     make_args = %W[CC=#{ENV.cc} CXX=#{ENV.cxx} CFAGS=#{ENV.cflags}
                    CXXFLAGS=#{ENV.cxxflags} PREFIX=#{prefix} MANDIR=#{man1}]
     make_args << "ENABLE_MULTITHREAD=" if MacOS.version <= :snow_leopard
+    make_args << "install"
     cd 'core' do
       system "make", *make_args
     end
@@ -35,7 +36,8 @@ class Mafft < Formula
     end
   end
 
-  def test
-    system 'mafft --version 2>&1 |grep -q mafft'
+  test do
+    (testpath/'test.fa').write(">1\nA\n>2\nA")
+    system 'mafft test.fa'
   end
 end
