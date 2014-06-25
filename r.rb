@@ -87,6 +87,13 @@ class R < Formula
     bash_completion.install resource('completion')
 
     prefix.install 'make-check.log' if build.with? 'check'
+
+  end
+
+  test do
+    (testpath / 'test.R').write('print(1+1);')
+    system "r < test.R --no-save"
+    system "rscript test.R"
   end
 
   def caveats; <<-EOS.undent
