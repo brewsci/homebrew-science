@@ -42,7 +42,7 @@ class Asl < Formula
     ENV.deparallelize
     targets = ["arith.h", "stdio1.h"]
     libs = ["libasl.#{soname}", "libfuncadd0.#{soname}"]
-    system "make", "-f", "makefile.brew",
+    system "make", "-f", "makefile.brew", "CC=#{ENV.cc}",
            "CFLAGS=#{cflags.join(' ')}", *(targets + libs)
 
     lib.install *libs
