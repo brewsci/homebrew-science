@@ -2,8 +2,8 @@ require 'formula'
 
 class Wxmaxima < Formula
   homepage 'http://andrejv.github.io/wxmaxima'
-  url 'https://downloads.sourceforge.net/project/wxmaxima/wxMaxima/12.09.0/wxMaxima-12.09.0.tar.gz'
-  sha1 '9b56f674392eabb75183b228757df8834b45b2a6'
+  url 'https://downloads.sourceforge.net/project/wxmaxima/wxMaxima/13.04.2/wxMaxima-13.04.2.tar.gz'
+  sha1 '9508d3badb6c339f34e73e01c5065f679329a17c'
 
   depends_on 'wxmac'
 
