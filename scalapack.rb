@@ -12,7 +12,7 @@ class Scalapack < Formula
   depends_on :mpi => [:cc, :f90]
   depends_on 'cmake' => :build
   depends_on 'openblas' => :optional
-  depends_on 'vecLibFort' if build.without? 'openblas'
+  depends_on 'veclibfort' if build.without? 'openblas'
   depends_on :fortran
 
   def install

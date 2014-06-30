@@ -9,7 +9,7 @@ class Arpack < Formula
   depends_on :fortran
   depends_on :mpi => [:optional, :f77]
   depends_on "openblas" => :optional
-  depends_on "vecLibFort" if build.without? "openblas"
+  depends_on "veclibfort" if build.without? "openblas"
 
   def install
     ENV.m64 if MacOS.prefer_64_bit?
@@ -19,7 +19,7 @@ class Arpack < Formula
     if build.with? "openblas"
       args << "--with-blas=-L#{Formula["openblas"].lib} -lopenblas"
     else
-      args << "--with-blas=-L#{Formula["vecLibFort"].lib} -lvecLibFort"
+      args << "--with-blas=-L#{Formula["veclibfort"].lib} -lvecLibFort"
     end
 
     ENV["MPILIBS"] = "-lmpi_usempi -lmpi_mpifh -lmpi" if build.with? :mpi

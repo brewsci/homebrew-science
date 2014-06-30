@@ -9,7 +9,7 @@ class Qrupdate < Formula
 
   depends_on :fortran
   depends_on "openblas" => :optional
-  depends_on "vecLibFort" if build.without? "openblas"
+  depends_on "veclibfort" if build.without? "openblas"
 
   def install
     ENV.j1
