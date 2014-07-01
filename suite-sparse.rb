@@ -22,7 +22,7 @@ class SuiteSparse < Formula
     make_args << "BLAS=" + ((build.with? 'openblas') ? "-L#{Formula['openblas'].lib} -lopenblas" : "-framework Accelerate")
     make_args << "LAPACK=$(BLAS)"
     make_args += ["SPQR_CONFIG=-DHAVE_TBB", "TBB=-L#{Formula['tbb'].lib} -ltbb"] if build.with? "tbb"
-    make_args += ["METIS_PATH=", "METIS=-L#{Formula['metis'].lib} -lmetis"] if build.with? "metis4"
+    make_args += ["METIS_PATH=", "METIS=-L#{Formula['metis4'].lib} -lmetis"] if build.with? "metis4"
 
     system "make", "library", *make_args
     lib.mkpath
