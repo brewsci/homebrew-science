@@ -14,7 +14,6 @@ class Htslib < Formula
     system "echo '#define HTS_VERSION \"#{version}\"' > version.h"
     system 'make'
     system 'make', 'install', 'prefix=' + prefix
-    (include/'htslib').install 'version.h'
   end
 
   test do
