@@ -9,6 +9,7 @@ class Joinx < Formula
   depends_on 'boost'
 
   def install
+    raise "JoinX fails to build on Mac OS. See https://github.com/genome/joinx/issues/3" if OS.mac?
     mkdir 'build' do
       system 'cmake', '..', *std_cmake_args
       system 'make', 'install'
