@@ -14,7 +14,8 @@ class Masurca < Formula
     raise "MaSuRCA fails to build on Mac OS. See https://github.com/Homebrew/homebrew-science/issues/344" if OS.mac?
 
     # Fix the error ./install.sh: line 46: masurca: No such file or directory
-    bin.install "SuperReads/src/masurca"
+    bin.mkdir
+    cp "SuperReads/src/masurca", bin
     chmod 0755, bin/"masurca"
 
     ENV.deparallelize
