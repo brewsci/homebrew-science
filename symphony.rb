@@ -10,6 +10,7 @@ class Symphony < Formula
   option "with-gmpl", "GNU Modeling Language support via GLPK"
 
   depends_on "mysql" => :build if build.with? "gmpl"
+  depends_on "readline" => :recommended
 
   fails_with :clang
   fails_with :llvm
@@ -20,7 +21,12 @@ class Symphony < Formula
   def install
     args = ["--disable-debug", "--disable-dependency-tracking",
             "--enable-dependency-linking", "--enable-shared=yes",
-            "--prefix=#{prefix}"]
+            "--enable-gnu-packages", "--prefix=#{prefix}"]
+
+    if build.with? "readline"
+      ENV.append "CXXFLAGS", "-I#{Formula['readline'].include}"
+      ENV.append "LDFLAGS",  "-L#{Formula['readline'].lib}"
+    end
 
     if build.with? "gmpl"
       # Symphony uses a patched version of GLPK for reading MPL files.
