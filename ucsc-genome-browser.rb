@@ -2,9 +2,9 @@ require "formula"
 
 class UcscGenomeBrowser < Formula
   homepage "http://genome.ucsc.edu"
-  url "http://hgdownload.cse.ucsc.edu/admin/jksrc.v300.zip"
-  mirror "https://science-annex.org/pub/ucsc-genome-browser/jksrc.v300.zip"
-  sha1 "db8d564488b4d0d8cce3063b38fbabb25079312a"
+  url "http://hgdownload.cse.ucsc.edu/admin/jksrc.v301.zip"
+  mirror "https://science-annex.org/pub/ucsc-genome-browser/jksrc.v301.zip"
+  sha1 "b508a17eb8b3c35971ed46de04e983fe4146e2d4"
   head "git://genome-source.cse.ucsc.edu/kent.git"
 
   keg_only <<-EOF.undent
