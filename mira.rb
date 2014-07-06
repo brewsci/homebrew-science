@@ -14,7 +14,6 @@ class Mira < Formula
   # Further, an ugly patch would be needed to work with OS X's flex (on 10.8)
   # http://www.freelists.org/post/mira_talk/Type-mismatch-of-LexerInput-and-LexerOutput-PATCH
   depends_on 'flex'
-  depends_on 'zlib'
 
   fails_with :clang
   fails_with :llvm
@@ -35,7 +34,6 @@ class Mira < Formula
                       "--with-boost-system=boost_system-mt",
                       "--with-boost-filesystem=boost_filesystem-mt",
                       "--with-boost-iostreams=boost_iostreams-mt",
-                      "--with-zlib=#{Formula["zlib"].opt_prefix}",
                       "--with-tcmalloc",
                       "--with-tcmalloc-dir=#{Formula["google-perftools"].opt_prefix}/lib"]
 
