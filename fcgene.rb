@@ -3,7 +3,7 @@ require "formula"
 class Fcgene < Formula
   homepage "http://sourceforge.net/projects/fcgene/"
   url "https://downloads.sourceforge.net/project/fcgene/fcgene-1.0.7.tar.gz"
-  sha1 "cbc01d9dce8132972f159855d2982eb56af8921c"
+  sha1 "15a1098170d60f7710acb7dbf40a8e6046130737"
 
   def install
     # upstream Makefile ignores $CXX
