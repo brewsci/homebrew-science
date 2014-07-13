@@ -7,16 +7,14 @@ class Bowtie < Formula
   sha256 "aedcada44803dbe6e3e2fa7bd13a040733fac95032b4102918612310f5bbaa54"
   head "https://github.com/BenLangmead/bowtie.git"
 
-  fails_with :gcc => "4.8" do
-    cause "Build failures with gcc-4.8. Install with --cc=gcc-4.2"
-  end
-
   fails_with :clang do
     build 503
     cause %q[error: reference to 'lock_guard' is ambiguous. See #476]
   end
 
   def install
+    inreplace "Makefile", "-Wl,-macosx_version_min,10.6", ""
+
     system "make", "allall"
 
     # preserve directory structure for tests/scripts
