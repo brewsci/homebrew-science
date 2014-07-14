@@ -7,16 +7,14 @@ class Qhull < Formula
 
   depends_on 'cmake' => :build
 
-  def patches
-    # Patch originally from MacPorts - cosmetic edits to CMakeLists.txt:
-    #
-    #  * The VERSION property is no longer set on the command line tools.
-    #    Setting this property causes CMake to install `binname-version` along
-    #    with a symlink `binname` that points to `binname-version`. This is
-    #    pointless for something that is managed by a package manager.
-    # https://trac.macports.org/export/83287/trunk/dports/math/qhull/files/patch-CMakeLists.txt.diff'}
-    DATA
-  end
+  # Patch originally from MacPorts - cosmetic edits to CMakeLists.txt:
+  #
+  #  * The VERSION property is no longer set on the command line tools.
+  #    Setting this property causes CMake to install `binname-version` along
+  #    with a symlink `binname` that points to `binname-version`. This is
+  #    pointless for something that is managed by a package manager.
+  # https://trac.macports.org/export/83287/trunk/dports/math/qhull/files/patch-CMakeLists.txt.diff'}
+  patch :DATA
 
   def install
     system "cmake", ".", *std_cmake_args

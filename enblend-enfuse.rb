@@ -17,10 +17,8 @@ class EnblendEnfuse < Formula
   depends_on 'vigra'
   depends_on 'openexr' => :optional
 
-  def patches
-    # builds against the multithreaded boost system library
-    DATA
-  end
+  # builds against the multithreaded boost system library
+  patch :DATA
 
   def install
     args = [ "--disable-debug",

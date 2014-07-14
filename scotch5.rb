@@ -10,12 +10,10 @@ class Scotch5 < Formula
 
   keg_only "Conflicts with scotch (6.x)"
 
-  def patches
-    # bugs in makefile:
-    # - libptesmumps must be built before main_esmumps
-    # - install should also install the lib*esmumps.a libraries
-    DATA
-  end
+  # bugs in makefile:
+  # - libptesmumps must be built before main_esmumps
+  # - install should also install the lib*esmumps.a libraries
+  patch :DATA
 
   def install
     cd 'src' do

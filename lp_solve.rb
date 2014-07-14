@@ -44,10 +44,8 @@ class LpSolve < Formula
     version '5.5.2.0'
   end
 
-  def patches
-    # Prefer OS X's fast BLAS implementation (patch stolen from fink-project)
-    DATA
-  end
+  # Prefer OS X's fast BLAS implementation (patch stolen from fink-project)
+  patch :DATA
 
   def install
     # Thanks to superenv, we don't have to care if the ccc.osx build script

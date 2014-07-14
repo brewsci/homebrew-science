@@ -20,6 +20,21 @@ class Pymol < Formula
 
   option 'default-stereo', 'Set stereo graphics as default'
 
+  # This patch adds checks that force mono as default
+  unless build.include? "default-stereo"
+    patch do
+      url "https://gist.github.com/scicalculator/1b84b2ad3503395f1041/raw/2a85dc56b4bd1ea28d99ce0b94acbf7ac880deff/pymol_disable_stereo.diff"
+      sha1 "03585cef10b1f0729f4a50e306e0f448ddfc6b4c"
+    end
+  end
+
+  # This patch disables the vmd plugin. VMD is not something we can depend on for now.
+  # The plugin is set to always install as of revision 4019.
+  patch do
+    url "https://gist.github.com/scicalculator/4966279/raw/9eb79bf5b6a36bd8f684bae46be2fcf834fea8de/pymol_disable_vmd_plugin.diff"
+    sha1 "03585cef10b1f0729f4a50e306e0f448ddfc6b4c"
+  end
+
   def install
     # PyMol uses ./ext as a backup to look for ./ext/include and ./ext/lib
     ln_s HOMEBREW_PREFIX, "./ext"
@@ -40,15 +55,6 @@ class Pymol < Formula
 
     # get the executable
     bin.install("pymol")
-  end
-
-  def patches
-    p = []
-    # This patch adds checks that force mono as default
-    p << 'https://gist.github.com/scicalculator/1b84b2ad3503395f1041/raw/2a85dc56b4bd1ea28d99ce0b94acbf7ac880deff/pymol_disable_stereo.diff' unless build.include? 'default-stereo'
-    # This patch disables the vmd plugin. VMD is not something we can depend on for now. The plugin is set to always install as of revision 4019.
-    p << 'https://gist.github.com/scicalculator/4966279/raw/9eb79bf5b6a36bd8f684bae46be2fcf834fea8de/pymol_disable_vmd_plugin.diff'
-    p
   end
 
   def which_python

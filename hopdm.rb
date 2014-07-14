@@ -7,9 +7,7 @@ class Hopdm < Formula
 
   depends_on :fortran
 
-  def patches
-    DATA
-  end
+  patch :DATA
 
   def install
     inreplace 'makefile' do |s|

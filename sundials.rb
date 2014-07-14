@@ -12,38 +12,36 @@ class Sundials < Formula
 
   option "without-check", "Skip build-time checks and examples (not recommended)"
 
-  def patches
-    # 1. Fix a minor error in the IDAS example idasRoberts_ASAi_dns.
-    # Submitted upstream 2014-06-08; the release cycle for SUNDIALS is long
-    # and there is no public-facing repo, so it might take a while for the
-    # patch to land in a stable release.
-    # 2. Fix to kinsol bugs, submitted 2012-09-05, see
-    # http://sundials.2283335.n4.nabble.com/KINSOL-bug-fix-td4652816.html
-    # 3. Fix to fkinsol bugs, submitted 2013-05-29, see
-    # http://sundials.2283335.n4.nabble.com/fkinsol-stop-with-error-td4652862.html#a4653041
-    # 4. Fix to root-finding bugs, submitted 2013-02-13, see
-    # http://sundials.2283335.n4.nabble.com/bug-root-finding-code-td4652907.html#a4652911
-    # 5. fprintf fixes, which are a combination of the patches in the following 2 msgs:
-    # http://sundials.2283335.n4.nabble.com/build-issues-fprintf-td4652946.html#a4652947
-    # http://sundials.2283335.n4.nabble.com/CVODES-Warning-With-MEX-Compilation-of-SBPD-Toolbox-in-Matlab-td4652914.html#a4652948
-    # 6. Minor bug in CMake file, in case anyone wants to use CMake to build Sundials:
-    # http://sundials.2283335.n4.nabble.com/Re-fcmix-interface-td4652859.html#a4652861
-    # 7. Minor fixes to root-finding bugs, see
-    # http://sundials.2283335.n4.nabble.com/Minor-rootfinding-bug-td4652704.html
-    # 8. Fix to cvsHessian_ASA_FSA example, see
-    # http://sundials.2283335.n4.nabble.com/Typo-bug-in-example-code-tt4652723.html
-    # 9. Fix to bug in defining user_data in CVQuadSenseRhsFn in CVODES, see:
-    # http://sundials.2283335.n4.nabble.com/Bug-in-defining-user-data-in-CVQuadSensRhsFn-td4652707.html#a4652717
-    # http://sundials.2283335.n4.nabble.com/Typo-bug-in-example-code-tt4652723.html
-    # 10. Fix for suspected bug in KINSOL difference quotient
-    # http://sundials.2283335.n4.nabble.com/KINSOL-bug-td4652779.html
-    # 11. Fix for LAPACK band matrix solver routines, see
-    # http://sundials.2283335.n4.nabble.com/KINSOL-bug-td4652779.html
-    # 12. Fix for KINSOL band diffence quotient Jacobian
-    # http://sundials.2283335.n4.nabble.com/KINSOL-bug-fix-td4652728.html
-    # 13. Fix for FKINSOL parallel example, submitted upstream 2014-06-10.
-    DATA
-  end
+  patch :DATA
+  # 1. Fix a minor error in the IDAS example idasRoberts_ASAi_dns.
+  # Submitted upstream 2014-06-08; the release cycle for SUNDIALS is long
+  # and there is no public-facing repo, so it might take a while for the
+  # patch to land in a stable release.
+  # 2. Fix to kinsol bugs, submitted 2012-09-05, see
+  # http://sundials.2283335.n4.nabble.com/KINSOL-bug-fix-td4652816.html
+  # 3. Fix to fkinsol bugs, submitted 2013-05-29, see
+  # http://sundials.2283335.n4.nabble.com/fkinsol-stop-with-error-td4652862.html#a4653041
+  # 4. Fix to root-finding bugs, submitted 2013-02-13, see
+  # http://sundials.2283335.n4.nabble.com/bug-root-finding-code-td4652907.html#a4652911
+  # 5. fprintf fixes, which are a combination of the patches in the following 2 msgs:
+  # http://sundials.2283335.n4.nabble.com/build-issues-fprintf-td4652946.html#a4652947
+  # http://sundials.2283335.n4.nabble.com/CVODES-Warning-With-MEX-Compilation-of-SBPD-Toolbox-in-Matlab-td4652914.html#a4652948
+  # 6. Minor bug in CMake file, in case anyone wants to use CMake to build Sundials:
+  # http://sundials.2283335.n4.nabble.com/Re-fcmix-interface-td4652859.html#a4652861
+  # 7. Minor fixes to root-finding bugs, see
+  # http://sundials.2283335.n4.nabble.com/Minor-rootfinding-bug-td4652704.html
+  # 8. Fix to cvsHessian_ASA_FSA example, see
+  # http://sundials.2283335.n4.nabble.com/Typo-bug-in-example-code-tt4652723.html
+  # 9. Fix to bug in defining user_data in CVQuadSenseRhsFn in CVODES, see:
+  # http://sundials.2283335.n4.nabble.com/Bug-in-defining-user-data-in-CVQuadSensRhsFn-td4652707.html#a4652717
+  # http://sundials.2283335.n4.nabble.com/Typo-bug-in-example-code-tt4652723.html
+  # 10. Fix for suspected bug in KINSOL difference quotient
+  # http://sundials.2283335.n4.nabble.com/KINSOL-bug-td4652779.html
+  # 11. Fix for LAPACK band matrix solver routines, see
+  # http://sundials.2283335.n4.nabble.com/KINSOL-bug-td4652779.html
+  # 12. Fix for KINSOL band diffence quotient Jacobian
+  # http://sundials.2283335.n4.nabble.com/KINSOL-bug-fix-td4652728.html
+  # 13. Fix for FKINSOL parallel example, submitted upstream 2014-06-10.
 
   def install
     config_args = ["--disable-debug", "--disable-dependency-tracking",

@@ -11,9 +11,7 @@ class Xmgredit < Formula
   depends_on 'netcdf'
   depends_on 'triangle'
 
-  def patches
-    { :p1 => DATA }
-  end
+  patch :DATA
 
   def install
     bin.mkpath

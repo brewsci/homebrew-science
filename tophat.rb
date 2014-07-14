@@ -15,9 +15,7 @@ class Tophat < Formula
   # in tophat_reports.cpp
   # Reported upstream:
   # https://groups.google.com/forum/#!topic/tuxedo-tools-users/hOOVgXwB0NQ
-  def patches
-     DATA
-  end
+  patch :DATA
 
   def install
     # This can only build serially, otherwise it errors with no make target.

@@ -30,9 +30,7 @@ class Osgearth < Formula
   # find a v8 lib: https://github.com/gwaldron/osgearth/pull/434
   # find JavaScriptCore lib: https://github.com/gwaldron/osgearth/pull/435
   # find libnoise lib: https://github.com/gwaldron/osgearth/pull/436
-  def patches
-    DATA
-  end
+  patch :DATA
 
   def install
     if build.with? "docs-examples" and not which("sphinx-build")

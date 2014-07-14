@@ -9,9 +9,7 @@ class Scotch < Formula
 
   depends_on :mpi => :cc
 
-  def patches # See http://goo.gl/NY4MOy
-    DATA
-  end
+  patch :DATA # See http://goo.gl/NY4MOy
 
   def install
     cd "src" do

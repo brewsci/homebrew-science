@@ -22,7 +22,7 @@ class Snid < Formula
 
   # no libbutton compilation and patch for new templates
   # as per http://people.lam.fr/blondin.stephane/software/snid/README_templates-2.0
-  def patches; DATA; end
+  patch :DATA
 
   def install
     # new templates

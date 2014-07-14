@@ -15,9 +15,12 @@ class AdolC < Formula
   # The 2.5.0 release won't build cleanly and play well with colpack.
   # Apply a mighty patch that essentially builds head.
   # This *should* disappear!
-  def patches
-    {:p0 => "https://gist.githubusercontent.com/dpo/ae679225d8850cfa4608/raw/1ea3838c29279f207c0d8827fdc8a0a2c9fca5b5/adol-c.patch"}
-  end unless build.head?
+  stable do
+    patch :p0 do
+      url "https://gist.githubusercontent.com/dpo/ae679225d8850cfa4608/raw/1ea3838c29279f207c0d8827fdc8a0a2c9fca5b5/adol-c.diff"
+      sha1 "3c7667147ad2c11a392e9a16cb2648d50448f249"
+    end
+  end
 
   fails_with :llvm
 

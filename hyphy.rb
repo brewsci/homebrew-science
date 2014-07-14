@@ -18,9 +18,7 @@ class Hyphy < Formula
     cause "cmake gets passed the wrong flags"
   end
 
-  def patches
-    DATA # single-threaded builds
-  end
+  patch :DATA # single-threaded builds
 
   def install
     system "cmake", "-DINSTALL_PREFIX=#{prefix}", ".", *std_cmake_args

@@ -18,6 +18,10 @@ class Mlpack < Formula
   option "with-profile", "Compile with profile options"
   option "without-check", "Disable build-time tests (not recommended)"
 
+  # fixes test error in an edge case (may not needed in future version)
+  # See https://mailman.cc.gatech.edu/pipermail/mlpack/2014-March/000294.html
+  patch :DATA
+
   def install
     ENV.cxx11 if build.cxx11?
     cmake_args = std_cmake_args
@@ -32,12 +36,6 @@ class Mlpack < Formula
       system "make", "test" if build.with? "check"
       system "make", "install"
     end
-  end
-
-  def patches
-    # fixes test error in an edge case (may not needed in future version)
-    # See https://mailman.cc.gatech.edu/pipermail/mlpack/2014-March/000294.html
-    DATA
   end
 end
 

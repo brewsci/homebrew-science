@@ -87,6 +87,11 @@ class Lammps < Formula
     IO.popen("python -c 'import sys; print sys.version[:3]'").read.strip
   end
 
+  # This fixes the python module to point to the absolute path of the lammps library
+  # without this the module cannot find the library when homebrew is installed in a
+  # custom directory.
+  patch :DATA
+
   def install
     ENV.j1      # not parallel safe (some packages have race conditions :meam:)
 
@@ -234,13 +239,6 @@ class Lammps < Formula
       export PYTHONPATH=#{HOMEBREW_PREFIX}/lib/python#{pyver}/site-packages:$PYTHONPATH
 
     EOS
-  end
-
-  # This fixes the python module to point to the absolute path of the lammps library
-  # without this the module cannot find the library when homebrew is installed in a
-  # custom directory.
-  def patches
-    DATA
   end
 end
 

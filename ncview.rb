@@ -10,9 +10,7 @@ class Ncview < Formula
 
   # Disable a block in configure that tries to pass an RPATH to the compiler.
   # The code guesses wrong which causes the linking step to fail.
-  def patches
-    DATA
-  end
+  patch :DATA
 
   def install
     system "./configure", "--disable-dependency-tracking",

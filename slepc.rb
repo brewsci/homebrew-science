@@ -11,9 +11,7 @@ class Slepc < Formula
   depends_on :x11  => MacOS::X11.installed? ? :recommended : :optional
 
   # Trick SLEPc into thinking we don't have a prefix install of PETSc.
-  def patches
-    DATA
-  end
+  patch :DATA
 
   def install
     ENV.deparallelize

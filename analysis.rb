@@ -9,10 +9,8 @@ class Analysis < Formula
   depends_on "gsl"
   depends_on "libsequence"
 
-  def patches
-    # Automake looks for boost_regex, rather than boost_regex-mt
-    DATA
-  end
+  # Automake looks for boost_regex, rather than boost_regex-mt
+  patch :DATA
 
   def install
     system "./configure", "--prefix=#{prefix}"

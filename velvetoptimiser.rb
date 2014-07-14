@@ -16,9 +16,7 @@ class Velvetoptimiser < Formula
 
   # Fix shebang to use the perl found in PATH.
   # Remove GNU-specific flag --preserve-root passed to 'rm'.
-  def patches
-    DATA
-  end
+  patch :DATA
 
   def test
     system 'VelvetOptimiser.pl --version'
