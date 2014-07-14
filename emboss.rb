@@ -3,6 +3,7 @@ require 'formula'
 class Emboss < Formula
   homepage 'http://emboss.sourceforge.net/'
   url 'ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz'
+  mirror 'https://science-annex.org/pub/emboss/EMBOSS-6.6.0.tar.gz'
   sha1 '93749ebd0a777efd3749974d2401c3a2a013a3fe'
 
   depends_on 'pkg-config' => :build
