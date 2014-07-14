@@ -26,7 +26,8 @@ class Arpack < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
-    lib.install_symlink Dir["#{libexec}/lib/*"]
+    lib.install_symlink Dir["#{libexec}/lib/*"].select { |f| File.file?(f) }
+    (lib/'pkgconfig').install_symlink Dir["#{libexec}/lib/pkgconfig/*"]
     (libexec/"share").install "TESTS/testA.mtx"
   end
 
