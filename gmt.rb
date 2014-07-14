@@ -21,15 +21,15 @@ class Gmt < Formula
   conflicts_with 'gmt4', :because => 'Both versions install the same binaries.'
 
   resource 'gshhg' do
-    url 'ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.0.tar.gz'
-    mirror 'ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.0.tar.gz'
-    mirror 'ftp://ftp.iris.washington.edu/pub/gmt/gshhg-gmt-2.3.0.tar.gz'
-    mirror 'ftp://ftp.iag.usp.br/pub/gmt/gshhg-gmt-2.3.0.tar.gz'
-    mirror 'ftp://ftp.scc.u-tokai.ac.jp/pub/gmt/gshhg-gmt-2.3.0.tar.gz'
-    mirror 'ftp://gmt.mirror.ac.za/pub/gmt/gshhg-gmt-2.3.0.tar.gz'
-    mirror 'ftp://ftp.geologi.uio.no/pub/gmt/gshhg-gmt-2.3.0.tar.gz'
-    mirror 'ftp://gd.tuwien.ac.at/pub/gmt/gshhg-gmt-2.3.0.tar.gz'
-    sha1 'eb62a0a9bceee4297055be18b8727b603cd0e9cb'
+    url 'ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.1.tar.gz'
+    mirror 'ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.1.tar.gz'
+    mirror 'ftp://ftp.iris.washington.edu/pub/gmt/gshhg-gmt-2.3.1.tar.gz'
+    mirror 'ftp://ftp.iag.usp.br/pub/gmt/gshhg-gmt-2.3.1.tar.gz'
+    mirror 'ftp://ftp.scc.u-tokai.ac.jp/pub/gmt/gshhg-gmt-2.3.1.tar.gz'
+    mirror 'ftp://gmt.mirror.ac.za/pub/gmt/gshhg-gmt-2.3.1.tar.gz'
+    mirror 'ftp://ftp.geologi.uio.no/pub/gmt/gshhg-gmt-2.3.1.tar.gz'
+    mirror 'ftp://gd.tuwien.ac.at/pub/gmt/gshhg-gmt-2.3.1.tar.gz'
+    sha1 'fe9e4e1c415faf09d51666e65c5b9d4b492c8a15'
   end
 
   resource 'dcw' do
