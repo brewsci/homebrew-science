@@ -8,8 +8,8 @@ end
 
 class Getdp < Formula
   homepage "http://www.geuz.org/getdp/"
-  url "http://www.geuz.org/getdp/src/getdp-2.4.3-source.tgz"
-  sha1 "905a82c37e36be17ed9f825c26df095a79af3250"
+  url "http://www.geuz.org/getdp/src/getdp-2.4.4-source.tgz"
+  sha1 "8ee41ae9d8c0f97ed82125b9bb50f3f0e24008ec"
 
   head 'https://geuz.org/svn/getdp/trunk', :using => GmshSvnStrategy
 
@@ -50,9 +50,6 @@ class Getdp < Formula
 
     # Fixed test to work without access to gmsh
     inreplace "CMakeLists.txt", "../../gmsh/bin/gmsh", "./getdp"
-
-    # Fix GMSH library final destination
-    inreplace "CMakeLists.txt", "DESTINATION ${GMSH_LIB}", "DESTINATION #{lib}"
 
     mkdir "build" do
       system "cmake", "..", *args
