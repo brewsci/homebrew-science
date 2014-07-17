@@ -1,16 +1,12 @@
-require 'formula'
+require "formula"
 
 class Jellyfish < Formula
-  homepage 'http://www.cbcb.umd.edu/software/jellyfish/'
-  url 'ftp://ftp.genome.umd.edu/pub/jellyfish/jellyfish-2.0.0.tar.gz'
-  sha1 '65985a197e1fe57fd3965c055616eaafe0a748e8'
+  homepage "http://www.genome.umd.edu/jellyfish.html"
+  url "ftp://ftp.genome.umd.edu/pub/jellyfish/jellyfish-2.1.3.tar.gz"
+  sha1 "b115dc7066cf24ab4026d8d8d429f094f3917cf2"
 
-  fails_with :clang
-  fails_with :llvm
-  fails_with :gcc
-  fails_with :gcc => '4.3' do
-    cause 'gcc >= 4.4 is required to compile Jellyfish.'
-  end
+  #head "https://github.com/gmarcais/Jellyfish.git"
+  #doi "10.1093/bioinformatics/btr011"
 
   def install
     system "./configure", "--prefix=#{prefix}"
