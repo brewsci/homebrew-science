@@ -1,16 +1,16 @@
 require 'formula'
 
 class Cufflinks < Formula
-  homepage 'http://cufflinks.cbcb.umd.edu/'
-  url 'http://cufflinks.cbcb.umd.edu/downloads/cufflinks-2.2.0.tar.gz'
-  sha1 '9745a6cc0515d2d1d7ed22b2ced3bda9243f2b17'
+  homepage "http://cufflinks.cbcb.umd.edu/"
+  url "http://cufflinks.cbcb.umd.edu/downloads/cufflinks-2.2.1.tar.gz"
+  sha1 "2b1b3a8f12cd2821ffc74ffbdd55cb329f37cbbb"
 
   depends_on 'boost'    => :build
   depends_on 'samtools' => :build
   depends_on 'eigen'    => :build
 
   def install
-    ENV['EIGEN_CPPFLAGS'] = "-I#{Formula["eigen"].include}/eigen3"
+    ENV['EIGEN_CPPFLAGS'] = "-I#{Formula["eigen"].opt_include}/eigen3"
     ENV.append 'LIBS', '-lboost_system-mt -lboost_thread-mt'
     cd 'src' do
       # Fixes 120 files redefining `foreach` that break building with boost
