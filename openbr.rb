@@ -3,6 +3,7 @@ require "formula"
 class Openbr < Formula
   homepage "http://www.openbiometrics.org/"
   url "https://github.com/biometrics/openbr/releases/download/v0.4.1/openbr0.4.1_withModels.tar.gz"
+  version "0.4.1"
   sha1 "1cf3b9b6fad1c717d8b0256b3a22d138510572e9"
 
   depends_on "cmake" => :build
