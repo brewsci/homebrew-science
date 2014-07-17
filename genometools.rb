@@ -3,8 +3,8 @@ require "formula"
 class Genometools < Formula
   homepage "http://genometools.org/"
   #doi "10.1109/TCBB.2013.68"
-  url "http://genometools.org/pub/genometools-1.5.2.tar.gz"
-  sha1 "4db2746a8579e18daae1cef9b08076b731924cf1"
+  url "http://genometools.org/pub/genometools-1.5.3.tar.gz"
+  sha1 "aa2bd8e2fe7ca274d7c9aecda6f23ab6547d935a"
   head "https://github.com/genometools/genometools.git"
 
   option :universal
