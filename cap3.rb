@@ -7,7 +7,7 @@ class Cap3 < Formula
     sha1 '42606cea94a70bcbcb128fe7d427c35a7ebc5f19'
   elsif OS.linux? then
     url 'http://seq.cs.iastate.edu/CAP3/cap3.linux.x86_64.tar'
-    sha1 'c2c4433a692a51e5619a363f1105b7e36afc51b6'
+    sha1 'c062ff742abb422f25f6e7db76482694b34dab8f'
   end
   version '2007-12-21'
 
