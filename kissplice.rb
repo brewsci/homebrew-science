@@ -1,18 +1,31 @@
-require 'formula'
+require "formula"
+
+class KisspliceDownloadStrategy < CurlDownloadStrategy
+  def curl(*args)
+    args << "--no-epsv"
+    super
+  end
+end
 
 class Kissplice < Formula
-  homepage 'http://kissplice.prabi.fr'
-  url 'https://gforge.inria.fr/frs/download.php/32849/kissplice-1.8.3.tar.gz'
-  sha1 'da33f59b66a62faa5b71aae9b46a595e45be3383'
+  homepage "http://kissplice.prabi.fr"
+  url "ftp://pbil.univ-lyon1.fr/pub/logiciel/kissplice/kissplice-2.2.0.tar.gz",
+    :using => KisspliceDownloadStrategy
+  sha1 "40625e55bdf20ab5d9ee8d8a68af06460c2eca46"
 
-  depends_on 'cmake' => :build
+  depends_on "cmake" => :build
+
+  fails_with :clang do
+    build 503
+    cause "error: use of undeclared identifiers"
+  end
 
   def install
-    system 'cmake', '.', *std_cmake_args
-    system 'make', 'install'
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do
-    system 'kissplice --version'
+    system "kissplice --version"
   end
 end
