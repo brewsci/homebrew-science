@@ -3,8 +3,8 @@ require 'formula'
 class Abyss < Formula
   homepage 'http://www.bcgsc.ca/platform/bioinfo/software/abyss'
   #doi '10.1101/gr.089532.108'
-  url 'https://github.com/bcgsc/abyss/releases/download/1.5.1/abyss-1.5.1.tar.gz'
-  sha1 '80ebb01d7ae3960e5841c741d5409e0fc6fdf83f'
+  url 'https://github.com/bcgsc/abyss/releases/download/1.5.2/abyss-1.5.2.tar.gz'
+  sha1 'f28189338efdee0167cf73f92b43181caccd2b1d'
 
   head do
     url 'https://github.com/bcgsc/abyss.git'
@@ -14,7 +14,6 @@ class Abyss < Formula
     depends_on 'multimarkdown' => :build
   end
 
-  option 'disable-popcnt', 'do not use the POPCNT instruction'
   MAXK = [32, 64, 96, 128, 256, 512]
   MAXK.each do |k|
     option "enable-maxk=#{k}", "set the maximum k-mer length to #{k}"
@@ -33,7 +32,6 @@ class Abyss < Formula
     args = [
       '--disable-dependency-tracking',
       "--prefix=#{prefix}"]
-    args << '--disable-popcnt' if build.include? 'disable-popcnt'
     MAXK.each do |k|
       args << "--enable-maxk=#{k}" if build.include? "enable-maxk=#{k}"
     end
