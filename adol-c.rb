@@ -2,8 +2,8 @@ require 'formula'
 
 class AdolC < Formula
   homepage "https://projects.coin-or.org/ADOL-C"
-  url "http://www.coin-or.org/download/source/ADOL-C/ADOL-C-2.5.0.tgz"
-  sha1 "3d3307037bb622499141a0e1eecfee195f3dcfcb"
+  url "http://www.coin-or.org/download/source/ADOL-C/ADOL-C-2.5.1.tgz"
+  sha1 "c609da3645acfbcf73e3be95861dcd6f7b5fc5db"
 
   head 'https://projects.coin-or.org/svn/ADOL-C/trunk/', :using => :svn
 
@@ -11,16 +11,6 @@ class AdolC < Formula
   depends_on :automake => :build
   depends_on :libtool  => :build
   depends_on "colpack" => [:recommended, 'with-libc++']
-
-  # The 2.5.0 release won't build cleanly and play well with colpack.
-  # Apply a mighty patch that essentially builds head.
-  # This *should* disappear!
-  stable do
-    patch :p0 do
-      url "https://gist.githubusercontent.com/dpo/ae679225d8850cfa4608/raw/1ea3838c29279f207c0d8827fdc8a0a2c9fca5b5/adol-c.diff"
-      sha1 "3c7667147ad2c11a392e9a16cb2648d50448f249"
-    end
-  end
 
   fails_with :llvm
 
