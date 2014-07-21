@@ -21,6 +21,7 @@ class R < Formula
   option "without-accelerate", "Build without the Accelerate framework (use Rblas)"
   option 'without-check', 'Skip build-time tests (not recommended)'
   option 'without-tcltk', 'Build without Tcl/Tk'
+  option "with-librmath-only", "Only build standalone libRmath library"
 
   depends_on :fortran
   depends_on 'readline'
@@ -44,7 +45,7 @@ class R < Formula
       "--prefix=#{prefix}",
       "--with-aqua",
       "--with-libintl-prefix=#{Formula['gettext'].prefix}",
-      "--enable-R-framework",
+      "--enable-R-framework"
     ]
 
     if build.with? 'valgrind'
@@ -69,24 +70,38 @@ class R < Formula
     system './tools/rsync-recommended' if build.head?
 
     system "./configure", *args
-    system "make"
-    ENV.deparallelize # Serialized installs, please
-    system "make check 2>&1 | tee make-check.log" if build.with? 'check'
-    system "make install"
 
-    # Link binaries and manpages from the Framework
-    # into the normal locations
-    bin.mkpath
-    man1.mkpath
+    if build.without? "librmath-only"
+      system "make"
+      ENV.deparallelize # Serialized installs, please
+      system "make check 2>&1 | tee make-check.log" if build.with? 'check'
+      system "make install"
 
-    ln_s prefix+"R.framework/Resources/bin/R", bin
-    ln_s prefix+"R.framework/Resources/bin/Rscript", bin
-    ln_s prefix+"R.framework/Resources/man1/R.1", man1
-    ln_s prefix+"R.framework/Resources/man1/Rscript.1", man1
+      # Link binaries and manpages from the Framework
+      # into the normal locations
+      bin.mkpath
+      man1.mkpath
 
-    bash_completion.install resource('completion')
+      ln_s prefix+"R.framework/Resources/bin/R", bin
+      ln_s prefix+"R.framework/Resources/bin/Rscript", bin
+      ln_s prefix+"R.framework/Resources/man1/R.1", man1
+      ln_s prefix+"R.framework/Resources/man1/Rscript.1", man1
 
-    prefix.install 'make-check.log' if build.with? 'check'
+      bash_completion.install resource('completion')
+
+      prefix.install 'make-check.log' if build.with? 'check'
+    end
+
+    cd "src/nmath/standalone" do
+      system "make"
+      include.mkpath
+      ENV.deparallelize # Serialized installs, please
+      system "make", "install"
+
+      lib.mkpath
+      ln_s prefix+"R.framework/Versions/3.1/Resources/lib/libRmath.dylib", lib
+      ln_s prefix+"R.framework/Versions/3.1/Resources/include/Rmath.h", include
+    end
 
   end
 
@@ -94,11 +109,11 @@ class R < Formula
     (testpath / 'test.R').write('print(1+1);')
     system "r < test.R --no-save"
     system "rscript test.R"
-  end
+  end if build.without? "librmath-only"
 
   def caveats; <<-EOS.undent
     To enable rJava support, run the following command:
       R CMD javareconf JAVA_CPPFLAGS=-I/System/Library/Frameworks/JavaVM.framework/Headers
     EOS
-  end
+  end if build.without? "librmath-only"
 end
