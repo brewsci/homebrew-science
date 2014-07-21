@@ -2,7 +2,7 @@ require "formula"
 
 class KisspliceDownloadStrategy < CurlDownloadStrategy
   def curl(*args)
-    args << "--no-epsv"
+    args << "--disable-epsv"
     super
   end
 end
