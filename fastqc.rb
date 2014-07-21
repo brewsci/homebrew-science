@@ -2,8 +2,8 @@ require 'formula'
 
 class Fastqc < Formula
   homepage 'http://www.bioinformatics.babraham.ac.uk/projects/fastqc/'
-  url 'http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.10.1.zip'
-  sha1 'd1d9c1489c46458614fcedcbbb30e799a0e796a2'
+  url 'http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.2.zip'
+  sha1 'd4dc1b903de35aa4de8e995c4974e0869db99dda'
 
   def install
     chmod 0755, 'fastqc'
