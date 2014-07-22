@@ -66,6 +66,10 @@ class R < Formula
     # Also add gettext include so that libintl.h can be found when installing packages.
     ENV.append "CPPFLAGS", "-I#{Formula['gettext'].include}"
 
+    # Sometimes the wrong readline is picked up.
+    ENV.append "CPPFLAGS", "-I#{Formula['readline'].include}"
+    ENV.append "LDFLAGS",  "-L#{Formula['readline'].lib}"
+
     # Pull down recommended packages if building from HEAD.
     system './tools/rsync-recommended' if build.head?
 
