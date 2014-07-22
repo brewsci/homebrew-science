@@ -25,6 +25,10 @@ class Blast < Formula
     cause "error: 'bits/c++config.h' file not found"
   end
 
+  fails_with :gcc => "4.9" do
+    cause "error: must #include <typeinfo> before using typeid"
+  end
+
   def install
     args = %W[--prefix=#{prefix} --without-debug --with-mt]
 
