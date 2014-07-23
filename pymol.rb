@@ -22,17 +22,17 @@ class Pymol < Formula
 
   # This patch adds checks that force mono as default
   unless build.include? "default-stereo"
-    patch do
-      url "https://gist.github.com/scicalculator/1b84b2ad3503395f1041/raw/2a85dc56b4bd1ea28d99ce0b94acbf7ac880deff/pymol_disable_stereo.diff"
+    patch :p1 do
+      url "https://gist.githubusercontent.com/scicalculator/1b84b2ad3503395f1041/raw/2a85dc56b4bd1ea28d99ce0b94acbf7ac880deff/pymol_disable_stereo.diff"
       sha1 "03585cef10b1f0729f4a50e306e0f448ddfc6b4c"
     end
   end
 
   # This patch disables the vmd plugin. VMD is not something we can depend on for now.
   # The plugin is set to always install as of revision 4019.
-  patch do
-    url "https://gist.github.com/scicalculator/4966279/raw/9eb79bf5b6a36bd8f684bae46be2fcf834fea8de/pymol_disable_vmd_plugin.diff"
-    sha1 "03585cef10b1f0729f4a50e306e0f448ddfc6b4c"
+  patch :p1 do
+    url "https://gist.githubusercontent.com/scicalculator/4966279/raw/9eb79bf5b6a36bd8f684bae46be2fcf834fea8de/pymol_disable_vmd_plugin.diff"
+    sha1 "796d3999b9484957752e24252967b77679b2244b"
   end
 
   def install
