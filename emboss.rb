@@ -13,6 +13,8 @@ class Emboss < Formula
   depends_on :x11         => :recommended
 
   def install
+    inreplace "Makefile.in", "$(bindir)/embossupdate", ""
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
@@ -20,8 +22,8 @@ class Emboss < Formula
       --enable-64
       --with-thread
     ]
-    args << '--without-x' if build.without? "x11"
-    system './configure', *args
-    system 'make install'
+    args << "--without-x" if build.without? "x11"
+    system "./configure", *args
+    system "make", "install"
   end
 end
