@@ -2,8 +2,8 @@ require 'formula'
 
 class Veclibfort < Formula
   homepage 'https://github.com/mcg1969/vecLibFort'
-  url 'https://github.com/mcg1969/vecLibFort/archive/0.3.0.tar.gz'
-  sha1 '5a9d1bb5db1df5bc5fc0c9cfd241ab35e1a99bd6'
+  url 'https://github.com/mcg1969/vecLibFort/archive/0.4.0.tar.gz'
+  sha1 '2766c83cca4863a5dcd8bf6693f782c02e1b2df8'
   head 'https://github.com/mcg1969/vecLibFort.git'
 
   option "without-check", "Skip build-time tests (not recommended)"
