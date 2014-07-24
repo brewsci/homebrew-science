@@ -1,41 +1,34 @@
 require 'formula'
 
 class TransAbyss < Formula
-  homepage 'http://www.bcgsc.ca/platform/bioinfo/software/trans-abyss'
-  #doi '10.1038/nmeth.1517'
-  version '1.4.8'
-  url 'http://www.bcgsc.ca/platform/bioinfo/software/trans-abyss/releases/1.4.8/trans-ABySS-v1.4.8_20130916.tar.gz'
-  sha1 'c8f17ab737e564269784449a4feb85edd9498268'
+  homepage "http://www.bcgsc.ca/platform/bioinfo/software/trans-abyss"
+  #doi "10.1038/nmeth.1517"
+  head "https://github.com/bcgsc/transabyss.git"
 
-  depends_on 'abyss'
-  depends_on 'blat'
-  depends_on 'bwa'
-  depends_on 'gmap-gsnap'
-  depends_on 'picard-tools'
-  depends_on 'samtools'
-  depends_on 'pysam' => :python
+  url "https://github.com/bcgsc/transabyss/archive/1.5.1.tar.gz"
+  sha1 "6bbe6123bd0142b6b10190ff95752641090350b0"
+
+  depends_on "abyss"
+  depends_on "blat"
+  depends_on "bowtie2"
+  depends_on "gmap-gsnap"
+  depends_on "picard-tools"
+  depends_on "samtools"
+
+  depends_on "pysam" => :python
+  depends_on LanguageModuleDependency.new :python, "biopython", "Bio"
+  depends_on LanguageModuleDependency.new :python, "python-igraph", "igraph"
 
   def install
-    abyss = Formula["abyss"].opt_prefix
-    picard = Formula["picard-tools"].opt_prefix
-
-    inreplace 'check-prereqs.sh', '``', '`' # Fix a typo
-    inreplace 'setup.sh' do |s|
-      s.sub! '/your/transabyss/path', libexec
-      s.sub! '/your/python/path', libexec
-      s.sub! '/your/abyss/path', abyss / 'bin'
-      s.sub! '/your/picard/path', picard / 'share/java'
-    end
-    inreplace 'wrappers/trans-abyss', /^DIR=.*/,
-      'DIR=' + libexec / 'wrappers'
-    libexec.install Dir['*']
-    bin.install_symlink '../libexec/wrappers/trans-abyss'
+    prefix.install Dir["*"]
+    bin.install_symlink "../transabyss",
+      "../transabyss-analyze",
+      "../transabyss-merge"
   end
 
   test do
-    cd libexec do
-      system './check-prereqs.sh'
-    end
-    system 'trans-abyss --version'
+    system "transabyss --help"
+    system "transabyss-analyze --help"
+    system "transabyss-merge --help"
   end
 end
