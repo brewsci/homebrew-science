@@ -19,8 +19,7 @@ class Bowtie < Formula
     libexec.install Dir["bowtie-*"]
     libexec.install %w[bowtie scripts genomes indexes reads]
 
-    bin.install_symlink "bowtie"
-    bin.install_symlink Dir["#{libexec}/bowtie-*"]
+    bin.install_symlink Dir["#{libexec}/bowtie*"]
 
     doc.install %W[AUTHORS LICENSE MANUAL MANUAL.markdown NEWS TUTORIAL]
 
