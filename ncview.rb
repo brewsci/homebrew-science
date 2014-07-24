@@ -3,6 +3,7 @@ require 'formula'
 class Ncview < Formula
   homepage 'http://meteora.ucsd.edu/~pierce/ncview_home_page.html'
   url 'ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.2.tar.gz'
+  mirror 'https://fossies.org/linux/misc/ncview-2.1.2.tar.gz'
   sha1 '425b0f5d505af9c1f974903435af385582be7ae4'
 
   depends_on :x11
