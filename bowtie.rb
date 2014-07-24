@@ -3,8 +3,8 @@ require "formula"
 class Bowtie < Formula
   homepage "http://bowtie-bio.sourceforge.net/index.shtml"
   #doi "10.1186/gb-2009-10-3-r25"
-  url "https://github.com/BenLangmead/bowtie/archive/v1.0.1.tar.gz"
-  sha256 "aedcada44803dbe6e3e2fa7bd13a040733fac95032b4102918612310f5bbaa54"
+  url "https://github.com/BenLangmead/bowtie/archive/v1.1.0.tar.gz"
+  sha1 "5631ac84b22721b138cd401f0b4b3ec1d68d6b63"
   head "https://github.com/BenLangmead/bowtie.git"
 
   fails_with :clang do
@@ -13,24 +13,13 @@ class Bowtie < Formula
   end
 
   def install
-    inreplace "Makefile", "-Wl,-macosx_version_min,10.6", ""
-
     system "make", "allall"
 
     # preserve directory structure for tests/scripts
-    libexec.install %W[
-      bowtie bowtie-debug
-      bowtie-build bowtie-build-debug
-      bowtie-inspect bowtie-inspect-debug
-      scripts
-      genomes indexes reads
-    ]
+    libexec.install Dir["bowtie*"]
+    libexec.install %w[scripts genomes indexes reads]
 
-    bin.install_symlink %W[
-      #{libexec}/bowtie
-      #{libexec}/bowtie-build
-      #{libexec}/bowtie-inspect
-    ]
+    bin.install_symlink Dir["#{libexec}/bowtie*"]
 
     doc.install %W[AUTHORS LICENSE MANUAL MANUAL.markdown NEWS TUTORIAL]
 
@@ -41,7 +30,6 @@ class Bowtie < Formula
   end
 
   test do
-    cd libexec
-    system "sh", "./scripts/test/all.sh"
+    system "perl", "#{libexec}/scripts/test/simple_tests.pl"
   end
 end
