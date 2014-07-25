@@ -16,7 +16,7 @@ class Bwa < Formula
   end
 
   test do
-    (testpath/"test.fasta").write "MEEPQSDPSV"
+    (testpath/"test.fasta").write ">0\nMEEPQSDPSV\n"
     system "#{bin}/bwa index test.fasta"
     assert File.exist?("test.fasta.bwt")
   end
