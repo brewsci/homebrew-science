@@ -2,73 +2,68 @@ require 'formula'
 
 class Cantera < Formula
   homepage 'http://code.google.com/p/cantera/'
-  url 'https://cantera.googlecode.com/files/cantera-1.8.0-beta.tar.gz'
-  sha1 'c62666590c65c9a5a17c0867f0f6b6789984131f'
-  head 'http://cantera.googlecode.com/svn/cantera18/trunk/'
+  head 'https://github.com/cantera/cantera.git', :branch => 'master'
 
-  bottle do
-    sha1 "d7e046823c3cae0d69cf6cff4db9d1ddd44d174c" => :mavericks
-    sha1 "b7d7ba71f9cf34b6302fdb50c2e198845206d078" => :mountain_lion
-    sha1 "4c73614bb39725ef6bdc85cbc97e148a3e49241d" => :lion
+  stable do
+    url 'https://downloads.sourceforge.net/project/cantera/cantera/2.1.1/cantera-2.1.1.tar.gz'
+    sha1 '439dfc583ad225e06bcc5f00ce0173720ac8942a'
   end
+
+  devel do
+    url 'https://github.com/cantera/cantera.git', :branch => '2.1-svn'
+    version '2.1.x'
+  end
+
+  option "with-matlab=", "Path to Matlab root directory"
+  option "without-check", "Disable build-time checking (not recommended)"
 
   depends_on :python if MacOS.version <= :snow_leopard
-  depends_on :fortran => :build
-  depends_on 'graphviz'
+  depends_on "scons" => :build
+  depends_on "numpy" => :python
+  depends_on "sundials" => :recommended
+  depends_on :python3 => :optional
+  depends_on "graphviz" => :optional
 
-  # fixes the Makefiles in Cantera/cxx/demos/ that have broken install commands
-  patch :DATA
-
-  resource 'numpy' do
-    url 'http://downloads.sourceforge.net/project/numpy/NumPy/1.8.1/numpy-1.8.1.tar.gz'
-    sha1 '8fe1d5f36bab3f1669520b4c7d8ab59a21a984da'
-  end
+  # Patches to checkFinite.cpp and SConstruct should be removed for
+  # Cantera 2.2.x (fixed upstream)
+  patch :DATA if not build.head?
 
   def install
-    ENV.prepend_create_path 'PYTHONPATH', libexec+'lib/python2.7/site-packages'
-    numpy_args = [ "build", "--fcompiler=gnu95",
-                   "install", "--prefix=#{libexec}" ]
-    resource('numpy').stage { system "python", "setup.py", *numpy_args }
+    # Make sure to use Homebrew Python to do CTI to CTML conversions
+    inreplace "src/base/ct2ctml.cpp", 's = "python";', 's = "/usr/local/bin/python";'
 
-    if MacOS.prefer_64_bit?
-      # There is probably a better way to do this, but this seems to work for my purposes:
-      ENV.append "CFLAGS", "-arch #{Hardware::CPU.arch_64_bit}"
-      ENV['CXX_OPT'] = "-arch #{Hardware::CPU.arch_64_bit}"
-      ENV['ARCHFLAGS'] = "-arch #{Hardware::CPU.arch_64_bit}"
-      # Maybe this does all that's needed?
-      ENV['BITCOMPILE'] = '64'
-      buildname = "#{Hardware::CPU.arch_64_bit}-apple-darwin"
-    else
-      buildname = nil # let autoconf guess
+    build_args = ["prefix=#{prefix}",
+                  "python_package=new",
+                  "CC=#{ENV.cc}",
+                  "CXX=#{ENV.cxx}",
+                  "f90_interface=n"]
+
+    matlab_path = ARGV.value("with-matlab")
+    build_args << "matlab_path=" + matlab_path if matlab_path
+    build_args << "python3_package=y" if build.with? :python3
+
+    # This is needed to make sure both the main code and the Python module use
+    # the same C++ standard library. Can be removed for Cantera 2.2.x
+    if MacOS.version >= :mavericks and not build.head?
+      ENV.libcxx
+      build_args << "python_compiler=#{ENV.cxx}"
     end
 
-    # These are the Cantera settings that I want:
-    ENV['DEBUG_MODE'] = 'y'
-    ENV['PYTHON_PACKAGE'] = "full"
-    ENV['USE_NUMPY'] = "y"
-    ENV['BUILD_MATLAB_TOOLBOX'] = 'n'
-    ENV['WITH_PRIME'] = 'y'
-    ENV['WITH_H298MODIFY_CAPABILITY'] = 'y'
-    ENV['WITH_VCSNONIDEAL'] = 'y'
-    ENV['ARCHIVE'] = "libtool -static -o"
-    # I'm not entirely sure that this is required,
-    # but it doesn't seem to hurt and I used to need something like it:
-    ENV['NUMPY_INC_DIR'] = `python -c "from numpy import get_include; print get_include()"`.strip
+    scons "build", *build_args
+    scons "test" if build.with? "check"
+    scons "install"
+    prefix.install Dir["License.*"]
+  end
 
-    # The Makefile doesn't like to run in parallel
-    ENV.deparallelize
-
-    # Put the manuals in the right place
-    inreplace 'configure', 'ct_mandir=${prefix}', "ct_mandir=#{man}"
-
-    system "./preconfig", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          (buildname ? "--build=#{buildname}" : "")
-    system "make"
-    system "make install"
-    prefix.install Dir["#{bin}/License.*"]
+  test do
+    # Run those portions of the test suite that do not depend of data
+    # that's only available in the source tree.
+    system("python", "-m", "unittest", "-v",
+           "cantera.test.test_thermo",
+           "cantera.test.test_kinetics",
+           "cantera.test.test_transport",
+           "cantera.test.test_purefluid",
+           "cantera.test.test_mixture")
   end
 
   def caveats; <<-EOS.undent
@@ -77,100 +72,44 @@ class Cantera < Formula
 
     Try the following in python to find the equilibrium composition of a
     stoichiometric methane/air mixture at 1000 K and 1 atm:
-    >>> import Cantera
-    >>> g=Cantera.GRI30()
-    >>> g.set(X='CH4:1, O2:2, N2:8', T=1000, P=Cantera.OneAtm)
+    >>> import cantera as ct
+    >>> g = ct.Solution('gri30.cti')
+    >>> g.TPX = 1000, ct.one_atm, 'CH4:1, O2:2, N2:8'
     >>> g.equilibrate('TP')
-    >>> g
+    >>> g()
     EOS
   end
 end
 
 __END__
-diff --git a/Cantera/cxx/demos/Makefile.in b/Cantera/cxx/demos/Makefile.in
-index acd0a0b..554dd54 100644
---- a/Cantera/cxx/demos/Makefile.in
-+++ b/Cantera/cxx/demos/Makefile.in
-@@ -19,7 +19,7 @@ test:
-
- install:
-	@INSTALL@ -d       @ct_demodir@/cxx
--	@INSTALL@ Makefile -m ug+rw,o+r @ct_demodir@/cxx
-+	@INSTALL@ -m ug+rw,o+r Makefile @ct_demodir@/cxx
-	cd combustor;       @MAKE@ install
-	cd flamespeed;      @MAKE@ install
-	cd kinetics1;       @MAKE@ install
-diff --git a/Cantera/cxx/demos/NASA_coeffs/Makefile.in b/Cantera/cxx/demos/NASA_coeffs/Makefile.in
-index 4038fa2..4ccc46d 100644
---- a/Cantera/cxx/demos/NASA_coeffs/Makefile.in
-+++ b/Cantera/cxx/demos/NASA_coeffs/Makefile.in
-@@ -89,8 +89,8 @@ install:
-	@INSTALL@ -d     $(INSTALL_DIR)
-	@INSTALL@       -c -m ug+rw,o+r Makefile.install $(INSTALL_DIR)/Makefile
-	@(for ihhh in *.cpp  *blessed* ; do  \
--             @INSTALL@        $${ihhh} -m ug+rw,o+r $(INSTALL_DIR) ; \
--             echo "@INSTALL@  $${ihhh} -m ug+rw,o+r $(INSTALL_DIR)" ; \
-+             @INSTALL@        -m ug+rw,o+r $${ihhh} $(INSTALL_DIR) ; \
-+             echo "@INSTALL@  -m ug+rw,o+r $${ihhh} $(INSTALL_DIR)" ; \
-          done )
-	 @INSTALL@        runtest  $(INSTALL_DIR) ;
-
-diff --git a/Cantera/cxx/demos/combustor/Makefile.in b/Cantera/cxx/demos/combustor/Makefile.in
-index 1a46070..d603a7f 100644
---- a/Cantera/cxx/demos/combustor/Makefile.in
-+++ b/Cantera/cxx/demos/combustor/Makefile.in
-@@ -88,8 +88,8 @@ install:
-	@INSTALL@ -d     $(INSTALL_DIR)
-	@INSTALL@       -c -m ug+rw,o+r Makefile.install $(INSTALL_DIR)/Makefile
-	@(for ihhh in *.cpp  *blessed* ; do  \
--             @INSTALL@        $${ihhh} -m ug+rw,o+r $(INSTALL_DIR) ; \
--             echo "@INSTALL@  $${ihhh} -m ug+rw,o+r $(INSTALL_DIR)" ; \
-+             @INSTALL@        -m ug+rw,o+r $${ihhh} $(INSTALL_DIR) ; \
-+             echo "@INSTALL@  -m ug+rw,o+r $${ihhh} $(INSTALL_DIR)" ; \
-          done )
-	 @INSTALL@        runtest  $(INSTALL_DIR) ;
-
-diff --git a/Cantera/cxx/demos/flamespeed/Makefile.in b/Cantera/cxx/demos/flamespeed/Makefile.in
-index b55941e..10828a4 100644
---- a/Cantera/cxx/demos/flamespeed/Makefile.in
-+++ b/Cantera/cxx/demos/flamespeed/Makefile.in
-@@ -89,8 +89,8 @@ install:
-	@INSTALL@ -d     $(INSTALL_DIR)
-	@INSTALL@       -c -m ug+rw,o+r Makefile.install $(INSTALL_DIR)/Makefile
-	@(for ihhh in *.cpp  *blessed* ; do  \
--             @INSTALL@        $${ihhh} -m ug+rw,o+r $(INSTALL_DIR) ; \
--             echo "@INSTALL@  $${ihhh} -m ug+rw,o+r $(INSTALL_DIR)" ; \
-+             @INSTALL@        -m ug+rw,o+r $${ihhh} $(INSTALL_DIR) ; \
-+             echo "@INSTALL@  -m ug+rw,o+r $${ihhh} $(INSTALL_DIR)" ; \
-          done )
-	 @INSTALL@        runtest  $(INSTALL_DIR) ;
-
-diff --git a/Cantera/cxx/demos/kinetics1/Makefile.in b/Cantera/cxx/demos/kinetics1/Makefile.in
-index 336a2eb..ac5c891 100644
---- a/Cantera/cxx/demos/kinetics1/Makefile.in
-+++ b/Cantera/cxx/demos/kinetics1/Makefile.in
-@@ -89,8 +89,8 @@ install:
-	@INSTALL@ -d     $(INSTALL_DIR)
-	@INSTALL@       -c -m ug+rw,o+r Makefile.install $(INSTALL_DIR)/Makefile
-	@(for ihhh in *.cpp *.h  *blessed* ; do  \
--             @INSTALL@        $${ihhh} -m ug+rw,o+r $(INSTALL_DIR) ; \
--             echo "@INSTALL@  $${ihhh} -m ug+rw,o+r $(INSTALL_DIR)" ; \
-+             @INSTALL@        -m ug+rw,o+r $${ihhh} $(INSTALL_DIR) ; \
-+             echo "@INSTALL@  -m ug+rw,o+r $${ihhh} $(INSTALL_DIR)" ; \
-          done )
-	 @INSTALL@        runtest  $(INSTALL_DIR) ;
-
-diff --git a/Cantera/cxx/demos/rankine/Makefile.in b/Cantera/cxx/demos/rankine/Makefile.in
-index 05d776a..0892cdc 100644
---- a/Cantera/cxx/demos/rankine/Makefile.in
-+++ b/Cantera/cxx/demos/rankine/Makefile.in
-@@ -89,8 +89,8 @@ install:
-	@INSTALL@ -d     $(INSTALL_DIR)
-	@INSTALL@       -c -m ug+rw,o+r Makefile.install $(INSTALL_DIR)/Makefile
-	@(for ihhh in *.cpp  *blessed* ; do  \
--             @INSTALL@        $${ihhh} -m ug+rw,o+r $(INSTALL_DIR) ; \
--             echo "@INSTALL@  $${ihhh} -m ug+rw,o+r $(INSTALL_DIR)" ; \
-+             @INSTALL@        -m ug+rw,o+r $${ihhh} $(INSTALL_DIR) ; \
-+             echo "@INSTALL@  -m ug+rw,o+r $${ihhh} $(INSTALL_DIR)" ; \
-          done )
-	 @INSTALL@        runtest  $(INSTALL_DIR) ;
+diff --git a/src/base/checkFinite.cpp b/src/base/checkFinite.cpp
+index 41384ca..7ac6785 100644
+--- a/src/base/checkFinite.cpp
++++ b/src/base/checkFinite.cpp
+@@ -55,10 +55,10 @@ void checkFinite(const double tmp)
+         throw std::range_error("checkFinite()");
+     }
+ #else
+-    if (!::finite(tmp)) {
+-        if (::isnan(tmp)) {
++    if (!std::isfinite(tmp)) {
++        if (std::isnan(tmp)) {
+             printf("checkFinite() ERROR: we have encountered a nan!\n");
+-        } else if (::isinf(tmp) == 1) {
++        } else if (std::isinf(tmp) == 1) {
+             printf("checkFinite() ERROR: we have encountered a pos inf!\n");
+         } else {
+             printf("checkFinite() ERROR: we have encountered a neg inf!\n");
+diff --git a/SConstruct b/SConstruct
+index 13b8600..bca9e8a 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -1126,7 +1126,7 @@ else:
+         env['inst_datadir'] = pjoin(instRoot, 'share', 'cantera', 'data')
+         env['inst_sampledir'] = pjoin(instRoot, 'share', 'cantera', 'samples')
+         env['inst_docdir'] = pjoin(instRoot, 'share', 'cantera', 'doc')
+-        env['inst_mandir'] = pjoin(instRoot, 'man', 'man1')
++        env['inst_mandir'] = pjoin(instRoot, 'share', 'man', 'man1')
+ 
+ # **************************************
+ # *** Set options needed in config.h ***
