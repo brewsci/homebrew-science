@@ -12,6 +12,7 @@ class TransAbyss < Formula
   depends_on "blat"
   depends_on "bowtie2"
   depends_on "gmap-gsnap"
+  depends_on "igraph"
   depends_on "picard-tools"
   depends_on "samtools"
 
