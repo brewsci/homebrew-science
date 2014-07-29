@@ -3,8 +3,8 @@ require "formula"
 class Prokka < Formula
   homepage "http://www.vicbioinformatics.com/software.prokka.shtml"
   #doi "10.1093/bioinformatics/btu153"
-  url "http://www.vicbioinformatics.com/prokka-1.9.tar.gz"
-  sha1 "7003f07777309b3f82ed42478bf27ab4bbb5382b"
+  url "http://www.vicbioinformatics.com/prokka-1.10.tar.gz"
+  sha1 "46ece37d2d5c5ca2f3e740ffcdf9bdafaab92820"
 
   depends_on "Bio::Perl" => :perl
   depends_on "blast"
