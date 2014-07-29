@@ -2,6 +2,7 @@ require 'formula'
 
 class Fasta < Formula
   homepage 'http://faculty.virginia.edu/wrpearson/fasta/'
+  #doi '10.1016/0076-6879(90)83007-V'
   url 'http://faculty.virginia.edu/wrpearson/fasta/fasta36/fasta-36.3.6d.tar.gz'
   sha1 '54e08a52de4e11600600c224fbd341eb668d3b0a'
 
