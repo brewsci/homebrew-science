@@ -9,9 +9,9 @@ end
 
 class Kissplice < Formula
   homepage "http://kissplice.prabi.fr"
-  url "ftp://pbil.univ-lyon1.fr/pub/logiciel/kissplice/kissplice-2.2.0.tar.gz",
+  url "ftp://pbil.univ-lyon1.fr/pub/logiciel/kissplice/download/kissplice-2.2.1.tar.gz",
     :using => KisspliceDownloadStrategy
-  sha1 "40625e55bdf20ab5d9ee8d8a68af06460c2eca46"
+  sha1 "92b5a3280407de3c363699e10595c1117f1e1e36"
 
   depends_on "cmake" => :build
 
