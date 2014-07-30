@@ -2,14 +2,13 @@ require 'formula'
 
 class Veclibfort < Formula
   homepage 'https://github.com/mcg1969/vecLibFort'
-  url 'https://github.com/mcg1969/vecLibFort/archive/0.4.0.tar.gz'
-  sha1 '2766c83cca4863a5dcd8bf6693f782c02e1b2df8'
+  url 'https://github.com/mcg1969/vecLibFort/archive/0.4.1.tar.gz'
+  sha1 '3c532a89e83a08a45e232aa6efa5730db9ca596a'
   head 'https://github.com/mcg1969/vecLibFort.git'
 
   option "without-check", "Skip build-time tests (not recommended)"
 
   depends_on :fortran
-  depends_on :macos => :lion  # Some LAPACK symbols are missing in <= 10.6.
 
   def install
     ENV.m64 if MacOS.prefer_64_bit?
