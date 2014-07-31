@@ -2,8 +2,8 @@ require 'formula'
 
 class Insighttoolkit < Formula
   homepage 'http://www.itk.org'
-  url 'https://downloads.sourceforge.net/project/itk/itk/4.5/InsightToolkit-4.5.2.tar.gz'
-  sha1 '91b14d4a67e837b3e0dc12d2d7ad5b3fdaae5a8e'
+  url 'https://downloads.sourceforge.net/project/itk/itk/4.6/InsightToolkit-4.6.0.tar.gz'
+  sha1 '66f2d7b4b464af561aeb5dc77951086a2ac34ffe'
   head 'git://itk.org/ITK.git'
 
   option :cxx11
@@ -14,7 +14,7 @@ class Insighttoolkit < Formula
   depends_on 'opencv' => [:optional] + cxx11dep
   depends_on :python => :optional
   depends_on 'fftw' => :recommended
-  depends_on 'hdf5' => [:recommended, "--c++11"]
+  depends_on 'hdf5' => [:recommended, "enable-cxx"] + cxx11dep
   depends_on 'jpeg' => :recommended
   depends_on :libpng => :recommended
   depends_on 'libtiff' => :recommended
@@ -42,6 +42,7 @@ class Insighttoolkit < Formula
       -DITK_USE_STRICT_CONCEPT_CHECKING=ON
       -DITK_USE_SYSTEM_ZLIB=ON
       -DModule_ITKLevelSetsv4Visualization=ON
+      -DModule_SCIFIO=ON
     ]
     args << ".."
     args << '-DBUILD_EXAMPLES=' + ((build.include? 'examples') ? 'ON' : 'OFF')
