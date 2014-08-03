@@ -10,7 +10,7 @@ class Mrfast < Formula
     bin.install 'mrfast'
   end
 
-  def test
+  test do
     actual = `#{bin}/mrfast -h`.split("\n").first
     expect = "mrFAST : Micro-Read Fast Alignment Search Tool."
     expect.eql? actual

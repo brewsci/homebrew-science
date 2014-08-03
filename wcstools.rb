@@ -11,7 +11,7 @@ class Wcstools < Formula
     prefix.install "bin"
   end
 
-  def test
+  test do
     system "imhead 2>&1 | grep -q 'IMHEAD'"
   end
 end

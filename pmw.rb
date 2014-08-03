@@ -29,7 +29,7 @@ class Pmw < Formula
 
   end
 
-  def test
+  test do
     system "python", "-c", "import Pmw"
   end
 

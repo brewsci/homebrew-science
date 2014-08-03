@@ -78,7 +78,7 @@ class Mummer < Formula
     EOS
   end
 
-  def test
+  test do
     %w[ nucmer promer run-mummer1 run-mummer3 ].each do |script|
       system "#{bin}/#{script} -h 2>&1 | grep -i USAGE | grep #{script}"
     end

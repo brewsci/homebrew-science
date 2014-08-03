@@ -28,7 +28,7 @@ class Phylip < Formula
     EOS
   end
 
-  def test
+  test do
     # From http://evolution.genetics.washington.edu/phylip/doc/pars.html
     mktemp do
       Pathname.new('infile').write <<-EOF.undent

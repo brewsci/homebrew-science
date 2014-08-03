@@ -57,7 +57,7 @@ class Mrbayes < Formula
     end
   end
 
-  def test
+  test do
     system "echo 'version' | #{bin}/mb"
   end
 end

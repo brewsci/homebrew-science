@@ -81,7 +81,7 @@ class Pastix < Formula
     end
   end
 
-  def test
+  test do
     Dir.foreach("#{share}/example/bin") do |example|
       next if example =~ /^\./ or example =~ /plot_memory_usage/ or example =~ /mem_trace.o/ or example =~ /murge_sequence/
       next if example == 'reentrant'  # May fail due to thread handling. See http://goo.gl/SKDGPV

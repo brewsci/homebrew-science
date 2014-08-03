@@ -76,7 +76,7 @@ class Root < Formula
     mv Dir["#{bin}/*.*sh"], libexec
   end
 
-  def test
+  test do
     system "make -C #{prefix}/test/ hsimple"
     system "#{prefix}/test/hsimple"
   end

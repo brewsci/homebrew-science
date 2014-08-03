@@ -31,7 +31,7 @@ class Arpack < Formula
     (libexec/"share").install "TESTS/testA.mtx"
   end
 
-  def test
+  test do
     cd libexec/"share" do
       ["dnsimp", "bug_1323"].each do |slv|
         system "#{libexec}/bin/#{slv}"              # Reads testA.mtx

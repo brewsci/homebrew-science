@@ -33,7 +33,7 @@ class TmvCpp < Formula
     (share / "tmv/examples").install Dir["examples/*[^\.o]"]
   end
 
-  def test
+  test do
     Dir[share / 'tmv/tests/tmvtest*'].each do |testcase|
       system testcase
     end

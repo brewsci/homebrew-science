@@ -18,7 +18,7 @@ class Fwdpp < Formula
     share.install Dir['examples']
   end
 
-  def test
+  test do
     # run one of the example programs (https://github.com/molpopgen/fwdpp#diploid)
     system "#{share}/examples/diploid 1000 10 10 1000 50 1 272"
   end

@@ -20,7 +20,7 @@ class Metis4 < Formula
     (share / "metis4").install %w(Graphs/mtest Graphs/4elt.graph Graphs/metis.mesh Graphs/test.mgraph)
   end
 
-  def test
+  test do
     system "#{share}/metis4/mtest", "#{share}/metis4/4elt.graph"
     system "#{bin}/kmetis", "#{share}/metis4/4elt.graph", "40"
     system "#{bin}/onmetis", "#{share}/metis4/4elt.graph"

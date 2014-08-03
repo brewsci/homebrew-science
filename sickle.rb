@@ -19,7 +19,7 @@ class Sickle < Formula
     bin.install 'sickle'
   end
 
-  def test
+  test do
     system "#{bin}/sickle", '--version'
   end
 end

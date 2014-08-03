@@ -18,7 +18,7 @@ class Parmetis < Formula
     share.install 'Graphs' # Sample data for test
   end
 
-  def test
+  test do
     system "mpirun -np 4 #{bin}/ptest #{share}/Graphs/rotor.graph"
     ohai "Test results are in ~/Library/Logs/Homebrew/parmetis."
   end

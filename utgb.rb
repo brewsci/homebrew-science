@@ -10,7 +10,7 @@ class Utgb < Formula
      bin.install_symlink "#{libexec}/bin/utgb"
   end
 
-  def test
+  test do
     system "#{bin}/utgb"
   end
 end

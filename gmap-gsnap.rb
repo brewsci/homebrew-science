@@ -26,7 +26,7 @@ class GmapGsnap < Formula
     EOF
   end
 
-  def test
+  test do
     system "#{bin}/gsnap", "--version"
   end
 end

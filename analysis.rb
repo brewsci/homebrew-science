@@ -19,7 +19,7 @@ class Analysis < Formula
     system "make install"
   end
 
-  def test
+  test do
     system 'gestimator 2>&1 |grep -q gestimator'
   end
 end

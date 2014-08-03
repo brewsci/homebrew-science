@@ -34,7 +34,7 @@ class Amos < Formula
     EOS
   end
 
-  def test
+  test do
     system "#{bin}/bank-transact -h"
   end
 end

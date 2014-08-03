@@ -15,7 +15,7 @@ class Gfan < Formula
     share.install Dir['examples', 'homepage', 'testsuite']
   end
 
-  def test
+  test do
     system "gfan --help"
   end
 end

@@ -17,7 +17,7 @@ class Elph < Formula
     end
   end
 
-  def test
+  test do
     system "#{bin}/elph -h 2>&1 | grep elph"
   end
 end

@@ -22,7 +22,7 @@ class Bamtools < Formula
     end
   end
 
-  def test
+  test do
     system "#{bin}/bamtools", "--version"
   end
 end

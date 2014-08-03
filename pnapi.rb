@@ -36,7 +36,7 @@ class Pnapi < Formula
     (include/'pnapi').install 'src/config.h'
   end
 
-  def test
+  test do
     system "#{bin}/petri", "--help"
   end
 end

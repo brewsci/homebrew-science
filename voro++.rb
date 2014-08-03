@@ -12,7 +12,7 @@ class Voroxx < Formula
     mv prefix / "man", share / "man"
   end
 
-  def test
+  test do
     system "voro++", "-h"
   end
 

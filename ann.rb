@@ -13,7 +13,7 @@ class Ann < Formula
     prefix.install "bin", "lib", "sample", "doc", "include"
   end
 
-  def test
+  test do
     cd "#{prefix}/sample" do
       system "#{bin}/ann_sample", "-df", "data.pts", "-qf", "query.pts"
     end

@@ -44,7 +44,7 @@ class Gmsh < Formula
     end
   end
 
-  def test
+  test do
     system "#{bin}/gmsh", "#{share}/doc/gmsh/tutorial/t1.geo", "-parse_and_exit"
   end
 end

@@ -18,7 +18,7 @@ class Velvetoptimiser < Formula
   # Remove GNU-specific flag --preserve-root passed to 'rm'.
   patch :DATA
 
-  def test
+  test do
     system 'VelvetOptimiser.pl --version'
   end
 end

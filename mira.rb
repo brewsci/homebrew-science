@@ -47,7 +47,7 @@ class Mira < Formula
     system "make", "install"
   end
 
-  def test
+  test do
     system "#{bin}/mira 2>&1 |grep -q MIRA"
   end
 end

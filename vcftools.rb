@@ -26,7 +26,7 @@ class Vcftools < Formula
     EOS
   end
 
-  def test
+  test do
     system "#{bin}/vcftools"
   end
 end

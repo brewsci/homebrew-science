@@ -27,7 +27,7 @@ class Cdo < Formula
     system "make install"
   end
 
-  def test
+  test do
     system "#{bin}/cdo", "-h"
   end
 end

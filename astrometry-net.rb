@@ -40,7 +40,7 @@ class AstrometryNet < Formula
 
   end
 
-  def test
+  test do
     system "solve-field"
   end
 end

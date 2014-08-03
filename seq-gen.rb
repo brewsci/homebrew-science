@@ -18,7 +18,7 @@ class SeqGen < Formula
     "The manual and examples are installed to #{HOMEBREW_PREFIX}/share/seq-gen."
   end
 
-  def test
+  test do
     system "#{bin}/seq-gen", "-h"
   end
 end

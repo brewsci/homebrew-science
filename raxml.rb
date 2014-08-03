@@ -14,7 +14,7 @@ class Raxml < Formula
     bin.install Dir["raxmlHPC-*"]
   end
 
-  def test
+  test do
     system "raxmlHPC-PTHREADS", "-v"
   end
 end

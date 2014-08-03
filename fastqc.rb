@@ -12,7 +12,7 @@ class Fastqc < Formula
     ln_s prefix/'fastqc', bin/'fastqc'
   end
 
-  def test
+  test do
     system "fastqc", "-h"
   end
 end

@@ -14,7 +14,7 @@ class Infernal < Formula
     system "make install"
   end
 
-  def test
+  test do
     system "cmsearch", "-h"
   end
 end

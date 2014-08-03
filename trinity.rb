@@ -41,7 +41,7 @@ class Trinity < Formula
     (prefix + 'sample_data').install 'sample_data/test_Trinity_Assembly'
   end
 
-  def test
+  test do
     ohai "Testing Trinity assembly on a small data set (requires ~2GB of memory)"
     cd prefix/'sample_data/test_Trinity_Assembly'
     system "./runMe.sh"

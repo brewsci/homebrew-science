@@ -15,7 +15,7 @@ class Transtermhp < Formula
     "Usage information: #{HOMEBREW_PREFIX}/share/transtermhp/USAGE.txt"
   end
 
-  def test
+  test do
     # `transterm -h` sends to stderr, so we send it to stdin of grep
     system "#{bin}/transterm -h 2>&1 | grep 'usage: transterm'"
   end

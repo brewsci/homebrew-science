@@ -32,7 +32,7 @@ class Velvet < Formula
     EOS
   end
 
-  def test
+  test do
     system "velveth --help"
     system "velvetg --help"
   end

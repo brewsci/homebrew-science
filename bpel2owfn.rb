@@ -27,7 +27,7 @@ class Bpel2owfn < Formula
     system "make", "install"
   end
 
-  def test
+  test do
     system "#{bin}/bpel2owfn", "--help"
   end
 end

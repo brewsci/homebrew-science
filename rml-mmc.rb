@@ -20,7 +20,7 @@ class RmlMmc < Formula
     system "make install"
   end
 
-  def test
+  test do
     system "#{bin}/rml", "-v"
   end
 end

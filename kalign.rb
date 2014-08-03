@@ -16,7 +16,7 @@ class Kalign < Formula
     system "make install"
   end
 
-  def test
+  test do
     # Make sure kalign can to a simple fasta sequence alignment.
     input = <<-EOS.undent
       >E8S7Y8

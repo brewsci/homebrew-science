@@ -18,7 +18,7 @@ class Populations < Formula
     system 'make', 'install'
   end
 
-  def test
+  test do
     system "echo 0 | #{bin}/populations"
   end
 end

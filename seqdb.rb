@@ -19,7 +19,7 @@ class Seqdb < Formula
     system "make install"
   end
 
-  def test
+  test do
     system "seqdb"
   end
 end

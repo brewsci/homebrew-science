@@ -203,7 +203,7 @@ class Lammps < Formula
     "python" + `python -c 'import sys;print(sys.version[:3])'`.strip
   end
 
-  def test
+  test do
     # to prevent log files, move them to a temporary directory
     mktemp do
       system "lammps","-in","#{HOMEBREW_PREFIX}/share/lammps/bench/in.lj"

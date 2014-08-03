@@ -14,7 +14,7 @@ class Qualimap < Formula
     doc.install 'QualimapManual.pdf'
   end
 
-  def test
+  test do
     system 'qualimap', '-h'
   end
 end

@@ -39,7 +39,7 @@ class Abyss < Formula
     system "make install"
   end
 
-  def test
+  test do
     system "#{bin}/ABYSS", "--version"
   end
 end

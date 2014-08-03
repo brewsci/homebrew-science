@@ -18,7 +18,7 @@ class Prank < Formula
     end
   end
 
-  def test
+  test do
     system "#{bin}/prank", "-help"
   end
 end

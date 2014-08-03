@@ -30,7 +30,7 @@ class Maxima < Formula
     system 'make install'
   end
 
-  def test
+  test do
     system "#{bin}/maxima", "--batch-string=run_testsuite(); quit();"
   end
 end
