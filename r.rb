@@ -44,7 +44,7 @@ class R < Formula
     args = [
       "--prefix=#{prefix}",
       "--with-aqua",
-      "--with-libintl-prefix=#{Formula['gettext'].prefix}",
+      "--with-libintl-prefix=#{Formula['gettext'].opt_prefix}",
       "--enable-R-framework"
     ]
 
@@ -64,11 +64,11 @@ class R < Formula
     args << '--without-x' if build.without? 'x11'
 
     # Also add gettext include so that libintl.h can be found when installing packages.
-    ENV.append "CPPFLAGS", "-I#{Formula['gettext'].include}"
+    ENV.append "CPPFLAGS", "-I#{Formula['gettext'].opt_include}"
 
     # Sometimes the wrong readline is picked up.
-    ENV.append "CPPFLAGS", "-I#{Formula['readline'].include}"
-    ENV.append "LDFLAGS",  "-L#{Formula['readline'].lib}"
+    ENV.append "CPPFLAGS", "-I#{Formula['readline'].opt_include}"
+    ENV.append "LDFLAGS",  "-L#{Formula['readline'].opt_lib}"
 
     # Pull down recommended packages if building from HEAD.
     system './tools/rsync-recommended' if build.head?
