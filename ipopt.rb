@@ -16,7 +16,7 @@ class Ipopt < Formula
   depends_on :fortran
 
   def mumps_options
-    Tab.for_formula(Formula["mumps"]).used_options
+    Tab.for_formula(Formula["mumps"])
   end
 
   def install
@@ -26,7 +26,7 @@ class Ipopt < Formula
     mumps_libs = %w[-ldmumps -lmumps_common -lpord]
 
     # See whether the parallel or sequential MUMPS library was built.
-    if mumps_options.include? 'without-mpi'
+    if mumps_options.without? "mpi"
       mumps_libs << '-lmpiseq'
       mumps_incdir = Formula["mumps"].libexec / 'include'
     else

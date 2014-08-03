@@ -100,7 +100,7 @@ class Mumps < Formula
   end
 
   test do
-    cmd = Tab.for_formula(self).include?("without-mpi") ? "" : "mpirun -np 2"
+    cmd = build.without?("mpi") ? "" : "mpirun -np 2"
     system "#{cmd} #{share}/examples/ssimpletest < #{share}/examples/input_simpletest_real"
     system "#{cmd} #{share}/examples/dsimpletest < #{share}/examples/input_simpletest_real"
     system "#{cmd} #{share}/examples/csimpletest < #{share}/examples/input_simpletest_cmplx"

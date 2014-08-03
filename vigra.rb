@@ -46,7 +46,7 @@ class Vigra < Formula
   def caveats
     s = ""
     libtiff = Formula["libtiff"]
-    libtiff_cxx11 = Tab.for_formula(libtiff).used_options.include? "with-c++11"
+    libtiff_cxx11 = Tab.for_formula(libtiff).cxx11?
     if (build.cxx11? and not libtiff_cxx11) or (libtiff_cxx11 and not build.cxx11?)
       s += <<-EOS.undent
       The Homebrew warning about libtiff not being built with the C++11

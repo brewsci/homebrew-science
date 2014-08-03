@@ -167,14 +167,7 @@ Depending on `:mpi` is more flexible than depending directly on `mpich2` or `ope
 
 #### Checking What Options Were Used to Build a Dependency
 
-    nprocs = (Tab.for_formula("foo").used_options.include? "without-mpi") ? 1 : 2
-
-This can come in handy in `test` methods, where build options are not visible:
-
-    def test
-      nprocs = (Tab.for_formula(self).used_options.include? "without-mpi") ? 1 : 2
-      ...
-    end
+    nprocs = Tab.for_formula("foo").without?("mpi") ? 1 : 2
 
 #### Optionally Depending Upon X11
 

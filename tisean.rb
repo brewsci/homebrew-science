@@ -44,8 +44,7 @@ class Tisean < Formula
   end if build.with? "prefixed-binaries"
 
   test do
-    prefix = Tab.for_formula(self).with?("prefixed-binaries")
-    pfx = prefix ? "tisean-" : ""
+    pfx = build.with?("prefixed-binaries") ? "tisean-" : ""
     Tisean::BINS.each { |item| system "#{bin}/#{pfx}#{item} -h" }
   end
 end

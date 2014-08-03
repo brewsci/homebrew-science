@@ -119,8 +119,8 @@ class Octave < Formula
       args << "--without-cholmod"
       args << "--without-umfpack"
     else
-      sparse = Tab.for_name("suite-sparse").used_options
-      ENV.append_to_cflags "-L#{Formula["metis4"].opt_lib} -lmetis" if sparse.include? "with-metis4"
+      sparse = Tab.for_name("suite-sparse")
+      ENV.append_to_cflags "-L#{Formula["metis4"].opt_lib} -lmetis" if sparse.with? "metis4"
     end
 
     args << "--without-zlib"     if build.without? "zlib"

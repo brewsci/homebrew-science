@@ -15,12 +15,12 @@ class CeresSolver < Formula
   depends_on 'suite-sparse' => :recommended
 
   def suite_sparse_options
-    Tab.for_formula(Formula["suite-sparse"]).used_options
+    Tab.for_formula(Formula["suite-sparse"])
   end
 
   def install
     cmake_args = std_cmake_args + ['-DBUILD_SHARED_LIBS=ON']
-    cmake_args << "-DMETIS_LIBRARY=#{Formula['metis4'].lib}/libmetis.dylib" if suite_sparse_options.include? "with-metis4"
+    cmake_args << "-DMETIS_LIBRARY=#{Formula['metis4'].lib}/libmetis.dylib" if suite_sparse_options.with? "metis4"
     system "cmake", ".", *cmake_args
     system "make"
     system "make test" if build.with? 'tests'
