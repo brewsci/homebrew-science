@@ -3,10 +3,12 @@ require "formula"
 class Nextflow < Formula
   homepage "http://www.nextflow.io/"
   head "https://github.com/nextflow-io/nextflow.git"
-
-  version "0.8.3"
-  url "http://www.nextflow.io/releases/v0.8.3/nextflow"
-  sha1 "e93c2f6eb8d4ff045e6934e1753d546f68daffbf"
+  
+  depends_on :java => "1.7"
+  
+  version "0.8.5"
+  url "http://www.nextflow.io/releases/v0.8.5/nextflow"
+  sha1 "e7d1746041782af402623a1ed0f20a747f524da7"
 
   def install
     chmod 0755, "nextflow"
