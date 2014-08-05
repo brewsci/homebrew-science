@@ -19,7 +19,7 @@ class Openni2 < Formula
   if !build.head?
     patch do
       url "https://github.com/occipital/OpenNI2/pull/18.patch"
-      sha1 "cc2a879cacb82a94a2bb5d3a98a7e9708a6d8a92"
+      sha1 "e0be30b6b9296939306155580df1ac7912d3f949"
     end
   end
 
