@@ -11,10 +11,12 @@ class EnsemblTools < Formula
 
   def install
     libexec.mkdir
+
     cd "scripts/variant_effect_predictor" do
       ENV["PERL5LIB"] = libexec
       system "perl INSTALL.pl -a a -d #{libexec}"
     end
+
     (bin/"variant_effect_predictor").write <<-EOS.undent
       #!/bin/sh
       set -eu
@@ -34,7 +36,7 @@ class EnsemblTools < Formula
 
   def caveats; <<-EOS.undent
     Add the following to your ~/.bash_profile or ~/.zprofile:
-      export PERL5LIB=$PERL5LIB:#{libexec}
+      export PERL5LIB=#{libexec}:$PERL5LIB
     EOS
   end
 
