@@ -7,7 +7,15 @@ class Wxmaxima < Formula
 
   depends_on 'wxmac'
 
+  head do
+    url 'https://github.com/andrejv/wxmaxima.git'
+    depends_on 'autoconf' => :build
+    depends_on 'automake' => :build
+    depends_on 'gettext' => :build
+  end
+
   def install
+    system "./bootstrap" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system 'make'
