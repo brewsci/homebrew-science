@@ -2,8 +2,8 @@ require "formula"
 
 class Delly < Formula
   homepage "https://github.com/tobiasrausch/delly"
-  url "https://github.com/tobiasrausch/delly/archive/v0.5.5.tar.gz"
-  sha1 "58e21befcfc16a350102f72e84eaab0f08119f29"
+  url "https://github.com/tobiasrausch/delly/archive/v0.5.6.tar.gz"
+  sha1 "c23c079da1e2617a56b34ba543b765425b9b1533"
 
   option "with-binary", "Install a statically linked binary for 64-bit Linux" if OS.linux?
 
@@ -14,8 +14,8 @@ class Delly < Formula
   end
 
   resource "linux-binary" do
-    url "https://github.com/tobiasrausch/delly/releases/download/v0.5.5/delly_v0.5.5_CentOS5.4_x86_64bit"
-    sha1 "5ab782a2c917042f37b00ca9c3fad0eeb8d8650e"
+    url "https://github.com/tobiasrausch/delly/releases/download/v0.5.6/delly_v0.5.6_CentOS5.4_x86_64bit"
+    sha1 "6642bd407d0982a6a6d913e61ce2b50e8855bad5"
   end
 
   def install
@@ -27,7 +27,7 @@ class Delly < Formula
     end
 
     if build.with? "binary"
-      resource("linux-binary").stage { bin.install "delly_v0.5.5_CentOS5.4_x86_64bit" => "delly" }
+      resource("linux-binary").stage { bin.install "delly_v0.5.6_CentOS5.4_x86_64bit" => "delly" }
 
     else
       system "make", "CXX=#{ENV.cxx}"
