@@ -24,8 +24,8 @@ class Symphony < Formula
             "--enable-gnu-packages", "--prefix=#{prefix}"]
 
     if build.with? "readline"
-      ENV.append "CXXFLAGS", "-I#{Formula['readline'].include}"
-      ENV.append "LDFLAGS",  "-L#{Formula['readline'].lib}"
+      ENV.append "CXXFLAGS", "-I#{Formula["readline"].opt_include}"
+      ENV.append "LDFLAGS",  "-L#{Formula["readline"].opt_lib}"
     end
 
     if build.with? "gmpl"
@@ -34,7 +34,7 @@ class Symphony < Formula
       cd "ThirdParty/Glpk" do
         system "./get.Glpk"
       end
-      ENV.append "CPPFLAGS", "-I#{Formula['mysql'].include}/mysql"
+      ENV.append "CPPFLAGS", "-I#{Formula["mysql"].opt_include}/mysql"
       args << "--with-gmpl"
     end
 

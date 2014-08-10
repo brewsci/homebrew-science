@@ -53,21 +53,21 @@ class Pastix < Formula
         s.gsub! /#\s*CFPROG\s*:=/, "CFPROG := "
 
         s.gsub! /SCOTCH_HOME\s*\?=/, "SCOTCH_HOME="
-        s.change_make_var! "SCOTCH_HOME", Formula["scotch"].prefix
+        s.change_make_var! "SCOTCH_HOME", Formula["scotch"].opt_prefix
 
         s.gsub! /HWLOC_HOME\s*\?=/, "HWLOC_HOME="
-        s.change_make_var! "HWLOC_HOME", Formula["hwloc"].prefix
+        s.change_make_var! "HWLOC_HOME", Formula["hwloc"].opt_prefix
 
         if build.with? 'metis4'
           s.gsub! /#\s*VERSIONORD\s*=\s*_metis/, "VERSIONORD = _metis"
           s.gsub! /#\s*METIS_HOME/, "METIS_HOME"
-          s.change_make_var! "METIS_HOME", Formula["metis4"].prefix
-          s.gsub! /#\s*CCPASTIX\s*:=\s*\$\(CCPASTIX\)\s+-DMETIS\s+-I\$\(METIS_HOME\)\/Lib/, "CCPASTIX := \$(CCPASTIX) -DMETIS -I#{Formula["metis4"].include}"
-          s.gsub! /#\s*EXTRALIB\s*:=\s*\$\(EXTRALIB\)\s+-L\$\(METIS_HOME\)\s+-lmetis/, "EXTRALIB := \$\(EXTRALIB\) -L#{Formula["metis4"].lib} -lmetis"
+          s.change_make_var! "METIS_HOME", Formula["metis4"].opt_prefix
+          s.gsub! /#\s*CCPASTIX\s*:=\s*\$\(CCPASTIX\)\s+-DMETIS\s+-I\$\(METIS_HOME\)\/Lib/, "CCPASTIX := \$(CCPASTIX) -DMETIS -I#{Formula["metis4"].opt_include}"
+          s.gsub! /#\s*EXTRALIB\s*:=\s*\$\(EXTRALIB\)\s+-L\$\(METIS_HOME\)\s+-lmetis/, "EXTRALIB := \$\(EXTRALIB\) -L#{Formula["metis4"].opt_lib} -lmetis"
         end
 
         if build.with? 'openblas'
-          s.gsub! /#\s*BLAS_HOME\s*=\s*\/path\/to\/blas/, "BLAS_HOME = #{Formula["openblas"].lib}"
+          s.gsub! /#\s*BLAS_HOME\s*=\s*\/path\/to\/blas/, "BLAS_HOME = #{Formula["openblas"].opt_lib}"
           s.change_make_var! "BLASLIB", "-lopenblas"
         end
       end

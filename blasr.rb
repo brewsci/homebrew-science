@@ -30,8 +30,8 @@ class Blasr < Formula
   def install
     hdf5 = Formula["hdf5"]
     system "make", "STATIC=",
-      "HDF5INCLUDEDIR=#{hdf5.include}",
-      "HDF5LIBDIR=#{hdf5.lib}"
+      "HDF5INCLUDEDIR=#{hdf5.opt_include}",
+      "HDF5LIBDIR=#{hdf5.opt_lib}"
     system 'make', 'install', 'PREFIX=' + prefix
   end
 

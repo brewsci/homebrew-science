@@ -23,7 +23,7 @@ class Oce < Formula
     cmake_args << "-DOCE_COPY_HEADERS_BUILD:BOOL=ON"
     cmake_args << "-DOCE_DRAW:BOOL=ON"
     cmake_args << "-DOCE_MULTITHREAD_LIBRARY:STRING=TBB" if build.with? "tbb"
-    cmake_args << "-DFREETYPE_INCLUDE_DIRS=#{Formula['freetype'].include}/freetype2"
+    cmake_args << "-DFREETYPE_INCLUDE_DIRS=#{Formula["freetype"].opt_include}/freetype2"
 
     %w{freeimage gl2ps}.each do |feature|
       cmake_args << "-DOCE_WITH_#{feature.upcase}:BOOL=ON" if build.with? feature

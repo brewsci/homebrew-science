@@ -27,8 +27,8 @@ class Mumps < Formula
     cp "Make.inc/" + makefile, "Makefile.inc"
 
     if build.with? 'scotch5'
-      make_args += ["SCOTCHDIR=#{Formula['scotch5'].prefix}",
-                    "ISCOTCH=-I#{Formula["scotch5"].include}"]
+      make_args += ["SCOTCHDIR=#{Formula["scotch5"].opt_prefix}",
+                    "ISCOTCH=-I#{Formula["scotch5"].opt_include}"]
 
       if build.with? :mpi
         make_args << "LSCOTCH=-L$(SCOTCHDIR)/lib -lptesmumps -lptscotch -lptscotcherr"
@@ -40,9 +40,9 @@ class Mumps < Formula
     end
 
     if build.with? "metis4"
-      make_args += ["LMETISDIR=#{Formula["metis4"].lib}",
-                    "IMETIS=#{Formula["metis4"].include}",
-                    "LMETIS=-L#{Formula["metis4"].lib} -lmetis"]
+      make_args += ["LMETISDIR=#{Formula["metis4"].opt_lib}",
+                    "IMETIS=#{Formula["metis4"].opt_include}",
+                    "LMETIS=-L#{Formula["metis4"].opt_lib} -lmetis"]
       orderingsf << ' -Dmetis'
     end
 
@@ -52,9 +52,9 @@ class Mumps < Formula
       make_args += ["CC=#{ENV['MPICC']} -fPIC",
                     "FC=#{ENV['MPIFC']} -fPIC",
                     "FL=#{ENV['MPIFC']} -fPIC",
-                    "SCALAP=-L#{Formula["scalapack"].lib} -lscalapack",
-                    "INCPAR=-I#{Formula["open-mpi"].include}",
-                    "LIBPAR=$(SCALAP) -L#{Formula["open-mpi"].lib} -lmpi -lmpi_mpifh"]
+                    "SCALAP=-L#{Formula["scalapack"].opt_lib} -lscalapack",
+                    "INCPAR=-I#{Formula["open-mpi"].opt_include}",
+                    "LIBPAR=$(SCALAP) -L#{Formula["open-mpi"].opt_lib} -lmpi -lmpi_mpifh"]
     else
       make_args += ["CC=#{ENV['CC']} -fPIC",
                     "FC=#{ENV['FC']} -fPIC",
@@ -62,7 +62,7 @@ class Mumps < Formula
     end
 
     if build.with? 'openblas'
-      make_args << "LIBBLAS=-L#{Formula["openblas"].lib} -lopenblas"
+      make_args << "LIBBLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"
     else
       make_args << "LIBBLAS=-lblas -llapack"
     end

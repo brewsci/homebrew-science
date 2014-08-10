@@ -56,7 +56,7 @@ class Sundials < Formula
     # TODO: Make more general, admit use of mpich2
     if build.with? "mpi"
       config_args += ["--enable-mpi",
-                      "--with-mpi-root=#{Formula["open-mpi"].prefix}"]
+                      "--with-mpi-root=#{Formula["open-mpi"].opt_prefix}"]
     else
       config_args << "--disable-mpi"
     end

@@ -35,13 +35,13 @@ class Cppad < Formula
       cppad_testvector = 'boost'
     elsif build.with? 'eigen'
       cppad_testvector = 'eigen'
-      cmake_args << "-Deigen_prefix=#{Formula["eigen"].prefix}"
-      cmake_args << "-Dcppad_cxx_flags=-I#{Formula["eigen"].include}/eigen3"
+      cmake_args << "-Deigen_prefix=#{Formula["eigen"].opt_prefix}"
+      cmake_args << "-Dcppad_cxx_flags=-I#{Formula["eigen"].opt_include}/eigen3"
     elsif build.with? 'std'
       cppad_testvector = 'std'
     end
     cmake_args << "-Dcppad_testvector=#{cppad_testvector}"
-    cmake_args << "-Dadolc_prefix=#{Formula["adol-c"].prefix}" if build.with? 'adol-c'
+    cmake_args << "-Dadolc_prefix=#{Formula["adol-c"].opt_prefix}" if build.with? "adol-c"
 
     mkdir 'build' do
       system "cmake", "..", *cmake_args

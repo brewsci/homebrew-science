@@ -9,7 +9,7 @@ class Megam < Formula
 
   def install
     # Environment settings for Makefile to compile on MacOS
-    ENV['WITHCLIBS'] = "-I #{Formula['objective-caml'].lib}/ocaml/caml"
+    ENV['WITHCLIBS'] = "-I #{Formula["objective-caml"].opt_lib}/ocaml/caml"
     ENV['WITHSTR']   = "str.cma -cclib -lcamlstr"
     # Build the non-optimized version
     system "make", "-e"

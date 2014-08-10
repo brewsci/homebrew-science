@@ -32,14 +32,14 @@ class Getdp < Formula
     args << "-DENABLE_GSL=OFF"    if build.without? "gsl"
 
     if build.with? "petsc"
-      ENV["PETSC_DIR"] = Formula["petsc"].prefix
+      ENV["PETSC_DIR"] = Formula["petsc"].opt_prefix
       ENV["PETSC_ARCH"] = "arch-darwin-c-opt"
     else
       args << "-DENABLE_PETSC=OFF"
     end
 
     if build.with? "slepc"
-      ENV["SLEPC_DIR"] = Formula["slepc"].prefix
+      ENV["SLEPC_DIR"] = Formula["slepc"].opt_prefix
     else
       args << "-DENABLE_SLEPC=OFF"
     end

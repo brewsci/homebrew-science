@@ -17,7 +17,7 @@ class Superlu < Formula
                  "FORTRAN=#{ENV.fc}", "FFLAGS=#{ENV.fcflags}",
                  "SuperLUroot=#{buildpath}"]
 
-    make_args << ((build.with? "openblas") ? "BLASLIB=-L#{Formula["openblas"].lib} -lopenblas" : "BLASLIB=-framework Accelerate")
+    make_args << ((build.with? "openblas") ? "BLASLIB=-L#{Formula["openblas"].opt_lib} -lopenblas" : "BLASLIB=-framework Accelerate")
 
     system "make", "lib", *make_args
     if build.with? "check"

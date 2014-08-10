@@ -19,7 +19,7 @@ class Scalapack < Formula
     args = std_cmake_args
     args << "-DBUILD_SHARED_LIBS=ON" if build.with? "shared-libs"
     blas = (build.with? "openblas") ? "openblas" : "vecLibFort"
-    blas = "-L#{Formula["#{blas}"].lib} -l#{blas}"
+    blas = "-L#{Formula["#{blas}"].opt_lib} -l#{blas}"
     args += ["-DBLAS_LIBRARIES=#{blas}", "-DLAPACK_LIBRARIES=#{blas}"]
 
     mkdir "build" do

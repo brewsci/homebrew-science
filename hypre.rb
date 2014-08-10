@@ -30,10 +30,10 @@ class Hypre < Formula
       if build.with? "openblas"
         config_args += ["--with-blas=yes",
                         "--with-blas-libs=openblas",
-                        "--with-blas-lib-dirs=#{Formula["openblas"].lib}",
+                        "--with-blas-lib-dirs=#{Formula["openblas"].opt_lib}",
                         "--with-lapack=yes",
                         "--with-lapack-libs=openblas",
-                        "--with-lapack-lib-dirs=#{Formula["openblas"].lib}"]
+                        "--with-lapack-lib-dirs=#{Formula["openblas"].opt_lib}"]
       elsif build.with? "accelerate"
         # Libraries used for linking to Accelerate framework; `otool -L`
         # shows that these libraries link to the same dylibs that the
@@ -67,8 +67,8 @@ class Hypre < Formula
       # TODO: make more general, admit use of mpich2
       if build.with? "mpi"
         config_args += ["--with-MPI",
-                        "--with-MPI-include=#{Formula["open-mpi"].include}",
-                        "--with-MPI-lib-dirs=#{Formula["open-mpi"].lib}",
+                        "--with-MPI-include=#{Formula["open-mpi"].opt_include}",
+                        "--with-MPI-lib-dirs=#{Formula["open-mpi"].opt_lib}",
         # MPI library strings for linking depends on compilers
         # enabled.  Only the C library strings are needed (without the
         # lib), because hypre is a C library.

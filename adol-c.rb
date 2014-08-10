@@ -28,7 +28,7 @@ class AdolC < Formula
     end
 
     args =  ["--prefix=#{prefix}", "--enable-sparse"]
-    args << "--with-colpack=#{Formula['colpack'].prefix}" if build.with? "colpack"
+    args << "--with-colpack=#{Formula["colpack"].opt_prefix}" if build.with? "colpack"
     args << "--with-openmp-flag=-fopenmp" if ENV.compiler != :clang
     args << "--enable-ulong" if MacOS.prefer_64_bit?
 

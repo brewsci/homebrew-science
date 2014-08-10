@@ -17,7 +17,7 @@ class Slepc < Formula
     ENV.deparallelize
     petsc_arch = 'arch-darwin-c-opt'
     ENV['SLEPC_DIR'] = Dir.getwd
-    ENV['PETSC_DIR'] = Formula["petsc"].prefix
+    ENV['PETSC_DIR'] = Formula["petsc"].opt_prefix
     ENV['PETSC_ARCH'] = petsc_arch
     system "./configure", "--prefix=#{prefix}/#{petsc_arch}"
     system "make PETSC_ARCH=#{petsc_arch}"
