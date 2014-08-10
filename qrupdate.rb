@@ -14,7 +14,7 @@ class Qrupdate < Formula
   def install
     ENV.j1
     blas = (build.with? "openblas") ? "openblas" : "vecLibFort"
-    blas = "-L#{Formula["#{blas}"].lib} -l#{blas}"
+    blas = "-L#{Formula["#{blas}"].opt_lib} -l#{blas}"
     make_args = ["FC=#{ENV.fc}", "FFLAGS=#{ENV.fcflags}",
                  "BLAS=#{blas}", "LAPACK=#{blas}"]
     inreplace 'src/Makefile' do |s|
