@@ -32,22 +32,26 @@ class GraphTool < Formula
 
   def install
     ENV.cxx11
+
     config_args = %W[
       --disable-debug
       --disable-dependency-tracking
       --disable-optimization
       --prefix=#{prefix}
     ]
+
     if build.with? 'python3'
       config_args << "PYTHON=python3"
-      config_args << "LDFLAGS=-L/usr/local/Cellar/python3/3.4.1/Frameworks/Python.framework/Versions/3.4/lib"
+      config_args << "LDFLAGS=-L#{%x(python3-config --prefix).chomp}/lib"
       config_args << "--with-python-module-path=#{lib}/python3.4/site-packages"
     else
       config_args << "--with-python-module-path=#{lib}/python2.7/site-packages"
     end
+
     config_args << "--disable-cairo" if build.without? 'cairo'
     config_args << "--disable-sparsehash" if build.without? 'google-sparsehash'
-    system "./configure", "PYTHON_EXTRA_LDFLAGS=-L/usr/local/bin", *config_args
+
+    system "./configure", "PYTHON_EXTRA_LDFLAGS=-L#{HOMEBREW_PREFIX}/bin", *config_args
     system "make", "install"
   end
 
