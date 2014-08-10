@@ -1,4 +1,4 @@
-First of all, thank you for contributing to Homebrew/science. The following guidelines are designed to help you write more efficient pull requests and/or issues.
+First of all, thank you for contributing to [Homebrew/science](https://github.com/Homebrew/homebrew-science). The following guidelines are designed to help you write more efficient pull requests and/or issues.
 
 * [Issues](#issues)
 * [Formula Guidelines](#formula)
@@ -22,7 +22,7 @@ See also Homebrew's [FAQ](https://github.com/Homebrew/homebrew/wiki/FAQ) and [Co
 <a name="formula"/>
 ## Formula Guidelines
 
-Please first read core Homebrew's [Formula Cookbook](https://github.com/Homebrew/homebrew/wiki/Formula-Cookbook) and [Acceptable Formulae](https://github.com/Homebrew/homebrew/wiki/Acceptable-Formulae). This section lists additional guidelines that should be followed in Homebrew/science.
+Please first read Homebrew's [Formula Cookbook](https://github.com/Homebrew/homebrew/wiki/Formula-Cookbook) and [Acceptable Formulae](https://github.com/Homebrew/homebrew/wiki/Acceptable-Formulae). This section lists additional guidelines that should be followed in Homebrew/science.
 
 #### Tests
 
@@ -34,9 +34,9 @@ Whenever install-time tests in the form of `make test` or `make check` take more
 
 #### Logical Guidelines
 
+* **Patches should be submitted upstream. Describe and link to the issue in your comments.**
 * Group mandatory, optional, and recommended dependencies together.
 * Group other options together.
-* Patches should have been submitted upstream, or should be documented (e.g., a reference to MacPorts or Debian).
 
 #### Stylistic Guidelines
 
@@ -63,7 +63,6 @@ Whenever install-time tests in the form of `make test` or `make check` take more
     - `qux: make X11 optional`
 
 * Please keep the commit message to a minimum. GitHub lets you describe your pull request at length when you submit it.
-* Patches should be submitted upstream, or be documented (e.g., a reference to MacPorts or Debian). Include a link to the upstream issue or conversation as a comment.
 * Be sure to include a `make test` / `make check` if available. If the test or check takes more that a few seconds, a `--without-check` option should be available to disable it. The test or check must be enabled by default.
 
 #### Pull Request vs. Tap
@@ -86,6 +85,7 @@ If it takes a while for us to get back to you, relax. We work on Homebrew/scienc
 
 If you'd like your formula(e) to be brewable urgently, the best option may be for you to host your own tap, even if it's temporary.
 
+<a name="notes"/>
 ## Useful Snippets and Notes
 
 #### Optional Dependencies
