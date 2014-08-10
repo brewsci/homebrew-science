@@ -3,8 +3,8 @@ require "formula"
 class Edirect < Formula
   homepage "http://www.ncbi.nlm.nih.gov/books/NBK179288/"
   url "ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/edirect.tar.gz"
-  sha1 "e79de85075be9e9eab11dca49001863ccdec2cd3"
-  version "1.80"
+  sha1 "e82cfc00c8e20208b2918dff090f6b4ce218491d"
+  version "1.90"
 
   def install
     doc.install "README"
