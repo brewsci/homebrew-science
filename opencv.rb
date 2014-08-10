@@ -51,8 +51,8 @@ class Opencv < Formula
       -DBUILD_JPEG=OFF
       -DJPEG_INCLUDE_DIR=#{jpeg.opt_include}
       -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.dylib
-      -DPYTHON_LIBRARY=#{py_prefix}/Python
-      -DPYTHON_INCLUDE_DIR=#{py_prefix}/Headers
+      -DPYTHON_LIBRARY=#{py_prefix}/lib/libpython2.7.dylib
+      -DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python2.7
     )
 
     if build.without? "tests"
