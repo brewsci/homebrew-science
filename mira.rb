@@ -6,7 +6,7 @@ class Mira < Formula
   sha1 '30db5cb9e9e1c1848b2f24a169ce5bc7948845b3'
 
   depends_on 'boost'
-  depends_on 'google-perftools'  # for tcmalloc
+  depends_on 'google-perftools' => :recommended # for tcmalloc
   depends_on 'docbook'
   # On Xcode-only systems, Mira's configure is unable to find expat
   depends_on 'expat'
@@ -33,9 +33,9 @@ class Mira < Formula
                       "--with-boost-regex=boost_regex-mt",
                       "--with-boost-system=boost_system-mt",
                       "--with-boost-filesystem=boost_filesystem-mt",
-                      "--with-boost-iostreams=boost_iostreams-mt",
-                      "--with-tcmalloc",
-                      "--with-tcmalloc-dir=#{Formula["google-perftools"].opt_prefix}/lib"]
+                      "--with-boost-iostreams=boost_iostreams-mt"]
+    configure_args += ["--with-tcmalloc",
+      "--with-tcmalloc-dir=#{Formula["google-perftools"].opt_prefix}/lib"] if build.with?("google-perftools")
 
     system "./configure", *configure_args
 
