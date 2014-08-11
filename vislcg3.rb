@@ -14,8 +14,8 @@ class Vislcg3 < Formula
   option "without-check", "Disable build-time checking (not recommended)"
 
   def install
-    ENV["LDFLAGS"]  = "-L/usr/local/opt/icu4c/lib"
-    ENV["CPPFLAGS"] = "-I/usr/local/opt/icu4c/include"
+    ENV["LDFLAGS"]  = "-L#{Formula["icu4c"].opt_lib}"
+    ENV["CPPFLAGS"] = "-I#{Formula["icu4c"].opt_include}"
     system "cmake", ".", *std_cmake_args
     system "make"
 
