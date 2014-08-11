@@ -48,6 +48,6 @@ class Mira < Formula
   end
 
   test do
-    system "#{bin}/mira 2>&1 |grep -q MIRA"
+    system "#{bin}/mira --version"
   end
 end
