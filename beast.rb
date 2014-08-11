@@ -19,7 +19,7 @@ class Beast < Formula
     end
 
     mv 'lib', 'libexec'
-    prefix.install Dir[build.head? ? 'release/Linux/BEASTv1.8.0/*' : '*']
+    prefix.install Dir[build.head? ? 'release/Linux/BEASTv*/*' : '*']
   end
 
   test do
