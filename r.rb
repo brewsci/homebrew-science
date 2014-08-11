@@ -28,7 +28,7 @@ class R < Formula
   depends_on 'gettext'
   depends_on 'libtiff'
   depends_on 'jpeg'
-  depends_on 'cairo'
+  depends_on 'cairo' if OS.mac?
   depends_on :x11 => :recommended
   depends_on 'valgrind' => :optional
   depends_on 'openblas' => :optional
@@ -43,10 +43,9 @@ class R < Formula
   def install
     args = [
       "--prefix=#{prefix}",
-      "--with-aqua",
       "--with-libintl-prefix=#{Formula['gettext'].opt_prefix}",
-      "--enable-R-framework"
     ]
+    args += ["--with-aqua", "--enable-R-framework"] if OS.mac?
 
     if build.with? 'valgrind'
       args << '--with-valgrind-instrumentation=2'
@@ -86,10 +85,12 @@ class R < Formula
       bin.mkpath
       man1.mkpath
 
-      ln_s prefix+"R.framework/Resources/bin/R", bin
-      ln_s prefix+"R.framework/Resources/bin/Rscript", bin
-      ln_s prefix+"R.framework/Resources/man1/R.1", man1
-      ln_s prefix+"R.framework/Resources/man1/Rscript.1", man1
+      if OS.mac?
+        ln_s prefix+"R.framework/Resources/bin/R", bin
+        ln_s prefix+"R.framework/Resources/bin/Rscript", bin
+        ln_s prefix+"R.framework/Resources/man1/R.1", man1
+        ln_s prefix+"R.framework/Resources/man1/Rscript.1", man1
+      end
 
       bash_completion.install resource('completion')
 
@@ -102,9 +103,11 @@ class R < Formula
       ENV.deparallelize # Serialized installs, please
       system "make", "install"
 
-      lib.mkpath
-      ln_s prefix+"R.framework/Versions/3.1/Resources/lib/libRmath.dylib", lib
-      ln_s prefix+"R.framework/Versions/3.1/Resources/include/Rmath.h", include
+      if OS.mac?
+        lib.mkpath
+        ln_s prefix+"R.framework/Versions/3.1/Resources/lib/libRmath.dylib", lib
+        ln_s prefix+"R.framework/Versions/3.1/Resources/include/Rmath.h", include
+      end
     end
 
   end
