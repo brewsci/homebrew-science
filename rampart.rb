@@ -26,7 +26,7 @@ class Rampart < Formula
   depends_on "velvet" => :recommended
 
   # Assembly improvement
-  depends_on "sspace" => :recommended
+  # No formula: depends_on "sspace" => :recommended
   # SOAP scaffolder and gap closer
   # Platanus scaffolder and gap closer
 
