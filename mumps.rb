@@ -83,8 +83,8 @@ class Mumps < Formula
       (libexec / 'include').install Dir['libseq/*.h']
     end
 
-    (share + 'doc').install Dir['doc/*.pdf']
-    (share + 'examples').install Dir['examples/*[^.o]']
+    doc.install Dir['doc/*.pdf']
+    (share + 'mumps/examples').install Dir['examples/*[^.o]']
   end
 
   def caveats
