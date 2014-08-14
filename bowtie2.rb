@@ -2,9 +2,11 @@ require 'formula'
 
 class Bowtie2 < Formula
   homepage "http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
+  #doi "10.1038/nmeth.1923"
+  head "https://github.com/BenLangmead/bowtie2.git"
+
   url "https://github.com/BenLangmead/bowtie2/archive/v2.2.3.tar.gz"
   sha1 "3186cb730f363935d18907c7222df9e1884a67fa"
-  head "https://github.com/BenLangmead/bowtie2.git"
 
   def install
     system "make"
