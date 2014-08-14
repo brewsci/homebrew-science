@@ -4,7 +4,7 @@ class Rampart < Formula
   homepage "https://github.com/TGAC/RAMPART"
 
   head do
-    url "https://github.com/TGAC/RAMPART.git"
+    url "https://github.com/TGAC/RAMPART.git", :branch => "develop"
     depends_on "maven" => :build
   end
 
