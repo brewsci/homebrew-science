@@ -2,9 +2,8 @@ require 'formula'
 
 class Htslib < Formula
   homepage 'https://github.com/samtools/htslib'
-  version '0.2.0-rc11'
-  url "https://github.com/samtools/htslib/archive/#{version}.tar.gz"
-  sha1 '669d8effa1038a1d11f88fc90950f9262ff18e3c'
+  url "https://github.com/samtools/htslib/archive/1.0.tar.gz"
+  sha1 "3eca8a7e919782def2478347b5824bab15ca2d10"
   head 'https://github.com/samtools/htslib.git'
 
   conflicts_with "tabix", :because => "both htslib and tabix install bin/tabix"
