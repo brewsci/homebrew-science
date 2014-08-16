@@ -35,9 +35,10 @@ class Vtk5 < Formula
   patch :DATA
 
   patch do
-    url "https://gist.github.com/sxprophet/7463815/raw/85e57e0fd078d407b09a75e52ffe89350b8beef9/vtk5-cxx11-patch.diff"
-    sha1 "4bc426523f23c200047ee6500ee0286a1aed3fdd"
-  end if build.cxx11?
+    # apply upstream patches for C++11 mode
+    url "https://gist.github.com/sxprophet/7463815/raw/165337ae10d5665bc18f0bad645eff098f939893/vtk5-cxx11-patch.diff"
+    sha1 "5511c8a48327824443f321894e3ea3ac289bf40e"
+  end unless build.head?
 
   def install
     libdir = if build.head? then lib; else "#{lib}/vtk-5.10"; end
@@ -152,24 +153,3 @@ index 00f48c8..014b906 100755
      # check for the prefix and exec_prefix
      try:
 
-diff --git a/Utilities/vtktiff/tif_config.h.in b/Utilities/vtktiff/tif_config.h.in
-index eca77f8..0273231 100644
---- a/Utilities/vtktiff/tif_config.h.in
-+++ b/Utilities/vtktiff/tif_config.h.in
-@@ -238,11 +238,12 @@ the sizes can be different.*/
- /* Define to empty if `const' does not conform to ANSI C. */
- #cmakedefine const
-
--/* Define to `__inline__' or `__inline' if that's what the C compiler
--   calls it, or to nothing if 'inline' is not supported under any name.  */
-+/* MSVC does not support C99 inline, so just make the inline keyword
-+   disappear for C.  */
- #ifndef __cplusplus
--#define inline
--//#cmakedefine inline
-+#  ifdef _MSC_VER
-+#    define inline
-+#  endif
- #endif
-
- /* Define to `long' if <sys/types.h> does not define. */
