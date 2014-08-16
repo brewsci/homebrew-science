@@ -101,11 +101,11 @@ class Mumps < Formula
 
   test do
     cmd = build.without?("mpi") ? "" : "mpirun -np 2"
-    system "#{cmd} #{share}/examples/ssimpletest < #{share}/examples/input_simpletest_real"
-    system "#{cmd} #{share}/examples/dsimpletest < #{share}/examples/input_simpletest_real"
-    system "#{cmd} #{share}/examples/csimpletest < #{share}/examples/input_simpletest_cmplx"
-    system "#{cmd} #{share}/examples/zsimpletest < #{share}/examples/input_simpletest_cmplx"
-    system "#{cmd} #{share}/examples/c_example"
+    system "#{cmd} #{share}/mumps/examples/ssimpletest < #{share}/mumps/examples/input_simpletest_real"
+    system "#{cmd} #{share}/mumps/examples/dsimpletest < #{share}/mumps/examples/input_simpletest_real"
+    system "#{cmd} #{share}/mumps/examples/csimpletest < #{share}/mumps/examples/input_simpletest_cmplx"
+    system "#{cmd} #{share}/mumps/examples/zsimpletest < #{share}/mumps/examples/input_simpletest_cmplx"
+    system "#{cmd} #{share}/mumps/examples/c_example"
     ohai "Test results are in ~/Library/Logs/Homebrew/mumps"
   end
 end
