@@ -5,8 +5,8 @@ class Atram < Formula
   #doi "10.5281/zenodo.10431"
   head "https://github.com/juliema/aTRAM.git"
 
-  url "https://github.com/juliema/aTRAM/archive/v1.03.tar.gz"
-  sha1 "1fec78c16ab79450a78d3bfe89d826767e721235"
+  url "https://github.com/juliema/aTRAM/archive/v1.04.tar.gz"
+  sha1 "dcf0d445fe188396f1c386f9dc337e1b1b27302f"
 
   depends_on "blast"
   depends_on "mafft"
