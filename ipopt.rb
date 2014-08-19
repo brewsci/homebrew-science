@@ -2,8 +2,8 @@ require 'formula'
 
 class Ipopt < Formula
   homepage 'https://projects.coin-or.org/Ipopt'
-  url 'http://www.coin-or.org/download/source/Ipopt/Ipopt-3.11.8.tgz'
-  sha1 '530d718fb5a0c994c305deb3bcfdacc16cc0e2ef'
+  url 'http://www.coin-or.org/download/source/Ipopt/Ipopt-3.11.9.tgz'
+  sha1 '1bc6db565e5fb1ecbc40ff5179eab8409ba92b07'
   head 'https://projects.coin-or.org/svn/Ipopt/trunk', :using => :svn
 
   option 'without-check', 'Skip build-time tests (not recommended)'
