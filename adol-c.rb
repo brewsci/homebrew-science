@@ -2,8 +2,8 @@ require 'formula'
 
 class AdolC < Formula
   homepage "https://projects.coin-or.org/ADOL-C"
-  url "http://www.coin-or.org/download/source/ADOL-C/ADOL-C-2.5.1.tgz"
-  sha1 "c609da3645acfbcf73e3be95861dcd6f7b5fc5db"
+  url "http://www.coin-or.org/download/source/ADOL-C/ADOL-C-2.5.2.tgz"
+  sha1 "6a17cb179dcbc59edc45c97b8928a2ebfa1e2c38"
 
   head 'https://projects.coin-or.org/svn/ADOL-C/trunk/', :using => :svn
 
