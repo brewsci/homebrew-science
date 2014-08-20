@@ -12,7 +12,6 @@ class LumpySv < Formula
   depends_on 'novoalign' => :optional
   depends_on 'yaha' => :optional
   depends_on 'Statistics::Descriptive' => [:perl, :optional]
-  skip_clean :all
 
   def install
     ENV.deparallelize
