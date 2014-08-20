@@ -3,8 +3,8 @@ require "formula"
 class Pbsuite < Formula
   homepage "http://sourceforge.net/projects/pb-jelly/"
   #doi "10.1371/journal.pone.0047768"
-  url "https://downloads.sourceforge.net/project/pb-jelly/PBSuite_14.5.13.tgz"
-  sha1 "c0fc0311b6b954e696666a5c88a99755d583b076"
+  url "https://downloads.sourceforge.net/project/pb-jelly/PBSuite_14.7.14.tgz"
+  sha1 "1a6530f24af6a54af26285bae5d7a8e58e94a2a2"
 
   conflicts_with "bedtools", :because => "Both install bin/bamToFastq"
 
