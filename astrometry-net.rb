@@ -2,10 +2,10 @@ require "formula"
 
 class AstrometryNet < Formula
   homepage "http://astrometry.net"
-  url "http://astrometry.net/downloads/astrometry.net-0.46.tar.gz"
-  sha1 "f86c4c779c786f3f0a88a7c2c40464ec060c753c"
+  url "http://astrometry.net/downloads/astrometry.net-0.50.tar.gz"
+  sha1 "fcf6332b603e1af8f25ce7d6996b5a4b0eeaa687"
 
-  head "http://astrometry.net/svn/trunk/src/astrometry", :using => :svn
+  head "https://github.com/dstndstn/astrometry.net.git"
 
   depends_on "swig" => :build
   depends_on "pkg-config" => :build
@@ -28,6 +28,7 @@ class AstrometryNet < Formula
   option "without-extras", "Don't try to build plotting code (actually it will still try, but homebrew won't halt the install if it fails)"
 
   def install
+    ENV.j1
     ENV["INSTALL_DIR"] = "#{prefix}"
     ENV["NETPBM_INC"] = "-I#{Formula["netpbm"].opt_include}/netpbm"
     ENV["NETPBM_LIB"] = "-L#{Formula["netpbm"].opt_lib} -lnetpbm"
