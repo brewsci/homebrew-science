@@ -1,12 +1,14 @@
 require 'formula'
 
-class BuildOptions
-  def with_qt? version
+class Mathgl < Formula
+  def self.with_qt? version
     version.to_s == ARGV.value('with-qt')
   end
-end
 
-class Mathgl < Formula
+  def with_qt? version
+    self.class.with_qt? version
+  end
+
   homepage 'http://mathgl.sourceforge.net/'
   url 'https://downloads.sourceforge.net/mathgl/mathgl-2.2.2.1.tar.gz'
   sha1 '7d450028728384782315d4d5f5c4dd8b67c29e3b'
@@ -22,8 +24,8 @@ class Mathgl < Formula
   depends_on 'fltk'    => :optional
   depends_on 'wxmac'   => :optional
   depends_on 'giflib'  => :optional
-  depends_on 'qt'  if build.with_qt? 4
-  depends_on 'qt5' if build.with_qt? 5
+  depends_on 'qt'  if with_qt? 4
+  depends_on 'qt5' if with_qt? 5
   depends_on :x11  if build.with? 'fltk'
 
   def install
@@ -38,8 +40,8 @@ class Mathgl < Formula
     ]
 
     args << '-Denable-openmp=' + ((ENV.compiler == :clang) ? 'OFF' : 'ON')
-    args << '-Denable-qt4=ON'     if build.with_qt? 4
-    args << '-Denable-qt5=ON'     if build.with_qt? 5
+    args << '-Denable-qt4=ON'     if with_qt? 4
+    args << '-Denable-qt5=ON'     if with_qt? 5
     args << '-Denable-gif=ON'     if build.with? 'giflib'
     args << '-Denable-hdf5_18=ON' if build.with? 'hdf5'
     args << '-Denable-fltk=ON'    if build.with? 'fltk'
