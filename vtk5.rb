@@ -34,11 +34,13 @@ class Vtk5 < Formula
   # and compilation on mavericks backported from head.
   patch :DATA
 
-  patch do
-    # apply upstream patches for C++11 mode
-    url "https://gist.github.com/sxprophet/7463815/raw/165337ae10d5665bc18f0bad645eff098f939893/vtk5-cxx11-patch.diff"
-    sha1 "5511c8a48327824443f321894e3ea3ac289bf40e"
-  end unless build.head?
+  stable do
+    patch do
+      # apply upstream patches for C++11 mode
+      url "https://gist.github.com/sxprophet/7463815/raw/165337ae10d5665bc18f0bad645eff098f939893/vtk5-cxx11-patch.diff"
+      sha1 "5511c8a48327824443f321894e3ea3ac289bf40e"
+    end
+  end
 
   def install
     libdir = if build.head? then lib; else "#{lib}/vtk-5.10"; end

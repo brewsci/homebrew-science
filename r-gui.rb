@@ -14,8 +14,10 @@ class RGui < Formula
 
   depends_on "r"
 
-  # fix for 1.64 in GUI-tools.R
-  patch :DATA if not build.head?
+  stable do
+    # fix for 1.64 in GUI-tools.R
+    patch :DATA
+  end
 
   def install
     # ugly hack to get updateSVN script in build to not fail

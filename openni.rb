@@ -2,14 +2,30 @@ require 'formula'
 
 class Openni < Formula
   homepage 'http://www.openni.org/'
-  url 'https://github.com/OpenNI/OpenNI/archive/Stable-1.5.7.10.tar.gz'
-  sha1 '5793222bd8f0f3f2ff152f619624bef2d6da427a'
-  head 'https://github.com/OpenNI/OpenNI.git'
+
+  stable do
+    url "https://github.com/OpenNI/OpenNI/archive/Stable-1.5.7.10.tar.gz"
+    sha1 "5793222bd8f0f3f2ff152f619624bef2d6da427a"
+
+    # Fix for Mavericks
+    patch do
+      url "https://github.com/OpenNI/OpenNI/pull/92.diff"
+      sha1 "f125b7bdcdcd68db682bf26c31a64a6b1d0b92dd"
+    end
+  end
 
   devel do
-    url 'https://github.com/OpenNI/OpenNI/archive/Unstable-1.5.8.5.tar.gz'
-    sha1 '0292cdacf34964a087f3e07bbc8ca21a627b6b64'
+    url "https://github.com/OpenNI/OpenNI/archive/Unstable-1.5.8.5.tar.gz"
+    sha1 "0292cdacf34964a087f3e07bbc8ca21a627b6b64"
+
+    # Fix for Mavericks
+    patch do
+      url "https://github.com/OpenNI/OpenNI/pull/95.diff"
+      sha1 "4df773d4143bf2f1d6a3243cbea889b36984d3fa"
+    end
   end
+
+  head "https://github.com/OpenNI/OpenNI.git"
 
   option :universal
 
@@ -17,19 +33,6 @@ class Openni < Formula
   depends_on :libtool
   depends_on 'libusb'
   depends_on 'doxygen' => :build
-
-  # Fix for Mavericks (it's the same patch with different whitespaces)
-  if build.stable?
-    patch do
-      url "https://github.com/OpenNI/OpenNI/pull/92.patch"
-      sha1 "5ac439d65cfef78043bca0c6560eccb51dd4e880"
-    end
-  else
-    patch do
-      url "https://github.com/OpenNI/OpenNI/pull/95.patch"
-      sha1 "037b0b897ba3778ed45b70d258261d4493e97507"
-    end
-  end
 
   def install
     ENV.universal_binary if build.universal?

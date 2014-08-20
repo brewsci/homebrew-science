@@ -7,11 +7,17 @@ class Cantera < Formula
   stable do
     url 'https://downloads.sourceforge.net/project/cantera/cantera/2.1.1/cantera-2.1.1.tar.gz'
     sha1 '439dfc583ad225e06bcc5f00ce0173720ac8942a'
+    # Patches to checkFinite.cpp and SConstruct should be removed for
+    # Cantera 2.2.x (fixed upstream)
+    patch :DATA
   end
 
   devel do
     url 'https://github.com/cantera/cantera.git', :branch => '2.1-svn'
     version '2.1.x'
+    # Patches to checkFinite.cpp and SConstruct should be removed for
+    # Cantera 2.2.x (fixed upstream)
+    patch :DATA
   end
 
   option "with-matlab=", "Path to Matlab root directory"
@@ -23,10 +29,6 @@ class Cantera < Formula
   depends_on "sundials" => :recommended
   depends_on :python3 => :optional
   depends_on "graphviz" => :optional
-
-  # Patches to checkFinite.cpp and SConstruct should be removed for
-  # Cantera 2.2.x (fixed upstream)
-  patch :DATA if not build.head?
 
   def install
     # Make sure to use Homebrew Python to do CTI to CTML conversions

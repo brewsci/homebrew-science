@@ -16,7 +16,7 @@ class Openni2 < Formula
 
   patch :DATA if build.without? "docs"
 
-  if !build.head?
+  stable do
     patch do
       url "https://github.com/occipital/OpenNI2/pull/18.patch"
       sha1 "e0be30b6b9296939306155580df1ac7912d3f949"
