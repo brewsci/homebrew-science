@@ -3,9 +3,10 @@ require "formula"
 class UcscGenomeBrowser < Formula
   homepage "http://genome.ucsc.edu"
   #doi "10.1093/nar/gkq963"
-  url "http://hgdownload.cse.ucsc.edu/admin/jksrc.v303.zip"
-  mirror "https://science-annex.org/pub/ucsc-genome-browser/jksrc.v303.zip"
-  sha1 "ffa4e55640d7329f3eda8c2f57b33867b4e8640c"
+  #tag "bioinformatics"
+
+  url "http://hgdownload.cse.ucsc.edu/admin/jksrc.v304.zip"
+  sha1 "499f9f758bae7d43a013a9629ced7fddedca29ee"
   head "git://genome-source.cse.ucsc.edu/kent.git"
 
   keg_only <<-EOF.undent
