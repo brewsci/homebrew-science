@@ -13,18 +13,20 @@ class Opencv < Formula
   option "with-tests", "Build with accuracy & performance tests"
   option "without-opencl", "Disable GPU code in OpenCV using OpenCL"
   option "with-cuda", "Build with CUDA support"
+  option "with-quicktime", "Use QuickTime for Video I/O insted of QTKit"
 
   option :cxx11
 
   depends_on :ant if build.with? "java"
   depends_on "cmake"      => :build
   depends_on "eigen"      => :optional
+  depends_on "gstreamer"  => :optional
   depends_on "jasper"     => :optional
   depends_on "jpeg"
   depends_on :libpng
   depends_on "libtiff"
   depends_on "numpy"      => :python
-  depends_on "openexr"    => :optional
+  depends_on "openexr"    => :recommended
   depends_on "openni"     => :optional
   depends_on "pkg-config" => :build
   depends_on :python
@@ -65,6 +67,8 @@ class Opencv < Formula
     args << "-DWITH_QT=" + ((build.with? "qt") ? "ON" : "OFF")
     args << "-DWITH_TBB=" + ((build.with? "tbb") ? "ON" : "OFF")
     args << "-DWITH_FFMPEG=" + ((build.with? "ffmpeg") ? "ON" : "OFF")
+    args << "-DWITH_GSTREAMER=" + ((build.with? "gstreamer") ? "ON" : "OFF")
+    args << "-DWITH_QUICKTIME=" + ((build.with? "quicktime") ? "ON" : "OFF")
 
     if build.with? "cuda"
       args << "-DWITH_CUDA=ON"
