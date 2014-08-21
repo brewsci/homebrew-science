@@ -21,7 +21,7 @@ class Platanus < Formula
 
       # Fix the dependent shared library install names.
       gccformula = Formula["gcc"]
-      gcc = gccformula.lib/"gcc/x86_64-apple-darwin13.2.0"/gccformula.version
+      gcc = gccformula.opt_lib/"gcc/x86_64-apple-darwin13.2.0"/gccformula.version
       system "install_name_tool -change /opt/local/lib/libstdc++.6.dylib #{gcc}/libstdc++.6.dylib platanus"
       system "install_name_tool -change /opt/local/lib/gcc48/libgomp.1.dylib #{gcc}/libgomp.1.dylib platanus"
       system "install_name_tool -change /opt/local/lib/gcc48/libgcc_s.1.dylib #{gcc}/libgcc_s.1.dylib platanus"
