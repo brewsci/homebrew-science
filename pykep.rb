@@ -5,9 +5,11 @@ class Pykep < Formula
   url "https://github.com/esa/pykep/archive/1.1.3.tar.gz"
   sha1 "15603482ff38221e874a59c11d4d1a575ee3801f"
   head "https://github.com/esa/pykep.git"
+  revision 1
 
   depends_on "cmake" => :build
-  depends_on "boost" => "with-python"
+  depends_on "boost"
+  depends_on "boost-python"
   depends_on :python
 
   def install

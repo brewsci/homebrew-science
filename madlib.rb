@@ -4,13 +4,14 @@ class Madlib < Formula
   homepage "http://madlib.net"
   url "https://github.com/madlib/madlib/archive/v1.6.0.tar.gz"
   sha1 "c19867f71f85d6dcb83b4600a811530a9344cc35"
+  revision 1
 
   head "https://github.com/madlib/madlib.git", :branch => "master"
 
   boost_opts = []
-  boost_opts << "with-python" if build.with? :python
   boost_opts << "c++11" if MacOS.version < :mavericks
   depends_on "boost" => boost_opts
+  depends_on "boost-python" => boost_opts if build.with? "python"
   depends_on "cmake" => :build
   depends_on "postgresql" => ['with-python']
   depends_on :python => :optional

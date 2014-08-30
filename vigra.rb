@@ -5,6 +5,7 @@ class Vigra < Formula
   url 'https://github.com/ukoethe/vigra/releases/download/Version-1-10-0/vigra-1.10.0-src-with-docu.tar.gz'
   sha1 '0a882bc09f5a6ec1f8381ff571020259eb88ee67'
   head 'https://github.com/ukoethe/vigra.git'
+  revision 1
 
   option :cxx11
   option "without-check", "skip tests"
@@ -22,9 +23,11 @@ class Vigra < Formula
   # vigra python bindings requires boost-python
   # see http://packages.ubuntu.com/saucy/python-vigra
   if build.with? "python"
-    boostwith = ["with-python"]
-    boostwith << "c++11" if build.cxx11?
-    depends_on "boost" => boostwith
+    if build.cxx11?
+      depends_on "boost-python" => "c++11"
+    else
+      depends_on "boost-python"
+    end
   end
 
   def install

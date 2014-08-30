@@ -5,10 +5,12 @@ class GalSim < Formula
   url "https://github.com/GalSim-developers/GalSim/archive/v1.1.0.tar.gz"
   sha1 'a1446f73053b4dc91f62d236193ba6ccb1fb9ae5'
   head "https://github.com/GalSim-developers/GalSim.git"
+  revision 1
 
   depends_on "scons" => :build
   depends_on "fftw"
-  depends_on "boost" => 'with-python'
+  depends_on "boost"
+  depends_on "boost-python"
   depends_on "tmv-cpp"
 
   # pyfits should come from pip
