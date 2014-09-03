@@ -2,10 +2,10 @@ require 'formula'
 
 class Root < Formula
   homepage 'http://root.cern.ch'
-  url 'ftp://root.cern.ch/root/root_v5.34.19.source.tar.gz'
-  mirror 'http://ftp.riken.jp/pub/ROOT/root_v5.34.19.source.tar.gz'
-  version '5.34.19'
-  sha1 '77d3c7c6e2a7fd797382f5992d0181eb55566cb4'
+  url 'ftp://root.cern.ch/root/root_v5.34.20.source.tar.gz'
+  mirror 'http://ftp.riken.jp/pub/ROOT/root_v5.34.20.source.tar.gz'
+  version '5.34.20'
+  sha1 'c50ceaaa4c10f071322c176b23ebdab820929b59'
   head 'https://github.com/root-mirror/root.git', :branch => 'v5-34-00-patches'
 
   option 'with-qt', "Build with Qt graphics backend and GSI's Qt integration"
