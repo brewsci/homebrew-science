@@ -43,8 +43,8 @@ class LpSolve < Formula
 
     # Clang on :snow_leopard does not ignore `-Wno-long-double` and errors out.
     if MacOS.version <= :snow_leopard
-      files = %w[configure configure.ac demo/ccc.osxbblp_solve/ccc.osx
-                 lpsolve55/ccc.osx lpsolve55/cccLUSOL.osx]
+      files = %w[configure configure.ac demo/ccc.osx
+                 lp_solve/ccc.osx lpsolve55/ccc.osx lpsolve55/cccLUSOL.osx]
       files.each { |f| inreplace f, "-Wno-long-double", ""}
     end
 
