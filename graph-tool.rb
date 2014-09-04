@@ -16,18 +16,18 @@ class GraphTool < Formula
   depends_on 'google-sparsehash' => ['c++11', :recommended]
   depends_on 'cairomm' => 'c++11' if build.with? 'cairo'
 
-  if build.with? 'python3'
-    depends_on 'boost' => ['c++11', 'with-python3']
-    depends_on 'py3cairo' if build.with? 'cairo'
-    depends_on 'matplotlib' => 'with-python3'
-    depends_on 'numpy' => 'with-python3'
-    depends_on 'scipy' => 'with-python3'
-  else
-    depends_on 'boost' => ['c++11', 'with-python']
-    depends_on 'py2cairo' if build.with? 'cairo'
-    depends_on 'matplotlib'
-    depends_on 'numpy'
-    depends_on 'scipy'
+  if build.with? "python3"
+    depends_on "boost" => ["c++11", "with-python3"]
+    depends_on "py3cairo" if build.with? "cairo"
+    depends_on "matplotlib" => :python3
+    depends_on "numpy" => :python3
+    depends_on "scipy" => :python3
+  elsif build.with? "python"
+    depends_on "boost" => ["c++11", "with-python"]
+    depends_on "py2cairo" if build.with? "cairo"
+    depends_on "matplotlib" => :python
+    depends_on "numpy" => :python
+    depends_on "scipy" => :python
   end
 
   def install
@@ -63,10 +63,7 @@ class GraphTool < Formula
       v2 = g.add_vertex()
       e = g.add_edge(v1, v2)
     EOS
-
-    Language::Python.each_python(build) do |python, version|
-      system python, "test.py"
-    end
+    Language::Python.each_python(build) { |python, version| system python, "test.py" }
   end
 
 end
