@@ -1,24 +1,24 @@
-require 'formula'
+require "formula"
 
 class Pymol < Formula
-  homepage 'http://pymol.org'
-  url 'https://downloads.sourceforge.net/project/pymol/pymol/1.7/pymol-v1.7.0.0.tar.bz2'
-  sha1 'b663c3779fc50a709adb8bfd8c275a7e44c4b54d'
-  head 'https://pymol.svn.sourceforge.net/svnroot/pymol/trunk/pymol'
+  homepage "http://pymol.org"
+  url "https://downloads.sourceforge.net/project/pymol/pymol/1.7/pymol-v1.7.2.1.tar.bz2"
+  sha1 "477ac127794ddf40f5177ffa4f141f097ca2fc9f"
+  head "https://pymol.svn.sourceforge.net/svnroot/pymol/trunk/pymol"
 
   depends_on "glew"
-  depends_on 'Pmw'
-  depends_on 'python' => 'with-brewed-tk'
-  depends_on 'homebrew/dupes/tcl-tk' => ['enable-threads','with-x11']
+  depends_on "pmw"
+  depends_on "python" => "with-brewed-tk"
+  depends_on "homebrew/dupes/tcl-tk" => ["enable-threads", "with-x11"]
   depends_on :freetype
   depends_on :libpng
   depends_on :x11
 
   # To use external GUI tk must be built with --enable-threads
   # and python must be setup to use that version of tk with --with-brewed-tk
-  depends_on 'Tkinter' => :python
+  depends_on "Tkinter" => :python
 
-  option 'default-stereo', 'Set stereo graphics as default'
+  option "default-stereo", "Set stereo graphics as default"
 
   # This patch adds checks that force mono as default
   unless build.include? "default-stereo"
@@ -39,9 +39,9 @@ class Pymol < Formula
     # PyMol uses ./ext as a backup to look for ./ext/include and ./ext/lib
     ln_s HOMEBREW_PREFIX, "./ext"
 
-    temp_site_packages = lib/which_python/'site-packages'
+    temp_site_packages = lib/which_python/"site-packages"
     mkdir_p temp_site_packages
-    ENV['PYTHONPATH'] = temp_site_packages
+    ENV["PYTHONPATH"] = temp_site_packages
 
     args = [
       "--verbose",
@@ -89,5 +89,4 @@ class Pymol < Formula
 
     EOS
   end
-
 end
