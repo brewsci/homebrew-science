@@ -5,7 +5,7 @@ class DataScienceToolbox < Formula
   homepage 'https://github.com/jeroenjanssens/data-science-toolbox'
   version '077c94f'
   url "https://github.com/jeroenjanssens/data-science-toolbox/archive/#{version}.tar.gz"
-  sha1 '35b4397f1d7356e833d923f446657219f58cb1c9'
+  sha1 '3bf62e2bd58c9e2df1dec3c8371637353404bd52'
   head 'https://github.com/jeroenjanssens/data-science-toolbox.git'
 
   def install
