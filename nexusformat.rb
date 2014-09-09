@@ -8,6 +8,7 @@ class Nexusformat < Formula
   depends_on 'hdf5'
   depends_on 'libmxml'
   depends_on 'readline' => :recommended
+  depends_on 'homebrew/versions/hdf4' => :recommended
   depends_on 'doxygen' => :optional
 
   def install
@@ -16,6 +17,7 @@ class Nexusformat < Formula
       --disable-silent-rules
       --disable-dependency-tracking
       --disable-debug
+      --with-hdf4=#{Formula['homebrew/versions/hdf4'].opt_prefix}
     ]
 
     system "./configure", *args
