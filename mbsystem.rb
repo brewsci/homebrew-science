@@ -2,8 +2,8 @@ require "formula"
 
 class Mbsystem < Formula
   homepage "http://www.mbari.org/data/mbsystem/mb-cookbook/index.html"
-  url "ftp://ftp.ldeo.columbia.edu/pub/MB-System/mbsystem-5.4.2191.tar.gz"
-  sha1 "c8bda63009d07ce74a2b2a742637ab700a0f4236"
+  url "ftp://ftp.ldeo.columbia.edu/pub/MB-System/mbsystem-5.4.2202.tar.gz"
+  sha1 "a4513c3a6a9e22e5fcb3b18ef85ff4b9c08a1b25"
 
   depends_on :x11
   depends_on "gmt4"
@@ -22,7 +22,7 @@ class Mbsystem < Formula
   end
 
   def install
-    if build.with? 'levitus'
+    if build.with? "levitus"
       resource("levitus").stage do
         mkdir_p "#{share}/mbsystem"
         ln_s "annual", "#{share}/mbsystem/LevitusAnnual82.dat"
@@ -32,7 +32,7 @@ class Mbsystem < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--disable-static",
                           "--enable-shared"
-    system "make", "check" if build.with? 'check'
+    system "make", "check" if build.with? "check"
     system "make", "install"
   end
 end
