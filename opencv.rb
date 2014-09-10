@@ -25,6 +25,7 @@ class Opencv < Formula
   depends_on "jpeg"
   depends_on :libpng
   depends_on "libtiff"
+  depends_on "libdc1394"  => :optional
   depends_on "numpy"      => :python
   depends_on "openexr"    => :recommended
   depends_on "openni"     => :optional
@@ -69,6 +70,7 @@ class Opencv < Formula
     args << "-DWITH_FFMPEG=" + ((build.with? "ffmpeg") ? "ON" : "OFF")
     args << "-DWITH_GSTREAMER=" + ((build.with? "gstreamer") ? "ON" : "OFF")
     args << "-DWITH_QUICKTIME=" + ((build.with? "quicktime") ? "ON" : "OFF")
+    args << "-DWITH_1394=" + ((build.with? "libdc1394") ? "ON" : "OFF")
 
     if build.with? "cuda"
       args << "-DWITH_CUDA=ON"
