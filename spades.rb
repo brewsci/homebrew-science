@@ -1,10 +1,11 @@
 require 'formula'
 
 class Spades < Formula
-  homepage 'http://bioinf.spbau.ru/spades/'
-  #doi '10.1089/cmb.2012.0021'
-  url 'http://spades.bioinf.spbau.ru/release3.1.0/SPAdes-3.1.0.tar.gz'
-  sha1 '231b5550507cc2e2bd11d69e4a349025cfbe8ac7'
+  homepage "http://bioinf.spbau.ru/spades/"
+  #tag "bioinformatics"
+  #doi "10.1089/cmb.2012.0021"
+  url "http://spades.bioinf.spbau.ru/release3.1.1/SPAdes-3.1.1.tar.gz"
+  sha1 "fe316a7620599ae4e5b1cba92316f79cac107fa2"
 
   depends_on 'cmake' => :build
 
