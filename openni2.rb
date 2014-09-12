@@ -19,7 +19,7 @@ class Openni2 < Formula
   stable do
     patch do
       url "https://github.com/occipital/OpenNI2/pull/18.patch"
-      sha1 "e0be30b6b9296939306155580df1ac7912d3f949"
+      sha1 "4beb04a31a64677618801f0e95141807592442ef"
     end
   end
 
