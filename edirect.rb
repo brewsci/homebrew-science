@@ -3,7 +3,7 @@ require "formula"
 class Edirect < Formula
   homepage "http://www.ncbi.nlm.nih.gov/books/NBK179288/"
   url "ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/edirect.tar.gz"
-  sha1 "f5ffa5a466ad2c971a1a3fbc3c13348ab7770317"
+  sha1 "8bd970c630fe77b7ceff8f7a8c18bf0d5225253d"
   version "2.00"
 
   def install
