@@ -5,8 +5,8 @@ class Cantera < Formula
   head 'https://github.com/cantera/cantera.git', :branch => 'master'
 
   stable do
-    url 'https://downloads.sourceforge.net/project/cantera/cantera/2.1.1/cantera-2.1.1.tar.gz'
-    sha1 '439dfc583ad225e06bcc5f00ce0173720ac8942a'
+    url "https://downloads.sourceforge.net/project/cantera/cantera/2.1.2/cantera-2.1.2.tar.gz"
+    sha1 "57c3ddf112d5b27cb423f064fc84dcaa6ba14a1f"
     # Patches to checkFinite.cpp and SConstruct should be removed for
     # Cantera 2.2.x (fixed upstream)
     patch :DATA
@@ -26,6 +26,7 @@ class Cantera < Formula
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "scons" => :build
   depends_on "numpy" => :python
+  depends_on "cython" => :python
   depends_on "sundials" => :recommended
   depends_on :python3 => :optional
   depends_on "graphviz" => :optional
