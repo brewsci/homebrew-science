@@ -3,6 +3,7 @@ require 'formula'
 class Abyss < Formula
   homepage 'http://www.bcgsc.ca/platform/bioinfo/software/abyss'
   #doi '10.1101/gr.089532.108'
+  #tag "bioinformatics"
   url 'https://github.com/bcgsc/abyss/releases/download/1.5.2/abyss-1.5.2.tar.gz'
   sha1 'f28189338efdee0167cf73f92b43181caccd2b1d'
 
