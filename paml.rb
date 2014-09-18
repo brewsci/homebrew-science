@@ -1,20 +1,21 @@
-require 'formula'
+require "formula"
 
 class Paml < Formula
-  homepage 'http://abacus.gene.ucl.ac.uk/software/paml.html'
-  url 'http://abacus.gene.ucl.ac.uk/software/paml4.8.tgz'
-  sha1 '831746bc497bb20d5d6f21c5ea4c00bcf0ec3956'
+  homepage "http://abacus.gene.ucl.ac.uk/software/paml.html"
+  url "http://abacus.gene.ucl.ac.uk/software/paml4.8a.tgz"
+  sha1 "5cb199791c4fc54739cbad89d8c37fd76552ca1c"
+  version "4.8a"
 
   def install
-    cd 'src' do
+    cd "src" do
       system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
       bin.install %w[baseml basemlg codeml pamp evolver yn00 chi2]
     end
 
-    (share+'paml').install 'dat'
-    (share+'paml').install Dir['*.ctl']
-    doc.install Dir['doc/*']
-    doc.install 'examples'
+    (share/"paml").install "dat"
+    (share/"paml").install Dir["*.ctl"]
+    doc.install Dir["doc/*"]
+    doc.install "examples"
   end
 
   def caveats
