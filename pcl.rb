@@ -82,6 +82,8 @@ class Pcl < Formula
       system "cmake", *args
       system "make"
       system "make install"
+
+      prefix.install Dir["#{bin}/*.app"]
     end
   end
 end
