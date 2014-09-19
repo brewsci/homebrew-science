@@ -54,6 +54,7 @@ class R < Formula
 
     if build.with? "openblas"
       args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas" << "--with-lapack"
+      ENV.append "LDFLAGS", "-L#{Formula["openblas"].opt_lib}"
     elsif build.with? "accelerate"
       args << "--with-blas=-framework Accelerate" << "--with-lapack"
       # Fall back to Rblas without-accelerate or -openblas
@@ -63,7 +64,8 @@ class R < Formula
     args << '--without-x' if build.without? 'x11'
 
     # Also add gettext include so that libintl.h can be found when installing packages.
-    ENV.append "CPPFLAGS", "-I#{Formula['gettext'].opt_include}"
+    ENV.append "CPPFLAGS", "-I#{Formula["gettext"].opt_include}"
+    ENV.append "LDFLAGS",  "-L#{Formula["gettext"].opt_lib}"
 
     # Sometimes the wrong readline is picked up.
     ENV.append "CPPFLAGS", "-I#{Formula['readline'].opt_include}"
