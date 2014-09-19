@@ -2,10 +2,9 @@ class Trinity < Formula
   homepage "http://trinityrnaseq.sourceforge.net"
   #doi "10.1038/nbt.1883"
   #tag "bioinformatics"
-
-  version "r20131110"
+  version "r20140717"
   url "https://downloads.sourceforge.net/trinityrnaseq/trinityrnaseq_#{version}.tar.gz"
-  sha1 "3207147a1ece0d7f2b4b9dc5aa8e735b3d55cb1d"
+  sha1 "fd559efe2005fb0c568b280a3edf43e25e6e6aba"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -15,33 +14,37 @@ class Trinity < Formula
   end
 
   depends_on "bowtie"
+  depends_on "samtools-0.1"
+  depends_on :java => "1.6"
 
   needs :openmp
 
   def install
+    inreplace "Trinity",
+      "$ENV{TRINITY_HOME} = \"$FindBin::Bin\";",
+      "$ENV{TRINITY_HOME} = \"#{opt_prefix}\";"
+
+    inreplace "Makefile",
+      "Chrysalis && $(MAKE)",
+      "Chrysalis && make CC=#{ENV.cc} CXX=#{ENV.cxx} CFLAGS=#{ENV.cflags}"
+
+    inreplace "trinity-plugins/Makefile" do |s|
+      # Build jellyfish with the desired compiler
+      s.gsub! "CC=gcc CXX=g++", "CC=#{ENV.cc} CXX=#{ENV.cxx}"
+      s.gsub! "parafly && ./configure", "parafly && ./configure LDFLAGS=-fopenmp"
+    end
+
     ENV.j1
-    inreplace "trinity-plugins/coreutils/build_parallel_sort.sh", "make -j", "make"
-
-    # Build jellyfish with the desired compiler
-    inreplace "Makefile", "CC=gcc CXX=g++", "CC=#{ENV.cc} CXX=#{ENV.cxx}"
-
-    # Fix the undefined OpenMP symbols in parafly
-    inreplace "Makefile", "parafly && ./configure", "parafly && ./configure LDFLAGS=-fopenmp"
-
     system "make"
+    doc.install Dir["docs/*"]
+    prefix.install Dir["*"]
+    bin.install_symlink prefix/"Trinity"
+  end
 
-    # The Makefile is designed to build in place, so we copy all of the needed
-    # subdirectories to the prefix.
-    prefix.install %w(Trinity.pl Inchworm Chrysalis Butterfly trinity-plugins util)
-
-    # Trinity.pl (the main wrapper script) must remain in the prefix directory,
-    # because it uses relative paths to the in-place build. So we create a
-    # symlink in bin to put the wrapper in the user's path.
-    mkdir_p bin
-    ln_s prefix/"Trinity.pl", bin/"Trinity.pl"
-
-    # Also install a small test case.
-    (prefix + "sample_data").install "sample_data/test_Trinity_Assembly"
+  def caveats; <<-EOS.undent
+    You may need to add the following environment variable:
+      export PERL5LIB=#{opt_prefix}/PerlLib:$PERL5LIB
+    EOS
   end
 
   test do
