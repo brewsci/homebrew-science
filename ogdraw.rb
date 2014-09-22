@@ -3,6 +3,8 @@ require 'formula'
 # OrganellarGenomeDRAW
 class Ogdraw < Formula
   homepage 'http://ogdraw.mpimp-golm.mpg.de/'
+  #doi "10.1007/s00294-007-0161-y" => "2007", "10.1093/nar/gkt289" => "2013"
+  #tag "bioinformatics"
   url 'http://ogdraw.mpimp-golm.mpg.de/resources/GeneMap-1.1.1.tar.gz'
   sha1 '16ea480aa13d702cc30a7160b8a3668c51627989'
 
