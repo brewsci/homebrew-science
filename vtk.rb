@@ -12,6 +12,7 @@ class Vtk < Formula
   depends_on 'cmake' => :build
   depends_on :x11 => :optional
   depends_on 'qt' => :optional
+  depends_on 'qt5' => :optional
   depends_on :python => :recommended
   depends_on 'boost' => :recommended
   depends_on :fontconfig => :recommended
@@ -22,7 +23,7 @@ class Vtk < Formula
   depends_on 'matplotlib' => [:python, :optional]
 
   # If --with-qt and --with-python, then we automatically use PyQt, too!
-  if build.with? 'qt'
+  if build.with? 'qt' or build.with? 'qt5'
     if build.with? 'python'
       depends_on 'sip'
       depends_on 'pyqt'
@@ -52,7 +53,8 @@ class Vtk < Formula
 
     args << '-DBUILD_EXAMPLES=' + ((build.include? 'examples') ? 'ON' : 'OFF')
 
-    if build.with? 'qt' or build.include? 'qt-extern'
+    if build.with? 'qt' or build.with? 'qt5' or build.include? 'qt-extern'
+      args << '-DVTK_QT_VERSION:STRING=5' if build.with? 'qt5'
       args << '-DVTK_Group_Qt=ON'
     end
 
