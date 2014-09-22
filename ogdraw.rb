@@ -38,6 +38,6 @@ class Ogdraw < Formula
   end
 
   test do
-    system "PERL5LIB=/usr/local/lib/perl5/site_perl #{bin}/drawgenemap"
+    system "PERL5LIB=#{HOMEBREW_PREFIX}/lib/perl5/site_perl #{bin}/drawgenemap"
   end
 end
