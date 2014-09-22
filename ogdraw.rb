@@ -21,7 +21,7 @@ class Ogdraw < Formula
 
   def install
     system *%W[perl Makefile.PL PREFIX=#{prefix}]
-    system *%w[make install]
+    system "make", "pure_install"
   end
 
   def caveats; <<-EOS.undent
