@@ -2,8 +2,8 @@ require "formula"
 
 class Vips < Formula
   homepage "http://www.vips.ecs.soton.ac.uk/"
-  url "http://www.vips.ecs.soton.ac.uk/supported/7.40/vips-7.40.8.tar.gz"
-  sha1 "b597ec65f68f10e4b648960ee3f412edcc95ef98"
+  url "http://www.vips.ecs.soton.ac.uk/supported/7.40/vips-7.40.9.tar.gz"
+  sha1 "d94212d1f8bf71d1e40fcdd5470c8c9135f85a11"
 
   option "without-check", "Disable build time checks (not recommended)"
 
