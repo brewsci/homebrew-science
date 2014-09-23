@@ -6,8 +6,8 @@ class Samtools < Formula
   #tag "bioinformatics"
   head "https://github.com/samtools/samtools.git"
 
-  url "https://github.com/samtools/samtools/archive/1.0.tar.gz"
-  sha1 "78bdac301a2a342a2cfac100b79fb5fa99808114"
+  url "https://github.com/samtools/samtools/archive/1.1.tar.gz"
+  sha1 "ca446ec24eabd2f71605dde55a787f182cb50f13"
 
   option 'with-dwgsim', 'Build with "Whole Genome Simulation"'
 
