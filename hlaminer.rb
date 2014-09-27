@@ -9,6 +9,7 @@ class Hlaminer < Formula
   sha1 "5fd145df85a1257147310a0bf5fee3e2f9ff6ec0"
 
   depends_on "tasr"
+  depends_on "blast"
 
   def install
     # Conflicts with tasr
