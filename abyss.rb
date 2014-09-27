@@ -38,9 +38,9 @@ class Abyss < Formula
 
   def install
     resource("gtest").stage do
-      system "./configure"
-      system "make"
-      (buildpath/"gtest").install "include", "lib"
+      system "make", "-C", "make"
+      (buildpath/"gtest").install "include"
+      (buildpath/"gtest/lib").install "make/gtest_main.a" => "libgtest_main.a"
     end if build.with? "check"
 
     system "./autogen.sh" if build.head?
