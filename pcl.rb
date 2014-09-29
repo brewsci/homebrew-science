@@ -94,11 +94,11 @@ class Pcl < Formula
       args = args + %W[
         -DBUILD_apps=AUTO_OFF
         -DBUILD_apps_3d_rec_framework=AUTO_OFF
-        -DBUILD_apps_cloud_composer=AUTO_OFF
+        -DBUILD_apps_cloud_composer:BOOL=FALSE
         -DBUILD_apps_in_hand_scanner=AUTO_OFF
         -DBUILD_apps_modeler=AUTO_OFF
         -DBUILD_apps_optronic_viewer=AUTO_OFF
-        -DBUILD_apps_point_cloud_editor=AUTO_OFF
+        -DBUILD_apps_point_cloud_editor:BOOL=FALSE
       ]
     else
       args << "-DBUILD_apps:BOOL=OFF"
