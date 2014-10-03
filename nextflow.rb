@@ -6,9 +6,9 @@ class Nextflow < Formula
 
   depends_on :java => "1.7"
 
-  version "0.10.1"
-  url "http://www.nextflow.io/releases/v0.10.1/nextflow"
-  sha1 "7dca61e75fe403f456371fc1d18ad62d6336bd1c"
+  version "0.10.3"
+  url "http://www.nextflow.io/releases/v0.10.3/nextflow"
+  sha1 "d13888b89421f54065ba64fff87a47613554727d"
 
   def install
     chmod 0755, "nextflow"
