@@ -12,8 +12,8 @@ class Maker < Formula
   depends_on 'infernal' => :optional
   depends_on 'mir-prefer' => :optional
   depends_on :mpi => :optional
-  depends_on 'repeatmasker' => :optional
-  depends_on 'snap' => :optional
+  depends_on 'repeatmasker' => :recommended
+  depends_on 'snap' => :recommended
   depends_on 'snoscan' => :optional
   depends_on 'trnascan' => :optional
   # No formula: depends_on 'genemark-es' => :optional
@@ -21,12 +21,13 @@ class Maker < Formula
 
   depends_on 'Bio::Perl' => :perl
   depends_on 'Bit::Vector' => :perl
+  depends_on 'DBD::Pg' => :perl
   depends_on 'DBD::SQLite' => :perl
   depends_on 'DBI' => :perl
   depends_on 'File::Which' => :perl
   depends_on 'IO::All' => :perl
   depends_on 'IO::Prompt' => :perl
-  depends_on 'Inline' => :perl
+  depends_on LanguageModuleDependency.new :perl, 'Inline::C', 'Inline'
   depends_on 'Perl::Unsafe::Signals' => :perl
   depends_on 'PerlIO::gzip' => :perl
   depends_on 'forks' => :perl
