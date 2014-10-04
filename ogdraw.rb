@@ -25,6 +25,12 @@ class Ogdraw < Formula
     sha1 "4d5d3287cbe35f1a30ef7ba966ab393a3ec0e2cc"
   end
 
+  # drawgenemap: Add --gc option to add %GC graph
+  patch do
+    url "https://github.com/sjackman/OGDraw/commit/f650fdc23da46915e8d85f92dcc45cb35fad84d1.diff"
+    sha1 "d5c5af80b5ee21dada43fc02908d91dfa3305e5d"
+  end
+
   def install
     system *%W[perl Makefile.PL PREFIX=#{prefix}]
     system "make", "pure_install"
