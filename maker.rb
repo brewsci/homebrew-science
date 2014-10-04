@@ -21,7 +21,7 @@ class Maker < Formula
 
   depends_on 'Bio::Perl' => :perl
   depends_on 'Bit::Vector' => :perl
-  depends_on 'DBD::Pg' => :perl
+  depends_on 'DBD::Pg' => [:perl, :optional]
   depends_on 'DBD::SQLite' => :perl
   depends_on 'DBI' => :perl
   depends_on 'File::Which' => :perl
