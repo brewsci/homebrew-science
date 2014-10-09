@@ -21,8 +21,8 @@ class Blast < Formula
   depends_on :python
 
   fails_with :clang do
-    build 503
-    cause "error: 'bits/c++config.h' file not found"
+    build 600
+    cause "configure: error: cannot continue; please try different options"
   end
 
   fails_with :gcc => "4.9" do
