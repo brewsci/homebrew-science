@@ -13,7 +13,7 @@ class Osgearth < Formula
   option "with-docs-examples", "Build and install html documentation and examples"
 
   depends_on "cmake" => :build
-  depends_on "open-scene-graph"
+  depends_on "open-scene-graph" => (build.with? "qt") ? ["with-qt"] : []
   depends_on "gdal"
   depends_on "sqlite"
   depends_on "qt" => :recommended
