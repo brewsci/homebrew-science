@@ -60,12 +60,20 @@ class Pcl < Formula
   depends_on "openni2" => :optional
 
   head do
-     depends_on "glew"
-     depends_on CudaRequirement => :optional
+    depends_on "glew"
+    depends_on CudaRequirement => :optional
 
-     # CUDA 6.5 works with libc++
-     patch :DATA
+    # CUDA 6.5 works with libc++
+    patch :DATA
   end
+
+  stable do
+    patch do
+      url "https://gist.githubusercontent.com/fran6co/a6e1e44b1b43b2d150cd/raw/e7953b409a6c4a21d8a9ea0b380b440e95a1254b/boost.patch"
+      sha1 "6fbce5d408df3883b5f532a1bff4d20a6e78d41a"
+    end
+  end
+
 
   def install
     args = std_cmake_args + %W[
@@ -94,11 +102,11 @@ class Pcl < Formula
       args = args + %W[
         -DBUILD_apps=AUTO_OFF
         -DBUILD_apps_3d_rec_framework=AUTO_OFF
-        -DBUILD_apps_cloud_composer:BOOL=FALSE
+        -DBUILD_apps_cloud_composer=AUTO_OFF
         -DBUILD_apps_in_hand_scanner=AUTO_OFF
         -DBUILD_apps_modeler=AUTO_OFF
         -DBUILD_apps_optronic_viewer=AUTO_OFF
-        -DBUILD_apps_point_cloud_editor:BOOL=FALSE
+        -DBUILD_apps_point_cloud_editor=AUTO_OFF
       ]
     else
       args << "-DBUILD_apps:BOOL=OFF"
@@ -118,7 +126,7 @@ class Pcl < Formula
       args << "-DCMAKE_DISABLE_FIND_PACKAGE_OpenNI:BOOL=TRUE"
     end
 
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_Qt4:BOOL=TRUE" if build.without? "qt"
+    args << "-DWITH_QT:BOOL=FALSE" if build.without? "qt"
     args << "-DCMAKE_DISABLE_FIND_PACKAGE_VTK:BOOL=TRUE" if build.without? "vtk"
 
     args << ".."
