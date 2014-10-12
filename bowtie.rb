@@ -3,14 +3,9 @@ require "formula"
 class Bowtie < Formula
   homepage "http://bowtie-bio.sourceforge.net/index.shtml"
   #doi "10.1186/gb-2009-10-3-r25"
-  url "https://github.com/BenLangmead/bowtie/archive/v1.1.0.tar.gz"
-  sha1 "5631ac84b22721b138cd401f0b4b3ec1d68d6b63"
+  url "https://github.com/BenLangmead/bowtie/archive/v1.1.1.tar.gz"
+  sha1 "297b0c56d3847a8cc11a4c03917c03bd6080d365"
   head "https://github.com/BenLangmead/bowtie.git"
-
-  fails_with :clang do
-    build 503
-    cause %q[error: reference to 'lock_guard' is ambiguous. See #476]
-  end
 
   def install
     system "make", "allall"
