@@ -23,6 +23,13 @@ class Octave < Formula
     sha1 "19f2dcaf636f1968c4b1639797415f83fb21d5a3"
   end
 
+  # Allows clang 3.5 to compile with a recent libc++ release.
+  # See: https://savannah.gnu.org/bugs/?43298
+  patch do
+    url "https://savannah.gnu.org/bugs/download.php?file_id=32255"
+    sha1 "db7ba78b8e9cdc2302c0ba6701aa54ff9449fe1e"
+  end
+
   skip_clean "share/info" # Keep the docs
 
   option "without-check",          "Skip build-time tests (not recommended)"
