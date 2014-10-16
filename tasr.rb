@@ -6,7 +6,7 @@ class Tasr < Formula
   #tag "bioinformatics"
   url "http://www.bcgsc.ca/platform/bioinfo/software/tasr/releases/1.5.1/tasr_v1-5-1.tar.gz"
   version "1.5.1"
-  sha1 "095f3fa5dd92252331abae7cd04848ef0dbab9cb"
+  sha1 "98f3b2207a5e7a1904cc858dec6614677c6b38df"
 
   def install
     bin.install "TASR"
