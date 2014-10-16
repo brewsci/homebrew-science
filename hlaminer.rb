@@ -6,7 +6,7 @@ class Hlaminer < Formula
   #tag "bioinformatics"
   url "http://www.bcgsc.ca/platform/bioinfo/software/hlaminer/releases/1.1/HLAminer.tar.gz"
   version "1.1.0"
-  sha1 "5fd145df85a1257147310a0bf5fee3e2f9ff6ec0"
+  sha1 "d1c97731885bc7a12f67027e0e0b01c8bfb03bd2"
 
   depends_on "tasr"
   depends_on "blast"
