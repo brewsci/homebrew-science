@@ -82,16 +82,16 @@ class R < Formula
       system "make check 2>&1 | tee make-check.log" if build.with? 'check'
       system "make install"
 
-      # Link binaries and manpages from the Framework
+      # Link binaries, headers, libraries, & manpages from the Framework
       # into the normal locations
-      bin.mkpath
-      man1.mkpath
-
       if OS.mac?
-        ln_s prefix+"R.framework/Resources/bin/R", bin
-        ln_s prefix+"R.framework/Resources/bin/Rscript", bin
-        ln_s prefix+"R.framework/Resources/man1/R.1", man1
-        ln_s prefix+"R.framework/Resources/man1/Rscript.1", man1
+        bin.install_symlink prefix/"R.framework/Resources/bin/R"
+        bin.install_symlink prefix/"R.framework/Resources/bin/Rscript"
+        frameworks.install_symlink prefix/"R.framework"
+        include.install_symlink prefix/"R.framework/Resources/include/R.h"
+        lib.install_symlink prefix/"R.framework/Resources/lib/libR.dylib"
+        man1.install_symlink prefix/"R.framework/Resources/man1/R.1"
+        man1.install_symlink prefix/"R.framework/Resources/man1/Rscript.1"
       end
 
       bash_completion.install resource('completion')
@@ -101,14 +101,12 @@ class R < Formula
 
     cd "src/nmath/standalone" do
       system "make"
-      include.mkpath
       ENV.deparallelize # Serialized installs, please
       system "make", "install"
 
       if OS.mac?
-        lib.mkpath
-        ln_s prefix+"R.framework/Versions/3.1/Resources/lib/libRmath.dylib", lib
-        ln_s prefix+"R.framework/Versions/3.1/Resources/include/Rmath.h", include
+        lib.install_symlink prefix/"R.framework/Versions/3.1/Resources/lib/libRmath.dylib"
+        include.install_symlink prefix/"R.framework/Versions/3.1/Resources/include/Rmath.h"
       end
     end
 
