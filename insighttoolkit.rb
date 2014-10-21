@@ -2,8 +2,8 @@ require 'formula'
 
 class Insighttoolkit < Formula
   homepage 'http://www.itk.org'
-  url 'https://downloads.sourceforge.net/project/itk/itk/4.6/InsightToolkit-4.6.0.tar.gz'
-  sha1 '66f2d7b4b464af561aeb5dc77951086a2ac34ffe'
+  url 'https://downloads.sourceforge.net/project/itk/itk/4.6/InsightToolkit-4.6.1.tar.gz'
+  sha1 '95b879b17a8e2c4727b363037a3af4377095422d'
   head 'git://itk.org/ITK.git'
 
   option :cxx11
