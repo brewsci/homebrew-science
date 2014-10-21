@@ -21,6 +21,7 @@ class Sga < Formula
                             "--with-bamtools=#{Formula["bamtools"].opt_prefix}",
                             "--with-sparsehash=#{Formula["google-sparsehash"].opt_prefix}"
       system "make install"
+      bin.install Dir["bin/*.{pl,py}"]
     end
   end
 
