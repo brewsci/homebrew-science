@@ -11,9 +11,11 @@ class Nextflow < Formula
   sha1 "d13888b89421f54065ba64fff87a47613554727d"
 
   def install
-    chmod 0755, "nextflow"
-    system "./nextflow", "-download"
     bin.install "nextflow"
+  end
+
+  def post_install
+    system "#{bin}/nextflow", "-download"
   end
 
   test do
