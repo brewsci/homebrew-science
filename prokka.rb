@@ -7,6 +7,7 @@ class Prokka < Formula
   sha1 "46ece37d2d5c5ca2f3e740ffcdf9bdafaab92820"
 
   depends_on "Bio::Perl" => :perl
+  depends_on "XML::Simple" => :perl
   depends_on "blast"
   depends_on "hmmer"
   depends_on "aragorn"
