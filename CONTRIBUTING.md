@@ -17,7 +17,7 @@ See also Homebrew's [FAQ](https://github.com/Homebrew/homebrew/wiki/FAQ) and [Co
 * Search [open](https://github.com/Homebrew/homebrew-science/issues?state=open) and [closed](https://github.com/Homebrew/homebrew-science/issues?page=1&state=closed) issues before submitting a new issue. Duplicates will be closed.
 * Strictly one formula per issue unless your issue is about different formulae interacting negatively.
 * Give the full `brew` command that you used and that caused the error to emerge.
-* **If a formula fails to brew, always [gist](https://gist.github.com) the full logs and post links in the issue. One may be automatically generated with `brew gist-logs --config --doctor <formula>`.**
+* **If a formula fails to brew, always [gist](https://gist.github.com) the full logs with `brew gist-logs <formula>`.**
 
 <a name="formula"/>
 ## Formula Guidelines
