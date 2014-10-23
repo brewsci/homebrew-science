@@ -7,7 +7,7 @@ class Swetest < Formula
 
   resource "seasnam" do
     url "ftp://ftp.astro.com/pub/swisseph/ephe/seasnam.txt"
-    sha1 "57ad82388c9fcfc00f7d9f509408307a3d4d4527"
+    sha1 "e28fd6b633cce2b5c022e940c652bee9be11224e"
   end
 
   resource "sefstars" do
