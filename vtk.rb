@@ -1,40 +1,39 @@
-require 'formula'
+require "formula"
 
 class Vtk < Formula
-  homepage 'http://www.vtk.org'
-  url 'http://www.vtk.org/files/release/6.1/VTK-6.1.0.tar.gz'
-  sha1 '91d1303558c7276f031f8ffeb47b4233f2fd2cd9'
+  homepage "http://www.vtk.org"
+  url "http://www.vtk.org/files/release/6.1/VTK-6.1.0.tar.gz"
+  sha1 "91d1303558c7276f031f8ffeb47b4233f2fd2cd9"
 
-  head 'https://github.com/Kitware/VTK.git'
+  head "https://github.com/Kitware/VTK.git"
 
   option :cxx11
+  option "examples",        "Compile and install various examples"
+  option "qt-extern",       "Enable Qt4 extension via non-Homebrew external Qt4"
+  option "tcl",             "Enable Tcl wrapping of VTK classes"
+  option "with-matplotlib", "Enable matplotlib support"
+  option "remove-legacy",   "Disable legacy APIs"
 
-  depends_on 'cmake' => :build
+  depends_on "cmake" => :build
   depends_on :x11 => :optional
-  depends_on 'qt' => :optional
-  depends_on 'qt5' => :optional
+  depends_on "qt" => :optional
+  depends_on "qt5" => :optional
   depends_on :python => :recommended
-  depends_on 'boost' => :recommended
+  depends_on "boost" => :recommended
   depends_on :fontconfig => :recommended
-  depends_on 'hdf5' => :recommended
-  depends_on 'jpeg' => :recommended
+  depends_on "hdf5" => :recommended
+  depends_on "jpeg" => :recommended
   depends_on :libpng => :recommended
-  depends_on 'libtiff' => :recommended
-  depends_on 'matplotlib' => [:python, :optional]
+  depends_on "libtiff" => :recommended
+  depends_on "matplotlib" => :python if build.with? "matplotlib"
 
   # If --with-qt and --with-python, then we automatically use PyQt, too!
-  if build.with? 'qt' or build.with? 'qt5'
-    if build.with? 'python'
-      depends_on 'sip'
-      depends_on 'pyqt'
+  if build.with? "qt" or build.with? "qt5"
+    if build.with? "python"
+      depends_on "sip"
+      depends_on "pyqt"
     end
   end
-
-  option 'examples',  'Compile and install various examples'
-  option 'qt-extern', 'Enable Qt4 extension via non-Homebrew external Qt4'
-  option 'tcl',       'Enable Tcl wrapping of VTK classes'
-  option 'with-matplotlib', 'Enable matplotlib support'
-  option 'remove-legacy', 'Disable legacy APIs'
 
   def install
     args = std_cmake_args + %W[
@@ -79,7 +78,7 @@ class Vtk < Formula
     args << '-DModule_vtkRenderingFreeTypeFontConfig=ON' if build.with? 'fontconfig'
     args << '-DVTK_USE_SYSTEM_HDF5=ON' if build.with? 'hdf5'
     args << '-DVTK_USE_SYSTEM_JPEG=ON' if build.with? 'jpeg'
-    args << '-DVTK_USE_SYSTEM_PNG=ON' if build.with? :libpng
+    args << '-DVTK_USE_SYSTEM_PNG=ON' if build.with? "libpng"
     args << '-DVTK_USE_SYSTEM_TIFF=ON' if build.with? 'libtiff'
     args << '-DModule_vtkRenderingMatplotlib=ON' if build.with? 'matplotlib'
     args << '-DVTK_LEGACY_REMOVE=ON' if build.include? 'remove-legacy'
@@ -93,7 +92,8 @@ class Vtk < Formula
         args << "-DPYTHON_LIBRARY='#{%x(python-config --prefix).chomp}/lib/libpython2.7.dylib'"
         # Set the prefix for the python bindings to the Cellar
         args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{lib}/python2.7/site-packages'"
-        if build.with? 'pyqt'
+
+        if build.with? "qt"
           args << '-DVTK_WRAP_PYTHON_SIP=ON'
           args << "-DSIP_PYQT_DIR='#{HOMEBREW_PREFIX}/share/sip'"
         end
