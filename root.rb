@@ -9,6 +9,7 @@ class Root < Formula
   head 'https://github.com/root-mirror/root.git', :branch => 'v5-34-00-patches'
 
   option 'with-qt', "Build with Qt graphics backend and GSI's Qt integration"
+  depends_on "openssl"
   depends_on 'xrootd' => :recommended
   depends_on 'fftw' => :optional
   depends_on 'qt' => [:optional, 'with-qt3support']
