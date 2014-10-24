@@ -4,7 +4,7 @@ class Edirect < Formula
   homepage "http://www.ncbi.nlm.nih.gov/books/NBK179288/"
   #tag "bioinformatics"
   url "ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/edirect.tar.gz"
-  sha1 "95d542fb19a49e02bb41ac4c5cbf2cb32b17ff5a"
+  sha1 "c5ef5539e60b2f1d318e1d413f47dc195d9c2b90"
   version "2.00"
 
   def install
