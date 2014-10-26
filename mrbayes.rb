@@ -2,8 +2,8 @@ require 'formula'
 
 class Mrbayes < Formula
   homepage 'http://mrbayes.sourceforge.net/'
-  url 'https://downloads.sourceforge.net/project/mrbayes/mrbayes/3.2.2/mrbayes-3.2.2.tar.gz'
-  sha1 '6f469f595a3dbd2f8394cb29bc70ca1773338ac8'
+  url "https://downloads.sourceforge.net/project/mrbayes/mrbayes/3.2.3/mrbayes-3.2.3.tar.gz"
+  sha1 "8492ce3b33369b10e89553f56a9a94724772ae2d"
 
   head 'https://mrbayes.svn.sourceforge.net/svnroot/mrbayes/trunk/'
 
