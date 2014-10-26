@@ -84,7 +84,7 @@ class Octave < Formula
   depends_on "llvm"           if build.with? "jit"
   depends_on "curl"           if build.with? "curl" and MacOS.version == :leopard
 
-  depends_on "gnuplot"        => :recommended
+  depends_on "gnuplot"        => [:recommended, build.with?("gui") ? "qt" : ""]
   depends_on "suite-sparse"   => :recommended
   depends_on "readline"       => :recommended
   depends_on "arpack"         => :recommended
