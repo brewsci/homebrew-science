@@ -8,9 +8,9 @@ First of all, thank you for contributing to [Homebrew/science](https://github.co
 <a name="issues"/>
 ## Issues
 
-#### First, please read the [Troubleshooting Checklist](https://github.com/Homebrew/homebrew/wiki/troubleshooting).
+#### First, please read the [Troubleshooting Checklist](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Troubleshooting.md#troubleshooting).
 
-See also Homebrew's [FAQ](https://github.com/Homebrew/homebrew/wiki/FAQ) and [Common Issues](https://github.com/Homebrew/homebrew/wiki/Common-Issues).
+See also Homebrew's [FAQ](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/FAQ.md#faq) and [README](https://github.com/Homebrew/homebrew/tree/master/share/doc/homebrew#readme).
 
 #### New Issues
 
@@ -22,7 +22,7 @@ See also Homebrew's [FAQ](https://github.com/Homebrew/homebrew/wiki/FAQ) and [Co
 <a name="formula"/>
 ## Formula Guidelines
 
-Please first read Homebrew's [Formula Cookbook](https://github.com/Homebrew/homebrew/wiki/Formula-Cookbook) and [Acceptable Formulae](https://github.com/Homebrew/homebrew/wiki/Acceptable-Formulae). This section lists additional guidelines that should be followed in Homebrew/science.
+Please first read Homebrew's [Formula Cookbook](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Formula-Cookbook.md) and [Acceptable Formulae](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Acceptable-Formulae.md). This section lists additional guidelines that should be followed in Homebrew/science.
 
 #### Tests
 
