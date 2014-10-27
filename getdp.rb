@@ -9,7 +9,7 @@ end
 class Getdp < Formula
   homepage "http://www.geuz.org/getdp/"
   url "http://www.geuz.org/getdp/src/getdp-2.4.4-source.tgz"
-  sha1 "8ee41ae9d8c0f97ed82125b9bb50f3f0e24008ec"
+  sha1 "e4c3a2a0d9281acdab2c6ba2c3c6ecd53fea4d0c"
 
   head 'https://geuz.org/svn/getdp/trunk', :using => GmshSvnStrategy
 
