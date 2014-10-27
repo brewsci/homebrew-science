@@ -22,7 +22,12 @@ class Arpack < Formula
       args << "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
     end
 
-    ENV["MPILIBS"] = "-lmpi_usempi -lmpi_mpifh -lmpi" if build.with? :mpi
+    if build.with? :mpi
+      ENV['CC']  = "mpicc"
+      ENV['CXX'] = "mpic++"
+      ENV['F77'] = "mpif77"
+    end
+
     system "./configure", *args
     system "make"
     system "make", "install"
