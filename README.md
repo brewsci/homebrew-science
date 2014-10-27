@@ -21,7 +21,7 @@ You can also install via URL:
 
 Docs
 ----
-`brew help`, `man brew`, or the Homebrew [wiki][].
+`brew help`, `man brew`, or the Homebrew [README](https://github.com/Homebrew/homebrew/tree/master/share/doc/homebrew#readme).
 
 
 Contributing
@@ -30,5 +30,4 @@ Contributing
 Please see the [contributing] guide.
 
 
-[wiki]: https://github.com/Homebrew/homebrew/wiki
 [contributing]: https://github.com/Homebrew/homebrew-science/blob/master/CONTRIBUTING.md
