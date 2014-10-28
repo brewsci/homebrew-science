@@ -26,9 +26,9 @@ class Netcdf < Formula
   end
 
   resource 'fortran' do
-    url 'http://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.2.tar.gz'
-    mirror 'http://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-fortran-4.2.tar.gz'
-    sha1 'f1887314455330f4057bc8eab432065f8f6f74ef'
+    url 'http://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.4.1.tar.gz'
+    mirror 'http://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-fortran-4.4.1.tar.gz'
+    sha1 '452a1b7ef12cbcace770dcc728a7b425cf7fb295'
   end
 
   # HDF5 1.8.13 removes symbols related to MPI POSIX VFD, leading to
