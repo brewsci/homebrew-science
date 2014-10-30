@@ -2,8 +2,8 @@ require 'formula'
 
 class Asl < Formula
   url 'http://www.ampl.com/netlib/ampl/solvers.tgz'
-  sha1 "f8046fc3378d513ecda1046d42bb255594920fd0"
-  version "20141004"
+  sha1 "28d47a7f8be8f9fbf6e5afdeeacd4e08582527f0"
+  version "20141024"
   homepage 'http://www.ampl.com/hooking.html'
 
   option 'with-matlab', 'Build MEX file for use with Matlab'
