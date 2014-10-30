@@ -55,6 +55,7 @@ class Octave < Formula
 
   depends_on "pkg-config"     => :build
   depends_on "gnu-sed"        => :build
+
   if build.with? "docs"
     depends_on "texinfo"      => :build
     depends_on :tex           => :build
@@ -84,7 +85,7 @@ class Octave < Formula
   depends_on "llvm"           if build.with? "jit"
   depends_on "curl"           if build.with? "curl" and MacOS.version == :leopard
 
-  depends_on "gnuplot"        => [:recommended, build.with?("gui") ? "qt" : ""]
+  depends_on "gnuplot"       => [:recommended, build.with?("gui") ? "qt" : ""]
   depends_on "suite-sparse"   => :recommended
   depends_on "readline"       => :recommended
   depends_on "arpack"         => :recommended
@@ -150,6 +151,13 @@ class Octave < Formula
     # can cause linking problems.
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
 
+    if build.with? "gnuplot" and build.with? "gui"
+      # ~/.octaverc takes precedence over site octaverc
+      open("scripts/startup/local-rcfile", "a") do |file|
+        file.write "setenv('GNUTERM','#{build.with?("gui") ? "qt" : ""}')"
+      end
+    end
+
     system "./configure", *args
     system "make all"
     system "make check 2>&1 | tee make-check.log" if build.with? "check"
@@ -164,13 +172,17 @@ class Octave < Formula
     if build.with? "gnuplot"
       s = s + <<-EOS.undent
 
-        To use the gnuplot plotting engine, you must set the environment
-        variable GNUTERM. Valid choices include:
-            GNUTERM=x11   # X windows must be installed
-            GNUTERM=qt    # gnuplot must have been compiled with Qt support
-            GNUTERM=aqua  # if you are using Aquaterm
-        You may also set this variable from within Octave with the command
-            setenv('GNUTERM','qt') % or 'x11', or 'aqua'
+        gnuplot's Qt terminal is supported by default with the Octave GUI.
+        Use other gnuplot graphics terminals by setting the environment variable
+        GNUTERM in ~/.octaverc, and building gnuplot with the matching options.
+
+          setenv('GNUTERM','qt')    # Default graphics terminal with Octave GUI
+          setenv('GNUTERM','x11')   # Requires XQuartz; install gnuplot --with-x
+          setenv('GNUTERM','wxt')   # wxWidgets/pango; install gnuplot --wx
+          setenv('GNUTERM','aqua')  # Requires AquaTerm; install gnuplot --with-aquaterm
+
+          You may also set this variable from within Octave.
+
       EOS
     end
 
