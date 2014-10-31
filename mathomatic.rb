@@ -5,11 +5,9 @@ class Mathomatic < Formula
   url 'http://mathomatic.orgserve.de/mathomatic-16.0.5.tar.bz2'
   sha1 'aaaf4df4aa3dc9ea748211278e657c2195858c24'
 
-  # NOTE: if the download is a moving target, it should really be HEAD.
-  devel do
+  head do
     url 'http://mathomatic.orgserve.de/am.tar.bz2'
     sha1 '6fc3c6c265d1f0314fb622b57c8202d1ab4c46f9'
-    version 'devel'
   end
 
   def install
