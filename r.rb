@@ -9,9 +9,9 @@ end
 
 class R < Formula
   homepage 'http://www.r-project.org/'
-  url 'http://cran.rstudio.com/src/base/R-3/R-3.1.1.tar.gz'
-  mirror 'http://cran.r-project.org/src/base/R-3/R-3.1.1.tar.gz'
-  sha1 'e974ecc92e49266529e8e791e02a80c75e50b696'
+  url 'http://cran.rstudio.com/src/base/R-3/R-3.1.2.tar.gz'
+  mirror 'http://cran.r-project.org/src/base/R-3/R-3.1.2.tar.gz'
+  sha1 '93809368e5735a630611633ac1fa99010020c5d6'
 
   head do
     url 'https://svn.r-project.org/R/trunk', :using => RDownloadStrategy
