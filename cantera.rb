@@ -12,14 +12,6 @@ class Cantera < Formula
     patch :DATA
   end
 
-  devel do
-    url 'https://github.com/cantera/cantera.git', :branch => '2.1-svn'
-    version '2.1.x'
-    # Patches to checkFinite.cpp and SConstruct should be removed for
-    # Cantera 2.2.x (fixed upstream)
-    patch :DATA
-  end
-
   option "with-matlab=", "Path to Matlab root directory"
   option "without-check", "Disable build-time checking (not recommended)"
 
