@@ -5,7 +5,7 @@ class Octave < Formula
   mirror "https://ftp.gnu.org/gnu/octave/octave-3.8.2.tar.bz2"
   sha256 "83bbd701aab04e7e57d0d5b8373dd54719bebb64ce0a850e69bf3d7454f33bae"
   head "http://www.octave.org/hg/octave", :branch => "default", :using => :hg
-  revision 1
+  revision 2
 
   stable do
     # Allows clang 3.5 to compile with a recent libc++ release.
@@ -59,7 +59,7 @@ class Octave < Formula
   option "without-hdf5",           "Do not use HDF5 (hdf5 data file support)"
   option "without-qhull",          "Do not use the Qhull library (delaunay,voronoi,etc.)"
   option "without-qrupdate",       "Do not use the QRupdate package (qrdelete,qrinsert,qrshift,qrupdate)"
-  option "without-suite-sparse",   "Do not use SuiteSparse (sparse matrix operations)"
+  option "without-suite-sparse421", "Do not use SuiteSparse (sparse matrix operations)"
   option "without-zlib",           "Do not use zlib (compressed MATLAB file formats)"
 
   depends_on :fortran
@@ -94,7 +94,7 @@ class Octave < Formula
   depends_on :java            => :recommended
 
   depends_on "gnuplot"       => [:recommended, build.with?("gui") ? "with-qt" : ""]
-  depends_on "suite-sparse"   => :recommended
+  depends_on "suite-sparse421" => :recommended
   depends_on "readline"       => :recommended
   depends_on "arpack"         => :recommended
   depends_on "fftw"           => :recommended
@@ -132,7 +132,7 @@ class Octave < Formula
     args << "--without-qhull"    if build.without? "qhull"
     args << "--without-qrupdate" if build.without? "qrupdate"
 
-    if build.without? "suite-sparse"
+    if build.without? "suite-sparse421"
       args << "--without-amd"
       args << "--without-camd"
       args << "--without-colamd"
@@ -142,7 +142,7 @@ class Octave < Formula
       args << "--without-cholmod"
       args << "--without-umfpack"
     else
-      sparse = Tab.for_name("suite-sparse")
+      sparse = Tab.for_name("suite-sparse421")
       ENV.append_to_cflags "-L#{Formula["metis4"].opt_lib} -lmetis" if sparse.with? "metis4"
     end
 
@@ -241,7 +241,7 @@ class Octave < Formula
             --------
             These failures indicate a conflict between Octave and its BLAS-related
             dependencies. You can likely correct these by removing and reinstalling
-            arpack, qrupdate, suite-sparse, and octave. Please use the same BLAS
+            arpack, qrupdate, suite-sparse421, and octave. Please use the same BLAS
             settings for all (i.e., with the default, or "--with-openblas").
         EOS
       end

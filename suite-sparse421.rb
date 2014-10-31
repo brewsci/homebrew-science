@@ -1,10 +1,12 @@
-class SuiteSparse < Formula
+class SuiteSparse421 < Formula
   desc "Suite of Sparse Matrix Software"
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
-  url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.4.4.tar.gz"
-  sha256 "f2ae47e96f3f37b313c3dfafca59f13e6dbc1e9e54b35af591551919810fb6fd"
+  url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.2.1.tar.gz"
+  mirror "http://pkgs.fedoraproject.org/repo/pkgs/suitesparse/SuiteSparse-4.2.1.tar.gz/4628df9eeae10ae5f0c486f1ac982fce/SuiteSparse-4.2.1.tar.gz"
+  sha256 "e8023850bc30742e20a3623fabda02421cb5774b980e3e7c9c6d9e7e864946bd"
 
   bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 3
     sha256 "a8a12ded1414f3221509b8f69d5c31ef2c2b119dc0d7b1f4ea4b2280468ff211" => :yosemite
@@ -21,6 +23,8 @@ class SuiteSparse < Formula
 
   depends_on :fortran if build.with? "matlab"
 
+  keg_only "Conflicts with suite-sparse"
+
   def install
     # SuiteSparse doesn't like to build in parallel
     ENV.deparallelize
@@ -31,13 +35,7 @@ class SuiteSparse < Formula
     mv "SuiteSparse_config/SuiteSparse_config_Mac.mk",
        "SuiteSparse_config/SuiteSparse_config.mk"
 
-    cflags = (ENV.compiler == :clang) ? "" : "-fopenmp"
-
-    make_args = ["CFLAGS=#{cflags}",
-                 "INSTALL_LIB=#{lib}",
-                 "INSTALL_INCLUDE=#{include}",
-                 "RANLIB=echo",
-                ]
+    make_args = ["INSTALL_LIB=#{lib}", "INSTALL_INCLUDE=#{include}"]
     if build.with? "openblas"
       make_args << "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"
     elsif OS.mac?
@@ -64,7 +62,6 @@ class SuiteSparse < Formula
       (doc/pkg).install Dir["#{pkg}/Doc/*"]
     end
 
-
     if build.with? "matlab"
       matlab = ARGV.value("with-matlab-path") || "matlab"
       system matlab,
@@ -90,10 +87,6 @@ class SuiteSparse < Formula
         Matlab interfaces and tools have been installed to
 
           #{share}/suite-sparse/matlab
-
-        It is possible that the SPQR interface fail to compile
-        if you use the defaults mexopts.sh or if your mexopts.sh
-        does not use gcc-4.9.
       EOS
     end
     s
