@@ -22,7 +22,7 @@ class Opencv < Formula
 
   depends_on :ant if build.with? "java"
   depends_on "cmake"      => :build
-  depends_on "eigen"      => :optional
+  depends_on "eigen"      => :recommended
   depends_on "gstreamer"  => :optional
   depends_on "jasper"     => :optional
   depends_on "jpeg"
@@ -68,6 +68,7 @@ class Opencv < Formula
 
     args << "-DBUILD_opencv_java=" + ((build.with? "java") ? "ON" : "OFF")
     args << "-DWITH_OPENEXR=" + ((build.with? "openexr") ? "ON" : "OFF")
+    args << "-DWITH_EIGEN=" + ((build.with? "eigen") ? "ON" : "OFF")
     args << "-DWITH_QT=" + ((build.with? "qt") ? "ON" : "OFF")
     args << "-DWITH_TBB=" + ((build.with? "tbb") ? "ON" : "OFF")
     args << "-DWITH_FFMPEG=" + ((build.with? "ffmpeg") ? "ON" : "OFF")
