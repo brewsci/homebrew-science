@@ -1,18 +1,18 @@
-require 'formula'
+require "formula"
 
 class Mrbayes < Formula
-  homepage 'http://mrbayes.sourceforge.net/'
+  homepage "http://mrbayes.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/mrbayes/mrbayes/3.2.3/mrbayes-3.2.3.tar.gz"
   sha1 "8492ce3b33369b10e89553f56a9a94724772ae2d"
 
-  head 'https://mrbayes.svn.sourceforge.net/svnroot/mrbayes/trunk/'
+  head "https://mrbayes.svn.sourceforge.net/svnroot/mrbayes/trunk/"
 
-  option 'with-beagle', 'Build with BEAGLE library support'
+  option "with-beagle", "Build with BEAGLE library support"
 
   depends_on :autoconf => :build
   depends_on :automake => :build
   depends_on :mpi => [:cc, :optional]
-  depends_on 'beagle' => :optional
+  depends_on "beagle" => :optional
 
   fails_with :llvm do
     build 2336
@@ -21,19 +21,10 @@ class Mrbayes < Formula
 
   def install
     args = ["--disable-debug", "--prefix=#{prefix}"]
+    args << "--with-beagle=" + ((build.with? "beagle") ? "#{Formula["beagle"].opt_prefix}" : "no")
+    args << "--enable-mpi="  + ((build.with? "mpi") ? "yes" : "no")
 
-    if build.with? 'beagle'
-      args << "--with-beagle=#{Formula["beagle"].opt_prefix}"
-    else
-      args << "--with-beagle=no"
-    end
-
-    if build.with? "mpi"
-      # ENV['OMPI_CC'] = ENV.cc
-      args << "--enable-mpi=yes"
-    end
-
-    cd 'src' do
+    cd "src" do
       system "autoconf"
       system "./configure", *args
       system "make"
@@ -41,7 +32,7 @@ class Mrbayes < Formula
     end
 
     # Doc and examples are not included in the svn
-    (share/'mrbayes').install ['documentation', 'examples'] unless build.head?
+    (share/"mrbayes").install ["documentation", "examples"] unless build.head?
   end
 
   def caveats
