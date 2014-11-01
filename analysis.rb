@@ -1,7 +1,7 @@
 require 'formula'
 
 class Analysis < Formula
-  homepage 'http://molpopgen.org/software/lseqsoftware.html'
+  homepage "https://github.com/molpopgen/analysis"
   url 'http://molpopgen.org/software/analysis/analysis-0.8.4.tar.gz'
   sha1 '96d3e382216d34a0c2803087d6024323a8f20a2b'
 
