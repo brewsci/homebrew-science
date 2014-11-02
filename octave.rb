@@ -26,8 +26,8 @@ class Octave < Formula
   # Allows clang 3.5 to compile with a recent libc++ release.
   # See: https://savannah.gnu.org/bugs/?43298
   patch do
-    url "https://savannah.gnu.org/bugs/download.php?file_id=32255"
-    sha1 "db7ba78b8e9cdc2302c0ba6701aa54ff9449fe1e"
+    url "https://gist.github.com/tchaikov/6ce5f697055b0756126a/raw/4fc94a1fa1d5b032f8586ce3ab0015b04351426f/octave-clang3.5-fix.patch"
+    sha1 "6e5c0d8f6b07803152c8a1caad39a113fc8b8d0a"
   end
 
   skip_clean "share/info" # Keep the docs
