@@ -2,10 +2,9 @@ require 'formula'
 
 class Pastix < Formula
   homepage 'http://pastix.gforge.inria.fr'
-  url 'https://gforge.inria.fr/frs/download.php/33499/pastix_release_bugfix7_e741af1.tar.bz2'
-  sha1 '74a9bf4fdd92d1bdf40b1c0c20e667b34f83d4c7'
+  url 'https://gforge.inria.fr/frs/download.php/file/34225/pastix_5.2.2.18.tar.bz2'
+  sha1 'ab768208e6a2607d9868bb42117b2b9364e2d25a'
   head 'git://scm.gforge.inria.fr/ricar/ricar.git'
-  version '5.2.2'
 
   depends_on 'scotch'   => :build
   depends_on 'hwloc'
