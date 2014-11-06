@@ -121,6 +121,9 @@ class R < Formula
   def caveats; <<-EOS.undent
     To enable rJava support, run the following command:
       R CMD javareconf JAVA_CPPFLAGS=-I/System/Library/Frameworks/JavaVM.framework/Headers
+    If you've installed a version of Java other than the default, you might need to instead use:
+      R CMD javareconf JAVA_CPPFLAGS='-I/System/Library/Frameworks/JavaVM.framework/Headers -I/Library/Java/JavaVirtualMachines/jdk<version>.jdk/'
+      (where <version> can be found by running `java -version` or `locate jni.h`)
     EOS
   end if build.without? "librmath-only"
 end
