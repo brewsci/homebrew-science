@@ -18,6 +18,7 @@ class Insighttoolkit < Formula
   depends_on 'jpeg' => :recommended
   depends_on :libpng => :recommended
   depends_on 'libtiff' => :recommended
+  depends_on 'gdcm' => [:optional] + cxx11dep
 
   option 'examples', 'Compile and install various examples'
   option 'with-itkv3-compatibility', 'Include ITKv3 compatibility'
@@ -54,6 +55,7 @@ class Insighttoolkit < Formula
     args << '-DITK_USE_SYSTEM_JPEG=ON' if build.with? 'jpeg'
     args << '-DITK_USE_SYSTEM_PNG=ON' if build.with? :libpng
     args << '-DITK_USE_SYSTEM_TIFF=ON' if build.with? 'libtiff'
+    args << '-DITK_USE_SYSTEM_GDCM=ON' if build.with? 'gdcm'
     args << '-DITK_LEGACY_REMOVE=ON' if build.include? 'remove-legacy'
     args << '-DModule_ITKReview=ON' if build.with? 'review'
 
