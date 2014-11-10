@@ -4,8 +4,8 @@ class Kat < Formula
   homepage "https://github.com/TGAC/KAT"
   head "https://github.com/TGAC/KAT.git"
 
-  url "https://github.com/TGAC/KAT/releases/download/V1.0.5/kat-1.0.5.tar.gz"
-  sha1 "80ba9a0f163978a6351f3e2fd151f372189ac3cd"
+  url "https://github.com/TGAC/KAT/releases/download/Release-1.0.6/kat-1.0.6.tar.gz"
+  sha1 "845f59aebff01730247b6c8ecf8b1cf2d642b5da"
 
   depends_on "pkg-config" => :build
   depends_on "boost"
@@ -14,7 +14,8 @@ class Kat < Formula
   depends_on "seqan"
 
   def install
-    inreplace "configure", "1.1.10", Formula["jellyfish-1.1"].version
+    ENV.libstdcxx if ENV.compiler == :clang && MacOS.version >= :mavericks
+    inreplace "configure", "1.1.11", Formula["jellyfish-1.1"].version
     system "./configure",
       "--disable-debug",
       "--disable-dependency-tracking",
