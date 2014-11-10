@@ -2,8 +2,8 @@ require 'formula'
 
 class Qualimap < Formula
   homepage 'http://qualimap.bioinfo.cipf.es/'
-  url 'http://qualimap.bioinfo.cipf.es/release/qualimap_v0.7.1.zip'
-  sha1 '65be770802797998fa1a96fb3c12558b8b741052'
+  url 'http://qualimap.bioinfo.cipf.es/release/qualimap_v2.0.zip'
+  sha1 '49cc9681601631041e7f44c3e9cd232e4be50cf6'
 
   depends_on 'r' => :optional
 
