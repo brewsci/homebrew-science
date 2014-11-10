@@ -15,7 +15,7 @@ class Stacks < Formula
 
   def install
     # OpenMP doesn't yet work on OS X with Apple-provided compilers.
-    args = ["--disable-dependency-tracking", "--disable-openmp", "--prefix=#{prefix}"]
+    args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
     args << "--enable-sparsehash" if build.with? "google-sparsehash"
 
     system "./configure", *args
