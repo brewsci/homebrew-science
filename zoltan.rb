@@ -1,9 +1,9 @@
 require "formula"
 
 class Zoltan < Formula
-  url "http://www.cs.sandia.gov/~kddevin/Zoltan_Distributions/zoltan_distrib_v3.8.tar.gz"
+  url "http://www.cs.sandia.gov/~kddevin/Zoltan_Distributions/zoltan_distrib_v3.81.tar.gz"
   homepage "http://www.cs.sandia.gov/Zoltan"
-  sha1 "632b851485ac37cf10ad4d0ee8586c2fed79dfbf"
+  sha1 "468c30db4b16cb16e5dde05fb951699e1e69527d"
 
   option "without-check", "Skip build-time tests (not recommended)"
 
