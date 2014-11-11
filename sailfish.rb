@@ -3,6 +3,8 @@ require 'formula'
 class Sailfish < Formula
   homepage 'http://www.cs.cmu.edu/~ckingsf/software/sailfish'
   #doi '10.1038/nbt.2862'
+  #tag "bioinformatics"
+
   url 'https://github.com/kingsfordgroup/sailfish/releases/download/v0.6.2/Sailfish-0.6.2-Source.tar.gz'
   sha1 'b8bf01cab7b685fd9b9608bf3e97e25df28e0639'
 
@@ -13,7 +15,7 @@ class Sailfish < Formula
   keg_only 'sailfish conflicts with jellyfish.'
 
   fails_with :clang do
-    build 500
+    build 600
     cause 'Currently, the only supported compiler is GCC(>=4.7). We hope to support Clang soon.'
   end
 
