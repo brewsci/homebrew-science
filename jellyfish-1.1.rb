@@ -9,7 +9,6 @@ class Jellyfish11 < Formula
   keg_only "It conflicts with jellyfish."
 
   fails_with :clang do
-    build 503
     cause "error: variable length array of non-POD element type"
   end
 
