@@ -6,7 +6,7 @@ class Kraken < Formula
   sha1 "64f88004c341871d883235f4ae7c876c0136b885"
 
   fails_with :clang do
-    build 503
+    build 600
     cause "error: 'omp.h' file not found"
   end
 

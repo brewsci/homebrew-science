@@ -9,7 +9,7 @@ class Kmerstream < Formula
   sha1 "97688502c15c2b7457054aaf8e8a8f07f4fd159b"
 
   fails_with :clang do
-    build 503
+    build 600
     cause "Requires OpenMP"
   end
 

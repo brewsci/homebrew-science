@@ -20,7 +20,7 @@ class Minc < Formula
 
   fails_with :clang do
     # TODO This is an easy fix, someone send it upstream!
-    build 503
+    build 600
     cause "Throws 'non-void function 'miget_real_value_hyperslab' should return a value'"
   end
 

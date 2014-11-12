@@ -6,7 +6,7 @@ class Elph < Formula
   sha1 '9c8bf6ac54ade29daa15dc07aeeb94747626298a'
 
   fails_with :clang do
-    build 503
+    build 600
     cause "error: '-I-' not supported, please use -iquote instead"
   end
 

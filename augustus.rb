@@ -9,7 +9,7 @@ class Augustus < Formula
   depends_on 'boost' => :recommended # for gz support
 
   fails_with :clang do
-    build 503
+    build 600
     cause 'error: invalid operands to binary expression'
   end
 

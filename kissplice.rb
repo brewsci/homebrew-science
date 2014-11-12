@@ -16,7 +16,7 @@ class Kissplice < Formula
   depends_on "cmake" => :build
 
   fails_with :clang do
-    build 503
+    build 600
     cause "error: use of undeclared identifiers"
   end
 

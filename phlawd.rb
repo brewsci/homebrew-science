@@ -12,7 +12,7 @@ class Phlawd < Formula
   head "https://github.com/chinchliff/phlawd.git"
 
   fails_with :clang do
-    build 503
+    build 600
     cause <<-eos
       PHLAWD requires openmp support, which is not available in clang.
       Currently, PHLAWD can only be compiled with gcc > 4.2.

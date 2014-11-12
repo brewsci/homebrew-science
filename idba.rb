@@ -7,7 +7,7 @@ class Idba < Formula
   sha1 "6dcbd35281c2bc46b8df550a369952a9138e92a2"
 
   fails_with :clang do
-    build 503
+    build 600
     cause "Requires OpenMP"
   end
 

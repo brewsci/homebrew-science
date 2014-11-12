@@ -9,7 +9,7 @@ class Beetl < Formula
   depends_on 'seqan' => :optional
 
   fails_with :clang do
-    build 503
+    build 600
     cause 'Requires OpenMP'
   end
 
