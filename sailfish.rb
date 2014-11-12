@@ -5,8 +5,8 @@ class Sailfish < Formula
   #doi '10.1038/nbt.2862'
   #tag "bioinformatics"
 
-  url 'https://github.com/kingsfordgroup/sailfish/releases/download/v0.6.2/Sailfish-0.6.2-Source.tar.gz'
-  sha1 'b8bf01cab7b685fd9b9608bf3e97e25df28e0639'
+  url "https://github.com/kingsfordgroup/sailfish/archive/v0.6.3.tar.gz"
+  sha1 "6a8782bf3b1b31e543f5f067dc870c0b45bd8059"
 
   depends_on 'cmake' => :build
   depends_on 'boost' => :recommended
