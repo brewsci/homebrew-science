@@ -7,8 +7,11 @@ class Gdcm < Formula
 
   option "with-check", "Run the GDCM test suite"
 
+  option :cxx11
+  cxx11dep = (build.cxx11?) ? ['c++11'] : []
+
   depends_on "cmake" => :build
-  depends_on "vtk" => :optional
+  depends_on "vtk" => [:optional] + cxx11dep
 
   def install
     sourcedir = "#{pwd}/source_files"
