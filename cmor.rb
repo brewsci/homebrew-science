@@ -7,7 +7,7 @@ class Cmor < Formula
 
   depends_on "ossp-uuid"
   depends_on "udunits"
-  depends_on "netcdf" => "enable-fortran"
+  depends_on "netcdf" => "with-fortran"
   depends_on :fortran
 
   def install
