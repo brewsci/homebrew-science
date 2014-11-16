@@ -11,7 +11,7 @@ class Openni2 < Formula
   option "with-docs", "Build documentation using javadoc (might fail with Java 1.8)"
 
   depends_on :python
-  depends_on "libusb" => (build.universal?) ? ["universal"] : []
+  depends_on "libusb"
   depends_on "doxygen" => :build if build.with? "docs"
 
   patch :DATA if build.without? "docs"
