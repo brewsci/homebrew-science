@@ -9,11 +9,9 @@ class Sbagen < Formula
 
   option "without-river", "Skip downloading loopable river sounds"
 
-  if build.with? "river"
-    resource "river" do
-      url "http://uazu.net/sbagen/sbagen-river-1.4.1.tgz"
-      sha1 "7f9d497780798762ced2f6e89e2f52d06da26423"
-    end
+  resource "river" do
+    url "http://uazu.net/sbagen/sbagen-river-1.4.1.tgz"
+    sha1 "7f9d497780798762ced2f6e89e2f52d06da26423"
   end
 
   def install
@@ -25,9 +23,7 @@ class Sbagen < Formula
     sbagen_share = share + "sbagen"
     sbagen_share.install "examples", "scripts"
 
-    if build.with? "river"
-      resource("river").stage { sbagen_share.install Dir["*"] }
-    end
+    sbagen_share.install resource("river") if build.with? "river"
   end
 
   test do
