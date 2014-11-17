@@ -10,8 +10,15 @@ class Plink < Formula
   # https://lists.debian.org/debian-mentors/2012/04/msg00410.html
   patch :DATA
 
+  # plink delays in some circumstances due to webcheck timeout
+  # build option to skip webcheck
+  option "without-webcheck", "Build without default version webcheck"
+
   def install
     ENV.deparallelize
+    if build.without? "webcheck"
+      inreplace 'Makefile', 'WEBCHECK = 1', 'WEBCHECK ='
+    end
     make_args = (OS.mac?) ? %W[SYS=MAC] : []
     system 'make', *make_args
     (share+'plink').install %w{test.map test.ped}
