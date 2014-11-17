@@ -45,14 +45,17 @@ class Petsc < Formula
 
     # real-valued case:
     ENV["PETSC_ARCH"] = petsc_arch_real
-    system "./configure", *args, "--prefix=#{prefix}/#{petsc_arch_real}", "--with-scalar-type=real", ("--with-hypre-dir=#{Formula["hypre"].prefix}" if build.with? "hypre")
+    args_real = ["--prefix=#{prefix}/#{petsc_arch_real}", "--with-scalar-type=real"]
+    args_real << "--with-hypre-dir=#{Formula["hypre"].prefix}" if build.with? "hypre"
+    system "./configure", *(args + args_real)
     system "make all"
     system "make test" if build.with? "check"
     system "make install"
 
     # complex-valued case:
     ENV["PETSC_ARCH"] = petsc_arch_complex
-    system "./configure", *args, "--prefix=#{prefix}/#{petsc_arch_complex}", "--with-scalar-type=complex"
+    args_cmplx = ["--prefix=#{prefix}/#{petsc_arch_complex}", "--with-scalar-type=complex"]
+    system "./configure", *(args + args_cmplx)
     system "make all"
     system "make test" if build.with? "check"
     system "make install"

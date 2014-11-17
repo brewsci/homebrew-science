@@ -26,14 +26,14 @@ class Slepc < Formula
 
     # real
     ENV['PETSC_DIR'] = ("#{Formula["petsc"].opt_prefix}" +"/"+petsc_arch_real)
-    system "./configure", *args, "--prefix=#{prefix}/#{petsc_arch_real}"
+    system "./configure", "--prefix=#{prefix}/#{petsc_arch_real}", *args
     system "make"
     system "make test"
     system "make install"
 
     # complex
     ENV['PETSC_DIR'] = ("#{Formula["petsc"].opt_prefix}" +"/"+petsc_arch_complex)
-    system "./configure", *args, "--prefix=#{prefix}/#{petsc_arch_complex}"
+    system "./configure", "--prefix=#{prefix}/#{petsc_arch_complex}", *args
     system "make"
     system "make test"
     system "make install"
