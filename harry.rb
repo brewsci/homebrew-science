@@ -9,8 +9,18 @@ class Harry < Formula
   depends_on "libconfig"
   depends_on "libarchive" => :recommended
 
+  head do
+    url "https://github.com/rieck/harry.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
+
   def install
     opoo "Clang does not support OpenMP. Compile with gcc to use multi-threading." if ENV.compiler == :clang
+    system "./bootstrap" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
