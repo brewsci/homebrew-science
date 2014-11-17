@@ -25,6 +25,10 @@ class Getdp < Formula
   depends_on "cmake" => :build
 
   def install
+    if not build.head? and (build.with? "petsc" or build.with? "slepc")
+      onoe "stable is incompatible with PETSc/SLEPc 3.5.2. Build with --HEAD."
+      exit 1
+    end
     args = std_cmake_args
     args << "-DENABLE_BUILD_SHARED=ON"
     args << "-DENABLE_ARPACK=OFF" if build.without? "arpack"
@@ -33,13 +37,13 @@ class Getdp < Formula
 
     if build.with? "petsc"
       ENV["PETSC_DIR"] = Formula["petsc"].opt_prefix
-      ENV["PETSC_ARCH"] = "arch-darwin-c-opt"
+      ENV["PETSC_ARCH"] = "real"
     else
       args << "-DENABLE_PETSC=OFF"
     end
 
     if build.with? "slepc"
-      ENV["SLEPC_DIR"] = Formula["slepc"].opt_prefix
+      ENV["SLEPC_DIR"] = "#{Formula['slepc'].opt_prefix}/real"
     else
       args << "-DENABLE_SLEPC=OFF"
     end
