@@ -12,6 +12,7 @@ class Openimageio < Formula
 
   depends_on 'cmake' => :build
   depends_on 'pkg-config' => :build
+  depends_on 'qt' => :optional # for openimageio viewer
   depends_on 'opencolorio'
   depends_on 'ilmbase'
   depends_on 'openexr'
@@ -25,8 +26,8 @@ class Openimageio < Formula
   depends_on 'field3d'
   depends_on 'webp'
   depends_on 'glew'
-  depends_on 'qt'
   depends_on 'freetype'
+  depends_on 'openssl'
 
   resource 'j2kp4files' do
     url 'http://pkgs.fedoraproject.org/repo/pkgs/openjpeg/j2kp4files_v1_5.zip/27780ed3254e6eb763ebd718a8ccc340/j2kp4files_v1_5.zip'
@@ -122,6 +123,7 @@ class Openimageio < Formula
     end
 
     # make is a shell wrapper for cmake crafted by the devs (who have Lion).
+    args << 'USE_OPENGL=' + (build.with?('qt') ? '1' : '0')
     system "make", *args
     system "make test" if build.with? 'tests'
     # There is no working make install in 1.1.6, devel or HEAD.
