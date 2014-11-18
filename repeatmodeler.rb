@@ -2,6 +2,8 @@ require "formula"
 
 class Repeatmodeler < Formula
   homepage "http://www.repeatmasker.org/RepeatModeler.html"
+  #tag "bioinformatics"
+
   version "1.0.7"
   url "http://www.repeatmasker.org/RepeatModeler-open-1-0-7.tar.gz"
   sha1 "01e07eedd051c32285dc650da7643f5aecaf490c"

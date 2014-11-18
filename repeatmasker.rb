@@ -2,6 +2,8 @@ require 'formula'
 
 class Repeatmasker < Formula
   homepage 'http://www.repeatmasker.org/'
+  #tag "bioinformatics"
+
   version '4.0.5'
   url 'http://www.repeatmasker.org/RepeatMasker-open-4-0-5.tar.gz'
   sha1 '9b00047639845bcff6dccf4148432ab2378d095c'
