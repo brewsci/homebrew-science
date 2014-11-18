@@ -19,7 +19,7 @@ class Flann < Formula
 
   def install
     args = std_cmake_args
-    args << "-DBUILD_MATLAB_BINDINGS:BOOL=" + (build.with?("matlab") ? "ON" : "OFF")
+    args << "-DBUILD_MATLAB_BINDINGS:BOOL=" + (build.with?("octave") ? "ON" : "OFF")
     args << "-DBUILD_PYTHON_BINDINGS:BOOL=" + (build.with?("python") ? "ON" : "OFF")
 
     inreplace "CMakeLists.txt", "add_subdirectory( examples )", "" if build.without? "examples"
