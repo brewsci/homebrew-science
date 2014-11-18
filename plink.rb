@@ -1,9 +1,9 @@
-require 'formula'
+require "formula"
 
 class Plink < Formula
-  url 'http://pngu.mgh.harvard.edu/~purcell/plink/dist/plink-1.07-src.zip'
-  homepage 'http://pngu.mgh.harvard.edu/~purcell/plink/'
-  sha1 'd41a2d014ebc02bf11e5235292b50fad6dedd407'
+  url "http://pngu.mgh.harvard.edu/~purcell/plink/dist/plink-1.07-src.zip"
+  homepage "http://pngu.mgh.harvard.edu/~purcell/plink/"
+  sha1 "d41a2d014ebc02bf11e5235292b50fad6dedd407"
 
   # allows plink to build with clang and new versions of gcc
   # borrowed from Debian; discussion at:
@@ -16,17 +16,16 @@ class Plink < Formula
 
   def install
     ENV.deparallelize
-    if build.without? "webcheck"
-      inreplace 'Makefile', 'WEBCHECK = 1', 'WEBCHECK ='
-    end
+    inreplace "Makefile", "WEBCHECK = 1", "WEBCHECK =" if build.without? "webcheck"
+
     make_args = (OS.mac?) ? %W[SYS=MAC] : []
-    system 'make', *make_args
-    (share+'plink').install %w{test.map test.ped}
-    bin.install 'plink'
+    system "make", *make_args
+    (share+"plink").install %w{test.map test.ped}
+    bin.install "plink"
   end
 
   test do
-    system 'plink', '--file', prefix/'share/plink/test'
+    system "plink", "--file", prefix/"share/plink/test"
   end
 end
 __END__
