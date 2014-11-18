@@ -2,8 +2,8 @@ require "formula"
 
 class Delly < Formula
   homepage "https://github.com/tobiasrausch/delly"
-  url "https://github.com/tobiasrausch/delly/archive/v0.5.6.tar.gz"
-  sha1 "c23c079da1e2617a56b34ba543b765425b9b1533"
+  url "https://github.com/tobiasrausch/delly/archive/v0.6.1.tar.gz"
+  sha1 "7f01feb98ca8f7f68422762336ef36b4802c5a71"
 
   option "with-binary", "Install a statically linked binary for 64-bit Linux" if OS.linux?
 
@@ -13,9 +13,9 @@ class Delly < Formula
     depends_on "htslib"
   end
 
-  resource "linux-binary" do
-    url "https://github.com/tobiasrausch/delly/releases/download/v0.5.6/delly_v0.5.6_CentOS5.4_x86_64bit"
-    sha1 "6642bd407d0982a6a6d913e61ce2b50e8855bad5"
+  resource "linux-binary-0.6.1" do
+    url "https://github.com/tobiasrausch/delly/releases/download/v0.6.1/delly_v0.6.1_CentOS5.4_x86_64bit"
+    sha1 "5941f6eaa528f5ab7d83e4ffa8c0c90ff01cb674"
   end
 
   def install
@@ -24,10 +24,11 @@ class Delly < Formula
       s.gsub! "${BAMTOOLS_ROOT}/lib",     "#{Formula["bamtools"].opt_lib}"
       s.gsub! "${BOOST_ROOT}",            "#{Formula["boost"].opt_prefix}"
       s.gsub! "${SEQTK_ROOT}",            "#{Formula["htslib"].opt_include}/htslib"
+      s.gsub! ".htslib .bamtools",        ""
     end
 
     if build.with? "binary"
-      resource("linux-binary").stage { bin.install "delly_v0.5.6_CentOS5.4_x86_64bit" => "delly" }
+      resource("linux-binary-0.6.1").stage { bin.install "delly_v0.6.1_CentOS5.4_x86_64bit" => "delly" }
 
     else
       system "make", "CXX=#{ENV.cxx}"
