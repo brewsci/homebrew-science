@@ -3,6 +3,7 @@ require "formula"
 class Kat < Formula
   homepage "https://github.com/TGAC/KAT"
   head "https://github.com/TGAC/KAT.git"
+  #tag "bioinformatics"
 
   url "https://github.com/TGAC/KAT/releases/download/Release-1.0.6/kat-1.0.6.tar.gz"
   sha1 "845f59aebff01730247b6c8ecf8b1cf2d642b5da"
