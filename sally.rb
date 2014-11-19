@@ -2,8 +2,8 @@ require "formula"
 
 class Sally < Formula
   homepage "http://www.mlsec.org/sally"
-  url "http://www.mlsec.org/sally/files/sally-0.9.1.tar.gz"
-  sha1 "8fb44d56e5c1112512c2d467b5fa76a2951af31a"
+  url "http://www.mlsec.org/sally/files/sally-0.9.2.tar.gz"
+  sha1 "d4d430f8b6d2e71c4c7871f9d7b888a09dbe427b"
 
   head do
     url "https://github.com/rieck/sally.git"
