@@ -8,6 +8,8 @@ class Repeatscout < Formula
   url "http://repeatscout.bioprojects.org/RepeatScout-1.0.5.tar.gz"
   sha1 "507fe8813de341244c5380836ddcf4257bb46c81"
 
+  depends_on "trf" => :optional
+
   def install
     system "make"
     prefix.rmdir
