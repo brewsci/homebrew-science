@@ -4,6 +4,7 @@ class Tisean < Formula
   homepage "http://www.mpipks-dresden.mpg.de/~tisean/"
   url "http://www.mpipks-dresden.mpg.de/~tisean/TISEAN_3.0.1.tar.gz"
   sha1 "7fe71899b063abe1b3d9aae88f153988495d623b"
+  revision 1
 
   option "without-prefixed-binaries", "Do not prefix binaries with `tisean-`"
 

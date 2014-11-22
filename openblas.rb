@@ -5,6 +5,7 @@ class Openblas < Formula
   url "https://github.com/xianyi/OpenBLAS/archive/v0.2.12.tar.gz"
   sha1 "2bdedca65e29186d1ecaaed45cb6c9b1f3f1c868"
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
+  revision 1
 
   depends_on :fortran
 

@@ -5,6 +5,7 @@ class Arpack < Formula
   url 'http://forge.scilab.org/index.php/p/arpack-ng/downloads/get/arpack-ng_3.1.4.tar.gz'
   sha1 '1fb817346619b04d8fcdc958060cc0eab2c73c6f'
   head 'git://git.forge.scilab.org/arpack-ng.git'
+  revision 1
 
   depends_on :fortran
   depends_on :mpi => [:optional, :f77]

@@ -5,6 +5,7 @@ class Veclibfort < Formula
   url 'https://github.com/mcg1969/vecLibFort/archive/0.4.2.tar.gz'
   sha1 'fee75b043a05f1dc7ec6649cbab73e23a71a9471'
   head 'https://github.com/mcg1969/vecLibFort.git'
+  revision 1
 
   option "without-check", "Skip build-time tests (not recommended)"
 

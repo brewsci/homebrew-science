@@ -12,6 +12,7 @@ class R < Formula
   url 'http://cran.rstudio.com/src/base/R-3/R-3.1.2.tar.gz'
   mirror 'http://cran.r-project.org/src/base/R-3/R-3.1.2.tar.gz'
   sha1 '93809368e5735a630611633ac1fa99010020c5d6'
+  revision 1
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"

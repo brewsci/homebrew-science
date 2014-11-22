@@ -5,6 +5,7 @@ class Ipopt < Formula
   url 'http://www.coin-or.org/download/source/Ipopt/Ipopt-3.11.9.tgz'
   sha1 '1bc6db565e5fb1ecbc40ff5179eab8409ba92b07'
   head 'https://projects.coin-or.org/svn/Ipopt/trunk', :using => :svn
+  revision 1
 
   option 'without-check', 'Skip build-time tests (not recommended)'
 

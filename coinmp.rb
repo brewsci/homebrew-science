@@ -5,6 +5,7 @@ class Coinmp < Formula
   url 'http://www.coin-or.org/download/source/CoinMP/CoinMP-1.7.3.tgz'
   sha1 'a40a7c9b4a63eea63a4e3f81c5a3ab3a9d77bf4c'
   head 'https://projects.coin-or.org/svn/CoinMP/trunk', :using => :svn
+  revision 1
 
   depends_on :fortran
 

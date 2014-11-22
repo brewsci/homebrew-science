@@ -4,6 +4,7 @@ class SuperluDist < Formula
   homepage "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
   url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_dist_3.3.tar.gz"
   sha1 "1f44b6e8382b402a61ef107d962f8602e90498a4"
+  revision 1
 
   option "without-check", "Skip build-time tests (not recommended)"
 

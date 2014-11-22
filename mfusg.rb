@@ -4,6 +4,7 @@ class Mfusg < Formula
   homepage "http://water.usgs.gov/ogw/mfusg"
   url "http://water.usgs.gov/ogw/mfusg/mfusg.1_2_00.zip"
   sha1 "ab25e4e816ad3c9b83720b7b367ddd4e287caf0f"
+  revision 1
 
   depends_on :python
   depends_on :fortran

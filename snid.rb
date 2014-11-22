@@ -4,6 +4,7 @@ class Snid < Formula
   homepage 'http://people.lam.fr/blondin.stephane/software/snid'
   url 'http://people.lam.fr/blondin.stephane/software/snid/snid-5.0.tar.gz'
   sha1 '0ba81c23584388065169b88bf54a9c3975b12460'
+  revision 1
 
   depends_on :x11
   depends_on :fortran

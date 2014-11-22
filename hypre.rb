@@ -4,6 +4,7 @@ class Hypre < Formula
   homepage "http://computation.llnl.gov/casc/hypre/software.html"
   url "http://computation.llnl.gov/casc/hypre/download/hypre-2.9.0b.tar.gz"
   sha1 "aaf8354437be38aa2fbcc944ab64d464a5b39207"
+  revision 1
 
   depends_on :fortran => :recommended
   depends_on :mpi => [:cc, :cxx, :f90, :f77, :optional]

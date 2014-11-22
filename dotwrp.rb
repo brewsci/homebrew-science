@@ -4,6 +4,7 @@ class Dotwrp < Formula
   homepage 'https://github.com/tenomoto/dotwrp'
   url 'https://github.com/tenomoto/dotwrp/archive/v1.1.tar.gz'
   sha1 'd328705ec424898382956bb8a0be16a680372f05'
+  revision 1
 
   head 'https://github.com/tenomoto/dotwrp.git'
 

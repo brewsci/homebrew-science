@@ -4,6 +4,7 @@ class Lis < Formula
   homepage "http://www.ssisc.org/lis"
   url "http://www.ssisc.org/lis/dl/lis-1.4.34.tar.gz"
   sha1 "60b08e4428c8f02e545b07817efef212dd2fb9df"
+  revision 1
 
   option "without-check", "Skip build-time checks (not recommended)"
   option "with-saamg",    "build SA-AMG preconditioner"

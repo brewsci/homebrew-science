@@ -6,6 +6,7 @@ class Octave < Formula
   mirror   "http://ftp.gnu.org/gnu/octave/octave-3.8.1.tar.bz2"
   sha1     "2951aeafe58d562672feb80dd8c3cfe0643a5087"
   head     "http://www.octave.org/hg/octave", :branch => "gui-release", :using => :hg
+  revision 1
 
   stable do
     # Allows the arrow keys to page through command history.

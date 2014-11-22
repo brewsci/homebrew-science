@@ -4,6 +4,7 @@ class Qrupdate < Formula
   homepage 'http://sourceforge.net/projects/qrupdate/'
   url 'https://downloads.sourceforge.net/qrupdate/qrupdate-1.1.2.tar.gz'
   sha1 'f7403b646ace20f4a2b080b4933a1e9152fac526'
+  revision 1
 
   option "without-check", "Skip build-time tests (not recommended)"
 

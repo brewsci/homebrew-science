@@ -4,6 +4,7 @@ class Coinutils < Formula
   homepage 'http://www.coin-or.org/projects/CoinUtils.xml'
   url 'http://www.coin-or.org/download/source/CoinUtils/CoinUtils-2.9.0.tgz'
   sha1 '2748dbae9db3df3818d56016ef964e82a942d697'
+  revision 1
 
   depends_on :fortran
 

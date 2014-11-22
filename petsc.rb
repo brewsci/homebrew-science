@@ -5,6 +5,7 @@ class Petsc < Formula
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.5.2.tar.gz"
   sha1 "d60d1735762f2e398774514451e137580bb2c7bb"
   head "https://bitbucket.org/petsc/petsc", :using => :git
+  revision 1
 
   option "without-check", "Skip build-time tests (not recommended)"
   option "complex", "Use complex version by default. Otherwise, real-valued version will be symlinked"

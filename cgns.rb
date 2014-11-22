@@ -4,6 +4,7 @@ class Cgns < Formula
   homepage 'http://cgns.sourceforge.net'
   url 'https://downloads.sourceforge.net/project/cgns/cgnslib_3.2/cgnslib_3.2.1.tar.gz'
   sha1 'ac8e4d226da9397d79385c19a7cea82b4abc1983'
+  revision 1
 
   depends_on :fortran
   depends_on 'cmake' => :build

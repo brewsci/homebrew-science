@@ -5,6 +5,7 @@ class Pastix < Formula
   url 'https://gforge.inria.fr/frs/download.php/file/34225/pastix_5.2.2.18.tar.bz2'
   sha1 'ab768208e6a2607d9868bb42117b2b9364e2d25a'
   head 'git://scm.gforge.inria.fr/ricar/ricar.git'
+  revision 1
 
   depends_on 'scotch'   => :build
   depends_on 'hwloc'

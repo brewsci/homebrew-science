@@ -4,6 +4,7 @@ class Slepc < Formula
   homepage 'http://www.grycap.upv.es/slepc'
   url 'http://www.grycap.upv.es/slepc/download/download.php?filename=slepc-3.5.2.tar.gz'
   sha1 '23675bee5c010d20f4a08f80f22120119ddb940a'
+  revision 1
 
   option "complex", "Use complex version by default. Otherwise, real-valued version will be symlinked"
 
