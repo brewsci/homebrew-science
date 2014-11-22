@@ -3,7 +3,7 @@ require 'formula'
 class Moab < Formula
   homepage 'https://trac.mcs.anl.gov/projects/ITAPS/wiki/MOAB'
   url 'https://bitbucket.org/fathomteam/moab/get/4.6.2.tar.gz'
-  sha1 'cecd30aaf9bdbb58078e06b0097a9144cac63d7f'
+  sha1 '20494f8f13ea621a7b3fa30d98e0535957b237aa'
 
   option 'without-check', "Skip build-time checks (not recommended)"
 
