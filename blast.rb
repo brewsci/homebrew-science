@@ -3,9 +3,10 @@ require "formula"
 class Blast < Formula
   homepage "http://blast.ncbi.nlm.nih.gov/"
   #doi "10.1016/S0022-2836(05)80360-2"
-  url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.29/ncbi-blast-2.2.29+-src.tar.gz"
-  version "2.2.29"
-  sha1 "6b1e8a4b172ae01dbf2ee1ec3b4c4fce392f3eca"
+
+  url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.30/ncbi-blast-2.2.30+-src.tar.gz"
+  version "2.2.30"
+  sha256 "26f72d51c81b9497f33b7274109565c36692572faef4d72377f79b7e59910e40"
 
   option "with-dll", "Create dynamic binaries instead of static"
   option "without-check", "Skip the self tests (Boost not needed)"
@@ -18,15 +19,11 @@ class Blast < Formula
   depends_on "libpng"   => :recommended
   depends_on "pcre"     => :recommended
   depends_on :mysql     => :optional
-  depends_on :python
+  depends_on :python if MacOS.version <= :snow_leopard
 
   fails_with :clang do
     build 600
     cause "configure: error: cannot continue; please try different options"
-  end
-
-  fails_with :gcc => "4.9" do
-    cause "error: must #include <typeinfo> before using typeid"
   end
 
   def install
@@ -45,7 +42,7 @@ class Blast < Formula
     cd "c++" do
       system "./configure", *args
       system "make"
-      system "make install"
+      system "make", "install"
 
       # libproj.a conflicts with the formula proj
       # mv gives the error message:
