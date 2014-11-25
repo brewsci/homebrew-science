@@ -22,11 +22,6 @@ class Blast < Formula
   depends_on :mysql     => :optional
   depends_on :python if MacOS.version <= :snow_leopard
 
-  fails_with :clang do
-    build 600
-    cause "configure: error: cannot continue; please try different options"
-  end
-
   def install
     # Fix error:
     # /bin/sh: line 2: /usr/bin/basename: No such file or directory
