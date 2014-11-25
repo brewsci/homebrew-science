@@ -2,6 +2,9 @@ require "formula"
 
 class Phylip < Formula
   homepage "http://evolution.genetics.washington.edu/phylip.html"
+  #tag "bioinformatics"
+  #doi "10.1007/BF01734359"
+
   url "http://evolution.gs.washington.edu/phylip/download/phylip-3.696.tar.gz"
   sha1 "e3ac52ca37c3397f81bb9325ee21ca8e5a8a2fa4"
 
