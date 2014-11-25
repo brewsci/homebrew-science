@@ -7,6 +7,13 @@ class Sambamba < Formula
   url "https://github.com/lomereiter/sambamba.git", :tag => "v0.5.0-alpha"
   head "https://github.com/lomereiter/sambamba.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "df4e636eebe1b5d0db70ab35daf0cc106fbdc032" => :yosemite
+    sha1 "2ed67cfce9731a3f732838df20181116564bb4a3" => :mavericks
+    sha1 "d984e3ebb51974404e861228a55f52d22ab30526" => :mountain_lion
+  end
+
   depends_on "ldc" => :build
 
   def install
