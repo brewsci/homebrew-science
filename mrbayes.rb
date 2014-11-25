@@ -2,6 +2,8 @@ require "formula"
 
 class Mrbayes < Formula
   homepage "http://mrbayes.sourceforge.net/"
+  #tag "bioinformatics"
+  #doi "10.1093/bioinformatics/btg180"
   url "https://downloads.sourceforge.net/project/mrbayes/mrbayes/3.2.3/mrbayes-3.2.3.tar.gz"
   sha1 "8492ce3b33369b10e89553f56a9a94724772ae2d"
 
