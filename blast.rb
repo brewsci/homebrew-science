@@ -9,6 +9,13 @@ class Blast < Formula
   version "2.2.30"
   sha256 "26f72d51c81b9497f33b7274109565c36692572faef4d72377f79b7e59910e40"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "1d208e88fbde83ca8c26bc1f256255741a84f5aa" => :yosemite
+    sha1 "e79869d57d5c80e3f88d804c94f4c66f012467a6" => :mavericks
+    sha1 "c0b2abc437f7fd813f56b0940d38f2d0c883d27e" => :mountain_lion
+  end
+
   option "with-dll", "Create dynamic binaries instead of static"
   option "without-check", "Skip the self tests (Boost not needed)"
 
