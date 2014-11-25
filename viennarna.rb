@@ -2,6 +2,9 @@ require "formula"
 
 class Viennarna < Formula
   homepage "http://www.tbi.univie.ac.at/~ronny/RNA/"
+  #tag "bioinformatics"
+  #doi "10.1186/1748-7188-6-26"
+
   url "http://www.tbi.univie.ac.at/~ronny/RNA/packages/source/ViennaRNA-2.1.8.tar.gz"
   sha1 "9f26c89043a00fddbac94751cd4450d0a7235fe2"
 
