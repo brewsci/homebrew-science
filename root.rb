@@ -2,8 +2,8 @@ require "formula"
 
 class Root < Formula
   homepage "http://root.cern.ch"
-  version "5.34.22"
-  sha1 "f0afdd16847e555c38b28e115a88bb4903ce9a29"
+  version "5.34.23"
+  sha1 "50892105b84b9c2c3ee1cbb7b0cca2bde29453e6"
   url "ftp://root.cern.ch/root/root_v#{version}.source.tar.gz"
   mirror "http://ftp.riken.jp/pub/ROOT/root_v#{version}.source.tar.gz"
   head "https://github.com/root-mirror/root.git", :branch => "v5-34-00-patches"
