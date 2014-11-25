@@ -28,6 +28,11 @@ class Blast < Formula
   end
 
   def install
+    # Fix error:
+    # /bin/sh: line 2: /usr/bin/basename: No such file or directory
+    # See http://www.ncbi.nlm.nih.gov/viewvc/v1?view=revision&revision=65204
+    inreplace "c++/src/build-system/Makefile.in.top", "/usr/bin/basename", "basename"
+
     args = %W[--prefix=#{prefix} --without-debug --with-mt]
 
     args << (build.with?("freetype") ? "--with-freetype=#{Formula["freetype"].opt_prefix}" : "--without-freetype")
