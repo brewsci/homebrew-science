@@ -6,6 +6,13 @@ class Hdf5 < Formula
   mirror "http://www.mirrorservice.org/sites/distfiles.macports.org/hdf5/hdf5-1.8.13.tar.bz2"
   sha1 "712955025f03db808f000d8f4976b8df0c0d37b5"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "fbdc27ec94bda3493fb2823041ada25ebee617c8" => :yosemite
+    sha1 "3048c391ab7376f712daec1d50e501c1998a565b" => :mavericks
+    sha1 "51075c8abd6c16eadb0bee699824e7bea9cd74e3" => :mountain_lion
+  end
+
   deprecated_option "enable-fortran" => "with-fortran"
   deprecated_option "enable-threadsafe" => "with-threadsafe"
   deprecated_option "enable-parallel" => "with-mpi"
