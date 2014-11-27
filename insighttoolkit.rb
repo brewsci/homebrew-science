@@ -14,7 +14,7 @@ class Insighttoolkit < Formula
   depends_on 'opencv' => [:optional] + cxx11dep
   depends_on :python => :optional
   depends_on 'fftw' => :recommended
-  depends_on 'hdf5' => [:recommended, "enable-cxx"] + cxx11dep
+  depends_on 'hdf5' => [:recommended, "with-cxx"] + cxx11dep
   depends_on 'jpeg' => :recommended
   depends_on :libpng => :recommended
   depends_on 'libtiff' => :recommended

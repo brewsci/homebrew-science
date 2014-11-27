@@ -7,7 +7,7 @@ class Radx < Formula
   version "20140417"
   sha1 "2959154e6c8aea4502dbb9fe98723c54fcd1bf39"
 
-  depends_on "hdf5" => "enable-cxx"
+  depends_on "hdf5" => "with-cxx"
   depends_on "udunits"
   depends_on "netcdf" => "enable-cxx-compat"
   depends_on "fftw"
