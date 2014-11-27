@@ -1,18 +1,18 @@
-require 'formula'
+require "formula"
 
 class Abyss < Formula
-  homepage 'http://www.bcgsc.ca/platform/bioinfo/software/abyss'
-  #doi '10.1101/gr.089532.108'
+  homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss"
+  #doi "10.1101/gr.089532.108"
   #tag "bioinformatics"
-  url 'https://github.com/bcgsc/abyss/releases/download/1.5.2/abyss-1.5.2.tar.gz'
-  sha1 'f28189338efdee0167cf73f92b43181caccd2b1d'
+  url "https://github.com/bcgsc/abyss/releases/download/1.5.2/abyss-1.5.2.tar.gz"
+  sha1 "f28189338efdee0167cf73f92b43181caccd2b1d"
 
   head do
-    url 'https://github.com/bcgsc/abyss.git'
+    url "https://github.com/bcgsc/abyss.git"
 
     depends_on :autoconf => :build
     depends_on :automake => :build
-    depends_on 'multimarkdown' => :build
+    depends_on "multimarkdown" => :build
   end
 
   resource "gtest" do
@@ -29,12 +29,12 @@ class Abyss < Formula
   end
 
   # Only header files are used from these packages, so :build is appropriate
-  depends_on 'boost' => :build
-  depends_on 'google-sparsehash' => :build
+  depends_on "boost" => :build
+  depends_on "google-sparsehash" => :build
   depends_on :mpi => [:cc, :recommended]
 
   # strip breaks the ability to read compressed files.
-  skip_clean 'bin'
+  skip_clean "bin"
 
   def install
     resource("gtest").stage do
@@ -46,7 +46,7 @@ class Abyss < Formula
     system "./autogen.sh" if build.head?
 
     args = [
-      '--disable-dependency-tracking',
+      "--disable-dependency-tracking",
       "--prefix=#{prefix}"]
     args << "--with-gtest=#{buildpath}/gtest" if build.with? "check"
     MAXK.each do |k|
