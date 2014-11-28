@@ -3,14 +3,12 @@ require "formula"
 class Quake < Formula
   homepage "http://www.cbcb.umd.edu/software/quake/"
   #doi "10.1186/gb-2010-11-11-r116"
+  #tag "bioinformatics"
 
   url "http://www.cbcb.umd.edu/software/quake/downloads/quake-0.3.5.tar.gz"
   sha1 "5ee22ae15415b97ef88e55f0dc786d07ed7aff7b"
 
-  fails_with :clang do
-    build 503
-    cause "error: 'omp.h' file not found"
-  end
+  needs :openmp
 
   depends_on "boost"
   depends_on "jellyfish"
