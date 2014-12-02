@@ -2,8 +2,8 @@ require "formula"
 
 class Oce < Formula
   homepage "https://github.com/tpaviot/oce"
-  url "https://github.com/tpaviot/oce/archive/OCE-0.16.tar.gz"
-  sha256 "841fe4337a5a4e733e36a2efc4fe60a4e6e8974917028df05d47a02f59787515"
+  url "https://github.com/tpaviot/oce/archive/OCE-0.16.1.tar.gz"
+  sha256 "d31030c8da4a1b33f767d0d59895a995c8eabc8fc65cbe0558734f6021ea2f57"
 
   conflicts_with "opencascade", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
 
