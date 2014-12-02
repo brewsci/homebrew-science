@@ -5,6 +5,13 @@ class Oce < Formula
   url "https://github.com/tpaviot/oce/archive/OCE-0.16.1.tar.gz"
   sha256 "d31030c8da4a1b33f767d0d59895a995c8eabc8fc65cbe0558734f6021ea2f57"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "cd617877f0337ccd04bc73021f222211304e0720" => :yosemite
+    sha1 "422b7487670decc2eecfec7fb9c5ce8c0007843b" => :mavericks
+    sha1 "ea4b75f10a8f081b1d80518fd5519a51b5d58477" => :mountain_lion
+  end
+
   conflicts_with "opencascade", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
 
   option "without-opencl", "Build without OpenCL support"
