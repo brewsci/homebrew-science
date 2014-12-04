@@ -49,6 +49,7 @@ class Opencv < Formula
     py_version = %x(python -c "import sys; print(sys.version)")[0..2]
 
     ENV.cxx11 if build.cxx11?
+    dylib = if OS.mac? then "dylib" else "so" end
     args = std_cmake_args + %W(
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_ZLIB=OFF
@@ -58,8 +59,8 @@ class Opencv < Formula
       -DBUILD_JASPER=OFF
       -DBUILD_JPEG=OFF
       -DJPEG_INCLUDE_DIR=#{jpeg.opt_include}
-      -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.dylib
-      -DPYTHON_LIBRARY=#{py_prefix}/lib/libpython#{py_version}.dylib
+      -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.#{dylib}
+      -DPYTHON_LIBRARY=#{py_prefix}/lib/libpython#{py_version}.#{dylib}
       -DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{py_version}
     )
 
