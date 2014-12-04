@@ -65,6 +65,8 @@ class Hdf5 < Formula
     end
 
     system "./configure", *args
+    system "make"
+    system "make", "check"
     system "make", "install"
     share.install "#{lib}/libhdf5.settings"
   end
