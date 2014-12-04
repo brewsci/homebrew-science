@@ -2,9 +2,8 @@ require "formula"
 
 class Hdf5 < Formula
   homepage "http://www.hdfgroup.org/HDF5"
-  url "http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.13/src/hdf5-1.8.13.tar.bz2"
-  mirror "http://www.mirrorservice.org/sites/distfiles.macports.org/hdf5/hdf5-1.8.13.tar.bz2"
-  sha1 "712955025f03db808f000d8f4976b8df0c0d37b5"
+  url "http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.14/src/hdf5-1.8.14.tar.bz2"
+  sha1 "3c48bcb0d5fb21a3aa425ed035c08d8da3d5483a"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
