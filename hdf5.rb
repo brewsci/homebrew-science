@@ -7,9 +7,9 @@ class Hdf5 < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "fbdc27ec94bda3493fb2823041ada25ebee617c8" => :yosemite
-    sha1 "3048c391ab7376f712daec1d50e501c1998a565b" => :mavericks
-    sha1 "51075c8abd6c16eadb0bee699824e7bea9cd74e3" => :mountain_lion
+    sha1 "8be7cc59b05b0018bc22acd967ca1684a5406f35" => :yosemite
+    sha1 "be1e4803cc7f5c38ac0d70cf891c4a34891b13de" => :mavericks
+    sha1 "963c82109013f4bb9e7286106dc453f82d1f59be" => :mountain_lion
   end
 
   deprecated_option "enable-fortran" => "with-fortran"
