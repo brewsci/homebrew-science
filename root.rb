@@ -10,9 +10,9 @@ class Root < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "7e86a20f898832a7eaf19e9f012854cce1f7eb90" => :yosemite
-    sha1 "6b7c8b53442d8277afcb64cda63e84d2e704007c" => :mavericks
-    sha1 "d68af89320af63ced42908b68a6357ae8acaa71a" => :mountain_lion
+    sha1 "212376e0d131b903952a9873d9c78ac821911a43" => :yosemite
+    sha1 "1b96cf40824848791c6bd012dcb0bc38d2626ff2" => :mavericks
+    sha1 "952baf8273bd6ed4a245e016c637abb9d401f559" => :mountain_lion
   end
 
   option "with-qt", "Build with Qt graphics backend and GSI's Qt integration"
