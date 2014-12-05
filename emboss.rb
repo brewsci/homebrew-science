@@ -12,7 +12,7 @@ class Emboss < Formula
   depends_on "pkg-config" => :build
   depends_on "libharu"    => :optional
   depends_on "gd"         => :optional
-  depends_on :libpng      => :recommended
+  depends_on "libpng"     => :recommended
   depends_on :x11         => :recommended
 
   def install
