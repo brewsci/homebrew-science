@@ -7,9 +7,9 @@ class Moab < Formula
 
   option 'without-check', "Skip build-time checks (not recommended)"
 
-  depends_on :autoconf
-  depends_on :automake
-  depends_on :libtool
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on 'netcdf'
   depends_on 'hdf5'
   depends_on :fortran if build.with? 'check'
