@@ -19,7 +19,7 @@ class Mathgl < Formula
   depends_on 'gsl'     => :recommended
   depends_on 'jpeg'    => :recommended
   depends_on 'libharu' => :recommended
-  depends_on :libpng   => :recommended
+  depends_on "libpng"  => :recommended
   depends_on 'hdf5'    => :optional
   depends_on 'fltk'    => :optional
   depends_on 'wxmac'   => :optional
