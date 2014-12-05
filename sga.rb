@@ -7,8 +7,8 @@ class Sga < Formula
   sha1 '36d5a23a393c968120988dd94bad9d561b0e0c4e'
   head 'https://github.com/jts/sga.git'
 
-  depends_on :autoconf => :build
-  depends_on :automake => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   # Only header files are used, so :build is appropriate
   depends_on 'google-sparsehash' => :build
   depends_on 'bamtools'
