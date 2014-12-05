@@ -14,7 +14,7 @@ class UcscGenomeBrowser < Formula
     with other packages.
   EOF
 
-  depends_on :libpng
+  depends_on "libpng"
   depends_on :mysql
 
   def install
