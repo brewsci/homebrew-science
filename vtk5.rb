@@ -29,7 +29,7 @@ class Vtk5 < Formula
   depends_on "boost" => :recommended
   depends_on "hdf5" => :recommended
   depends_on "jpeg" => :recommended
-  depends_on :libpng => :recommended
+  depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
 
   keg_only "Different versions of the same library"
