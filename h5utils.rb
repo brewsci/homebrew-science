@@ -5,7 +5,7 @@ class H5utils < Formula
   url 'http://ab-initio.mit.edu/h5utils/h5utils-1.12.1.tar.gz'
   sha1 '1bd8ef8c50221da35aafb5424de9b5f177250d2d'
 
-  depends_on :libpng
+  depends_on "libpng"
   depends_on 'hdf5'
 
   # A patch is required in order to build h5utils with libpng 1.5
