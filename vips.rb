@@ -8,11 +8,11 @@ class Vips < Formula
   option "without-check", "Disable build time checks (not recommended)"
 
   depends_on "pkg-config" => :build
-  depends_on :fontconfig
+  depends_on "fontconfig"
   depends_on "gettext"
   depends_on "glib"
 
-  depends_on :libpng => :recommended
+  depends_on "libpng" => :recommended
   depends_on "jpeg" => :recommended
   depends_on "orc" => :recommended
   depends_on "libgsf" => :recommended
