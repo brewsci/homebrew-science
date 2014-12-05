@@ -8,7 +8,7 @@ class Pocl < Formula
   depends_on 'pkg-config' => :build
   depends_on 'hwloc'
   depends_on 'llvm' => 'with-clang'
-  depends_on :libltdl
+  depends_on "libtool" => :run
 
   # Check if ndebug flag is required for compiling pocl didn't work on osx.
   # https://github.com/pocl/pocl/pull/65
