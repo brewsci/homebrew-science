@@ -6,9 +6,9 @@ class SnpSites < Formula
   sha1 '3b9e6dd25a6c4dd75631f95f593b18697115e110'
   head 'https://github.com/sanger-pathogens/snp_sites.git'
 
-  depends_on :autoconf
-  depends_on :automake
-  depends_on :libtool
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
     inreplace "src/Makefile.am", "-lrt", "" if OS.mac? # no librt for osx
