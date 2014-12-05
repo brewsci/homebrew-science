@@ -11,8 +11,8 @@ class Mrbayes < Formula
 
   option "with-beagle", "Build with BEAGLE library support"
 
-  depends_on :autoconf => :build
-  depends_on :automake => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on :mpi => [:cc, :optional]
   depends_on "beagle" => :optional
 
