@@ -10,8 +10,8 @@ class Pymol < Formula
   depends_on "pmw"
   depends_on "python" => "with-brewed-tk"
   depends_on "homebrew/dupes/tcl-tk" => ["enable-threads", "with-x11"]
-  depends_on :freetype
-  depends_on :libpng
+  depends_on "freetype"
+  depends_on "libpng"
   depends_on :x11
 
   # To use external GUI tk must be built with --enable-threads
