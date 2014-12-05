@@ -37,10 +37,10 @@ class Beagle < Formula
 
   option 'with-opencl', "Build with OpenCL GPU/CPU acceleration"
 
-  depends_on :autoconf => :build
-  depends_on :automake => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on 'doxygen' => :build
-  depends_on :libtool
   depends_on CudaRequirement => :optional
 
   def install
