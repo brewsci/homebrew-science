@@ -7,7 +7,7 @@ class EnblendEnfuse < Formula
 
   option 'with-gpu', 'Build with GPU support'
 
-  depends_on :libpng
+  depends_on "libpng"
   depends_on :x11 => :optional
   depends_on 'boost'
   depends_on 'gsl'
