@@ -26,10 +26,10 @@ class Vtk < Formula
   depends_on "qt5" => :optional
   depends_on :python => :recommended
   depends_on "boost" => :recommended
-  depends_on :fontconfig => :recommended
+  depends_on "fontconfig" => :recommended
   depends_on "hdf5" => :recommended
   depends_on "jpeg" => :recommended
-  depends_on :libpng => :recommended
+  depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "matplotlib" => :python if build.with? "matplotlib"
 
