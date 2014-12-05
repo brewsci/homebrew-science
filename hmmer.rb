@@ -10,7 +10,7 @@ class Hmmer < Formula
 
   head do
     url 'https://svn.janelia.org/eddylab/eddys/src/hmmer/trunk'
-    depends_on :autoconf
+    depends_on "autoconf" => :build
   end
 
   def install
