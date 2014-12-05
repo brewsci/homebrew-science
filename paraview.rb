@@ -19,8 +19,8 @@ class Paraview < Formula
   depends_on "hdf5"
   depends_on "jpeg"
   depends_on "libtiff"
-  depends_on :fontconfig
-  depends_on :libpng
+  depends_on "fontconfig"
+  depends_on "libpng"
 
   def install
     args = std_cmake_args + %W[
