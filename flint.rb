@@ -2,6 +2,8 @@ require "formula"
 
 class Flint < Formula
   homepage "http://flintlib.org"
+  #doi "10.1007/978-3-642-15582-6_18"
+  #tag "math"
   url "http://flintlib.org/flint-2.4.4.tar.gz"
   sha1 "71075ce6d851af6244110644479bf29b4403212c"
   head "https://github.com/wbhart/flint2.git", :branch => "trunk"
