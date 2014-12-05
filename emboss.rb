@@ -14,6 +14,8 @@ class Emboss < Formula
   depends_on "gd"         => :optional
   depends_on "libpng"     => :recommended
   depends_on :x11         => :recommended
+  depends_on :postgresql  => :optional
+  depends_on :mysql       => :optional
 
   def install
     inreplace "Makefile.in", "$(bindir)/embossupdate", "" if build.without? "embossupdate"
@@ -22,10 +24,14 @@ class Emboss < Formula
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --mandir=#{man}
+      --docdir=#{doc}
       --enable-64
       --with-thread
     ]
     args << "--without-x" if build.without? "x11"
+    args << "--with-mysql" if build.with? "mysql"
+    args << "--with-postgresql" if build.with? "postgresql"
 
     system "./configure", *args
     system "make", "install"
