@@ -1,10 +1,10 @@
 require 'formula'
 
 class Asl < Formula
-  url 'http://www.ampl.com/netlib/ampl/solvers.tgz'
-  sha1 "27bbf1d0dc0fc18c2362854eccd7a19fc8524faa"
-  version "20141111"
   homepage 'http://www.ampl.com/hooking.html'
+  url 'http://www.ampl.com/netlib/ampl/solvers.tgz'
+  sha1 "4158029936bda074f3aff33d685d8634a4a1382d"
+  version "20141202"
 
   option 'with-matlab', 'Build MEX file for use with Matlab'
   option 'with-mex-path=', 'Path to MEX executable, e.g., /Applications/Matlab/MATLAB_R2013b.app/bin/mex (default: mex)'
@@ -62,11 +62,11 @@ class Asl < Formula
 
   def caveats
     s = <<-EOS.undent
-      Include files are in #{include}/asl.
+      Include files are in #{opt_include}/asl.
       To link with the ASL, you may simply use
-      -L#{lib} -lasl -lfuncadd0
+      -L#{opt_lib} -lasl -lfuncadd0
     EOS
-    s += "\nAdd #{bin} to your MATLABPATH." if build.with? "matlab"
+    s += "\nAdd #{opt_bin} to your MATLABPATH." if build.with? "matlab"
     s
   end
 end
