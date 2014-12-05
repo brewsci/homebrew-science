@@ -7,8 +7,8 @@ class Z3 < Formula
   sha1 "91726a94a6bc0c1035d978b225f3f034387fdfe0"
   head "https://git01.codeplex.com/z3", :using => :git
 
-  depends_on :autoconf
-  depends_on :automake
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on :python
 
   def install
