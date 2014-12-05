@@ -5,7 +5,7 @@ class Therion < Formula
   url "http://therion.speleo.sk/downloads/therion-5.3.15.tar.gz"
   sha1 "c518482607bb7de861d7cbb395532b2af107daa2"
 
-  depends_on :freetype
+  depends_on "freetype"
   depends_on "imagemagick"
   depends_on "lcdf-typetools"
   depends_on :tex
