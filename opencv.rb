@@ -26,7 +26,7 @@ class Opencv < Formula
   depends_on "gstreamer"  => :optional
   depends_on "jasper"     => :optional
   depends_on "jpeg"
-  depends_on :libpng
+  depends_on "libpng"
   depends_on "libtiff"
   depends_on "libdc1394"  => :optional
   depends_on "numpy"      => :python
