@@ -18,8 +18,8 @@ class Abyss < Formula
   head do
     url "https://github.com/bcgsc/abyss.git"
 
-    depends_on :autoconf => :build
-    depends_on :automake => :build
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "multimarkdown" => :build
   end
 
