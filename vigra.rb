@@ -14,7 +14,7 @@ class Vigra < Formula
   depends_on "numpy" => :python if build.with? :python
   depends_on "cmake" => :build
   depends_on "jpeg"
-  depends_on :libpng
+  depends_on "libpng"
   depends_on "libtiff"
   depends_on "hdf5" => :recommended
   depends_on "fftw" => :recommended
