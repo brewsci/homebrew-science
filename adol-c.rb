@@ -7,9 +7,9 @@ class AdolC < Formula
 
   head 'https://projects.coin-or.org/svn/ADOL-C/trunk/', :using => :svn
 
-  depends_on :autoconf => :build
-  depends_on :automake => :build
-  depends_on :libtool  => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "colpack" => [:recommended, 'with-libc++']
 
   fails_with :llvm
