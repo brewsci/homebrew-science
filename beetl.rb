@@ -8,15 +8,8 @@ class Beetl < Formula
   depends_on 'boost' => :optional
   depends_on 'seqan' => :optional
 
-  fails_with :clang do
-    build 600
-    cause 'Requires OpenMP'
-  end
-
-  fails_with :gcc do
-    build 5666
-    cause 'Requires C++11'
-  end
+  needs :cxx11
+  needs :openmp
 
   patch do
     # Include necessary headers
