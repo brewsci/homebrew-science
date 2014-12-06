@@ -13,6 +13,13 @@ class R < Formula
   mirror 'http://cran.r-project.org/src/base/R-3/R-3.1.2.tar.gz'
   sha1 '93809368e5735a630611633ac1fa99010020c5d6'
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "dd0561d83e304470274792dc8886d5ecd75c8f0a" => :yosemite
+    sha1 "1a9a113e18d28bc0c3b0225a6df431e62489424a" => :mavericks
+    sha1 "07ddfd37c259fdd769622d95d09f302ea0dc9ee5" => :mountain_lion
+  end
+
   head do
     url 'https://svn.r-project.org/R/trunk', :using => RDownloadStrategy
     depends_on :tex
