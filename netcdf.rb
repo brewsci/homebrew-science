@@ -6,6 +6,14 @@ class Netcdf < Formula
   mirror "http://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.3.2.tar.gz"
   sha1 "6e1bacab02e5220954fe0328d710ebb71c071d19"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "b00a755e6cec162a160ef2abf3b160422c25f2f8" => :yosemite
+    sha1 "3bc265e091b62b4366632944a7c46cc0a755398b" => :mavericks
+    sha1 "775749cc59f58c763faf4e370c82d1e34995f76b" => :mountain_lion
+  end
+
   deprecated_option "enable-fortran" => "with-fortran"
   deprecated_option "disable-cxx" => "without-cxx"
   deprecated_option "enable-cxx-compat" => "with-cxx-compat"
