@@ -103,12 +103,13 @@ class Octave < Formula
   depends_on "glpk"           => :recommended
   depends_on "gl2ps"          => :recommended
   depends_on "graphicsmagick" => :recommended
-  depends_on "ghostscript"    => :recommended
   depends_on "hdf5"           => :recommended
   depends_on "qhull"          => :recommended
   depends_on "qrupdate"       => :recommended
-  depends_on "pstoedit"       => :recommended
   depends_on "epstool"        => :recommended
+
+  depends_on "ghostscript"    => :recommended
+  depends_on "pstoedit"       if build.with? "ghostscript"
 
   depends_on "openblas"       => :optional
 
