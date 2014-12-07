@@ -4,6 +4,7 @@ class Shogun < Formula
   homepage 'http://www.shogun-toolbox.org'
   url 'http://shogun-toolbox.org/archives/shogun/releases/2.1/sources/shogun-2.1.0.tar.bz2'
   sha1 '706401267bfceedff981c7709be1098b18ffb031'
+  revision 1
 
   option 'disable-svm-light', 'Disable SVM-light module, which is GPLv3 and makes all of shogun GPLv3'
 

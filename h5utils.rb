@@ -4,6 +4,7 @@ class H5utils < Formula
   homepage 'http://ab-initio.mit.edu/wiki/index.php/H5utils'
   url 'http://ab-initio.mit.edu/h5utils/h5utils-1.12.1.tar.gz'
   sha1 '1bd8ef8c50221da35aafb5424de9b5f177250d2d'
+  revision 1
 
   depends_on "libpng"
   depends_on 'hdf5'

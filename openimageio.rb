@@ -4,6 +4,7 @@ class Openimageio < Formula
   homepage "http://openimageio.org"
   url "https://github.com/OpenImageIO/oiio/archive/Release-1.4.8.tar.gz"
   sha1 "412793b71ba5510709795a47395a78436a4c5344"
+  revision 1
 
   head "https://github.com/OpenImageIO/oiio.git"
 

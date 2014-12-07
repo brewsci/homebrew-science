@@ -8,6 +8,7 @@ class Minc < Formula
   url 'https://github.com/BIC-MNI/minc/archive/minc-2-1-13.tar.gz'
   version '2.1.13'
   sha1 '62eeeab62bb5c977e11166d4e43ba384fd029fd1'
+  revision 1
 
   head 'https://github.com/BIC-MNI/minc.git'
 

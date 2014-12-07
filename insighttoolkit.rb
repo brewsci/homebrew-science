@@ -5,6 +5,7 @@ class Insighttoolkit < Formula
   url 'https://downloads.sourceforge.net/project/itk/itk/4.6/InsightToolkit-4.6.1.tar.gz'
   sha1 '95b879b17a8e2c4727b363037a3af4377095422d'
   head 'git://itk.org/ITK.git'
+  revision 1
 
   option :cxx11
   cxx11dep = (build.cxx11?) ? ['c++11'] : []
