@@ -10,9 +10,9 @@ class Netcdf < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "b00a755e6cec162a160ef2abf3b160422c25f2f8" => :yosemite
-    sha1 "3bc265e091b62b4366632944a7c46cc0a755398b" => :mavericks
-    sha1 "775749cc59f58c763faf4e370c82d1e34995f76b" => :mountain_lion
+    sha1 "af12e8d6b0cf4afee76f944ae97ccb174e297819" => :yosemite
+    sha1 "d20838cd139c3022429ba0fa28e4ba2f6ef2ae3c" => :mavericks
+    sha1 "a4857f759d7b05df9fb318c7f2a78b400e5c4db8" => :mountain_lion
   end
 
   deprecated_option "enable-fortran" => "with-fortran"
