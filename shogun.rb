@@ -6,6 +6,12 @@ class Shogun < Formula
   sha1 '706401267bfceedff981c7709be1098b18ffb031'
   revision 1
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "a4c6fcf6f847778a25483ef5e85a1ac71c510d09" => :yosemite
+    sha1 "7ed6fd9c35fd9a42b4a7738a54d1adb6000f7812" => :mavericks
+  end
+
   option 'disable-svm-light', 'Disable SVM-light module, which is GPLv3 and makes all of shogun GPLv3'
 
   depends_on 'pkg-config' => :build
