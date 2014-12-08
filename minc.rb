@@ -10,6 +10,14 @@ class Minc < Formula
   sha1 '62eeeab62bb5c977e11166d4e43ba384fd029fd1'
   revision 1
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "3db0b7126c24f0d21e10180bd8dd4adee8cda1b8" => :yosemite
+    sha1 "0edbcf2269249f2ab56db811e17970df0b468229" => :mavericks
+    sha1 "b449228e0c8e7eaf05931a4d1e581af595925aba" => :mountain_lion
+  end
+
   head 'https://github.com/BIC-MNI/minc.git'
 
   depends_on "autoconf" => :build
