@@ -6,6 +6,14 @@ class Openimageio < Formula
   sha1 "412793b71ba5510709795a47395a78436a4c5344"
   revision 1
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "e8877d136f53b979d6475ffdb1dc2a6d7ec83ca3" => :yosemite
+    sha1 "7de4b327278ab20402da67a67c5b7aea02dbc36f" => :mavericks
+    sha1 "9c61260679b66d7f45818720dfaa06764d58e9ae" => :mountain_lion
+  end
+
   head "https://github.com/OpenImageIO/oiio.git"
 
   option "with-tests",  "Dowload 95MB of test images and verify Oiio (~2 min)"
