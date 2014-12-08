@@ -7,6 +7,13 @@ class Vtk < Formula
   sha1 "91d1303558c7276f031f8ffeb47b4233f2fd2cd9"
   revision 1
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "745eb8b7c7eeb14b7226d7f075560625a8fd940d" => :yosemite
+    sha1 "3f38f458c793b8fcb3c8b08e1f6174ec74e05a15" => :mavericks
+    sha1 "795331c1241eaee7b41aec442e9d55cffb7ce84c" => :mountain_lion
+  end
+
   head "https://github.com/Kitware/VTK.git"
 
   deprecated_option "examples" => "with-examples"
