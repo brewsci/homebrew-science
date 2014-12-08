@@ -6,6 +6,13 @@ class Cdo < Formula
   sha1 "9aa9f2227247eee6e5a0d949f5189f9a0ce4f2f1"
   revision 1
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "5eb3315c9fdf5fe36e9868326011f27cfd4f307a" => :yosemite
+    sha1 "cab401ebf39e140b1cf33f804453a552b0d1504c" => :mavericks
+    sha1 "e7580783a3b2c604e920db74ed0e51d0cd615d64" => :mountain_lion
+  end
+
   option "enable-grib2", "Compile Fortran bindings"
 
   if build.include? "enable-grib2"
