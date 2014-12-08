@@ -48,6 +48,10 @@ class R < Formula
   end
 
   def install
+    # If LDFLAGS contains any -L options, configure sets LD_LIBRARY_PATH to
+    # search those directories. Remove -LHOMEBREW_PREFIX/lib from LDFLAGS.
+    ENV.remove "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib" if OS.linux?
+
     args = [
       "--prefix=#{prefix}",
       "--with-libintl-prefix=#{Formula['gettext'].opt_prefix}",
