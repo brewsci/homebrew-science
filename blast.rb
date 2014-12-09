@@ -11,10 +11,10 @@ class Blast < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    revision 1
-    sha1 "2c601cace5f7e6b0e493750379fc26f0093a1463" => :yosemite
-    sha1 "94527e5cce4b1f26e69b73f3b5810f19a0e095b0" => :mavericks
-    sha1 "88ebde0f73356e61a0dac3845f885044c9740b7a" => :mountain_lion
+    revision 2
+    sha1 "8ab5e26b3efba48e539f28da7191ecbcb6ce84fb" => :yosemite
+    sha1 "64d148a557b17f53695977634909d70de24db3e9" => :mavericks
+    sha1 "be4d1951596bdedaa4916b9698ffbe90b53b967a" => :mountain_lion
   end
 
   option "with-dll", "Create dynamic binaries instead of static"
