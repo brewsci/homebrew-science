@@ -7,7 +7,7 @@ class Blast < Formula
   url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.30/ncbi-blast-2.2.30+-src.tar.gz"
   mirror "http://mirrors.vbi.vt.edu/mirrors/ftp.ncbi.nih.gov/blast/executables/blast+/2.2.30/ncbi-blast-2.2.30+-src.tar.gz"
   version "2.2.30"
-  sha256 "66a59b5c76ba187b33ac921f91c1c37872c113ed97b4dff10f52fdba113bfc64"
+  sha256 "26f72d51c81b9497f33b7274109565c36692572faef4d72377f79b7e59910e40"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -31,6 +31,11 @@ class Blast < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   def install
+    # Fix error:
+    # /bin/sh: line 2: /usr/bin/basename: No such file or directory
+    # See http://www.ncbi.nlm.nih.gov/viewvc/v1?view=revision&revision=65204
+    inreplace "c++/src/build-system/Makefile.in.top", "/usr/bin/basename", "basename"
+
     args = %W[--prefix=#{prefix} --without-debug --with-mt]
 
     args << (build.with?("freetype") ? "--with-freetype=#{Formula["freetype"].opt_prefix}" : "--without-freetype")
