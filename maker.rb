@@ -36,7 +36,8 @@ class Maker < Formula
 
   def install
     cd 'src' do
-      system 'yes "" |perl Build.PL'
+      mpi = if build.with?("mpi") then "yes" else "no" end
+      system "(echo #{mpi}; yes '') |perl Build.PL"
       system *%w[./Build install]
     end
     libexec.install Dir['*']
