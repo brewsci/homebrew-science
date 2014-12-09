@@ -1,15 +1,9 @@
 require "formula"
 
-class SigrokDownloadStrategy < GitDownloadStrategy
-  def support_depth?
-    false
-  end
-end
-
 class Pulseview < Formula
   url "http://sigrok.org/download/source/pulseview/pulseview-0.2.0.tar.gz"
   homepage "http://sigrok.org/"
-  head "git://sigrok.org/pulseview", :using => SigrokDownloadStrategy
+  head "git://sigrok.org/pulseview", :shallow => false
   sha1 "92be17ef8196fb98162d27b5c0fca382d92dee31"
 
   depends_on "pkg-config" => :build

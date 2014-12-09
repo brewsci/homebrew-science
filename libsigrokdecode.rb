@@ -1,15 +1,9 @@
 require "formula"
 
-class SigrokDownloadStrategy < GitDownloadStrategy
-  def support_depth?
-    false
-  end
-end
-
 class Libsigrokdecode < Formula
   url "http://sigrok.org/download/source/libsigrokdecode/libsigrokdecode-0.3.0.tar.gz"
   homepage "http://sigrok.org/"
-  head "git://sigrok.org/libsigrokdecode", :using => SigrokDownloadStrategy
+  head "git://sigrok.org/libsigrokdecode", :shallow => false
   sha1 "a75f2839cf62d965281bac22919e761c5210e32e"
 
   depends_on "pkg-config" => :build
@@ -38,11 +32,11 @@ class Libsigrokdecode < Formula
     end if build.with? "librevisa"
 
     resource "libserialport" do
-      url "git://sigrok.org/libserialport", :using => SigrokDownloadStrategy
+      url "git://sigrok.org/libserialport", :shallow => false
     end if build.with? "libserialport"
 
     resource "libsigrok" do
-      url "git://sigrok.org/libsigrok", :using => SigrokDownloadStrategy
+      url "git://sigrok.org/libsigrok", :shallow => false
     end
   end
 
