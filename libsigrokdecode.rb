@@ -19,13 +19,17 @@ class Libsigrokdecode < Formula
   option "with-librevisa", "Build with librevisa"
 
   # currently needed for librevisa due to errors in released alpha build
-  if build.head? or build.with?("librevisa")
+  if build.with?("librevisa")
     depends_on "libtool" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
 
   head do
+    depends_on "libtool" => :build
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+
     resource "librevisa" do
       # currently needed for librevisa due to errors in released alpha build
       url "http://www.librevisa.org/git/librevisa.git"
