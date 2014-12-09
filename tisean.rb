@@ -37,11 +37,13 @@ class Tisean < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
-    By default, all TISEAN binaries are prefixed with `tisean-`.
-    For unprefixed binaries, use `--without-prefixed-binaries`.
-    EOS
-  end if build.with? "prefixed-binaries"
+  def caveats
+    if build.with? "prefixed-binaries" then <<-EOS.undent
+      By default, all TISEAN binaries are prefixed with `tisean-`.
+      For unprefixed binaries, use `--without-prefixed-binaries`.
+      EOS
+    end
+  end
 
   test do
     pfx = build.with?("prefixed-binaries") ? "tisean-" : ""
