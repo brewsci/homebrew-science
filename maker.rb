@@ -5,8 +5,8 @@ class Maker < Formula
   #doi '10.1101/gr.6743907' => 'MAKER', '10.1186/1471-2105-12-491' => 'MAKER2', '10.1104/pp.113.230144' => 'MAKER-P'
   #tag "bioinformatics"
 
-  url "http://yandell.topaz.genetics.utah.edu/maker_downloads/static/maker-2.31.6.tgz"
-  sha1 "6cdb9adbf93fa66c0340e9d61404a8c3f6fd917c"
+  url "http://yandell.topaz.genetics.utah.edu/maker_downloads/static/maker-2.31.7.tgz"
+  sha1 "921b891d723bcc7d8cb0306c3393ffc3d6aeaa69"
 
   depends_on 'augustus' => :optional
   depends_on 'blast' => :recommended
