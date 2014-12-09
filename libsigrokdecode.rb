@@ -64,14 +64,13 @@ class Libsigrokdecode < Formula
     )
 
     ENV.delete "PYTHONPATH"
-    ENV.append_path("PKG_CONFIG_PATH", lib / "pkgconfig")
+    ENV.append_path "PKG_CONFIG_PATH", lib / "pkgconfig"
     ENV.append_path "PKG_CONFIG_PATH", HOMEBREW_PREFIX / "Frameworks/Python.framework/Versions/3.4/lib/pkgconfig"
 
     resource("libserialport").stage do
       system "./autogen.sh" if build.head?
       system "./configure", *common_args
       system "make", "install"
-      ENV.append_path("PKG_CONFIG_PATH", lib / "pkgconfig")
     end if build.with? "libserialport"
 
     resource("librevisa").stage do
@@ -81,7 +80,6 @@ class Libsigrokdecode < Formula
       system "./autogen.sh"
       system "./configure", *common_args
       system "make", "install"
-      ENV.append_path("PKG_CONFIG_PATH", lib / "pkgconfig")
     end if build.with? "librevisa"
 
     # not strictly needed for libsigrokdecode but both sigrok-cli and pulseview
@@ -91,7 +89,6 @@ class Libsigrokdecode < Formula
       system "./configure", *common_args
       system "make", "install"
       share.install
-      ENV.append_path("PKG_CONFIG_PATH", lib / "pkgconfig")
     end
 
     ENV.deparallelize
