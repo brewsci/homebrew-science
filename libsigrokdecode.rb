@@ -29,11 +29,11 @@ class Libsigrokdecode < Formula
     resource "librevisa" do
       # currently needed for librevisa due to errors in released alpha build
       url "http://www.librevisa.org/git/librevisa.git"
-    end if build.with? "librevisa"
+    end
 
     resource "libserialport" do
       url "git://sigrok.org/libserialport", :shallow => false
-    end if build.with? "libserialport"
+    end
 
     resource "libsigrok" do
       url "git://sigrok.org/libsigrok", :shallow => false
@@ -44,12 +44,12 @@ class Libsigrokdecode < Formula
     resource "librevisa" do
       url "http://www.librevisa.org/git/librevisa.git", :tag => "alpha-2013-08-12"
       sha1 "1bb24a6721cc994494f294fd86c78594ba4f8b40"
-    end if build.with? "librevisa"
+    end
 
     resource "libserialport" do
       url "http://sigrok.org/download/source/libserialport/libserialport-0.1.0.tar.gz"
       sha1 "f8677c9e63caf1f6e6cb6aa39a8ae3a256516d78"
-    end if build.with? "libserialport"
+    end
 
     resource "libsigrok" do
       url "http://sigrok.org/download/source/libsigrok/libsigrok-0.3.0.tar.gz"
