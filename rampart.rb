@@ -12,6 +12,14 @@ class Rampart < Formula
   url "https://github.com/TGAC/RAMPART/releases/download/Release-0.10.3/rampart-0.10.3.tar.gz"
   sha1 "8f8c5db27e8088fbf03fc08222bfead6cf96fb11"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "6b27caaf40113844445985e31666374f7bb1bc4e" => :yosemite
+    sha1 "f865ca5e82b22b25bffba039624dad5d320ecdcb" => :mavericks
+    sha1 "04c62dd16e5e57028c4dc71c28efcc5d4cd0f707" => :mountain_lion
+  end
+
   depends_on :java => "1.7"
 
   # Dataset improvement
