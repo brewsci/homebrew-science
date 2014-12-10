@@ -3,6 +3,7 @@ require "formula"
 class Blast < Formula
   homepage "http://blast.ncbi.nlm.nih.gov/"
   #doi "10.1016/S0022-2836(05)80360-2"
+  #tag "bioinformatics"
 
   url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.30/ncbi-blast-2.2.30+-src.tar.gz"
   mirror "http://mirrors.vbi.vt.edu/mirrors/ftp.ncbi.nih.gov/blast/executables/blast+/2.2.30/ncbi-blast-2.2.30+-src.tar.gz"
@@ -17,7 +18,8 @@ class Blast < Formula
     sha1 "be4d1951596bdedaa4916b9698ffbe90b53b967a" => :mountain_lion
   end
 
-  option "with-dll", "Create dynamic binaries instead of static"
+  option "without-static", "Build without static libraries & binaries"
+  option "with-dll", "Build dynamic libraries"
   option "without-check", "Skip the self tests (Boost not needed)"
 
   depends_on "boost" if build.with? "check"
@@ -38,13 +40,21 @@ class Blast < Formula
 
     args = %W[--prefix=#{prefix} --without-debug --with-mt]
 
+    args << (build.with?("mysql") ? "--with-mysql" : "--without-mysql")
     args << (build.with?("freetype") ? "--with-freetype=#{Formula["freetype"].opt_prefix}" : "--without-freetype")
     args << (build.with?("gnutls") ? "--with-gnutls=#{Formula["gnutls"].opt_prefix}" : "--without-gnutls")
     args << (build.with?("jpeg")   ? "--with-jpeg=#{Formula["jpeg"].opt_prefix}" : "--without-jpeg")
     args << (build.with?("libpng") ? "--with-png=#{Formula["libpng"].opt_prefix}" : "--without-png")
     args << (build.with?("pcre")   ? "--with-pcre=#{Formula["pcre"].opt_prefix}" : "--without-pcre")
+    args << (build.with?("hdf5")   ? "--with-hdf5=#{Formula["hdf5"].opt_prefix}" : "--without-hdf5")
 
-    args << "--with-dll" if build.with? "dll"
+    if build.without? "static"
+      args << "--with-dll" << "--without-static" << "--without-static-exe"
+    else
+      args << "--with-static" << "--with-static-exe"
+      args << "--with-dll" if build.with? "dll"
+    end
+
     # Boost is used only for unit tests.
     args << (build.with?("check") ? "--with-check" : "--without-boost")
 
@@ -54,17 +64,12 @@ class Blast < Formula
       system "make", "install"
 
       # libproj.a conflicts with the formula proj
-      # mv gives the error message:
-      # fileutils.rb:1552:in `stat'
-      # Errno::ENOENT: No such file or directory -
-      # $HOMEBREW_PREFIX/Cellar/blast/2.2.28/lib/libaccess-static.a
-      libexec.mkdir
-      system "mv #{lib}/lib*.a #{libexec}/." if build.without? "dll"
+      libexec.install Dir["#{lib}/lib*.a"] if build.with? "static"
     end
   end
 
   def caveats; <<-EOS.undent
-    Using the option '--with-dll' will create dynamic binaries instead of
+    Using the option '--without-static' will create dynamic binaries instead of
     static. The NCBI Blast static installation is approximately 7 times larger
     than the dynamic.
 
