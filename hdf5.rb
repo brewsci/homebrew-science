@@ -19,6 +19,7 @@ class Hdf5 < Formula
   deprecated_option "enable-cxx" => "with-cxx"
 
   option :universal
+  option "without-check", "Skip build-time tests"
   option "with-threadsafe", "Trade performance and C++ or Fortran support for thread safety"
   option "with-fortran2003", "Compile Fortran 2003 bindings. Requires with-fortran"
   option "with-cxx", "Compile C++ bindings"
@@ -66,7 +67,7 @@ class Hdf5 < Formula
 
     system "./configure", *args
     system "make"
-    system "make", "check"
+    system "make", "check" if build.with? "check"
     system "make", "install"
     share.install "#{lib}/libhdf5.settings"
   end
