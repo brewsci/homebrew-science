@@ -15,7 +15,7 @@ class Dynare < Formula
   depends_on "fftw"
   depends_on "gsl"
   depends_on "libmatio"
-  depends_on "matlab2tikz"
+  depends_on "matlab2tikz" unless build.head?
   depends_on :fortran
 
   depends_on :tex      => :build if build.with? "doc"
@@ -23,6 +23,14 @@ class Dynare < Formula
 
   depends_on "slicot" => ["with-default-integer-8"] if build.with? "matlab="
   depends_on "octave" => :recommended
+
+  head do
+    url "https://github.com/DynareTeam/dynare.git"
+
+    depends_on "automake" => :build
+    depends_on "flex"     => :build
+    depends_on "bison"    => :build
+  end
 
   def install
     args=%W[
@@ -48,6 +56,7 @@ class Dynare < Formula
     end
     args << "--disable-octave" if build.without? "octave"
 
+    system "autoreconf -si" if build.head?
     system "./configure", *args
 
     if build.with? "doc" and OS.mac?
