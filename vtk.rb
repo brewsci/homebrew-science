@@ -54,7 +54,6 @@ class Vtk < Formula
       -DVTK_REQUIRED_OBJCXX_FLAGS=''
       -DVTK_USE_CARBON=OFF
       -DVTK_USE_TK=OFF
-      -DBUILD_TESTING=OFF
       -DBUILD_SHARED_LIBS=ON
       -DIOKit:FILEPATH=#{MacOS.sdk_path}/System/Library/Frameworks/IOKit.framework
       -DCMAKE_INSTALL_RPATH:STRING=#{lib}
@@ -65,6 +64,12 @@ class Vtk < Formula
     ]
 
     args << "-DBUILD_EXAMPLES=" + ((build.with? "examples") ? "ON" : "OFF")
+
+    if build.with? "examples"
+      args << "-DBUILD_TESTING=ON"
+    else
+      args << "-DBUILD_TESTING=OFF"
+    end
 
     if build.with? "qt" or build.with? "qt5" or build.with? "qt-extern"
       args << "-DVTK_QT_VERSION:STRING=5" if build.with? "qt5"
