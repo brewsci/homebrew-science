@@ -51,7 +51,8 @@ class Blast < Formula
     if build.without? "static"
       args << "--with-dll" << "--without-static" << "--without-static-exe"
     else
-      args << "--with-static" << "--with-static-exe"
+      args << "--with-static"
+      args << "--with-static-exe" unless OS.linux?
       args << "--with-dll" if build.with? "dll"
     end
 
