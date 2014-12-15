@@ -7,6 +7,13 @@ class Petsc < Formula
   head "https://bitbucket.org/petsc/petsc", :using => :git
   revision 1
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "941d4aa7eb4b189abcdb3c4cc6bc34654681049f" => :yosemite
+    sha1 "4e8c7189d9d0c568be0f96829b92f627f05489b9" => :mavericks
+    sha1 "8f422f4b38894a714c5720673676e7505fadc7c5" => :mountain_lion
+  end
+
   option "without-check", "Skip build-time tests (not recommended)"
   option "complex", "Use complex version by default. Otherwise, real-valued version will be symlinked"
   option "debug", "Compile debug version"
