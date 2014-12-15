@@ -6,6 +6,13 @@ class Slepc < Formula
   sha1 '23675bee5c010d20f4a08f80f22120119ddb940a'
   revision 1
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "a6ec347ac8513518297e2e61e494e0b0f3d0916e" => :yosemite
+    sha1 "6f18da0e8e9a2844f7568664bed437e8bc000674" => :mavericks
+    sha1 "929c5863c88478a94f656f11e978cfbee318eb46" => :mountain_lion
+  end
+
   option "complex", "Use complex version by default. Otherwise, real-valued version will be symlinked"
 
   depends_on 'petsc' => :build
