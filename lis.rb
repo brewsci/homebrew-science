@@ -6,6 +6,14 @@ class Lis < Formula
   sha1 "60b08e4428c8f02e545b07817efef212dd2fb9df"
   revision 1
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "0c3ee087d95296e10436630068382a1f584c74b8" => :yosemite
+    sha1 "bee267db184712cd22f6c581d55bfa73ca26c79d" => :mavericks
+    sha1 "60b431fbda6503a65506ee04f7adf091e0302338" => :mountain_lion
+  end
+
   option "without-check", "Skip build-time checks (not recommended)"
   option "with-saamg",    "build SA-AMG preconditioner"
   option "with-quad",     "enable quadruple precision operations"
