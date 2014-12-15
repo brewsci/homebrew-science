@@ -6,6 +6,13 @@ class Cgns < Formula
   sha1 'ac8e4d226da9397d79385c19a7cea82b4abc1983'
   revision 1
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "04e46518aa5f34b9b948bf4e1eaf64faf7b8420d" => :yosemite
+    sha1 "4ffd47664cdfc10aee4669f3360ec7ea424732ed" => :mavericks
+    sha1 "273709639cfa759647d3001270992070f9820095" => :mountain_lion
+  end
+
   depends_on :fortran
   depends_on 'cmake' => :build
   depends_on 'hdf5' => :recommended
