@@ -6,6 +6,13 @@ class SuperluDist < Formula
   sha1 "1f44b6e8382b402a61ef107d962f8602e90498a4"
   revision 1
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "5edab91513d1ef5efff95e93b30a037027338fb2" => :yosemite
+    sha1 "31dcdd6c88ca5d6bc468001c9a3170679a9f4f75" => :mavericks
+    sha1 "0b33b46ef6a277b6e8a6ff63393983e95dc79a89" => :mountain_lion
+  end
+
   option "without-check", "Skip build-time tests (not recommended)"
 
   depends_on :fortran
