@@ -7,6 +7,13 @@ class Ipopt < Formula
   head 'https://projects.coin-or.org/svn/Ipopt/trunk', :using => :svn
   revision 1
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "95f15ee8ed2eaf10e8d29b54c0eb4bd60c665c58" => :yosemite
+    sha1 "4fb85bd146b60e0b3272fe99dbaf33cef7d9f6bc" => :mavericks
+    sha1 "ee24ecfa4d2f2318a2975ecd5f596a7bb539c26b" => :mountain_lion
+  end
+
   option 'without-check', 'Skip build-time tests (not recommended)'
 
   depends_on 'asl' => :recommended
