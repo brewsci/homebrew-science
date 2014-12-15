@@ -7,6 +7,13 @@ class Arpack < Formula
   head 'git://git.forge.scilab.org/arpack-ng.git'
   revision 1
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "cbcd37dbf0f4df4246a4907a229ec28550119b7f" => :yosemite
+    sha1 "9d088970dd26ec2d286cfff275b7fac56aa044d6" => :mavericks
+    sha1 "35aeeb9c44095e0c6af0add7454eb6532964d161" => :mountain_lion
+  end
+
   depends_on :fortran
   depends_on :mpi => [:optional, :f77]
   depends_on "openblas" => :optional
