@@ -6,6 +6,14 @@ class Snid < Formula
   sha1 '0ba81c23584388065169b88bf54a9c3975b12460'
   revision 1
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "463f7451bea134691dbb3d34b506d2f3224528bf" => :yosemite
+    sha1 "21bfd7172132412a4bcdb3f6121f9e5a04dc5fb5" => :mavericks
+    sha1 "0d2496eb38f65dbe824c32c686afd3d5fbafe2d5" => :mountain_lion
+  end
+
   depends_on :x11
   depends_on :fortran
   depends_on 'pgplot' => 'with-button'
