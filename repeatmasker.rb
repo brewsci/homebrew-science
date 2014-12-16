@@ -11,10 +11,17 @@ class Repeatmasker < Formula
   option 'without-configure', 'Do not run configure'
 
   depends_on 'hmmer' # at least version 3.1 for nhmmer
+  depends_on "perl" => :optional
   depends_on 'rmblast'
   depends_on 'trf'
 
   def install
+    perl = if build.with? "perl"
+      Formula["perl"].opt_bin/"perl"
+    else
+      "/usr/bin/perl"
+    end
+
     libexec.install Dir['*']
     bin.install_symlink '../libexec/RepeatMasker'
 
@@ -32,7 +39,7 @@ class Repeatmasker < Formula
     # 5. Done
     (libexec/"config.txt").write <<-EOS.undent
 
-      /usr/bin/perl
+      #{perl}
       #{libexec}
       #{HOMEBREW_PREFIX}/bin/trf
       2
