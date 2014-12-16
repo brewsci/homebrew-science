@@ -53,8 +53,6 @@ class Octave < Formula
   option "without-curl",           "Do not use cURL (urlread/urlwrite/@ftp)"
   option "without-fftw",           "Do not use FFTW (fft,ifft,fft2,etc.)"
   option "without-glpk",           "Do not use GLPK"
-  option "without-ghostscript",    "Do not use Ghostscript (PS/PDF image output)"
-  option "without-graphicsmagick", "Do not use GraphicsMagick++ (imread,imwrite)"
   option "without-hdf5",           "Do not use HDF5 (hdf5 data file support)"
   option "without-qhull",          "Do not use the Qhull library (delaunay,voronoi,etc.)"
   option "without-qrupdate",       "Do not use the QRupdate package (qrdelete,qrinsert,qrshift,qrupdate)"
@@ -102,13 +100,13 @@ class Octave < Formula
   depends_on "fftw"           => :recommended
   depends_on "glpk"           => :recommended
   depends_on "gl2ps"          => :recommended
-  depends_on "graphicsmagick" => :recommended
+  depends_on "graphicsmagick" => :recommended  # imread/imwrite
   depends_on "hdf5"           => :recommended
   depends_on "qhull"          => :recommended
   depends_on "qrupdate"       => :recommended
   depends_on "epstool"        => :recommended
 
-  depends_on "ghostscript"    => :recommended
+  depends_on "ghostscript"    => :recommended  # ps/pdf image output
   depends_on "pstoedit"       if build.with? "ghostscript"
 
   depends_on "openblas"       => :optional
