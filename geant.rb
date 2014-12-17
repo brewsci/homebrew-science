@@ -2,8 +2,8 @@ require 'formula'
 
 class Geant < Formula
   homepage 'http://geant4.cern.ch'
-  url 'http://geant4.cern.ch/support/source/geant4.10.00.tar.gz'
-  sha1 'cd91d0b50aab119c85a05c7a44b6fac9168af02d'
+  url 'http://geant4.cern.ch/support/source/geant4.10.01.tar.gz'
+  sha1 'd888b992b789a0d0e0a1a13debc9a51dae5e3743'
 
   option 'with-g3tog4', 'Use G3toG4 Library'
   option 'with-gdml', 'Use GDML'
