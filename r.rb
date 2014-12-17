@@ -58,6 +58,7 @@ class R < Formula
       "--with-libintl-prefix=#{Formula['gettext'].opt_prefix}",
     ]
     args += ["--with-aqua", "--enable-R-framework"] if OS.mac?
+    args << "--enable-R-shlib" if OS.linux?
 
     if build.with? 'valgrind'
       args << '--with-valgrind-instrumentation=2'
