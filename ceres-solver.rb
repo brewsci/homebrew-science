@@ -2,8 +2,8 @@ require 'formula'
 
 class CeresSolver < Formula
   homepage 'http://ceres-solver.org/'
-  url 'http://ceres-solver.org/ceres-solver-1.9.0.tar.gz'
-  sha1 'f73ab69cfa1e19d40961503984bc7d6b601cb8a6'
+  url 'http://ceres-solver.org/ceres-solver-1.10.0.tar.gz'
+  sha1 '340bf0676ed8b1da02a66ee4595923ba9fc75f1f'
   head 'https://ceres-solver.googlesource.com/ceres-solver.git'
 
   option 'without-tests', 'Do not build and run the tests (not recommended).'
