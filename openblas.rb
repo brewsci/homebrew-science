@@ -6,9 +6,9 @@ class Openblas < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "76c513443a817460021884a75eb53cacb9c75c53" => :yosemite
-    sha1 "301cfa90190768a5ff93bae40bf9e3704da6f460" => :mavericks
-    sha1 "c1a879f01180bda6727b7817e3123b1849acc327" => :mountain_lion
+    sha1 "6c88c2ccc2170546b67e842d69b60a9efdce8eb7" => :yosemite
+    sha1 "1f894d3979e10be8d20fb9a4ff55e342f224167f" => :mavericks
+    sha1 "211c441c67c440e400c6b6e18dfb373dd5c0601b" => :mountain_lion
   end
 
   depends_on :fortran
