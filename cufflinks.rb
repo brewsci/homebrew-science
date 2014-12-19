@@ -1,8 +1,8 @@
-require 'formula'
+require "formula"
 
 class Cufflinks < Formula
   homepage "http://cufflinks.cbcb.umd.edu/"
-  url "http://cufflinks.cbcb.umd.edu/downloads/cufflinks-2.2.1.tar.gz"
+  url "http://cole-trapnell-lab.github.io/cufflinks/assets/downloads/cufflinks-2.2.1.tar.gz"
   sha1 "2b1b3a8f12cd2821ffc74ffbdd55cb329f37cbbb"
 
   depends_on 'boost'    => :build
