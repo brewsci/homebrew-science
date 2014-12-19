@@ -1,9 +1,9 @@
-require 'formula'
+require "formula"
 
 class Openblas < Formula
   homepage "http://www.openblas.net/"
-  url "https://github.com/xianyi/OpenBLAS/archive/v0.2.12.tar.gz"
-  sha1 "2bdedca65e29186d1ecaaed45cb6c9b1f3f1c868"
+  url "https://github.com/xianyi/OpenBLAS/archive/v0.2.13.tar.gz"
+  sha1 "d41df33c902322a596cb1354393ddec633b958ab"
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
   revision 1
 
