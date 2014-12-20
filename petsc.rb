@@ -42,11 +42,15 @@ class Petsc < Formula
     ]
     args << ( (build.include? "debug") ? "--with-debugging=1" : "--with-debugging=0" )
 
-    args << "--with-superlu_dist-include=#{Formula["superlu_dist"].include}/superlu_dist" << "--with-superlu_dist-lib=#{Formula["superlu_dist"].lib}/libsuperlu_dist.a" if build.with? "superlu_dist"
-    args << "--with-metis-dir=#{Formula["metis"].prefix}" if build.with? "metis"
-    args << "--with-parmetis-dir=#{Formula["parmetis"].prefix}" if build.with? "parmetis"
-    args << "--with-scalapack-dir=#{Formula["scalapack"].prefix}" if build.with? "scalapack"
-    args << "--with-mumps-dir=#{Formula["mumps"].prefix}" if build.with? "mumps"
+    if build.with? "superlu_dist"
+      args << "--with-superlu_dist-include=#{Formula["superlu_dist"].opt_include}/superlu_dist"
+      args << "--with-superlu_dist-lib=#{Formula["superlu_dist"].opt_lib}/libsuperlu_dist.a"
+    end
+
+    args << "--with-metis-dir=#{Formula["metis"].opt_prefix}" if build.with? "metis"
+    args << "--with-parmetis-dir=#{Formula["parmetis"].opt_prefix}" if build.with? "parmetis"
+    args << "--with-scalapack-dir=#{Formula["scalapack"].opt_prefix}" if build.with? "scalapack"
+    args << "--with-mumps-dir=#{Formula["mumps"].opt_prefix}" if build.with? "mumps"
     args << "--with-x=0" if build.without? "x11"
 
     ENV["PETSC_DIR"] = Dir.getwd  # configure fails if those vars are set differently.
@@ -54,24 +58,26 @@ class Petsc < Formula
     # real-valued case:
     ENV["PETSC_ARCH"] = petsc_arch_real
     args_real = ["--prefix=#{prefix}/#{petsc_arch_real}", "--with-scalar-type=real"]
-    args_real << "--with-hypre-dir=#{Formula["hypre"].prefix}" if build.with? "hypre"
+    args_real << "--with-hypre-dir=#{Formula["hypre"].opt_prefix}" if build.with? "hypre"
     system "./configure", *(args + args_real)
-    system "make all"
-    system "make test" if build.with? "check"
-    system "make install"
+    system "make", "all"
+    system "make", "test" if build.with? "check"
+    system "make", "install"
 
     # complex-valued case:
     ENV["PETSC_ARCH"] = petsc_arch_complex
     args_cmplx = ["--prefix=#{prefix}/#{petsc_arch_complex}", "--with-scalar-type=complex"]
     system "./configure", *(args + args_cmplx)
-    system "make all"
-    system "make test" if build.with? "check"
-    system "make install"
+    system "make", "all"
+    system "make", "test" if build.with? "check"
+    system "make", "install"
 
     # Link only what we want.
     petsc_arch = ((build.include? "complex") ? petsc_arch_complex : petsc_arch_real)
 
-    include.install_symlink Dir["#{prefix}/#{petsc_arch}/include/*h"], "#{prefix}/#{petsc_arch}/include/finclude", "#{prefix}/#{petsc_arch}/include/petsc-private"
+    include.install_symlink Dir["#{prefix}/#{petsc_arch}/include/*h"],
+      "#{prefix}/#{petsc_arch}/include/finclude",
+      "#{prefix}/#{petsc_arch}/include/petsc-private"
     prefix.install_symlink "#{prefix}/#{petsc_arch}/conf"
     lib.install_symlink Dir["#{prefix}/#{petsc_arch}/lib/*.a"], Dir["#{prefix}/#{petsc_arch}/lib/*.dylib"]
     share.install_symlink Dir["#{prefix}/#{petsc_arch}/share/*"]
