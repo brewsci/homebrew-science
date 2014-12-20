@@ -8,6 +8,14 @@ class Corset < Formula
   version "1.02"
   sha1 "ec75b183ff5e23394507477999f42d3f35311f59"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "ec576f2bd5c521a7f0ddee7b0f47cd4ea1161eca" => :yosemite
+    sha1 "3d9311c1aa3e3f17e44f51767053e782ce630caf" => :mavericks
+    sha1 "76a097d3c2b89b1b7cbcac2ead6d9d29554e9c7a" => :mountain_lion
+  end
+
   depends_on "samtools-0.1"
 
   def install
