@@ -20,7 +20,7 @@ class AdolC < Formula
   end
 
   def install
-    ENV.cxx11 if ENV.compiler == :clang
+    ENV.cxx11
 
     # Configure may get automatically regenerated. So patch configure.ac.
     inreplace %w(configure configure.ac) do |s|
