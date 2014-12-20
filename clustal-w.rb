@@ -1,5 +1,3 @@
-require "formula"
-
 class ClustalW < Formula
   homepage "http://www.clustal.org/clustal2/"
   #tag "bioinformatics"
@@ -12,9 +10,11 @@ class ClustalW < Formula
     cause "error: implicit instantiation of undefined template"
   end
 
+  fails_with :gcc => "4.2"
+
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install"
   end
 
   test do
