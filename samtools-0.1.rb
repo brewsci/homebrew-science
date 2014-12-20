@@ -8,6 +8,14 @@ class Samtools01 < Formula
   url "https://downloads.sourceforge.net/project/samtools/samtools/0.1.19/samtools-0.1.19.tar.bz2"
   sha1 "ff3f4cf40612d4c2ad26e6fcbfa5f8af84cbe881"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "233b4c802c5648ea70e8de7faa0d51be32786860" => :yosemite
+    sha1 "a5d3ce8692e7e1e7067d2c6a942e456b6b731fec" => :mavericks
+    sha1 "73c1d0bfd0462ff57c0354fa3870765a2df64737" => :mountain_lion
+  end
+
   option "with-dwgsim", "Build with 'Whole Genome Simulation'"
   option "without-bcftools", "Do not install bcftools"
 
