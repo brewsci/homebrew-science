@@ -8,13 +8,15 @@ class Corset < Formula
   version "1.02"
   sha1 "ec75b183ff5e23394507477999f42d3f35311f59"
 
-  depends_on "samtools"
+  depends_on "samtools-0.1"
 
   def install
+    ENV.libcxx if MacOS.version < :mavericks
+
     system "./configure",
       "--prefix=#{prefix}",
-      "--with-bam_inc=#{Formula["samtools"].opt_include}/bam",
-      "--with-bam_lib=#{Formula["samtools"].opt_lib}"
+      "--with-bam_inc=#{Formula["samtools-0.1"].opt_include}/bam",
+      "--with-bam_lib=#{Formula["samtools-0.1"].opt_lib}"
 
     system "make"
 
