@@ -2,9 +2,8 @@ require 'formula'
 
 class Slepc < Formula
   homepage 'http://www.grycap.upv.es/slepc'
-  url 'http://www.grycap.upv.es/slepc/download/download.php?filename=slepc-3.5.2.tar.gz'
-  sha1 '23675bee5c010d20f4a08f80f22120119ddb940a'
-  revision 1
+  url 'http://www.grycap.upv.es/slepc/download/download.php?filename=slepc-3.5.3.tar.gz'
+  sha1 '5e886c5018dc0d227ae815feb80d4cdd8779c23c'
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
