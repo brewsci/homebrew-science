@@ -9,9 +9,10 @@ class Ipopt < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "95f15ee8ed2eaf10e8d29b54c0eb4bd60c665c58" => :yosemite
-    sha1 "4fb85bd146b60e0b3272fe99dbaf33cef7d9f6bc" => :mavericks
-    sha1 "ee24ecfa4d2f2318a2975ecd5f596a7bb539c26b" => :mountain_lion
+    revision 1
+    sha1 "299d8c02f6653a1bf3c421723eafe2b23218962b" => :yosemite
+    sha1 "22f12510d5f261fabe262c5b122910328494c3f4" => :mavericks
+    sha1 "ee5f0c9ac189debcf8a967420d120647a87e829a" => :mountain_lion
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
