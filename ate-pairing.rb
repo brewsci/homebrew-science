@@ -2,8 +2,8 @@ require "formula"
 
 class AtePairing < Formula
   homepage "http://homepage1.nifty.com/herumi/crypt/ate-pairing.html"
-  url "https://github.com/herumi/ate-pairing/archive/v1.0.tar.gz"
-  sha1 "c929af546d13415c823fe1d32d8f8b18f11eaa75"
+  url "https://github.com/herumi/ate-pairing/archive/v1.2.tar.gz"
+  sha1 "e77d1ca1688a2c0479c56b1e8c6be89b39f06a25"
   head "https://github.com/herumi/ate-pairing.git"
 
   depends_on "xbyak"
