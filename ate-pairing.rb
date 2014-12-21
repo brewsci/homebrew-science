@@ -6,6 +6,14 @@ class AtePairing < Formula
   sha1 "e77d1ca1688a2c0479c56b1e8c6be89b39f06a25"
   head "https://github.com/herumi/ate-pairing.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "f7a8169f159ab719bdee92687fc5ccde8173ce20" => :yosemite
+    sha1 "5b7964a28e436acfb7f2f4eda408f7026cd84b66" => :mavericks
+    sha1 "61223ad0e003f5a529c4227dd7212c94109d0afe" => :mountain_lion
+  end
+
   depends_on "xbyak"
 
   def install
