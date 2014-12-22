@@ -1,12 +1,10 @@
-require "formula"
-
 class Corset < Formula
   homepage "https://code.google.com/p/corset-project/"
   #doi "10.1186/s13059-014-0410-6"
+  #tag "bioinformatics"
 
-  url "https://docs.google.com/uc?export=download&id=0B1FwZagazjpcV0luTDZteHNPWXc"
-  version "1.02"
-  sha1 "ec75b183ff5e23394507477999f42d3f35311f59"
+  url "https://googledrive.com/host/0B1FwZagazjpcc0JLZWllcFlwUXc/corset-1.04.tar.gz"
+  sha1 "730322d7b8c229a01edf7b0c0ad4acc11a014959"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -16,15 +14,17 @@ class Corset < Formula
     sha1 "76a097d3c2b89b1b7cbcac2ead6d9d29554e9c7a" => :mountain_lion
   end
 
-  depends_on "samtools-0.1"
+  depends_on "samtools"
+  depends_on "htslib"
 
   def install
     ENV.libcxx if MacOS.version < :mavericks
 
     system "./configure",
       "--prefix=#{prefix}",
-      "--with-bam_inc=#{Formula["samtools-0.1"].opt_include}/bam",
-      "--with-bam_lib=#{Formula["samtools-0.1"].opt_lib}"
+      "--with-bam_inc=#{Formula["samtools"].opt_include}/bam",
+      "--with-bam_lib=#{Formula["samtools"].opt_lib}",
+      "--with-htslib=#{Formula["htslib"].opt_lib}"
 
     system "make"
 
