@@ -1,11 +1,9 @@
-require "formula"
-
 class Petsc < Formula
   homepage "http://www.mcs.anl.gov/petsc/index.html"
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.5.2.tar.gz"
   sha1 "d60d1735762f2e398774514451e137580bb2c7bb"
   head "https://bitbucket.org/petsc/petsc", :using => :git
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
