@@ -5,9 +5,9 @@ class Cufflinks < Formula
   url "http://cole-trapnell-lab.github.io/cufflinks/assets/downloads/cufflinks-2.2.1.tar.gz"
   sha1 "2b1b3a8f12cd2821ffc74ffbdd55cb329f37cbbb"
 
-  depends_on 'boost'    => :build
-  depends_on 'samtools' => :build
-  depends_on 'eigen'    => :build
+  depends_on "homebrew/versions/boost149"    => :build
+  depends_on "samtools-0.1" => :build
+  depends_on "eigen"    => :build
 
   def install
     ENV['EIGEN_CPPFLAGS'] = "-I#{Formula["eigen"].opt_include}/eigen3"
