@@ -13,9 +13,9 @@ class Bwa < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "1af1fec7ecbb551a71b47a853295484f02be1814" => :yosemite
-    sha1 "b1897eac61b0870f930e3de0c60085d5b0290a36" => :mavericks
-    sha1 "82ce789ef1984dedc3fde51d2290eddc70a434b5" => :mountain_lion
+    sha1 "5516077fa560538fb8b5cd81f91cca7042c8fc20" => :yosemite
+    sha1 "fa5a7775d5eeeb2937461117f04ce10dc3d950f6" => :mavericks
+    sha1 "8eb305655875446c43e69d3bd6c794342939d614" => :mountain_lion
   end
 
   def install
