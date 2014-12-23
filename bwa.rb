@@ -10,6 +10,14 @@ class Bwa < Formula
 
   head "https://github.com/lh3/bwa.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "1af1fec7ecbb551a71b47a853295484f02be1814" => :yosemite
+    sha1 "b1897eac61b0870f930e3de0c60085d5b0290a36" => :mavericks
+    sha1 "82ce789ef1984dedc3fde51d2290eddc70a434b5" => :mountain_lion
+  end
+
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
     bin.install "bwa"
