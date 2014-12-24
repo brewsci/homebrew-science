@@ -78,6 +78,7 @@ class Opencv < Formula
     args << "-DWITH_QUICKTIME=" + ((build.with? "quicktime") ? "ON" : "OFF")
     args << "-DWITH_1394=" + ((build.with? "libdc1394") ? "ON" : "OFF")
     args << "-DWITH_OPENGL=" + ((build.with? "opengl") ? "ON" : "OFF")
+    args << "-DWITH_JASPER=" + ((build.with? "jasper") ? "ON" : "OFF")
 
     if build.with? "cuda"
       ENV["CUDA_NVCC_FLAGS"] = "-Xcompiler -stdlib=libstdc++; -Xlinker -stdlib=libstdc++"
