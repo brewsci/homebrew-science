@@ -1,5 +1,6 @@
 class Nxtrim < Formula
   homepage "https://github.com/sequencing/NxTrim"
+  head "https://github.com/sequencing/NxTrim.git"
   #doi "10.1101/007666"
   #tag "bioinformatics"
 
