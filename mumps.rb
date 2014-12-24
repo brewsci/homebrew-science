@@ -10,9 +10,9 @@ class Mumps < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "25e4927714afa25072e9a8b91fcb0e19cd5480e2" => :yosemite
-    sha1 "19c36d6a50a0767a8c1382a19995c07c10b73c08" => :mavericks
-    sha1 "aae2f9d69c8abf7a1dabbe37ace39286b82f76ec" => :mountain_lion
+    sha1 "a07afadbb6ff4c345abf4afa091eebe9746ff8a3" => :yosemite
+    sha1 "438f48976a6ed660447f2686efd8b948df65557c" => :mavericks
+    sha1 "a275206c23234f5aaa548fcdb3fed8e6452544d2" => :mountain_lion
   end
 
   depends_on 'scotch5' => :optional     # Scotch 6 support currently broken.
