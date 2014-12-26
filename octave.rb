@@ -40,6 +40,10 @@ class Octave < Formula
     sha1 "19f2dcaf636f1968c4b1639797415f83fb21d5a3"
   end
 
+  # Allows other software to interface Octave and find its headers.
+  # See: https://github.com/shogun-toolbox/shogun/issues/2396
+  patch :DATA
+
   skip_clean "share/info" # Keep the docs
 
   option "without-check",          "Skip build-time tests (not recommended)"
@@ -252,3 +256,31 @@ class Octave < Formula
     s
   end
 end
+
+__END__
+diff --git a/libinterp/corefcn/comment-list.h b/libinterp/corefcn/comment-list.h
+index 2f2c4d5..18df774 100644
+--- a/libinterp/corefcn/comment-list.h
++++ b/libinterp/corefcn/comment-list.h
+@@ -25,7 +25,7 @@ along with Octave; see the file COPYING.  If not, see
+ 
+ #include <string>
+ 
+-#include <base-list.h>
++#include "base-list.h"
+ 
+ extern std::string get_comment_text (void);
+ 
+diff --git a/libinterp/corefcn/oct.h b/libinterp/corefcn/oct.h
+index c6d21ad..db06357 100644
+--- a/libinterp/corefcn/oct.h
++++ b/libinterp/corefcn/oct.h
+@@ -28,7 +28,7 @@ along with Octave; see the file COPYING.  If not, see
+ // config.h needs to be first because it includes #defines that can */
+ // affect other header files.
+ 
+-#include <config.h>
++#include "config.h"
+ 
+ #include "Matrix.h"
+ 
