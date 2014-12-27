@@ -1,33 +1,23 @@
-Homebrew-science
-================
+# Homebrew Science
+[![For science.](http://i.imgur.com/Bswp1.png)](http://xkcd.com/585)
 
-[![For science.](http://i.imgur.com/Bswp1.png) ](http://xkcd.com/585)
-
-These formulae provide software tailored to scientific endeavors. Need to store
+These formulae provide software tailored to scientific endeavours. Need to store
 large amounts of data in a sparse matrix, solve a huge optimization problem or
 process the images from your space telescope? Maybe we can help!
 
-How do I install these formulae?
---------------------------------
-Just `brew tap homebrew/science` and then `brew install <formula>`.
+## How do I install these formulae?
+`brew install homebrew/science/<formula>`
 
-If the formula conflicts with one from another tap, you can `brew install homebrew/science/<formula>`.
+Or `brew tap homebrew/science` and then `brew install <formula>`.
 
-You can also install via URL:
+Or install via URL (which will not receive updates):
 
+```
+brew install https://raw.githubusercontent.com/Homebrew/homebrew-science/master/<formula>.rb
+```
 
-    brew install https://raw.github.com/Homebrew/homebrew-science/master/<formula>.rb
+## Documentation
+`brew help`, `man brew` or check [Homebrew's documentation](https://github.com/Homebrew/homebrew/tree/master/share/doc/homebrew#readme).
 
-
-Docs
-----
-`brew help`, `man brew`, or the Homebrew [README](https://github.com/Homebrew/homebrew/tree/master/share/doc/homebrew#readme).
-
-
-Contributing
-------------
-
-Please see the [contributing] guide.
-
-
-[contributing]: https://github.com/Homebrew/homebrew-science/blob/master/CONTRIBUTING.md
+## Contributing
+Please see the [contributing guide](https://github.com/Homebrew/homebrew-science/blob/master/CONTRIBUTING.md).
