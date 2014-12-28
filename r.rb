@@ -48,7 +48,11 @@ class R < Formula
     version "r31"
   end
 
+  patch :DATA
+
   def install
+    ENV.append_to_cflags "-D__ACCELERATE__" if ENV.compiler != :clang and build.without? "openblas"
+
     # If LDFLAGS contains any -L options, configure sets LD_LIBRARY_PATH to
     # search those directories. Remove -LHOMEBREW_PREFIX/lib from LDFLAGS.
     ENV.remove "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib" if OS.linux?
@@ -57,7 +61,17 @@ class R < Formula
       "--prefix=#{prefix}",
       "--with-libintl-prefix=#{Formula['gettext'].opt_prefix}",
     ]
-    args += ["--with-aqua", "--enable-R-framework"] if OS.mac?
+    if OS.mac?
+      if MacOS::Xcode.version <= "6.0" and MacOS::CLT.version <= "6.0"
+        # Disable building against the Aqua framework with 6.1.
+        # See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63651
+        # This should be revisited when new versions of GCC come along.
+        args << "--with-aqua"
+      else
+        args << "--without-aqua"
+      end
+      args << "--enable-R-framework"
+    end
     args << "--enable-R-shlib" if OS.linux?
 
     if build.with? 'valgrind'
@@ -144,3 +158,23 @@ class R < Formula
     end
   end
 end
+
+__END__
+diff --git a/src/modules/lapack/vecLibg95c.c b/src/modules/lapack/vecLibg95c.c
+index ffc18e4..6728244 100644
+--- a/src/modules/lapack/vecLibg95c.c
++++ b/src/modules/lapack/vecLibg95c.c
+@@ -2,6 +2,12 @@
+ #include <config.h>
+ #endif
+ 
++#ifndef __has_extension
++#define __has_extension(x) 0
++#endif
++#define vImage_Utilities_h
++#define vImage_CVUtilities_h
++
+ #include <AvailabilityMacros.h> /* for MAC_OS_X_VERSION_10_* -- present on 10.2+ (according to Apple) */
+ /* Since OS X 10.8 vecLib requires Accelerate to be included first (which in turn includes vecLib) */
+ #if defined MAC_OS_X_VERSION_10_8 && MAC_OS_X_VERSION_MIN_REQUIRED >= 1040
+
