@@ -5,6 +5,8 @@ class Fasttree < Formula
   url 'http://www.microbesonline.org/fasttree/FastTree-2.1.7.c'
   sha1 'd9381924829e7d19d56154ebbde0e44044b4b7ab'
 
+  needs :openmp # => :recommended
+
   fails_with :clang do
     build 425
     cause "segmentation fault when running Fasttree"
@@ -12,7 +14,7 @@ class Fasttree < Formula
   end
 
   def install
-    system "#{ENV.cc} -O3 -finline-functions -funroll-loops -Wall -o FastTree FastTree-#{version}.c -lm"
+    system "#{ENV.cc} -DOPENMP -fopenmp -O3 -finline-functions -funroll-loops -Wall -o FastTree FastTree-#{version}.c -lm"
     bin.install "FastTree"
   end
 
