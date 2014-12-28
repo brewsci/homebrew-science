@@ -3,6 +3,14 @@ class Wcslib < Formula
   url "ftp://ftp.atnf.csiro.au/pub/software/wcslib/wcslib-4.23.tar.bz2"
   sha1 "6b335277b4915c76d74b222f0e63a33e49f7d857"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "7300ee942f787b6a73ff680e25f9a70b605a0072" => :yosemite
+    sha1 "17dc76d100bc1b3beefe0e26152d9edd8c277a8c" => :mavericks
+    sha1 "d7e093d7f1cb1775dac992e75450830d840f39c2" => :mountain_lion
+  end
+
   option "with-pgsbox", "Build PGSBOX, a general curvilinear axis drawing routine for PGPLOT"
   option "with-fortran", "Build Fortran wrappers. Needed for --with-pgsbox."
   option "with-check", "Perform `make check`. Note, together --with-pgsbox it will display GUI"
