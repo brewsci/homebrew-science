@@ -1,5 +1,3 @@
-require "formula"
-
 class Wcslib < Formula
   homepage "http://www.atnf.csiro.au/people/mcalabre/WCS/"
   url "ftp://ftp.atnf.csiro.au/pub/software/wcslib/wcslib-4.23.tar.bz2"
@@ -10,7 +8,7 @@ class Wcslib < Formula
   option "with-check", "Perform `make check`. Note, together --with-pgsbox it will display GUI"
 
   depends_on "cfitsio"
-  depends_on "pgplot" if build.with? "pgsbox"
+  depends_on "homebrew/x11/pgplot" if build.with? "pgsbox"
   depends_on :x11 if build.with? "pgsbox"
   depends_on :fortran if build.with? "fortran" or build.with? "pgsbox"
 
@@ -33,7 +31,7 @@ class Wcslib < Formula
 
     ENV.deparallelize
     system "make"
-    system "make check" if build.with? "check"
-    system "make install"
+    system "make", "check" if build.with? "check"
+    system "make", "install"
   end
 end
