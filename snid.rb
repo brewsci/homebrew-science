@@ -1,9 +1,7 @@
-require 'formula'
-
 class Snid < Formula
-  homepage 'http://people.lam.fr/blondin.stephane/software/snid'
-  url 'http://people.lam.fr/blondin.stephane/software/snid/snid-5.0.tar.gz'
-  sha1 '0ba81c23584388065169b88bf54a9c3975b12460'
+  homepage "http://people.lam.fr/blondin.stephane/software/snid"
+  url "http://people.lam.fr/blondin.stephane/software/snid/snid-5.0.tar.gz"
+  sha1 "0ba81c23584388065169b88bf54a9c3975b12460"
   revision 1
 
   bottle do
@@ -16,17 +14,17 @@ class Snid < Formula
 
   depends_on :x11
   depends_on :fortran
-  depends_on 'pgplot' => 'with-button'
+  depends_on "homebrew/x11/pgplot" => "with-button"
 
-  resource 'templates' do
-    url 'http://people.lam.fr/blondin.stephane/software/snid/templates-2.0.tgz'
-    sha1 '1e5c33ee998203abc171e7fdda7114a27130d418'
+  resource "templates" do
+    url "http://people.lam.fr/blondin.stephane/software/snid/templates-2.0.tgz"
+    sha1 "1e5c33ee998203abc171e7fdda7114a27130d418"
   end
 
-  resource 'bsnip_templates' do
-    url 'http://hercules.berkeley.edu/database/BSNIPI/bsnip_v7_snid_templates.tar.gz'
-    sha1 '1d1d2534d9201c864ad60e58acf6337cec0700e2'
-    version '7'
+  resource "bsnip_templates" do
+    url "http://hercules.berkeley.edu/database/BSNIPI/bsnip_v7_snid_templates.tar.gz"
+    sha1 "1d1d2534d9201c864ad60e58acf6337cec0700e2"
+    version "7"
   end
 
   # no libbutton compilation and patch for new templates
@@ -35,27 +33,26 @@ class Snid < Formula
 
   def install
     # new templates
-    resource('templates').stage do
-      prefix.install '../templates-2.0'
-    end
+    resource("templates").stage { prefix.install "../templates-2.0" }
+
     # BSNIP
-    resource('bsnip_templates').stage do
-      safe_system 'ls *.lnw > templist'
-      cp "#{buildpath}/templates/texplist", '.'
-      cp "#{buildpath}/templates/tfirstlist", '.'
-      (prefix + 'templates_bsnip_v7.0').install Dir['*']
+    resource("bsnip_templates").stage do
+      safe_system "ls *.lnw > templist"
+      cp "#{buildpath}/templates/texplist", "."
+      cp "#{buildpath}/templates/tfirstlist", "."
+      (prefix + "templates_bsnip_v7.0").install Dir["*"]
     end
 
-    cp 'source/snid.inc', '.'
+    cp "source/snid.inc", "."
     # where to store spectral templates
-    inreplace 'source/snidmore.f', 'INSTALL_DIR/snid-5.0/templates', "#{prefix}/templates-2.0"
+    inreplace "source/snidmore.f", "INSTALL_DIR/snid-5.0/templates", "#{prefix}/templates-2.0"
 
-    ENV.append 'FCFLAGS', '-O -fno-automatic'
-    ENV['PGLIBS'] = "-Wl,-framework -Wl,Foundation -L#{HOMEBREW_PREFIX}/lib -lpgplot"
-    system 'make'
-    bin.install 'snid', 'logwave', 'plotlnw'
-    prefix.install 'templates', 'test'
-    doc.install Dir['doc/*']
+    ENV.append "FCFLAGS", "-O -fno-automatic"
+    ENV["PGLIBS"] = "-Wl,-framework -Wl,Foundation -L#{HOMEBREW_PREFIX}/lib -lpgplot"
+    system "make"
+    bin.install "snid", "logwave", "plotlnw"
+    prefix.install "templates", "test"
+    doc.install Dir["doc/*"]
   end
 
   test do
