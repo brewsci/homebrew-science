@@ -1,5 +1,3 @@
-require "formula"
-
 class Ncl < Formula
   homepage "http://ncl.sourceforge.net/"
   #doi "10.1093/bioinformatics/btg319"
@@ -9,7 +7,11 @@ class Ncl < Formula
   sha1 "54e4f1ff4fef52cfd633b467a839e57a2670a397"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    # The option --with-constfuncs is required by garli.
+    # --with-constfuncs=yes Defines the NCL_CONST_FUNCS macro so
+    # functions that should be const are declared as such
+    system "./configure", "--prefix=#{prefix}",
+      "--with-constfuncs=yes"
     system "make"
     system "make", "check"
     system "make", "install"
