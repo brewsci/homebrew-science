@@ -3,6 +3,8 @@ require "formula"
 class Scarpa < Formula
   homepage "http://compbio.cs.toronto.edu/hapsembler/scarpa.html"
   #doi "10.1093/bioinformatics/bts716"
+  #tag "bioinformatics"
+
   url "http://compbio.cs.toronto.edu/hapsembler/scarpa-0.241.tar.gz"
   sha1 "f238d8ea418951754b0f37aad7f09c9cf00fc909"
 
@@ -17,6 +19,6 @@ class Scarpa < Formula
   end
 
   test do
-    system "#{bin}/scarpa --version"
+    system "#{bin}/scarpa", "--version"
   end
 end
