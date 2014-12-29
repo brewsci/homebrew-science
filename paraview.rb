@@ -6,6 +6,13 @@ class Paraview < Formula
   sha1 "a440ba9912549bdd23a949e22add41696715dd32"
   head "git://paraview.org/ParaView.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "87c7c0288b7be02298e6b329d5257f622fc60409" => :yosemite
+    sha1 "eb0303a16ec842435c693339129c8b8b2c468324" => :mavericks
+    sha1 "77fa19bc95a425f2812b7fb14ba929c75b7a4bd2" => :mountain_lion
+  end
+
   depends_on "cmake" => :build
 
   depends_on "boost" => :recommended
