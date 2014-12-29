@@ -3,6 +3,8 @@ require "formula"
 class Idba < Formula
   homepage "http://i.cs.hku.hk/~alse/hkubrg/projects/idba/"
   #doi "10.1093/bioinformatics/bts174"
+  #tag "bioinformatics"
+
   url "https://hku-idba.googlecode.com/files/idba-1.1.1.tar.gz"
   sha1 "6dcbd35281c2bc46b8df550a369952a9138e92a2"
 
