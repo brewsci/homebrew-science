@@ -9,6 +9,14 @@ class Samtools < Formula
   url "https://github.com/samtools/samtools/archive/1.1.tar.gz"
   sha1 "ca446ec24eabd2f71605dde55a787f182cb50f13"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "357b85ba2c27f240446812dc6d9b1914eaee20ea" => :yosemite
+    sha1 "bfc5a0bf7e3a847a4dc35b4497ce3156f7d5e128" => :mavericks
+    sha1 "4dad7a93f91501e72546bfabd84fdccb3c785e37" => :mountain_lion
+  end
+
   option "with-dwgsim", "Build with Whole Genome Simulation"
 
   depends_on "htslib"
