@@ -1,21 +1,23 @@
-require 'formula'
+require "formula"
 
 class Populations < Formula
-  homepage 'http://bioinformatics.org/~tryphon/populations/'
-  url 'https://launchpad.net/~olivier-langella/+archive/ppa/+files/populations_1.2.33-2.tar.gz'
-  sha1 'ff190be19352e2bb66f7decb87aed311b924529c'
-  version '1.2.33-2'
+  homepage "http://bioinformatics.org/~tryphon/populations/"
+  #tag "bioinformatics"
 
-  depends_on 'cmake' => :build
-  depends_on 'gettext'
-  depends_on 'qt'
+  url "https://launchpad.net/~olivier-langella/+archive/ppa/+files/populations_1.2.33-2.tar.gz"
+  sha1 "ff190be19352e2bb66f7decb87aed311b924529c"
+  version "1.2.33-2"
+
+  depends_on "cmake" => :build
+  depends_on "gettext"
+  depends_on "qt"
 
   # Fix a compiler error.
   patch :DATA
 
   def install
-    system 'cmake', '.', *std_cmake_args
-    system 'make', 'install'
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do
