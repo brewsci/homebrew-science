@@ -14,7 +14,7 @@ class Viennarna < Formula
   depends_on :x11
 
   def install
-    ENV['ARCHFLAGS'] = "-arch x86_64"
+    ENV["ARCHFLAGS"] = "-arch x86_64"
     args = ["--prefix=#{prefix}",
             "--disable-debug",
             "--disable-dependency-tracking",
