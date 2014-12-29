@@ -1,19 +1,19 @@
-require 'formula'
+require "formula"
 
 class Exonerate < Formula
-  homepage 'http://www.ebi.ac.uk/~guy/exonerate/'
-  #doi '10.1186/1471-2105-6-31'
+  homepage "http://www.ebi.ac.uk/~guy/exonerate/"
+  #doi "10.1186/1471-2105-6-31"
   #tag "bioinformatics"
-  url 'http://www.ebi.ac.uk/~guy/exonerate/exonerate-2.2.0.tar.gz'
-  sha1 'ad4de207511e4d421e5cc28dda2261421c515bf0'
+  url "http://www.ebi.ac.uk/~guy/exonerate/exonerate-2.2.0.tar.gz"
+  sha1 "ad4de207511e4d421e5cc28dda2261421c515bf0"
 
   devel do
     url "http://www.ebi.ac.uk/~guy/exonerate/exonerate-2.4.0.tar.gz"
     sha1 "5b119c0aef0fa08c3f4a11014544f2ac5ca8afde"
   end
 
-  depends_on 'pkg-config' => :build
-  depends_on 'glib'
+  depends_on "pkg-config" => :build
+  depends_on "glib"
 
   def install
     # Fix the following error. This issue is fixed upstream in 2.4.0.
@@ -23,9 +23,9 @@ class Exonerate < Formula
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    ENV.j1
+    ENV.deparallelize
     system "make"
-    system "make install"
+    system "make", "install"
   end
 
   test do
