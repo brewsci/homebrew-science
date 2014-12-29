@@ -9,6 +9,14 @@ class Augustus < Formula
   mirror "https://science-annex.org/pub/augustus/augustus.3.0.1.tar.gz"
   sha1 "19f40b3b834aba0386646d9cb8120caf3f0eb64e"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "4950105f9950e28ea862bc0c3158707ba2d41f31" => :yosemite
+    sha1 "8200186f17826e50584c67cd58ed0bd0cf5db15f" => :mavericks
+    sha1 "7a31858172f66f0f9d3ccfae8a3d76af34b620d3" => :mountain_lion
+  end
+
   depends_on "boost" => :recommended # for gz support
 
   fails_with :clang do
