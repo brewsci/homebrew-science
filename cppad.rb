@@ -5,14 +5,14 @@ class Cppad < Formula
   url "http://www.coin-or.org/download/source/CppAD/cppad-20141101.epl.tgz"
   version "20141101"
   sha1 "4f5971160c458d65dc751daa1ba6937514901714"
-  head "https://projects.coin-or.org/svn/CppAD/trunk", :using => :svn
+  head "https://github.com/bradbell/cppad.git"
 
   # Only one of --with-boost, --with-eigen and --with-std should be given.
   depends_on "boost" => :optional
   depends_on "eigen" => :optional
   depends_on "adol-c" => :optional
   option "with-std", "Use std test vector"
-  option "without-check", "Skip comprehensive tests (not recommended)"
+  option "with-check", "Perform comprehensive tests (very slow w/out OpenMP)"
 
   depends_on "cmake" => :build
   depends_on "ipopt" => :optional
