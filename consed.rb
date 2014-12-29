@@ -3,6 +3,7 @@ require "formula"
 class Consed < Formula
   homepage "http://bozeman.mbt.washington.edu/consed/consed.html"
   #doi "10.1101/gr.8.3.195" => "1998", "10.1093/bioinformatics/btt515" => "2013"
+  #tag "bioinformatics"
 
   version "28.0"
   if OS.mac?
@@ -25,6 +26,6 @@ class Consed < Formula
   end
 
   test do
-    system "#{bin}/consed -printDefaultResources"
+    system "#{bin}/consed", "-printDefaultResources"
   end
 end
