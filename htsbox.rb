@@ -1,5 +1,3 @@
-require "formula"
-
 class Htsbox < Formula
   homepage "https://github.com/lh3/htsbox"
   head "https://github.com/lh3/htsbox.git"
