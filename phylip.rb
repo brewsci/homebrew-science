@@ -6,6 +6,14 @@ class Phylip < Formula
   url "http://evolution.gs.washington.edu/phylip/download/phylip-3.696.tar.gz"
   sha1 "e3ac52ca37c3397f81bb9325ee21ca8e5a8a2fa4"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "0df7fa3043f54184f4301d6bc226444f8b8857aa" => :yosemite
+    sha1 "8c41105999944b49a6cd53ba1dc1e8f85f128f62" => :mavericks
+    sha1 "1deb384172e0f2c11978a7e267f16db565309761" => :mountain_lion
+  end
+
   def install
     cd "src" do
       system "make -f Makefile.unx all"
