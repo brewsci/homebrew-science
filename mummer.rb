@@ -6,6 +6,14 @@ class Mummer < Formula
   url "https://downloads.sourceforge.net/project/mummer/mummer/3.23/MUMmer3.23.tar.gz"
   sha1 "69261ed80bb77e7595100f0560973fe1f810c5fa"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "2d940173a9f828bfcfc51f5039fa8deb2698703b" => :yosemite
+    sha1 "520904995c105a2579fec678acc24c0214a2ed04" => :mavericks
+    sha1 "78a0688d0c6d181c0dc7cfdf7ca1bf1f0eaf87fd" => :mountain_lion
+  end
+
   def install
 
     inreplace "scripts/Makefile", "$(CURDIR)", prefix
