@@ -1,5 +1,3 @@
-require "formula"
-
 class Cerulean < Formula
   homepage "https://sourceforge.net/projects/ceruleanassembler/"
   #doi "arXiv:1307.7933"
@@ -18,6 +16,6 @@ class Cerulean < Formula
   end
 
   test do
-    system "python #{libexec}/Cerulean.py -h"
+    system "python", "#{libexec}/Cerulean.py", "-h"
   end
 end
