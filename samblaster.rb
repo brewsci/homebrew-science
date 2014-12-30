@@ -1,5 +1,3 @@
-require "formula"
-
 class Samblaster < Formula
   homepage "https://github.com/GregoryFaust/samblaster"
   #doi "10.1093/bioinformatics/btu314"
