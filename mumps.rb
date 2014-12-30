@@ -28,7 +28,7 @@ class Mumps < Formula
 
   def install
     make_args = ["LIBEXT=.dylib",
-                 "AR=$(FL) -shared -Wl,-install_name -Wl,#{lib}/$(notdir $@) -undefined dynamic_lookup -o ",  # Must have a trailing whitespace!
+                 "AR=libtool -dynamic -install_name #{lib}/$(notdir $@) -undefined dynamic_lookup -o ",
                  "RANLIB=echo"]
     orderingsf = "-Dpord"
 
@@ -94,6 +94,11 @@ class Mumps < Formula
 
     doc.install Dir['doc/*.pdf']
     (share + 'mumps/examples').install Dir['examples/*[^.o]']
+
+    prefix.install "Makefile.inc"  # For the record.
+    File.open(prefix / "make_args.txt", "w") do |f|
+      f.puts(make_args.join(" "))  # Record options passed to make.
+    end
   end
 
   def caveats
