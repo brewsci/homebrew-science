@@ -13,6 +13,13 @@ class Octave < Formula
     # See: https://savannah.gnu.org/bugs/?41337
     patch do
       url "https://savannah.gnu.org/bugs/download.php?file_id=30734"
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "0ed4b68750f0451680d5ad99722599576cd42486" => :yosemite
+    sha1 "4e1e1adafedf082a528c5347f9186290747f583c" => :mavericks
+    sha1 "7d0ff428ed25a6a9257e39ea2e115f358ea583c6" => :mountain_lion
+  end
+
       sha1 "e8fb39b7ca1525d67e6d24f3c189b441b60fcdab"
     end
 
