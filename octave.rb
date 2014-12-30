@@ -47,7 +47,7 @@ class Octave < Formula
   skip_clean "share/info" # Keep the docs
 
   option "without-check",          "Skip build-time tests (not recommended)"
-  option "without-docs",           "Do not build documentation"
+  option "with-docs",              "Build documentation (requires LaTeX)"
   option "without-gui",            "Do not build the experimental GUI"
   option "with-native-graphics",   "Use native OpenGL/FLTKgraphics (does not work with the GUI)"
   option "without-gnuplot",        "Do not use gnuplot graphics"
