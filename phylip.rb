@@ -1,5 +1,3 @@
-require "formula"
-
 class Phylip < Formula
   homepage "http://evolution.genetics.washington.edu/phylip.html"
   #tag "bioinformatics"
