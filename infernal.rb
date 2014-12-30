@@ -1,5 +1,3 @@
-require "formula"
-
 class Infernal < Formula
   homepage "http://infernal.janelia.org/"
   #doi "10.1093/bioinformatics/btp157"
