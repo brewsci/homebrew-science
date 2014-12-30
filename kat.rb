@@ -1,5 +1,3 @@
-require "formula"
-
 class Kat < Formula
   homepage "https://github.com/TGAC/KAT"
   head "https://github.com/TGAC/KAT.git"
@@ -27,6 +25,6 @@ class Kat < Formula
   end
 
   test do
-    system "#{bin}/kat --version"
+    system "#{bin}/kat", "--version"
   end
 end
