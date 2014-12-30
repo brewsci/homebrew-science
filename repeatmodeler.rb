@@ -1,5 +1,3 @@
-require "formula"
-
 class Repeatmodeler < Formula
   homepage "http://www.repeatmasker.org/RepeatModeler.html"
   #tag "bioinformatics"
@@ -43,7 +41,9 @@ class Repeatmodeler < Formula
       Y
       3
       EOS
-    system "cd #{prefix} && perl ./configure <config.txt" if build.with? "configure"
+    cd prefix do
+      system "perl ./configure <config.txt"
+    end if build.with? "configure"
   end
 
   def caveats; <<-EOS.undent
