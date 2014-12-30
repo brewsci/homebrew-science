@@ -9,12 +9,7 @@ class Trinity < Formula
 
   depends_on "bowtie"
 
-  fails_with :clang do
-    build 503
-    cause <<-EOS.undent
-      clang does not support OpenMP, and including omp.h fails
-    EOS
-  end
+  needs :openmp
 
   def install
     ENV.j1
