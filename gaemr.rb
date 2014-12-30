@@ -1,7 +1,7 @@
-require "formula"
-
 class Gaemr < Formula
   homepage "http://www.broadinstitute.org/software/gaemr/"
+  #tag "bioinformatics"
+
   url "http://www.broadinstitute.org/software/gaemr/wp-content/uploads/2012/12/GAEMR-1.0.1.tar.gz"
   sha1 "3747204b177eb32bfc2a0adc239d920320a2ff09"
 
@@ -26,6 +26,6 @@ class Gaemr < Formula
   end
 
   test do
-    system "#{bin}/GAEMR.py --help"
+    system "PYTHONPATH=#{libexec} #{bin}/GAEMR.py --help"
   end
 end
