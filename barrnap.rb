@@ -1,5 +1,3 @@
-require "formula"
-
 class Barrnap < Formula
   homepage "http://www.vicbioinformatics.com/software.barrnap.shtml"
   url "http://www.vicbioinformatics.com/barrnap-0.5.tar.gz"
@@ -13,6 +11,6 @@ class Barrnap < Formula
   end
 
   test do
-    system "#{bin}/barrnap --version"
+    system "#{bin}/barrnap", "--version"
   end
 end
