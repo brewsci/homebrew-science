@@ -1,6 +1,14 @@
 class Kat < Formula
   homepage "https://github.com/TGAC/KAT"
   head "https://github.com/TGAC/KAT.git"
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "2b66feafb04212b405e10fd9d3698bd0001233b9" => :yosemite
+    sha1 "a556bf165b6d934d80fb0f6c5d537bdabc0a2449" => :mavericks
+    sha1 "878b362d6e7033138611218d716d1140ed4330e3" => :mountain_lion
+  end
+
   #tag "bioinformatics"
 
   url "https://github.com/TGAC/KAT/releases/download/Release-1.0.6/kat-1.0.6.tar.gz"
