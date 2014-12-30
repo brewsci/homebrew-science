@@ -1,5 +1,3 @@
-require "formula"
-
 class Stacks < Formula
   homepage "http://creskolab.uoregon.edu/stacks/"
   #doi "10.1111/mec.12354"
