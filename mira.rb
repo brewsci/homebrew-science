@@ -2,6 +2,9 @@ require 'formula'
 
 class Mira < Formula
   homepage 'http://sourceforge.net/projects/mira-assembler'
+  #doi "10.1101/gr.1917404"
+  #tag "bioinformatics"
+
   url 'https://downloads.sourceforge.net/project/mira-assembler/MIRA/stable/mira-4.0.2.tar.bz2'
   sha1 '30db5cb9e9e1c1848b2f24a169ce5bc7948845b3'
 
