@@ -7,6 +7,14 @@ class Samblaster < Formula
   sha1 "202eef231c7d4e188a7ec1646702642ecf976037"
   head "https://github.com/GregoryFaust/samblaster"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "338892f077e9f8ba22e80bcf2b717e6ffe434bcb" => :yosemite
+    sha1 "d5f499faef2d4577272845790f94a199b203da8e" => :mavericks
+    sha1 "fee423532b377f1149f9accdd49d6b2255849285" => :mountain_lion
+  end
+
   # Pull request submitted upstream:
   # https://github.com/GregoryFaust/samblaster/pull/8
   patch :DATA
