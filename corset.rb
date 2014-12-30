@@ -9,9 +9,9 @@ class Corset < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "ec576f2bd5c521a7f0ddee7b0f47cd4ea1161eca" => :yosemite
-    sha1 "3d9311c1aa3e3f17e44f51767053e782ce630caf" => :mavericks
-    sha1 "76a097d3c2b89b1b7cbcac2ead6d9d29554e9c7a" => :mountain_lion
+    sha1 "595de71a818accd8ba9ea1733919a2c1accb7f2a" => :yosemite
+    sha1 "febb53baec4b65caed6bea4f73775207f390b0fe" => :mavericks
+    sha1 "2e37f1e46e0c0e1e37b7180487759cfe2f719870" => :mountain_lion
   end
 
   depends_on "samtools"
