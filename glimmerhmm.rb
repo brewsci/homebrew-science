@@ -1,8 +1,8 @@
-require "formula"
-
 class Glimmerhmm < Formula
   homepage "http://ccb.jhu.edu/software/glimmerhmm/"
   #doi "10.1093/bioinformatics/bth315"
+  #tag "bioinformatics"
+
   url "ftp://ccb.jhu.edu/pub/software/glimmerhmm/GlimmerHMM-3.0.2.tar.gz"
   sha1 "e85b28db2cc2906d7ecc8b93963e6e9163ad4950"
 
@@ -17,6 +17,6 @@ class Glimmerhmm < Formula
   end
 
   test do
-    system "#{bin}/glimmerhmm -h"
+    system "#{bin}/glimmerhmm", "-h"
   end
 end
