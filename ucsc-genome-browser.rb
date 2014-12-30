@@ -1,5 +1,3 @@
-require "formula"
-
 class UcscGenomeBrowser < Formula
   homepage "http://genome.ucsc.edu"
   #doi "10.1093/nar/gkq963"
@@ -16,6 +14,7 @@ class UcscGenomeBrowser < Formula
 
   depends_on "libpng"
   depends_on :mysql
+  depends_on "openssl"
 
   def install
     ENV.j1
