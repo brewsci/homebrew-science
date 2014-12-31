@@ -1,7 +1,7 @@
-require "formula"
-
 class Rmblast < Formula
   homepage "http://www.repeatmasker.org/RMBlast.html"
+  #tag "bioinformatics"
+
   version "2.2.28"
   if OS.mac?
     url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/rmblast/LATEST/ncbi-rmblastn-#{version}-universal-macosx.tar.gz"
@@ -20,6 +20,6 @@ class Rmblast < Formula
   end
 
   test do
-    system "#{bin}/rmblastn -help"
+    system "#{bin}/rmblastn", "-help"
   end
 end
