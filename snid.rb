@@ -7,9 +7,10 @@ class Snid < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "463f7451bea134691dbb3d34b506d2f3224528bf" => :yosemite
-    sha1 "21bfd7172132412a4bcdb3f6121f9e5a04dc5fb5" => :mavericks
-    sha1 "0d2496eb38f65dbe824c32c686afd3d5fbafe2d5" => :mountain_lion
+    revision 1
+    sha1 "2ef005bb6abe42793d2cd4cfe07c46ec4b3a2e21" => :yosemite
+    sha1 "2a7b4f7002c84b9f2ebac050b1098abc98c07177" => :mavericks
+    sha1 "7dadd38507870b8edda727636748e6f1df7fbb85" => :mountain_lion
   end
 
   depends_on :x11
