@@ -7,9 +7,10 @@ class Petsc < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "7a3caa9f7c1a7d81ebf7ba8d7c7019938730ba47" => :yosemite
-    sha1 "40c612cd77ccbfda52e7cd2fb5f4295747c4c4ff" => :mavericks
-    sha1 "b6570a6a13da4cbbb4a109d5072d50032b77aa40" => :mountain_lion
+    revision 2
+    sha1 "5beacf11c6d49d1426c8371bde90e174a2272048" => :yosemite
+    sha1 "14f57231a0286127faef05b6ae710820c599b722" => :mavericks
+    sha1 "34db741378dc282b7a647367155b108be1787692" => :mountain_lion
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
