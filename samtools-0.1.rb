@@ -1,5 +1,3 @@
-require "formula"
-
 class Samtools01 < Formula
   homepage "http://samtools.sourceforge.net/"
   #doi "10.1093/bioinformatics/btp352"
@@ -19,7 +17,8 @@ class Samtools01 < Formula
   option "with-dwgsim", "Build with 'Whole Genome Simulation'"
   option "without-bcftools", "Do not install bcftools"
 
-  keg_only "Conflicts with newer samtools, bcftools"
+  conflicts_with "samtools"
+  conflicts_with "bcftools"
 
   resource "dwgsim" do
     # http://sourceforge.net/apps/mediawiki/dnaa/index.php?title=Whole_Genome_Simulation
