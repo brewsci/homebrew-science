@@ -7,6 +7,13 @@ class Trinity < Formula
   url "https://downloads.sourceforge.net/trinityrnaseq/trinityrnaseq_#{version}.tar.gz"
   sha1 "3207147a1ece0d7f2b4b9dc5aa8e735b3d55cb1d"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "1223d87371681fb7f2d4c055fd097429d0f64a74" => :yosemite
+    sha1 "9564cd54b08ad3eae5d23a5dc18d44ed8a28189a" => :mavericks
+    sha1 "c58dc97ac2fd157dd868977ed8ced573ff814dd7" => :mountain_lion
+  end
+
   depends_on "bowtie"
 
   needs :openmp
