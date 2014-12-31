@@ -7,6 +7,14 @@ class Cppad < Formula
   sha1 "4f5971160c458d65dc751daa1ba6937514901714"
   head "https://github.com/bradbell/cppad.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "c3133a1a24f61366366f83675d1f49f8429014a4" => :yosemite
+    sha1 "eb48a1b0a51bc5883a2bb4c430b09b3e9523debf" => :mavericks
+    sha1 "850e597d558e05a95f38a57b75e0a94609ef160a" => :mountain_lion
+  end
+
   # Only one of --with-boost, --with-eigen and --with-std should be given.
   depends_on "boost" => :optional
   depends_on "eigen" => :optional
