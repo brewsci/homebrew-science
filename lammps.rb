@@ -10,6 +10,14 @@ class Lammps < Formula
 
   head "http://git.icms.temple.edu/lammps-ro.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "72629a4467093ed32219bb07b4054ef953e0bbe2" => :yosemite
+    sha1 "bfbe5d50c2d8c50af1096f1340fc2d59424844db" => :mavericks
+    sha1 "cbadc5b55aaae6614bd06d2f67d0badf5bf68a22" => :mountain_lion
+  end
+
   # user-submitted packages not considered "standard"
   USER_PACKAGES = %w(
     user-misc
