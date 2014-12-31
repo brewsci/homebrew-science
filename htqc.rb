@@ -6,6 +6,12 @@ class Htqc < Formula
   url "https://downloads.sourceforge.net/project/htqc/htqc-0.90.2-Source.tar.gz"
   sha1 "c4204ed1b85d78daa3c90968b99eea113308ed72"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "fde8f0db51fa002e1b32fec422a74aaa120952f3" => :mountain_lion
+  end
+
   depends_on "cmake" => :build
   depends_on "boost"
 
