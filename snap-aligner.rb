@@ -7,6 +7,8 @@ class SnapAligner < Formula
   sha1 "f104f35f4209554a43ccfc8c353bd71213791a64"
   head "https://github.com/amplab/snap.git"
 
+  conflicts_with "snap", :because => "both install bin/snap"
+
   def install
     system "make"
     bin.install "snap"
