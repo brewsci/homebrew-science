@@ -1,16 +1,17 @@
-require "formula"
-
 class FastqTools < Formula
   homepage "http://homes.cs.washington.edu/~dcjones/fastq-tools/"
-  url "https://homes.cs.washington.edu/~dcjones/fastq-tools/fastq-tools-0.6.tar.gz"
-  sha1 "4c4d455e59ec89cc73ffa7701f9ff40c86cee2e0"
+  #tag "bioinformatics"
+
+  url "https://homes.cs.washington.edu/~dcjones/fastq-tools/fastq-tools-0.7.tar.gz"
+  sha1 "75540e322543041c9005f248b2b9bcdba5be728a"
 
   depends_on "pcre" => :build
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make install"
+    system "./configure",
+      "--disable-debug", "--disable-dependency-tracking",
+      "--prefix=#{prefix}"
+    system "make", "install"
   end
 
   test do
