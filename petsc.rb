@@ -27,7 +27,7 @@ class Petsc < Formula
   depends_on "parmetis"     => :recommended
   depends_on "scalapack"    => :recommended
   depends_on "mumps"        => :recommended
-  depends_on "hypre"        => :optional  #compile error here
+  depends_on "hypre"        => ["with-mpi", :recommended]
 
   def install
     ENV.deparallelize
