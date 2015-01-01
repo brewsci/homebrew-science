@@ -16,7 +16,7 @@ class Pocl < Formula
   depends_on 'pkg-config' => :build
   depends_on 'hwloc'
 
-  if OS.linux? or MacOS::CLT.version >= "6.0"
+  if OS.linux? || MacOS.version > :mountain_lion
     depends_on 'llvm' => ['with-clang', 'rtti']
   else
     depends_on 'homebrew/versions/llvm34'
