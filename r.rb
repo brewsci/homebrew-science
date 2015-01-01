@@ -63,8 +63,10 @@ class R < Formula
       "--with-libintl-prefix=#{Formula['gettext'].opt_prefix}",
     ]
     if OS.mac?
-      if MacOS::Xcode.version <= "6.0" and MacOS::CLT.version <= "6.0"
-        # Disable building against the Aqua framework with 6.1.
+      old_xcode = (MacOS::Xcode.installed? and MacOS::Xcode.version <= "6.0") or
+                  (MacOS::CLT.installed?   and MacOS::CLT.version   <= "6.0")
+      if ENV.compiler == :clang or old_xcode
+        # Disable building against the Aqua framework with CLT >= 6.0.
         # See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63651
         # This should be revisited when new versions of GCC come along.
         args << "--with-aqua"
