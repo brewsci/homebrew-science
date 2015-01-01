@@ -65,6 +65,7 @@ class Octave < Formula
   option "without-fftw",           "Do not use FFTW (fft,ifft,fft2,etc.)"
   option "without-glpk",           "Do not use GLPK"
   option "without-hdf5",           "Do not use HDF5 (hdf5 data file support)"
+  option "without-java",           "Do not use Java Runtime Environment"
   option "without-qhull",          "Do not use the Qhull library (delaunay,voronoi,etc.)"
   option "without-qrupdate",       "Do not use the QRupdate package (qrdelete,qrinsert,qrshift,qrupdate)"
   option "without-suite-sparse",   "Do not use SuiteSparse (sparse matrix operations)"
@@ -103,6 +104,7 @@ class Octave < Formula
   end
   depends_on "llvm"           if build.with? "jit"
   depends_on "curl"           if build.with? "curl" and MacOS.version == :leopard
+  depends_on :java            if build.with? "java"
 
   depends_on "gnuplot"       => [:recommended, build.with?("gui") ? "qt" : ""]
   depends_on "suite-sparse"   => :recommended
@@ -126,7 +128,9 @@ class Octave < Formula
     ENV.m64 if MacOS.prefer_64_bit?
     ENV.append_to_cflags "-D_REENTRANT"
     ENV.append "LDFLAGS", "-L#{Formula["readline"].opt_lib} -lreadline" if build.with? "readline"
-    ENV["JAVA_HOME"] = `/usr/libexec/java_home`.chomp!
+    if build.with? "java"
+      ENV["JAVA_HOME"] = `/usr/libexec/java_home`.chomp!
+    end
 
     args = [ "--prefix=#{prefix}" ]
 
@@ -141,6 +145,7 @@ class Octave < Formula
     args << "--without-fftw3"    if build.without? "fftw"
     args << "--without-glpk"     if build.without? "glpk"
     args << "--without-hdf5"     if build.without? "hdf5"
+    args << "--without-java"     if build.without? "java"
     args << "--without-qhull"    if build.without? "qhull"
     args << "--without-qrupdate" if build.without? "qrupdate"
 
