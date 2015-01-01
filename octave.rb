@@ -10,9 +10,10 @@ class Octave < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "0ed4b68750f0451680d5ad99722599576cd42486" => :yosemite
-    sha1 "4e1e1adafedf082a528c5347f9186290747f583c" => :mavericks
-    sha1 "7d0ff428ed25a6a9257e39ea2e115f358ea583c6" => :mountain_lion
+    revision 1
+    sha1 "563b7a33c0a6b13dd8b3f48dacfd27c9d9ee09a9" => :yosemite
+    sha1 "587946fd28416bf6e07da92be8ea7d3d4a189ab0" => :mavericks
+    sha1 "52a831e1f1d820f9a6867d40e007f3e036c4f7cc" => :mountain_lion
   end
 
   stable do
@@ -128,10 +129,7 @@ class Octave < Formula
     ENV.m64 if MacOS.prefer_64_bit?
     ENV.append_to_cflags "-D_REENTRANT"
     ENV.append "LDFLAGS", "-L#{Formula["readline"].opt_lib} -lreadline" if build.with? "readline"
-    if build.with? "java"
-      ENV["JAVA_HOME"] = `/usr/libexec/java_home`.chomp!
-    end
-
+    ENV["JAVA_HOME"] = `/usr/libexec/java_home`.chomp! if build.with? "java"
     args = [ "--prefix=#{prefix}" ]
 
     args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas" if build.with? "openblas"
