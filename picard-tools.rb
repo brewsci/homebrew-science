@@ -1,12 +1,14 @@
-require 'formula'
-
 class PicardTools < Formula
   homepage "http://broadinstitute.github.io/picard/"
+  #tag "bioinformatics"
+
   url "https://github.com/broadinstitute/picard/releases/download/1.120/picard-tools-1.120.zip"
   sha1 "355a9bdb9d11b1669ff340535307d481e985599d"
 
+  #head "https://github.com/broadinstitute/picard.git"
+
   def install
-    (share/'java').install Dir['*.jar', "picard-tools-#{version}/*.jar"]
+    (share/"java").install Dir["*.jar", "picard-tools-#{version}/*.jar"]
   end
 
   def caveats
