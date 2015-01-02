@@ -11,9 +11,9 @@ class Bedtools < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "8c42e2006d59cbe8510acb245f2045602c7145b7" => :yosemite
-    sha1 "552196fd1fe129e24814ae0c6ddaa58baf6f7535" => :mavericks
-    sha1 "e94f17b8d473ebb26fb0acd7936bf268327f78b5" => :mountain_lion
+    sha1 "f7b153b5fc129babe4eb41a6a9986dd8491e4460" => :yosemite
+    sha1 "e451a3b3335dfa4d76eb0ddc7f6b19cea38db2a2" => :mavericks
+    sha1 "b7fc677ade53fc20c51c804e418313cb28ffa0ac" => :mountain_lion
   end
 
   def install
