@@ -1,5 +1,6 @@
 language: ruby
 install:
+ - jdk_switcher use oraclejdk7
  # Incorrect file permissions: chmod 644
  - chmod 644 *.rb
  # Warning: Setting DYLD_* vars can break dynamic linking.
