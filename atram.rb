@@ -3,6 +3,8 @@ require "formula"
 class Atram < Formula
   homepage "https://github.com/juliema/aTRAM"
   #doi "10.5281/zenodo.10431"
+  #tag "bioinformatics"
+
   head "https://github.com/juliema/aTRAM.git"
 
   url "https://github.com/juliema/aTRAM/archive/v1.04.tar.gz"
