@@ -2,7 +2,7 @@
 Thank you for your interest in contributing to [Homebrew/science]. The following guidelines are designed to help you write more efficient pull requests.
 
 ## Formula Guidelines
-Read Homebrew's [Formula Cookbook] and [Acceptable formulæ]. If your formula installs or depends on Python modules you may want to read [Python for Formula Authors] as well.
+Read Homebrew's [Formula Cookbook] and [Acceptable Formulae]. If your formula installs or depends on Python modules you may want to read [Python for Formula Authors] as well.
 
 Please **follow the [GitHub Ruby Styleguide]**.
 
@@ -77,5 +77,5 @@ Improvements to this guide are appreciated via issues or pull requests. If you'r
 [tap]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Interesting-Taps-%26-Branches.md#interesting-taps--branches
 [GitHub Ruby Styleguide]: https://github.com/styleguide/ruby
 [Formula Cookbook]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Formula-Cookbook.md
-[Acceptable formulæ]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Acceptable-formulae.md
+[Acceptable Formulae]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Acceptable-Formulae.md
 [Python for Formula Authors]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Python-for-Formula-Authors.md
