@@ -20,14 +20,18 @@ class Scalapack < Formula
   depends_on :mpi => [:cc, :f90]
   depends_on 'cmake' => :build
   depends_on 'openblas' => :optional
-  depends_on 'veclibfort' if build.without? 'openblas'
+  depends_on 'veclibfort' if build.without? 'openblas' and OS.mac?
   depends_on :fortran
 
   def install
     args = std_cmake_args
     args << "-DBUILD_SHARED_LIBS=ON" if build.with? "shared-libs"
-    blas = (build.with? "openblas") ? "openblas" : "vecLibFort"
-    blas = "-L#{Formula["#{blas}"].opt_lib} -l#{blas}"
+
+    if build.with? "openblas"
+      blas = "-L#{Formula['openblas'].opt_lib} -lopenblas"
+    else
+      blas = (OS.mac?) ? "-L#{Formula['veclibfort'].opt_lib} -lveclibfort" : %w(-lblas -llapack)
+    end
     args += ["-DBLAS_LIBRARIES=#{blas}", "-DLAPACK_LIBRARIES=#{blas}"]
 
     mkdir "build" do
