@@ -29,5 +29,6 @@ Search [open] and [closed] issues. See also Homebrew's  [Common Issues] and [FAQ
 ## Contributing
 Please see the [contributing guide](https://github.com/Homebrew/homebrew-science/blob/master/CONTRIBUTING.md).
 
+[Troubleshooting Checklist]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Troubleshooting.md
 [open]: https://github.com/Homebrew/homebrew-science/issues?state=open
 [closed]: https://github.com/Homebrew/homebrew-science/issues?state=closed
