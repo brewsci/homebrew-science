@@ -18,12 +18,15 @@ class Qrupdate < Formula
 
   depends_on :fortran
   depends_on "openblas" => :optional
-  depends_on "veclibfort" if build.without? "openblas"
+  depends_on "veclibfort" if build.without? "openblas" and OS.mac?
 
   def install
     ENV.j1
-    blas = (build.with? "openblas") ? "openblas" : "vecLibFort"
-    blas = "-L#{Formula["#{blas}"].opt_lib} -l#{blas}"
+    if build.with? "openblas"
+      blas = "-L#{Formula['openblas'].opt_lib} -lopenblas"
+    else
+      blas = (OS.mac?) ? "-L#{Formula['veclibfort'].opt_lib} -lveclibfort" : %w(-lblas -llapack)
+    end
     make_args = ["FC=#{ENV.fc}", "FFLAGS=#{ENV.fcflags}",
                  "BLAS=#{blas}", "LAPACK=#{blas}"]
     inreplace 'src/Makefile' do |s|
