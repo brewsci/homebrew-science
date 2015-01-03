@@ -9,9 +9,10 @@ class Qrupdate < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "e8752934d8eac5396f0e763434eb6318f2e93265" => :yosemite
-    sha1 "d597026b125fb2d72148f230dbf969c1d5d0ae74" => :mavericks
-    sha1 "fa3ca20a2f04998118df68c9e02d52e2e07742b9" => :mountain_lion
+    revision 1
+    sha1 "8416cb9a1d5aef63ef8cc4711511cc43c75231c6" => :yosemite
+    sha1 "240df8f3a3650dbdd41b3808db5aad68975629d2" => :mavericks
+    sha1 "07b17148c0f6a32df0ddaa169a96e54b41e44981" => :mountain_lion
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
