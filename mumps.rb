@@ -28,7 +28,7 @@ class Mumps < Formula
 
   def install
     make_args = ["LIBEXT=.dylib",
-                 "AR=libtool -dynamic -install_name #{lib}/$(notdir $@) -undefined dynamic_lookup -o ",
+                 "AR=$(FL) -shared -Wl,-install_name -Wl,#{lib}/$(notdir $@) -undefined dynamic_lookup -o ",
                  "RANLIB=echo"]
     orderingsf = "-Dpord"
 
@@ -60,7 +60,7 @@ class Mumps < Formula
     if build.with? :mpi
       make_args += ["CC=#{ENV['MPICC']} -fPIC",
                     "FC=#{ENV['MPIFC']} -fPIC",
-                    "FL=#{ENV['MPIFC']} -fPIC",
+                    "FL=#{ENV['FC']} -fPIC",
                     "SCALAP=-L#{Formula["scalapack"].opt_lib} -lscalapack",
                     "INCPAR=-I#{Formula["open-mpi"].opt_include}",
                     "LIBPAR=$(SCALAP) -L#{Formula["open-mpi"].opt_lib} -lmpi -lmpi_mpifh"]
