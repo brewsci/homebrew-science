@@ -9,9 +9,10 @@ class Arpack < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "cbcd37dbf0f4df4246a4907a229ec28550119b7f" => :yosemite
-    sha1 "9d088970dd26ec2d286cfff275b7fac56aa044d6" => :mavericks
-    sha1 "35aeeb9c44095e0c6af0add7454eb6532964d161" => :mountain_lion
+    revision 1
+    sha1 "2b92d2aec341315ad3e157a6e21d47e501e315d6" => :yosemite
+    sha1 "b015ad6f42ed0814f79230d7f256b77533aa09f6" => :mavericks
+    sha1 "d50d35304abb28347eeb20b95e048e35760e9bab" => :mountain_lion
   end
 
   depends_on :fortran
