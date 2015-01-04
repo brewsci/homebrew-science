@@ -1,10 +1,8 @@
-require "formula"
-
 class Asl < Formula
   homepage "http://www.ampl.com/hooking.html"
   url "http://www.ampl.com/netlib/ampl/solvers.tgz"
-  sha1 "20af0d3045da3d313e73aaa94d43d25b47b5a9ff"
-  version "20141223"
+  sha1 "4a380bc2bb7d8c3b0d87bd2071a9129a25809187"
+  version "20150101"
 
   option "with-matlab", "Build MEX file for use with Matlab"
   option "with-mex-path=", "Path to MEX executable, e.g., /Applications/Matlab/MATLAB_R2013b.app/bin/mex (default: mex)"
