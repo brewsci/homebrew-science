@@ -4,6 +4,14 @@ class Asl < Formula
   sha1 "4a380bc2bb7d8c3b0d87bd2071a9129a25809187"
   version "20150101"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "0260a15766491111e66feda8d3bf94fa7b8bf024" => :yosemite
+    sha1 "bdf49bd86678c2f822ade8f71bd617f38fb65d28" => :mavericks
+    sha1 "943ee72fccb055bb79b17d0aba94f84440a312d0" => :mountain_lion
+  end
+
   option "with-matlab", "Build MEX file for use with Matlab"
   option "with-mex-path=", "Path to MEX executable, e.g., /Applications/Matlab/MATLAB_R2013b.app/bin/mex (default: mex)"
 
