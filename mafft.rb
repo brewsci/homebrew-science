@@ -1,9 +1,10 @@
-require 'formula'
-
 class Mafft < Formula
-  homepage 'http://mafft.cbrc.jp/alignment/software/index.html'
-  url 'http://mafft.cbrc.jp/alignment/software/mafft-7.157-with-extensions-src.tgz'
-  sha1 '55cd5f1d6ef43cfe01c82770836c72ad32c221c4'
+  homepage "http://mafft.cbrc.jp/alignment/software/index.html"
+  #doi "10.1093/nar/gkf436"
+  #tag "bioinformatics"
+
+  url "http://mafft.cbrc.jp/alignment/software/mafft-7.157-with-extensions-src.tgz"
+  sha1 "55cd5f1d6ef43cfe01c82770836c72ad32c221c4"
 
   fails_with :clang do
     build 421
@@ -18,11 +19,11 @@ class Mafft < Formula
                    CXXFLAGS=#{ENV.cxxflags} PREFIX=#{prefix} MANDIR=#{man1}]
     make_args << "ENABLE_MULTITHREAD=" if MacOS.version <= :snow_leopard
     make_args << "install"
-    cd 'core' do
+    cd "core" do
       system "make", *make_args
     end
 
-    cd 'extensions' do
+    cd "extensions" do
       system "make", *make_args
     end
   end
@@ -37,7 +38,7 @@ class Mafft < Formula
   end
 
   test do
-    (testpath/'test.fa').write(">1\nA\n>2\nA")
-    system 'mafft test.fa'
+    (testpath/"test.fa").write(">1\nA\n>2\nA")
+    system "mafft", "test.fa"
   end
 end
