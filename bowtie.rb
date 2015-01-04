@@ -1,8 +1,8 @@
-require "formula"
-
 class Bowtie < Formula
   homepage "http://bowtie-bio.sourceforge.net/index.shtml"
   #doi "10.1186/gb-2009-10-3-r25"
+  #tag "bioinformatics"
+
   url "https://github.com/BenLangmead/bowtie/archive/v1.1.1.tar.gz"
   sha1 "297b0c56d3847a8cc11a4c03917c03bd6080d365"
   head "https://github.com/BenLangmead/bowtie.git"
