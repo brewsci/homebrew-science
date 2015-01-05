@@ -20,7 +20,7 @@ class Petsc < Formula
   deprecated_option "complex" => "with-complex"
   deprecated_option "debug"   => "with-debug"
 
-  depends_on :mpi => :cc
+  depends_on :mpi => [:cc, :cxx, :f77, :f90]
   depends_on :fortran
   depends_on :x11 => :optional
   depends_on "cmake" => :build
@@ -43,9 +43,17 @@ class Petsc < Formula
     arch_real="real"
     arch_complex="complex"
 
-    args = %w[
-      --with-shared-libraries=1
-    ]
+    # Environment variables CC, CXX, etc. will be ignored by PETSc.
+    ENV.delete "CC"
+    ENV.delete "CXX"
+    ENV.delete "F77"
+    ENV.delete "FC"
+    args = %W[CC=#{ENV["MPICC"]}
+              CXX=#{ENV["MPICXX"]}
+              F77=#{ENV["MPIF77"]}
+              FC=#{ENV["MPIFC"]}
+              --with-shared-libraries=1
+           ]
     args << ("--with-debugging=" + ((build.with? "debug") ? "1" : "0"))
 
     if build.with? "superlu_dist"
