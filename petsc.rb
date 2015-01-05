@@ -14,8 +14,11 @@ class Petsc < Formula
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
-  option "complex", "Use complex version by default. Otherwise, real-valued version will be symlinked"
-  option "debug", "Compile debug version"
+  option "with-complex", "Link complex version of PETSc by default."
+  option "with-debug", "Build debug version"
+
+  deprecated_option "complex" => "with-complex"
+  deprecated_option "debug"   => "with-debug"
 
   depends_on :mpi => :cc
   depends_on :fortran
@@ -30,61 +33,71 @@ class Petsc < Formula
   depends_on "mumps"        => :recommended
   depends_on "hypre"        => ["with-mpi", :recommended]
 
+  def oprefix(f)
+    Formula[f].opt_prefix
+  end
+
   def install
     ENV.deparallelize
 
-    petsc_arch_real="real"
-    petsc_arch_complex="complex"
+    arch_real="real"
+    arch_complex="complex"
 
-    args = %W[
+    args = %w[
       --with-shared-libraries=1
     ]
-    args << ( (build.include? "debug") ? "--with-debugging=1" : "--with-debugging=0" )
+    args << ("--with-debugging=" + ((build.with? "debug") ? "1" : "0"))
 
     if build.with? "superlu_dist"
-      args << "--with-superlu_dist-include=#{Formula["superlu_dist"].opt_include}/superlu_dist"
-      args << "--with-superlu_dist-lib=#{Formula["superlu_dist"].opt_lib}/libsuperlu_dist.a"
+      slu = Formula["superlu_dist"]
+      args << "--with-superlu_dist-include=#{slu.opt_include}/superlu_dist"
+      args << "--with-superlu_dist-lib=-L#{slu.opt_lib} -lsuperlu_dist"
     end
 
-    args << "--with-metis-dir=#{Formula["metis"].opt_prefix}" if build.with? "metis"
-    args << "--with-parmetis-dir=#{Formula["parmetis"].opt_prefix}" if build.with? "parmetis"
-    args << "--with-scalapack-dir=#{Formula["scalapack"].opt_prefix}" if build.with? "scalapack"
-    args << "--with-mumps-dir=#{Formula["mumps"].opt_prefix}" if build.with? "mumps"
+    args << "--with-metis-dir=#{oprefix("metis")}" if build.with? "metis"
+    args << "--with-parmetis-dir=#{oprefix("parmetis")}" if build.with? "parmetis"
+    args << "--with-scalapack-dir=#{oprefix("scalapack")}" if build.with? "scalapack"
+    args << "--with-mumps-dir=#{oprefix("mumps")}" if build.with? "mumps"
     args << "--with-x=0" if build.without? "x11"
 
-    ENV["PETSC_DIR"] = Dir.getwd  # configure fails if those vars are set differently.
+    # configure fails if those vars are set differently.
+    ENV["PETSC_DIR"] = Dir.getwd
 
     # real-valued case:
-    ENV["PETSC_ARCH"] = petsc_arch_real
-    args_real = ["--prefix=#{prefix}/#{petsc_arch_real}", "--with-scalar-type=real"]
-    args_real << "--with-hypre-dir=#{Formula["hypre"].opt_prefix}" if build.with? "hypre"
+    ENV["PETSC_ARCH"] = arch_real
+    args_real = ["--prefix=#{prefix}/#{arch_real}",
+                 "--with-scalar-type=real"]
+    args_real << "--with-hypre-dir=#{oprefix("hypre")}" if build.with? "hypre"
     system "./configure", *(args + args_real)
     system "make", "all"
     system "make", "test" if build.with? "check"
     system "make", "install"
 
     # complex-valued case:
-    ENV["PETSC_ARCH"] = petsc_arch_complex
-    args_cmplx = ["--prefix=#{prefix}/#{petsc_arch_complex}", "--with-scalar-type=complex"]
+    ENV["PETSC_ARCH"] = arch_complex
+    args_cmplx = ["--prefix=#{prefix}/#{arch_complex}",
+                  "--with-scalar-type=complex"]
     system "./configure", *(args + args_cmplx)
     system "make", "all"
     system "make", "test" if build.with? "check"
     system "make", "install"
 
     # Link only what we want.
-    petsc_arch = ((build.include? "complex") ? petsc_arch_complex : petsc_arch_real)
+    petsc_arch = ((build.with? "complex") ? arch_complex : arch_real)
 
     include.install_symlink Dir["#{prefix}/#{petsc_arch}/include/*h"],
-      "#{prefix}/#{petsc_arch}/include/finclude",
-      "#{prefix}/#{petsc_arch}/include/petsc-private"
+                                "#{prefix}/#{petsc_arch}/include/finclude",
+                                "#{prefix}/#{petsc_arch}/include/petsc-private"
     prefix.install_symlink "#{prefix}/#{petsc_arch}/conf"
-    lib.install_symlink Dir["#{prefix}/#{petsc_arch}/lib/*.a"], Dir["#{prefix}/#{petsc_arch}/lib/*.dylib"]
+    lib.install_symlink Dir["#{prefix}/#{petsc_arch}/lib/*.a"],
+                        Dir["#{prefix}/#{petsc_arch}/lib/*.dylib"]
     share.install_symlink Dir["#{prefix}/#{petsc_arch}/share/*"]
   end
 
   def caveats; <<-EOS
     Set PETSC_DIR to #{prefix}/real or #{prefix}/complex.
-    Fortran module files are in #{prefix}/real/include and #{prefix}/complex/include
+    Fortran module files are in
+      #{prefix}/real/include and #{prefix}/complex/include
     EOS
   end
 end
