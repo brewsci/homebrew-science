@@ -10,9 +10,10 @@ class Root < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "212376e0d131b903952a9873d9c78ac821911a43" => :yosemite
-    sha1 "1b96cf40824848791c6bd012dcb0bc38d2626ff2" => :mavericks
-    sha1 "952baf8273bd6ed4a245e016c637abb9d401f559" => :mountain_lion
+    revision 1
+    sha1 "d39cda38ff06cf42e7360b03c26425ff2d4b3caf" => :yosemite
+    sha1 "ba3d93e628e599c427c4d0da01f0229f472dffde" => :mavericks
+    sha1 "42d3e0a4cd667b98a25a041fd56eae6e569f37ac" => :mountain_lion
   end
 
   # Fixes compilation with recent xrootd; see:
