@@ -52,6 +52,8 @@ class Pcl < Formula
   depends_on "libusb"
   depends_on "qt" => :recommended
   if build.with? "qt"
+    depends_on "sip" # Fix for building system
+    depends_on "pyqt" # Fix for building system
     depends_on "vtk" => [:recommended,"with-qt"]
   else
     depends_on "vtk" => :recommended
@@ -69,8 +71,8 @@ class Pcl < Formula
 
   stable do
     patch do
-      url "https://gist.githubusercontent.com/fran6co/a6e1e44b1b43b2d150cd/raw/e7953b409a6c4a21d8a9ea0b380b440e95a1254b/boost.patch"
-      sha1 "6fbce5d408df3883b5f532a1bff4d20a6e78d41a"
+      url "https://gist.githubusercontent.com/fran6co/a6e1e44b1b43b2d150cd/raw/0c4aeb301ed523c81cd57c63b0a9804d49af9848/boost.patch"
+      sha1 "af223b0d312a0404d5c9281de62f0cedd9e3651a"
     end
   end
 
