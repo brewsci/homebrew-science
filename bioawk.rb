@@ -7,6 +7,8 @@ class Bioawk < Formula
   sha1 "1042e98bfa6a8601488df1be29eb758b2359826d"
   head "https://github.com/lh3/bioawk.git"
 
+  depends_on "bison" => :build
+
   def install
     ENV.j1
     system "make"
