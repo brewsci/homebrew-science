@@ -7,6 +7,14 @@ class Bowtie < Formula
   sha1 "297b0c56d3847a8cc11a4c03917c03bd6080d365"
   head "https://github.com/BenLangmead/bowtie.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "5e9096677965518ccb46fcf48c66ad62a0ffa332" => :yosemite
+    sha1 "5fc6017e187384f1176fb5e552c18dd11e69cd14" => :mavericks
+    sha1 "2e24d251f882a2b4212578169e8f69f6ee913a4a" => :mountain_lion
+  end
+
   def install
     system "make", "allall"
 
