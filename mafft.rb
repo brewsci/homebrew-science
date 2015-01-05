@@ -6,6 +6,13 @@ class Mafft < Formula
   url "http://mafft.cbrc.jp/alignment/software/mafft-7.157-with-extensions-src.tgz"
   sha1 "55cd5f1d6ef43cfe01c82770836c72ad32c221c4"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "be691dfc79b09186f86d410f8645bc3fee7bb228" => :yosemite
+    sha1 "5f0bcbba00290ad43b0d4afa8654efaa0ce5c9d9" => :mavericks
+    sha1 "cb5351b097fae326bfdc07643e45d02b3f72889d" => :mountain_lion
+  end
+
   fails_with :clang do
     build 421
     cause <<-EOS.undent
