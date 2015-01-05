@@ -14,10 +14,10 @@ class R < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    revision 1
-    sha1 "9f3bd70de540238362d456890c86570d9898bd51" => :yosemite
-    sha1 "3458c4b58462d5fb1a48c1c29cbf31479103ee6c" => :mavericks
-    sha1 "fcd4fe5e6180d6942f2faaf95d9e092a28558261" => :mountain_lion
+    revision 2
+    sha1 "4adae88cc1e44d1a29e1b2a77e46cb0e8360f0ac" => :yosemite
+    sha1 "98d84a17648b3d51094594dbd148a8e5139043b3" => :mavericks
+    sha1 "6c4df124afaf389458c89b1ee322feb2a56910fa" => :mountain_lion
   end
 
   head do
