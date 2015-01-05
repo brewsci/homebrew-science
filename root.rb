@@ -15,6 +15,13 @@ class Root < Formula
     sha1 "952baf8273bd6ed4a245e016c637abb9d401f559" => :mountain_lion
   end
 
+  # Fixes compilation with recent xrootd; see:
+  # https://sft.its.cern.ch/jira/browse/ROOT-6998?
+  patch do
+    url "https://sft.its.cern.ch/jira/secure/attachment/17857/0001-TNetXNGFile-explicitly-include-XrdVersion.hh.patch"
+    sha1 "ded7da0a65ccd481dfd5639f7dcd899afeb2244f"
+  end
+
   option "with-qt", "Build with Qt graphics backend and GSI's Qt integration"
 
   depends_on "openssl"
