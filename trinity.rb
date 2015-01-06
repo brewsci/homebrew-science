@@ -20,21 +20,22 @@ class Trinity < Formula
   needs :openmp
 
   def install
+    ENV.deparallelize
+
+    # Fix IRKE.cpp:89:62: error: 'omp_set_num_threads' was not declared in this scope
+    ENV.append_to_cflags "-fopenmp"
+
     inreplace "Trinity",
-      "$ENV{TRINITY_HOME} = \"$FindBin::Bin\";",
-      "$ENV{TRINITY_HOME} = \"#{opt_prefix}\";"
+      '$ENV{TRINITY_HOME} = "$FindBin::Bin";',
+      '$ENV{TRINITY_HOME} = "$FindBin::RealBin";'
 
     inreplace "Makefile",
-      "Chrysalis && $(MAKE)",
-      "Chrysalis && make CC=#{ENV.cc} CXX=#{ENV.cxx} CFLAGS=#{ENV.cflags}"
+      "cd Chrysalis && $(MAKE)",
+      "cd Chrysalis && $(MAKE) CC=#{ENV.cc} CXX=#{ENV.cxx}"
 
-    inreplace "trinity-plugins/Makefile" do |s|
-      # Build jellyfish with the desired compiler
-      s.gsub! "CC=gcc CXX=g++", "CC=#{ENV.cc} CXX=#{ENV.cxx}"
-      s.gsub! "parafly && ./configure", "parafly && ./configure LDFLAGS=-fopenmp"
-    end
+    inreplace "trinity-plugins/Makefile",
+      "CC=gcc CXX=g++", "CC=#{ENV.cc} CXX=#{ENV.cxx}"
 
-    ENV.j1
     system "make"
     doc.install Dir["docs/*"]
     prefix.install Dir["*"]
