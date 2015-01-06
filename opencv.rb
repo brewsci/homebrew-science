@@ -1,13 +1,8 @@
-require 'formula'
-
 class Opencv < Formula
-  homepage 'http://opencv.org/'
-  url 'https://github.com/Itseez/opencv/archive/2.4.9.tar.gz'
-  sha1 'd16ced627db17f9864c681545f18f030c7a4cc0b'
-#  CUDA needs 2.4.10 (see #1228)
-#  url 'https://github.com/Itseez/opencv/archive/2.4.10.tar.gz'
-#  sha1 'a0c2d5944364fc4f26b6160b33c03082b1fa08c1'
-  head 'https://github.com/Itseez/opencv.git'
+  homepage "http://opencv.org/"
+  url "https://github.com/Itseez/opencv/archive/2.4.10.1.tar.gz"
+  sha256 "1be191790a0e279c085ddce62f44b63197f2801e3eb66b5dcb5e19c52a8c7639"
+  head "https://github.com/Itseez/opencv.git"
 
   devel do
     url "https://github.com/Itseez/opencv/archive/3.0.0-alpha.tar.gz"
@@ -16,18 +11,19 @@ class Opencv < Formula
   end
 
   option "32-bit"
+  option "with-java", "Build with Java support"
   option "with-qt", "Build the Qt4 backend to HighGUI"
   option "with-tbb", "Enable parallel code in OpenCV using Intel TBB"
-  option "with-tests", "Build with accuracy & performance tests"
+  option "without-tests", "Build without accuracy & performance tests"
   option "without-opencl", "Disable GPU code in OpenCV using OpenCL"
   option "with-cuda", "Build with CUDA support"
   option "with-quicktime", "Use QuickTime for Video I/O insted of QTKit"
   option "with-opengl", "Build with OpenGL support"
+  option "without-brewed-numpy", "Build without Homebrew-packaged NumPy"
 
   option :cxx11
 
-  depends_on :java        => :optional
-  depends_on :ant if build.with? :java
+  depends_on :ant if build.with? "java"
   depends_on "cmake"      => :build
   depends_on "eigen"      => :recommended
   depends_on "gstreamer"  => :optional
@@ -36,27 +32,31 @@ class Opencv < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libdc1394"  => :optional
-  depends_on "numpy"      => :python
   depends_on "openexr"    => :recommended
   depends_on "openni"     => :optional
   depends_on "pkg-config" => :build
-  depends_on :python
   depends_on "qt"         => :optional
   depends_on "tbb"        => :optional
+
+  depends_on :python      => :recommended
+  depends_on "homebrew/python/numpy" if build.with? "brewed-numpy"
 
   # Can also depend on ffmpeg, but this pulls in a lot of extra stuff that
   # you don't need unless you're doing video analysis, and some of it isn't
   # in Homebrew anyway. Will depend on openexr if it's installed.
-  depends_on 'ffmpeg' => :optional
+  depends_on "ffmpeg" => :optional
+
+  def arg_switch(opt)
+    (build.with? opt) ? "ON" : "OFF"
+  end
 
   def install
-    jpeg = Formula["jpeg"]
-    py_prefix = %x(python-config --prefix).chomp
-    py_version = %x(python -c "import sys; print(sys.version)")[0..2]
-
     ENV.cxx11 if build.cxx11?
-    dylib = if OS.mac? then "dylib" else "so" end
-    args = std_cmake_args + %W(
+    jpeg = Formula["jpeg"]
+    py_prefix = `python-config --prefix`.chomp
+    dylib = OS.mac? ? "dylib" : "so"
+
+    args = std_cmake_args + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_ZLIB=OFF
       -DBUILD_TIFF=OFF
@@ -66,33 +66,33 @@ class Opencv < Formula
       -DBUILD_JPEG=OFF
       -DJPEG_INCLUDE_DIR=#{jpeg.opt_include}
       -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.#{dylib}
-      -DPYTHON_LIBRARY=#{py_prefix}/lib/libpython#{py_version}.#{dylib}
-      -DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python#{py_version}
-    )
+      -DPYTHON_LIBRARY=#{py_prefix}/lib/libpython2.7.#{dylib}
+      -DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python2.7
+    ]
+    args << "-DBUILD_TESTS=OFF" << "-DBUILD_PERF_TESTS=OFF" if build.without? "tests"
+    args << "-DBUILD_opencv_python=" + arg_switch("python")
+    args << "-DBUILD_opencv_java=" + arg_switch("java")
+    args << "-DWITH_OPENEXR="   + arg_switch("openexr")
+    args << "-DWITH_EIGEN="     + arg_switch("eigen")
+    args << "-DWITH_TBB="       + arg_switch("tbb")
+    args << "-DWITH_FFMPEG="    + arg_switch("ffmpeg")
+    args << "-DWITH_QUICKTIME=" + arg_switch("quicktime")
+    args << "-DWITH_1394="      + arg_switch("libdc1394")
+    args << "-DWITH_OPENGL="    + arg_switch("opengl")
+    args << "-DWITH_JASPER="    + arg_switch("jasper")
+    args << "-DWITH_QT="        + arg_switch("qt")
 
-    if build.without? "tests"
-      args << "-DBUILD_TESTS=OFF" << "-DBUILD_PERF_TESTS=OFF"
-    end
-
-    args << "-DBUILD_opencv_java=" + ((build.with? :java) ? "ON" : "OFF")
-    args << "-DWITH_OPENEXR=" + ((build.with? "openexr") ? "ON" : "OFF")
-    args << "-DWITH_EIGEN=" + ((build.with? "eigen") ? "ON" : "OFF")
-    args << "-DWITH_QT=" + ((build.with? "qt") ? "ON" : "OFF")
-    args << "-DWITH_TBB=" + ((build.with? "tbb") ? "ON" : "OFF")
-    args << "-DWITH_FFMPEG=" + ((build.with? "ffmpeg") ? "ON" : "OFF")
     if build.devel?
-      args << "-DWITH_GSTREAMER_0_10=" + ((build.with? "gstreamer") ? "ON" : "OFF")
+      args << "-DWITH_GSTREAMER_0_10=" + arg_switch("gstreamer")
     else
-      args << "-DWITH_GSTREAMER=" + ((build.with? "gstreamer") ? "ON" : "OFF")
+      args << "-DWITH_GSTREAMER=" + arg_switch("gstreamer")
     end
-    args << "-DWITH_QUICKTIME=" + ((build.with? "quicktime") ? "ON" : "OFF")
-    args << "-DWITH_1394=" + ((build.with? "libdc1394") ? "ON" : "OFF")
-    args << "-DWITH_OPENGL=" + ((build.with? "opengl") ? "ON" : "OFF")
-    args << "-DWITH_JASPER=" + ((build.with? "jasper") ? "ON" : "OFF")
 
     if build.with? "cuda"
       ENV["CUDA_NVCC_FLAGS"] = "-Xcompiler -stdlib=libstdc++; -Xlinker -stdlib=libstdc++"
-      inreplace "cmake/FindCUDA.cmake", "list(APPEND CUDA_LIBRARIES -Wl,-rpath \"-Wl,${_cuda_path_to_cudart}\")", "#list(APPEND CUDA"
+      inreplace "cmake/FindCUDA.cmake",
+        "list(APPEND CUDA_LIBRARIES -Wl,-rpath \"-Wl,${_cuda_path_to_cudart}\")",
+        "#list(APPEND CUDA"
       args << "-DWITH_CUDA=ON"
       args << "-DCMAKE_CXX_FLAGS=-stdlib=libstdc++"
     else
@@ -100,7 +100,7 @@ class Opencv < Formula
     end
 
     # OpenCL 1.1 is required, but Snow Leopard and older come with 1.0
-    args << "-DWITH_OPENCL=OFF" if build.without? "opencl" or MacOS.version < :lion
+    args << "-DWITH_OPENCL=OFF" if build.without?("opencl") || MacOS.version < :lion
 
     if build.with? "openni"
       args << "-DWITH_OPENNI=ON"
@@ -117,17 +117,23 @@ class Opencv < Formula
       args << "-DOPENCV_EXTRA_CXX_FLAGS='-arch i386 -m32'"
     end
 
-    if ENV.compiler == :clang and !build.bottle?
-      args << '-DENABLE_SSSE3=ON' if Hardware::CPU.ssse3?
-      args << '-DENABLE_SSE41=ON' if Hardware::CPU.sse4?
-      args << '-DENABLE_SSE42=ON' if Hardware::CPU.sse4_2?
-      args << '-DENABLE_AVX=ON' if Hardware::CPU.avx?
+    if ENV.compiler == :clang && !build.bottle?
+      args << "-DENABLE_SSSE3=ON" if Hardware::CPU.ssse3?
+      args << "-DENABLE_SSE41=ON" if Hardware::CPU.sse4?
+      args << "-DENABLE_SSE42=ON" if Hardware::CPU.sse4_2?
+      args << "-DENABLE_AVX=ON" if Hardware::CPU.avx?
     end
 
     mkdir "macbuild" do
       system "cmake", "..", *args
       system "make"
-      system "make install"
+      system "make", "install"
+    end
+  end
+
+  test do
+    Language::Python.each_python(build) do |python|
+      system python, "-c", "import cv"
     end
   end
 end
