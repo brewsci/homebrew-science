@@ -15,9 +15,9 @@ class Rampart < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "6b27caaf40113844445985e31666374f7bb1bc4e" => :yosemite
-    sha1 "f865ca5e82b22b25bffba039624dad5d320ecdcb" => :mavericks
-    sha1 "04c62dd16e5e57028c4dc71c28efcc5d4cd0f707" => :mountain_lion
+    sha1 "fbb04392b0a279c71e06f3077506062f8c888c57" => :yosemite
+    sha1 "84c0684ba916b0ea9858d53da512e7fcf3b6d7ff" => :mavericks
+    sha1 "dee76143f82715dfdc2108df6cbda9f51e121bf0" => :mountain_lion
   end
 
   depends_on :java => "1.7"
