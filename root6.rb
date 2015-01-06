@@ -6,6 +6,13 @@ class Root6 < Formula
   sha1 "17d30182a24596a52d5dd360ab8bcc940c2e069f"
   head "http://root.cern.ch/git/root.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "4587eada1b68f67cec27a8ee054ff2195dc84c20" => :yosemite
+    sha1 "7c07c7bb09537cc6da758144f53d5d40f8dc92c6" => :mavericks
+    sha1 "a55877049934a3d5972a0e33db59524472996ef2" => :mountain_lion
+  end
+
   depends_on "cmake" => :build
   depends_on "xrootd" => :optional
   depends_on "openssl" => :optional
