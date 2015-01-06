@@ -9,8 +9,8 @@ class Rampart < Formula
     depends_on "maven" => :build
   end
 
-  url "https://github.com/TGAC/RAMPART/releases/download/Release-0.10.3/rampart-0.10.3.tar.gz"
-  sha1 "8f8c5db27e8088fbf03fc08222bfead6cf96fb11"
+  url "https://github.com/TGAC/RAMPART/releases/download/Release-0.11.0/rampart-0.11.0.tar.gz"
+  sha1 "bfdd0271b37bfb1a308babb1f328bfcbc7cb3841"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
