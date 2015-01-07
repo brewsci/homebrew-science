@@ -1,9 +1,9 @@
-require "formula"
-
 class LumpySv < Formula
   homepage "https://github.com/arq5x/lumpy-sv"
-  url "https://github.com/arq5x/lumpy-sv/releases/download/0.2.8/lumpy-sv-0.2.8.tar.gz"
-  sha1 "d337c6871c1ecc374ff274af04978cadbf364b54"
+  # doi "10.1186/gb-2014-15-6-r84"
+  # tag "bioinformatics"
+  url "https://github.com/arq5x/lumpy-sv/releases/download/0.2.9/lumpy-sv-0.2.9.tar.gz"
+  sha1 "3ca24aed2b5a57a5e8a55f2f65057520474fb77c"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -28,6 +28,6 @@ class LumpySv < Formula
   end
 
   test do
-    system "lumpy 2>&1 |grep -q structural"
+    system "#{bin}/lumpy 2>&1 |grep -q structural"
   end
 end
