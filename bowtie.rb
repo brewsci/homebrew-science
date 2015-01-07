@@ -10,9 +10,10 @@ class Bowtie < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "5e9096677965518ccb46fcf48c66ad62a0ffa332" => :yosemite
-    sha1 "5fc6017e187384f1176fb5e552c18dd11e69cd14" => :mavericks
-    sha1 "2e24d251f882a2b4212578169e8f69f6ee913a4a" => :mountain_lion
+    revision 1
+    sha1 "4400eb29ef8dde38e5c8c31dafdeafa4cfb35f8a" => :yosemite
+    sha1 "b59b81a427edb0ff21989604e853192330256e6e" => :mavericks
+    sha1 "e837e00af306a2aa1c71e5c40394c79ebfddb6d6" => :mountain_lion
   end
 
   def install
