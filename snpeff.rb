@@ -6,6 +6,14 @@ class Snpeff < Formula
   version '4.0e'
   sha1 '969fa41cd774a33629f63938f665ba1f83f9adcc'
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "d663e17fc44066a66ae8f05a99d2b7e4fd1fdda8" => :yosemite
+    sha1 "fdbf0db244297f35281850bb2381d7abbba0392e" => :mavericks
+    sha1 "25acc2120b891e10c79530662578e24dc6ff20b8" => :mountain_lion
+  end
+
   def install
     inreplace "scripts/snpEff" do |s|
       s.gsub! /^jardir=.*/, "jardir=#{libexec}"
