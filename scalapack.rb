@@ -9,10 +9,10 @@ class Scalapack < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    revision 1
-    sha1 "b7158d99b757ecf7b98f1d2a75b0fc0e50e8a607" => :yosemite
-    sha1 "2d6749fcb108203e3f7fd74817785427be5faa11" => :mavericks
-    sha1 "a57ab6a187f557ca96822c59014f905d884c8cc6" => :mountain_lion
+    revision 2
+    sha1 "bae037302eabbea385e6cbc22d125a123b2c08a7" => :yosemite
+    sha1 "934fb738c7bbd4e584533085982f2a61e3d13446" => :mavericks
+    sha1 "8dc227f7b7f55f0b0c3d97d82a718db0447db853" => :mountain_lion
   end
 
   option 'with-shared-libs', 'Build shared libs (some tests may fail)'
