@@ -9,9 +9,9 @@ class Pastix < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "2ba1d8e214526df6ef44dbd797287ce7e91984a7" => :yosemite
-    sha1 "32231bc94ac20eb35e7c30bad3aac590f4fe049a" => :mavericks
-    sha1 "06c8de3b1b3a5348717c9337e56e5e527b1baf07" => :mountain_lion
+    sha1 "f39ebbeff6f038c7c8f47b70af292b454a7ab8ed" => :yosemite
+    sha1 "ce96028427875d42911512e95b1797cafff3e909" => :mavericks
+    sha1 "2ae0f7cb28551343fc15b800826a5232d89df9ea" => :mountain_lion
   end
 
   depends_on 'scotch'   => :build
