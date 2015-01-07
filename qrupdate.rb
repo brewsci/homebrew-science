@@ -25,11 +25,13 @@ class Qrupdate < Formula
     ENV.j1
     if build.with? "openblas"
       blas = "-L#{Formula['openblas'].opt_lib} -lopenblas"
+      lapack = blas
     else
-      blas = (OS.mac?) ? "-L#{Formula['veclibfort'].opt_lib} -lveclibfort" : %w(-lblas -llapack)
+      blas = (OS.mac?) ? "-L#{Formula['veclibfort'].opt_lib} -lveclibfort" : "-lblas"
+      lapack = (OS.mac?) ? blas : "-llapack"
     end
     make_args = ["FC=#{ENV.fc}", "FFLAGS=#{ENV.fcflags}",
-                 "BLAS=#{blas}", "LAPACK=#{blas}"]
+                 "BLAS=#{blas}", "LAPACK=#{lapack}"]
     inreplace 'src/Makefile' do |s|
       s.gsub! 'install -D', 'install'
     end
