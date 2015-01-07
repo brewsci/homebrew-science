@@ -6,8 +6,6 @@ class Masurca < Formula
   url "ftp://ftp.genome.umd.edu/pub/MaSuRCA/v2.2.1/MaSuRCA-2.2.1.tar.gz"
   sha1 "a568d0afc9cf96e5351e8f4ef92c1b89a13011d6"
 
-  conflicts_with "jellyfish", :because => "both install lib/libjellyfish-2.0.a"
-
   depends_on "parallel"
 
   def install
@@ -25,6 +23,9 @@ class Masurca < Formula
     ENV.deparallelize
     ENV["DEST"] = prefix
     system "./install.sh"
+
+    # Conflicts with jellyfish
+    rm Dir[lib/"libjellyfish*", lib/"pkgconfig/jellyfish-2.0.pc"]
 
     # Conflicts with parallel
     rm bin/"parallel"
