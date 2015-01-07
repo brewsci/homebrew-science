@@ -1,5 +1,3 @@
-require "formula"
-
 class Littler < Formula
   homepage "http://dirk.eddelbuettel.com/code/littler.html"
   url "http://dirk.eddelbuettel.com/code/littler/littler-0.2.1.tar.gz"
@@ -14,14 +12,19 @@ class Littler < Formula
            "--prefix=#{prefix}"
 
     system "make"
-    # r conflicts with the zsh builtin and is not good for a
-    # case-insensitive file system where it conflicts with R
+
     bin.install "r" => "littler"
     man1.install "r.1" => "littler.1"
     doc.install "README"
   end
 
+  def caveats; <<-EOS.undent
+    This formula installs `r` as `littler` to avoid conflicting
+    with the Zsh builtin and case-insensitive filesystems.
+    EOS
+  end
+
   test do
-    system %q[littler -e 'print(pi)']
+    system "littler", "-e", "'print(pi)'"
   end
 end
