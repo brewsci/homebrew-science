@@ -4,6 +4,13 @@ class Littler < Formula
   sha1 "c9790df09bb07278420ef692b78df97757e9841c"
   head "https://github.com/eddelbuettel/littler.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "04e75e219fab465911d71abf7354024d04df93c5" => :yosemite
+    sha1 "6992af49d574688a91a39f3bd2e8652e05b011b0" => :mavericks
+    sha1 "0bbe3da33cddc9d966d7d0e441a4bc722651f822" => :mountain_lion
+  end
+
   depends_on "r"
 
   def install
