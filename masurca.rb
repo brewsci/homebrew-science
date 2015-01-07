@@ -8,11 +8,9 @@ class Masurca < Formula
   url "ftp://ftp.genome.umd.edu/pub/MaSuRCA/v2.2.1/MaSuRCA-2.2.1.tar.gz"
   sha1 "a568d0afc9cf96e5351e8f4ef92c1b89a13011d6"
 
-  keg_only "MaSuRCA conflicts with jellyfish and parallel"
   conflicts_with "jellyfish", :because => "both install lib/libjellyfish-2.0.a"
-  conflicts_with "parallel", :because => "both install bin/parallel"
 
-  depends_on "pkg-config" => :build
+  depends_on "parallel"
 
   def install
     raise "MaSuRCA fails to build on Mac OS. See https://github.com/Homebrew/homebrew-science/issues/344" if OS.mac?
@@ -24,6 +22,9 @@ class Masurca < Formula
 
     ENV.deparallelize
     system "DEST=#{prefix} ./install.sh"
+
+    # Conflicts with parallel
+    rm bin/"parallel"
   end
 
   test do
