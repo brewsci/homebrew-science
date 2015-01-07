@@ -1,10 +1,8 @@
-require 'formula'
-
 class Pastix < Formula
-  homepage 'http://pastix.gforge.inria.fr'
-  url 'https://gforge.inria.fr/frs/download.php/file/34392/pastix_5.2.2.20.tar.bz2'
-  sha1 'd55acf287ed0b6a59fc12606a21e42e3d38507c5'
-  head 'git://scm.gforge.inria.fr/ricar/ricar.git'
+  homepage "http://pastix.gforge.inria.fr"
+  url "https://gforge.inria.fr/frs/download.php/file/34392/pastix_5.2.2.20.tar.bz2"
+  sha1 "d55acf287ed0b6a59fc12606a21e42e3d38507c5"
+  head "git://scm.gforge.inria.fr/ricar/ricar.git"
   revision 1
 
   bottle do
@@ -14,10 +12,10 @@ class Pastix < Formula
     sha1 "2ae0f7cb28551343fc15b800826a5232d89df9ea" => :mountain_lion
   end
 
-  depends_on 'scotch'   => :build
-  depends_on 'hwloc'
-  depends_on 'metis4'   => :optional     # Use METIS ordering.
-  depends_on 'openblas' => :optional     # Use Accelerate by default.
+  depends_on "scotch"   => :build
+  depends_on "hwloc"
+  depends_on "metis4"   => :optional     # Use METIS ordering.
+  depends_on "openblas" => :optional     # Use Accelerate by default.
 
   depends_on :mpi       => [:cc, :f90]
   depends_on :fortran
@@ -25,12 +23,12 @@ class Pastix < Formula
   def install
     ENV.deparallelize
 
-    cd 'src' do
-      cp 'config/MAC.in', 'config.in'
-      inreplace 'config.in' do |s|
+    cd "src" do
+      cp "config/MAC.in", "config.in"
+      inreplace "config.in" do |s|
         s.change_make_var! "CCPROG", ENV.compiler
-        s.change_make_var! "CFPROG", ENV['FC']
-        s.change_make_var! "CF90PROG", ENV['FC']
+        s.change_make_var! "CFPROG", ENV["FC"]
+        s.change_make_var! "CF90PROG", ENV["FC"]
 
         libgfortran = `mpif90 --print-file-name libgfortran.a`.chomp
         s.change_make_var! "EXTRALIB", "-L#{File.dirname(libgfortran)} -lgfortran -lm"
@@ -65,41 +63,41 @@ class Pastix < Formula
         s.gsub! /HWLOC_HOME\s*\?=/, "HWLOC_HOME="
         s.change_make_var! "HWLOC_HOME", Formula["hwloc"].opt_prefix
 
-        if build.with? 'metis4'
+        if build.with? "metis4"
           s.gsub! /#\s*VERSIONORD\s*=\s*_metis/, "VERSIONORD = _metis"
           s.gsub! /#\s*METIS_HOME/, "METIS_HOME"
           s.change_make_var! "METIS_HOME", Formula["metis4"].opt_prefix
-          s.gsub! /#\s*CCPASTIX\s*:=\s*\$\(CCPASTIX\)\s+-DMETIS\s+-I\$\(METIS_HOME\)\/Lib/, "CCPASTIX := \$(CCPASTIX) -DMETIS -I#{Formula["metis4"].opt_include}"
+          s.gsub! %r{#\s*CCPASTIX\s*:=\s*\$\(CCPASTIX\)\s+-DMETIS\s+-I\$\(METIS_HOME\)/Lib}, "CCPASTIX := \$(CCPASTIX) -DMETIS -I#{Formula["metis4"].opt_include}"
           s.gsub! /#\s*EXTRALIB\s*:=\s*\$\(EXTRALIB\)\s+-L\$\(METIS_HOME\)\s+-lmetis/, "EXTRALIB := \$\(EXTRALIB\) -L#{Formula["metis4"].opt_lib} -lmetis"
         end
 
-        if build.with? 'openblas'
-          s.gsub! /#\s*BLAS_HOME\s*=\s*\/path\/to\/blas/, "BLAS_HOME = #{Formula["openblas"].opt_lib}"
+        if build.with? "openblas"
+          s.gsub! %r{#\s*BLAS_HOME\s*=\s*/path/to/blas}, "BLAS_HOME = #{Formula["openblas"].opt_lib}"
           s.change_make_var! "BLASLIB", "-lopenblas"
         end
       end
       system "make"
-      system "make install"
-      system "make examples"
-      system "./example/bin/simple -lap 100"
-      prefix.install 'config.in'    # For the record.
-      share.install 'example'       # Contains all test programs.
-      ohai 'Simple test result is in ~/Library/Logs/Homebrew/pastix. Please check.'
+      system "make", "install"
+      system "make", "examples"
+      system "./example/bin/simple", "-lap", "100"
+      prefix.install "config.in"    # For the record.
+      share.install "example"       # Contains all test programs.
+      ohai "Simple test result is in ~/Library/Logs/Homebrew/pastix. Please check."
     end
   end
 
   test do
     Dir.foreach("#{share}/example/bin") do |example|
-      next if example =~ /^\./ or example =~ /plot_memory_usage/ or example =~ /mem_trace.o/ or example =~ /murge_sequence/
-      next if example == 'reentrant'  # May fail due to thread handling. See http://goo.gl/SKDGPV
-      if example == 'murge-product'
-        system "#{share}/example/bin/#{example} 100 10 1"
+      next if example =~ /^\./ || example =~ /plot_memory_usage/ || example =~ /mem_trace.o/ || example =~ /murge_sequence/
+      next if example == "reentrant"  # May fail due to thread handling. See http://goo.gl/SKDGPV
+      if example == "murge-product"
+        system "#{share}/example/bin/#{example}", "100", "10", "1"
       elsif example =~ /murge/
-        system "#{share}/example/bin/#{example} 100 4"
+        system "#{share}/example/bin/#{example}", "100", "4"
       else
-        system "#{share}/example/bin/#{example} -lap 100"
+        system "#{share}/example/bin/#{example}", "-lap", "100"
       end
     end
-    ohai 'All test output is in ~/Library/Logs/Homebrew/pastix. Please check.'
+    ohai "All test output is in ~/Library/Logs/Homebrew/pastix. Please check."
   end
 end
