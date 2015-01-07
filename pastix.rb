@@ -17,7 +17,7 @@ class Pastix < Formula
   depends_on "metis4"   => :optional     # Use METIS ordering.
   depends_on "openblas" => :optional     # Use Accelerate by default.
 
-  depends_on :mpi       => [:cc, :f90]
+  depends_on :mpi       => [:cc, :cxx, :f90]
   depends_on :fortran
 
   def install
@@ -26,11 +26,15 @@ class Pastix < Formula
     cd "src" do
       cp "config/MAC.in", "config.in"
       inreplace "config.in" do |s|
-        s.change_make_var! "CCPROG", ENV.compiler
-        s.change_make_var! "CFPROG", ENV["FC"]
-        s.change_make_var! "CF90PROG", ENV["FC"]
+        s.change_make_var! "CCPROG",    ENV.compiler
+        s.change_make_var! "CFPROG",    ENV["FC"]
+        s.change_make_var! "CF90PROG",  ENV["FC"]
+        s.change_make_var! "MCFPROG",   ENV["MPIFC"]
+        s.change_make_var! "MPCCPROG",  ENV["MPICC"]
+        s.change_make_var! "MPCXXPROG", ENV["MPICXX"]
+        s.change_make_var! "VERSIONBIT", ((MacOS.prefer_64_bit?) ? "_64bit" : "_32bit")
 
-        libgfortran = `mpif90 --print-file-name libgfortran.a`.chomp
+        libgfortran = `#{ENV["MPIFC"]} --print-file-name libgfortran.a`.chomp
         s.change_make_var! "EXTRALIB", "-L#{File.dirname(libgfortran)} -lgfortran -lm"
 
         # set prefix
