@@ -25,9 +25,13 @@ class Mumps < Formula
   depends_on :fortran
 
   def install
-    make_args = ["LIBEXT=.dylib",
-                 "AR=$(FL) -shared -Wl,-install_name -Wl,#{lib}/$(notdir $@) -undefined dynamic_lookup -o ",
-                 "RANLIB=echo"]
+    if OS.mac?
+      make_args = ["LIBEXT=.dylib",
+                   "AR=$(FL) -shared -Wl,-install_name -Wl,#{lib}/$(notdir $@) -undefined dynamic_lookup -o ",
+                   "RANLIB=echo"]
+    else
+      make_args = ["LIBEXT=.so", "AR=$(FL) -shared -o ", "RANLIB=echo"]
+    end
     orderingsf = "-Dpord"
 
     makefile = (build.with? :mpi) ? "Makefile.gfortran.PAR" : "Makefile.gfortran.SEQ"
@@ -75,14 +79,22 @@ class Mumps < Formula
     end
 
     ENV.deparallelize  # Build fails in parallel on Mavericks.
-    system "make", "all", *make_args
+
+    # First build libs, install them, and then link example programs.
+    system "make", "alllib", *make_args
 
     lib.install Dir["lib/*"]
+    lib.install ("libseq/libmpiseq" + ((OS.mac?) ? ".dylib" : ".so")) if build.without? :mpi
+
+    inreplace "examples/Makefile" do |s|
+      s.change_make_var! "libdir", lib
+    end
+
+    system "make", "all", *make_args  # Build examples.
 
     if build.with? :mpi
       include.install Dir["include/*"]
     else
-      lib.install "libseq/libmpiseq.dylib"
       libexec.install "include"
       include.install_symlink Dir[libexec / "include/*"]
       # The following .h files may conflict with others related to MPI
