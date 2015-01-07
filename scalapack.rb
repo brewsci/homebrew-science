@@ -30,10 +30,12 @@ class Scalapack < Formula
 
     if build.with? "openblas"
       blas = "-L#{Formula['openblas'].opt_lib} -lopenblas"
+      lapack = blas
     else
-      blas = (OS.mac?) ? "-L#{Formula['veclibfort'].opt_lib} -lveclibfort" : %w(-lblas -llapack)
+      blas = (OS.mac?) ? "-L#{Formula['veclibfort'].opt_lib} -lveclibfort" : "-lblas"
+      lapack = (OS.mac?) ? blas : "-llapack"
     end
-    args += ["-DBLAS_LIBRARIES=#{blas}", "-DLAPACK_LIBRARIES=#{blas}"]
+    args += ["-DBLAS_LIBRARIES=#{blas}", "-DLAPACK_LIBRARIES=#{lapack}"]
 
     mkdir "build" do
       system 'cmake', '..', *args
