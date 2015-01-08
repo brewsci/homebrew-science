@@ -19,7 +19,7 @@ class Hdf5 < Formula
   deprecated_option "enable-cxx" => "with-cxx"
 
   option :universal
-  option "without-check", "Skip build-time tests"
+  option "with-check", "Run build-time tests"
   option "with-threadsafe", "Trade performance and C++ or Fortran support for thread safety"
   option "with-fortran2003", "Compile Fortran 2003 bindings. Requires with-fortran"
   option "with-cxx", "Compile C++ bindings"
@@ -70,5 +70,19 @@ class Hdf5 < Formula
     system "make", "check" if build.with? "check"
     system "make", "install"
     share.install "#{lib}/libhdf5.settings"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS
+    #include <stdio.h>
+    #include "H5public.h"
+    int main()
+    {
+      printf(\"%d.%d.%d\\n\",H5_VERS_MAJOR,H5_VERS_MINOR,H5_VERS_RELEASE);
+      return 0;
+    }
+    EOS
+    system "h5cc test.cpp"
+    assert `./a.out`.include?(version)
   end
 end
