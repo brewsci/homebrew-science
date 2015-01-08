@@ -4,7 +4,7 @@ class Sambamba < Formula
   homepage "http://lomereiter.github.io/sambamba"
   #tag "bioinformatics"
 
-  url "https://github.com/lomereiter/sambamba.git", :tag => "v0.5.0"
+  url "https://github.com/lomereiter/sambamba.git", :tag => "v0.5.1"
   head "https://github.com/lomereiter/sambamba.git"
 
   bottle do
