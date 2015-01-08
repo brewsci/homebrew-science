@@ -2,7 +2,8 @@ require "formula"
 
 class Hypre < Formula
   homepage "http://computation.llnl.gov/casc/hypre/software.html"
-  url "http://computation.llnl.gov/casc/hypre/download/hypre-2.9.0b.tar.gz"
+  url "http://ftp.mcs.anl.gov/pub/petsc/externalpackages/hypre-2.9.0b.tar.gz"
+  mirror "ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/hypre-2.9.0b.tar.gz"
   sha1 "aaf8354437be38aa2fbcc944ab64d464a5b39207"
   revision 1
 
