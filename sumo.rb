@@ -3,6 +3,14 @@ class Sumo < Formula
   url "https://downloads.sourceforge.net/project/sumo/sumo/version%200.22.0/sumo-all-0.22.0.tar.gz"
   sha1 "32206adaccb35e41afb697bb3c841a5578e8f167"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "c8c74bfec8a87bd8d5dd40639160083d00bd79ed" => :yosemite
+    sha1 "43ff8b705a99a6f30c919f36ce447baec192605f" => :mavericks
+    sha1 "ba8193a50e9954bfad8b36f9ee3aad7054f1fe39" => :mountain_lion
+  end
+
   option "with-check", "Enable additional build-time checking"
 
   depends_on :x11
