@@ -6,6 +6,13 @@ class Masurca < Formula
   url "ftp://ftp.genome.umd.edu/pub/MaSuRCA/v2.2.1/MaSuRCA-2.2.1.tar.gz"
   sha1 "a568d0afc9cf96e5351e8f4ef92c1b89a13011d6"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "361c41e31d2abf549136bda8d318fc2e804f66ce" => :yosemite
+    sha1 "a143f4ae7cefc0b61e65f47646765ca7eaf48ccd" => :mavericks
+    sha1 "acaf5da00766a84ecb70db681ea6cc0dd064f59f" => :mountain_lion
+  end
+
   fails_with :clang do
     build 600
     cause "error: use of undeclared identifier 'use_safe_malloc_instead'"
