@@ -14,7 +14,6 @@ class Opencv < Formula
   end
 
   option "32-bit"
-  option "with-java", "Build with Java support"
   option "with-qt", "Build the Qt4 backend to HighGUI"
   option "with-tbb", "Enable parallel code in OpenCV using Intel TBB"
   option "with-tests", "Build with accuracy & performance tests"
@@ -25,7 +24,8 @@ class Opencv < Formula
 
   option :cxx11
 
-  depends_on :ant if build.with? "java"
+  depends_on :java        => :optional
+  depends_on :ant if build.with? :java
   depends_on "cmake"      => :build
   depends_on "eigen"      => :recommended
   depends_on "gstreamer"  => :optional
@@ -72,7 +72,7 @@ class Opencv < Formula
       args << "-DBUILD_TESTS=OFF" << "-DBUILD_PERF_TESTS=OFF"
     end
 
-    args << "-DBUILD_opencv_java=" + ((build.with? "java") ? "ON" : "OFF")
+    args << "-DBUILD_opencv_java=" + ((build.with? :java) ? "ON" : "OFF")
     args << "-DWITH_OPENEXR=" + ((build.with? "openexr") ? "ON" : "OFF")
     args << "-DWITH_EIGEN=" + ((build.with? "eigen") ? "ON" : "OFF")
     args << "-DWITH_QT=" + ((build.with? "qt") ? "ON" : "OFF")
