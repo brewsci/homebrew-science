@@ -9,10 +9,9 @@ class Sambamba < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    revision 1
-    sha1 "a67aae9b8f8b73bebc41d3d6b066d5c481438d28" => :yosemite
-    sha1 "1fd397533b90d1ba057b80d324948bed99db639e" => :mavericks
-    sha1 "27ea93b01560ecbb30e6ab3c7bb1404b6d6c9405" => :mountain_lion
+    sha1 "132ab4f787a7753feb7a5226a96cd4f76250d920" => :yosemite
+    sha1 "27d76b79803be64cf1f2cddde6032587e974968d" => :mavericks
+    sha1 "681b0d0909e3781110bbab048afc1b9223a84427" => :mountain_lion
   end
 
   depends_on "ldc" => :build
