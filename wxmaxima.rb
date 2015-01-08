@@ -3,6 +3,14 @@ class Wxmaxima < Formula
   url "https://downloads.sourceforge.net/project/wxmaxima/wxMaxima/13.04.2/wxMaxima-13.04.2.tar.gz"
   sha1 "9508d3badb6c339f34e73e01c5065f679329a17c"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "d110a3c63e434f87f4441952a28d48889cfc6a10" => :yosemite
+    sha1 "3e66edeec9ae6008f34024238857423fbfd04df5" => :mavericks
+    sha1 "29ff6b7afe5e143eb5a2714d0565a3327f82aff2" => :mountain_lion
+  end
+
   depends_on "wxmac"
 
   head do
