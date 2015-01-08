@@ -3,6 +3,13 @@ class Maxima < Formula
   url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.34.1-source/maxima-5.34.1.tar.gz"
   sha1 "3f33730ca374c282a543da5ed78572eff72da34f"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "6371b41bfe585f224acab6f4852f5808fa72600b" => :yosemite
+    sha1 "3c1f1c41ec5127e8f6f6e2ab6b0aaa368b1ea142" => :mavericks
+    sha1 "ea44137b93530cb8dab8085facf18e0445428498" => :mountain_lion
+  end
+
   depends_on "gettext"
   depends_on "sbcl"
   depends_on "gnuplot"
