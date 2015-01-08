@@ -1,17 +1,15 @@
-require 'formula'
-
 class Maxima < Formula
-  homepage 'http://maxima.sourceforge.net/'
-  url 'https://downloads.sourceforge.net/project/maxima/Maxima-source/5.34.1-source/maxima-5.34.1.tar.gz'
-  sha1 '3f33730ca374c282a543da5ed78572eff72da34f'
+  homepage "http://maxima.sourceforge.net/"
+  url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.34.1-source/maxima-5.34.1.tar.gz"
+  sha1 "3f33730ca374c282a543da5ed78572eff72da34f"
 
-  depends_on 'gettext'
-  depends_on 'sbcl'
-  depends_on 'gnuplot'
-  depends_on 'rlwrap'
+  depends_on "gettext"
+  depends_on "sbcl"
+  depends_on "gnuplot"
+  depends_on "rlwrap"
 
   # required for maxima help(), describe(), "?" and "??" lisp functionality
-  skip_clean 'share/info'
+  skip_clean "share/info"
 
   # fixes 3468021: imaxima.el uses incorrect tmp directory on OS X:
   # https://sourceforge.net/tracker/?func=detail&aid=3468021&group_id=4933&atid=104933
@@ -21,13 +19,13 @@ class Maxima < Formula
     ENV.deparallelize
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--enable-sbcl", "--with-sbcl=#{Formula['sbcl'].opt_bin}/sbcl",
+                          "--enable-sbcl", "--with-sbcl=#{Formula["sbcl"].opt_bin}/sbcl",
                           "--enable-gettext"
     # Per build instructions
-    ENV['LANG'] = 'C'
-    system 'make'
-    system 'make check'
-    system 'make install'
+    ENV["LANG"] = "C"
+    system "make"
+    system "make", "check"
+    system "make", "install"
   end
 
   test do
