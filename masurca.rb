@@ -3,8 +3,8 @@ class Masurca < Formula
   #doi "10.1093/bioinformatics/btt476"
   #tag "bioinformatics"
 
-  url "ftp://ftp.genome.umd.edu/pub/MaSuRCA/v2.2.1/MaSuRCA-2.2.1.tar.gz"
-  sha1 "a568d0afc9cf96e5351e8f4ef92c1b89a13011d6"
+  url "ftp://ftp.genome.umd.edu/pub/MaSuRCA/MaSuRCA-2.3.2b.tar.gz"
+  sha1 "3598f0b9580bd7518e09db173ada700b5e241b74"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -15,10 +15,13 @@ class Masurca < Formula
 
   fails_with :clang do
     build 600
-    cause "error: use of undeclared identifier 'use_safe_malloc_instead'"
+    cause "No rule to make target `jellyfish/jellyfish.hpp', needed by `AS_OVL_overlap.o'. Stop."
   end
 
   depends_on "parallel"
+
+  # Fix brew audit: Non-executables were installed to bin
+  patch :DATA
 
   def install
     if OS.mac?
@@ -34,21 +37,13 @@ class Masurca < Formula
       inreplace "install.sh", "Linux-amd64", "Darwin-amd64"
     end
 
-    # Fix brew audit: Non-executables were installed to bin
-    inreplace "SuperReads/src/fix_unitigs.sh", /^/, "#!/bin/sh\n"
-    inreplace "SuperReads/src/run_ECR.sh", /^/, "#!/bin/sh\n"
-
-    # Fix the error ./install.sh: line 46: masurca: No such file or directory
-    bin.mkdir
-    cp "SuperReads/src/masurca", bin
-    chmod 0755, bin/"masurca"
-
     ENV.deparallelize
     ENV["DEST"] = prefix
     system "./install.sh"
 
     # Conflicts with jellyfish
     rm Dir[lib/"libjellyfish*", lib/"pkgconfig/jellyfish-2.0.pc"]
+    rm_r include/"jellyfish-2.1.3"
 
     # Conflicts with parallel
     rm bin/"parallel"
@@ -58,3 +53,23 @@ class Masurca < Formula
     system "#{bin}/masurca", "-h"
   end
 end
+
+__END__
+diff --git a/SuperReads/src/fix_unitigs.sh b/SuperReads/src/fix_unitigs.sh
+index 9454bd8..844f71d 100755
+--- a/SuperReads/src/fix_unitigs.sh
++++ b/SuperReads/src/fix_unitigs.sh
+@@ -1,3 +1,4 @@
++#!/bin/sh
+ #$1 -- PREFIX
+ rm -f f_*
+ rm -f *.out
+diff --git a/SuperReads/src/run_ECR.sh b/SuperReads/src/run_ECR.sh
+index c330c71..04bf972 100755
+--- a/SuperReads/src/run_ECR.sh
++++ b/SuperReads/src/run_ECR.sh
+@@ -1,3 +1,4 @@
++#!/bin/sh
+ BEGIN_SCF=$1;
+ END_SCF=$2;
+ LAST_CKP=$3;
