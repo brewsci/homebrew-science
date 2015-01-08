@@ -6,6 +6,13 @@ class Xraylib < Formula
   mirror "https://xraylib.s3.amazonaws.com/xraylib-3.1.0.tar.gz"
   sha1 "38a8ea77984234d24eeff50d94a662baa6cf6907"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "3d5cc1069008cca66f12b38b086368a570209633" => :yosemite
+    sha1 "41bec42fb26f343e4edf648bcdcfc6fd9ce89e32" => :mavericks
+    sha1 "ea821b25add248b3738cd4da30586a9bc403b5b9" => :mountain_lion
+  end
+
   depends_on :python => :recommended
   depends_on :python3 => :optional
   depends_on :fortran => :optional
