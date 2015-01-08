@@ -6,6 +6,13 @@ class Genometools < Formula
   sha1 "aa2bd8e2fe7ca274d7c9aecda6f23ab6547d935a"
   head "https://github.com/genometools/genometools.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "fac555854a828ce2e20d60e2d0b10e81c6fbad46" => :yosemite
+    sha1 "ab2fcd86cdfd77d63cb7f30f690715b91a883c86" => :mavericks
+    sha1 "b3ce4c82dfe55dac04690f8a7c2755b2709df9a1" => :mountain_lion
+  end
+
   option :universal
   option "with-check", "Run tests which require approximately one hour to run"
   option "without-pangocairo", "Build without Pango/Cairo (disables AnnotationSketch tool)"
