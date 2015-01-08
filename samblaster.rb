@@ -10,9 +10,9 @@ class Samblaster < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "338892f077e9f8ba22e80bcf2b717e6ffe434bcb" => :yosemite
-    sha1 "d5f499faef2d4577272845790f94a199b203da8e" => :mavericks
-    sha1 "fee423532b377f1149f9accdd49d6b2255849285" => :mountain_lion
+    sha1 "01da597dca44539d4c8218f6320c1d333cbbf9f4" => :yosemite
+    sha1 "17c2c763ff473604a5f0e492980c562222a83708" => :mavericks
+    sha1 "16eb49671b88fb0ddc9730f7f3bb3ccd76231c52" => :mountain_lion
   end
 
   def install
