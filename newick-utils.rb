@@ -1,19 +1,25 @@
-require 'formula'
-
 class NewickUtils < Formula
-  homepage 'http://cegg.unige.ch/newick_utils'
-  url 'http://cegg.unige.ch/pub/newick-utils-1.6.tar.gz'
-  sha1 'a9779054dcbf957618458ebfed07991fabeb3e19'
+  homepage "http://cegg.unige.ch/newick_utils"
+  #doi "10.1093/bioinformatics/btq243"
+  #tag "bioinformatics"
 
-  # don't bother testing nw_gen, it's known to fail on MacOSX
+  url "http://cegg.unige.ch/pub/newick-utils-1.6.tar.gz"
+  sha1 "a9779054dcbf957618458ebfed07991fabeb3e19"
+
+  head "https://github.com/tjunier/newick_utils.git"
+
+  # Don't bother testing nw_gen, it's known to fail on MacOSX.
   patch :DATA
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure",
+      # Fix error: use of undeclared identifier 'LUA_GLOBALSINDEX'
+      "--with-lua=no",
+      "--disable-dependency-tracking",
+      "--prefix=#{prefix}"
     system "make"
-    system "make check"
-    system "make install"
+    system "make", "check"
+    system "make", "install"
   end
 
   test do
