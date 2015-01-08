@@ -9,8 +9,8 @@ class Jellyfish < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "ebda78603c58f742b2c158e0f77a55a73fc1fcb9" => :yosemite
-    sha1 "eaab1b21b747f6f252f9d5ec4c9a5fd6ed3e9d27" => :mavericks
+    sha1 "53dbef087576fc418756cc39332679f5e58b8fef" => :yosemite
+    sha1 "4dc0a43a6c61044bef1822fb29481a4a6d19921e" => :mavericks
   end
 
   head do
