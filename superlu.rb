@@ -24,7 +24,8 @@ class Superlu < Formula
     cp "MAKE_INC/make.mac-x", "./make.inc"
     make_args = ["RANLIB=true", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}",
                  "FORTRAN=#{ENV.fc}", "FFLAGS=#{ENV.fcflags}",
-                 "SuperLUroot=#{buildpath}"]
+                 "SuperLUroot=#{buildpath}",
+                 "SUPERLULIB=$(SuperLUroot)/lib/libsuperlu.a"]
 
     make_args << ((build.with? "openblas") ? "BLASLIB=-L#{Formula["openblas"].opt_lib} -lopenblas" : "BLASLIB=-framework Accelerate")
 
