@@ -4,6 +4,14 @@ class Pymol < Formula
   sha1 "477ac127794ddf40f5177ffa4f141f097ca2fc9f"
   head "https://pymol.svn.sourceforge.net/svnroot/pymol/trunk/pymol"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "fb46ba12f570307127d49fa897756afe980b12bf" => :yosemite
+    sha1 "cdcae5d8047c930e233b38bb8ef41ffcc1288c52" => :mavericks
+    sha1 "306c8a5590fc176bd568c6b716b7cb0507bc2192" => :mountain_lion
+  end
+
   deprecated_option "default-stereo" => "with-default-stereo"
 
   option "with-default-stereo", "Set stereo graphics as default"
