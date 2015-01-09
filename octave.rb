@@ -10,10 +10,10 @@ class Octave < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    revision 1
-    sha1 "563b7a33c0a6b13dd8b3f48dacfd27c9d9ee09a9" => :yosemite
-    sha1 "587946fd28416bf6e07da92be8ea7d3d4a189ab0" => :mavericks
-    sha1 "52a831e1f1d820f9a6867d40e007f3e036c4f7cc" => :mountain_lion
+    revision 2
+    sha1 "584b003f77d459f8880e4d9f2b87a222107f5a7a" => :yosemite
+    sha1 "6c56ac4aa35d25111c8a82c731ba548fccfe156f" => :mavericks
+    sha1 "fcf53182977e9ac1d8b560b9f677eee59dceacc3" => :mountain_lion
   end
 
   stable do
