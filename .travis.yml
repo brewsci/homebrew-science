@@ -1,22 +1,42 @@
 language: ruby
 install:
  - jdk_switcher use oraclejdk7
- # Incorrect file permissions: chmod 644
- - chmod 644 *.rb
  # Warning: Setting DYLD_* vars can break dynamic linking.
  - unset DYLD_LIBRARY_PATH
  # Warning: You have a non-Homebrew 'pkg-config' in your PATH
  - sudo rm -f /usr/bin/pkg-config
  # Warning: "config" scripts exist outside your system or Homebrew directories.
  - sudo rm -f /usr/local/clang-3.4/bin/llvm-config
+
+ # Install gcc-4.9 system wide[Default is gcc-4.6]
+ - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+ - sudo apt-get update -qq
+ - sudo apt-get install -y libyajl-dev libxml2-dev libxqilla-dev
+ - sudo apt-get install -y libstdc++-4.9-dev
+ - sudo apt-get install -y g++-4.9 gfortran-4.9
+ - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 90
+ - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 90
+ - sudo update-alternatives --install /usr/bin/gfortran gfortran /usr/bin/gfortran-4.9 90
  - cd ..
  - git clone https://github.com/Homebrew/linuxbrew.git
  - PATH=$PWD/linuxbrew/bin:$PATH
+
+  # Symlink gcc, gfortran
+ - ln -s $(which gcc) $PWD/linuxbrew/bin/gcc-$(gcc -dumpversion |cut -d. -f1,2)
+ - ln -s $(which g++) $PWD/linuxbrew/bin/g++-$(g++ -dumpversion |cut -d. -f1,2)
+ - ln -s $(which gfortran) $PWD/linuxbrew/bin/gfortran-$(gfortran -dumpversion |cut -d. -f1,2)
+
+ # Install pkg-config[See: https://github.com/Homebrew/homebrew-science/pull/1664#issuecomment-69259072]
+ - brew install pkg-config
+
  - mkdir -p linuxbrew/Library/Taps/homebrew
  - mv homebrew-science linuxbrew/Library/Taps/homebrew/
  - cd linuxbrew/Library/Taps/homebrew/homebrew-science
  - brew tap --repair
+
+ # Incorrect file permissions: chmod 644
+ - chmod 644 *.rb
 script:
- - brew test-bot --tap=homebrew/science --dry-run $TRAVIS_COMMIT |sed -n 's/^==> //p' |sh -ex
+ - bash travisCI/travis.sh
 notifications:
  email: false
