@@ -1,9 +1,9 @@
 require "formula"
 
 class Octave < Formula
-  homepage "http://www.gnu.org/software/octave/index.html"
+  homepage "https://www.gnu.org/software/octave/index.html"
   url      "http://ftpmirror.gnu.org/octave/octave-3.8.1.tar.bz2"
-  mirror   "http://ftp.gnu.org/gnu/octave/octave-3.8.1.tar.bz2"
+  mirror   "https://ftp.gnu.org/gnu/octave/octave-3.8.1.tar.bz2"
   sha1     "2951aeafe58d562672feb80dd8c3cfe0643a5087"
   head     "http://www.octave.org/hg/octave", :branch => "gui-release", :using => :hg
   revision 1
@@ -106,7 +106,7 @@ class Octave < Formula
   depends_on "curl"           if build.with? "curl" and MacOS.version == :leopard
   depends_on :java            => :recommended
 
-  depends_on "gnuplot"       => [:recommended, build.with?("gui") ? "qt" : ""]
+  depends_on "gnuplot"       => [:recommended, build.with?("gui") ? "with-qt" : ""]
   depends_on "suite-sparse"   => :recommended
   depends_on "readline"       => :recommended
   depends_on "arpack"         => :recommended
