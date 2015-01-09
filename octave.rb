@@ -1,11 +1,9 @@
-require "formula"
-
 class Octave < Formula
   homepage "https://www.gnu.org/software/octave/index.html"
-  url      "http://ftpmirror.gnu.org/octave/octave-3.8.1.tar.bz2"
-  mirror   "https://ftp.gnu.org/gnu/octave/octave-3.8.1.tar.bz2"
-  sha1     "2951aeafe58d562672feb80dd8c3cfe0643a5087"
-  head     "http://www.octave.org/hg/octave", :branch => "gui-release", :using => :hg
+  url "http://ftpmirror.gnu.org/octave/octave-3.8.1.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/octave/octave-3.8.1.tar.bz2"
+  sha1 "2951aeafe58d562672feb80dd8c3cfe0643a5087"
+  head "http://www.octave.org/hg/octave", :branch => "gui-release", :using => :hg
   revision 1
 
   bottle do
@@ -103,7 +101,7 @@ class Octave < Formula
     depends_on "freetype"
   end
   depends_on "llvm"           if build.with? "jit"
-  depends_on "curl"           if build.with? "curl" and MacOS.version == :leopard
+  depends_on "curl"           if build.with?("curl") && MacOS.version == :leopard
   depends_on :java            => :recommended
 
   depends_on "gnuplot"       => [:recommended, build.with?("gui") ? "with-qt" : ""]
@@ -129,13 +127,13 @@ class Octave < Formula
     ENV.append_to_cflags "-D_REENTRANT"
     ENV.append "LDFLAGS", "-L#{Formula["readline"].opt_lib} -lreadline" if build.with? "readline"
     ENV["JAVA_HOME"] = `/usr/libexec/java_home`.chomp! if build.with? :java
-    args = [ "--prefix=#{prefix}" ]
+    args = ["--prefix=#{prefix}"]
 
     args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas" if build.with? "openblas"
     args << "--disable-docs"     if build.without? "docs"
     args << "--enable-jit"       if build.with?    "jit"
     args << "--disable-gui"      if build.without? "gui"
-    args << "--without-opengl"   if build.without? "native-graphics" and not build.head?
+    args << "--without-opengl"   if build.without?("native-graphics") && !build.head?
 
     args << "--disable-readline" if build.without? "readline"
     args << "--without-curl"     if build.without? "curl"
@@ -161,7 +159,7 @@ class Octave < Formula
     end
 
     args << "--without-zlib"     if build.without? "zlib"
-    args << "--with-x=no"     #We don't need X11 for Mac at all
+    args << "--with-x=no"     # We don't need X11 for Mac at all
 
     system "./bootstrap" if build.head?
 
@@ -173,7 +171,7 @@ class Octave < Formula
     # can cause linking problems.
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
 
-    if build.with? "gnuplot" and build.with? "gui"
+    if build.with?("gnuplot") && build.with?("gui")
       # ~/.octaverc takes precedence over site octaverc
       open("scripts/startup/local-rcfile", "a") do |file|
         file.write "setenv('GNUTERM','#{build.with?("gui") ? "qt" : ""}')"
@@ -181,18 +179,22 @@ class Octave < Formula
     end
 
     system "./configure", *args
-    system "make all"
+    system "make", "all"
     system "make check 2>&1 | tee make-check.log" if build.with? "check"
-    system "make install"
+    system "make", "install"
     prefix.install "make-check.log" if File.exist? "make-check.log"
     prefix.install "test/fntests.log" if File.exist? "test/fntests.log"
+  end
+
+  test do
+    system "octave", "--eval", "'(22/7 - pi)/pi'"
   end
 
   def caveats
     s = ""
 
     if build.with? "gnuplot"
-      s = s + <<-EOS.undent
+      s += <<-EOS.undent
 
         gnuplot's Qt terminal is supported by default with the Octave GUI.
         Use other gnuplot graphics terminals by setting the environment variable
@@ -208,8 +210,8 @@ class Octave < Formula
       EOS
     end
 
-    if build.with? "native graphics" or build.head?
-      s = s + <<-EOS.undent
+    if build.with?("native graphics") || build.head?
+      s += <<-EOS.undent
 
         You have configured Octave to use "native" OpenGL/FLTK plotting by
         default. If you prefer gnuplot, you can activate it for all future
@@ -221,20 +223,20 @@ class Octave < Formula
     end
 
     if build.head?
-      s = s + <<-EOS.undent
+      s += <<-EOS.undent
 
         The HEAD installation activates the experimental GUI by default.
         To use the CLI version of octave, run the command "octave-cli".
       EOS
     elsif build.with? "gui"
-      s = s + <<-EOS.undent
+      s += <<-EOS.undent
 
         The Octave GUI is experimental and not enabled by default. To use it,
         use the command-line argument "--force-gui"; e.g.,
             octave --force-gui
       EOS
       if build.with? "native-graphics"
-        s = s + <<-EOS.undent
+        s += <<-EOS.undent
 
           Native graphics do *not* work with the GUI. You must switch to
           gnuplot when using it.
@@ -246,22 +248,22 @@ class Octave < Formula
     if File.exist? logfile
       logs = `grep 'libinterp/array/.*FAIL \\d' #{logfile}`
       unless logs.empty?
-        s = s + <<-EOS.undent
+        s += <<-EOS.undent
 
             Octave's self-tests for this installation produced the following failues:
             --------
         EOS
-        s = s + logs + <<-EOS.undent
+        s += logs + <<-EOS.undent
             --------
             These failures indicate a conflict between Octave and its BLAS-related
             dependencies. You can likely correct these by removing and reinstalling
             arpack, qrupdate, suite-sparse, and octave. Please use the same BLAS
             settings for all (i.e., with the default, or "--with-openblas").
         EOS
-        end
+      end
     end
 
-    s = s + "\n" unless s.empty?
+    s += "\n" unless s.empty?
     s
   end
 end
