@@ -9,9 +9,10 @@ class Superlu < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "40705cde7208ea9b6f3b51c1a6dc260a49188f29" => :yosemite
-    sha1 "a36d71883305da75d38d77754e336d345043e1d3" => :mavericks
-    sha1 "8f0e4afa6f901f5345ff25658cfb7c2c84ef818e" => :mountain_lion
+    revision 1
+    sha1 "10e99526679f859e1710deece904cbdcc6a6972d" => :yosemite
+    sha1 "03f84dd1230a766a67f50e5914bcf352fbd7be28" => :mavericks
+    sha1 "6acb853facb9f89b16958e044d7ddb8f7f255fc3" => :mountain_lion
   end
 
   option "without-check", "skip build-time tests (not recommended)"
