@@ -66,7 +66,7 @@ class Pymol < Formula
   end
 
   test do
-    system "#{bin}/pymol", "#{lib}/python2.7/site-packages/pymol/pymol_path/data/demo/pept.pdb"
+    system bin/"pymol", libexec/"lib/python2.7/site-packages/pymol/pymol_path/data/demo/pept.pdb"
   end
 
   def caveats
