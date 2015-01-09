@@ -26,6 +26,7 @@ class Petsc < Formula
   depends_on "cmake" => :build
 
   depends_on "openssl"
+  depends_on "superlu"      => :recommended
   depends_on "superlu_dist" => :recommended
   depends_on "metis"        => :recommended
   depends_on "parmetis"     => :recommended
@@ -57,9 +58,15 @@ class Petsc < Formula
     args << ("--with-debugging=" + ((build.with? "debug") ? "1" : "0"))
 
     if build.with? "superlu_dist"
-      slu = Formula["superlu_dist"]
-      args << "--with-superlu_dist-include=#{slu.opt_include}/superlu_dist"
-      args << "--with-superlu_dist-lib=-L#{slu.opt_lib} -lsuperlu_dist"
+      slud = Formula["superlu_dist"]
+      args << "--with-superlu_dist-include=#{slud.opt_include}/superlu_dist"
+      args << "--with-superlu_dist-lib=-L#{slud.opt_lib} -lsuperlu_dist"
+    end
+
+    if build.with? "superlu"
+      slu = Formula["superlu"]
+      args << "--with-superlu-include=#{slu.opt_include}/superlu"
+      args << "--with-superlu-lib=-L#{slu.opt_lib} -lsuperlu"
     end
 
     args << "--with-metis-dir=#{oprefix("metis")}" if build.with? "metis"
