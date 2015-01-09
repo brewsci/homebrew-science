@@ -18,3 +18,5 @@ install:
  - brew tap --repair
 script:
  - brew test-bot --tap=homebrew/science --dry-run $TRAVIS_COMMIT |sed -n 's/^==> //p' |sh -ex
+notifications:
+ email: false
