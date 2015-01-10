@@ -1,11 +1,9 @@
-require 'formula'
-
 class Scotch < Formula
-  homepage 'https://gforge.inria.fr/projects/scotch'
-  url 'https://gforge.inria.fr/frs/download.php/31831/scotch_6.0.0.tar.gz'
-  sha1 'eb32d846bb14449245b08c81e740231f7883fea6'
+  homepage "https://gforge.inria.fr/projects/scotch"
+  url "https://gforge.inria.fr/frs/download.php/31831/scotch_6.0.0.tar.gz"
+  sha1 "eb32d846bb14449245b08c81e740231f7883fea6"
 
-  option 'without-check', 'skip build-time tests (not recommended)'
+  option "without-check", "skip build-time tests (not recommended)"
 
   depends_on :mpi => :cc
 
@@ -15,9 +13,9 @@ class Scotch < Formula
     cd "src" do
       ln_s "Make.inc/Makefile.inc.i686_mac_darwin8", "Makefile.inc"
 
-      make_args = ["CCS=#{ENV['CC']}",
-                   "CCP=#{ENV['MPICC']}",
-                   "CCD=#{ENV['MPICC']}",
+      make_args = ["CCS=#{ENV["CC"]}",
+                   "CCP=#{ENV["MPICC"]}",
+                   "CCD=#{ENV["MPICC"]}",
                    "LIB=.dylib",
                    "AR=libtool",
                    "ARFLAGS=-dynamic -install_name #{lib}/$(notdir $@) -undefined dynamic_lookup -o ",
