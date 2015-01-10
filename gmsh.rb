@@ -11,6 +11,14 @@ class Gmsh < Formula
   url 'http://geuz.org/gmsh/src/gmsh-2.8.5-source.tgz'
   sha1 '352671f95816440ddb2099478f3e9f189e40e27a'
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "d039d605b267aa6325cbb2b1511d437179c412ef" => :yosemite
+    sha1 "684e5d1a9697edfe66e580652394f9230e1e1662" => :mavericks
+    sha1 "7d85445c4fdb2c4524c54a222647285090a02e5b" => :mountain_lion
+  end
+
   head 'https://geuz.org/svn/gmsh/trunk', :using => GmshSvnStrategy
 
   depends_on :fortran
