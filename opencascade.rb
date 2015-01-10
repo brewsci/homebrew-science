@@ -5,6 +5,14 @@ class Opencascade < Formula
   url "http://files.opencascade.com/OCCT/OCC_6.8.0_release/opencascade-6.8.0.tgz"
   sha1 "fe359a12e110e9136adac2db1539026be6cc579e"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "e95b4b1558699266030fd40cc1bf7af4bfef48ca" => :yosemite
+    sha1 "9548fea6e97848083f68cb3560d15aab3e544205" => :mavericks
+    sha1 "0c3b5d96a08a19824677160d998ae461f5125be3" => :mountain_lion
+  end
+
   conflicts_with "oce", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
 
   option "without-opencl", "Build without OpenCL support"
