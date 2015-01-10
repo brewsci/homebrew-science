@@ -2,8 +2,8 @@ require "formula"
 
 class Opencascade < Formula
   homepage "http://www.opencascade.org/"
-  url "http://files.opencascade.com/OCCT/OCC_6.7.1_release/opencascade-6.7.1.tgz"
-  sha1 "53a7864c49893dcc722b8d6a487fd835e58d2f52"
+  url "http://files.opencascade.com/OCCT/OCC_6.8.0_release/opencascade-6.8.0.tgz"
+  sha1 "fe359a12e110e9136adac2db1539026be6cc579e"
 
   conflicts_with "oce", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
 
@@ -46,10 +46,10 @@ class Opencascade < Formula
       cmake_args << "-D3RDPARTY_OPENCL_DLL:FILEPATH=#{opencl_path}/Libraries/libcl2module.dylib"
 
       # link against the Apple built-in OpenCL Framework
-      inreplace "adm/cmake/TKOpenGL/CMakeLists.txt", "list( APPEND TKOpenGl_USED_LIBS OpenCL )", <<-EOF.undent
-        find_library(FRAMEWORKS_OPENCL NAMES OpenCL)
-        list( APPEND TKOpenGl_USED_LIBS ${FRAMEWORKS_OPENCL} )
-      EOF
+      #inreplace "adm/cmake/TKOpenGL/CMakeLists.txt", "list( APPEND TKOpenGl_USED_LIBS OpenCL )", <<-EOF.undent
+      #  find_library(FRAMEWORKS_OPENCL NAMES OpenCL)
+      #  list( APPEND TKOpenGl_USED_LIBS ${FRAMEWORKS_OPENCL} )
+      #EOF
     end
 
     system "cmake", ".", *cmake_args
@@ -61,6 +61,12 @@ class Opencascade < Formula
       rmdir prefix/"samples"
       prefix.install "doc", "samples"
     end
+
+    # add symlinks to be able to compile against OpenCascade
+    loc = "#{prefix}/mac64/clang"
+    include.install_symlink Dir["#{prefix}/inc/*"]
+    bin.install_symlink Dir["#{loc}/bin/*"]
+    lib.install_symlink Dir["#{loc}/lib/*"]
   end
 
   def caveats; <<-EOF.undent
