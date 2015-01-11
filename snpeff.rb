@@ -2,9 +2,9 @@ require 'formula'
 
 class Snpeff < Formula
   homepage 'http://snpeff.sourceforge.net/'
-  url 'https://downloads.sourceforge.net/project/snpeff/snpEff_v4_0_core.zip'
-  version '4.0e'
-  sha1 '969fa41cd774a33629f63938f665ba1f83f9adcc'
+  url 'https://downloads.sourceforge.net/project/snpeff/snpEff_v4_1_core.zip'
+  version '4.1'
+  sha1 "83e1d2e32bfc8b9104f1856e70f8b1112fa290ab"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
