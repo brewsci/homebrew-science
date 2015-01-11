@@ -3,6 +3,14 @@ class Scotch < Formula
   url "https://gforge.inria.fr/frs/download.php/file/34099/scotch_6.0.3.tar.gz"
   sha1 "7bad26fbe2304759a77bd92348229876edcead1e"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "f86dcb86ef14e9861736f2e51f1d8e3675625ba0" => :yosemite
+    sha1 "31f8ed4c57bc77a49ab1795c098b8a3edde0a5a4" => :mavericks
+    sha1 "8cd53c51772977558b4d2b052769ec1243b71122" => :mountain_lion
+  end
+
   option "without-check", "skip build-time tests (not recommended)"
 
   depends_on :mpi => :cc
