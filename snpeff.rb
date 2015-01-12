@@ -1,9 +1,9 @@
-require 'formula'
-
 class Snpeff < Formula
-  homepage 'http://snpeff.sourceforge.net/'
-  url 'https://downloads.sourceforge.net/project/snpeff/snpEff_v4_1_core.zip'
-  version '4.1'
+  homepage "http://snpeff.sourceforge.net/"
+  #tag "bioinformatics"
+
+  url "https://downloads.sourceforge.net/project/snpeff/snpEff_v4_1_core.zip"
+  version "4.1"
   sha1 "83e1d2e32bfc8b9104f1856e70f8b1112fa290ab"
 
   bottle do
