@@ -4,6 +4,14 @@ class SuiteSparse < Formula
   mirror "http://pkgs.fedoraproject.org/repo/pkgs/suitesparse/SuiteSparse-4.2.1.tar.gz/4628df9eeae10ae5f0c486f1ac982fce/SuiteSparse-4.2.1.tar.gz"
   sha1 "2fec3bf93314bd14cbb7470c0a2c294988096ed6"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "da49ff267c1d282636903c56e055c02f6a7ba960" => :yosemite
+    sha1 "842474e5a2826e0c97af83673ae8225038ed194f" => :mavericks
+    sha1 "9a878b9b12423338ef1d7b6f8ab7d55e8754a635" => :mountain_lion
+  end
+
   option "with-matlab", "Install Matlab interfaces and tools"
   option "with-matlab-path=", "Path to Matlab executable (default: matlab)"
 
