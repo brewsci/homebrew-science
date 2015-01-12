@@ -9,6 +9,14 @@ class Daligner < Formula
 
   head "https://github.com/thegenemyers/DALIGNER.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "658f6bcdf275a4024b15bfafe6eb0391ee54c0a3" => :yosemite
+    sha1 "3bfe5b57169b04c6a15bd9361fd6571096d77fe7" => :mavericks
+    sha1 "473ce0f16f71dade9537264944e62e4791a2f322" => :mountain_lion
+  end
+
   def install
     system "make"
     bin.install %w[daligner HPCdaligner HPCmapper LAcat LAcheck LAmerge LAshow LAsort LAsplit]
