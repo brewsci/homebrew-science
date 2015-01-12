@@ -9,8 +9,9 @@ export BUILD_OUTPUT=$WORKDIR/build.out
 touch $BUILD_OUTPUT
 
 dump_output() {
-   echo Dumping last 1000 lines of output:
+   echo "############# Dependency build log(tail -1000) start #############"
    tail -1000 $BUILD_OUTPUT
+   echo "############# Dependency build log end #############"
 }
 error_handler() {
   echo ERROR: An error was encountered with the build.
@@ -40,7 +41,10 @@ for file in $changed_files
 do
     if [[ ${file: -3} == ".rb" ]]
     then
-        brew test-bot $file -v >> $BUILD_OUTPUT 2>&1
+        # Dump output of building dependencies to log file
+        brew reinstall $(brew deps $file) >> $BUILD_OUTPUT 2>&1
+        # Explicitly print the verbose output of test-bot
+        brew test-bot $file -v
     fi
 done
 
