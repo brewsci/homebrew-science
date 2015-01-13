@@ -14,7 +14,10 @@ class A5 < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "3c6267d80a3b0100394b900793ea23c109d2593c" => :mountain_lion
+    revision 1
+    sha1 "65d101be4a3a252c1637f9a718ee49f9107ae869" => :yosemite
+    sha1 "924f112b45f9f789345c7ed39b1cfc04ec0caf7d" => :mavericks
+    sha1 "3de22dfa9ca3c2e29e1a2b53e16390cc6d8e2afd" => :mountain_lion
   end
 
   def install
