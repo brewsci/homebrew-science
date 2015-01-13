@@ -31,8 +31,16 @@ class Petsc < Formula
   depends_on "metis"        => :recommended
   depends_on "parmetis"     => :recommended
   depends_on "scalapack"    => :recommended
-  depends_on "mumps"        => :recommended
+  depends_on "mumps"        => :recommended # mumps is built with mpi by default
   depends_on "hypre"        => ["with-mpi", :recommended]
+  depends_on "sundials"     => ["with-mpi", :recommended]
+  depends_on "hdf5"         => ["with-mpi", :recommended]
+  depends_on "hwloc"        => :recommended
+  depends_on "suite-sparse" => :recommended
+  depends_on "netcdf"       => ["with-fortran", :recommended]
+  depends_on "fftw"         => ["with-mpi", "with-fortran", :recommended]
+
+  #TODO: add ML, YAML dependencies when the formulae are available
 
   def oprefix(f)
     Formula[f].opt_prefix
@@ -69,6 +77,10 @@ class Petsc < Formula
       args << "--with-superlu-lib=-L#{slu.opt_lib} -lsuperlu"
     end
 
+    args << "--with-fftw-dir=#{oprefix("fftw")}" if build.with? "fftw"
+    args << "--with-netcdf-dir=#{oprefix("netcdf")}" if build.with? "netcdf"
+    args << "--with-suitesparse-dir=#{oprefix("suite-sparse")}" if build.with? "suite-sparse"
+    args << "--with-hdf5-dir=#{oprefix("hdf5")}" if build.with? "hdf5"
     args << "--with-metis-dir=#{oprefix("metis")}" if build.with? "metis"
     args << "--with-parmetis-dir=#{oprefix("parmetis")}" if build.with? "parmetis"
     args << "--with-scalapack-dir=#{oprefix("scalapack")}" if build.with? "scalapack"
@@ -83,9 +95,16 @@ class Petsc < Formula
     args_real = ["--prefix=#{prefix}/#{arch_real}",
                  "--with-scalar-type=real"]
     args_real << "--with-hypre-dir=#{oprefix("hypre")}" if build.with? "hypre"
+    args_real << "--with-sundials-dir=#{oprefix("sundials")}" if build.with? "sundials"
+    args_real << "--with-hwloc-dir=#{oprefix("hwloc")}" if build.with? "hwloc"
     system "./configure", *(args + args_real)
     system "make", "all"
-    system "make", "test" if build.with? "check"
+    if build.with? "check"
+      log_name = "make-check-" + arch_real + ".log"
+      system "make test 2>&1 | tee #{log_name}"
+      ohai `grep "Completed test examples" "#{log_name}"`.chomp
+      prefix.install "#{log_name}"
+    end
     system "make", "install"
 
     # complex-valued case:
@@ -94,7 +113,12 @@ class Petsc < Formula
                   "--with-scalar-type=complex"]
     system "./configure", *(args + args_cmplx)
     system "make", "all"
-    system "make", "test" if build.with? "check"
+    if build.with? "check"
+      log_name = "make-check-" + arch_complex + ".log"
+      system "make test 2>&1 | tee #{log_name}"
+      ohai `grep "Completed test examples" "#{log_name}"`.chomp
+      prefix.install "#{log_name}"
+    end
     system "make", "install"
 
     # Link only what we want.
