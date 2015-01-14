@@ -36,5 +36,8 @@ class AdolC < Formula
     system "./configure", *args
     system "make install"
     system "make test"
+
+    # move config.h to include as some packages require this info
+    (include/"adolc").install "ADOL-C/src/config.h"
   end
 end
