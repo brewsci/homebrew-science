@@ -10,7 +10,14 @@ class Soapdenovo < Formula
     url "https://downloads.sourceforge.net/project/soapdenovo2/SOAPdenovo2/src/r240/SOAPdenovo2-src-r240.tgz"
     sha1 "ca146c042b170b6a78f909dd9b3f1b1f051a08dc"
   end
-  version "2.04-r240"
+  version "2.04.r240"
+
+  # Fix undefined reference to `call_pregraph_sparse'
+  # This patch is already applied upstream to the Mac tarball.
+  patch do
+    url "https://github.com/aquaskyline/SOAPdenovo2/pull/2.diff"
+    sha1 "d76eb26f9fbcb6333152a5cee6c060ebf91e42f3"
+  end unless OS.mac?
 
   def install
     system "make"
