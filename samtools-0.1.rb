@@ -1,7 +1,7 @@
 class Samtools01 < Formula
   homepage "http://samtools.sourceforge.net/"
-  #doi "10.1093/bioinformatics/btp352"
-  #tag "bioinformatics"
+  # doi "10.1093/bioinformatics/btp352"
+  # tag "bioinformatics"
 
   url "https://downloads.sourceforge.net/project/samtools/samtools/0.1.19/samtools-0.1.19.tar.bz2"
   sha1 "ff3f4cf40612d4c2ad26e6fcbfa5f8af84cbe881"
@@ -15,7 +15,7 @@ class Samtools01 < Formula
   end
 
   option "with-dwgsim", "Build with 'Whole Genome Simulation'"
-  option "without-bcftools", "Do not install bcftools"
+  option "without-bcftools", "Do not install BCFtools"
 
   conflicts_with "samtools"
   conflicts_with "bcftools"
@@ -32,27 +32,26 @@ class Samtools01 < Formula
 
     if build.with? "dwgsim"
       ohai "Building dwgsim"
-      samtools = pwd
       resource("dwgsim").stage do
-        system "ln -s #{samtools} samtools"
+        ln_s buildpath, "samtools"
         system "make", "CC=#{ENV.cc}"
-        bin.install %w{dwgsim dwgsim_eval}
+        bin.install %w[dwgsim dwgsim_eval]
       end
     end
 
-    bin.install %w{
+    bin.install %w[
       samtools bcftools/bcftools bcftools/vcfutils.pl
       misc/maq2sam-long misc/maq2sam-short misc/md5fa misc/md5sum-lite misc/wgsim
-    }
+    ]
 
     bin.install Dir["misc/*.pl"]
     lib.install "libbam.a"
-    man1.install %w{samtools.1}
-    (share+"samtools").install %w{examples}
+    man1.install "samtools.1"
+    (share+"samtools").install "examples"
     (include+"bam").install Dir["*.h"]
   end
 
   test do
-    system "#{bin}/samtools 2>&1 |grep -q samtools"
+    system "#{bin}/samtools", "2>&1", "|grep", "-q", "samtools"
   end
 end
