@@ -4,6 +4,14 @@ class Geneid < Formula
   sha1 "9cbed32d0bfb530252f97b83807da2284967379b"
   version "1.4.4"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "8f4611d292aa4ea16438c82e7959afee0ef010d4" => :yosemite
+    sha1 "337b80bafc8cdb354eb75ecb0e61bf73e82b991b" => :mavericks
+    sha1 "86baedd3f360621baa3ca71cdb62f6859f45f0f9" => :mountain_lion
+  end
+
   def install
     system "make"
     bin.install Dir["bin/*"]
