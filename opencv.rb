@@ -8,9 +8,11 @@ class Opencv < Formula
 #  url 'https://github.com/Itseez/opencv/archive/2.4.10.tar.gz'
 #  sha1 'a0c2d5944364fc4f26b6160b33c03082b1fa08c1'
   head 'https://github.com/Itseez/opencv.git'
+
   devel do
-    url 'https://github.com/Itseez/opencv/archive/3.0.0-alpha.tar.gz'
-    sha1 '254ed46b6c16feb40d63fed306a8fb03ee1a646f'
+    url "https://github.com/Itseez/opencv/archive/3.0.0-alpha.tar.gz"
+    sha1 "254ed46b6c16feb40d63fed306a8fb03ee1a646f"
+    version "3.0.0-alpha"
   end
 
   option "32-bit"
