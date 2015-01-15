@@ -7,9 +7,9 @@ class Armadillo < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "6ac8d1aba88bbbd9ebedfc86a697d84d52af977c" => :yosemite
-    sha1 "51b6727ac4eec80b9b1bf3ccd39267db4b4c63dd" => :mavericks
-    sha1 "092c1cc5ad84f327b5953ea5f0107ffdea814e82" => :mountain_lion
+    sha1 "de8127e4a288f77632b80c17373044e94a0656d2" => :yosemite
+    sha1 "ba1520f259937d34c5c1bd878fccc7e9518bc3ef" => :mavericks
+    sha1 "64ed43d130bfab2333c39ceb64eb2adea0506e2a" => :mountain_lion
   end
 
   depends_on "cmake" => :build
