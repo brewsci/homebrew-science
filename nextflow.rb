@@ -6,9 +6,9 @@ class Nextflow < Formula
 
   depends_on :java => "1.7"
 
-  version "0.10.3"
-  url "http://www.nextflow.io/releases/v0.10.3/nextflow"
-  sha1 "d13888b89421f54065ba64fff87a47613554727d"
+  version "0.12.0"
+  url "http://www.nextflow.io/releases/v0.12.0/nextflow"
+  sha1 "b49a8c3348abe2136aa77fdcc3d96f5d12484506"
 
   def install
     bin.install "nextflow"
