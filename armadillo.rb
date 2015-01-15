@@ -2,8 +2,8 @@ require "formula"
 
 class Armadillo < Formula
   homepage "http://arma.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-4.550.2.tar.gz"
-  sha1 "61b786f982caa4bbccc717e288ca0fea4e8d35d2"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-4.600.2.tar.gz"
+  sha1 "1b008706f52b154faeec3f6fcc8c98076ae9e5b9"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
