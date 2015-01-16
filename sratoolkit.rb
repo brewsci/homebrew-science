@@ -14,6 +14,14 @@ class Sratoolkit < Formula
 
   head "https://github.com/NCBITools/sratoolkit.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "c6b31c166049b91362bf09eb3c6ed224a62353fe" => :yosemite
+    sha1 "2a626d233fcac01729454973b0f5df7d30ca1106" => :mavericks
+    sha1 "789f49e088586372cd6debff51be0ec67b0d2873" => :mountain_lion
+  end
+
   def install
     bin.mkdir
     cp Dir["bin/*[a-z]"].select {|x| File.symlink? x}, bin
