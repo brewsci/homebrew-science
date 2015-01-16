@@ -5,6 +5,13 @@ class Dynare < Formula
   url "https://www.dynare.org/release/source/dynare-4.4.3.tar.xz"
   sha1 "3c99c3a957d02e53db62cba7566fdb1399438cfc"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "a280944b336dfd4bf1f45fb239a587a0d22c94c9" => :yosemite
+    sha1 "42c8f7a316ea43360e5ebef8dc448637756aa4e5" => :mavericks
+    sha1 "2faeabfe2ea9db976d4e3c27e96dffae9beed2b6" => :mountain_lion
+  end
+
   option "with-matlab=", "Path to Matlab root directory (to build mex files)"
   option "with-matlab-version=", "Matlab version, e.g., 8.2 (to build mex files)"
   option "with-doc", "Build documentation"
