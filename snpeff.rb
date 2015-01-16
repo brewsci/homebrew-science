@@ -9,9 +9,9 @@ class Snpeff < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "3af04ac27e8a99988ba40429e220f547a2afda04" => :yosemite
-    sha1 "66fcc5f9083b35a745347cc98fa17b5fb3da3f3a" => :mavericks
-    sha1 "b32d1ccdd19b7a14231b3d24fc0ea2b89a6e448e" => :mountain_lion
+    sha1 "3bd4246c5ab5383b232c7a0d7aa30a626bd90630" => :yosemite
+    sha1 "de66508049a8e8d945399560557d34179dadb8fd" => :mavericks
+    sha1 "a0a3c069ef8971d8799f3dfb119ac317be64f757" => :mountain_lion
   end
 
   def install
