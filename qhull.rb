@@ -1,11 +1,10 @@
-require 'formula'
-
 class Qhull < Formula
-  homepage 'http://www.qhull.org/'
-  url 'http://www.qhull.org/download/qhull-2012.1-src.tgz'
-  sha1 '60f61580e1d6fbbd28e6df2ff625c98d15b5fbc6'
+  homepage "http://www.qhull.org/"
+  url "http://www.qhull.org/download/qhull-2012.1-src.tgz"
+  mirror "http://lil.fr.distfiles.macports.org/qhull/qhull-2012.1-src.tgz"
+  sha1 "60f61580e1d6fbbd28e6df2ff625c98d15b5fbc6"
 
-  depends_on 'cmake' => :build
+  depends_on "cmake" => :build
 
   # Patch originally from MacPorts - cosmetic edits to CMakeLists.txt:
   #
@@ -18,7 +17,7 @@ class Qhull < Formula
 
   def install
     system "cmake", ".", *std_cmake_args
-    system "make install"
+    system "make", "install"
   end
 end
 
