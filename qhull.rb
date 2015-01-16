@@ -4,6 +4,14 @@ class Qhull < Formula
   mirror "http://lil.fr.distfiles.macports.org/qhull/qhull-2012.1-src.tgz"
   sha1 "60f61580e1d6fbbd28e6df2ff625c98d15b5fbc6"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "67b8992742d9c2bd0a07d731aa6ed7a55ac361f9" => :yosemite
+    sha1 "9ea434329af6194b30a0fee4cf2833fdb208929a" => :mavericks
+    sha1 "ff1e819f3427676f55b21a9da9e3378229b72a62" => :mountain_lion
+  end
+
   depends_on "cmake" => :build
 
   # Patch originally from MacPorts - cosmetic edits to CMakeLists.txt:
