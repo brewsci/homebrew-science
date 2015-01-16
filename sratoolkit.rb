@@ -17,9 +17,9 @@ class Sratoolkit < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "c6b31c166049b91362bf09eb3c6ed224a62353fe" => :yosemite
-    sha1 "2a626d233fcac01729454973b0f5df7d30ca1106" => :mavericks
-    sha1 "789f49e088586372cd6debff51be0ec67b0d2873" => :mountain_lion
+    sha1 "68c928823a62834f786a5177fb5e355ae37a5317" => :yosemite
+    sha1 "66c945ae9b6f84cbdde18456c898734f9927a57e" => :mavericks
+    sha1 "ff305cfd27ed3b1147384a32a921cf06661e3b67" => :mountain_lion
   end
 
   def install
