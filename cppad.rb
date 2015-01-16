@@ -10,9 +10,9 @@ class Cppad < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "c3133a1a24f61366366f83675d1f49f8429014a4" => :yosemite
-    sha1 "eb48a1b0a51bc5883a2bb4c430b09b3e9523debf" => :mavericks
-    sha1 "850e597d558e05a95f38a57b75e0a94609ef160a" => :mountain_lion
+    sha1 "319ab2e269a4af07de3fc27455e903f511ce1e58" => :yosemite
+    sha1 "82a159c76205f98760d9dd993a9648a035b7a3c8" => :mavericks
+    sha1 "8e9c6e05d8a3881fbd30bc20ed6feb4a3414b3c3" => :mountain_lion
   end
 
   # Only one of --with-boost, --with-eigen and --with-std should be given.
