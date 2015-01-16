@@ -5,7 +5,7 @@ class Cppad < Formula
   url "http://www.coin-or.org/download/source/CppAD/cppad-20141101.epl.tgz"
   version "20141101"
   sha1 "4f5971160c458d65dc751daa1ba6937514901714"
-  head "https://github.com/bradbell/cppad.git"
+  head "https://github.com/coin-or/CppAD.git"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
