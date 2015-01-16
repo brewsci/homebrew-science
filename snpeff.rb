@@ -3,8 +3,8 @@ class Snpeff < Formula
   #tag "bioinformatics"
 
   url "https://downloads.sourceforge.net/project/snpeff/snpEff_v4_1_core.zip"
-  version "4.1"
-  sha1 "83e1d2e32bfc8b9104f1856e70f8b1112fa290ab"
+  version "4.1a"
+  sha1 "ed4460b89bc22cd6873d1ca6a3cde8565bd2f8d8"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
