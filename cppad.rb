@@ -2,9 +2,9 @@ require "formula"
 
 class Cppad < Formula
   homepage "http://www.coin-or.org/CppAD"
-  url "http://www.coin-or.org/download/source/CppAD/cppad-20141101.epl.tgz"
-  version "20141101"
-  sha1 "4f5971160c458d65dc751daa1ba6937514901714"
+  url "http://www.coin-or.org/download/source/CppAD/cppad-20150000.2.epl.tgz"
+  version "20150000"
+  sha1 "1542da5283dbba6bcc7d8ba513fcb2f5d5a7675e"
   head "https://github.com/coin-or/CppAD.git"
 
   bottle do
