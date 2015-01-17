@@ -4,6 +4,14 @@ class Ckon < Formula
   sha1 "15481a0232e7fe6584f91cd530d324e8d275f1c0"
   head "https://github.com/tschaume/ckon.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "5e314bc8906e51866e3c210561987983a51ae14d" => :yosemite
+    sha1 "d73d9cafbe6d405cbd295171ff45676db3ccb394" => :mavericks
+    sha1 "d49c913baa3a43485724ba87dae663a9d229840c" => :mountain_lion
+  end
+
   depends_on "boost"
   depends_on "curl"
   depends_on "autoconf" => :build
