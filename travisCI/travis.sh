@@ -9,8 +9,8 @@ export BUILD_OUTPUT=$WORKDIR/build.out
 touch $BUILD_OUTPUT
 
 dump_output() {
-   echo "############# Dependency build log(tail -1000) start #############"
-   tail -1000 $BUILD_OUTPUT
+   echo "############# Dependency build log(last 3Mb) start #############"
+   tail --bytes=3072 $BUILD_OUTPUT
    echo "############# Dependency build log end #############"
 }
 error_handler() {
@@ -26,9 +26,17 @@ trap 'error_handler' ERR
 bash -c "while true; do echo \$(date) - building ...; sleep $PING_SLEEP; done" &
 PING_LOOP_PID=$!
 
-export changed_files=`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT`
+if [ "$TRAVIS_PULL_REQUEST" ==  "false" ]
+then
+    export changed_files=`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT | grep .rb `
+else
+    git fetch origin pull/${TRAVIS_PULL_REQUEST}/head:travis-pr-${TRAVIS_PULL_REQUEST}
+    git checkout travis-pr-${TRAVIS_PULL_REQUEST}
+    echo "commit: $TRAVIS_COMMIT"
+    echo "log: $(git log -1)"
+    export changed_files=`git diff-tree --no-commit-id --name-only HEAD^ HEAD | grep .rb`
+fi
 echo $changed_files
-# Exit if nothing to check
 if [ -z "$changed_files" ]
 then
     echo "Nothing to test"
@@ -36,18 +44,13 @@ then
     exit 0
 fi
 
-# Check individual files ending in ".rb"
-for file in $changed_files 
+for file in $changed_files
 do
-    if [[ ${file: -3} == ".rb" ]]
-    then
-        # Dump output of building dependencies to log file
-        brew reinstall $(brew deps $file) >> $BUILD_OUTPUT 2>&1
-        # Explicitly print the verbose output of test-bot
-        brew test-bot $file -v
-    fi
+    # Dump output of building dependencies to log file
+    brew reinstall $(brew deps $file) >> $BUILD_OUTPUT 2>&1
+    # Explicitly print the verbose output of test-bot
+    brew test-bot $file -v
 done
-
 
 # The build was successful dump the output
 dump_output
