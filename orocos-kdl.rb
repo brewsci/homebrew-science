@@ -4,6 +4,13 @@ class OrocosKdl < Formula
   sha1 "9f59b44d683fcdf290affd71f8a0179bded0bf1d"
   head "https://github.com/orocos/orocos_kinematics_dynamics.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "8d91fed94891fa2f559bfc0f27673296428fa4e9" => :yosemite
+    sha1 "bf713c5acb7ec48d4fea358ec1d4ef082656049b" => :mavericks
+    sha1 "c7c1fcadd13a5d7e876c2ec94928085f47530497" => :mountain_lion
+  end
+
   option "without-check", "Disable build-time checking"
 
   depends_on "eigen"
