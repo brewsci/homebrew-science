@@ -2,9 +2,9 @@ require "formula"
 
 class Gmt4 < Formula
   homepage "http://gmt.soest.hawaii.edu/"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.12-src.tar.bz2"
-  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-4.5.12-src.tar.bz2"
-  sha1 "a5ce7419a1aeb523540d2f93ca62153e47ce72fc"
+  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.13-src.tar.bz2"
+  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-4.5.13-src.tar.bz2"
+  sha1 "b5086d17a231b7d7bacab1df3c4d4aa83714fe34"
 
   depends_on "gdal"
   depends_on "netcdf"
@@ -12,9 +12,9 @@ class Gmt4 < Formula
   conflicts_with "gmt", :because => "both versions install the same binaries."
 
   resource "gshhg" do
-    url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.1.tar.gz"
-    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.1.tar.gz"
-    sha1 "fe9e4e1c415faf09d51666e65c5b9d4b492c8a15"
+    url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.4.tar.gz"
+    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.4.tar.gz"
+    sha1 "dc989e96a88533e7d44b788d1be8e0d7620f56d4"
   end
 
   def install
