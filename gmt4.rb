@@ -6,6 +6,13 @@ class Gmt4 < Formula
   mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-4.5.13-src.tar.bz2"
   sha1 "b5086d17a231b7d7bacab1df3c4d4aa83714fe34"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "b6cf63cd2a789467ed7968ebb72a5c1f7124fda2" => :yosemite
+    sha1 "15307b15fcb06b0b77513c1dcb0a0886045a1011" => :mavericks
+    sha1 "f4ec0f3fd41e35de7e35f6c10eadd5d3a4835cac" => :mountain_lion
+  end
+
   depends_on "gdal"
   depends_on "netcdf"
 
