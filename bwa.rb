@@ -1,13 +1,9 @@
-require "formula"
-
 class Bwa < Formula
   homepage "http://bio-bwa.sourceforge.net/"
-  #doi "10.1093/bioinformatics/btp324"
-  #tag "bioinformatics"
-
-  url "https://downloads.sf.net/project/bio-bwa/bwa-0.7.11.tar.bz2"
-  sha1 "15661e296b80c2496ceacb8261cfe53348cb649b"
-
+  # doi "10.1093/bioinformatics/btp324"
+  # tag "bioinformatics"
+  url "https://downloads.sf.net/project/bio-bwa/bwa-0.7.12.tar.bz2"
+  sha1 "6389ca75328bae6d946bfdd58ff4beb0feebaedd"
   head "https://github.com/lh3/bwa.git"
 
   bottle do
