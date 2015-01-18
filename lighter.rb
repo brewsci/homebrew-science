@@ -9,9 +9,9 @@ class Lighter < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "8c05a07b8c9011d0177079bd7f4d8fd497ddd97f" => :yosemite
-    sha1 "e56e3c77862210dafbe0327e01559b5340250cf2" => :mavericks
-    sha1 "a2514b84f19e238e77905f574cbbcadc5c6c7e99" => :mountain_lion
+    sha1 "1f2dd126ec78d95a531e716a1f265e0fb930d8b5" => :yosemite
+    sha1 "fde8a4d850ffc61638541a4d3e23990e28dc3f92" => :mavericks
+    sha1 "40c17c280f3629d6b447d33bd42a0dd0e6a6d984" => :mountain_lion
   end
 
   def install
