@@ -12,6 +12,13 @@ class Gmt < Formula
   mirror "ftp://gd.tuwien.ac.at/pub/gmt/legacy/gmt-5.1.1-src.tar.bz2"
   sha1 "ff64936dfdec8a57a89d29f505f27e435169d33f"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "82835826607bbb20641a48eb427338f30504b49f" => :yosemite
+    sha1 "9c6b2ba6289adbaf8ee28d204afc561553e7a650" => :mavericks
+    sha1 "2adadc07e198685629bbc7a6672e3c95a3279532" => :mountain_lion
+  end
+
   depends_on "cmake" => :build
   depends_on "gdal"
   depends_on "netcdf"
