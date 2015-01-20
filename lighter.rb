@@ -2,9 +2,9 @@ class Lighter < Formula
   homepage "https://github.com/mourisl/Lighter"
   # tag 'bioinformatics'
   # doi '10.1186/s13059-014-0509-9'
-  url "https://github.com/mourisl/Lighter/archive/v1.0.4.tar.gz"
+  url "https://github.com/mourisl/Lighter/archive/v1.0.5.tar.gz"
+  sha1 "a39e399cedf48ee01d4244b4184355d19dfc438b"
   head "https://github.com/mourisl/Lighter.git"
-  sha1 "32d42434999071dcca3b234d199b948f231d2932"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
