@@ -1,7 +1,7 @@
 class Meraculous < Formula
   homepage "http://jgi.doe.gov/data-and-tools/meraculous/"
-  #doi "10.1371/journal.pone.0023501"
-  #tag "bioinformatics
+  # doi "10.1371/journal.pone.0023501"
+  # tag "bioinformatics
 
   url "https://downloads.sourceforge.net/project/meraculous20/release-2.0.4.tgz"
   sha1 "a13e30cd7d694ed53565d007ba38c67ad230c7e2"
@@ -31,6 +31,12 @@ class Meraculous < Formula
     inreplace "src/c/CMakeLists.txt",
       'set( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lrt" )',
       "" if OS.mac?
+
+    # Fix error: undefined reference to symbol 'pthread_setspecific'
+    inreplace "src/c/CMakeLists.txt",
+      'set( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lrt" )',
+      'set( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lpthread -lrt" )' \
+      if OS.linux?
 
     # Fix env: perl\r: No such file or directory
     inreplace "src/perl/test_dependencies.pl", "\r", ""
