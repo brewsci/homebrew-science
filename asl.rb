@@ -1,8 +1,8 @@
 class Asl < Formula
   homepage "http://www.ampl.com/hooking.html"
   url "http://www.ampl.com/netlib/ampl/solvers.tgz"
-  sha1 "4a380bc2bb7d8c3b0d87bd2071a9129a25809187"
-  version "20150101"
+  sha1 "f9d0da264c999c9f7f4667a441a9e90dd131f3e0"
+  version "20150112"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -22,7 +22,7 @@ class Asl < Formula
 
   def install
     ENV.universal_binary if OS.mac?
-    cflags = %w(-I. -O -fPIC)
+    cflags = %w[-I. -O -fPIC]
 
     if OS.mac?
       cflags += ["-arch", "#{Hardware::CPU.arch_32_bit}"]
@@ -49,7 +49,7 @@ class Asl < Formula
     targets = ["arith.h", "stdio1.h"]
     libs = ["libasl.#{soname}", "libfuncadd0.#{soname}"]
     system "make", "-f", "makefile.brew", "CC=#{ENV.cc}",
-           "CFLAGS=#{cflags.join(' ')}", *(targets + libs)
+           "CFLAGS=#{cflags.join(" ")}", *(targets + libs)
 
     lib.install(*libs)
     (include / "asl").install Dir["*.h"]
