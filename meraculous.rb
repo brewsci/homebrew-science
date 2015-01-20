@@ -34,9 +34,8 @@ class Meraculous < Formula
 
     # Fix error: undefined reference to symbol 'pthread_setspecific'
     inreplace "src/c/CMakeLists.txt",
-      'set( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lrt" )',
-      'set( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lpthread -lrt" )' \
-      if OS.linux?
+      "target_link_libraries( ${targetName} ${Boost_LIBRARIES} )",
+      "target_link_libraries( ${targetName} ${Boost_LIBRARIES} pthread )" if OS.linux?
 
     # Fix env: perl\r: No such file or directory
     inreplace "src/perl/test_dependencies.pl", "\r", ""
