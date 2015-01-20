@@ -21,7 +21,11 @@ class CeleraAssembler < Formula
   needs :openmp
 
   def install
-    ENV.j1
+    ENV.deparallelize
+
+    # Search Homebrew library paths before system paths.
+    inreplace "src/c_make.as", " /usr/lib64 ", " "
+
     system "make", "-C", "kmer", "install", "CC=#{ENV.cc}"
     system "make", "-C", "src", "CC=#{ENV.cc}", "LDLIBS=-rdynamic"
     arch = Pathname.new(Dir["*/bin"][0]).dirname
