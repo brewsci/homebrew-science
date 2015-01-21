@@ -20,6 +20,11 @@ class Asl < Formula
     sha1 "429a79fc54facc5ef99219fe460280a883c75dfa"
   end
 
+  resource "miniampl" do
+    url "https://github.com/dpo/miniampl/archive/v1.0.tar.gz"
+    sha1 "4518ee9a9895b0782169085126ee149d05ba66a7"
+  end
+
   def install
     ENV.universal_binary if OS.mac?
     cflags = %w[-I. -O -fPIC]
@@ -64,6 +69,16 @@ class Asl < Formula
                     "-L#{lib}", "-lasl", "-lfuncadd0", "-outdir", bin
       end
     end
+
+    resource("miniampl").stage do
+      system "make", "CXX=#{ENV["CC"]} -std=c99", "LIBAMPL_DIR=#{prefix}"
+      bin.install "bin/miniampl"
+      (share / "asl/example").install "Makefile", "README.rst", "src", "examples"
+    end
+  end
+
+  test do
+    system "#{bin}/miniampl", "#{share}/asl/example/examples/wb", "showname=1", "showgrad=1"
   end
 
   def caveats
