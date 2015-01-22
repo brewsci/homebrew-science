@@ -34,6 +34,7 @@ class Opencv < Formula
   depends_on "cmake"      => :build
   depends_on "eigen"      => :recommended
   depends_on "gstreamer"  => :optional
+  depends_on "gst-plugins-good" if build.with? "gstreamer"
   depends_on "jasper"     => :optional
   depends_on "jpeg"
   depends_on "libpng"
@@ -56,6 +57,10 @@ class Opencv < Formula
   def arg_switch(opt)
     (build.with? opt) ? "ON" : "OFF"
   end
+
+  # do not blacklist GStreamer
+  # https://github.com/Itseez/opencv/pull/3639
+  patch :DATA
 
   def install
     ENV.cxx11 if build.cxx11?
@@ -88,12 +93,7 @@ class Opencv < Formula
     args << "-DWITH_OPENGL="    + arg_switch("opengl")
     args << "-DWITH_JASPER="    + arg_switch("jasper")
     args << "-DWITH_QT="        + arg_switch("qt")
-
-    if build.devel?
-      args << "-DWITH_GSTREAMER_0_10=" + arg_switch("gstreamer")
-    else
-      args << "-DWITH_GSTREAMER=" + arg_switch("gstreamer")
-    end
+    args << "-DWITH_GSTREAMER=" + arg_switch("gstreamer")
 
     if build.with? "cuda"
       ENV["CUDA_NVCC_FLAGS"] = "-Xcompiler -stdlib=libstdc++; -Xlinker -stdlib=libstdc++"
@@ -144,3 +144,19 @@ class Opencv < Formula
     end
   end
 end
+
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1d7d78a..1e92c52 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -135,7 +135,7 @@ OCV_OPTION(WITH_NVCUVID        "Include NVidia Video Decoding library support"
+ OCV_OPTION(WITH_EIGEN          "Include Eigen2/Eigen3 support"               ON)
+ OCV_OPTION(WITH_VFW            "Include Video for Windows support"           ON   IF WIN32 )
+ OCV_OPTION(WITH_FFMPEG         "Include FFMPEG support"                      ON   IF (NOT ANDROID AND NOT IOS))
+-OCV_OPTION(WITH_GSTREAMER      "Include Gstreamer support"                   ON   IF (UNIX AND NOT APPLE AND NOT ANDROID) )
++OCV_OPTION(WITH_GSTREAMER      "Include Gstreamer support"                   ON   IF (UNIX AND NOT ANDROID) )
+ OCV_OPTION(WITH_GSTREAMER_0_10 "Enable Gstreamer 0.10 support (instead of 1.x)"   OFF )
+ OCV_OPTION(WITH_GTK            "Include GTK support"                         ON   IF (UNIX AND NOT APPLE AND NOT ANDROID) )
+ OCV_OPTION(WITH_IMAGEIO        "ImageIO support for OS X"                    OFF  IF APPLE )
