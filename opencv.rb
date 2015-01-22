@@ -4,6 +4,13 @@ class Opencv < Formula
   sha256 "1be191790a0e279c085ddce62f44b63197f2801e3eb66b5dcb5e19c52a8c7639"
   head "https://github.com/Itseez/opencv.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "ccc506ef6cf339048d21c4ef3d8995c76706c9d9" => :yosemite
+    sha1 "fc69f870b36504f271dfe42deb5cb27c49bf21cd" => :mavericks
+    sha1 "1726a921ced13ebe7f2df0f18f64997091070f71" => :mountain_lion
+  end
+
   devel do
     url "https://github.com/Itseez/opencv/archive/3.0.0-alpha.tar.gz"
     sha1 "254ed46b6c16feb40d63fed306a8fb03ee1a646f"
