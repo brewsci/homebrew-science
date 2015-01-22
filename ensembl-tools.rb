@@ -1,20 +1,15 @@
-require "formula"
-
 class EnsemblTools < Formula
   homepage "http://www.ensembl.org/info/docs/tools/index.html"
+  # tag "bioinformatics"
   url "https://github.com/Ensembl/ensembl-tools/archive/release/78.tar.gz"
   sha1 "ee51cf0ae8a414ee0f013e54c8f306d67e4047f1"
   head "https://github.com/Ensembl/ensembl-tools.git"
 
-  depends_on "Bio::Perl" => :perl
-  depends_on "Mozilla::CA" => :perl
-
   def install
-    libexec.mkdir
-
     cd "scripts/variant_effect_predictor" do
+      libexec.mkdir
       ENV["PERL5LIB"] = libexec
-      system "perl INSTALL.pl -a a -d #{libexec}"
+      system "perl", "INSTALL.pl", "-a", "a", "-d", libexec
     end
 
     (bin/"variant_effect_predictor").write <<-EOS.undent
@@ -31,16 +26,17 @@ class EnsemblTools < Formula
       scripts/variant_effect_predictor/convert_cache.pl
       scripts/variant_effect_predictor/filter_vep.pl
       scripts/variant_effect_predictor/gtf2vep.pl
-      scripts/variant_effect_predictor/variant_effect_predictor.pl]
+      scripts/variant_effect_predictor/variant_effect_predictor.pl
+    ]
   end
 
   def caveats; <<-EOS.undent
-    Add the following to your ~/.bash_profile or ~/.zprofile:
-      export PERL5LIB=#{libexec}:$PERL5LIB
+    You may need to append your PERL5LIB environment variable:
+      export PERL5LIB=#{opt_libexec}:$PERL5LIB
     EOS
   end
 
   test do
-    system "#{bin}/variant_effect_predictor --help"
+    system "#{bin}/variant_effect_predictor", "--help"
   end
 end
