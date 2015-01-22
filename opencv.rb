@@ -12,9 +12,9 @@ class Opencv < Formula
   end
 
   devel do
-    url "https://github.com/Itseez/opencv/archive/3.0.0-alpha.tar.gz"
-    sha1 "254ed46b6c16feb40d63fed306a8fb03ee1a646f"
-    version "3.0.0-alpha"
+    url "https://github.com/Itseez/opencv/archive/3.0.0-beta.tar.gz"
+    sha1 "560895197d1a61ed88fab9ec791328c4c57c0179"
+    version "3.0.0-beta"
   end
 
   option "32-bit"
