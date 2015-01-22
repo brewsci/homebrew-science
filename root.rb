@@ -2,8 +2,8 @@ require "formula"
 
 class Root < Formula
   homepage "http://root.cern.ch"
-  version "5.34.24"
-  sha1 "b765ee81b4b4f3e99978a237b2a4db9da0b96337"
+  version "5.34.25"
+  sha1 "dccd5b10c136c53f2ef94a7503b569daba6422f8"
   url "ftp://root.cern.ch/root/root_v#{version}.source.tar.gz"
   mirror "http://ftp.riken.jp/pub/ROOT/root_v#{version}.source.tar.gz"
   head "https://github.com/root-mirror/root.git", :branch => "v5-34-00-patches"
@@ -41,9 +41,6 @@ class Root < Formula
                   "man/man1/setup-pq2.1", "README/INSTALL", "README/README"],
       /bin.thisroot/, "libexec/thisroot"
 
-    # Determine architecture
-    arch = MacOS.prefer_64_bit? ? "macosx64" : "macosx"
-
     # N.B. that it is absolutely essential to specify
     # the --etcdir flag to the configure script.  This is
     # due to a long-known issue with ROOT where it will
@@ -51,7 +48,6 @@ class Root < Formula
     # is not specified:
     # http://root.cern.ch/phpBB3/viewtopic.php?f=3&t=15072
     args = %W[
-      #{arch}
       --all
       --enable-builtin-glew
       --enable-builtin-freetype
@@ -96,10 +92,12 @@ class Root < Formula
     script (.bashrc/.profile/etc.), or call them directly
     before using ROOT.
 
+    For bash users:
+      . $(brew --prefix root)/libexec/thisroot.sh
+    For zsh users:
+      pushd $(brew --prefix root) >/dev/null; . libexec/thisroot.sh; popd >/dev/null
     For csh/tcsh users:
       source `brew --prefix root`/libexec/thisroot.csh
-    For bash/zsh users:
-      . $(brew --prefix root)/libexec/thisroot.sh
     EOS
   end
 end
