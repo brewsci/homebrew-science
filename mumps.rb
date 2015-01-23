@@ -26,11 +26,12 @@ class Mumps < Formula
 
   def install
     if OS.mac?
+      # Building dylibs with mpif90 causes segfaults on 10.8 and 10.10. Use gfortran.
       make_args = ["LIBEXT=.dylib",
-                   "AR=$(FL) -shared -Wl,-install_name -Wl,#{lib}/$(notdir $@) -undefined dynamic_lookup -o ",
+                   "AR=#{ENV["FC"]} -dynamiclib -Wl,-install_name -Wl,#{lib}/$(notdir $@) -undefined dynamic_lookup -o ",
                    "RANLIB=echo"]
     else
-      make_args = ["LIBEXT=.so", "AR=$(FL) -shared -o ", "RANLIB=echo"]
+      make_args = ["LIBEXT=.so", "AR=$(FL) -shared -Wl,-soname,$(notdir $@) -o ", "RANLIB=echo"]
     end
     orderingsf = "-Dpord"
 
@@ -62,10 +63,10 @@ class Mumps < Formula
     if build.with? :mpi
       make_args += ["CC=#{ENV['MPICC']} -fPIC",
                     "FC=#{ENV['MPIFC']} -fPIC",
-                    "FL=#{ENV['FC']} -fPIC",
+                    "FL=#{ENV['MPIFC']} -fPIC",
                     "SCALAP=-L#{Formula['scalapack'].opt_lib} -lscalapack",
-                    "INCPAR=-I#{Formula['open-mpi'].opt_include}",
-                    "LIBPAR=$(SCALAP) -L#{Formula['open-mpi'].opt_lib} -lmpi -lmpi_mpifh"]
+                    "INCPAR=",  # Let MPI compilers fill in the blanks.
+                    "LIBPAR=$(SCALAP)"]
     else
       make_args += ["CC=#{ENV['CC']} -fPIC",
                     "FC=#{ENV['FC']} -fPIC",
