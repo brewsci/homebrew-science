@@ -17,11 +17,11 @@ class Zoltan < Formula
     args = [
       "--prefix=#{prefix}",
       "CC=#{ENV["MPICC"]}",
-      "CXX=#{`which mpic++`.chomp}",
+      "CXX=#{ENV["MPICXX"]}",
     ]
     args << "--with-scotch"         if build.with? "scotch"
     args << "--with-parmetis"       if build.with? "parmetis"
-    args << "--enable-f90interface" if build.with? :fortran
+    args += ["--enable-f90interface", "FC=#{ENV["MPIFC"]}"] if build.with? :fortran
 
     mkdir "zoltan-build" do
       system "../configure", *args
