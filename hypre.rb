@@ -70,17 +70,19 @@ class Hypre < Formula
       config_args << "--without-fei" if build.without? "fei"
       config_args << "--without-mli" if build.without? "mli"
 
-      # Add MPI include directory and library directory
-      # Hardcoded for open-mpi, as in the mumps formula
-      # TODO: make more general, admit use of mpich2
-      if build.with? "mpi"
+      if build.with? :mpi
+        ENV["CC"] = ENV["MPICC"]
+        ENV["CXX"] = ENV["MPICXX"]
+        ENV["F77"] = ENV["MPIF77"]
+        ENV["FC"] = ENV["MPIFC"]
         config_args += ["--with-MPI",
-                        "--with-MPI-include=#{Formula["open-mpi"].opt_include}",
-                        "--with-MPI-lib-dirs=#{Formula["open-mpi"].opt_lib}",
-        # MPI library strings for linking depends on compilers
-        # enabled.  Only the C library strings are needed (without the
-        # lib), because hypre is a C library.
-                        '--with-MPI-lib="mpi"']
+                        "--with-MPI-include=#{HOMEBREW_PREFIX}/include",
+                        "--with-MPI-lib-dirs=#{HOMEBREW_PREFIX}/lib",
+                        # MPI library strings for linking depends on compilers
+                        # enabled.  Only the C library strings are needed (without the
+                        # lib), because hypre is a C library.
+                        "--with-MPI-libs=mpi",
+                       ]
       else
         config_args << "--without-MPI"
       end
@@ -130,6 +132,11 @@ class Hypre < Formula
           # - Babel examples (use "make babel", not implemented)
           # - FEI example (use "make ex10", requires Babel, not implemented)
           if build.without? "bigint"
+
+            # For some reason, this Makefile doesn't include the settings of
+            # the main Makefile.
+            local_args = ["CC=#{ENV["MPICC"]}", "F77=#{ENV["MPIF77"]}", "CXX=#{ENV["MPICXX"]}", "F90=#{ENV["MPIFC"]}"]
+            system "make", "all", *local_args
 
             # Example run commands taken from source file comments in headers
             system "mpiexec", "-np", "2", "./ex1"
