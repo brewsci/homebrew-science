@@ -8,9 +8,10 @@ class Hypre < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "add4e934ef8e5b0f0153f2f3c36c51772500b9e3" => :yosemite
-    sha1 "9084cd44b5b6a52bd54d9e44d470ef348bde27ba" => :mavericks
-    sha1 "04a20a9c0b4d781e574516489fab5125e9134d6a" => :mountain_lion
+    revision 1
+    sha1 "ef5ba3232489e3687e408c75ec7bf13b4ee6789d" => :yosemite
+    sha1 "62faf5bcc491c75570a7e8c4cb317d6248ac58f1" => :mavericks
+    sha1 "827d4f990df668f6a8047cced622c7d42b34b23c" => :mountain_lion
   end
 
   depends_on :fortran => :recommended
