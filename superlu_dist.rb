@@ -1,5 +1,3 @@
-require "formula"
-
 class SuperluDist < Formula
   homepage "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
   url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_dist_3.3.tar.gz"
@@ -13,10 +11,8 @@ class SuperluDist < Formula
     sha1 "0b33b46ef6a277b6e8a6ff63393983e95dc79a89" => :mountain_lion
   end
 
-  option "without-check", "Skip build-time tests (not recommended)"
-
   depends_on :fortran
-  depends_on :mpi => [:cc, :f90]
+  depends_on :mpi => [:cc, :f77]
 
   depends_on "parmetis"
   depends_on "openblas" => :optional
@@ -37,30 +33,33 @@ class SuperluDist < Formula
       ARCH         = ar
       ARCHFLAGS    = cr
       RANLIB       = true
-      CC           = mpicc
+      CC           = #{ENV["MPICC"]}
       CFLAGS       = -O2
       NOOPTS       =
-      FORTRAN      = mpif77
+      FORTRAN      = #{ENV["MPIF77"]}
       F90FLAGS     = -O2
-      LOADER       = mpif77
+      LOADER       = #{ENV["MPIF77"]}
       LOADOPTS     =
       CDEFS        = -DAdd_
     EOS
 
     system "make", "lib"
-    if build.with? "check"
-        cd "EXAMPLE" do
-          system "make"
-          system "mpirun -np 4 pddrive -r 2 -c 2 g20.rua"
-          system "mpirun -np 10 pddrive4 g20.rua"
-          system "mpirun -np 4 pzdrive -r 2 -c 2 cg20.cua"
-          system "mpirun -np 10 pzdrive4 cg20.cua"
-        end
+    cd "EXAMPLE" do
+      system "make"
     end
     prefix.install "make.inc"  # Record make.inc used
     lib.install Dir["lib/*"]
     (include / "superlu_dist").install Dir["SRC/*.h"]
     doc.install Dir["Doc/*"]
     (share / "superlu_dist").install "EXAMPLE"
+  end
+
+  test do
+    cd (share / "superlu_dist/EXAMPLE") do
+      system "mpirun", "-np", "4", "./pddrive", "-r", "2", "-c", "2", "g20.rua"
+      system "mpirun", "-np", "10", "./pddrive4", "g20.rua"
+      system "mpirun", "-np", "4", "./pzdrive", "-r", "2", "-c", "2", "cg20.cua"
+      system "mpirun", "-np", "10", "./pzdrive4", "cg20.cua"
+    end
   end
 end
