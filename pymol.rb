@@ -7,9 +7,10 @@ class Pymol < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "fb46ba12f570307127d49fa897756afe980b12bf" => :yosemite
-    sha1 "cdcae5d8047c930e233b38bb8ef41ffcc1288c52" => :mavericks
-    sha1 "306c8a5590fc176bd568c6b716b7cb0507bc2192" => :mountain_lion
+    revision 1
+    sha1 "f5dc810c3e76fc9822565767f582ccce5e7b342a" => :yosemite
+    sha1 "bab1e2f537e946a5fcb49b7cf7a48707f02e4cd6" => :mavericks
+    sha1 "f4467ac59d136eae2d3d8ce379ef549c8e3eb414" => :mountain_lion
   end
 
   deprecated_option "default-stereo" => "with-default-stereo"
