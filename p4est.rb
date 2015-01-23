@@ -10,11 +10,14 @@ class P4est < Formula
 
   option "without-check", "Skip build-time tests (not recommended)"
 
-  depends_on :mpi => [:cc, :cxx]
+  depends_on :mpi => [:cc, :cxx, :f77, :f90]
+  depends_on :fortran
 
   def install
-    ENV["CC"]       = "mpicc"
-    ENV["CXX"]      = "mpic++"
+    ENV["CC"]       = ENV["MPICC"]
+    ENV["CXX"]      = ENV["MPICXX"]
+    ENV["F77"]      = ENV["MPIF77"]
+    ENV["FC"]       = ENV["MPIFC"]
     ENV["CFLAGS"]   = "-O2"
     ENV["CPPFLAGS"] = "-DSC_LOG_PRIORITY=SC_LP_ESSENTIAL"
 
