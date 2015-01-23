@@ -3,6 +3,13 @@ class Zoltan < Formula
   homepage "http://www.cs.sandia.gov/Zoltan"
   sha1 "468c30db4b16cb16e5dde05fb951699e1e69527d"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "911518dee35a199273a11d1668d4140ea06318ad" => :yosemite
+    sha1 "2104491320085f55c4f5dd1d35d4272f79b41e0c" => :mavericks
+    sha1 "2cd96dfa01e36114ba11b2ae126fdf0a3ee30041" => :mountain_lion
+  end
+
   option "without-check", "Skip build-time tests (not recommended)"
 
   depends_on "scotch"   => :optional
