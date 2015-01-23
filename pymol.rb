@@ -18,7 +18,6 @@ class Pymol < Formula
 
   depends_on "homebrew/dupes/tcl-tk" => ["enable-threads", "with-x11"]
   depends_on "glew"
-  depends_on "pmw"
   depends_on "python" => "with-brewed-tk"
   depends_on "freetype"
   depends_on "libpng"
@@ -27,6 +26,11 @@ class Pymol < Formula
   # To use external GUI tk must be built with --enable-threads
   # and python must be setup to use that version of tk with --with-brewed-tk
   depends_on "Tkinter" => :python
+
+  resource "pmw" do
+    url "https://downloads.sourceforge.net/project/pmw/Pmw/Pmw.1.3.3/Pmw.1.3.3.tar.gz"
+    sha1 "0ff7f03245640da4f37a97167967de8d09e4c6a6"
+  end
 
   # This patch adds checks that force mono as default
   if build.without? "default-stereo"
@@ -44,14 +48,18 @@ class Pymol < Formula
   end
 
   def install
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    resource("pmw").stage do
+      system "python", *Language::Python.setup_install_args(libexec/"vendor")
+    end
+
     # PyMol uses ./ext as a backup to look for ./ext/include and ./ext/lib
     ln_s HOMEBREW_PREFIX, "./ext"
-
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
     args = [
-      "--verbose",
       "install",
+      "--verbose",
       "--install-scripts=#{libexec}/bin",
       "--install-lib=#{libexec}/lib/python2.7/site-packages",
     ]
@@ -59,10 +67,6 @@ class Pymol < Formula
     system "python", "-s", "setup.py", *args
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-  end
-
-  def which_python
-    "python" + `python -c 'import sys;print(sys.version[:3])'`.strip
   end
 
   test do
