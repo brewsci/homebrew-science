@@ -1,5 +1,3 @@
-require "formula"
-
 class Zoltan < Formula
   url "http://www.cs.sandia.gov/~kddevin/Zoltan_Distributions/zoltan_distrib_v3.81.tar.gz"
   homepage "http://www.cs.sandia.gov/Zoltan"
@@ -23,13 +21,13 @@ class Zoltan < Formula
     ]
     args << "--with-scotch"         if build.with? "scotch"
     args << "--with-parmetis"       if build.with? "parmetis"
-    args << "--enable-f90interface" if build.with? "fortran"
+    args << "--enable-f90interface" if build.with? :fortran
 
     mkdir "zoltan-build" do
       system "../configure", *args
-      system "make everything"
-      system "make check" if build.with? "check"
-      system "make install"
+      system "make", "everything"
+      system "make", "check" if build.with? "check"
+      system "make", "install"
     end
   end
 end
