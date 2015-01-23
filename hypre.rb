@@ -1,5 +1,3 @@
-require "formula"
-
 class Hypre < Formula
   homepage "http://computation.llnl.gov/casc/hypre/software.html"
   url "http://ftp.mcs.anl.gov/pub/petsc/externalpackages/hypre-2.9.0b.tar.gz"
@@ -17,7 +15,7 @@ class Hypre < Formula
 
   depends_on :fortran => :recommended
   depends_on :mpi => [:cc, :cxx, :f90, :f77, :optional]
-  depends_on 'openblas' => :optional
+  depends_on "openblas" => :optional
 
   option "without-check", "Skip build-time tests (not recommended)"
   option "with-superlu", "Use internal SuperLU routines"
@@ -62,12 +60,12 @@ class Hypre < Formula
       # lib/Makefile treats the hypre internal BLAS & LAPACK implementations
       # as dependencies for libHYPRE.a (the hypre library). If building with
       # an external BLAS library, strip out these dependencies.
-      if (build.with? "openblas" or build.with? "accelerate")
+      if build.with?("openblas") || build.with?("accelerate")
         inreplace "lib/Makefile", /.*BLASFILES.*/, ""
         inreplace "lib/Makefile", /.*LAPACKFILES.*/, ""
       end
 
-      config_args << "--disable-fortran" if build.without? "fortran"
+      config_args << "--disable-fortran" if build.without? :fortran
       config_args << "--without-superlu" if build.without? "superlu"
       config_args << "--without-fei" if build.without? "fei"
       config_args << "--without-mli" if build.without? "mli"
@@ -101,7 +99,7 @@ class Hypre < Formula
         system "make", "test"
         system "./test/ij"
         system "./test/struct"
-        system "./test/sstruct -in test/sstruct.in.default -solver 40 -rhsone"
+        system "./test/sstruct", "-in", "test/sstruct.in.default", "-solver", "40", "-rhsone"
 
         cd "examples" do
           # The examples makefile does not use any of the variables from the
@@ -132,41 +130,38 @@ class Hypre < Formula
           # - Babel examples (use "make babel", not implemented)
           # - FEI example (use "make ex10", requires Babel, not implemented)
           if build.without? "bigint"
-            system "make", "all"
 
-          # Example run commands taken from source file comments in headers
-            system "mpiexec -np 2 ./ex1"
-            system "mpiexec -np 2 ./ex2"
-            system "mpiexec -np 16 ./ex3 -n 33 -solver -v 1 1"
-            system "mpiexec -np 16 ./ex4 -n 33 -solver 10 -K 3 -B 0 -C 1 -U0 2 -F 4"
-            system "mpiexec -np 4 ./ex5"
-            system "mpiexec -np 2 ./ex6"
-            system "mpiexec -np 16 ./ex7 -n 33 -solver 10 -K 3 -B 0 -C 1 -U0 2 -F 4"
-            system "mpiexec -np 2 ./ex8"
-            system "mpiexec -np 16 ./ex9 -n 33 -solver 0 -v 1 1"
-            system "mpiexec -np 4 ./ex11"
-            system "mpiexec -np 2 ./ex12 -pfmg"
-            system "mpiexec -np 2 ./ex12 -boomeramg"
-            system "mpiexec -np 6 ./ex13 -n 10"
-            system "mpiexec -np 6 ./ex14 -n 10"
-            system "mpiexec -np 8 ./ex15 -n 10"
+            # Example run commands taken from source file comments in headers
+            system "mpiexec", "-np", "2", "./ex1"
+            system "mpiexec", "-np", "2", "./ex2"
+            system "mpiexec", "-np", "16", "./ex3", "-n", "33", "-solver", "-v", "1", "1"
+            system "mpiexec", "-np", "16", "./ex4", "-n", "33", "-solver", "10", "-K", "3", "-B", "0", "-C", "1", "-U0", "2", "-F", "4"
+            system "mpiexec", "-np", "4", "./ex5"
+            system "mpiexec", "-np", "2", "./ex6"
+            system "mpiexec", "-np", "16", "./ex7", "-n", "33", "-solver", "10", "-K", "3", "-B", "0", "-C", "1", "-U0", "2", "-F", "4"
+            system "mpiexec", "-np", "2", "./ex8"
+            system "mpiexec", "-np", "16", "./ex9", "-n", "33", "-solver", "0", "-v", "1", "1"
+            system "mpiexec", "-np", "4", "./ex11"
+            system "mpiexec", "-np", "2", "./ex12", "-pfmg"
+            system "mpiexec", "-np", "2", "./ex12", "-boomeramg"
+            system "mpiexec", "-np", "6", "./ex13", "-n", "10"
+            system "mpiexec", "-np", "6", "./ex14", "-n", "10"
+            system "mpiexec", "-np", "8", "./ex15", "-n", "10"
 
-            if build.with? "fortran"
+            if build.with? :fortran
               system "make", "fortran"
 
-              system "mpiexec -np 4 ./ex5f"
-              system "mpiexec -np 2 ./ex12f"
+              system "mpiexec", "-np", "4", "./ex5f"
+              system "mpiexec", "-np", "2", "./ex12f"
             end
           else
             system "make", "64bit"
 
-            system "mpiexec -np 4 ./ex5big"
-            system "mpiexec -np 8 ./ex15big -n 10"
+            system "mpiexec", "-np", "4", "./ex5big"
+            system "mpiexec", "-np", "8", "./ex15big", "-n", "10"
           end
-
-        end if build.with? "mpi"
+        end if build.with? :mpi
       end
-
     end
   end
 
