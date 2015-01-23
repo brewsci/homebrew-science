@@ -5,6 +5,12 @@ class HarvestTools < Formula
   url "https://github.com/marbl/harvest-tools/archive/v1.1.tar.gz"
   sha1 "bc788b7f3c62ff1f9570b563ef0b944f95bbb314"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "8a1e63ffa7954e78d8038284dc7d771c22a29a25" => :yosemite
+    sha1 "c903c72ff4da08c195a25a14d13b3c60d1612b73" => :mavericks
+  end
+
   depends_on "autoconf" => :build
   depends_on "protobuf"
 
