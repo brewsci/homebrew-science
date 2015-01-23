@@ -48,13 +48,11 @@ class Sundials < Formula
                     "--with-lapack=openblas"] if build.with? "openblas"
     config_args << ((build.with? :fortran) ? "--enable-fcmix" : "--disable-fcmix")
 
-    # Add MPI root install directory
-    # Hardcoded for openmpi, as in the mumps and hypre formulas
-    # TODO: Make more general, admit use of mpich2
-    if build.with? "mpi"
     if build.with? :mpi
+      ENV["CC"] = ENV["MPICC"]
+      ENV["F77"] = ENV["MPIF77"]
       config_args += ["--enable-mpi",
-                      "--with-mpi-root=#{Formula["open-mpi"].opt_prefix}"]
+                      "--with-mpi-root=#{HOMEBREW_PREFIX}"]
     else
       config_args << "--disable-mpi"
     end
