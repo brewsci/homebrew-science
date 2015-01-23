@@ -3,6 +3,13 @@ class Sundials < Formula
   url "http://ftp.mcs.anl.gov/pub/petsc/externalpackages/sundials-2.5.0.tar.gz"
   sha1 "9affcc525269e80c8ec6ae1db1e0a0ff201d07e0"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "6ce2d98a061a44ade157093254cd86813f041174" => :yosemite
+    sha1 "82a43cfedf44a69ddc967ce2420f13e423d38f56" => :mavericks
+    sha1 "c1e2aa6e4e2269d5609ebfec87aa34f518318673" => :mountain_lion
+  end
+
   depends_on "openblas" => :optional
   depends_on :fortran => :optional
   depends_on :mpi => [:cc, :f77, :optional]
