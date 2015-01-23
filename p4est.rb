@@ -1,5 +1,3 @@
-require "formula"
-
 class P4est < Formula
   homepage "http://www.p4est.org"
   url "http://p4est.github.io/release/p4est-1.1.tar.gz"
@@ -10,15 +8,15 @@ class P4est < Formula
     version "1.2pre"
   end
 
-  option 'without-check', 'Skip build-time tests (not recommended)'
+  option "without-check", "Skip build-time tests (not recommended)"
 
   depends_on :mpi => [:cc, :cxx]
 
   def install
-    ENV['CC']       = "mpicc"
-    ENV['CXX']      = "mpic++"
-    ENV['CFLAGS']   = "-O2"
-    ENV['CPPFLAGS'] = "-DSC_LOG_PRIORITY=SC_LP_ESSENTIAL"
+    ENV["CC"]       = "mpicc"
+    ENV["CXX"]      = "mpic++"
+    ENV["CFLAGS"]   = "-O2"
+    ENV["CPPFLAGS"] = "-DSC_LOG_PRIORITY=SC_LP_ESSENTIAL"
 
     system "./configure", "--enable-mpi",
                           "--enable-shared",
@@ -26,8 +24,7 @@ class P4est < Formula
                           "--prefix=#{prefix}"
 
     system "make"
-    system "make check" if build.with? "check"
-    system "make install"
+    system "make", "check" if build.with? "check"
+    system "make", "install"
   end
-
 end
