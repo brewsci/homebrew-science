@@ -1,9 +1,9 @@
 class Root6 < Formula
   homepage "http://root.cern.ch"
-  url "http://root.cern.ch/download/root_v6.02.02.source.tar.gz"
-  mirror "https://fossies.org/linux/misc/root_v6.02.02.source.tar.gz"
-  version "6.02.02"
-  sha1 "17d30182a24596a52d5dd360ab8bcc940c2e069f"
+  version "6.02.04"
+  url "http://root.cern.ch/download/root_v#{version}.source.tar.gz"
+  mirror "https://fossies.org/linux/misc/root_v#{version}.source.tar.gz"
+  sha1 "b6bb7d2513be9c59e892d1cfdc228b060c569a5c"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
@@ -22,11 +22,6 @@ class Root6 < Formula
   needs :cxx11
 
   stable do
-    # bug in 6.02.02: https://sft.its.cern.ch/jira/browse/ROOT-6924
-    patch do
-      url "https://sft.its.cern.ch/jira/secure/attachment/17745/ROOT-6924-patch.diff"
-      sha1 "ca0ff9f65727ee62cd662c38f390f9dcdace9bab"
-    end
     # xrootd problem: https://sft.its.cern.ch/jira/browse/ROOT-6998
     patch do
       url "https://sft.its.cern.ch/jira/secure/attachment/17857/0001-TNetXNGFile-explicitly-include-XrdVersion.hh.patch"
