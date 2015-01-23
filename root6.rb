@@ -8,9 +8,9 @@ class Root6 < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "4587eada1b68f67cec27a8ee054ff2195dc84c20" => :yosemite
-    sha1 "7c07c7bb09537cc6da758144f53d5d40f8dc92c6" => :mavericks
-    sha1 "a55877049934a3d5972a0e33db59524472996ef2" => :mountain_lion
+    sha1 "144d63e630f1a67ca17212b0f0b0d39850f06744" => :yosemite
+    sha1 "ed473955c3455a89eabb7ad45b00f9a82f16031f" => :mavericks
+    sha1 "fa180069e6f975113bf50c6d9f5a7f09d4e156d9" => :mountain_lion
   end
 
   depends_on "cmake" => :build
