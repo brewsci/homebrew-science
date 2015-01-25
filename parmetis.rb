@@ -3,6 +3,14 @@ class Parmetis < Formula
   url "http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/parmetis-4.0.3.tar.gz"
   sha1 "e0df69b037dd43569d4e40076401498ee5aba264"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "14ab69ae76082ee43a4dc7a96ec5c2bb637b7204" => :yosemite
+    sha1 "a7cbc89bad6cb36555514b08f46f811a9ce97d71" => :mavericks
+    sha1 "04e981819066f2fd09d99d25ff422736a0385982" => :mountain_lion
+  end
+
   # METIS 5.* is required. It comes bundled with ParMETIS.
   # We prefer to brew it ourselves.
   depends_on "metis"
