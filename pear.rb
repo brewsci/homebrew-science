@@ -1,16 +1,18 @@
-require "formula"
-
 class Pear < Formula
-  homepage "http://sco.h-its.org/exelixis/web/software/pear/"
-  url "http://sco.h-its.org/exelixis/web/software/pear/files/pear-0.9.5-src.tar.gz"
-  sha1 "5b8f5d887cef607b0d29d0e61916988a48e0d0a5"
+  homepage "http://www.exelixis-lab.org/pear"
+  # doi "10.1093/bioinformatics/btt593"
+  # tag "bioinformatics"
+
+  url "http://sco.h-its.org/exelixis/web/software/pear/files/pear-0.9.6-src.tar.gz"
+  sha1 "351bde183653facb9c6a4e0b7a4328a130c3b903"
 
   def install
     system "./configure",
-           "--disable-debug",
-           "--disable-dependency-tracking",
-           "--disable-silent-rules",
-           "--prefix=#{prefix}"
+      "--disable-debug",
+      "--disable-dependency-tracking",
+      "--disable-silent-rules",
+      "--prefix=#{prefix}"
+    system "make"
     system "make", "check"
     system "make", "install"
   end
