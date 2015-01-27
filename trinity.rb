@@ -1,10 +1,9 @@
 class Trinity < Formula
-  homepage "http://trinityrnaseq.sourceforge.net"
-  #doi "10.1038/nbt.1883"
-  #tag "bioinformatics"
-  version "r20140717"
-  url "https://downloads.sourceforge.net/trinityrnaseq/trinityrnaseq_#{version}.tar.gz"
-  sha1 "fd559efe2005fb0c568b280a3edf43e25e6e6aba"
+  homepage "https://trinityrnaseq.github.io"
+  # doi "10.1038/nbt.1883"
+  # tag "bioinformatics"
+  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/v2.0.2.tar.gz"
+  sha1 "2245a03d02b2b47cee012fefe13d39d1ada4cbf0"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
