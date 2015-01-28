@@ -3,6 +3,13 @@ class Propack < Formula
   url "http://soi.stanford.edu/~rmunk/PROPACK/PROPACK77_v2.1.tar.gz"
   sha1 "21afeafd23d3e3a5b4de2474be3a896d48a952ce"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "358f63b1d61ef73e9b8715037c2183fccfa3b019" => :yosemite
+    sha1 "fb6e0657539daefb25c57e3f671e8bce5e4690f8" => :mavericks
+    sha1 "a2862a04e56b0eb85dafd58ae1bb7b1cbf8189f8" => :mountain_lion
+  end
+
   option "without-check", "Disable build-time tests (not recommended)"
 
   depends_on "openblas" => :optional
