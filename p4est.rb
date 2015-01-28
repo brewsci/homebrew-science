@@ -3,6 +3,13 @@ class P4est < Formula
   url "http://p4est.github.io/release/p4est-1.1.tar.gz"
   sha1 "ed8737d82ef4c97b9dfa2fd6e5134226f24c9b0b"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "1bf6edb568ebe582ec59898bfd73e3e98c0ae590" => :yosemite
+    sha1 "1f3d473574d2e3f7b494dbd10563b3e2ed0d6dd1" => :mavericks
+    sha1 "b976a1732e4e9f79eeb20822f95c983da560d4f0" => :mountain_lion
+  end
+
   head do
     url "https://github.com/cburstedde/p4est.git", :branch => "master"
     version "1.2pre"
