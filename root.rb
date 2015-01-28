@@ -26,6 +26,7 @@ class Root < Formula
 
   depends_on "openssl"
   depends_on "xrootd" => :recommended
+  depends_on "gsl" => :recommended
   depends_on "fftw" => :optional
   depends_on "qt" => [:optional, "with-qt3support"]
   depends_on :x11 => :optional
@@ -54,6 +55,8 @@ class Root < Formula
       --etcdir=#{prefix}/etc/root
       --mandir=#{man}
     ]
+
+    args << "--enable-mathmore" if build.with? "gsl"
 
     if build.with? "x11"
       args << "--disable-cocoa"
