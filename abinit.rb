@@ -3,6 +3,13 @@ class Abinit < Formula
   url "http://ftp.abinit.org/abinit-7.10.2.tar.gz"
   sha1 "04c4d991bf48de917e9707611a553c6f7c44a961"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "a83e4d643debd45d7c3bcfdd1f20f736a7e64933" => :yosemite
+    sha1 "b106a857ba1430ef060d8164d5f6f2cf000e89f3" => :mavericks
+    sha1 "93d318b7e3ded576a88ace4b09a208d21dca1b2f" => :mountain_lion
+  end
+
   option "without-check", "Skip build-time tests (not recommended)"
   option "with-testsuite", "Run full test suite (time consuming)"
 
