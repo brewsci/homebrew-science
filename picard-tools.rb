@@ -1,9 +1,9 @@
 class PicardTools < Formula
   homepage "http://broadinstitute.github.io/picard/"
-  #tag "bioinformatics"
+  # tag "bioinformatics"
 
-  url "https://github.com/broadinstitute/picard/releases/download/1.120/picard-tools-1.120.zip"
-  sha1 "355a9bdb9d11b1669ff340535307d481e985599d"
+  url "https://github.com/broadinstitute/picard/releases/download/1.128/picard-tools-1.128.zip"
+  sha1 "af24555cf6c673ab95a042fae322a189bee05326"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -13,20 +13,26 @@ class PicardTools < Formula
     sha1 "dacf2ca0bd45e6d790196ddc37b3a48f33fc98f1" => :mountain_lion
   end
 
-  #head "https://github.com/broadinstitute/picard.git"
+  # head "https://github.com/broadinstitute/picard.git"
+
+  depends_on :java
 
   def install
-    (share/"java").install Dir["*.jar", "picard-tools-#{version}/*.jar"]
+    java = share/"java"
+    java.install Dir["*.jar"]
+    bin.write_jar_script java/"picard.jar", "picard"
+    lib.install "libIntelDeflater.so" if OS.linux?
   end
 
   def caveats
     <<-EOS.undent
-      The Java JAR files are installed to
-          #{HOMEBREW_PREFIX}/share/java
+      The Picard JAR files are installed to
+        #{HOMEBREW_PREFIX}/share/java
     EOS
   end
 
   test do
-    system "java -jar #{share}/java/ViewSam.jar --version"
+    system "java -jar #{share}/java/picard.jar -h 2>&1 |grep Picard"
+    system "#{bin}/picard -h 2>&1 |grep Picard"
   end
 end
