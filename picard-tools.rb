@@ -8,9 +8,9 @@ class PicardTools < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "c2f770c238596792afd181d405e301f47bb231f4" => :yosemite
-    sha1 "5aca6629a51f4169578de0cdfd494ceb836b41ed" => :mavericks
-    sha1 "dacf2ca0bd45e6d790196ddc37b3a48f33fc98f1" => :mountain_lion
+    sha1 "69f0e158f58319b32cf81c13d4c1b3c08ac1364c" => :yosemite
+    sha1 "04d7d6625c93622d98849f1b2f8cdb1a96d5839d" => :mavericks
+    sha1 "0e07a4f03c0ddeb224d4a9436974da90baf3ca2e" => :mountain_lion
   end
 
   # head "https://github.com/broadinstitute/picard.git"
