@@ -4,6 +4,7 @@ class Trinity < Formula
   # tag "bioinformatics"
   url "https://github.com/trinityrnaseq/trinityrnaseq/archive/v2.0.2.tar.gz"
   sha1 "2245a03d02b2b47cee012fefe13d39d1ada4cbf0"
+  head "https://github.com/trinityrnaseq/trinityrnaseq.git"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
