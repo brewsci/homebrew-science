@@ -14,6 +14,7 @@ class Trinity < Formula
   end
 
   depends_on "bowtie"
+  depends_on "express"
   depends_on "samtools-0.1"
   depends_on :java => "1.6"
 
@@ -25,34 +26,29 @@ class Trinity < Formula
     # Fix IRKE.cpp:89:62: error: 'omp_set_num_threads' was not declared in this scope
     ENV.append_to_cflags "-fopenmp"
 
-    inreplace "Trinity",
-      '$ENV{TRINITY_HOME} = "$FindBin::Bin";',
-      '$ENV{TRINITY_HOME} = "$FindBin::RealBin";'
-
     inreplace "Makefile",
-      "cd Chrysalis && $(MAKE)",
-      "cd Chrysalis && $(MAKE) CC=#{ENV.cc} CXX=#{ENV.cxx}"
+      "cd Chrysalis && $(MAKE)", "cd Chrysalis && $(MAKE) CC=#{ENV.cc} CXX=#{ENV.cxx}"
 
     inreplace "trinity-plugins/Makefile",
       "CC=gcc CXX=g++", "CC=#{ENV.cc} CXX=#{ENV.cxx}"
 
-    system "make"
-    doc.install Dir["docs/*"]
+    system "make", "all"
+    system "make", "plugins"
+    system "make", "test"
     prefix.install Dir["*"]
-    bin.install_symlink prefix/"Trinity"
-  end
 
-  def caveats; <<-EOS.undent
-    You may need to add the following environment variable:
-      export PERL5LIB=#{opt_prefix}/PerlLib:$PERL5LIB
+    (bin/"Trinity").write <<-EOS.undent
+      #!/bin/bash
+      PERL5LIB="#{prefix}/PerlLib" exec "#{prefix}/Trinity" "$@"
     EOS
   end
 
   test do
-    ohai "Testing Trinity assembly on a small data set (requires ~2GB of memory)"
-    cd prefix/"sample_data/test_Trinity_Assembly" do
-      system "./runMe.sh"
-      system "./cleanme.pl"
-    end
+    cp_r Dir["#{prefix}/sample_data/test_Trinity_Assembly/*.fq.gz"], "."
+    system "#{bin}/Trinity",
+      "--no_distributed_trinity_exec",
+      "--seqType", "fq", "--max_memory", "1G", "--SS_lib_type", "RF",
+      "--left", "reads.left.fq.gz,reads2.left.fq.gz",
+      "--right", "reads.right.fq.gz,reads2.right.fq.gz"
   end
 end
