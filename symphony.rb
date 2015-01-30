@@ -5,6 +5,13 @@ class Symphony < Formula
   url 'http://www.coin-or.org/download/source/SYMPHONY/SYMPHONY-5.6.6.tgz'
   sha1 'be97382f63e31ea8b8d6ff428f85abbadca414c0'
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "ce7b24cbb3101c579f7364b314ee5ca73617f859" => :yosemite
+    sha1 "4780a63b393c7943ed60a8d17f608c46b638bcc4" => :mavericks
+    sha1 "6dc67ce005937e10991ac7f0613ae70bd191970f" => :mountain_lion
+  end
+
   option "without-check", "Skip build-time tests (not recommended)"
   option "with-openmp", "Enable openmp support"
   option "with-gmpl", "GNU Modeling Language support via GLPK"
