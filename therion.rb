@@ -2,14 +2,14 @@ require "formula"
 
 class Therion < Formula
   homepage "http://therion.speleo.sk"
-  url "http://therion.speleo.sk/downloads/therion-5.3.15.tar.gz"
-  sha1 "c518482607bb7de861d7cbb395532b2af107daa2"
+  url "http://therion.speleo.sk/downloads/therion-5.3.16.tar.gz"
+  sha1 "3e826417038df59ff45907ad9f530b10b572d3d5"
 
   depends_on "freetype"
   depends_on "imagemagick"
   depends_on "lcdf-typetools"
   depends_on :tex
-  depends_on "vtk5"
+  depends_on "vtk"
   depends_on "wxmac"
 
   def install
