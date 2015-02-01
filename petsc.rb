@@ -1,7 +1,7 @@
 class Petsc < Formula
   homepage "http://www.mcs.anl.gov/petsc/index.html"
-  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.5.2.tar.gz"
-  sha1 "d60d1735762f2e398774514451e137580bb2c7bb"
+  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.5.3.tar.gz"
+  sha1 "4c755b3c122f88e38bb5259c748f772545fcaf21"
   head "https://bitbucket.org/petsc/petsc", :using => :git
   revision 2
 
