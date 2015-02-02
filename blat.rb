@@ -6,6 +6,14 @@ class Blat < Formula
   url "http://users.soe.ucsc.edu/~kent/src/blatSrc35.zip"
   sha1 "a2cae7407e512166bf7b1ed300db9be6649693bd"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "13852547459831466ac80ce6a39416c9381f32f7" => :yosemite
+    sha1 "eb935f7f25e3bc7db280fa509e7fe0e1ced5b8dd" => :mavericks
+    sha1 "910c75d17c0b5af2adca972825433f8ed0397ce9" => :mountain_lion
+  end
+
   depends_on "libpng" => :build
 
   def install
