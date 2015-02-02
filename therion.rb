@@ -1,5 +1,3 @@
-require "formula"
-
 class Therion < Formula
   homepage "http://therion.speleo.sk"
   url "http://therion.speleo.sk/downloads/therion-5.3.16.tar.gz"
@@ -21,9 +19,9 @@ class Therion < Formula
     etc.mkpath
     bin.mkpath
 
-    system "make config-macosx"
+    system "make", "config-macosx"
     system "make"
-    system "make install"
+    system "make", "install"
   end
 
   test do
