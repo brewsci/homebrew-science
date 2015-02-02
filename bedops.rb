@@ -11,9 +11,9 @@ class Bedops < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "a11fa843cf57a66cc8df65c9258589678a162790" => :yosemite
-    sha1 "aa9862870a8b866d3fa4cea6ec50d16107ecbe83" => :mavericks
-    sha1 "edd6cbf28e1c1f9f4db6fcec8ce373bfc1e12554" => :mountain_lion
+    sha1 "e133b4d25c0363f25d6102cec527984b9091e3c3" => :yosemite
+    sha1 "a8ed7272e566c05d32957e1f1c0e377a77c52f94" => :mavericks
+    sha1 "4e1bdb03daca349189af09beeb28a47ca84c1e1a" => :mountain_lion
   end
 
   env :std
