@@ -1,8 +1,8 @@
 class Asl < Formula
   homepage "http://www.ampl.com/hooking.html"
   url "http://www.ampl.com/netlib/ampl/solvers.tgz"
-  sha1 "f9d0da264c999c9f7f4667a441a9e90dd131f3e0"
-  version "20150112"
+  sha1 "43e0953714fe8af0012b8e52f13261825d03c41c"
+  version "20150204"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
