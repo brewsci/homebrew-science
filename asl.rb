@@ -72,7 +72,7 @@ class Asl < Formula
     end
 
     resource("miniampl").stage do
-      system "make", "CXX=#{ENV["CC"]} -std=c99", "LIBAMPL_DIR=#{prefix}"
+      system "make", "SHELL=/bin/bash", "CXX=#{ENV["CC"]} -std=c99", "LIBAMPL_DIR=#{prefix}"
       bin.install "bin/miniampl"
       (share / "asl/example").install "Makefile", "README.rst", "src", "examples"
     end
