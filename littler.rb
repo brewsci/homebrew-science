@@ -1,7 +1,9 @@
 class Littler < Formula
   homepage "http://dirk.eddelbuettel.com/code/littler.html"
-  url "http://dirk.eddelbuettel.com/code/littler/littler-0.2.1.tar.gz"
-  sha1 "c9790df09bb07278420ef692b78df97757e9841c"
+  # tag "math"
+
+  url "http://dirk.eddelbuettel.com/code/littler/littler-0.2.2.tar.gz"
+  sha1 "8008621e9448cbb29786457046a400debaed2f21"
   head "https://github.com/eddelbuettel/littler.git"
 
   bottle do
@@ -14,10 +16,11 @@ class Littler < Formula
   depends_on "r"
 
   def install
-    ENV.j1
-    system "./configure", "--disable-dependency-tracking", "--disable-silent-rules",
-           "--prefix=#{prefix}"
-
+    ENV.deparallelize
+    system "./configure",
+      "--disable-dependency-tracking",
+      "--disable-silent-rules",
+      "--prefix=#{prefix}"
     system "make"
 
     bin.install "r" => "littler"
@@ -32,6 +35,6 @@ class Littler < Formula
   end
 
   test do
-    system "littler", "-e", "'print(pi)'"
+    system "#{bin}/littler", "-e", "'print(pi)'"
   end
 end
