@@ -7,10 +7,9 @@ class Asl < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    revision 1
-    sha1 "375d55a734bfc615773aa1748e95954b924af222" => :yosemite
-    sha1 "b8f9988c5a2407ca2fea3cbe199ebab098612ca1" => :mavericks
-    sha1 "d817c5543e6b017ab7c284e4bd240ea77063fca8" => :mountain_lion
+    sha1 "358a96acfdfada8df29ec832b66ec68d8aaa6e92" => :yosemite
+    sha1 "359cc2de4c154f457cc3ca426af062b0f8ceb3f1" => :mavericks
+    sha1 "3b246b1936fdc0dfdccd184385c46c023d0dee04" => :mountain_lion
   end
 
   option "with-matlab", "Build MEX file for use with Matlab"
