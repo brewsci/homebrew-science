@@ -8,9 +8,9 @@ class Littler < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "04e75e219fab465911d71abf7354024d04df93c5" => :yosemite
-    sha1 "6992af49d574688a91a39f3bd2e8652e05b011b0" => :mavericks
-    sha1 "0bbe3da33cddc9d966d7d0e441a4bc722651f822" => :mountain_lion
+    sha1 "4cff32fcb9258d63dca1360b279a53f01ec62130" => :yosemite
+    sha1 "ea63ab0bc7ab6ca73cb8cce0413424a85c56f2cd" => :mavericks
+    sha1 "0338725582ab8c72a8b812705ede42e65d81af5b" => :mountain_lion
   end
 
   depends_on "r"
