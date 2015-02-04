@@ -21,6 +21,7 @@ class CeresSolver < Formula
   def install
     cmake_args = std_cmake_args + ['-DBUILD_SHARED_LIBS=ON']
     cmake_args << "-DMETIS_LIBRARY=#{Formula["metis4"].opt_lib}/libmetis.dylib" if suite_sparse_options.with? "metis4"
+    cmake_args << "-DEIGEN_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3"
     system "cmake", ".", *cmake_args
     system "make"
     system "make test" if build.with? 'tests'
