@@ -1,24 +1,17 @@
 class Asl < Formula
-  homepage "http://www.ampl.com/hooking.html"
-  url "http://www.ampl.com/netlib/ampl/solvers.tgz"
-  sha1 "43e0953714fe8af0012b8e52f13261825d03c41c"
-  version "20150204"
+  homepage "http://www.ampl.com"
+  url "https://github.com/ampl/mp/archive/1.3.0.tar.gz"
+  sha1 "0581cdbfbeeb54a0f2ebac65ba39aa3ccb36a926"
 
-  bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    cellar :any
-    sha1 "358a96acfdfada8df29ec832b66ec68d8aaa6e92" => :yosemite
-    sha1 "359cc2de4c154f457cc3ca426af062b0f8ceb3f1" => :mavericks
-    sha1 "3b246b1936fdc0dfdccd184385c46c023d0dee04" => :mountain_lion
-  end
+  option "with-matlab", "Build MEX files for use with Matlab"
+  option "with-mex-path=", "Path to MEX executable, e.g., /path/to/MATLAB.app/bin/mex (default: mex)"
 
-  option "with-matlab", "Build MEX file for use with Matlab"
-  option "with-mex-path=", "Path to MEX executable, e.g., /Applications/Matlab/MATLAB_R2013b.app/bin/mex (default: mex)"
+  depends_on "cmake" => :build
+  depends_on "doxygen" => :optional
 
-  resource "spamfunc" do
-    url "http://netlib.org/ampl/solvers/examples/spamfunc.c"
-    sha1 "429a79fc54facc5ef99219fe460280a883c75dfa"
-  end
+  # https://github.com/ampl/mp/issues/24
+  # https://github.com/ampl/mp/issues/27
+  patch :DATA
 
   resource "miniampl" do
     url "https://github.com/dpo/miniampl/archive/v1.0.tar.gz"
@@ -26,68 +19,98 @@ class Asl < Formula
   end
 
   def install
-    ENV.universal_binary if OS.mac?
-    cflags = %w[-I. -O -fPIC]
+    cmake_args = ["-DCMAKE_INSTALL_PREFIX=#{libexec}", "-DCMAKE_BUILD_TYPE=None",
+                  "-DCMAKE_FIND_FRAMEWORK=LAST", "-DCMAKE_VERBOSE_MAKEFILE=ON", "-Wno-dev",
+                  "-DBUILD_SHARED_LIBS=True"]
+    cmake_args << ("-DMATLAB_MEX=" + (ARGV.value("with-mex-path") || "mex")) if build.with? "matlab"
 
-    if OS.mac?
-      cflags += ["-arch", "#{Hardware::CPU.arch_32_bit}"]
-      soname = "dylib"
-      libtool_cmd = ["libtool", "-dynamic", "-undefined", "dynamic_lookup",
-                     "-install_name", "#{lib}/libasl.#{soname}"]
-    else
-      soname = "so"
-      libtool_cmd = ["ld", "-shared"]
-    end
+    system "cmake", ".", *cmake_args
+    system "make", "all"
+    system "make", "test"
+    system "make", "install"
 
-    # Dynamic libraries are more user friendly.
-    (buildpath / "makefile.brew").write <<-EOS.undent
-      include makefile.u
+    lib.mkdir
+    ln_sf Dir["#{libexec}/lib/*.a"], lib
+    ln_sf Dir["#{libexec}/lib/*.dylib"], lib
 
-      libasl.#{soname}: ${a:.c=.o}
-      \t#{libtool_cmd.join(" ")} -o $@ $?
-
-      libfuncadd0.#{soname}: funcadd0.o
-      \t#{libtool_cmd.join(" ")} -o $@ $?
-    EOS
-
-    ENV.deparallelize
-    targets = ["arith.h", "stdio1.h"]
-    libs = ["libasl.#{soname}", "libfuncadd0.#{soname}"]
-    system "make", "-f", "makefile.brew", "CC=#{ENV.cc}",
-           "CFLAGS=#{cflags.join(" ")}", *(targets + libs)
-
-    lib.install(*libs)
-    (include / "asl").install Dir["*.h"]
-    (include / "asl").install Dir["*.hd"]
-    doc.install "README"
+    include.mkdir
+    ln_sf Dir["#{libexec}/include/*"], include
 
     if build.with? "matlab"
-      mex = ARGV.value("with-mex-path") || "mex"
-      resource("spamfunc").stage do
-        system mex, "-f", File.join(File.dirname(mex), "mexopts.sh"),
-                    "-I#{include}/asl", "spamfunc.c", "-largeArrayDims",
-                    "-L#{lib}", "-lasl", "-lfuncadd0", "-outdir", bin
-      end
+      mkdir_p (share / "asl/matlab")
+      ln_sf Dir["#{libexec}/bin/*.mexmaci64"], (share / "asl/matlab")
     end
 
     resource("miniampl").stage do
-      system "make", "SHELL=/bin/bash", "CXX=#{ENV["CC"]} -std=c99", "LIBAMPL_DIR=#{prefix}"
+      system "make", "SHELL=/bin/bash", "CXX=#{ENV["CC"]} -std=c99", "LIBAMPL_DIR=#{prefix}", "LIBS=-L$(LIBAMPL_DIR)/lib -lasl -lm -ldl"
       bin.install "bin/miniampl"
       (share / "asl/example").install "Makefile", "README.rst", "src", "examples"
     end
   end
 
+  def caveats
+    s = ""
+    if build.with? "matlab"
+      s += <<-EOS.undent
+        Matlab interfaces have been installed to
+
+          #{opt_share}/asl/matlab
+      EOS
+    end
+    s
+  end
+
   test do
     system "#{bin}/miniampl", "#{share}/asl/example/examples/wb", "showname=1", "showgrad=1"
   end
-
-  def caveats
-    s = <<-EOS.undent
-      Include files are in #{opt_include}/asl.
-      To link with the ASL, you may simply use
-      -L#{opt_lib} -lasl -lfuncadd0
-    EOS
-    s += "\nAdd #{opt_bin} to your MATLABPATH." if build.with? "matlab"
-    s
-  end
 end
+
+__END__
+diff --git a/test/os-test.cc b/test/os-test.cc
+index 52c4f5c..d6bb6c4 100644
+--- a/test/os-test.cc
++++ b/test/os-test.cc
+@@ -296,9 +296,9 @@ TEST(MemoryMappedFileTest, CloseFile) {
+     // Running lsof with filename failed, so check the full lsof output instead.
+     ExecuteShellCommand("lsof > out", false);
+     std::string line;
+-    std::ifstream out("out");
++    std::ifstream ifs("out");
+     bool found = false;
+-    while (std::getline(out, line)) {
++    while (std::getline(ifs, line)) {
+       if (line.find(path) != std::string::npos) {
+         if (line.find(MEM) != string::npos)
+           found = true;
+
+diff --git a/src/asl/CMakeLists.txt b/src/asl/CMakeLists.txt
+index f8cc9c6..c4dd762 100644
+--- a/src/asl/CMakeLists.txt
++++ b/src/asl/CMakeLists.txt
+@@ -281,6 +281,7 @@ if (MATLAB_FOUND)
+       COMPILE_FLAGS -I${CMAKE_CURRENT_BINARY_DIR}
+                     -I${solvers_dir} ${MP_MEX_OPTIONS}
+       LIBRARIES ${matlab_asl})
++    install(FILES $<TARGET_PROPERTY:${name},FILENAME> DESTINATION bin)
+   endforeach ()
+ endif ()
+
+diff --git a/support/cmake/FindMATLAB.cmake b/support/cmake/FindMATLAB.cmake
+index 7c6bb76..cf27f5c 100644
+--- a/support/cmake/FindMATLAB.cmake
++++ b/support/cmake/FindMATLAB.cmake
+@@ -7,7 +7,7 @@
+
+ if (APPLE)
+   set(MATLAB_GLOB "/Applications/MATLAB*")
+-  set(MATLAB_MEX_SUFFIX mac)
++  set(MATLAB_MEX_SUFFIX maci64)
+ elseif (UNIX)
+   set(MATLAB_GLOB "/opt/MATLAB/*")
+   set(MATLAB_MEX_SUFFIX a64)
+@@ -51,4 +51,5 @@ function (add_mex name)
+       ${sources} ${libs} -output ${filename}
+     DEPENDS ${sources} ${add_mex_LIBRARIES})
+   add_custom_target(${name} ALL SOURCES ${filename})
++  set_target_properties(${name} PROPERTIES FILENAME ${filename})
+ endfunction ()
