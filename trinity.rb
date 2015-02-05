@@ -8,9 +8,10 @@ class Trinity < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "f943fab33ab8fafcc2de18cfde8a8cda54179539" => :yosemite
-    sha1 "5e403f71f2661dfa5e9dd74e978459f647b8559f" => :mavericks
-    sha1 "f2ec7abf4d96cda7d95c05ad2f1552fda81e6f73" => :mountain_lion
+    revision 2
+    sha1 "10116f6c9729d299408c13682bb1af301e1fea21" => :yosemite
+    sha1 "48657ef1bb9102a6413c4d3abc1589b03b40b560" => :mavericks
+    sha1 "5a41ede6afcf92b88eeddff2f5e5e85da09bbe2a" => :mountain_lion
   end
 
   depends_on "bowtie"
