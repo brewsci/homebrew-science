@@ -3,6 +3,13 @@ class Asl < Formula
   url "https://github.com/ampl/mp/archive/1.3.0.tar.gz"
   sha1 "0581cdbfbeeb54a0f2ebac65ba39aa3ccb36a926"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "d878c7f1c29d185a60c9a4718d5c98384c8a037c" => :yosemite
+    sha1 "9faf1043a4437025601c9a6430044860d89ff424" => :mavericks
+    sha1 "41b1d69e0d7ca2c989c94866b7ec502f3849d051" => :mountain_lion
+  end
+
   option "with-matlab", "Build MEX files for use with Matlab"
   option "with-mex-path=", "Path to MEX executable, e.g., /path/to/MATLAB.app/bin/mex (default: mex)"
 
