@@ -2,8 +2,8 @@ require 'formula'
 
 class Nonpareil < Formula
   homepage 'http://enve-omics.ce.gatech.edu/nonpareil'
-  url 'https://github.com/lmrodriguezr/nonpareil/archive/v2.303.tar.gz'
-  sha1 '1d70d7a056f185669faf7a3ec5b59dd599d4d652'
+  url 'https://github.com/lmrodriguezr/nonpareil/archive/v2.4.tar.gz'
+  sha1 '4fb6c86740b2a6b71a9d22bb027729f0a9058bc3'
 
   head 'https://github.com/lmrodriguezr/nonpareil.git'
 
