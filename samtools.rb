@@ -18,6 +18,7 @@ class Samtools < Formula
   end
 
   option "with-dwgsim", "Build with Whole Genome Simulation"
+  option "without-curses", "Skip use of libcurses, for platforms without it, or different curses naming"
 
   depends_on "htslib"
 
@@ -28,6 +29,14 @@ class Samtools < Formula
   end
 
   def install
+    if build.without? "curses"
+      ohai "Building without curses"
+      inreplace "Makefile" do |s|
+        s.gsub! "-D_CURSES_LIB=1", "-D_CURSES_LIB=0"
+        s.gsub! "-lcurses", "# -lcurses"
+      end
+    end
+
     inreplace "Makefile", "include $(HTSDIR)/htslib.mk", ""
     htslib = Formula["htslib"].opt_prefix
     system "make", "HTSDIR=#{htslib}/include", "HTSLIB=#{htslib}/lib/libhts.a"
