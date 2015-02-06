@@ -9,9 +9,9 @@ class Libsequence < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "5db3089b42e70876c4b689bd5198dad98206e84b" => :yosemite
-    sha1 "23f77e827d036c71577871528472c09d0e445424" => :mavericks
-    sha1 "51eebcbc2438cada227cf9c1827728ad1821b6c7" => :mountain_lion
+    sha1 "a3030e966af22921d8c3180e86e38af3825da183" => :yosemite
+    sha1 "dba61184fe4016a653dd9f361f8aec4957340441" => :mavericks
+    sha1 "5354fe0f9e6d8d2ed265cf53048ba70d00f9e398" => :mountain_lion
   end
 
   depends_on "boost" => :build
