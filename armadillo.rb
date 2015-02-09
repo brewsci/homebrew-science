@@ -1,5 +1,3 @@
-require "formula"
-
 class Armadillo < Formula
   homepage "http://arma.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/arma/armadillo-4.600.2.tar.gz"
@@ -12,13 +10,24 @@ class Armadillo < Formula
     sha1 "64ed43d130bfab2333c39ceb64eb2adea0506e2a" => :mountain_lion
   end
 
+  option "with-hdf5", "Enable the ability to save and load matrices stored in the HDF5 format"
+
   depends_on "cmake" => :build
   depends_on "arpack"
+  depends_on "openblas" if OS.linux?
+
+  depends_on "hdf5" => :optional
 
   option :cxx11
 
   def install
     ENV.cxx11 if build.cxx11?
+    if build.with?("hdf5")
+      inreplace "include/armadillo_bits/config.hpp" do |s|
+        s.gsub! /\/\/ #define ARMA_USE_HDF5.*/, "#define ARMA_USE_HDF5"
+      end
+    end
+
     system "cmake", ".", *std_cmake_args
     system "make", "install"
 
