@@ -2,8 +2,8 @@ require "formula"
 
 class Vips < Formula
   homepage "http://www.vips.ecs.soton.ac.uk/"
-  url "http://www.vips.ecs.soton.ac.uk/supported/7.42/vips-7.42.1.tar.gz"
-  sha1 "b31576c776b9590e3e9ae06c0d1849ebd7775997"
+  url "http://www.vips.ecs.soton.ac.uk/supported/7.42/vips-7.42.2.tar.gz"
+  sha1 "3867242fc9023f943cc4dac09a71bde0dc36cae3"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
