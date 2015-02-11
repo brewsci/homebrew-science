@@ -2,8 +2,9 @@ class Trinity < Formula
   homepage "https://trinityrnaseq.github.io"
   # doi "10.1038/nbt.1883"
   # tag "bioinformatics"
-  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/v2.0.2.tar.gz"
-  sha1 "2245a03d02b2b47cee012fefe13d39d1ada4cbf0"
+
+  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/v2.0.3.tar.gz"
+  sha1 "ec138eeb967e7a1cf885a330a9cd61b056da5c47"
   head "https://github.com/trinityrnaseq/trinityrnaseq.git"
 
   bottle do
