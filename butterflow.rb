@@ -3,6 +3,12 @@ class Butterflow < Formula
   url "http://srv.dthpham.me/butterflow-0.1.5.tar.gz"
   sha1 "38930e674e0c7fb5b035022c3ae7703a48ca962b"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "948cf40377bae48c0d96d9203244bd86d1c2bfad" => :yosemite
+    sha1 "fbeea3de4462fc323c4145c92f00683f5150f09b" => :mavericks
+  end
+
   # To satisfy OpenCL 1.1 requirement
   depends_on :macos => :mavericks
 
