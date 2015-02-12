@@ -8,9 +8,9 @@ class Parsnp < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "eb6802a03f95fcd3f9d918ce03aea2f2da3cafc8" => :yosemite
-    sha1 "63d40206dcf353a9624e3f10913a17b2f1a6915d" => :mavericks
-    sha1 "8090d479662d6aae0d5e8f395f7e1aaba4fc976d" => :mountain_lion
+    sha1 "af0037b92270e74ceb80b73786ef48eb59b84631" => :yosemite
+    sha1 "7c06289d5ed3f3a82ca3249f3be52e99076afc7c" => :mavericks
+    sha1 "7d6a77928bef48b20e3a7a83704949a161fe0391" => :mountain_lion
   end
 
   if OS.mac?
