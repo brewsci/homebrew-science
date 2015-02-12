@@ -5,9 +5,10 @@ class Slepc < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "a4ef9c97bbaa9c9448e501bdeabaa17e82d8bd06" => :yosemite
-    sha1 "0bd9fe0ebe8acc4402595428d201189dbd7b4633" => :mavericks
-    sha1 "f1af93dee89952b511eb2b765a157c1c4b5870ed" => :mountain_lion
+    revision 1
+    sha1 "eec07280433ce247d3be61ac710cee7760c40985" => :yosemite
+    sha1 "d61499da749180934a99caf78eb700682ba0416f" => :mavericks
+    sha1 "ec1b704f0e1a7ea5cfb66bdb825b5c72c2073ab7" => :mountain_lion
   end
 
   deprecated_option "complex" => "with-complex"
