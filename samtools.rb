@@ -6,8 +6,8 @@ class Samtools < Formula
   #tag "bioinformatics"
   head "https://github.com/samtools/samtools.git"
 
-  url "https://github.com/samtools/samtools/archive/1.1.tar.gz"
-  sha1 "ca446ec24eabd2f71605dde55a787f182cb50f13"
+  url "https://github.com/samtools/samtools/archive/1.2.tar.gz"
+  sha1 "9fabb4903b9d1521aeea8a5538e64aefe8e85526"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"

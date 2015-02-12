@@ -2,8 +2,8 @@ require "formula"
 
 class Bcftools < Formula
   homepage "https://github.com/samtools/bcftools"
-  url "https://github.com/samtools/bcftools/archive/1.1.tar.gz"
-  sha1 "550596839eae7a4ab29411504fdab23f715bb4c8"
+  url "https://github.com/samtools/bcftools/archive/1.2.tar.gz"
+  sha1 "fa6280426ae50acd70b98aa6acce3d0375c419e9"
   head "https://github.com/samtools/bcftools.git"
 
   depends_on "htslib"
