@@ -7,14 +7,19 @@ class Salmon < Formula
   head "https://github.com/kingsfordgroup/sailfish.git", :branch => "develop"
 
   depends_on "cmake" => :build
+  depends_on "boost" if build.head?
   depends_on "tbb"
 
   def install
     # Fix error: Unable to find the requested Boost libraries.
     ENV.deparallelize
 
-    # Salmon uses Shark which requires Boost 1.55.0
-    system "cmake", "-DFETCH_BOOST=TRUE", ".", *std_cmake_args
+    if build.head?
+      system "cmake", ".", *std_cmake_args
+    else
+      # Salmon uses Shark which requires Boost 1.55.0
+      system "cmake", "-DFETCH_BOOST=TRUE", ".", *std_cmake_args
+    end
     system "make", "install"
   end
 
