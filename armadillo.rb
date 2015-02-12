@@ -22,13 +22,11 @@ class Armadillo < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
-    if build.with?("hdf5")
-      inreplace "include/armadillo_bits/config.hpp" do |s|
-        s.gsub! /\/\/ #define ARMA_USE_HDF5.*/, "#define ARMA_USE_HDF5"
-      end
-    end
 
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args
+    args << "-DDETECT_HDF5=ON" if build.with? "hdf5"
+
+    system "cmake", ".", *args
     system "make", "install"
 
     # Copy examples/ directory to prefix
