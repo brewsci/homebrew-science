@@ -11,9 +11,9 @@ class Nextflow < Formula
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "d1a995f74179f52db106a2fd7f6ad6fd9518706b" => :yosemite
-    sha1 "1209d43c4b6f965f9ea90890aee641412c3b5240" => :mavericks
-    sha1 "287cf8196abbd6c11b457793403914333f78bb81" => :mountain_lion
+    sha1 "2796e3426cf1c3a046964d6c3bb61776810f63db" => :yosemite
+    sha1 "60005442faa7450f8904f2b8152080aabf5b9ef7" => :mavericks
+    sha1 "b237b096d6c6a82ea6afe90c292f8a5732961357" => :mountain_lion
   end
 
   depends_on :java => "1.7"
