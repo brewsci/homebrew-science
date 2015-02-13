@@ -6,6 +6,14 @@ class Bcftools < Formula
   sha1 "fa6280426ae50acd70b98aa6acce3d0375c419e9"
   head "https://github.com/samtools/bcftools.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "8cfb381d2fb4521a3750084a6c67790a0b248ffa" => :yosemite
+    sha1 "3a216df0a0f34ab4187d082523b3c0bfef11eace" => :mavericks
+    sha1 "628e8bd74cd72548fb3907cb75e1e9bd65e512c3" => :mountain_lion
+  end
+
   depends_on "htslib"
 
   def install
