@@ -1,8 +1,14 @@
 class Opencv < Formula
   homepage "http://opencv.org/"
-  url "https://github.com/Itseez/opencv/archive/2.4.10.1.tar.gz"
-  sha256 "1be191790a0e279c085ddce62f44b63197f2801e3eb66b5dcb5e19c52a8c7639"
   head "https://github.com/Itseez/opencv.git"
+
+  stable do
+    url "https://github.com/Itseez/opencv/archive/2.4.10.1.tar.gz"
+    sha256 "1be191790a0e279c085ddce62f44b63197f2801e3eb66b5dcb5e19c52a8c7639"
+    # do not blacklist GStreamer
+    # https://github.com/Itseez/opencv/pull/3639
+    patch :DATA
+  end
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -58,15 +64,11 @@ class Opencv < Formula
     (build.with? opt) ? "ON" : "OFF"
   end
 
-  # do not blacklist GStreamer
-  # https://github.com/Itseez/opencv/pull/3639
-  patch :DATA
-
   def install
     ENV.cxx11 if build.cxx11?
     jpeg = Formula["jpeg"]
-    py_prefix = `python-config --prefix`.chomp
     dylib = OS.mac? ? "dylib" : "so"
+    py_ver = build.stable? ? "" : "2"
 
     args = std_cmake_args + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
@@ -78,11 +80,9 @@ class Opencv < Formula
       -DBUILD_JPEG=OFF
       -DJPEG_INCLUDE_DIR=#{jpeg.opt_include}
       -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.#{dylib}
-      -DPYTHON_LIBRARY=#{py_prefix}/lib/libpython2.7.#{dylib}
-      -DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python2.7
     ]
     args << "-DBUILD_TESTS=OFF" << "-DBUILD_PERF_TESTS=OFF" if build.without? "tests"
-    args << "-DBUILD_opencv_python=" + arg_switch("python")
+    args << "-DBUILD_opencv_python#{py_ver}=" + arg_switch("python")
     args << "-DBUILD_opencv_java=" + arg_switch("java")
     args << "-DWITH_OPENEXR="   + arg_switch("openexr")
     args << "-DWITH_EIGEN="     + arg_switch("eigen")
@@ -94,6 +94,13 @@ class Opencv < Formula
     args << "-DWITH_JASPER="    + arg_switch("jasper")
     args << "-DWITH_QT="        + arg_switch("qt")
     args << "-DWITH_GSTREAMER=" + arg_switch("gstreamer")
+
+    if build.with? "python"
+      py_prefix = `python-config --prefix`.chomp
+      py_lib = OS.linux? ? `python-config --configdir`.chomp : "#{py_prefix}/lib"
+      args << "-DPYTHON#{py_ver}_LIBRARY=#{py_lib}/libpython2.7.#{dylib}"
+      args << "-DPYTHON#{py_ver}_INCLUDE_DIR=#{py_prefix}/include/python2.7"
+    end
 
     if build.with? "cuda"
       ENV["CUDA_NVCC_FLAGS"] = "-Xcompiler -stdlib=libstdc++; -Xlinker -stdlib=libstdc++"
@@ -140,7 +147,7 @@ class Opencv < Formula
 
   test do
     Language::Python.each_python(build) do |python|
-      system python, "-c", "import cv"
+      system python, "-c", "import cv2"
     end
   end
 end
