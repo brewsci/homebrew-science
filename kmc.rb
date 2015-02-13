@@ -3,9 +3,8 @@ class Kmc < Formula
   # doi "arXiv:1407.1507"
   # tag "bioinformatics"
 
-  url "https://github.com/marekkokot/KMC/archive/eb982b35ca51fdd44a98b21ee540e5d18f4ea1ed.tar.gz"
-  sha1 "326e680f0504ce8f50b1739f4f5d12584457fe19"
-  version "2.1.1"
+  url "https://github.com/marekkokot/KMC/archive/2.1.1.tar.gz"
+  sha1 "4e02620f4afc034d99b7d8bed41ba02fc71c291f"
 
   head "https://github.com/marekkokot/KMC.git"
 
