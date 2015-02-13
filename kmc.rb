@@ -9,6 +9,13 @@ class Kmc < Formula
 
   head "https://github.com/marekkokot/KMC.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "372e4be330575a56c2fcf97b3b687d6a52921d2f" => :yosemite
+    sha1 "7875e23b857d2517090bfef5ee7db7c454d2d0e9" => :mavericks
+    sha1 "e6c87b894020a6f386d18828c494832ca7a0b6db" => :mountain_lion
+  end
+
   fails_with :clang do
     build 600
     cause "error: 'ext/algorithm' file not found"
