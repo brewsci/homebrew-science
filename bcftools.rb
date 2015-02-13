@@ -1,7 +1,7 @@
-require "formula"
-
 class Bcftools < Formula
-  homepage "https://github.com/samtools/bcftools"
+  homepage "http://www.htslib.org/"
+  # tag "bioinformatics"
+
   url "https://github.com/samtools/bcftools/archive/1.2.tar.gz"
   sha1 "fa6280426ae50acd70b98aa6acce3d0375c419e9"
   head "https://github.com/samtools/bcftools.git"
