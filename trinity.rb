@@ -17,7 +17,7 @@ class Trinity < Formula
   depends_on "bowtie"
   depends_on "express"
   depends_on "samtools-0.1"
-  depends_on :java => "1.6"
+  depends_on :java => "1.7"
 
   needs :openmp
 
@@ -44,10 +44,18 @@ class Trinity < Formula
     EOS
   end
 
+  def caveats; <<-EOS.undent
+    Trinity only officially supports Java 1.7. To skip this check pass
+    the option --bypass_java_version_check to Trinity. A specific Java version
+    may also be set via environment variable:
+      JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+    EOS
+  end
+
   test do
     cp_r Dir["#{prefix}/sample_data/test_Trinity_Assembly/*.fq.gz"], "."
     system "#{bin}/Trinity",
-      "--no_distributed_trinity_exec",
+      "--no_distributed_trinity_exec", "--bypass_java_version_check",
       "--seqType", "fq", "--max_memory", "1G", "--SS_lib_type", "RF",
       "--left", "reads.left.fq.gz,reads2.left.fq.gz",
       "--right", "reads.right.fq.gz,reads2.right.fq.gz"
