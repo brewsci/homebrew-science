@@ -1,13 +1,12 @@
-require "formula"
-
 class Samtools < Formula
-  homepage "http://samtools.sourceforge.net/"
-  #doi "10.1093/bioinformatics/btp352"
-  #tag "bioinformatics"
-  head "https://github.com/samtools/samtools.git"
+  homepage "http://www.htslib.org/"
+  # doi "10.1093/bioinformatics/btp352"
+  # tag "bioinformatics"
 
   url "https://github.com/samtools/samtools/archive/1.2.tar.gz"
   sha1 "9fabb4903b9d1521aeea8a5538e64aefe8e85526"
+
+  head "https://github.com/samtools/samtools.git"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
