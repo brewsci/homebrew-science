@@ -3,8 +3,8 @@ class Trinity < Formula
   # doi "10.1038/nbt.1883"
   # tag "bioinformatics"
 
-  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/v2.0.3.tar.gz"
-  sha1 "ec138eeb967e7a1cf885a330a9cd61b056da5c47"
+  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/v2.0.4.tar.gz"
+  sha1 "c61ea4871d2b5e45f9df9e547c20ec5da0cb340b"
   head "https://github.com/trinityrnaseq/trinityrnaseq.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Trinity < Formula
 
   depends_on "bowtie"
   depends_on "express"
-  depends_on "samtools-0.1"
+  depends_on "samtools"
   depends_on :java => "1.7"
 
   needs :openmp
