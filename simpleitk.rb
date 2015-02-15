@@ -21,9 +21,6 @@ class Simpleitk < Formula
   option "with-tcl", "Compile for Tcl"
 
   def install
-    # Define the .git folder as simpleitk relies on it at build.
-    ENV["GIT_DIR"] = cached_download/".git" if build.head?
-
     args = std_cmake_args + %W[
       -DBUILD_TESTING=OFF
     ]
