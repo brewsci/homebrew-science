@@ -3,6 +3,13 @@ class QrMumps < Formula
   url "http://buttari.perso.enseeiht.fr/qr_mumps/releases/1.0/qr_mumps-1.0.tgz"
   sha1 "6f02a92cb1ea25d66eb122a2fa065b6f7da48f7b"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "5836e9d849761a38e2e379c811f4087598ff1070" => :yosemite
+    sha1 "1f19a0e5343f33db85da312a407fd862d2ff8a27" => :mavericks
+    sha1 "f5a62b1c1c9e9a0eacab51da1362a39cf110ab6e" => :mountain_lion
+  end
+
   option "without-check", "Skip build-time tests (not recommended)"
 
   depends_on :fortran
