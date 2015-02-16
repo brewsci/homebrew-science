@@ -7,6 +7,13 @@ class Fermi < Formula
   sha1 "95d9a78df345def9ac781be0485b5c7680e0ad04"
   head "https://github.com/lh3/fermi.git"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "16c506171d368f987101a2c359db1531afb3e882" => :yosemite
+    sha1 "4ba4cd1501553930efcddd24d14ce84656f34569" => :mavericks
+  end
+
   def install
     system "make"
     prefix.install "README.md"
