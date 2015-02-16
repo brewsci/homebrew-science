@@ -2,9 +2,9 @@ class Snpeff < Formula
   homepage "http://snpeff.sourceforge.net/"
   #tag "bioinformatics"
 
-  url "https://downloads.sourceforge.net/project/snpeff/snpEff_v4_1_core.zip"
-  version "4.1a"
-  sha1 "ed4460b89bc22cd6873d1ca6a3cde8565bd2f8d8"
+  url "https://downloads.sourceforge.net/project/snpeff/snpEff_v4_1b_core.zip"
+  version "4.1b"
+  sha1 "dcc5fa17d84ea42a8b1f0da01e7038068d2a47dd"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
