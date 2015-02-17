@@ -22,8 +22,9 @@ class Jmol < Formula
   end
 
   test do
-    system "true"
-    # system "jmol", "-n" # unfortunately, the application can not be run headless (throws java.awt.HeadlessException), but this should work otherwise
+    # unfortunately, the application can not be run headless
+    # (throws java.awt.HeadlessException), but this should work otherwise
+    system "jmol", "-n"
   end
 end
 
