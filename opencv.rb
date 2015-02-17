@@ -146,7 +146,7 @@ class Opencv < Formula
   end
 
   test do
-    Language::Python.each_python(build) do |python|
+    Language::Python.each_python(build) do |python, _version|
       system python, "-c", "import cv2"
     end
   end
