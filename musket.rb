@@ -1,10 +1,11 @@
 class Musket < Formula
   homepage "http://musket.sourceforge.net/"
-  #doi "10.1093/bioinformatics/bts690"
-  #tag "bioinformatics"
+  # doi "10.1093/bioinformatics/bts690"
+  # tag "bioinformatics"
 
   url "https://downloads.sourceforge.net/project/musket/musket-1.1.tar.bz"
   sha1 "48b0c6eba3c00be0dd4eab9aef7ed199e3e97857"
+  version "1.1"
 
   def install
     system "make"
