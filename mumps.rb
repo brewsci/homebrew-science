@@ -24,6 +24,11 @@ class Mumps < Formula
 
   depends_on :fortran
 
+  resource "mumps_simple" do
+    url "https://github.com/dpo/mumps_simple/archive/v0.2.tar.gz"
+    sha1 "21106a5fc9e79fb8da8d9bc50ded354e38f5c500"
+  end
+
   def install
     if OS.mac?
       # Building dylibs with mpif90 causes segfaults on 10.8 and 10.10. Use gfortran.
@@ -109,6 +114,20 @@ class Mumps < Formula
     prefix.install "Makefile.inc"  # For the record.
     File.open(prefix / "make_args.txt", "w") do |f|
       f.puts(make_args.join(" "))  # Record options passed to make.
+    end
+
+    if build.with? "mpi"
+      resource("mumps_simple").stage do
+        simple_args = ["CC=#{ENV["MPICC"]}", "prefix=#{prefix}", "mumps_prefix=#{prefix}",
+                       "scalapack_libdir=#{Formula["scalapack"].opt_lib}"]
+        simple_args += ["scotch_libdir=#{Formula["scotch5"].opt_lib}",
+                        "scotch_libs=-L$(scotch_libdir) -lptesmumps -lptscotch -lptscotcherr"] if build.with? "scotch5"
+        simple_args += ["blas_libdir=#{Formula["openblas"].opt_lib}",
+                        "blas_libs=-L$(blas_libdir) -lopenblas"] if build.with? "openblas"
+        system "make", "SHELL=/bin/bash", *simple_args
+        lib.install ("libmumps_simple." + ((OS.mac?) ? "dylib" : "so"))
+        include.install "mumps_simple.h"
+      end
     end
   end
 
