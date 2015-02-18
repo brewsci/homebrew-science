@@ -5,9 +5,10 @@ class QrMumps < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "5836e9d849761a38e2e379c811f4087598ff1070" => :yosemite
-    sha1 "1f19a0e5343f33db85da312a407fd862d2ff8a27" => :mavericks
-    sha1 "f5a62b1c1c9e9a0eacab51da1362a39cf110ab6e" => :mountain_lion
+    revision 1
+    sha1 "c86e6d7bab0faf43ec99f0d35500e79ee7b5dc37" => :yosemite
+    sha1 "51e0677b6ee0045e0cca66fda308b3ec663db625" => :mavericks
+    sha1 "5830d2c3b8574680afad97108f3ac3eabc4c0421" => :mountain_lion
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
