@@ -1,10 +1,8 @@
-require 'formula'
-
 class Scotch5 < Formula
-  homepage 'https://gforge.inria.fr/projects/scotch'
-  url 'https://gforge.inria.fr/frs/download.php/28978'
-  version '5.1.12b'
-  sha1 '3866deea3199bc364d31ec46c63adcb799a8cf48'
+  homepage "https://gforge.inria.fr/projects/scotch"
+  url "https://gforge.inria.fr/frs/download.php/28978"
+  version "5.1.12b"
+  sha1 "3866deea3199bc364d31ec46c63adcb799a8cf48"
 
   depends_on :mpi => :cc
 
@@ -16,24 +14,24 @@ class Scotch5 < Formula
   patch :DATA
 
   def install
-    cd 'src' do
-      ln_s 'Make.inc/Makefile.inc.i686_mac_darwin8', 'Makefile.inc'
+    cd "src" do
+      ln_s "Make.inc/Makefile.inc.i686_mac_darwin8", "Makefile.inc"
 
       # Use mpicc to compile the parallelized version
-      make_args = ["CCS=#{ENV['CC']}",
-                   "CCP=#{ENV['MPICC']}",
-                   "CCD=#{ENV['MPICC']}",
+      make_args = ["CCS=#{ENV["CC"]}",
+                   "CCP=#{ENV["MPICC"]}",
+                   "CCD=#{ENV["MPICC"]}",
                    "LIB=.dylib",
                    "AR=libtool",
                    "ARFLAGS=-dynamic -install_name #{lib}/$(notdir $@) -undefined dynamic_lookup -o ",
                    "RANLIB=echo"]
-      inreplace 'Makefile.inc' do |s|
-        s.gsub! '-O3', '-O3 -fPIC'
+      inreplace "Makefile.inc" do |s|
+        s.gsub! "-O3", "-O3 -fPIC"
       end
 
-      system 'make', 'scotch', *make_args
-      system 'make', 'ptscotch', *make_args
-      system 'make', 'install', "prefix=#{prefix}", *make_args
+      system "make", "scotch", *make_args
+      system "make", "ptscotch", *make_args
+      system "make", "install", "prefix=#{prefix}", *make_args
     end
   end
 end
