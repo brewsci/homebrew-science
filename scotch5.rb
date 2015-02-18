@@ -21,10 +21,16 @@ class Scotch5 < Formula
       make_args = ["CCS=#{ENV["CC"]}",
                    "CCP=#{ENV["MPICC"]}",
                    "CCD=#{ENV["MPICC"]}",
-                   "LIB=.dylib",
-                   "AR=libtool",
-                   "ARFLAGS=-dynamic -install_name #{lib}/$(notdir $@) -undefined dynamic_lookup -o ",
                    "RANLIB=echo"]
+      if OS.mac?
+        make_args += ["LIB=.dylib",
+                      "AR=libtool",
+                      "ARFLAGS=-dynamic -install_name #{lib}/$(notdir $@) -undefined dynamic_lookup -o "]
+      else
+        make_args += ["LIB=.so",
+                      "AR=$(CCS)",
+                      "ARFLAGS=-shared -Wl,-soname -Wl,#{lib}/$(notdir $@) -o "]
+      end
       inreplace "Makefile.inc" do |s|
         s.gsub! "-O3", "-O3 -fPIC"
       end
