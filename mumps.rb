@@ -17,10 +17,10 @@ class Mumps < Formula
   depends_on "openblas" => :optional
 
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
-  if build.with? :mpi
+  if build.with? "mpi"
     depends_on "scalapack" => (build.with? "openblas") ? ["with-openblas"] : :build
   end
-  depends_on "metis4" => :optional if build.without? :mpi
+  depends_on "metis4" => :optional if build.without? "mpi"
 
   depends_on :fortran
 
@@ -35,14 +35,14 @@ class Mumps < Formula
     end
     orderingsf = "-Dpord"
 
-    makefile = (build.with? :mpi) ? "Makefile.gfortran.PAR" : "Makefile.gfortran.SEQ"
+    makefile = (build.with? "mpi") ? "Makefile.gfortran.PAR" : "Makefile.gfortran.SEQ"
     cp "Make.inc/" + makefile, "Makefile.inc"
 
     if build.with? "scotch5"
       make_args += ["SCOTCHDIR=#{Formula['scotch5'].opt_prefix}",
                     "ISCOTCH=-I#{Formula['scotch5'].opt_include}"]
 
-      if build.with? :mpi
+      if build.with? "mpi"
         make_args << "LSCOTCH=-L$(SCOTCHDIR)/lib -lptesmumps -lptscotch -lptscotcherr"
         orderingsf << " -Dptscotch"
       else
@@ -60,7 +60,7 @@ class Mumps < Formula
 
     make_args << "ORDERINGSF=#{orderingsf}"
 
-    if build.with? :mpi
+    if build.with? "mpi"
       make_args += ["CC=#{ENV['MPICC']} -fPIC",
                     "FC=#{ENV['MPIFC']} -fPIC",
                     "FL=#{ENV['MPIFC']} -fPIC",
@@ -85,7 +85,7 @@ class Mumps < Formula
     system "make", "alllib", *make_args
 
     lib.install Dir["lib/*"]
-    lib.install ("libseq/libmpiseq" + ((OS.mac?) ? ".dylib" : ".so")) if build.without? :mpi
+    lib.install ("libseq/libmpiseq" + ((OS.mac?) ? ".dylib" : ".so")) if build.without? "mpi"
 
     inreplace "examples/Makefile" do |s|
       s.change_make_var! "libdir", lib
@@ -93,7 +93,7 @@ class Mumps < Formula
 
     system "make", "all", *make_args  # Build examples.
 
-    if build.with? :mpi
+    if build.with? "mpi"
       include.install Dir["include/*"]
     else
       libexec.install "include"
@@ -114,7 +114,7 @@ class Mumps < Formula
 
   def caveats
     s = ""
-    if build.without? :mpi
+    if build.without? "mpi"
       s += <<-EOS.undent
       You built a sequential MUMPS library.
       Please add #{libexec}/include to the include path
@@ -125,7 +125,7 @@ class Mumps < Formula
   end
 
   test do
-    cmd = build.without?(:mpi) ? "" : "mpirun -np 2"
+    cmd = build.without?("mpi") ? "" : "mpirun -np 2"
     system "#{cmd} #{share}/mumps/examples/ssimpletest < #{share}/mumps/examples/input_simpletest_real"
     system "#{cmd} #{share}/mumps/examples/dsimpletest < #{share}/mumps/examples/input_simpletest_real"
     system "#{cmd} #{share}/mumps/examples/csimpletest < #{share}/mumps/examples/input_simpletest_cmplx"
