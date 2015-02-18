@@ -12,7 +12,6 @@ class Salmon < Formula
     sha1 "a04b4b5eadde9c0e93c1fc6253ea8af6f3d1cb6a" => :mavericks
   end
 
-  # Fix error: no member named 'all_of' in namespace 'std'
   # See https://github.com/kingsfordgroup/sailfish/issues/74
   needs :cxx11
 
