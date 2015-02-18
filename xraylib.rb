@@ -6,9 +6,10 @@ class Xraylib < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "3d5cc1069008cca66f12b38b086368a570209633" => :yosemite
-    sha1 "41bec42fb26f343e4edf648bcdcfc6fd9ce89e32" => :mavericks
-    sha1 "ea821b25add248b3738cd4da30586a9bc403b5b9" => :mountain_lion
+    revision 1
+    sha1 "fdb42d0f3cd42b1842f3acbf1fa5dfaa831855ec" => :yosemite
+    sha1 "b6023df2ac13c6cf81c6528754c9c16097c54403" => :mavericks
+    sha1 "3b7cc5ebedcc73025b4dccf076e069df5b766cf4" => :mountain_lion
   end
 
   option "with-perl", "Build with perl support"
