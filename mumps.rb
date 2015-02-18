@@ -39,8 +39,8 @@ class Mumps < Formula
     cp "Make.inc/" + makefile, "Makefile.inc"
 
     if build.with? "scotch5"
-      make_args += ["SCOTCHDIR=#{Formula['scotch5'].opt_prefix}",
-                    "ISCOTCH=-I#{Formula['scotch5'].opt_include}"]
+      make_args += ["SCOTCHDIR=#{Formula["scotch5"].opt_prefix}",
+                    "ISCOTCH=-I#{Formula["scotch5"].opt_include}"]
 
       if build.with? "mpi"
         make_args << "LSCOTCH=-L$(SCOTCHDIR)/lib -lptesmumps -lptscotch -lptscotcherr"
@@ -52,29 +52,29 @@ class Mumps < Formula
     end
 
     if build.with? "metis4"
-      make_args += ["LMETISDIR=#{Formula['metis4'].opt_lib}",
-                    "IMETIS=#{Formula['metis4'].opt_include}",
-                    "LMETIS=-L#{Formula['metis4'].opt_lib} -lmetis"]
+      make_args += ["LMETISDIR=#{Formula["metis4"].opt_lib}",
+                    "IMETIS=#{Formula["metis4"].opt_include}",
+                    "LMETIS=-L#{Formula["metis4"].opt_lib} -lmetis"]
       orderingsf << " -Dmetis"
     end
 
     make_args << "ORDERINGSF=#{orderingsf}"
 
     if build.with? "mpi"
-      make_args += ["CC=#{ENV['MPICC']} -fPIC",
-                    "FC=#{ENV['MPIFC']} -fPIC",
-                    "FL=#{ENV['MPIFC']} -fPIC",
-                    "SCALAP=-L#{Formula['scalapack'].opt_lib} -lscalapack",
+      make_args += ["CC=#{ENV["MPICC"]} -fPIC",
+                    "FC=#{ENV["MPIFC"]} -fPIC",
+                    "FL=#{ENV["MPIFC"]} -fPIC",
+                    "SCALAP=-L#{Formula["scalapack"].opt_lib} -lscalapack",
                     "INCPAR=",  # Let MPI compilers fill in the blanks.
                     "LIBPAR=$(SCALAP)"]
     else
-      make_args += ["CC=#{ENV['CC']} -fPIC",
-                    "FC=#{ENV['FC']} -fPIC",
-                    "FL=#{ENV['FC']} -fPIC"]
+      make_args += ["CC=#{ENV["CC"]} -fPIC",
+                    "FC=#{ENV["FC"]} -fPIC",
+                    "FL=#{ENV["FC"]} -fPIC"]
     end
 
     if build.with? "openblas"
-      make_args << "LIBBLAS=-L#{Formula['openblas'].opt_lib} -lopenblas"
+      make_args << "LIBBLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"
     else
       make_args << "LIBBLAS=-lblas -llapack"
     end
