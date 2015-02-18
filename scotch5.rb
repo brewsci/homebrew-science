@@ -15,18 +15,18 @@ class Scotch5 < Formula
 
   def install
     cd "src" do
-      ln_s "Make.inc/Makefile.inc.i686_mac_darwin8", "Makefile.inc"
-
       # Use mpicc to compile the parallelized version
       make_args = ["CCS=#{ENV["CC"]}",
                    "CCP=#{ENV["MPICC"]}",
                    "CCD=#{ENV["MPICC"]}",
                    "RANLIB=echo"]
       if OS.mac?
+        ln_s "Make.inc/Makefile.inc.i686_mac_darwin8", "Makefile.inc"
         make_args += ["LIB=.dylib",
                       "AR=libtool",
                       "ARFLAGS=-dynamic -install_name #{lib}/$(notdir $@) -undefined dynamic_lookup -o "]
       else
+        ln_s "Make.inc/Makefile.inc.x86-64_pc_linux2", "Makefile.inc"
         make_args += ["LIB=.so",
                       "AR=$(CCS)",
                       "ARFLAGS=-shared -Wl,-soname -Wl,#{lib}/$(notdir $@) -o "]
