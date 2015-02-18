@@ -66,7 +66,7 @@ class QrMumps < Formula
                                     "-o", "../#{lname}", *ofiles
           else
             system "#{ENV["FC"]}", "-shared",
-                                    "-Wl,-soname,#{lib}/#{lname}",
+                                    "-Wl,-soname", "-Wl,#{lib}/#{lname}",
                                     "-o", "../#{lname}", *ofiles
           end
         end
