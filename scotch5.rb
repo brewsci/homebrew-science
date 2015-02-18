@@ -4,6 +4,14 @@ class Scotch5 < Formula
   version "5.1.12b"
   sha1 "3866deea3199bc364d31ec46c63adcb799a8cf48"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "8b2f7f1b8b53b6bd9770d7423ecff075d7d9579d" => :yosemite
+    sha1 "14080ef7007c014d96ced49d831e73842f52617d" => :mavericks
+    sha1 "11c476cb6e113efb04dbc3519494906a9aa46525" => :mountain_lion
+  end
+
   depends_on :mpi => :cc
 
   keg_only "Conflicts with scotch (6.x)"
