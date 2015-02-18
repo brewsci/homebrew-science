@@ -3,6 +3,14 @@ class Metis4 < Formula
   homepage "http://glaros.dtc.umn.edu/gkhome/views/metis"
   sha1 "63303786414a857eaeea2b2a006521401bccda5e"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    cellar :any
+    sha1 "e970d99900426597a3d37ad788e987d3bb8ddd52" => :yosemite
+    sha1 "a97518d2f40a9cccd11705675c0c0e310246d8d4" => :mavericks
+    sha1 "cab47e1fcf1376587317e1c0651e4a2f3e5a09af" => :mountain_lion
+  end
+
   keg_only "Conflicts with metis (5.x)."
 
   def install
