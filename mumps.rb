@@ -31,7 +31,7 @@ class Mumps < Formula
                    "AR=#{ENV["FC"]} -dynamiclib -Wl,-install_name -Wl,#{lib}/$(notdir $@) -undefined dynamic_lookup -o ",
                    "RANLIB=echo"]
     else
-      make_args = ["LIBEXT=.so", "AR=$(FL) -shared -Wl,-soname,$(notdir $@) -o ", "RANLIB=echo"]
+      make_args = ["LIBEXT=.so", "AR=$(FL) -shared -Wl,-soname -Wl,$(notdir $@) -o ", "RANLIB=echo"]
     end
     orderingsf = "-Dpord"
 
