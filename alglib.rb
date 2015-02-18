@@ -1,6 +1,7 @@
 class Alglib < Formula
   homepage "http://www.alglib.net"
   url "http://alglib.net/translator/re/alglib-2.6.0.cpp.zip"
+  version "2.6.0"
   sha1 "5aae250153b079093b11ed8516d67a07cf9452f5"
 
   depends_on "qt"
