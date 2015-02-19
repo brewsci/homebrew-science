@@ -5,6 +5,13 @@ class Gdcm < Formula
   url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.4.4/gdcm-2.4.4.tar.bz2"
   sha1 "4b77a857cf8432da72140a5e7d20f78c091ee019"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    sha1 "e568685ac9b074e9d011572ec1c44739e222285b" => :yosemite
+    sha1 "680770f722affd0f053289fcd5181c64ae439dba" => :mavericks
+    sha1 "55a0dd18c8900f6a8761d358bfbbb9d7bef5e6d0" => :mountain_lion
+  end
+
   option "with-check", "Run the GDCM test suite"
   depends_on :python => :optional
   depends_on :python3 => :optional
