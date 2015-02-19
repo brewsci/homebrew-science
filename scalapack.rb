@@ -13,7 +13,6 @@ class Scalapack < Formula
     sha1 "8dc227f7b7f55f0b0c3d97d82a718db0447db853" => :mountain_lion
   end
 
-  option 'with-shared-libs', 'Build shared libs (some tests may fail)'
   option "without-check", "Skip build-time tests (not recommended)"
 
   depends_on :mpi => [:cc, :f90]
@@ -24,7 +23,7 @@ class Scalapack < Formula
 
   def install
     args = std_cmake_args
-    args << "-DBUILD_SHARED_LIBS=ON" if build.with? "shared-libs"
+    args << "-DBUILD_SHARED_LIBS=ON"
 
     if build.with? "openblas"
       blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
