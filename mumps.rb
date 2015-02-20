@@ -1,8 +1,8 @@
 class Mumps < Formula
   homepage "http://mumps.enseeiht.fr"
-  url "http://mumps.enseeiht.fr/MUMPS_4.10.0.tar.gz"
-  mirror "http://graal.ens-lyon.fr/MUMPS/MUMPS_4.10.0.tar.gz"
-  sha1 "904b1d816272d99f1f53913cbd4789a5be1838f7"
+  url "http://mumps.enseeiht.fr/MUMPS_5.0.0.tar.gz"
+  mirror "http://graal.ens-lyon.fr/MUMPS/MUMPS_5.0.0.tar.gz"
+  sha1 "991297608725be2440ece30f4a65dd748624ca5e"
   revision 2
 
   bottle do
@@ -13,20 +13,21 @@ class Mumps < Formula
     sha1 "d3ff06bc80c55c3a3048ba4126ff3885fcf03995" => :mountain_lion
   end
 
-  depends_on "scotch5" => :optional     # Scotch 6 support currently broken.
-  depends_on "openblas" => :optional
-
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
   if build.with? "mpi"
     depends_on "scalapack" => (build.with? "openblas") ? ["with-openblas"] : :build
   end
-  depends_on "metis4" => :optional if build.without? "mpi"
+  depends_on "metis"    => :optional if build.without? "mpi"
+  depends_on "parmetis" => :optional if build.with? "mpi"
+  depends_on "scotch5"  => :optional
+  depends_on "scotch"   => :optional
+  depends_on "openblas" => :optional
 
   depends_on :fortran
 
   resource "mumps_simple" do
-    url "https://github.com/dpo/mumps_simple/archive/v0.2.tar.gz"
-    sha1 "21106a5fc9e79fb8da8d9bc50ded354e38f5c500"
+    url "https://github.com/dpo/mumps_simple/archive/v0.4.tar.gz"
+    sha1 "2a20a7d6eb8b2623224fae53aa311241d5b34b70"
   end
 
   def install
@@ -38,9 +39,10 @@ class Mumps < Formula
     else
       make_args = ["LIBEXT=.so", "AR=$(FL) -shared -Wl,-soname -Wl,$(notdir $@) -o ", "RANLIB=echo"]
     end
+    make_args += ["OPTF=-O", "CDEFS=-DAdd_"]
     orderingsf = "-Dpord"
 
-    makefile = (build.with? "mpi") ? "Makefile.gfortran.PAR" : "Makefile.gfortran.SEQ"
+    makefile = (build.with? "mpi") ? "Makefile.G95.PAR" : "Makefile.G95.SEQ"
     cp "Make.inc/" + makefile, "Makefile.inc"
 
     if build.with? "scotch5"
@@ -48,18 +50,42 @@ class Mumps < Formula
                     "ISCOTCH=-I#{Formula["scotch5"].opt_include}"]
 
       if build.with? "mpi"
-        make_args << "LSCOTCH=-L$(SCOTCHDIR)/lib -lptesmumps -lptscotch -lptscotcherr"
+        scotch_libs = "LSCOTCH=-L$(SCOTCHDIR)/lib -lptesmumps -lptscotch -lptscotcherr"
+        scotch_libs += " -lptscotchparmetis" if build.with? "parmetis"
+        make_args << scotch_libs
         orderingsf << " -Dptscotch"
       else
-        make_args << "LSCOTCH=-L$(SCOTCHDIR) -lesmumps -lscotch -lscotcherr"
+        scotch_libs = "LSCOTCH=-L$(SCOTCHDIR) -lesmumps -lscotch -lscotcherr"
+        scotch_libs += " -lscotchmetis" if build.with? "metis"
+        make_args << scotch_libs
+        orderingsf << " -Dscotch"
+      end
+    elsif build.with? "scotch"
+      make_args += ["SCOTCHDIR=#{Formula["scotch"].opt_prefix}",
+                    "ISCOTCH=-I#{Formula["scotch"].opt_include}"]
+
+      if build.with? "mpi"
+        scotch_libs = "LSCOTCH=-L$(SCOTCHDIR)/lib -lptscotch -lptscotcherr -lptscotcherrexit -lscotch"
+        scotch_libs += "-lptscotchparmetis" if build.with? "parmetis"
+        make_args << scotch_libs
+        orderingsf << " -Dptscotch"
+      else
+        scotch_libs = "LSCOTCH=-L$(SCOTCHDIR) -lscotch -lscotcherr -lscotcherrexit"
+        scotch_libs += "-lscotchmetis" if build.with? "metis"
+        make_args << scotch_libs
         orderingsf << " -Dscotch"
       end
     end
 
-    if build.with? "metis4"
-      make_args += ["LMETISDIR=#{Formula["metis4"].opt_lib}",
-                    "IMETIS=#{Formula["metis4"].opt_include}",
-                    "LMETIS=-L#{Formula["metis4"].opt_lib} -lmetis"]
+    if build.with? "parmetis"
+      make_args += ["LMETISDIR=#{Formula["parmetis"].opt_lib}",
+                    "IMETIS=#{Formula["parmetis"].opt_include}",
+                    "LMETIS=-L#{Formula["parmetis"].opt_lib} -lparmetis -L#{Formula["metis"].opt_lib} -lmetis"]
+      orderingsf << " -Dparmetis"
+    elsif build.with? "metis"
+      make_args += ["LMETISDIR=#{Formula["metis"].opt_lib}",
+                    "IMETIS=#{Formula["metis"].opt_include}",
+                    "LMETIS=-L#{Formula["metis"].opt_lib} -lmetis"]
       orderingsf << " -Dmetis"
     end
 
@@ -120,8 +146,13 @@ class Mumps < Formula
       resource("mumps_simple").stage do
         simple_args = ["CC=#{ENV["MPICC"]}", "prefix=#{prefix}", "mumps_prefix=#{prefix}",
                        "scalapack_libdir=#{Formula["scalapack"].opt_lib}"]
-        simple_args += ["scotch_libdir=#{Formula["scotch5"].opt_lib}",
-                        "scotch_libs=-L$(scotch_libdir) -lptesmumps -lptscotch -lptscotcherr"] if build.with? "scotch5"
+        if build.with? "scotch5"
+          simple_args += ["scotch_libdir=#{Formula["scotch5"].opt_lib}",
+                          "scotch_libs=-L$(scotch_libdir) -lptesmumps -lptscotch -lptscotcherr"]
+        elsif build.with? "scotch"
+          simple_args += ["scotch_libdir=#{Formula["scotch"].opt_lib}",
+                          "scotch_libs=-L$(scotch_libdir) -lptscotch -lptscotcherr -lscotch"]
+        end
         simple_args += ["blas_libdir=#{Formula["openblas"].opt_lib}",
                         "blas_libs=-L$(blas_libdir) -lopenblas"] if build.with? "openblas"
         system "make", "SHELL=/bin/bash", *simple_args
