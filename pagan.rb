@@ -6,6 +6,14 @@ class Pagan < Formula
   url "http://wasabiapp.org/download/pagan/pagan.src.20140814.tgz"
   sha1 "56e90fffcc715f1230d56babdaaaab0a2e9c9073"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha1 "20e278e1499dbb1e40e785e576fb3056450bda7b" => :yosemite
+    sha1 "3ed1f813d9598dda5ce1e0363ac6efa9f3d9ff23" => :mavericks
+    sha1 "1b644b66bc15a5207b6739b61629d78ac9571e83" => :mountain_lion
+  end
+
   head "https://code.google.com/p/pagan-msa/", :using => :git
 
   depends_on "boost"
