@@ -7,6 +7,14 @@ class Poa < Formula
   version "2.0"
   sha1 "57f863956736498dd76afb57967036bf92c6d599"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha1 "643d2c97e36be8aa642a79b563002ad6d9b2cd74" => :yosemite
+    sha1 "f1f29b9d54318446a3bbbadd972c89ef8cd6b12d" => :mavericks
+    sha1 "89d25fa0a1ab728e82afdcd69d0a70fc42526893" => :mountain_lion
+  end
+
   def install
     system "make", "poa"
     bin.install "poa", "make_pscores.pl"
