@@ -15,8 +15,8 @@ class Quast < Formula
 
   def install
     prefix.install Dir["*"]
-    bin.install_symlink "../quast.py", "../metaquast.py"
-    bin.install_symlink "quast.py" => "quast", "metaquast.py" => "metaquast"
+    bin.install_symlink "../quast.py", "../metaquast.py",
+      "quast.py" => "quast", "metaquast.py" => "metaquast"
   end
 
   test do
