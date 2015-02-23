@@ -68,7 +68,7 @@ class Repeatmasker < Formula
     adequate for use with your own custom repeat library.  If you
     plan to search using common species specific repeats you will
     need to obtain the complete RepeatMasker repeat library from
-    GIRI ( www.giriinst.org ) and install it:
+    GIRI ( www.girinst.org ) and install it:
       cd #{libexec}
       tar zxvf repeatmaskerlibraries-20140131.tar.gz
       ./configure <config.txt
