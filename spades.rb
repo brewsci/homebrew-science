@@ -20,7 +20,10 @@ class Spades < Formula
 
   def install
     mkdir 'src/build' do
-      system 'cmake', '..', *std_cmake_args
+      args = std_cmake_args
+      # Set RPATH for Linux to fix error while loading shared libraries
+      args << "-DCMAKE_INSTALL_RPATH_USE_LINK_PATH=1" if OS.linux?
+      system 'cmake', '..', *args
       system 'make', 'install'
     end
 
