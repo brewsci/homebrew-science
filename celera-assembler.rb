@@ -15,8 +15,6 @@ class CeleraAssembler < Formula
     sha1 "97a5c61310b924a03bb1d587f256f5ac35cb425c" => :mountain_lion
   end
 
-  depends_on "samtools-0.1"
-
   # Fails with clang: https://sourceforge.net/p/wgs-assembler/bugs/262/
   needs :openmp
 
