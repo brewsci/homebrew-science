@@ -50,30 +50,29 @@ class R < Formula
   patch :DATA
 
   def install
-    ENV.append_to_cflags "-D__ACCELERATE__" if ENV.compiler != :clang and build.without? "openblas"
-
-    # If LDFLAGS contains any -L options, configure sets LD_LIBRARY_PATH to
-    # search those directories. Remove -LHOMEBREW_PREFIX/lib from LDFLAGS.
-    ENV.remove "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib" if OS.linux?
-
     args = [
       "--prefix=#{prefix}",
-      "--with-libintl-prefix=#{Formula['gettext'].opt_prefix}",
+      "--with-libintl-prefix=#{Formula["gettext"].opt_prefix}",
     ]
-    if OS.mac?
-      old_xcode = (MacOS::Xcode.installed? and MacOS::Xcode.version <= "6.0") or
-                  (MacOS::CLT.installed?   and MacOS::CLT.version   <= "6.0")
-      if ENV.compiler == :clang or old_xcode
-        # Disable building against the Aqua framework with CLT >= 6.0.
-        # See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63651
-        # This should be revisited when new versions of GCC come along.
-        args << "--with-aqua"
-      else
-        args << "--without-aqua"
-      end
+
+    if OS.linux?
+      args << "--enable-R-shlib"
+      # If LDFLAGS contains any -L options, configure sets LD_LIBRARY_PATH to
+      # search those directories. Remove -LHOMEBREW_PREFIX/lib from LDFLAGS.
+      ENV.remove "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
+    else
       args << "--enable-R-framework"
+      ENV.append_to_cflags "-D__ACCELERATE__" if build.without? "openblas"
+
+      # Disable building against the Aqua framework with CLT >= 6.0.
+      # See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63651
+      # This should be revisited when new versions of GCC come along.
+      if ENV.compiler != :clang && MacOS::CLT.version >= "6.0"
+        args << "--without-aqua"
+      else
+        args << "--with-aqua"
+      end
     end
-    args << "--enable-R-shlib" if OS.linux?
 
     if build.with? "valgrind"
       args << "--with-valgrind-instrumentation=2"
@@ -81,8 +80,8 @@ class R < Formula
     end
 
     if build.with? "openblas"
-      args << "--with-blas=-L#{Formula['openblas'].opt_lib} -lopenblas" << "--with-lapack"
-      ENV.append "LDFLAGS", "-L#{Formula['openblas'].opt_lib}"
+      args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas" << "--with-lapack"
+      ENV.append "LDFLAGS", "-L#{Formula["openblas"].opt_lib}"
     elsif build.with? "accelerate"
       args << "--with-blas=-framework Accelerate" << "--with-lapack"
       # Fall back to Rblas without-accelerate or -openblas
@@ -92,12 +91,12 @@ class R < Formula
     args << "--without-x" if build.without? "x11"
 
     # Also add gettext include so that libintl.h can be found when installing packages.
-    ENV.append "CPPFLAGS", "-I#{Formula['gettext'].opt_include}"
-    ENV.append "LDFLAGS",  "-L#{Formula['gettext'].opt_lib}"
+    ENV.append "CPPFLAGS", "-I#{Formula["gettext"].opt_include}"
+    ENV.append "LDFLAGS",  "-L#{Formula["gettext"].opt_lib}"
 
     # Sometimes the wrong readline is picked up.
-    ENV.append "CPPFLAGS", "-I#{Formula['readline'].opt_include}"
-    ENV.append "LDFLAGS",  "-L#{Formula['readline'].opt_lib}"
+    ENV.append "CPPFLAGS", "-I#{Formula["readline"].opt_include}"
+    ENV.append "LDFLAGS",  "-L#{Formula["readline"].opt_lib}"
 
     # Pull down recommended packages if building from HEAD.
     system "./tools/rsync-recommended" if build.head?
