@@ -9,11 +9,11 @@ class Bedops < Formula
   head 'https://github.com/bedops/bedops.git'
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "3cff73ec407a24a2a36aec9a3c5893cfa8f2f1d7" => :yosemite
-    sha1 "bd2bedd2b2a3dfd6183add4dd6476d48dec60064" => :mavericks
-    sha1 "b711ccdf08b17c4ae4f6d099cfee727145e717af" => :mountain_lion
+    sha1 "2b904d983c4935432f5023915ce5fd02dc1b016c" => :yosemite
+    sha1 "e5d5a87d513f7b071ae24aa5fb15b7b2a0a31ab7" => :mavericks
+    sha1 "fe7fc050d20c08040eb6e6b4878c9390b74a40a5" => :mountain_lion
   end
 
   env :std
