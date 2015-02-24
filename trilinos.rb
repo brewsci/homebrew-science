@@ -35,7 +35,7 @@ class Trilinos < Formula
   depends_on "mumps"        => :recommended
   depends_on "netcdf"       => ["with-fortran", :recommended]
   depends_on "parmetis"     => :recommended if build.with? "mpi"
-  depends_on "scalapack"    => ["with-shared-libs", :recommended]
+  depends_on "scalapack"    => :recommended
   depends_on "scotch"       => :recommended
   depends_on "suite-sparse" => :recommended
   depends_on "superlu"      => :recommended
