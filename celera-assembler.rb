@@ -5,8 +5,8 @@ class CeleraAssembler < Formula
   #   "miller2008aggressive" => "10.1093/bioinformatics/btn548"
   # tag "bioinformatics"
 
-  url "https://downloads.sourceforge.net/project/wgs-assembler/wgs-assembler/wgs-8.2/wgs-8.2.tar.bz2"
-  sha1 "a3c299e145bcdd1492bab4a677a445a308509e57"
+  url "https://downloads.sourceforge.net/project/wgs-assembler/wgs-assembler/wgs-8.3/wgs-8.3rc1.tar.bz2"
+  sha1 "be8e92dc48cdabf64992bc2e4d8b7a39b2f95ff7"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
