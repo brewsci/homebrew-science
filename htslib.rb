@@ -2,8 +2,8 @@ class Htslib < Formula
   homepage "http://www.htslib.org/"
   # tag "bioinformatics"
 
-  url "https://github.com/samtools/htslib/archive/1.2.tar.gz"
-  sha1 "de903ec8f92ea86872dbd0dd7f5d419c58366e8b"
+  url "https://github.com/samtools/htslib/archive/1.2.1.tar.gz"
+  sha1 "904c7e8d1c37d52406a6c3e290d1b03b50acab91"
   head "https://github.com/samtools/htslib.git"
 
   bottle do
