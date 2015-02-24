@@ -1,8 +1,7 @@
-require "formula"
-
 class Sambamba < Formula
   homepage "http://lomereiter.github.io/sambamba"
-  #tag "bioinformatics"
+  # doi "10.1093/bioinformatics/btv098"
+  # tag "bioinformatics"
 
   url "https://github.com/lomereiter/sambamba.git", :tag => "v0.5.1"
   head "https://github.com/lomereiter/sambamba.git"
