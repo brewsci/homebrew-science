@@ -7,11 +7,11 @@ class Htslib < Formula
   head "https://github.com/samtools/htslib.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "0e80239d79450285119454def8bc5b9bf4eaa50f" => :yosemite
-    sha1 "e5ee799c770723753f546a28d7757a6419e292b8" => :mavericks
-    sha1 "26310861d0deb4a8669bb499b138024fc5bc7d95" => :mountain_lion
+    sha1 "7dcc5ba144967b427807c858256753c1077af19c" => :yosemite
+    sha1 "526fdef181ed7c54cd68b3384346e78f4c18fb26" => :mavericks
+    sha1 "cbb4da3ff94024485eca163d7a42b3c0bfd7c25b" => :mountain_lion
   end
 
   conflicts_with "tabix", :because => "both htslib and tabix install bin/tabix"
