@@ -9,10 +9,10 @@ class CeleraAssembler < Formula
   sha1 "be8e92dc48cdabf64992bc2e4d8b7a39b2f95ff7"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "3a85819d72beed36990f358167bcbd0f28faea6b" => :yosemite
-    sha1 "dc1c3f744d0ce05e79fcadb6561f5b91d22bf56b" => :mavericks
-    sha1 "97a5c61310b924a03bb1d587f256f5ac35cb425c" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha1 "2a80ee6d9d44414259b847007a3b7e3c499946f4" => :yosemite
+    sha1 "4b0bd699c4e9ff6463f4184bfe39b86dc707b3dc" => :mavericks
+    sha1 "1d667e16abea494ea04f3cf50109144e6260973f" => :mountain_lion
   end
 
   # Fails with clang: https://sourceforge.net/p/wgs-assembler/bugs/262/
