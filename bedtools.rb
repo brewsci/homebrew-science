@@ -7,12 +7,11 @@ class Bedtools < Formula
   head "https://github.com/arq5x/bedtools2.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 1
-    sha1 "5894c0bac14ffe388c9631281d28890cef87dd8b" => :yosemite
-    sha1 "65ed7b9e36eb1c7ab7d6849443d4460b22d4a29a" => :mavericks
-    sha1 "ad78698455a11a2f86da73527f809549ce5366db" => :mountain_lion
+    sha1 "9d63ea92161b5144b234e9247f28574e2c24797d" => :yosemite
+    sha1 "b7caff266b94c391b8fba0c8aeee7486a101d148" => :mavericks
+    sha1 "d003c70d8175fd80de939cc65e87b8c37456bc23" => :mountain_lion
   end
 
   def install
