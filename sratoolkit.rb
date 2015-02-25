@@ -8,11 +8,11 @@ class Sratoolkit < Formula
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "68c928823a62834f786a5177fb5e355ae37a5317" => :yosemite
-    sha1 "66c945ae9b6f84cbdde18456c898734f9927a57e" => :mavericks
-    sha1 "ff305cfd27ed3b1147384a32a921cf06661e3b67" => :mountain_lion
+    sha1 "9771f4ca6ba9a1f832d307b9d39136e99fd1f24b" => :yosemite
+    sha1 "93a186f6059e53dcd35e17ce5302a7bf789753ef" => :mavericks
+    sha1 "ad72a6d146150e44f60a4f255ce0462b5a1c0a90" => :mountain_lion
   end
 
   resource "ngs-sdk" do
