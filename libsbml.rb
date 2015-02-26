@@ -3,6 +3,14 @@ class Libsbml < Formula
   url "https://downloads.sourceforge.net/project/sbml/libsbml/5.11.0/stable/libSBML-5.11.0-core-plus-packages-src.tar.gz"
   sha1 "cfe9697bf9e28758c0dbd7b7c6b6ad3a7a01c56e"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha1 "0e924956110d4ad6b53cb44b577fed955248511a" => :yosemite
+    sha1 "1f09b04dcfc191f28f733732cdd46288237d38ff" => :mavericks
+    sha1 "88393f0937a02d2211f9965309833283182954b4" => :mountain_lion
+  end
+
   LANGUAGES_OPTIONAL = {
     "csharp" => "C#",
     "java" => "Java",
