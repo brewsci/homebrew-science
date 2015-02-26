@@ -4,6 +4,7 @@ class Pagan < Formula
   # tag "bioinformatics"
 
   url "http://wasabiapp.org/download/pagan/pagan.src.20140814.tgz"
+  version "0.56"
   sha1 "56e90fffcc715f1230d56babdaaaab0a2e9c9073"
 
   bottle do
@@ -23,6 +24,9 @@ class Pagan < Formula
 
   def install
     cd "src" do
+      # Remove the explicit search of /usr/include
+      inreplace "Makefile", "-I/usr/include ", ""
+
       # Fix error ld: library not found for -lboost_thread
       inreplace "Makefile", "-lboost_thread", "-lboost_thread-mt"
 
