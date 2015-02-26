@@ -68,7 +68,6 @@ class Hdf5 < Formula
     system "make"
     system "make", "check" if build.with? "check"
     system "make", "install"
-    share.install "#{lib}/libhdf5.settings"
   end
 
   test do
