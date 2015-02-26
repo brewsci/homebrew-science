@@ -4,10 +4,11 @@ class Hdf5 < Formula
   sha1 "3c48bcb0d5fb21a3aa425ed035c08d8da3d5483a"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "8be7cc59b05b0018bc22acd967ca1684a5406f35" => :yosemite
-    sha1 "be1e4803cc7f5c38ac0d70cf891c4a34891b13de" => :mavericks
-    sha1 "963c82109013f4bb9e7286106dc453f82d1f59be" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    revision 1
+    sha1 "bb05237bc790a3ee91fe29ee156fca1e99bede36" => :yosemite
+    sha1 "52c328ec0133756690f6d38ac24ed943806e85fb" => :mavericks
+    sha1 "b7e1cd355a8d64bffc87b0143ce207ca8541a0ec" => :mountain_lion
   end
 
   deprecated_option "enable-fortran" => "with-fortran"
