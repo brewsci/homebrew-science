@@ -1,7 +1,7 @@
 class Butterflow < Formula
   homepage "https://github.com/dthpham/butterflow"
-  url "http://srv.dthpham.me/butterflow-0.1.5.tar.gz"
-  sha1 "38930e674e0c7fb5b035022c3ae7703a48ca962b"
+  url "http://srv.dthpham.me/butterflow-0.1.8.tar.gz"
+  sha256 "252580bb5d473a7e265cb5882102ab005eabc14e810a48b7032318875afe652d"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
