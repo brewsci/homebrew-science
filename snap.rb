@@ -7,6 +7,14 @@ class Snap < Formula
   url "http://korflab.ucdavis.edu/Software/snap-#{version}.tar.gz"
   sha1 "0ff0612ecb7040dfaa58b4330396d025abc0b758"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha1 "c7973c56253ee5bd6208a563aad10004e82fe220" => :yosemite
+    sha1 "4ff738f010788c7cee6eba6a3e1a571d970239bf" => :mavericks
+    sha1 "27a4a9373fe3559494d63331bda09dc8308c89ea" => :mountain_lion
+  end
+
   def install
     system "make"
     bin.install *(%w[exonpairs fathom forge hmm-info snap] + Dir["*.pl"])
