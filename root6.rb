@@ -1,9 +1,9 @@
 class Root6 < Formula
   homepage "http://root.cern.ch"
-  version "6.02.04"
+  version "6.02.05"
   url "http://root.cern.ch/download/root_v#{version}.source.tar.gz"
   mirror "https://fossies.org/linux/misc/root_v#{version}.source.tar.gz"
-  sha1 "b6bb7d2513be9c59e892d1cfdc228b060c569a5c"
+  sha1 "3cec8b763d8c1ddfd80b41983000359704f16e1e"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
@@ -20,14 +20,6 @@ class Root6 < Formula
   depends_on :x11 => :recommended if OS.linux?
 
   needs :cxx11
-
-  stable do
-    # xrootd problem: https://sft.its.cern.ch/jira/browse/ROOT-6998
-    patch do
-      url "https://sft.its.cern.ch/jira/secure/attachment/17857/0001-TNetXNGFile-explicitly-include-XrdVersion.hh.patch"
-      sha1 "ded7da0a65ccd481dfd5639f7dcd899afeb2244f"
-    end
-  end
 
   def cmake_opt(opt, pkg = opt)
     "-D#{opt}=#{(build.with? pkg) ? "ON" : "OFF"}"
