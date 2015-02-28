@@ -7,11 +7,10 @@ class Root < Formula
   head "https://github.com/root-mirror/root.git", :branch => "v5-34-00-patches"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    revision 2
-    sha1 "6f4d211fb0d98d7c40df8737251ca110432b4274" => :yosemite
-    sha1 "b3e05b2ecf4b3905c6239fff7733a2e7c81fa24d" => :mavericks
-    sha1 "5587405366e3dc3c40e3c4d86ffef4d95134961c" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha1 "94980703c0d054341efc6e9fbb51affbd8f93190" => :yosemite
+    sha1 "34b2ddd5e9f9432f6f327b16cbddcce19053adb0" => :mavericks
+    sha1 "351cf0629eea5352640e264de2b9e1dfe6f12e63" => :mountain_lion
   end
 
   option "with-qt", "Build with Qt graphics backend and GSI's Qt integration"
