@@ -1,10 +1,10 @@
 class Seqtk < Formula
   homepage "https://github.com/lh3/seqtk"
-  #tag "bioinformatics"
+  # tag "bioinformatics"
 
-  url "https://github.com/lh3/seqtk/archive/08b3625c2a7aae3eca9ab056e1adea52ec22cbef.tar.gz"
-  sha1 "7274ebab93caa66d3a75aada784ee5679834d504"
-  version "75"
+  url "https://github.com/lh3/seqtk/archive/5b8ebb23e9a81466c901a46d089f29c4a1cecfa5.tar.gz"
+  version "77"
+  sha1 "9c50cc5aceca0450a0cf9cf854c2bad7ebde5a1d"
 
   head "https://github.com/lh3/seqtk.git"
 
@@ -23,6 +23,6 @@ class Seqtk < Formula
   end
 
   test do
-    system "#{bin}/seqtk 2>&1 |grep -q seqtk"
+    assert_match "seqtk", shell_output("#{bin}/seqtk 2>&1", 1)
   end
 end
