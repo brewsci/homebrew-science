@@ -7,10 +7,10 @@ class Root6 < Formula
   head "http://root.cern.ch/git/root.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "144d63e630f1a67ca17212b0f0b0d39850f06744" => :yosemite
-    sha1 "ed473955c3455a89eabb7ad45b00f9a82f16031f" => :mavericks
-    sha1 "fa180069e6f975113bf50c6d9f5a7f09d4e156d9" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha1 "1689e8f11a5b54c2c4fb0a0e397037cb0581bef4" => :yosemite
+    sha1 "a33bfe58e62c6ab19550c638b6cace609a1fe86d" => :mavericks
+    sha1 "77907f45cc903d5bbcb6458e2687cffed21eab96" => :mountain_lion
   end
 
   depends_on "cmake" => :build
