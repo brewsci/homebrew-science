@@ -9,11 +9,11 @@ class Seqtk < Formula
   head "https://github.com/lh3/seqtk.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "0f57d5741e5cbc781b23d18dc3d5c5611e3e4b2e" => :yosemite
-    sha1 "ae24c7991ab1f41674df5d8e5628b47548b776d5" => :mavericks
-    sha1 "248bd05dbad49ff4ca9421f5df0089f8134b7984" => :mountain_lion
+    sha1 "8c2975651cea0d3af8f4b611719376497e3d0d8a" => :yosemite
+    sha1 "d54e3028681e6e2d8918f7639ae7542e9ca0256a" => :mavericks
+    sha1 "627d5b9a787b2d167d328b29df668935078c50f6" => :mountain_lion
   end
 
   def install
