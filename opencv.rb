@@ -42,6 +42,7 @@ class Opencv < Formula
   depends_on "gstreamer"  => :optional
   depends_on "gst-plugins-good" if build.with? "gstreamer"
   depends_on "jasper"     => :optional
+  depends_on :java        => :optional
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
