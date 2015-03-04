@@ -139,7 +139,7 @@ class Octave < Formula
     args << "--without-fftw3"    if build.without? "fftw"
     args << "--without-glpk"     if build.without? "glpk"
     args << "--without-hdf5"     if build.without? "hdf5"
-    args << "--without-java"     if build.without? :java
+    args << "--disable-java"     if build.without? :java
     args << "--without-qhull"    if build.without? "qhull"
     args << "--without-qrupdate" if build.without? "qrupdate"
 
