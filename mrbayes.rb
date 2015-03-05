@@ -3,8 +3,8 @@ class Mrbayes < Formula
   #tag "bioinformatics"
   #doi "10.1093/bioinformatics/btg180"
 
-  url "https://downloads.sourceforge.net/project/mrbayes/mrbayes/3.2.3/mrbayes-3.2.3.tar.gz"
-  sha1 "8492ce3b33369b10e89553f56a9a94724772ae2d"
+  url "https://downloads.sourceforge.net/project/mrbayes/mrbayes/3.2.4/mrbayes-3.2.4.tar.gz"
+  sha1 "54e6151baa7a27983c598bc831155b71e8ec9ef4"
 
   head "https://mrbayes.svn.sourceforge.net/svnroot/mrbayes/trunk/"
 
