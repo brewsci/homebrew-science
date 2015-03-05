@@ -1,7 +1,7 @@
 class Ipopt < Formula
   homepage "https://projects.coin-or.org/Ipopt"
-  url "http://www.coin-or.org/download/source/Ipopt/Ipopt-3.11.10.tgz"
-  sha1 "50a28e257ddbf2df0cdc2d1edaf55cd021d83cb5"
+  url "http://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.1.tgz"
+  sha1 "cbb197f6a90e0e1d64e438a5159da5f33f06aa08"
   head "https://projects.coin-or.org/svn/Ipopt/trunk", :using => :svn
   revision 1
 
