@@ -2,8 +2,9 @@ require 'formula'
 
 class Beast < Formula
   homepage 'http://beast.bio.ed.ac.uk/'
-  url 'https://beast-mcmc.googlecode.com/files/BEASTv1.8.0.tgz'
-  sha1 'e4e483cee01263115a827b8c992be02a7bf9cf8e'
+  url 'http://tree.bio.ed.ac.uk/download.php?id=92&num=3'
+  version '1.8.2'
+  sha1 '47a5aca20fecf6cb61a301f8b03d1e750858721a'
 
   head do
     url 'https://beast-mcmc.googlecode.com/svn/trunk/'
