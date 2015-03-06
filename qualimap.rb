@@ -2,9 +2,9 @@ require 'formula'
 
 class Qualimap < Formula
   homepage 'http://qualimap.bioinfo.cipf.es/'
-  url 'http://qualimap.bioinfo.cipf.es/release/qualimap_v2.0.zip'
-  sha1 '49cc9681601631041e7f44c3e9cd232e4be50cf6'
-
+  url 'https://bitbucket.org/kokonech/qualimap/downloads/qualimap-build-06-03-15.tar.gz'
+  sha1 'fc0a227d2739a1e92b95cfabee074dc54d4c7ce6'
+  version '06-03-15'
   depends_on 'r' => :optional
 
   def install
