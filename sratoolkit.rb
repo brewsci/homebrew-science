@@ -48,6 +48,10 @@ class Sratoolkit < Formula
     end
 
     inreplace "tools/copycat/Makefile", "-smagic-static", "-smagic"
+
+    # Fix the error: undefined reference to `SZ_encoder_enabled'
+    inreplace "tools/pacbio-load/Makefile", "-shdf5 ", "-shdf5 -ssz "
+
     system "./configure", "--prefix=#{prefix}", "--with-ngs-sdk-prefix=#{prefix}", "--with-ncbi-vdb-sources=#{include}/ncbi-vdb", "--with-ncbi-vdb-build=#{prefix}", "--prefix=#{prefix}", "--build=#{prefix}"
     system "make"
     system "make", "install"
