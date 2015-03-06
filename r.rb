@@ -13,11 +13,11 @@ class R < Formula
   revision 1
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    revision 2
-    sha1 "4adae88cc1e44d1a29e1b2a77e46cb0e8360f0ac" => :yosemite
-    sha1 "98d84a17648b3d51094594dbd148a8e5139043b3" => :mavericks
-    sha1 "6c4df124afaf389458c89b1ee322feb2a56910fa" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    revision 3
+    sha256 "e54773280cddf8a096b2457725ca1e4932002d501a56ea52c633183cff49ad46" => :yosemite
+    sha256 "f6a31b1f3583195b135851cdb237300fbc0906e8ffe4bfd128db0764117419af" => :mavericks
+    sha256 "d67674d0e7d2bca77d70fcc7fa0753113253af02064af0c29fa6868c7ee904e3" => :mountain_lion
   end
 
   head do
