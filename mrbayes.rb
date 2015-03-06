@@ -9,11 +9,11 @@ class Mrbayes < Formula
   head "https://mrbayes.svn.sourceforge.net/svnroot/mrbayes/trunk/"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "6b0d27db5b1f239bfce612bb9747af35227f9812" => :yosemite
-    sha1 "50aa531fa4ab7328d547280786150f5a39664260" => :mavericks
-    sha1 "993066f9ca815ae3680d5a142772500d5998f4b3" => :mountain_lion
+    sha256 "d8753bb5ad04d7f5481c5744af4ff78235751e8a936040d13e666d870b2af641" => :yosemite
+    sha256 "39f07a0d316efb2af118d66961607b56457d7a140fad57a0cd26a2c3382fd4d6" => :mavericks
+    sha256 "acd69ab3f139618ab5404e85cbebc3b11bdf413edfc930e13f7d79d1ff1492cc" => :mountain_lion
   end
 
   option "with-beagle", "Build with BEAGLE library support"
