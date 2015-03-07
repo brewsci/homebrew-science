@@ -3,8 +3,8 @@ class Trinity < Formula
   # doi "10.1038/nbt.1883"
   # tag "bioinformatics"
 
-  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/v2.0.4.tar.gz"
-  sha1 "c61ea4871d2b5e45f9df9e547c20ec5da0cb340b"
+  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/v2.0.6.tar.gz"
+  sha256 "e0c3ec885fdcfe3422ea492372518ddf5d1aed3daa187c69c4254516b0845de1"
   head "https://github.com/trinityrnaseq/trinityrnaseq.git"
 
   bottle do
@@ -17,9 +17,13 @@ class Trinity < Formula
   depends_on "bowtie"
   depends_on "express"
   depends_on "samtools"
-  depends_on :java => "1.7"
+  depends_on :java
 
   needs :openmp
+
+  fails_with :llvm do
+    cause 'error: unrecognized command line option "-std=c++0x"'
+  end
 
   def install
     ENV.deparallelize
