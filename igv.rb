@@ -3,8 +3,8 @@ class Igv < Formula
   # tag "bioinformatics"
   # doi "10.1093/bib/bbs017"
   head "https://github.com/broadinstitute/IGV.git"
-  url "http://www.broadinstitute.org/igv/projects/downloads/IGV_2.3.40.zip"
-  sha1 "5060e7d9de990b83bbf7ceb8103baffb9409c010"
+  url "http://www.broadinstitute.org/igv/projects/downloads/IGV_2.3.41.zip"
+  sha256 "dc99f90509568c1085371e477e3b2a7a917c42156086c794677cd3f26a29dff3"
 
   def install
     inreplace "igv.sh", /^prefix=.*/, "prefix=#{libexec}"
