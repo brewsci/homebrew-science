@@ -1,5 +1,3 @@
-require "formula"
-
 class Swetest < Formula
   homepage "http://www.astro.com/swisseph/"
   url "http://www.astro.com/ftp/swisseph/swe_unix_src_2.00.00.tar.gz"
@@ -12,7 +10,7 @@ class Swetest < Formula
 
   resource "sefstars" do
     url "ftp://ftp.astro.com/pub/swisseph/ephe/sefstars.txt"
-    sha1 "5837ba3c07ffde6ea37ad3c6083693359f8f7c2c"
+    sha256 "8bac1c03a5aea691f12a57f7998fd044c8c95206d29328092cbe3134de636ac4"
   end
 
   resource "seas" do
