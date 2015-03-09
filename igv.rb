@@ -15,6 +15,6 @@ class Igv < Formula
 
   test do
     (testpath/"script").write "exit"
-    system "igv", "-b", "script", "|grep", "-q", "IGV"
+    assert_match "IGV", shell_output("igv -b script")
   end
 end
