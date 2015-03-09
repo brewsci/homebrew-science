@@ -14,6 +14,7 @@ class Slepc < Formula
   deprecated_option "complex" => "with-complex"
 
   option "with-complex", "Use complex version by default. Otherwise, real-valued version will be symlinked"
+  option "without-check", "Skip run-time tests (not recommended)"
 
   depends_on "petsc" => :build
   depends_on :mpi => [:cc, :f90]
@@ -36,14 +37,15 @@ class Slepc < Formula
     ENV["PETSC_DIR"] = "#{Formula["petsc"].opt_prefix}/#{petsc_arch_real}"
     system "./configure", "--prefix=#{prefix}/#{petsc_arch_real}", *args
     system "make"
-    system "make", "test"
+    system "make", "test" if build.with? "check"
     system "make", "install"
 
     # complex
     ENV["PETSC_DIR"] = "#{Formula["petsc"].opt_prefix}/#{petsc_arch_complex}"
     system "./configure", "--prefix=#{prefix}/#{petsc_arch_complex}", *args
     system "make"
-    system "make", "test"
+    # TODO investigate why complex tests fail to run on Linuxbrew
+    system "make", "test"  if build.with? "check"
     system "make", "install"
 
     ohai "Test results are in ~/Library/Logs/Homebrew/slepc. Please check."
@@ -53,7 +55,7 @@ class Slepc < Formula
 
     include.install_symlink Dir["#{prefix}/#{petsc_arch}/include/*.h"],
                             "#{prefix}/#{petsc_arch}/finclude", "#{prefix}/#{petsc_arch}/slepc-private"
-    lib.install_symlink Dir["#{prefix}/#{petsc_arch}/lib/*.a"], Dir["#{prefix}/#{petsc_arch}/lib/*.dylib"]
+    lib.install_symlink Dir["#{prefix}/#{petsc_arch}/lib/*.*"]
     prefix.install_symlink "#{prefix}/#{petsc_arch}/conf"
     doc.install "docs/slepc.pdf", Dir["docs/*.htm"], "docs/manualpages"  # They're not really man pages.
     share.install "share/slepc/datafiles"
