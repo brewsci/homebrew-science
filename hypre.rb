@@ -71,6 +71,13 @@ class Hypre < Formula
       config_args << "--without-fei" if build.without? "fei"
       config_args << "--without-mli" if build.without? "mli"
 
+      # on Linux Homebrew formulae will fail to build
+      # shared libraries without the dependent static libraries
+      # compiled with -fPIC
+      ENV.prepend "CFLAGS", "-fPIC"
+      ENV.prepend "CXXFLAGS", "-fPIC"
+      ENV.prepend "FFLAGS", "-fPIC"
+
       if build.with? :mpi
         ENV["CC"] = ENV["MPICC"]
         ENV["CXX"] = ENV["MPICXX"]
