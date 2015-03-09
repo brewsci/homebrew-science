@@ -35,8 +35,8 @@ class SuperluDist < Formula
       ARCHFLAGS    = cr
       RANLIB       = true
       CC           = #{ENV["MPICC"]}
-      CFLAGS       = -O2
-      NOOPTS       =
+      CFLAGS       = -fPIC -O2
+      NOOPTS       = -fPIC
       FORTRAN      = #{ENV["MPIF77"]}
       F90FLAGS     = -O2
       LOADER       = #{ENV["MPIF77"]}
