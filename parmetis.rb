@@ -22,7 +22,8 @@ class Parmetis < Formula
   patch :DATA
 
   def install
-    ENV["LDFLAGS"] = "-L#{Formula["metis"].lib} -lmetis"
+    ENV["LDFLAGS"] = "-L#{Formula["metis"].lib} -lmetis -lm"
+
     system "make", "config", "prefix=#{prefix}", "shared=1"
     system "make", "install"
     share.install "Graphs" # Sample data for test
