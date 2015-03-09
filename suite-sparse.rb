@@ -33,12 +33,23 @@ class SuiteSparse < Formula
        "SuiteSparse_config/SuiteSparse_config.mk"
 
     make_args = ["INSTALL_LIB=#{lib}", "INSTALL_INCLUDE=#{include}"]
-    make_args << "BLAS=" + ((build.with? "openblas") ? "-L#{Formula["openblas"].opt_lib} -lopenblas" : "-framework Accelerate")
+    if build.with? "openblas"
+      make_args << "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"
+    elsif OS.mac?
+      make_args << "BLAS=-framework Accelerate"
+    else
+      make_args << "BLAS=-lblas -llapack"
+    end
+
     make_args << "LAPACK=$(BLAS)"
     make_args += ["SPQR_CONFIG=-DHAVE_TBB",
                   "TBB=-L#{Formula["tbb"].opt_lib} -ltbb"] if build.with? "tbb"
     make_args += ["METIS_PATH=",
                   "METIS=-L#{Formula["metis4"].opt_lib} -lmetis"] if build.with? "metis4"
+
+    # Add some flags for linux
+    # -DNTIMER is needed to avoid undefined reference to SuiteSparse_time
+    make_args << "CF=-fPIC -O3 -fno-common -fexceptions -DNTIMER $(CFLAGS)" if not(OS.mac?)
 
     system "make", "default", *make_args  # Also build demos.
     lib.mkpath
