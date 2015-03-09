@@ -1,7 +1,7 @@
 class Trilinos < Formula
   homepage "http://trilinos.sandia.gov"
   url "http://trilinos.org/oldsite/download/files/trilinos-11.12.1-Source.tar.bz2"
-  sha1 "f24f401e2182003eb648d47a8e50a6322fdb79ec"
+  sha256 "a41539414529c65905260b3befe3aee4f1dd1015ff719f0f6b5a10902d576fda"
   head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
 
   option "with-teko",  "Enable the Teko secondary-stable package"
@@ -25,6 +25,8 @@ class Trilinos < Formula
 
   depends_on "cmake"        => :build
   depends_on "pkg-config"   => :build
+
+  depends_on "openblas" => :optional
 
   depends_on "adol-c"       => :recommended
   depends_on "boost"        => :recommended
@@ -88,6 +90,22 @@ class Trilinos < Formula
                -DTPL_ENABLE_Matio=OFF
                -DSacado_ENABLE_TESTS=OFF]
 
+    # constrain Cmake to look for libraries in homebrew's prefix
+    args << "-DCMAKE_PREFIX_PATH=#{HOMEBREW_PREFIX}"
+
+    # on Linux Trilinos might pick up wrong MPI.
+    # Can't specify "open-mpi" location as other (mpich)
+    # implementations may be used.
+    args << "-DMPI_BASE_DIR:PATH=#{HOMEBREW_PREFIX}" if build.with? "mpi"
+
+    # BLAS / LAPACK support
+    if build.with? "openblas"
+      args << "-DBLAS_LIBRARY_NAMES=openblas"
+      args << "-DBLAS_LIBRARY_DIRS=#{Formula["openblas"].opt_lib}"
+      args << "-DLAPACK_LIBRARY_NAMES=openblas"
+      args << "-DLAPACK_LIBRARY_DIRS=#{Formula["openblas"].opt_lib}"
+    end
+
     args << "-DEpetraExt_ENABLE_TESTS=OFF" if build.with? "hypre"
 
     args << "-DTrilinos_ASSERT_MISSING_PACKAGES=OFF" if build.head?
@@ -128,8 +146,9 @@ class Trilinos < Formula
     args << onoff("-DTPL_ENABLE_HWLOC:BOOL=",       (build.with? "hwloc"))
     args << onoff("-DTPL_ENABLE_HYPRE:BOOL=",       (build.with? "hypre"))
 
-    # METIS conflicts with ParMETIS in Trilinos config, see TPLsList.cmake in the source folder
-    if (build.with? "metis") && (build.without? "parmetis")
+    # Even though METIS seems to conflicts with ParMETIS in Trilinos config (see TPLsList.cmake in the source folder),
+    # we still need to provide METIS_INCLUDE_DIRS so that metis.h is picked up on Linuxbrew.
+    if build.with? "metis"
       args << "-DTPL_ENABLE_METIS:BOOL=ON"
       args << "-DMETIS_LIBRARIES=#{Formula["metis"].opt_lib}/libmetis.a"
       args << "-DMETIS_INCLUDE_DIRS=#{Formula["metis"].opt_include}"
@@ -137,7 +156,14 @@ class Trilinos < Formula
       args << "-DTPL_ENABLE_METIS:BOOL=OFF"
     end
 
-    args << onoff("-DTPL_ENABLE_MUMPS:BOOL=",       (build.with? "mumps"))
+    # A hack for mumps 5.0
+    # TODO: use extra LIBRARY_NAMES with 5.0 only?
+    if build.with? "mumps"
+      args << "-DTPL_ENABLE_MUMPS:BOOL=ON"
+      args << "-DMUMPS_LIBRARY_DIRS=#{Formula["mumps"].opt_prefix}"
+      args << "-DMUMPS_LIBRARY_NAMES=dmumps;pord;mumps_common"
+    end
+
     args << onoff("-DTPL_ENABLE_PETSC:BOOL=",       (build.with? "petsc"))
     args << onoff("-DTPL_ENABLE_HDF5:BOOL=",        (build.with? "hdf5"))
 
