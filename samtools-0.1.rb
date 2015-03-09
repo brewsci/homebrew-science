@@ -52,6 +52,6 @@ class Samtools01 < Formula
   end
 
   test do
-    system "#{bin}/samtools", "2>&1", "|grep", "-q", "samtools"
+    assert_match "samtools", shell_output("#{bin}/samtools 2>&1", 1)
   end
 end
