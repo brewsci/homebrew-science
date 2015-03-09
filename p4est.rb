@@ -19,6 +19,7 @@ class P4est < Formula
 
   depends_on :mpi => [:cc, :cxx, :f77, :f90]
   depends_on :fortran
+  depends_on "openblas" => :optional
 
   def install
     ENV["CC"]       = ENV["MPICC"]
@@ -28,9 +29,18 @@ class P4est < Formula
     ENV["CFLAGS"]   = "-O2"
     ENV["CPPFLAGS"] = "-DSC_LOG_PRIORITY=SC_LP_ESSENTIAL"
 
+    if build.with? "openblas"
+      blas = "BLAS_LIBS=-L#{Formula['openblas'].opt_lib} -lopenblas"
+    elsif OS.mac?
+      blas = "BLAS_LIBS=-framework Accelerate"
+    else
+      blas = "BLAS_LIBS=-lblas -llapack"
+    end
+
     system "./configure", "--enable-mpi",
                           "--enable-shared",
                           "--disable-vtk-binary",
+                          "#{blas}",
                           "--prefix=#{prefix}"
 
     system "make"
