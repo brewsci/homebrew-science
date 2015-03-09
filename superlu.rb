@@ -21,10 +21,11 @@ class Superlu < Formula
   def install
     ENV.deparallelize
     cp "MAKE_INC/make.mac-x", "./make.inc"
-    make_args = ["RANLIB=true", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}",
+    make_args = ["RANLIB=true", "CC=#{ENV.cc}", "CFLAGS=-fPIC #{ENV.cflags}",
                  "FORTRAN=#{ENV.fc}", "FFLAGS=#{ENV.fcflags}",
                  "SuperLUroot=#{buildpath}",
-                 "SUPERLULIB=$(SuperLUroot)/lib/libsuperlu.a"]
+                 "SUPERLULIB=$(SuperLUroot)/lib/libsuperlu.a",
+                 "NOOPTS=-fPIC"]
 
     make_args << ((build.with? "openblas") ? "BLASLIB=-L#{Formula["openblas"].opt_lib} -lopenblas" : "BLASLIB=-framework Accelerate")
 
