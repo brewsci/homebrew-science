@@ -5,11 +5,11 @@ class SuperluDist < Formula
   revision 1
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    revision 1
-    sha1 "98b312752cc9088b8e18a25bfb941761fd280bcf" => :yosemite
-    sha1 "db0a8bc76629cf3407d3e59209c7dad7344f42b8" => :mavericks
-    sha1 "2294ef2401f6d1a6c2c2dd608ae8aa82ea1efe67" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    revision 2
+    sha256 "4919b574eb4ac76c89fce13af6d9b0bf552aca676203b936619361a6687c3679" => :yosemite
+    sha256 "f220fe2183c126df7fcaa352e4fe13e926a0f51c1462ba90444ec2ab26408db1" => :mavericks
+    sha256 "8e9207d5533a9166ba9e870661d53689c60a088e9627ed4348883d343c675395" => :mountain_lion
   end
 
   depends_on :fortran
