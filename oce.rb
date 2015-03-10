@@ -1,9 +1,7 @@
-require "formula"
-
 class Oce < Formula
   homepage "https://github.com/tpaviot/oce"
-  url "https://github.com/tpaviot/oce/archive/OCE-0.16.1.tar.gz"
-  sha256 "d31030c8da4a1b33f767d0d59895a995c8eabc8fc65cbe0558734f6021ea2f57"
+  url "https://github.com/tpaviot/oce/archive/OCE-0.17.tar.gz"
+  sha256 "9ab0dc2a2d125b46cef458b56c6d171dfe2218d825860d616c5ab17994b8f74d"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -32,7 +30,7 @@ class Oce < Formula
     cmake_args << "-DOCE_MULTITHREAD_LIBRARY:STRING=TBB" if build.with? "tbb"
     cmake_args << "-DFREETYPE_INCLUDE_DIRS=#{Formula["freetype"].opt_include}/freetype2"
 
-    %w{freeimage gl2ps}.each do |feature|
+    %w[freeimage gl2ps].each do |feature|
       cmake_args << "-DOCE_WITH_#{feature.upcase}:BOOL=ON" if build.with? feature
     end
 
@@ -47,7 +45,13 @@ class Oce < Formula
     system "make", "install/strip"
   end
 
+  def caveats; <<-EOF.undent
+    Some apps will require this enviroment variable:
+      CASROOT=#{opt_share}/oce-#{version}
+    EOF
+  end
+
   test do
-    "1\n"==`#{bin}/DRAWEXE -c \"pload ALL\"`
+    "1\n"==`CASROOT=#{share}/oce-#{version} #{bin}/DRAWEXE -v -c \"pload ALL\"`
   end
 end
