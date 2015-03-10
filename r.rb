@@ -63,7 +63,6 @@ class R < Formula
       ENV.remove "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
     else
       args << "--enable-R-framework"
-      ENV.append_to_cflags "-D__ACCELERATE__" if build.without? "openblas"
 
       # Disable building against the Aqua framework with CLT >= 6.0.
       # See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63651
@@ -85,6 +84,7 @@ class R < Formula
       ENV.append "LDFLAGS", "-L#{Formula["openblas"].opt_lib}"
     elsif build.with? "accelerate"
       args << "--with-blas=-framework Accelerate" << "--with-lapack"
+      ENV.append_to_cflags "-D__ACCELERATE__" if ENV.compiler != :clang
       # Fall back to Rblas without-accelerate or -openblas
     end
 
