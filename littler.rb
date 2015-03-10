@@ -2,9 +2,10 @@ class Littler < Formula
   homepage "http://dirk.eddelbuettel.com/code/littler.html"
   # tag "math"
 
+  head "https://github.com/eddelbuettel/littler.git"
   url "http://dirk.eddelbuettel.com/code/littler/littler-0.2.2.tar.gz"
   sha1 "8008621e9448cbb29786457046a400debaed2f21"
-  head "https://github.com/eddelbuettel/littler.git"
+  revision 1
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
