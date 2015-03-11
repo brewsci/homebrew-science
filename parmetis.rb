@@ -4,11 +4,12 @@ class Parmetis < Formula
   sha1 "e0df69b037dd43569d4e40076401498ee5aba264"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "14ab69ae76082ee43a4dc7a96ec5c2bb637b7204" => :yosemite
-    sha1 "a7cbc89bad6cb36555514b08f46f811a9ce97d71" => :mavericks
-    sha1 "04e981819066f2fd09d99d25ff422736a0385982" => :mountain_lion
+    revision 1
+    sha256 "e9fe981b16ea4e753f20ae1cc129022d1487b2b3b79e21394d677f3b5436ee56" => :yosemite
+    sha256 "b8e894f151784f431058f77cbf1b597f0e1fd9b16932cc20cb814cdc280d971f" => :mavericks
+    sha256 "a8dabf7f98547bc43fdfe8f9e120d12c8a68552b8f61e9c88d6f4ed631b95d44" => :mountain_lion
   end
 
   # METIS 5.* is required. It comes bundled with ParMETIS.
