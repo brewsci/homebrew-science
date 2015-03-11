@@ -4,10 +4,11 @@ class P4est < Formula
   sha1 "ed8737d82ef4c97b9dfa2fd6e5134226f24c9b0b"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "1bf6edb568ebe582ec59898bfd73e3e98c0ae590" => :yosemite
-    sha1 "1f3d473574d2e3f7b494dbd10563b3e2ed0d6dd1" => :mavericks
-    sha1 "b976a1732e4e9f79eeb20822f95c983da560d4f0" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    revision 1
+    sha256 "c103995bfa2358b28151e9047e4c56c10eaf653b82a1afb90cf2f6952bfededb" => :yosemite
+    sha256 "c92f14f4493858e9d759a773ba5ec8c113a13e0e500ce19f264c6ba37926612c" => :mavericks
+    sha256 "585ae796954969ae2ccba1e90aebaed7385b457addbe0ec337f78b73549b350e" => :mountain_lion
   end
 
   head do
