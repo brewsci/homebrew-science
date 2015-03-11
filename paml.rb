@@ -3,7 +3,7 @@ require "formula"
 class Paml < Formula
   homepage "http://abacus.gene.ucl.ac.uk/software/paml.html"
   url "http://abacus.gene.ucl.ac.uk/software/paml4.8a.tgz"
-  sha1 "6160f441577a2bb82afd793e7691c42bd5491376"
+  sha256 "e45f37e1cfc1c24de276266a7bc2926fc12eac9602c56c1c025bc8f6dfb737f3"
   version "4.8a"
 
   bottle do
