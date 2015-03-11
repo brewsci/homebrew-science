@@ -17,9 +17,23 @@ class Openblas < Formula
   keg_only :provided_by_osx
 
   def install
+    ENV["TARGET"] = "CORE2" if build.bottle?
+
     # Must call in two steps
     system "make", "FC=#{ENV['FC']}", "libs", "netlib", "shared"
     system "make", "FC=#{ENV['FC']}", "tests"
     system "make", "PREFIX=#{prefix}", "install"
+  end
+
+  def caveats
+    if !installed? || Tab.for_formula(self).bottle?
+      command = installed? ? "reinstall" : "install"
+      <<-EOS.undent
+        Prebuilt openblas bottles are not optimized for your microarchitecture,
+        so an openblas built from source may be faster than a bottle.
+        To get the best openblas performance, #{command} openblas with
+          brew #{command} openblas --build-from-source
+      EOS
+    end
   end
 end
