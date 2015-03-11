@@ -6,12 +6,12 @@ class Hypre < Formula
   revision 1
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 1
-    sha1 "ef5ba3232489e3687e408c75ec7bf13b4ee6789d" => :yosemite
-    sha1 "62faf5bcc491c75570a7e8c4cb317d6248ac58f1" => :mavericks
-    sha1 "827d4f990df668f6a8047cced622c7d42b34b23c" => :mountain_lion
+    revision 2
+    sha256 "f0a78608401a2273d25d118cc7df8cd0262e420a901cb17afa7a64ddc007a954" => :yosemite
+    sha256 "e5963a87667dcd156b484f711bac8cd41ac6e418f63cceb2fd7506c43149e997" => :mavericks
+    sha256 "70d59ae8866ae5b72edd543b32e75862b9f03eb0cc71468fefd7e0bd32fa8fe2" => :mountain_lion
   end
 
   depends_on :fortran => :recommended
