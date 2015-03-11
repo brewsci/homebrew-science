@@ -17,7 +17,6 @@ class Trinity < Formula
   depends_on "bowtie"
   depends_on "express"
   depends_on "samtools"
-  depends_on :java
 
   needs :openmp
 
