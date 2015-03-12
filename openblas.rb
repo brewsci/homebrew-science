@@ -5,10 +5,11 @@ class Openblas < Formula
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "6c88c2ccc2170546b67e842d69b60a9efdce8eb7" => :yosemite
-    sha1 "1f894d3979e10be8d20fb9a4ff55e342f224167f" => :mavericks
-    sha1 "211c441c67c440e400c6b6e18dfb373dd5c0601b" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    revision 1
+    sha256 "fcb647e46fdbfab51d161a0bdb95fcc2be094d710215682fa6e75cdc8f6a0d85" => :yosemite
+    sha256 "f17524a925427db8e23c9f7fc2b5e45f4ff7711ce4d4bc8d3eea8d6cd2869408" => :mavericks
+    sha256 "cf1ee9e242dc841843fdde936a7d21b41f89e4c93f287ef8cae59da166f5c405" => :mountain_lion
   end
 
   depends_on :fortran
