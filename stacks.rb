@@ -3,8 +3,8 @@ class Stacks < Formula
   #doi "10.1111/mec.12354"
   #tag "bioinformatics
 
-  url "http://creskolab.uoregon.edu/stacks/source/stacks-1.23.tar.gz"
-  sha1 "392607a195191d3f11f1db70a665ba33e9df0551"
+  url "http://creskolab.uoregon.edu/stacks/source/stacks-1.28.tar.gz"
+  sha256 "1ffd9357e29e09fd8bdc85a03e13b2c615ef6b5a9394bcef031386da0e155b65"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
