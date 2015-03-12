@@ -6,11 +6,12 @@ class Parsnp < Formula
   head "https://github.com/marbl/parsnp.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "af0037b92270e74ceb80b73786ef48eb59b84631" => :yosemite
-    sha1 "7c06289d5ed3f3a82ca3249f3be52e99076afc7c" => :mavericks
-    sha1 "7d6a77928bef48b20e3a7a83704949a161fe0391" => :mountain_lion
+    revision 1
+    sha256 "17db88e2d32cf5305289c6f01efc7c5aa84322b320c88a5fb3b1edb08af38d66" => :yosemite
+    sha256 "2af68fb53847adc2dfaccae9de21298f158e818afb2672c64d0b092298440030" => :mavericks
+    sha256 "a29141c0299d5fc72be88c9b29b1501ecba66b29d79e3c756d70a13c1bd1bac2" => :mountain_lion
   end
 
   if OS.mac?
