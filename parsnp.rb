@@ -15,10 +15,10 @@ class Parsnp < Formula
 
   if OS.mac?
     url "https://github.com/marbl/parsnp/releases/download/v1.1/parsnp-OSX64-v1.1.tar.gz"
-    sha1 "230387082702a57ad41989507a8c1f7c63d4dfd0"
+    sha256 "e11dd913b9a4ba1a87c29fd38b101119ce0dda3180fdc4ec0382bc4e8438366d"
   elsif OS.linux?
     url "https://github.com/marbl/parsnp/releases/download/v1.1/parsnp-Linux64-v1.1.tar.gz"
-    sha1 "443d2db8b498081b1c608ce8641d25dfcc39ad48"
+    sha256 "d530b2be99b9a21acaa4e66e00adc7e1bd602440c67e86c73b8821e5327e8813"
   end
 
   def install
