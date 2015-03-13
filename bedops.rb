@@ -11,9 +11,9 @@ class Bedops < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "2b904d983c4935432f5023915ce5fd02dc1b016c" => :yosemite
-    sha1 "e5d5a87d513f7b071ae24aa5fb15b7b2a0a31ab7" => :mavericks
-    sha1 "fe7fc050d20c08040eb6e6b4878c9390b74a40a5" => :mountain_lion
+    sha256 "6cc75b37079619bf5db8293b1963308dca814b30e86d914e364e5c702cd0de55" => :yosemite
+    sha256 "6e8cccfcb3b4a84fbeace9f63daf691c0dae635afbf0017c1b9dae1961c226a2" => :mavericks
+    sha256 "996564dabc7e246a7f66932a019fd0697dfdf2d48ae8b12e269b2ed4296b4f6d" => :mountain_lion
   end
 
   env :std
