@@ -15,7 +15,7 @@ class Trinity < Formula
   end
 
   depends_on "bowtie"
-  depends_on "express"
+  depends_on "express" => :recommended
   depends_on "samtools"
 
   needs :openmp
