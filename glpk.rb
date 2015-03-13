@@ -12,9 +12,12 @@ class Glpk < Formula
     sha1 "0d02d5430580f440c1477996dffa596871931796" => :mountain_lion
   end
 
+  depends_on "gmp" => :recommended
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    args = %W[--disable-dependency-tracking --prefix=#{prefix}]
+    args << "--with-gmp" if build.with? "gmp"
+    system "./configure", *args
     system "make"
     system "make", "check"
     system "make", "install"
