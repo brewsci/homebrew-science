@@ -131,8 +131,8 @@ class R < Formula
       system "make", "install"
 
       if OS.mac?
-        lib.install_symlink prefix/"R.framework/Versions/3.1/Resources/lib/libRmath.dylib"
-        include.install_symlink prefix/"R.framework/Versions/3.1/Resources/include/Rmath.h"
+        lib.install_symlink Dir[prefix/"R.framework/Versions/[0-9]*/Resources/lib/libRmath.dylib"]
+        include.install_symlink Dir[prefix/"R.framework/Versions/[0-9]*/Resources/include/Rmath.h"]
       end
     end
   end
@@ -147,6 +147,12 @@ class R < Formula
 
   def caveats
     if build.without? "librmath-only" then <<-EOS.undent
+      If you would like your installed R packages to survive minor R upgrades,
+      you can run:
+        mkdir -p ~/Library/R/#{xy}/library
+      so R will preferentially install packages under your home directory
+      instead of in the Cellar.
+
       To enable rJava support, run the following command:
         R CMD javareconf JAVA_CPPFLAGS=-I/System/Library/Frameworks/JavaVM.framework/Headers
       If you've installed a version of Java other than the default, you might need to instead use:
@@ -154,6 +160,10 @@ class R < Formula
         (where <version> can be found by running `java -version` or `locate jni.h`)
       EOS
     end
+  end
+
+  def xy
+    stable.version.to_s.slice(/(\d.\d)/)
   end
 end
 
