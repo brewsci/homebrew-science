@@ -3,8 +3,8 @@ class Megahit < Formula
   #doi "arXiv:1409.7208"
   #tag "bioinformatics"
 
-  url "https://github.com/voutcn/megahit/archive/v0.1.3.tar.gz"
-  sha1 "8a5d48f1a38ce352f3440b7795538679dafb0602"
+  url "https://github.com/voutcn/megahit/archive/v0.2.0-a.tar.gz"
+  sha256 "5b30a163027b248bf2d96c766c3bcf1f4fe50466e368a3844b3c4e0a2491d8c4"
 
   head "https://github.com/voutcn/megahit.git"
 
@@ -16,12 +16,26 @@ class Megahit < Formula
     sha1 "d728fe0a0f9a1041822befe6875b7e3e4591bb7b" => :mountain_lion
   end
 
+  fails_with :llvm do
+    build 2336
+    cause <<-EOS.undent
+    llvm-g++ does not support -mpopcnt, -std=c++0x
+    options
+    EOS
+  end
+
   # Fix error: 'omp.h' file not found
   needs :openmp
 
   def install
     system "make"
-    bin.install "megahit"
+    bin.install ["megahit",
+                 "megahit_assemble",
+                 "megahit_iter_k124",
+                 "megahit_iter_k61",
+                 "megahit_iter_k92",
+                 "sdbg_builder_cpu"]
+
     doc.install "ChangeLog.md", "README.md"
   end
 
