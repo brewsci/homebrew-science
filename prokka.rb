@@ -1,14 +1,14 @@
-require "formula"
-
 class Prokka < Formula
   homepage "http://www.vicbioinformatics.com/software.prokka.shtml"
   #doi "10.1093/bioinformatics/btu153"
-  url "http://www.vicbioinformatics.com/prokka-1.10.tar.gz"
-  sha1 "46ece37d2d5c5ca2f3e740ffcdf9bdafaab92820"
+  url "http://www.vicbioinformatics.com/prokka-1.11.tar.gz"
+  sha256 "ee18146c768fe6ac8e6c9e28bb35f686a5b79d5d5362c4b7665f6a33978101ae"
 
   depends_on "Bio::Perl" => :perl
   depends_on "XML::Simple" => :perl
+  depends_on "Time::Piece" => :perl if OS.linux?
   depends_on "blast"
+  depends_on "infernal"
   depends_on "hmmer"
   depends_on "aragorn"
   depends_on "prodigal"
@@ -16,7 +16,6 @@ class Prokka < Formula
   depends_on "parallel"
 
   depends_on "barrnap" => :recommended # fast rRNA searching using NHMMER
-  depends_on "infernal" => :recommended # for --rfam / non-coding RNA predictions
 
   # These optional dependencies have no formulae.
 =begin
