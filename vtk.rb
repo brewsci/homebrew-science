@@ -2,9 +2,9 @@ require "formula"
 
 class Vtk < Formula
   homepage "http://www.vtk.org"
-  url "http://www.vtk.org/files/release/6.1/VTK-6.1.0.tar.gz"
-  mirror "http://fossies.org/linux/misc/VTK-6.1.0.tar.gz"
-  sha1 "91d1303558c7276f031f8ffeb47b4233f2fd2cd9"
+  url "http://www.vtk.org/files/release/6.2/VTK-6.2.0.tar.gz"
+  mirror "http://fossies.org/linux/misc/VTK-6.2.0.tar.gz"
+  sha1 "bb683c00bc0668e0b175a029696475dd94958646"
   revision 1
 
   bottle do
