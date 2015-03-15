@@ -9,11 +9,10 @@ class Megahit < Formula
   head "https://github.com/voutcn/megahit.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    cellar :any
-    sha1 "98659f38c059b1196c92263440b25ee3e2b7f301" => :yosemite
-    sha1 "045e00905aff83cabb3794e2f96940439a7c5caf" => :mavericks
-    sha1 "d728fe0a0f9a1041822befe6875b7e3e4591bb7b" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "1062de33a9f763da8b0c5831a57fb242522fee537a738b7e041f4dad0096f81f" => :yosemite
+    sha256 "50d914fb564f32f4b14a71f66f4613e022f51a62722265575819b71d3a05b2d8" => :mavericks
+    sha256 "43c1b07fb07133830d554d775eb9e7feeae3c73b8ce34599ad7fa742a2f30f47" => :mountain_lion
   end
 
   fails_with :llvm do
