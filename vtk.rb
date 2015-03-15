@@ -1,18 +1,8 @@
-require "formula"
-
 class Vtk < Formula
   homepage "http://www.vtk.org"
   url "http://www.vtk.org/files/release/6.2/VTK-6.2.0.tar.gz"
   mirror "http://fossies.org/linux/misc/VTK-6.2.0.tar.gz"
   sha1 "bb683c00bc0668e0b175a029696475dd94958646"
-  revision 1
-
-  bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "745eb8b7c7eeb14b7226d7f075560625a8fd940d" => :yosemite
-    sha1 "3f38f458c793b8fcb3c8b08e1f6174ec74e05a15" => :mavericks
-    sha1 "795331c1241eaee7b41aec442e9d55cffb7ce84c" => :mountain_lion
-  end
 
   head "https://github.com/Kitware/VTK.git"
 
