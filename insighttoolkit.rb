@@ -5,10 +5,8 @@ class Insighttoolkit < Formula
   head "git://itk.org/ITK.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "d8f0ae99428ccaa70b18a4f229b911f51b670e9a" => :yosemite
-    sha1 "38f1651c55c610d2456eef85f352b212f78c1db9" => :mavericks
-    sha1 "9ac11da3dd7f9a0556bb69a7634dbba871779ade" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "0a6b452dd71cfa0a1c521d7ef585280366fe7c055f2c7640ad8031c55cc3c693" => :yosemite
   end
 
   option :cxx11
