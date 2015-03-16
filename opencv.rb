@@ -3,11 +3,8 @@ class Opencv < Formula
   head "https://github.com/Itseez/opencv.git"
 
   stable do
-    url "https://github.com/Itseez/opencv/archive/2.4.10.1.tar.gz"
-    sha256 "1be191790a0e279c085ddce62f44b63197f2801e3eb66b5dcb5e19c52a8c7639"
-    # do not blacklist GStreamer
-    # https://github.com/Itseez/opencv/pull/3639
-    patch :DATA
+    url "https://github.com/Itseez/opencv/archive/2.4.11.tar.gz"
+    sha256 "b5331ea85a709b0fe871b1ce92e631afcd5ae822423863da6b559dd2cb7845bc"
   end
 
   bottle do
@@ -105,11 +102,9 @@ class Opencv < Formula
 
     if build.with? "cuda"
       ENV["CUDA_NVCC_FLAGS"] = "-Xcompiler -stdlib=libstdc++; -Xlinker -stdlib=libstdc++"
-      inreplace "cmake/FindCUDA.cmake",
-        "list(APPEND CUDA_LIBRARIES -Wl,-rpath \"-Wl,${_cuda_path_to_cudart}\")",
-        "#list(APPEND CUDA"
       args << "-DWITH_CUDA=ON"
       args << "-DCMAKE_CXX_FLAGS=-stdlib=libstdc++"
+      args << "-DCUDA_GENERATION=Kepler"
     else
       args << "-DWITH_CUDA=OFF"
     end
@@ -160,19 +155,3 @@ class Opencv < Formula
     assert_equal `./test`.strip, version.to_s
   end
 end
-
-
-__END__
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 1d7d78a..1e92c52 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -135,7 +135,7 @@ OCV_OPTION(WITH_NVCUVID        "Include NVidia Video Decoding library support"
- OCV_OPTION(WITH_EIGEN          "Include Eigen2/Eigen3 support"               ON)
- OCV_OPTION(WITH_VFW            "Include Video for Windows support"           ON   IF WIN32 )
- OCV_OPTION(WITH_FFMPEG         "Include FFMPEG support"                      ON   IF (NOT ANDROID AND NOT IOS))
--OCV_OPTION(WITH_GSTREAMER      "Include Gstreamer support"                   ON   IF (UNIX AND NOT APPLE AND NOT ANDROID) )
-+OCV_OPTION(WITH_GSTREAMER      "Include Gstreamer support"                   ON   IF (UNIX AND NOT ANDROID) )
- OCV_OPTION(WITH_GSTREAMER_0_10 "Enable Gstreamer 0.10 support (instead of 1.x)"   OFF )
- OCV_OPTION(WITH_GTK            "Include GTK support"                         ON   IF (UNIX AND NOT APPLE AND NOT ANDROID) )
- OCV_OPTION(WITH_IMAGEIO        "ImageIO support for OS X"                    OFF  IF APPLE )
