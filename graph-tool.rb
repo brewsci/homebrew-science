@@ -1,37 +1,43 @@
-require "formula"
-
 class GraphTool < Formula
   homepage "http://graph-tool.skewed.de/"
   url "http://downloads.skewed.de/graph-tool/graph-tool-2.2.35.tar.bz2"
   sha1 "f75a31dec45843beff18eb6b5ce8eda5a0645277"
-  head "https://github.com/count0/graph-tool.git"
   revision 1
 
-  option "without-cairo", "Build without cairo support"
+  head do
+    url "https://github.com/count0/graph-tool.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
 
+  option "without-cairo", "Build without cairo support for plotting"
+  option "with-gtk+3", "Build with gtk+3 support for interactive plotting"
+
+  cxx11 = MacOS.version < :mavericks ? ["c++11"] : []
+
+  depends_on "pkg-config" => :build
+  depends_on "boost" => cxx11
+  depends_on "cairomm" => cxx11 if build.with? "cairo"
+  depends_on "cgal" => cxx11
+  depends_on "google-sparsehash" => cxx11 + [:recommended]
+  depends_on "gtk+3" => :optional
+  depends_on "librsvg" => "with-gtk+3" if build.with? "gtk+3"
   depends_on :python => :recommended
   depends_on :python3 => :optional
 
-  depends_on "pkg-config" => :build
-  depends_on "cgal" => "c++11"
-  depends_on "google-sparsehash" => ["c++11", :recommended]
-  depends_on "cairomm" => "c++11" if build.with? "cairo"
-  depends_on "boost" => "c++11"
-  if build.head?
-    depends_on "autoconf"
-    depends_on "automake"
-    depends_on "libtool"
-  end
 
   if build.with? "python3"
-    depends_on "boost-python" => ["c++11", "with-python3"]
+    depends_on "boost-python" => cxx11 + ["with-python3"]
     depends_on "py3cairo" if build.with? "cairo"
+    depends_on "pygobject3" => "with-python3" if build.with? "gtk+3"
     depends_on "matplotlib" => :python3
     depends_on "numpy" => :python3
     depends_on "scipy" => :python3
   elsif build.with? "python"
-    depends_on "boost-python" => ["c++11", "with-python"]
+    depends_on "boost-python" => cxx11
     depends_on "py2cairo" if build.with? "cairo"
+    depends_on "pygobject3" if build.with? "gtk+3"
     depends_on "matplotlib" => :python
     depends_on "numpy" => :python
     depends_on "scipy" => :python
@@ -48,9 +54,10 @@ class GraphTool < Formula
     )
 
     if build.with? "python3"
+      xy = Language::Python.major_minor_version "python3"
       config_args << "PYTHON=python3"
       config_args << "LDFLAGS=-L#{`python3-config --prefix`.chomp}/lib"
-      config_args << "--with-python-module-path=#{lib}/python3.4/site-packages"
+      config_args << "--with-python-module-path=#{lib}/python#{xy}/site-packages"
     else
       config_args << "--with-python-module-path=#{lib}/python2.7/site-packages"
     end
