@@ -22,6 +22,13 @@ class Muscle < Formula
               "#include <mach/task_info.h>",
               "#include <mach/vm_statistics.h>\n#include <mach/task_info.h>"
 
+    # This patch makes 3.8.31 build on RHEL 7.x
+    # It ONLY affects Linux (in an "if Linux" clause in the 'mk' script)
+    # It is unnecessary to create a static binary
+    inreplace "src/mk",
+              "LINK_OPTS=-static",
+              "LINK_OPTS="
+
     cd "src" do
       system "make"
       bin.install "muscle"
