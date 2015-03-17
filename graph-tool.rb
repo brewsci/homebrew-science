@@ -22,10 +22,13 @@ class GraphTool < Formula
   depends_on "cgal" => cxx11
   depends_on "google-sparsehash" => cxx11 + [:recommended]
   depends_on "gtk+3" => :optional
-  depends_on "librsvg" => "with-gtk+3" if build.with? "gtk+3"
   depends_on :python => :recommended
   depends_on :python3 => :optional
 
+  if build.with? "gtk+3"
+    depends_on "gnome-icon-theme"
+    depends_on "librsvg" => "with-gtk+3"
+  end
 
   if build.with? "python3"
     depends_on "boost-python" => cxx11 + ["with-python3"]
