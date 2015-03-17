@@ -66,7 +66,7 @@ class GraphTool < Formula
     config_args << "--disable-sparsehash" if build.without? "google-sparsehash"
 
     system "./autogen.sh" if build.head?
-    system "./configure", "PYTHON_EXTRA_LDFLAGS=-L#{HOMEBREW_PREFIX}/bin", *config_args
+    system "./configure", "PYTHON_EXTRA_LDFLAGS= ", *config_args
     system "make", "install"
   end
 
