@@ -3,9 +3,8 @@ class Littler < Formula
   # tag "math"
 
   head "https://github.com/eddelbuettel/littler.git"
-  url "http://dirk.eddelbuettel.com/code/littler/littler-0.2.2.tar.gz"
-  sha1 "8008621e9448cbb29786457046a400debaed2f21"
-  revision 1
+  url "http://dirk.eddelbuettel.com/code/littler/littler-0.2.3.tar.gz"
+  sha256 "98cd741c68a5c8f65b06c96d2f56d3b44979b3990335e7869b002c005ef80ba7"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
