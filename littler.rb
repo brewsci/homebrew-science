@@ -8,9 +8,9 @@ class Littler < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "8938abe889b5c2ea4e5a1611b11a252524d76ee0be430b6e06c9508439799310" => :yosemite
-    sha256 "27c5323251f0bad99bd86b807420c6fcf1be3b1ceedb2aacc68c03f00fc88e80" => :mavericks
-    sha256 "51b1066d02e258659f7a58697d3bd51ad8a1eded6cdb8ff03241075c694bd107" => :mountain_lion
+    sha256 "5555cb0b3e80495e434e90096ea611adb278fabb45b0af234c84b88fbfc4468e" => :yosemite
+    sha256 "83a8a50ec9d4296e3b14542d5b2670260c998aec0c88489e2630286948661e09" => :mavericks
+    sha256 "be4c9192a9f8ef6096f148459c3c2fc9ecdd7ffe2ec5cd22619a962d0585a28f" => :mountain_lion
   end
 
   depends_on "r"
