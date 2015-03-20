@@ -30,6 +30,12 @@ class Dgtal < Formula
     sha1 "ef878791a0e31a006f88ea4366344108bf2a4db8"
   end
 
+  # Bugfix for libqglviewer discovery: https://github.com/DGtal-team/DGtal/issues/974
+  patch do
+    url "https://github.com/dcoeurjo/DGtal/commit/53f2f9621bcc3c2ae2aa19b65d1864a76fde61c9.diff"
+    sha1 "0fdb663defba542d63aec319def100a74f3b7a98"
+  end
+
   needs :cxx11
 
   def install
