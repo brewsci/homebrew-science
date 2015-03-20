@@ -12,6 +12,11 @@ class Circos < Formula
   depends_on "Readonly" => :perl
   depends_on "Set::IntSpan" => :perl
   depends_on "Text::Format" => :perl
+  depends_on "SVG" => :perl unless OS.mac?
+  depends_on "Statistics::Basic" => :perl unless OS.mac?
+  depends_on "Params::Validate" => :perl unless OS.mac?
+  depends_on "Math::Round" => :perl unless OS.mac?
+  depends_on "Regexp::Common" => :perl unless OS.mac?
 
   def install
     inreplace "bin/circos", "#!/bin/env perl", "#!/usr/bin/env perl"
