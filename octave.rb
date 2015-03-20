@@ -1,10 +1,9 @@
 class Octave < Formula
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "http://ftpmirror.gnu.org/octave/octave-3.8.1.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/octave/octave-3.8.1.tar.bz2"
-  sha1 "2951aeafe58d562672feb80dd8c3cfe0643a5087"
-  head "http://www.octave.org/hg/octave", :branch => "gui-release", :using => :hg
-  revision 1
+  url "http://ftpmirror.gnu.org/octave/octave-3.8.2.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/octave/octave-3.8.2.tar.bz2"
+  sha256 "83bbd701aab04e7e57d0d5b8373dd54719bebb64ce0a850e69bf3d7454f33bae"
+  head "http://www.octave.org/hg/octave", :branch => "default", :using => :hg
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -15,13 +14,6 @@ class Octave < Formula
   end
 
   stable do
-    # Allows the arrow keys to page through command history.
-    # See: https://savannah.gnu.org/bugs/?41337
-    patch do
-      url "https://savannah.gnu.org/bugs/download.php?file_id=30734"
-      sha1 "e8fb39b7ca1525d67e6d24f3c189b441b60fcdab"
-    end
-
     # Allows clang 3.5 to compile with a recent libc++ release.
     # See: https://savannah.gnu.org/bugs/?43298
     patch do
