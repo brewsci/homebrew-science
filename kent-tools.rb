@@ -4,6 +4,14 @@ class KentTools < Formula
   head "git://genome-source.cse.ucsc.edu/kent.git"
   sha256 "2d374e9ad20c5c092feb081a85c7a8d04fee8324c41d33751c931c747ca36a0f"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "0b436198f2e9041baa7e7982093376410176c39d9be953c8f7941112f7c57ee9" => :yosemite
+    sha256 "0dd2eb9c9167224e9fa0a0c78bd7d4cbdc9f3f9c708fe1f540c3345f3fcec07c" => :mavericks
+    sha256 "e16188ebf456226abf5dbe34e44fe33026864febd42e732b752f36e8e075867c" => :mountain_lion
+  end
+
   depends_on :mysql
   depends_on "libpng"
   depends_on "openssl"
