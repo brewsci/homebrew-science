@@ -6,6 +6,14 @@ class Readseq < Formula
   sha256 "966e7d4e1c4c6add588b3ead281c993c6a0c35b991a1ded53f81230a54ac6778"
   version "2.1.19"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "7994212c962f257a42b219e2e2093e99afb3c72bec99789cf1190b8cae415e66" => :yosemite
+    sha256 "2270a6f76d5dd12b4acff49385861d3c5067aba7b7728d0339caf39a1bf992b0" => :mavericks
+    sha256 "2012c2bc28373062fbad6d5b607ff395915a9af25684d689442b1d3ccb37991a" => :mountain_lion
+  end
+
   depends_on :java
 
   def install
