@@ -15,6 +15,7 @@ class GraphTool < Formula
   option "with-gtk+3", "Build with gtk+3 support for interactive plotting"
 
   cxx11 = MacOS.version < :mavericks ? ["c++11"] : []
+  with_pythons = build.with?("python3") ? ["with-python3"] : []
 
   depends_on "pkg-config" => :build
   depends_on "boost" => cxx11
@@ -24,30 +25,32 @@ class GraphTool < Formula
   depends_on "gtk+3" => :optional
   depends_on :python => :recommended
   depends_on :python3 => :optional
+  depends_on "boost-python" => cxx11 + with_pythons
 
   if build.with? "gtk+3"
     depends_on "gnome-icon-theme"
     depends_on "librsvg" => "with-gtk+3"
+    depends_on "pygobject3" => with_pythons
   end
 
-  if build.with? "python3"
-    depends_on "boost-python" => cxx11 + ["with-python3"]
-    depends_on "py3cairo" if build.with? "cairo"
-    depends_on "pygobject3" => "with-python3" if build.with? "gtk+3"
-    depends_on "matplotlib" => :python3
-    depends_on "numpy" => :python3
-    depends_on "scipy" => :python3
-  elsif build.with? "python"
-    depends_on "boost-python" => cxx11
+  if build.with? "python"
     depends_on "py2cairo" if build.with? "cairo"
-    depends_on "pygobject3" if build.with? "gtk+3"
     depends_on "matplotlib" => :python
     depends_on "numpy" => :python
     depends_on "scipy" => :python
   end
 
+  if build.with? "python3"
+    depends_on "py3cairo" if build.with? "cairo"
+    depends_on "matplotlib" => :python3
+    depends_on "numpy" => :python3
+    depends_on "scipy" => :python3
+  end
+
   def install
     ENV.cxx11
+
+    system "./autogen.sh" if build.head?
 
     config_args = %W(
       --disable-debug
@@ -56,22 +59,23 @@ class GraphTool < Formula
       --prefix=#{prefix}
     )
 
-    if build.with? "python3"
-      xy = Language::Python.major_minor_version "python3"
-      config_args << "PYTHON=python3"
-      config_args << "LDFLAGS=-L#{`python3-config --prefix`.chomp}/lib"
-      config_args << "--with-python-module-path=#{lib}/python#{xy}/site-packages"
-    else
-      config_args << "--with-python-module-path=#{lib}/python2.7/site-packages"
-    end
-
     config_args << "--disable-cairo" if build.without? "cairo"
     config_args << "--disable-sparsehash" if build.without? "google-sparsehash"
 
-    system "./autogen.sh" if build.head?
-    inreplace "configure", "libboost_python", "libboost_python3" if build.with? "python3"
-    system "./configure", "PYTHON_EXTRA_LDFLAGS= ", *config_args
-    system "make", "install"
+    Language::Python.each_python(build) do |python, version|
+      config_args_x = ["PYTHON=#{python}"]
+      config_args_x << "PYTHON_EXTRA_LDFLAGS=#{`#{python}-config --ldflags`.chomp}"
+      config_args_x << "--with-python-module-path=#{lib}/python#{version}/site-packages"
+
+      if python == "python3"
+        inreplace "configure", "libboost_python", "libboost_python3"
+      end
+
+      mkdir "build-#{python}-#{version}" do
+        system "../configure", *(config_args + config_args_x)
+        system "make", "install"
+      end
+    end
   end
 
   test do
@@ -82,6 +86,6 @@ class GraphTool < Formula
       v2 = g.add_vertex()
       e = g.add_edge(v1, v2)
     EOS
-    Language::Python.each_python(build) { |python, _version| system python, "test.py" }
+    Language::Python.each_python(build) { |python, _| system python, "test.py" }
   end
 end
