@@ -11,7 +11,7 @@ class Cufflinks < Formula
     sha256 "d1e789b72fe73af8cb46aa71feeedea398df2c4b1e9fce5604492a7945143487" => :mountain_lion
   end
 
-  depends_on "homebrew/versions/boost155"
+  depends_on "homebrew/versions/boost155" => :build
   depends_on "samtools-0.1"
   depends_on "eigen"
 
