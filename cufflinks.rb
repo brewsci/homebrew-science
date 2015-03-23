@@ -1,30 +1,22 @@
-require "formula"
-
 class Cufflinks < Formula
   homepage "http://cufflinks.cbcb.umd.edu/"
   url "http://cole-trapnell-lab.github.io/cufflinks/assets/downloads/cufflinks-2.2.1.tar.gz"
-  sha1 "2b1b3a8f12cd2821ffc74ffbdd55cb329f37cbbb"
+  sha256 "e8316b66177914f14b3a0c317e436d386a46c4c212ca1b2326f89f8a2e08d5ae"
 
-  depends_on "homebrew/versions/boost149"    => :build
-  depends_on "samtools-0.1" => :build
-  depends_on "eigen"    => :build
+  depends_on "homebrew/versions/boost155"
+  depends_on "samtools-0.1"
+  depends_on "eigen"
 
   def install
-    ENV['EIGEN_CPPFLAGS'] = "-I#{Formula["eigen"].opt_include}/eigen3"
-    ENV.append 'LIBS', '-lboost_system-mt -lboost_thread-mt'
-    cd 'src' do
-      # Fixes 120 files redefining `foreach` that break building with boost
-      # See http://seqanswers.com/forums/showthread.php?t=16637
-      `for x in *.cpp *.h; do sed 's/foreach/for_each/' $x > x; mv x $x; done`
-      inreplace 'common.h', 'for_each.hpp', 'foreach.hpp'
-    end
+    ENV["EIGEN_CPPFLAGS"] = "-I#{Formula["eigen"].opt_include}/eigen3"
+    ENV.append "LIBS", "-lboost_system-mt -lboost_thread-mt -lboost_serialization-mt"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
-    system 'make'
+    system "make"
     ENV.j1
-    system 'make install'
+    system "make", "install"
   end
 
   test do
