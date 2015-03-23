@@ -3,6 +3,12 @@ class RstudioServer < Formula
   url "https://github.com/rstudio/rstudio/archive/v0.98.1103.tar.gz"
   sha256 "084049aae03cbaaa74a848f491d57cffab5ea67372ece0e256d54e04bd5fc6da"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "f565aadae5569dfbf64d48c9985929ef92e3736e2f59625b180f74bc2c92c11c" => :yosemite
+    sha256 "de79c98f73085962bb880abad93036b8d0ddd35d2faad630806326337a40b862" => :mavericks
+  end
+
   depends_on "ant" => :build
   depends_on "cmake" => :build
   depends_on "homebrew/versions/boost150" => :build
