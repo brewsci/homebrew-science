@@ -4,10 +4,11 @@ class Cdo < Formula
   sha256 "b7471dbe50d3726277ce30a92a429427158445e08bb90a8f9cb3aaa5b46f9e56"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "5eb3315c9fdf5fe36e9868326011f27cfd4f307a" => :yosemite
-    sha1 "cab401ebf39e140b1cf33f804453a552b0d1504c" => :mavericks
-    sha1 "e7580783a3b2c604e920db74ed0e51d0cd615d64" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "c69849e24f64d430ec28232f6289ad76d94b05b0fdf013594943b62831d8a113" => :yosemite
+    sha256 "bc3ee079e07bc8651ed819384ba435841d4b0aea7f5b7e413291cd8c6b6fe0b6" => :mavericks
+    sha256 "469855d7fbe1e263724a1df292e662a31ecce6a0c984b6f5d34f00f36e15a013" => :mountain_lion
   end
 
   option "with-grib2", "Compile Fortran bindings"
