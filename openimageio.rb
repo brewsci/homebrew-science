@@ -2,9 +2,8 @@ require "formula"
 
 class Openimageio < Formula
   homepage "http://openimageio.org"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-1.4.8.tar.gz"
-  sha1 "412793b71ba5510709795a47395a78436a4c5344"
-  revision 1
+  url "https://github.com/OpenImageIO/oiio/archive/Release-1.5.13.tar.gz"
+  sha256 "ff9fd20eb2ad3a4d05e9e2849f18a62d4fe7a9330de21f177db597562d947429"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -26,6 +25,7 @@ class Openimageio < Formula
   depends_on "openexr"
   depends_on "boost"
   depends_on "boost-python"
+  depends_on "libpng"
   depends_on "libtiff"
   depends_on "jpeg"
   depends_on "openjpeg"
@@ -36,6 +36,11 @@ class Openimageio < Formula
   depends_on "glew"
   depends_on "freetype"
   depends_on "openssl"
+  depends_on "giflib" => :optional
+
+  # don't link to a specific Python framework
+  # https://github.com/OpenImageIO/oiio/pull/1099
+  patch :DATA
 
   resource "j2kp4files" do
     url "http://pkgs.fedoraproject.org/repo/pkgs/openjpeg/j2kp4files_v1_5.zip/27780ed3254e6eb763ebd718a8ccc340/j2kp4files_v1_5.zip"
@@ -54,7 +59,7 @@ class Openimageio < Formula
   end
 
   resource "tgautils" do
-    url "http://makseq.com/materials/lib/Code/FileFormats/BitMap/TARGA/TGAUTILS.ZIP"
+    url "http://googlesites.inequation.org/TGAUTILS.ZIP?attredirects=0"
     sha1 "0902c51e7b00ae70a460250f60d6adc41c8095df"
     version "1.0.0"
   end
@@ -82,25 +87,10 @@ class Openimageio < Formula
     ENV.append "MY_CMAKE_FLAGS", "-Wno-dev"   # stops a warning.
     ENV.append "MY_CMAKE_FLAGS", "-DOPENJPEG_INCLUDE_DIR=#{Formula["openjpeg"].opt_include}/openjpeg-1.5"
     ENV.append "MY_CMAKE_FLAGS", "-DFREETYPE_INCLUDE_DIRS=#{Formula["freetype"].opt_include}/freetype2"
+    ENV.append "MY_CMAKE_FLAGS", "-DUSE_OPENCV=OFF"
+    ENV.append "MY_CMAKE_FLAGS", "-DCMAKE_FIND_FRAMEWORK=LAST"
 
     args = ["USE_TBB=1", "EMBEDPLUGINS=1"]
-
-    python_prefix = `python-config --prefix`.strip
-    # Python is actually a library. The libpythonX.Y.dylib points to this lib, too.
-    if File.exist? "#{python_prefix}/Python"
-      # Python was compiled with --framework:
-      ENV.append "MY_CMAKE_FLAGS", "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
-      ENV.append "MY_CMAKE_FLAGS", "-DPYTHON_INCLUDE_DIR='#{python_prefix}/Headers'"
-    else
-      python_version = `python-config --libs`.match("-lpython(\d+\.\d+)").captures.at(0)
-      python_lib = "#{python_prefix}/lib/libpython#{python_version}"
-      ENV.append "MY_CMAKE_FLAGS", "-DPYTHON_INCLUDE_DIR='#{python_prefix}/include/python#{python_version}'"
-      if File.exist? "#{python_lib}.a"
-        ENV.append "MY_CMAKE_FLAGS", "-DPYTHON_LIBRARY='#{python_lib}.a'"
-      else
-        ENV.append "MY_CMAKE_FLAGS", "-DPYTHON_LIBRARY='#{python_lib}.dylib'"
-      end
-    end
 
     # Download standardized test images if the user throws --with-tests.
     # 90% of the images are in tarballs, so they are cached normally.
@@ -134,9 +124,8 @@ class Openimageio < Formula
     args << "USE_OPENGL=" + (build.with?("qt") ? "1" : "0")
     system "make", *args
     system "make", "test" if build.with? "tests"
-    # There is no working make install in 1.1.6, devel or HEAD.
     cd "dist/macosx" do
-      (lib + which_python ).install "lib/python/site-packages"
+      (lib/"python2.7").install "lib/python/site-packages"
       prefix.install  %w[bin include]
       lib.install    Dir["lib/lib*"]
       doc.install    "share/doc/openimageio/openimageio.pdf"
@@ -144,14 +133,27 @@ class Openimageio < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
-    If OpenImageIO is brewed using non-homebrew Python, then you need to amend
-    your PYTHONPATH like so:
-      export PYTHONPATH=#{HOMEBREW_PREFIX}/lib/#{which_python}/site-packages:$PYTHONPATH
-    EOS
-  end
-
-  def which_python
-    "python" + `python -c 'import sys;print(sys.version[:3])'`.strip
+  test do
+    system bin/"oiiotool", "--info", test_fixtures("test.jpg")
+    system bin/"oiiotool", "--info", test_fixtures("test.png")
   end
 end
+__END__
+diff --git a/src/python/CMakeLists.txt b/src/python/CMakeLists.txt
+index ab583d1..038691c 100644
+--- a/src/python/CMakeLists.txt
++++ b/src/python/CMakeLists.txt
+@@ -84,7 +84,12 @@ if (BOOST_CUSTOM OR Boost_FOUND AND PYTHONLIBS_FOUND)
+
+     include_directories (${PYTHON_INCLUDE_PATH} ${Boost_INCLUDE_DIRS})
+     add_library (${target_name} MODULE ${python_srcs})
+-    target_link_libraries (${target_name} OpenImageIO ${Boost_LIBRARIES} ${Boost_PYTHON_LIBRARIES} ${PYTHON_LIBRARIES} ${CMAKE_DL_LIBS})
++    if (APPLE)
++        target_link_libraries (${target_name} OpenImageIO ${Boost_LIBRARIES} ${Boost_PYTHON_LIBRARIES} ${CMAKE_DL_LIBS})
++        set_target_properties(${target_name} PROPERTIES LINK_FLAGS "-undefined dynamic_lookup")
++    else ()
++        target_link_libraries (${target_name} OpenImageIO ${Boost_LIBRARIES} ${Boost_PYTHON_LIBRARIES} ${PYTHON_LIBRARIES} ${CMAKE_DL_LIBS})
++    endif ()
+
+     # Exclude the 'lib' prefix from the name
+     if(NOT PYLIB_LIB_PREFIX)
