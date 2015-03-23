@@ -1,4 +1,3 @@
-
 class Trimmomatic < Formula
   homepage "http://www.usadellab.org/cms/?page=trimmomatic"
   # tag "bioinformatics"
