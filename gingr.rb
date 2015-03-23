@@ -1,6 +1,14 @@
 class Gingr < Formula
   homepage "https://github.com/marbl/harvest/blob/master/docs/content/gingr.rst"
   head "https://github.com/marbl/gingr.git"
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "d69a4838bd3bd1b4a04350fb70edadf53fbe17483de891bd725137f0a7ae517e" => :yosemite
+    sha256 "78a2e101e83eecd5154d2fe1ca0e5d07e84fb347d4752a4558a2fd06614ff67d" => :mavericks
+    sha256 "0a44460b5bd6c4f046dafb223e80146b458e8480699dcc065f164e4e069a4036" => :mountain_lion
+  end
+
   # tag "bioinformatics"
   # doi "10.1186/s13059-014-0524-x"
 
