@@ -147,9 +147,17 @@ class Opencv < Formula
   end
 
   test do
-    Language::Python.each_python(build) do |python, _version|
-      system python, "-c", "import cv2"
-    end
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <opencv/cv.h>
+      #include <iostream>
+      int main()
+      {
+        std::cout << CV_VERSION << std::endl;
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
+    assert_equal `./test`.strip, version.to_s
   end
 end
 
