@@ -4,10 +4,11 @@ class AdolC < Formula
   sha1 "6a17cb179dcbc59edc45c97b8928a2ebfa1e2c38"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "da92ef6e184a3caa0edfec5a8c60aaa2485566e1" => :yosemite
-    sha1 "06f0ae04b6a3379585b1c1fce90f09715ae8d851" => :mavericks
-    sha1 "0c3f381d7954e02183e5f23618abc156f5073fcc" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    revision 1
+    sha256 "5905ef5d9019122e20139820eee3a9da55f5260300d7eb9a77863837c70cfd57" => :yosemite
+    sha256 "d416356ba3c00b9dadd4ef547ffcbe011c24b0a97fc9fb8ee6b0dcb283a07998" => :mavericks
+    sha256 "ddd86b44e40b432df17e909b02d429eac9b219311c96de6f851eac79c7dd0751" => :mountain_lion
   end
 
   head "https://projects.coin-or.org/svn/ADOL-C/trunk/", :using => :svn
