@@ -5,6 +5,13 @@ class Opencv < Formula
   stable do
     url "https://github.com/Itseez/opencv/archive/2.4.11.tar.gz"
     sha256 "b5331ea85a709b0fe871b1ce92e631afcd5ae822423863da6b559dd2cb7845bc"
+
+    # Avoid explicit links to a Python framework
+    # https://github.com/Itseez/opencv/pull/3865
+    patch do
+      url "https://gist.githubusercontent.com/tdsmith/484553cd2d0c19a4baa7/raw/b766154fa6c7ac1be3491b0c6b58b3d66c07f818/opencv_python.diff"
+      sha256 "cfe31c32d5a4ef0e89df684e210360602fb2d295b19f9ca4791731a9e274d776"
+    end
   end
 
   bottle do
@@ -18,6 +25,13 @@ class Opencv < Formula
     url "https://github.com/Itseez/opencv/archive/3.0.0-beta.tar.gz"
     sha1 "560895197d1a61ed88fab9ec791328c4c57c0179"
     version "3.0.0-beta"
+
+    # Avoid explicit links to a Python framework
+    # https://github.com/Itseez/opencv/pull/3866
+    patch do
+      url "https://gist.githubusercontent.com/tdsmith/f67fd567702f2b51dacd/raw/b4c5428b87a5551ad75f951d45c38aacec4f2441/opencv3_python.diff"
+      sha256 "be689ac2ce44edfb1f8f9bdaf11e3cd5933fe26e9195ff57e391e6c49b3a1607"
+    end
   end
 
   option "32-bit"
@@ -29,7 +43,10 @@ class Opencv < Formula
   option "with-cuda", "Build with CUDA support"
   option "with-quicktime", "Use QuickTime for Video I/O insted of QTKit"
   option "with-opengl", "Build with OpenGL support"
-  option "without-brewed-numpy", "Build without Homebrew-packaged NumPy"
+  option "without-numpy", "Use a numpy you've installed yourself instead of a Homebrew-packaged numpy"
+  option "without-python", "Build without Python support"
+
+  deprecated_option "without-brewed-numpy" => "without-numpy"
 
   option :cxx11
 
@@ -50,8 +67,8 @@ class Opencv < Formula
   depends_on "qt"         => :optional
   depends_on "tbb"        => :optional
 
-  depends_on :python      => :recommended
-  depends_on "homebrew/python/numpy" if build.with? "brewed-numpy"
+  depends_on :python => :recommended unless OS.mac? && MacOS.version > :snow_leopard
+  depends_on "homebrew/python/numpy" => :recommended if build.with? "python"
 
   # Can also depend on ffmpeg, but this pulls in a lot of extra stuff that
   # you don't need unless you're doing video analysis, and some of it isn't
