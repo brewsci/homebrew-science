@@ -19,9 +19,10 @@ class Hdf5 < Formula
 
   option :universal
   option "with-check", "Run build-time tests"
-  option "with-threadsafe", "Trade performance and C++ or Fortran support for thread safety"
-  option "with-fortran2003", "Compile Fortran 2003 bindings. Requires with-fortran"
-  option "with-cxx", "Compile C++ bindings"
+  option "with-threadsafe", "Trade performance for C API thread-safety"
+  option "with-fortran2003", "Compile Fortran 2003 bindings (requires --with-fortran)"
+  option "with-mpi", "Compile with parallel support (unsupported with thread-safety)"
+  option "without-cxx", "Disable the C++ interface"
   option :cxx11
 
   depends_on :fortran => :optional
@@ -41,25 +42,25 @@ class Hdf5 < Formula
       --enable-filters=all
       --enable-static=yes
       --enable-shared=yes
+      --enable-unsupported
     ]
+    args << "--enable-threadsafe" << "--with-pthread=/usr" if build.with? "threadsafe"
 
-    args << "--enable-parallel" if build.with? :mpi
-
-    if build.with? "threadsafe"
-      fail "--enable-threadsafe conflicts with Fortran bindings" if build.with? :fortran
-      fail "--enable-threadsafe conflicts with C++ support" if build.cxx11? || build.with?("cxx")
-      args.concat %w[--with-pthread=/usr --enable-threadsafe]
+    if build.with? "cxx"
+      args << "--enable-cxx"
     else
-      ENV.cxx11 if build.cxx11?
-      args << "--enable-cxx" if build.cxx11? || build.with?("cxx")
-
-      if build.with? :fortran
-        args << "--enable-fortran"
-        args << "--enable-fortran2003" if build.with? "fortran2003"
-      end
+      args << "--disable-cxx"
     end
 
-    if build.with? :mpi
+    if build.with? "fortran"
+      args << "--enable-fortran"
+      args << "--enable-fortran2003" if build.with? "fortran2003"
+    else
+      args << "--disable-fortran"
+    end
+
+    if build.with? "mpi"
+      args << "--enable-parallel"
       ENV["CC"] = ENV["MPICC"]
       ENV["CXX"] = ENV["MPICXX"]
       ENV["FC"] = ENV["MPIFC"]
@@ -67,19 +68,19 @@ class Hdf5 < Formula
 
     system "./configure", *args
     system "make"
-    system "make", "check" if build.with? "check"
+    system "make", "check" if build.with?("check") || build.bottle?
     system "make", "install"
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS
-    #include <stdio.h>
-    #include "H5public.h"
-    int main()
-    {
-      printf(\"%d.%d.%d\\n\",H5_VERS_MAJOR,H5_VERS_MINOR,H5_VERS_RELEASE);
-      return 0;
-    }
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <stdio.h>
+      #include "H5public.h"
+      int main()
+      {
+        printf(\"%d.%d.%d\\n\",H5_VERS_MAJOR,H5_VERS_MINOR,H5_VERS_RELEASE);
+        return 0;
+      }
     EOS
     system "h5cc", "test.cpp"
     assert `./a.out`.include?(version)
