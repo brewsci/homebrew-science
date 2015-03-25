@@ -1,16 +1,13 @@
-require "formula"
-
 class Giira < Formula
   homepage "https://sourceforge.net/projects/giira/"
-  url "https://downloads.sourceforge.net/project/giira/GIIRA.zip"
-  sha1 "f16e779316ec446ab11f76a44cdf2fd756cdf094"
-  version "2014-02-10"
+  url "https://downloads.sourceforge.net/project/giira/GIIRA_01_3.zip"
+  sha256 "3caecf4297bf219b006094d7a2a1510f07c2c32223add482a405089699b64bb2"
 
   depends_on "glpk"
-  depends_on :python
   depends_on "tophat"
 
   def install
+    mv "GIIRA_01_3.jar", "GIIRA.jar"
     libexec.install "GIIRA.jar", "scripts"
     bin.write_jar_script libexec/"GIIRA.jar", "GIIRA"
   end
@@ -24,8 +21,6 @@ class Giira < Formula
       @scer_part1_c15.000000000 contig=lcl|NC_001136.10_cdsid_NP_010096.1
       CAATTTTTCGCATTCGCCATGGACTTCCTTTTCACCCCTGCTTGGTTCAA
     EOS
-
-    output = `#{bin}/GIIRA -iG test.fasta -iR test.fastq -opti glpk`
-    output.include? ("Gene identification finished")
+    assert `#{bin}/GIIRA -iG test.fasta -iR test.fastq -opti glpk`.include?("finished")
   end
 end
