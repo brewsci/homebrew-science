@@ -4,6 +4,14 @@ class Nlopt < Formula
   sha256 "8099633de9d71cbc06cd435da993eb424bbcdbded8f803cdaa9fb8c6e09c8e89"
   head "https://github.com/stevengj/nlopt.git"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "071053cd7acd4fbf738a39b9fba6559bb8b039db85de2e61fe2073b2579c25d3" => :yosemite
+    sha256 "2242e6cde091f4526e468944ca1f0c2e2bec28c6b9e085e44211a84e5c4f5bda" => :mavericks
+    sha256 "dd9b46ccbc0f63c373c299e2e8e71f33335452e594a0bbab792eb60c06389f60" => :mountain_lion
+  end
+
   option "with-python", "Build Python bindings (requires NumPy)"
 
   depends_on :python => "numpy" if build.with? "python"
