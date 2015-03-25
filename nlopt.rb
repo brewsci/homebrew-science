@@ -1,32 +1,38 @@
-require "formula"
-
 class Nlopt < Formula
-  homepage 'http://ab-initio.mit.edu/nlopt'
-  url 'http://ab-initio.mit.edu/nlopt/nlopt-2.4.2.tar.gz'
-  sha1 '838c399d8fffd7aa56b20231e0d7bd3462ca0226'
-  head 'https://github.com/stevengj/nlopt.git'
+  homepage "http://ab-initio.mit.edu/nlopt"
+  url "http://ab-initio.mit.edu/nlopt/nlopt-2.4.2.tar.gz"
+  sha256 "8099633de9d71cbc06cd435da993eb424bbcdbded8f803cdaa9fb8c6e09c8e89"
+  head "https://github.com/stevengj/nlopt.git"
 
-  depends_on 'octave' => :optional
-  depends_on :python => ['numpy', :optional]
+  option "with-python", "Build Python bindings (requires NumPy)"
+
+  depends_on :python => "numpy" if build.with? "python"
+  depends_on "octave" => :optional
 
   def install
     ENV.deparallelize
-    args = ["--with-cxx", "--enable-shared", "--prefix=#{prefix}"]
-    args += ["--without-octave"] if build.without? "octave"
-    args += ["--without-python"] if build.without? :python
-    if build.with? 'octave'
-      ENV['OCT_INSTALL_DIR'] = share/'nlopt/oct'
-      ENV['M_INSTALL_DIR'] = share/'nlopt/m'
-      ENV['MKOCTFILE'] = "#{Formula["octave"].bin}/mkoctfile"
+    args = [
+      "--prefix=#{prefix}",
+      "--with-cxx",
+      "--enable-shared",
+    ]
+    args << "--without-octave" if build.without? "octave"
+    args << "--without-python" if build.without? "python"
+
+    if build.with? "octave"
+      ENV["OCT_INSTALL_DIR"] = share/"nlopt/oct"
+      ENV["M_INSTALL_DIR"] = share/"nlopt/m"
+      ENV["MKOCTFILE"] = "#{Formula["octave"].opt_bin}/mkoctfile"
     end
+
     system "./configure", *args
     system "make"
     system "make", "install"
   end
 
   def caveats
-    s = ''
-    if build.with? 'octave'
+    s = ""
+    if build.with? "octave"
       s += <<-EOS.undent
       Please add
         #{share}/nlopt/oct
@@ -35,7 +41,7 @@ class Nlopt < Formula
       to the Octave path.
       EOS
     end
-    if build.with? :python
+    if build.with? "python"
       python_version = `python-config --libs`.match('-lpython(\d+\.\d+)').captures.at(0)
       s += <<-EOS.undent
       Please add
@@ -43,6 +49,20 @@ class Nlopt < Formula
       to the Python path.
       EOS
     end
-    return s
+    s
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <stdio.h>
+      #include <nlopt.hpp>
+      int main()
+      {
+        printf(\"%d.%d.%d\",nlopt::version_major(),nlopt::version_minor(),nlopt::version_bugfix());
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-lnlopt_cxx", "-o", "test"
+    assert_equal `./test`.chomp, version.to_s
   end
 end
