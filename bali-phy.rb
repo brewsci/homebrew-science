@@ -2,8 +2,8 @@ require 'formula'
 
 class BaliPhy < Formula
   homepage 'http://www.bali-phy.org/'
-  url 'http://www.bali-phy.org/bali-phy-2.3.4.tar.gz'
-  sha1 'a9a537a3d6a45351a0ff96e480975ef52d7090c7'
+  url 'http://www.bali-phy.org/bali-phy-2.3.6.tar.gz'
+  sha1 '037db27894deb1df5fb7315376e7e1292c50f9c8'
 
   depends_on 'pkg-config' => :build
   depends_on 'cairo'
