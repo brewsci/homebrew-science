@@ -6,10 +6,10 @@ class Fastqc < Formula
   sha256 "ed2e8e6793bcedbd749d65a38dd8419be841e4653319e5fdd1e0e2b063b60ffb"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "fdd145443d6034ea7771f0029ac303e6525ce68b" => :yosemite
-    sha1 "705413545eeab36baf99ad66863882c91a2bccb9" => :mavericks
-    sha1 "0c78a464a90f35496d758023665d173f00f5b857" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "2a26ea4c25aa06444d2c311ebe03fcf3246b34a681e4b2183125993cc0854125" => :yosemite
+    sha256 "f291937b9522f7bc6451edbf744567fdf4ec7bd97f010fc8fbc413e01e7ab566" => :mavericks
+    sha256 "2599dd06f32828921f8607b9f46afcc25ca9f7dc16d72e858216fc24940cf952" => :mountain_lion
   end
 
   depends_on :java
