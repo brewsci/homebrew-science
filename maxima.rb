@@ -2,6 +2,7 @@ class Maxima < Formula
   homepage "http://maxima.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.34.1-source/maxima-5.34.1.tar.gz"
   sha1 "3f33730ca374c282a543da5ed78572eff72da34f"
+  revision 1
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -10,8 +11,8 @@ class Maxima < Formula
     sha1 "ea44137b93530cb8dab8085facf18e0445428498" => :mountain_lion
   end
 
+  depends_on "sbcl" => :build
   depends_on "gettext"
-  depends_on "sbcl"
   depends_on "gnuplot"
   depends_on "rlwrap"
 
@@ -27,6 +28,7 @@ class Maxima < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-sbcl", "--with-sbcl=#{Formula["sbcl"].opt_bin}/sbcl",
+                          "--enable-sbcl-exec",
                           "--enable-gettext"
     # Per build instructions
     ENV["LANG"] = "C"
