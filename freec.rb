@@ -6,6 +6,14 @@ class Freec < Formula
   sha256 "dd8c0768ea0ed5bd36169fa68f9a3f48dd6f15889b9a60c7977b27bdb6da995d"
   version "7.2"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "af7558fda0442a9c242abeb6a9492d82926197f14b31b3e0059a067189e1ae93" => :yosemite
+    sha256 "f02914ae0075e54a4378d771f9dd5a98aa67da035606040b707758f9ead7163d" => :mavericks
+    sha256 "d7571b435829f2f7356cefdf542cd4563f5e0df038673ce201ab7237bc3ff73b" => :mountain_lion
+  end
+
   def install
     # FAQ #20 Mac OS X building: http://bioinfo.curie.fr/projects/freec/FAQ.html
     if OS.mac?
