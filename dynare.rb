@@ -4,6 +4,7 @@ class Dynare < Formula
   homepage "http://www.dynare.org"
   url "https://www.dynare.org/release/source/dynare-4.4.3.tar.xz"
   sha1 "3c99c3a957d02e53db62cba7566fdb1399438cfc"
+  revision 1
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
