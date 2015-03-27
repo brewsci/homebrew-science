@@ -2,8 +2,8 @@ require "formula"
 
 class Harry < Formula
   homepage "http://www.mlsec.org/harry"
-  url "http://www.mlsec.org/harry/files/harry-0.3.2.tar.gz"
-  sha1 "8a4bbe03f278f3f9f55357f32728e738f95c7732"
+  url "http://www.mlsec.org/harry/files/harry-0.4.0.tar.gz"
+  sha256 "cb3526efbf119cae1de0c65745a40788fb1c483f95dab568ce75e5e222abff78"
 
   depends_on "pkg-config" => :build
   depends_on "libconfig"
@@ -17,7 +17,6 @@ class Harry < Formula
     depends_on "libtool" => :build
   end
 
-
   def install
     opoo "Clang does not support OpenMP. Compile with gcc to use multi-threading." if ENV.compiler == :clang
     system "./bootstrap" if build.head?
@@ -25,6 +24,7 @@ class Harry < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
+    system "make", "all"
     system "make", "check"
     system "make", "install"
   end
