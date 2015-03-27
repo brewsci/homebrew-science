@@ -53,7 +53,7 @@ class Octave < Formula
   skip_clean "share/info" # Keep the docs
 
   option "without-check",          "Skip build-time tests (not recommended)"
-  option "with-docs",              "Build documentation (requires LaTeX)"
+  option "without-docs",           "Don't build documentation"
   option "without-gui",            "Do not build the experimental GUI"
   option "with-native-graphics",   "Use native OpenGL/FLTKgraphics (does not work with the GUI)"
   option "without-gnuplot",        "Do not use gnuplot graphics"
@@ -73,11 +73,7 @@ class Octave < Formula
 
   depends_on "pkg-config"     => :build
   depends_on "gnu-sed"        => :build
-
-  if build.with? "docs"
-    depends_on "texinfo"      => :build
-    depends_on :tex           => :build
-  end
+  depends_on "texinfo"        => :build if build.with? "docs"
 
   head do
     depends_on "bison"        => :build
