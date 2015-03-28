@@ -7,6 +7,14 @@ class Artemis < Formula
   url "ftp://ftp.sanger.ac.uk/pub/resources/software/artemis/v16/v16.0.11/artemis_v16.0.11.jar"
   sha256 "f368714105646cfc31460cfcfb72b8b33490c7684ee5323d7dd181060039c80f"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "f820d56e5b383d2c9b8d4525229034aea0185e195104be6cc6ad2036bf31a7b0" => :yosemite
+    sha256 "49bd7b5ad6c279fd05ceb484ad75386284ecf5f9e4c520899b6f589d3d2af46a" => :mavericks
+    sha256 "e74ad576452d26d85453d30cd2efaf0259cb5e2e0689ec2de6ead93df36cb69e" => :mountain_lion
+  end
+
   depends_on :java
 
   def install
