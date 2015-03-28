@@ -1,8 +1,8 @@
 class Openblas < Formula
   homepage "http://www.openblas.net/"
-  url "https://github.com/xianyi/OpenBLAS/archive/v0.2.13.tar.gz"
-  sha1 "d41df33c902322a596cb1354393ddec633b958ab"
+  url "https://github.com/xianyi/OpenBLAS/archive/v0.2.14.tar.gz"
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
+  sha256 "2411c4f56f477b42dff54db2b7ffc0b7cf53bb9778d54982595c64cc69c40fc1"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
