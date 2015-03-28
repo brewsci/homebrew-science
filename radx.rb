@@ -15,7 +15,7 @@ class Radx < Formula
     sha1 "e79d52832b66700b4e0b73fee0320da29313ee56" => :mountain_lion
   end
 
-  depends_on "hdf5" => "with-cxx"
+  depends_on "hdf5"
   depends_on "udunits"
   depends_on "netcdf" => "with-cxx-compat"
   depends_on "fftw"

@@ -7,7 +7,7 @@ class Blasr < Formula
   sha1 'ac6add1ba8a82cac2515da36c0ec53060c20ea0f'
   head 'https://github.com/PacificBiosciences/blasr.git'
 
-  depends_on "hdf5" => "with-cxx"
+  depends_on "hdf5"
 
   fails_with :clang do
     build 503
