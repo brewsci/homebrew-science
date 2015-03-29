@@ -7,6 +7,14 @@ class Shrimp < Formula
   sha256 "61660d86a8c98ad25b3657c4c057dd5cca4de98ac55bd075de9ed296a718993a"
   version "2.2.3"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "2ab2012cdc0dec1e27d8c02a7b2c04b2f24f7d3cb078bc2599e527aa23ffcc4d" => :yosemite
+    sha256 "3fae6267589367040d39b817ff6278585116d0c12e63dc7efdd6210b1d75e136" => :mavericks
+    sha256 "60fe3a8309be67eac59e464822f024449623a5ded9e1533332d7837fe58e80ba" => :mountain_lion
+  end
+
   needs :openmp
   fails_with :llvm
 
