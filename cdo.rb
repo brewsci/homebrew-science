@@ -1,7 +1,7 @@
 class Cdo < Formula
   homepage "https://code.zmaw.de/projects/cdo"
-  url "https://code.zmaw.de/attachments/download/9444/cdo-1.6.7.tar.gz"
-  sha256 "b7471dbe50d3726277ce30a92a429427158445e08bb90a8f9cb3aaa5b46f9e56"
+  url "https://code.zmaw.de/attachments/download/10030/cdo-1.6.8.tar.gz"
+  sha256 "323a87503014056300676d0400e3284720d81ed4434c44c6aaed1a37cba8a3d9"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
