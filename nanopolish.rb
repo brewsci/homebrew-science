@@ -11,13 +11,6 @@ class Nanopolish < Formula
   sha256 "24cb601d67b867cfba084fca3f20c669693fdf89567482b0903f92af612594a1"
   head "https://github.com/jts/nanopolish.git"
 
-  bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
-    cellar :any
-    sha256 "499f50775412507cd99f303bc6724d57ddc8c33b48393e7e45acac9d8b365f10" => :yosemite
-    sha256 "48c76d109ec9fa33bfcc1ab723fb93505f9b9b4e370b757f476ea1cd2e3e267f" => :mountain_lion
-  end
-
   needs :cxx11
   needs :openmp
 
