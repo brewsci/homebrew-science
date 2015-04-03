@@ -8,9 +8,9 @@ class Qualimap < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "798cc2651629a54b4adb64261fcbd156f2662bd86b6c25f0cb1494b9710fc1a1" => :yosemite
-    sha256 "1916bbaaf3d8e81cb365fa38d55ca45d80e500d917f73b5da8b207286bdf7900" => :mavericks
-    sha256 "203dea1e6ffaa55e9b09215e689dfd41b6118149397773cd76bdfcf7651d7ba9" => :mountain_lion
+    sha256 "19f916083ad21fe1a05315be7a1ed49c0a7793dddf0f1735af7527ea82e1dd18" => :yosemite
+    sha256 "66f1205aee6ae32ce98072e2176f90c37ac456a8b13bb2b1d657af21a0044704" => :mavericks
+    sha256 "71fadee98ab35e9d47bd06e9081e32848671b58c3e58c0b718e6fb5743f73f6f" => :mountain_lion
   end
   depends_on 'r' => :optional
 
