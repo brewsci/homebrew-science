@@ -15,18 +15,19 @@ class Parsnp < Formula
   end
 
   if OS.mac?
-    url "https://github.com/marbl/parsnp/releases/download/v1.1/parsnp-OSX64-v1.1.tar.gz"
-    sha256 "e11dd913b9a4ba1a87c29fd38b101119ce0dda3180fdc4ec0382bc4e8438366d"
+    url "https://github.com/marbl/parsnp/releases/download/v1.2/parsnp-OSX64-v1.2.tar.gz"
+    sha256 "fe8992fb148541cc753670a151bab9ccbd62a23bdec8be9a9c69999e3ca9ff02"
   elsif OS.linux?
-    url "https://github.com/marbl/parsnp/releases/download/v1.1/parsnp-Linux64-v1.1.tar.gz"
-    sha256 "d530b2be99b9a21acaa4e66e00adc7e1bd602440c67e86c73b8821e5327e8813"
+    url "https://github.com/marbl/parsnp/releases/download/v1.2/parsnp-Linux64-v1.2.tar.gz"
+    sha256 "ec60bab2306005baca374cc84b4d4dd20dd124e7ea0eee88ec59d9e5a95ce548"
   end
 
   def install
     bin.install "parsnp"
+    doc.install "README"
   end
 
   test do
-    system "#{bin}/parsnp", "-h"
+    assert_match "recombination", shell_output("parsnp 2>&1", 2)
   end
 end
