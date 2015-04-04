@@ -4,6 +4,14 @@ class Clonalframeml < Formula
   # doi "10.1371/journal.pcbi.1004041"
   version "1.7"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "09ccaab46eea44a62ffc6e2bda598099a6f83ba36c10855be99796529976a344" => :yosemite
+    sha256 "d927b125595ec16af0e5e4b7f483dbd538737cf8b932c441baadcfeef235c9c0" => :mavericks
+    sha256 "9215a9f0a8bcb333f6be6c9986c8a5d62dcf9160b690d5ad7937005e8cfc0daa" => :mountain_lion
+  end
+
   if OS.mac?
     url "https://drive.google.com/uc?id=0B4J1jPwfCMKYREVEcU1MeVk5RWs&export=download",
       :using => NoUnzipCurlDownloadStrategy
