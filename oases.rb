@@ -7,6 +7,14 @@ class Oases < Formula
   url "https://www.ebi.ac.uk/~zerbino/oases/oases_0.2.08.tgz"
   sha256 "a90d469bd19d355edf6193dcf321f77216389d2831a849d4c151c1c0c771ab36"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "6c9a086271088e7933f75c1cd3d89c50e37bea568dac1026784dede336f858a1" => :yosemite
+    sha256 "e4f27e40c47e47e76e066f96a60186ba54fa6268c6f65eefcd190cf97f8812c3" => :mavericks
+    sha256 "844878b4b64e7d8be9097a15db5b2fef32469173b1f12f93eb6faa2d62affc20" => :mountain_lion
+  end
+
   depends_on "velvet"
 
   option "with-maxkmerlength=", "Specify maximum k-mer length, any positive odd integer (default: 127)"
