@@ -57,8 +57,8 @@ class SuiteSparse < Formula
     include.mkpath
     system "make", "install", *make_args
 
-    matlab = ARGV.value("with-matlab-path") || "matlab"
     if build.with? "matlab"
+      matlab = ARGV.value("with-matlab-path") || "matlab"
       system matlab,
              "-nodesktop", "-nosplash",
              "-r", "run('SuiteSparse_install(false)'); exit;"
