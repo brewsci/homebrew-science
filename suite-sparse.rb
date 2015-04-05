@@ -7,10 +7,10 @@ class SuiteSparse < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 1
-    sha256 "eb1d00f07d210c490cdf8bdf6a4530972a95090d4edbe69b73d720bd3d70d3b3" => :yosemite
-    sha256 "08c6b1a8c071bb340d3073fddffc44ac314a6e44ac54a14a2ef3e3cd10a0f4d3" => :mavericks
-    sha256 "a6ca4a319b6550f56a1249d78d05efe883c90f419e3c250876af504ad8dc10d9" => :mountain_lion
+    revision 2
+    sha256 "a01147b42413f6454af1283652cad686c17e7b85ea699d8723f65892c16eb8c5" => :yosemite
+    sha256 "cd4a6019fc123f904a742bb98184cf4b75efca307b3301863d1357bd05d38649" => :mavericks
+    sha256 "efbff8740ff6992f9bb14863848804c30a2b74d4628f686d32b911253486e552" => :mountain_lion
   end
 
   option "with-matlab", "Install Matlab interfaces and tools"
