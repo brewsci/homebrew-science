@@ -1,7 +1,7 @@
 class Mlst < Formula
-  homepage "https://github.com/Victorian-Bioinformatics-Consortium/mlst"
-  url "https://github.com/Victorian-Bioinformatics-Consortium/mlst/archive/1.0.tar.gz"
-  sha256 "d7962779d79e9151cce2d9fbb5250fccf7b3fc8efb512eb34666ef6708cc1144"
+  homepage "https://github.com/tseemann/mlst"
+  url "https://github.com/tseemann/mlst/archive/1.2.tar.gz"
+  sha256 "037e159ed7678713b4d6a141b498435adb13dbd549c4d6d36a92a0738cae84f8"
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
