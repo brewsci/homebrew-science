@@ -12,11 +12,11 @@ class Tbl2asn < Formula
   end
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "fc5c56b3791194cfdf272b90b0735180e9d33b88" => :yosemite
-    sha1 "39d37f0daead4cf2bf6e3184987f3072e569af0a" => :mavericks
-    sha1 "143d56cb341b6db292d156f2f85c819e3ac240d3" => :mountain_lion
+    sha256 "d6267f0ee43987f34aec6b81027ea3bb847efbefad7de94ced009f3c58e76c8d" => :yosemite
+    sha256 "da8bed566415973b70668dd970304db43e08629ab6c6323196d3516d85f6cc98" => :mavericks
+    sha256 "47e97e133b2a477510985f6d882d9691028073052e2d7943c3d85658ded72ed1" => :mountain_lion
   end
 
   resource "doc" do
