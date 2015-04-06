@@ -6,11 +6,11 @@ class Netcdf < Formula
   revision 2
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "af12e8d6b0cf4afee76f944ae97ccb174e297819" => :yosemite
-    sha1 "d20838cd139c3022429ba0fa28e4ba2f6ef2ae3c" => :mavericks
-    sha1 "a4857f759d7b05df9fb318c7f2a78b400e5c4db8" => :mountain_lion
+    sha256 "a39f1334dd22660576e0b8532f24b5e9109808b97e340d79122d63c85850c452" => :yosemite
+    sha256 "939e80bf768bd82cefe0dbd79e7d566de784c8b002a0ca83a20dddd4ff10795e" => :mavericks
+    sha256 "e34e32cecf44dd109609ce5c2245c6e8e9709379c3f2c273c8e159102aa8da91" => :mountain_lion
   end
 
   deprecated_option "enable-fortran" => "with-fortran"
