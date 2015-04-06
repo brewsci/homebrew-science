@@ -2,13 +2,13 @@ class Tbl2asn < Formula
   homepage "https://www.ncbi.nlm.nih.gov/genbank/tbl2asn2/"
   #tag "bioinformatics"
 
-  version "23.9"
+  version "24.2"
   if OS.mac?
     url "ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/mac.tbl2asn.gz"
-    sha1 "745da05455e769d8a5b3a74385d5c91fe4135e28"
+    sha256 "c8c307b11d4089ad2a368d1ff1a1ce94dc0c40993478a233bc3331ef3f37ff00"
   elsif OS.linux?
     url "ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/linux64.tbl2asn.gz"
-    sha1 "581a07dae7a3080d2f07f33552204ed796b572c1"
+    sha256 "a5fe31cfa37e5de1f7e4d971f294ad2ca2be9868f5591477fcfb2862668d04c7"
   end
 
   bottle do
@@ -21,7 +21,7 @@ class Tbl2asn < Formula
 
   resource "doc" do
     url "ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/DOCUMENTATION/tbl2asn.txt"
-    sha1 "7b42a95b10aa6493e24074372b493dfa6fd9c9ce"
+    sha256 "f2da249ee8d60b385a8e71b67b480bff9c6d905a9d674e035c1186ce40a4f5c7"
   end
 
   def install
@@ -34,6 +34,6 @@ class Tbl2asn < Formula
   end
 
   test do
-    system "#{bin}/tbl2asn", "--help"
+    assert_match "tbl2asn #{version}", shell_output("tbl2asn -", 0)
   end
 end
