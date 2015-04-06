@@ -1,11 +1,9 @@
-require "formula"
-
 class Netcdf < Formula
   homepage "http://www.unidata.ucar.edu/software/netcdf"
-  url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.3.2.tar.gz"
-  mirror "http://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.3.2.tar.gz"
-  sha1 "6e1bacab02e5220954fe0328d710ebb71c071d19"
-  revision 1
+  url "ftp://ftp.unidata.ucar.edu/pub/netcdf/old/netcdf-4.3.2.tar.gz"
+  mirror "http://www.gfd-dennou.org/library/netcdf/unidata-mirror/old/netcdf-4.3.2.tar.gz"
+  sha256 "57086b4383ce9232f05aad70761c2a6034b1a0c040260577d369b3bbfe6d248e"
+  revision 2
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -28,19 +26,19 @@ class Netcdf < Formula
 
   resource "cxx" do
     url "https://github.com/Unidata/netcdf-cxx4/archive/v4.2.1.tar.gz"
-    sha1 "0bb4a0807f10060f98745e789b6dc06deddf30ff"
+    sha256 "bad56abfc99f321829070c04aebb377fc8942a4d09e5a3c88ad2b6547ed50ebc"
   end
 
   resource "cxx-compat" do
     url "http://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-cxx-4.2.tar.gz"
     mirror "http://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-cxx-4.2.tar.gz"
-    sha1 "bab9b2d873acdddbdbf07ab35481cd0267a3363b"
+    sha256 "95ed6ab49a0ee001255eac4e44aacb5ca4ea96ba850c08337a3e4c9a0872ccd1"
   end
 
   resource "fortran" do
     url "http://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.4.1.tar.gz"
     mirror "http://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-fortran-4.4.1.tar.gz"
-    sha1 "452a1b7ef12cbcace770dcc728a7b425cf7fb295"
+    sha256 "9f3ee25e55aa61d69eab95c6ac059b2bbdbe287005a63faa292c70c02d98d4b8"
   end
 
   # HDF5 1.8.13 removes symbols related to MPI POSIX VFD, leading to
