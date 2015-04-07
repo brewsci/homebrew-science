@@ -15,10 +15,10 @@ class Opencv < Formula
   end
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "ccc506ef6cf339048d21c4ef3d8995c76706c9d9" => :yosemite
-    sha1 "fc69f870b36504f271dfe42deb5cb27c49bf21cd" => :mavericks
-    sha1 "1726a921ced13ebe7f2df0f18f64997091070f71" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "e158921e8fbaa19fece4c04ba86935179ec136a94d6d86f2f0ef1ab026f41e57" => :yosemite
+    sha256 "b1f00877317eda123a7bde6c1541738f70b808e84b398658464d068503875f37" => :mavericks
+    sha256 "c7dcc02ba840aeaabb629aa36b0ce41840fd8da0d77b4f637fadadeb05259e1d" => :mountain_lion
   end
 
   devel do
