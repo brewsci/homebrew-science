@@ -1,9 +1,8 @@
 class Netcdf < Formula
   homepage "http://www.unidata.ucar.edu/software/netcdf"
-  url "ftp://ftp.unidata.ucar.edu/pub/netcdf/old/netcdf-4.3.2.tar.gz"
-  mirror "http://www.gfd-dennou.org/library/netcdf/unidata-mirror/old/netcdf-4.3.2.tar.gz"
-  sha256 "57086b4383ce9232f05aad70761c2a6034b1a0c040260577d369b3bbfe6d248e"
-  revision 2
+  url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.3.3.1.tar.gz"
+  mirror "http://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.3.3.1.tar.gz"
+  sha256 "bdde3d8b0e48eed2948ead65f82c5cfb7590313bc32c4cf6c6546e4cea47ba19"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -36,19 +35,9 @@ class Netcdf < Formula
   end
 
   resource "fortran" do
-    url "http://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.4.1.tar.gz"
-    mirror "http://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-fortran-4.4.1.tar.gz"
-    sha256 "9f3ee25e55aa61d69eab95c6ac059b2bbdbe287005a63faa292c70c02d98d4b8"
-  end
-
-  # HDF5 1.8.13 removes symbols related to MPI POSIX VFD, leading to
-  # errors when linking hdf5 and netcdf5 such as "undefined reference to
-  # `_H5Pset_fapl_mpiposix`". This patch fixes those errors, and has been
-  # added upstream. It should be unnecessary once NetCDF releases a new
-  # stable version.
-  patch do
-    url "https://github.com/Unidata/netcdf-c/commit/435d8a03ed28bb5ad63aff12cbc6ab91531b6bc8.diff"
-    sha1 "770ee66026e4625b80711174600fb8c038b48f5e"
+    url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-fortran-4.4.2.tar.gz"
+    mirror "http://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-fortran-4.4.2.tar.gz"
+    sha256 "ad6249b6062df6f62f81d1cb2a072e3a4c595f27f11fe0c5a79726d1dad3143b"
   end
 
   def install
@@ -116,5 +105,19 @@ class Netcdf < Formula
         system "make", "install"
       end
     end
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <stdio.h>
+      #include "netcdf_meta.h"
+      int main()
+      {
+        printf(NC_VERSION);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lnetcdf", "-o", "test"
+    assert_equal `./test`, version.to_s
   end
 end
