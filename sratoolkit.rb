@@ -3,9 +3,10 @@ class Sratoolkit < Formula
   # doi "10.1093/nar/gkq1019"
   # tag "bioinformatics"
 
-  url "https://github.com/ncbi/sra-tools/archive/2.4.5.tar.gz"
-  sha1 "d2acda13662feecff653d2ba1d7f8c7f321e3c15"
+  url "https://github.com/ncbi/sra-tools/archive/2.4.5-5.tar.gz"
+  sha256 "dabebdba7003862293eaab3b9d5f08018216338f1c389f2371220075feb6d986"
   head "https://github.com/ncbi/sra-tools.git"
+  version "2.4.5-5"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -18,12 +19,12 @@ class Sratoolkit < Formula
 
   resource "ngs-sdk" do
     url "https://github.com/ncbi/ngs/archive/1.1.0.tar.gz"
-    sha1 "0386bd85f4843df0933a18b0950b97665b716ecf"
+    sha256 "1ccaf90e3a4ee66662007c1e26be0e5236ecb3ad9f4f705e7a8e1ec4d39eca25"
   end
 
   resource "ncbi-vdb" do
-    url "https://github.com/ncbi/ncbi-vdb/archive/3973c21.tar.gz"
-    sha1 "5fa5ba9bd18c8d9114af9d710006ad2b28fc472c"
+    url "https://github.com/ncbi/ncbi-vdb/archive/2.4.5-5.tar.gz"
+    sha256 "7e1bbd203314bf65990f1db8a61483bb3963ca36a36f20f653582317cdb448b2"
   end
 
   depends_on "autoconf" => :build
