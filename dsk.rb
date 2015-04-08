@@ -1,21 +1,33 @@
-require 'formula'
-
 class Dsk < Formula
-  homepage 'http://minia.genouest.org/dsk/'
-  url 'http://minia.genouest.org/dsk/dsk-1.6066.tar.gz'
-  sha1 '9b7779ca64ab8aa92cf1e8d7d6a7e3d6c745607c'
+  homepage "http://minia.genouest.org/dsk/"
+  url "http://gatb-tools.gforge.inria.fr/versions/src/dsk-2.0.2-Source.tar.gz"
+  sha256 "bf2668e583a48021ba08f65aedbe447ba41084aad58020b2d77115bc81fad47f"
+
+  depends_on "cmake" => :build
 
   def install
-    args = []
-    args << 'osx=1' if OS.mac?
-    args << 'omp=1' if OS.linux?
-    system 'make', *args
-    bin.install 'dsk'
-    libexec.install *%w[parse_results parse_results.py plot_distrib.R]
-    doc.install 'README'
+    ENV.libcxx if ENV.compiler == :clang
+    mkdir "build" do
+      system "cmake", ".."
+      system "make"
+    end
+    bin.install "build/dsk"
+    bin.install "build/utils/dsk2ascii"
+    doc.install Dir["doc/*"]
+    doc.install "README.md"
   end
 
   test do
-    system 'dsk --version'
+    (testpath/"shortread.fasta").write <<-EOS.undent
+      >taille 15
+      ACTGTACGTATAAGA
+    EOS
+    system bin/"dsk", "-file", testpath/"shortread.fasta",
+           "-kmer-size", "15", "-abundance-min", "1",
+           "-out", testpath/"test_short", "-verbose", "0"
+    system bin/"dsk2ascii", "-file", testpath/"test_short.h5",
+           "-out", testpath/"test_short.parse_results", "-verbose", "0"
+    assert_equal "ACTGTACGTATAAGA 1",
+                 (testpath/"test_short.parse_results").read.chomp
   end
 end
