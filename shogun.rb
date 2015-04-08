@@ -3,6 +3,13 @@ class Shogun < Formula
   url "http://shogun-toolbox.org/archives/shogun/releases/4.0/sources/shogun-4.0.0.tar.bz2"
   sha256 "ab39d3cc27fc1ddf6128f6e3fc60217e73a843b51c20f5d3ceb69e6565a43695"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "6461a6713a96489af53058a979380afb251dad96c8255642b42e7062040217aa" => :yosemite
+    sha256 "750fe0d9f604e80cfaa0b55f8e2e9f063af32a5ef0fc5ffcdbc61daa10c3454e" => :mavericks
+    sha256 "53bcba5b939225b7d852bfe9e5663fed71f9609b9700417e2e01b0c218e42f31" => :mountain_lion
+  end
+
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "xz"
