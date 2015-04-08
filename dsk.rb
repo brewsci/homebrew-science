@@ -3,6 +3,14 @@ class Dsk < Formula
   url "http://gatb-tools.gforge.inria.fr/versions/src/dsk-2.0.2-Source.tar.gz"
   sha256 "bf2668e583a48021ba08f65aedbe447ba41084aad58020b2d77115bc81fad47f"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "328b7711ec0f17cd4afeaf60a44f08c3e68016e209a1a20fa9e4da299fb83ac2" => :yosemite
+    sha256 "6cbf60c7f424a19dc96cb8c736b28c7073407deea3567eb1bc498c3a066c3d23" => :mavericks
+    sha256 "fa6cabf7f176d8c36726d7f4c46046857fee54de216e0bf06209f02df48aeffe" => :mountain_lion
+  end
+
   depends_on "cmake" => :build
 
   def install
