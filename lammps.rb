@@ -1,12 +1,10 @@
-require "formula"
-
 class Lammps < Formula
   homepage "http://lammps.sandia.gov"
-  url "http://lammps.sandia.gov/tars/lammps-12Feb14.tar.gz"
-  sha1 "2572cce8343862c32c6e4079b91a26637ae3c6b7"
+  url "http://lammps.sandia.gov/tars/lammps-10Feb15.tar.gz"
+  sha256 "f7b785b656537507feaa7d669e9b676ff87967223f7c153aa01ed89e4e7b9e92"
   # lammps releases are named after their release date. We transform it to
   # YYYY.MM.DD (year.month.day) so that we get a comparable version numbering (for brew outdated)
-  version "2014.02.12"
+  version "2015.02.10"
 
   head "http://git.icms.temple.edu/lammps-ro.git"
 
@@ -38,6 +36,7 @@ class Lammps < Formula
     gpu
     kim
     user-omp
+    kokkos
   )
   DISABLED_USER_PACKAGES = %w(
     user-atc
@@ -92,7 +91,7 @@ class Lammps < Formula
   end
 
   def pyver
-    IO.popen("python -c 'import sys; print sys.version[:3]'").read.strip
+    Language::Python.major_minor_version "python"
   end
 
   # This fixes the python module to point to the absolute path of the lammps library
@@ -127,10 +126,14 @@ class Lammps < Formula
     libgfortran = `$FC --print-file-name libgfortran.a`.chomp
     ENV.append "LDFLAGS", "-L#{File.dirname libgfortran} -lgfortran"
 
+    inreplace "lib/voronoi/Makefile.lammps" do |s|
+      s.change_make_var! "voronoi_SYSINC", "-I#{Formula["voro++"].opt_include}/voro++"
+    end
+
     # build the lammps program and library
     cd "src" do
       # setup the make file variabls for fftw, jpeg, and mpi
-      inreplace "MAKE/Makefile.mac" do |s|
+      inreplace "MAKE/MACHINES/Makefile.mac" do |s|
         # We will stick with "make mac" type and forget about
         # "make mac_mpi" because it has some unnecessary
         # settings. We get a nice clean slate with "mac"
@@ -154,10 +157,6 @@ class Lammps < Formula
 
         s.change_make_var! "CCFLAGS",  ENV["CFLAGS"]
         s.change_make_var! "LIB",      ENV["LDFLAGS"]
-      end
-
-      inreplace "VORONOI/Makefile.lammps" do |s|
-        s.change_make_var! "voronoi_SYSINC", "-I#{HOMEBREW_PREFIX}/include/voro++"
       end
 
       # setup standard packages
@@ -193,7 +192,7 @@ class Lammps < Formula
 
     # get the python module
     cd "python" do
-      temp_site_packages = lib / which_python / "site-packages"
+      temp_site_packages = lib/"python#{pyver}/site-packages"
       mkdir_p temp_site_packages
       ENV["PYTHONPATH"] = temp_site_packages
 
@@ -204,10 +203,6 @@ class Lammps < Formula
 
     # install additional materials
     (share / "lammps").install(%w(doc potentials tools bench examples))
-  end
-
-  def which_python
-    "python" + `python -c 'import sys;print(sys.version[:3])'`.strip
   end
 
   test do
@@ -242,8 +237,8 @@ class Lammps < Formula
       Additional tools (may require manual installation):
       #{HOMEBREW_PREFIX}/share/lammps/tools
 
-    To use the Python module with Python, you need to amend your
-    PYTHONPATH like so:
+    To use the Python module with Python, you may need to amend your
+    PYTHONPATH like:
       export PYTHONPATH=#{HOMEBREW_PREFIX}/lib/python#{pyver}/site-packages:$PYTHONPATH
 
     EOS
