@@ -14,17 +14,16 @@ class Butterflow < Formula
 
   depends_on "pkg-config" => :build
   depends_on "ffmpeg" => ["with-libvorbis", "with-libass"]
-  depends_on "homebrew/science/opencv" => "with-ffmpeg"
+  depends_on "opencv" => "with-ffmpeg"
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-
-    Language::Python.setup_install "python", libexec
+    system "python", *Language::Python.setup_install_args(libexec)
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
-    system "#{bin}/butterflow", "--version"
+    system "#{bin}/butterflow", "-d"
   end
 end
