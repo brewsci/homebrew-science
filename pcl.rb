@@ -37,10 +37,11 @@ class Pcl < Formula
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "c252870bf7c0655ee3f0192e6e566153348b2a95" => :yosemite
-    sha1 "89b4740ccfea0a56b5026fbc59a9ed7d9bd37c1b" => :mavericks
-    sha1 "30d199105b80ca6aeb5935fb14fed2f17d06a667" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    revision 1
+    sha256 "25768ba908632c255f145863c059f4d1f19b0afbbc61be02b111a245d87123af" => :yosemite
+    sha256 "16c17967a634d7dd333260831e17f27b789ad9974386e5fe24afa84c4660c2a4" => :mavericks
+    sha256 "af68e8660c7ea62b076aa2b2d4797d250b2d6aae67d16d0b2b4fc5b07488b2d4" => :mountain_lion
   end
 
   option "with-examples", "Build pcl examples."
