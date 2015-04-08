@@ -9,11 +9,11 @@ class Lammps < Formula
   head "http://git.icms.temple.edu/lammps-ro.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "72629a4467093ed32219bb07b4054ef953e0bbe2" => :yosemite
-    sha1 "bfbe5d50c2d8c50af1096f1340fc2d59424844db" => :mavericks
-    sha1 "cbadc5b55aaae6614bd06d2f67d0badf5bf68a22" => :mountain_lion
+    sha256 "1e0de572d8e795c66bc042a99adbb9724c44ea46da3ba50623bcc431431be31e" => :yosemite
+    sha256 "f6ea49bc99f926d3eec73d20c3e0098636ba57b4f6b40cc19060fd10b0a42cd1" => :mavericks
+    sha256 "c7c201a7e876d3062882d1814cf700fd079e6409a0098e1ea678e91c20275244" => :mountain_lion
   end
 
   # user-submitted packages not considered "standard"
