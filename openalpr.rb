@@ -30,6 +30,13 @@ class Openalpr < Formula
     end
   end
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "ab144e27d4d0456b938169ca16590a2ac72b477dff6de05eb02220c431f19b49" => :yosemite
+    sha256 "40878f54d0fd1eeb1c2ea07534b52b6c782a5cc3a3223add2453ed7bfc4f9bd7" => :mavericks
+    sha256 "3a311bd4c4ac6fd12ad981289f9c4299eff01b156ead0dcece4109af4e86547e" => :mountain_lion
+  end
+
   def install
     mkdir "src/build" do
       args = std_cmake_args
