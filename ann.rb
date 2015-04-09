@@ -6,8 +6,8 @@ class Ann < Formula
   sha1 '622be90314a603ef9b2abadcf62379f73f28f46c'
 
   def install
-    # Fix for Mavericks make error
-    inreplace 'ann2fig/ann2fig.cpp', 'main', 'int main' if MacOS.version >= :mavericks
+    # Fix for Mountain Lion / Mavericks make error
+    inreplace 'ann2fig/ann2fig.cpp', 'main', 'int main' if MacOS.version >= :mountain_lion
 
     system "make", "macosx-g++"
     prefix.install "bin", "lib", "sample", "doc", "include"
