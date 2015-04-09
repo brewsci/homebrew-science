@@ -6,10 +6,9 @@ class Netcdf < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    cellar :any
-    sha256 "a39f1334dd22660576e0b8532f24b5e9109808b97e340d79122d63c85850c452" => :yosemite
-    sha256 "939e80bf768bd82cefe0dbd79e7d566de784c8b002a0ca83a20dddd4ff10795e" => :mavericks
-    sha256 "e34e32cecf44dd109609ce5c2245c6e8e9709379c3f2c273c8e159102aa8da91" => :mountain_lion
+    sha256 "bafd64140f1154d12ce580f7c7c232106713ca2b4894da8f839834fd29dba459" => :yosemite
+    sha256 "8c247f3f508b2f1e0cf32e4d2ed952c4ff4406b61b381cd26c3c937b0227e6f6" => :mavericks
+    sha256 "aaa436412224ba0455effa0a610cfbc15d0a01fe14b2bb514a1f930c7466c7d4" => :mountain_lion
   end
 
   deprecated_option "enable-fortran" => "with-fortran"
