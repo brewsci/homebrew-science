@@ -28,6 +28,7 @@ class R < Formula
   option "without-tcltk", "Build without Tcl/Tk"
   option "with-librmath-only", "Only build standalone libRmath library"
 
+  depends_on "pkg-config" => :build
   depends_on :fortran
   depends_on "readline"
   depends_on "gettext"
@@ -61,6 +62,7 @@ class R < Formula
       ENV.remove "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
     else
       args << "--enable-R-framework"
+      args << "--with-cairo"
 
       # Disable building against the Aqua framework with CLT >= 6.0.
       # See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63651
