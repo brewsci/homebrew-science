@@ -10,11 +10,11 @@ class Gmsh < Formula
   sha256 "541cfb469655912380ad3dcc509c0fac5f3efd218c29da0e32c9ffdfc589aa99"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "d039d605b267aa6325cbb2b1511d437179c412ef" => :yosemite
-    sha1 "684e5d1a9697edfe66e580652394f9230e1e1662" => :mavericks
-    sha1 "7d85445c4fdb2c4524c54a222647285090a02e5b" => :mountain_lion
+    sha256 "f07372aebcf35e65f80a9a0998dd80015c77ff267a8a837a33cd41ebf13d9958" => :yosemite
+    sha256 "7d909b229d1670ff66baac584e2452b236bef2405f517bd72f6767307f351dac" => :mavericks
+    sha256 "6b0e18382376ce0fbc3cedef3e087d116c599b16c7609c2c68c37dc46fcb10a3" => :mountain_lion
   end
 
   head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
