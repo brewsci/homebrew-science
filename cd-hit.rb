@@ -7,7 +7,9 @@ class CdHit < Formula
   sha1 '744be987a963e368ad46efa59227ea313c35ef5d'
 
   def install
-    system "make"
+    args = (ENV.compiler == :clang) ? [] : ["openmp=yes"]
+
+    system "make", *args
     bin.mkpath
     system "make", "PREFIX=#{bin}", "install"
   end
