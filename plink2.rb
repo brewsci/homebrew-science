@@ -7,12 +7,17 @@ class Plink2 < Formula
   sha256 "2f4afc193c288b13af4410e4587358ee0a6f76ed7c98dd77ca1317aac28adf0d"
 
   depends_on :fortran
-  depends_on "openblas"
+  depends_on "openblas" => :optional
+  depends_on "homebrew/dupes/zlib"
 
   def install
     mv "Makefile.std", "Makefile"
-    system "./plink_first_compile"
-    system "make", "plink"
+    ln_s Formula["zlib"].opt_include, "zlib-1.2.8"
+    cflags = "-Wall -O2 -flax-vector-conversions"
+    cflags += " -I#{Formula["openblas"].opt_include}" if build.with? "openblas"
+    args = ["CFLAGS=#{cflags}", "ZLIB=-L#{Formula["zlib"].opt_lib} -lz"]
+    args << "BLASFLAGS=-L#{Formula["openblas"].opt_lib} -lopenblas" if build.with? "openblas"
+    system "make", "plink", *args
     bin.install "plink" => "plink2"
   end
 
