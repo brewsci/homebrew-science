@@ -1,15 +1,13 @@
-require 'formula'
-
 class GmshSvnStrategy < SubversionDownloadStrategy
-  def quiet_safe_system *args
-    super *args + ['--username', 'gmsh', '--password', 'gmsh']
+  def quiet_safe_system(*args)
+    super *args + ["--username", "gmsh", "--password", "gmsh"]
   end
 end
 
 class Gmsh < Formula
-  homepage 'http://geuz.org/gmsh'
-  url 'http://geuz.org/gmsh/src/gmsh-2.8.5-source.tgz'
-  sha1 '352671f95816440ddb2099478f3e9f189e40e27a'
+  homepage "http://geuz.org/gmsh"
+  url "http://geuz.org/gmsh/src/gmsh-2.9.2-source.tgz"
+  sha256 "541cfb469655912380ad3dcc509c0fac5f3efd218c29da0e32c9ffdfc589aa99"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -19,18 +17,18 @@ class Gmsh < Formula
     sha1 "7d85445c4fdb2c4524c54a222647285090a02e5b" => :mountain_lion
   end
 
-  head 'https://geuz.org/svn/gmsh/trunk', :using => GmshSvnStrategy
+  head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
 
   depends_on :fortran
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
-  depends_on 'cmake' => :build
+  depends_on "cmake" => :build
   depends_on "petsc" => :optional
   depends_on "slepc" => :optional
   depends_on "opencascade" => :recommended
-  depends_on 'fltk' => :optional
+  depends_on "fltk" => :optional
 
   def install
-    if not build.head? and (build.with? "petsc" or build.with? "slepc")
+    if !build.head? && ((build.with? "petsc") || (build.with? "slepc"))
       onoe "stable is incompatible with PETSc/SLEPc 3.5.2. Build with --HEAD."
       exit 1
     end
@@ -59,13 +57,13 @@ class Gmsh < Formula
     end
 
     if build.with? "slepc"
-      ENV["SLEPC_DIR"] = "#{Formula['slepc'].opt_prefix}/real"
+      ENV["SLEPC_DIR"] = "#{Formula["slepc"].opt_prefix}/real"
     else
       args << "-DENABLE_SLEPC=OFF"
     end
 
-    if (build.with? "petsc") or (build.with? "slepc")
-      args << "-DENABLE_MPI=ON" if build.with? :mpi
+    if (build.with? "petsc") || (build.with? "slepc")
+      args << "-DENABLE_MPI=ON" if build.with? "mpi"
     end
 
     # Make sure native file dialogs are used
@@ -90,7 +88,7 @@ class Gmsh < Formula
   end
 
   def caveats
-     "To use onelab.py set your PYTHONDIR to #{libexec}"
+    "To use onelab.py set your PYTHONDIR to #{libexec}"
   end
 
   test do
