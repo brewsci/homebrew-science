@@ -2,8 +2,8 @@ class Igvtools < Formula
   homepage "http://www.broadinstitute.org/software/igv/download"
   # tag "bioinformatics"
 
-  url "http://www.broadinstitute.org/igv/projects/downloads/igvtools_2.3.40.zip"
-  sha1 "0e9eeba7de3fa400d69bf224be84a4a257395aaf"
+  url "http://www.broadinstitute.org/igv/projects/downloads/igvtools_2.3.48.zip"
+  sha256 "0ae8fc2f6500495ae84aa0232887d9466c73c188f5af91d64a089e5808d3a84d"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
