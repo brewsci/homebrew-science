@@ -6,11 +6,11 @@ class Hmmer < Formula
   sha256 "dd16edf4385c1df072c9e2f58c16ee1872d855a018a2ee6894205277017b5536"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "7bbcead1760d3dbab4125bdead5cf82130a986f6" => :yosemite
-    sha1 "d7110164cd86dcfb8c500366fc669354a4ce6b6d" => :mavericks
-    sha1 "33da00cd8b9075f4a5437e8ed3f4b47019256623" => :mountain_lion
+    sha256 "91c47db3e1fb729881d01b710b0f9ee9c138effe6184fbdffcb8f7a08706e43b" => :yosemite
+    sha256 "1336dc5a1fa0952a3910e170bc1d25d601596f4c57793177ec5e001a1a26b74c" => :mavericks
+    sha256 "cec39b2d2266736b52062879e4c87ff5b4fff106d7a96b6a0cf2b38bdfc501f4" => :mountain_lion
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
