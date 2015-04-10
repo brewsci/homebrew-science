@@ -7,11 +7,12 @@ class Mummer < Formula
   sha256 "1efad4f7d8cee0d8eaebb320a2d63745bb3a160bb513a15ef7af46f330af662f"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "2d940173a9f828bfcfc51f5039fa8deb2698703b" => :yosemite
-    sha1 "520904995c105a2579fec678acc24c0214a2ed04" => :mavericks
-    sha1 "78a0688d0c6d181c0dc7cfdf7ca1bf1f0eaf87fd" => :mountain_lion
+    revision 1
+    sha256 "155182ed24450891d6799ec0367716de3b7bf109715b8441f83f196d9fedc3b7" => :yosemite
+    sha256 "d2bc2b64b9623aa6426d2ecc2405a6583f9cebe3dbb074681798fb3649d750b9" => :mavericks
+    sha256 "68a8351484551600a6f81bac291cd1f2b4cb2176188a87d322b671740bc754a9" => :mountain_lion
   end
 
   TOOLS = %w[
