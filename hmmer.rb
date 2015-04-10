@@ -2,8 +2,8 @@ class Hmmer < Formula
   homepage "http://hmmer.janelia.org"
   # doi "10.1371/journal.pcbi.1002195"
   # tag "bioinformatics"
-  url "http://selab.janelia.org/software/hmmer3/3.1b1/hmmer-3.1b1.tar.gz"
-  sha1 "e05907d28b7f03d4817bb714ff0a8b2ef0210220"
+  url "http://selab.janelia.org/software/hmmer3/3.1b2/hmmer-3.1b2.tar.gz"
+  sha256 "dd16edf4385c1df072c9e2f58c16ee1872d855a018a2ee6894205277017b5536"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
