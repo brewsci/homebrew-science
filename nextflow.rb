@@ -2,9 +2,9 @@ class Nextflow < Formula
   homepage "http://www.nextflow.io/"
   # tag "bioinformatics"
 
-  version "0.12.2"
-  url "http://www.nextflow.io/releases/v0.12.2/nextflow"
-  sha1 "d6637cdb5913e7dbffa6fa8e774e2c73ee3f1ac8"
+  version "0.13.1"
+  url "http://www.nextflow.io/releases/v0.13.1/nextflow"
+  sha1 "ddcae0ac62ae4dc17259a1ceace69ee7c2483cf4"
 
   head "https://github.com/nextflow-io/nextflow.git"
 
