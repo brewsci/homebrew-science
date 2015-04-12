@@ -7,6 +7,12 @@ class Gatb < Formula
   version "1.0.7"
   sha256 "790803a7a2819566bc89ee24598f9e8c4e114d7d65dc5f87d1d5b8c319f78876"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "2d34597f4d793a15bad4d280df11cec2a9a818cf87d20f600107e00cb6ce573f" => :yosemite
+    sha256 "a9a8ae6f10923cc1ff228dfa8b12b16ae854a77a0433c0bb5421f749d25a6db8" => :mavericks
+  end
+
   depends_on "cmake" => :build
 
   def install
