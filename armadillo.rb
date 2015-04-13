@@ -1,7 +1,8 @@
 class Armadillo < Formula
   homepage "http://arma.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-4.650.4.tar.gz"
-  sha256 "ccc56580ec932ec9beade5679b07ecbed889e9b602866f673d1a05a7692b4bf8"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-5.000.0.tar.gz"
+  sha256 "23351f8ef031b9b34375d84bfc2df62cabd0631976ba697ff9716b64d0322eca"
+  version "5.0.0"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -14,8 +15,8 @@ class Armadillo < Formula
 
   depends_on "cmake" => :build
   depends_on "arpack"
+  depends_on "superlu"
   depends_on "openblas" if OS.linux?
-
   depends_on "hdf5" => :optional
 
   option :cxx11
