@@ -14,14 +14,18 @@ class Libsequence < Formula
     sha1 "5354fe0f9e6d8d2ed265cf53048ba70d00f9e398" => :mountain_lion
   end
 
+  depends_on :macos => :mavericks
   depends_on "boost" => :build
   depends_on "gsl"
 
   def install
-    ENV.libcxx if MacOS.version < :mavericks
-
-    system "./configure", "--enable-shared=no", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--docdir=#{doc}",
+                          "--mandir=#{man}",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules"
     system "make"
+    system "make", "check"
     system "make", "install"
   end
 end
