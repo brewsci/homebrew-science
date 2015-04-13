@@ -1,13 +1,11 @@
-require "formula"
-
 class Prodigal < Formula
   homepage "http://prodigal.ornl.gov/"
+  head "https://github.com/hyattpd/Prodigal.git"
   #doi "10.1186/1471-2105-11-119"
   #tag "bioinformatics"
-  url "https://github.com/hyattpd/Prodigal/archive/v2.6.1.tar.gz"
-  sha1 "aebcfbfb33010cbbba480c1db8b2ba5ebf5c7bd7"
 
-  head "https://github.com/hyattpd/Prodigal.git"
+  url "https://github.com/hyattpd/Prodigal/archive/v2.6.2.tar.gz"
+  sha256 "0409e95dc9fd8df57aff0fe6c9da6895dab5b5a90a28fb2fcdbd52f31c581a55"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -21,9 +19,10 @@ class Prodigal < Formula
     system "make"
     mv "prodigal2", "prodigal" if build.head?
     bin.install "prodigal"
+    doc.install "CHANGES", "LICENSE", "VERSION", "README.md"
   end
 
   test do
-    system "#{bin}/prodigal", "-v"
+    assert_match "#{version}", shell_output("prodigal -v 2>&1")
   end
 end
