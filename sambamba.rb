@@ -1,9 +1,9 @@
 class Sambamba < Formula
-  homepage "http://lomereiter.github.io/sambamba"
+  homepage "https://lomereiter.github.io/sambamba"
   # doi "10.1093/bioinformatics/btv098"
   # tag "bioinformatics"
 
-  url "https://github.com/lomereiter/sambamba.git", :tag => "v0.5.1"
+  url "https://github.com/lomereiter/sambamba.git", :tag => "v0.5.4", :revision => "66dd706d81e59fa70a36f030e47d9967fa3a46a8"
   head "https://github.com/lomereiter/sambamba.git"
 
   bottle do
@@ -24,7 +24,7 @@ class Sambamba < Formula
 
   test do
     cd libexec/"share" do
-      system "#{bin}/sambamba  sort -t2 -n ex1_header.bam -o ex1_header.nsorted.bam -m 200K"
+      system "#{bin}/sambamba", "sort", "-t2", "-n", "ex1_header.bam", "-o", "ex1_header.nsorted.bam", "-m", "200K"
       assert File.exist?("ex1_header.nsorted.bam")
     end
   end
