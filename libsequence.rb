@@ -7,11 +7,11 @@ class Libsequence < Formula
   head "https://github.com/molpopgen/libsequence.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "a3030e966af22921d8c3180e86e38af3825da183" => :yosemite
-    sha1 "dba61184fe4016a653dd9f361f8aec4957340441" => :mavericks
-    sha1 "5354fe0f9e6d8d2ed265cf53048ba70d00f9e398" => :mountain_lion
+    revision 1
+    sha256 "2ddee49b6d9cac4d864fc9703f0883b562ae2e0a0e0687de47699ae1d8cf772e" => :yosemite
+    sha256 "d3734a60eece746f0e72bc58275350ed196c55dd1fe12000a74738a14547b3a7" => :mavericks
   end
 
   depends_on :macos => :mavericks
