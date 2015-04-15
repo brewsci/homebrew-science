@@ -6,6 +6,12 @@ class Fwdpp < Formula
   sha256 "64cf5efbc7ac9d0454a1624489b6f7de55c20958b9e7f4f3c34bc36068fa67c2"
   head "https://github.com/molpopgen/fwdpp.git"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "ad5bfff1206af81242ea2792a608b814e433453d487e87905a98aa0dd24ac29c" => :yosemite
+    sha256 "98d7c69904ebf8b877086b692b2fd7fea1b8530ed9d7a9dcae8b3008fb713978" => :mavericks
+  end
+
   option "without-check", "Disable build-time checking (not recommended)"
 
   depends_on "gsl"
