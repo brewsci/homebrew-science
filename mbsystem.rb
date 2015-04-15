@@ -3,6 +3,13 @@ class Mbsystem < Formula
   url "ftp://ftp.ldeo.columbia.edu/pub/MB-System/mbsystem-5.5.2233.tar.gz"
   sha256 "13693a326cd44aa25ec5a0a69a5ffca4d47e3a529c0cc0abaf83165c8adf6958"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "6795b3c639c9ff021361a26040137d6df499e428150cee433549a723728e70d6" => :yosemite
+    sha256 "46f8de1d57c11b07e911ee5f3e5321607e79615b16b2d5f501d87d6459494e42" => :mavericks
+    sha256 "136c0424984c848424c2e3b2fe0cb5a6ca4ace0e17389376a0c2bd35d25cc9d9" => :mountain_lion
+  end
+
   depends_on :x11
   depends_on "gmt"
   depends_on "netcdf"
