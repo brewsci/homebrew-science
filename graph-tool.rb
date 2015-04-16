@@ -1,8 +1,7 @@
 class GraphTool < Formula
   homepage "http://graph-tool.skewed.de/"
-  url "http://downloads.skewed.de/graph-tool/graph-tool-2.2.35.tar.bz2"
-  sha1 "f75a31dec45843beff18eb6b5ce8eda5a0645277"
-  revision 1
+  url "http://downloads.skewed.de/graph-tool/graph-tool-2.2.40.tar.bz2"
+  sha256 "5ccf2f174663c02d0d8548254d29dbc7f652655d13c1902dafc587c9a1c156e7"
 
   head do
     url "https://github.com/count0/graph-tool.git"
@@ -12,7 +11,7 @@ class GraphTool < Formula
   end
 
   option "without-cairo", "Build without cairo support for plotting"
-  option "with-gtk+3", "Build with gtk+3 support for interactive plotting"
+  option "without-gtk+3", "Build without gtk+3 support for interactive plotting"
 
   cxx11 = MacOS.version < :mavericks ? ["c++11"] : []
   with_pythons = build.with?("python3") ? ["with-python3"] : []
@@ -22,7 +21,7 @@ class GraphTool < Formula
   depends_on "cairomm" => cxx11 if build.with? "cairo"
   depends_on "cgal" => cxx11
   depends_on "google-sparsehash" => cxx11 + [:recommended]
-  depends_on "gtk+3" => :optional
+  depends_on "gtk+3" => :recommended
   depends_on :python => :recommended
   depends_on :python3 => :optional
   depends_on "boost-python" => cxx11 + with_pythons
@@ -47,17 +46,26 @@ class GraphTool < Formula
     depends_on "scipy" => :python3
   end
 
+  stable do
+    # fix import if gtk+3 or cairo isn't present
+    # https://github.com/Homebrew/homebrew-science/pull/2108#issuecomment-94138693
+    patch do
+      url "https://github.com/count0/graph-tool/commit/c8f99e7c.diff"
+      sha256 "ecebc6b311ea438506e32a4ea0f74964e661118a562b7bc71563dfb9c3cf4407"
+    end
+  end
+
   def install
     ENV.cxx11
 
     system "./autogen.sh" if build.head?
 
-    config_args = %W(
+    config_args = %W[
       --disable-debug
       --disable-dependency-tracking
       --disable-optimization
       --prefix=#{prefix}
-    )
+    ]
 
     config_args << "--disable-cairo" if build.without? "cairo"
     config_args << "--disable-sparsehash" if build.without? "google-sparsehash"
