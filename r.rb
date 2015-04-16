@@ -7,9 +7,9 @@ end
 
 class R < Formula
   homepage "http://www.r-project.org/"
-  url "http://cran.rstudio.com/src/base/R-3/R-3.1.3.tar.gz"
-  mirror "http://cran.r-project.org/src/base/R-3/R-3.1.3.tar.gz"
-  sha256 "07e98323935baa38079204bfb9414a029704bb9c0ca5ab317020ae521a377312"
+  url "http://cran.rstudio.com/src/base/R-3/R-3.2.0.tar.gz"
+  mirror "http://cran.r-project.org/src/base/R-3/R-3.2.0.tar.gz"
+  sha256 "f5ae953f18ba6f3d55b46556bbbf73441350f9fd22625402b723a2b81ff64f35"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -178,7 +178,7 @@ index ffc18e4..6728244 100644
 @@ -2,6 +2,12 @@
  #include <config.h>
  #endif
- 
+
 +#ifndef __has_extension
 +#define __has_extension(x) 0
 +#endif
@@ -188,4 +188,3 @@ index ffc18e4..6728244 100644
  #include <AvailabilityMacros.h> /* for MAC_OS_X_VERSION_10_* -- present on 10.2+ (according to Apple) */
  /* Since OS X 10.8 vecLib requires Accelerate to be included first (which in turn includes vecLib) */
  #if defined MAC_OS_X_VERSION_10_8 && MAC_OS_X_VERSION_MIN_REQUIRED >= 1040
-
