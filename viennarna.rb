@@ -1,12 +1,10 @@
-require "formula"
-
 class Viennarna < Formula
   homepage "http://www.tbi.univie.ac.at/~ronny/RNA/"
-  #tag "bioinformatics"
-  #doi "10.1186/1748-7188-6-26"
+  # tag "bioinformatics"
+  # doi "10.1186/1748-7188-6-26"
 
-  url "http://www.tbi.univie.ac.at/~ronny/RNA/packages/source/ViennaRNA-2.1.8.tar.gz"
-  sha1 "9f26c89043a00fddbac94751cd4450d0a7235fe2"
+  url "http://www.tbi.univie.ac.at/~ronny/RNA/packages/source/ViennaRNA-2.1.9.tar.gz"
+  sha256 "367f6a89ddbf7d326ab9ff7d87e3441774e434e1ef599d3511a4bf92a3b392eb"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -18,26 +16,29 @@ class Viennarna < Formula
 
   option "with-perl", "Build and install Perl interface"
 
-  depends_on :python => :optional
   depends_on :x11
+  depends_on "gd"
 
   def install
-    ENV["ARCHFLAGS"] = "-arch x86_64"
-    args = ["--prefix=#{prefix}",
-            "--disable-debug",
-            "--disable-dependency-tracking",
-            "--disable-openmp"]
+    ENV["ARCHFLAGS"] = "-arch i386 -arch x86_64" if build.with? "perl"
+
+    args = [
+      "--prefix=#{prefix}",
+      "--disable-debug",
+      "--disable-dependency-tracking",
+      "--with-python",
+    ]
+    args << "--disable-openmp" if ENV.compiler == :clang
     args << "--without-perl" if build.without? "perl"
-    args << "--with-python" if build.with? "python"
 
     system "./configure", *args
     system "make"
     ENV.deparallelize
-    system "make install"
+    system "make", "install"
   end
 
   test do
     output = `echo CGACGUAGAUGCUAGCUGACUCGAUGC |#{bin}/RNAfold --MEA`
-    assert output.include?("-1.90 MEA=22.32")
+    assert output.include?("-1.30 MEA=21.31")
   end
 end
