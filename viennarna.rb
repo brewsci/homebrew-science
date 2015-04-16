@@ -7,11 +7,11 @@ class Viennarna < Formula
   sha256 "367f6a89ddbf7d326ab9ff7d87e3441774e434e1ef599d3511a4bf92a3b392eb"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "0b8cc67011e8070f27d6e4bede85c259ac9f2add" => :yosemite
-    sha1 "e3f1c752a9dd85be264944c9e3a048d3e87a519b" => :mavericks
-    sha1 "b449ec9a67b872f89b868f1b51ba817dad0c3c6d" => :mountain_lion
+    sha256 "d904e8069d9f78c88509effdcd557b7aabdd3ea98cd545bfe877cedf241b6d6e" => :yosemite
+    sha256 "25087b1886e24201b585f09fd7e5acb0291369d5f42ff2bd09bd5e3f39d6fff9" => :mavericks
+    sha256 "ca8239c8abe3e8e47ab143e4e49e0ceb435f8316eb8bd0999ee8249dc4cc9aef" => :mountain_lion
   end
 
   option "with-perl", "Build and install Perl interface"
