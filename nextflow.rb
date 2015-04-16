@@ -1,12 +1,12 @@
 class Nextflow < Formula
   homepage "http://www.nextflow.io/"
   # tag "bioinformatics"
-  version "0.13.1"
-  url "http://www.nextflow.io/releases/v0.13.1/nextflow"
-  sha1 "ddcae0ac62ae4dc17259a1ceace69ee7c2483cf4"
+  version "0.13.2"
+  url "http://www.nextflow.io/releases/v0.13.2/nextflow"
+  sha256 "c06d98ee74b14ed16dc5d38faf89eb0019f1524a501126cfe8d8bd67024a7d22"
   head "https://github.com/nextflow-io/nextflow.git"
 
-  depends_on :java => "1.7"
+  depends_on :java => "1.7+"
 
   def install
     bin.install "nextflow"
