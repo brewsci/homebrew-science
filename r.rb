@@ -33,7 +33,11 @@ class R < Formula
   depends_on "readline"
   depends_on "gettext"
   depends_on "libtiff"
+  depends_on "pcre"
   depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "xz"
+
   depends_on "cairo" if OS.mac?
   depends_on :x11 => :recommended
   depends_on "valgrind" => :optional
