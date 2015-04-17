@@ -13,10 +13,9 @@ class R < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    revision 4
-    sha256 "768cf35d124edb33d52b720bdbccd4b5485ed8bd7e21052d7d1d9c752658c42d" => :yosemite
-    sha256 "5ae07aa5f2c206435bc519a35fbb05652f87c2107a4634f454e0d32bea0e7402" => :mavericks
-    sha256 "f597fe6bcc1fa923fcb8a1492bcbf6b4287003fc06c161b121a8ee74c801d645" => :mountain_lion
+    sha256 "6e83b6fd9bad20b5d29a2fcc6ae9bb0653fc72c24f953b7a3a27a587da3440a3" => :yosemite
+    sha256 "733cf0952938ea13b7d17a602dab1a2fee16d878fba7a71807f1069d17d9b1ef" => :mavericks
+    sha256 "aac4087f87f33aac6ff38eeae0e264bac041ca69c41471444675f6f90e6399b9" => :mountain_lion
   end
 
   head do
