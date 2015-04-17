@@ -4,6 +4,13 @@ class Moab < Formula
   sha256 "349e66e06cac38325926eafb01807b9d520bfce73016088d5dd7b973e687467a"
   head "https://bitbucket.org/fathomteam/moab.git"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "097016feed8abaee3de749c285bebe43e154939e0dd389d14bea50fc961c08fe" => :yosemite
+    sha256 "1f0481c59eae7c0e97b2058eee421070e9b205c91c5ff7b977b73937d2d4b08c" => :mavericks
+    sha256 "ae9c07a183340ac8d454c7e9a9b1b86a7e1f47c27bee5a557bfe416c6f63c434" => :mountain_lion
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
