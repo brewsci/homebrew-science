@@ -1,16 +1,14 @@
-require 'formula'
-
 class CudaRequirement < Requirement
   build true
   fatal true
 
-  satisfy { which 'nvcc' }
+  satisfy { which "nvcc" }
 
   env do
     # Nvidia CUDA installs (externally) into this dir (hard-coded):
-    ENV.append 'CFLAGS', "-F/Library/Frameworks"
+    ENV.append "CFLAGS", "-F/Library/Frameworks"
     # # because nvcc has to be used
-    ENV.append 'PATH', which('nvcc').dirname, ':'
+    ENV.append "PATH", which("nvcc").dirname, ":"
   end
 
   def message
@@ -21,8 +19,8 @@ class CudaRequirement < Requirement
           https://developer.nvidia.com/cuda-downloads
 
       Select "Mac OS" as the Operating System and then select the
-      'Developer Drivers for MacOS' package.
-      You will also need to download and install the 'CUDA Toolkit' package.
+      "Developer Drivers for MacOS" package.
+      You will also need to download and install the "CUDA Toolkit" package.
 
       The `nvcc` has to be in your PATH then (which is normally the case).
 
@@ -31,16 +29,18 @@ class CudaRequirement < Requirement
 end
 
 class Beagle < Formula
-  homepage 'https://beagle-lib.googlecode.com/'
-  url 'https://beagle-lib.googlecode.com/svn/tags/beagle_release_2_1/'
-  head 'https://beagle-lib.googlecode.com/svn/trunk/'
+  homepage "https://github.com/beagle-dev/beagle-lib"
+  url "https://github.com/beagle-dev/beagle-lib/archive/beagle_release_2_1_2.tar.gz"
+  sha256 "82ff13f4e7d7bffab6352e4551dfa13afabf82bff54ea5761d1fc1e78341d7de"
 
-  option 'with-opencl', "Build with OpenCL GPU/CPU acceleration"
+  head "https://github.com/beagle-dev/beagle-lib.git"
+
+  option "with-opencl", "Build with OpenCL GPU/CPU acceleration"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on 'doxygen' => :build
+  depends_on "doxygen" => :build
   depends_on CudaRequirement => :optional
 
   def install
@@ -48,8 +48,8 @@ class Beagle < Formula
 
     args = [ "--prefix=#{prefix}" ]
     args << "--enable-osx-leopard" if MacOS.version <= :leopard
-    args << "--with-cuda=#{Pathname(which 'nvcc').dirname}" if build.with? 'cuda'
-    args << "--enable-opencl" if build.with? 'opencl'
+    args << "--with-cuda=#{Pathname(which "nvcc").dirname}" if build.with? "cuda"
+    args << "--enable-opencl" if build.with? "opencl"
 
     system "./configure", *args
 
@@ -59,8 +59,20 @@ class Beagle < Formula
     ENV.deparallelize
 
     system "make"
-    system "make install"
-    # The tests seem to fail if --enable-opencl is provided
-    system "make check" if build.without? "opencl"
+    system "make", "install"
+    system "make", "check"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include "libhmsbeagle/platform.h"
+      int main()
+      {
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "-I#{include}/libhmsbeagle-1",
+           testpath/"test.cpp", "-o", "test"
+    system "./test"
   end
 end
