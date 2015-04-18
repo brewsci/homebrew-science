@@ -3,6 +3,13 @@ class InterViews < Formula
   url "http://www.neuron.yale.edu/ftp/neuron/versions/v7.3/iv-18.tar.gz"
   sha256 "a875692a20211e0856e9e283ab9ef5da022b4d49853aa7f2f734104f399e7af1"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "4367f0c7ba84821a1bad6c8b6743972f3d10ad77ead55f02fcc10578b913f524" => :yosemite
+    sha256 "f8ac5b2f5f664814b0088b236c84731ff09588d8462db4e8bba011b9591371ad" => :mavericks
+    sha256 "667bc2bb4c4ab535733b7e89619a5945b46d0125a2eccfa44478c20e44448ca3" => :mountain_lion
+  end
+
   depends_on :x11
 
   def install
