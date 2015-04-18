@@ -1,37 +1,27 @@
-require "formula"
-
 class Z3 < Formula
   homepage "http://z3.codeplex.com/"
-  version "4.3.1"
-  url "http://download-codeplex.sec.s-msft.com/Download/SourceControlFileDownload.ashx?ProjectName=z3&changeSetId=89c1785b73225a1b363c0e485f854613121b70a7"
-  sha1 "91726a94a6bc0c1035d978b225f3f034387fdfe0"
-  head "https://git01.codeplex.com/z3", :using => :git
+  url "https://github.com/Z3Prover/z3/archive/z3-4.3.2.tar.gz"
+  sha256 "c9ccc7d1e9b9dcc7129eaf1160c1a577726f4e870ba4681ea9c8a4521bfaa0f3"
+  head "https://github.com/Z3Prover/z3.git"
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on :python
 
   def install
     package_dir = lib/"python2.7/site-packages"
     mkdir_p package_dir
     inreplace "scripts/mk_util.py", /^PYTHON_PACKAGE_DIR=.*/, "PYTHON_PACKAGE_DIR=\"#{package_dir}\""
-    # Fixes compilation with Clang.
-    inreplace "src/util/hwf.cpp", "#include<float.h>", "#include <emmintrin.h>\n#include <float.h>"
 
-    system "autoconf"
-    system "./configure", "--prefix=#{prefix}"
-    system "python", "scripts/mk_make.py"
+    system "python", "scripts/mk_make.py", "--prefix=#{prefix}"
     cd "build" do
       system "make"
       system "make", "install"
-      (share/"z3").install "test-z3"
     end
+    share.install "examples"
   end
 
   test do
-    # There doesn't seem to be a convenient way to run all unit tests...
-    %x[#{share}/z3/test-z3 -h].split[33..-1].each do |testcase|
-      system "#{share}/z3/test-z3", testcase
-    end
+    system ENV.cc, "-I#{include}", "-L#{lib}", "-lz3",
+           share/"examples/c/test_capi.c", "-o", testpath/"test"
+    system "./test"
   end
 end
