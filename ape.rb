@@ -3,6 +3,14 @@ class Ape < Formula
   url "http://www.tddft.org/programs/APE/sites/default/files/ape-2.2.1.tar.gz"
   sha256 "91c09e1d5ddcfb1d421a0d1d416c760de10afbf7f54e6ba1ad767661e1671357"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "eff27fe51e75d1b9d12cd498220b5d09d1372c20ef7772c0bd886cd8c5d7a7c2" => :yosemite
+    sha256 "e124f73daf8d91e4d38178cd5fcce5e64c61006c93b0e44aadfeaff4e39fb4dc" => :mavericks
+    sha256 "d427a141932eb1d8c63f3ced0607210787bb79dc42bcb0374686dfb0222833e5" => :mountain_lion
+  end
+
   depends_on :fortran
   depends_on "gsl"
   depends_on "libxc"
