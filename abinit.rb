@@ -1,8 +1,7 @@
 class Abinit < Formula
   homepage "http://www.abinit.org"
-  url "http://ftp.abinit.org/abinit-7.10.2.tar.gz"
-  sha256 "cbead80096d97f1c8d08ccb3b9b2851ac1e56accaebe551d9ab29757e9cd531e"
-  revision 1
+  url "http://ftp.abinit.org/abinit-7.10.4.tar.gz"
+  sha256 "ebd0a3abd01db4374beda092d1f16c9e00d327712b1ed389bb32e1c80f37c6ef"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -24,12 +23,8 @@ class Abinit < Formula
   depends_on "fftw" => ["with-mpi", "with-fortran", :recommended]
   depends_on "libxc" => :recommended
   depends_on "netcdf" => ["with-fortran", :recommended]
+  depends_on "etsf_io" => :recommended
   depends_on "gsl" => :recommended
-
-  # Patch:
-  # Correct a bug when NetCDF is used without ETSF_IO library.
-  # This bug has been committed upstream; to be removed for ABINIT 7.10.4+
-  patch :DATA
 
   def install
     # Environment variables CC, CXX, etc. will be ignored.
@@ -60,7 +55,14 @@ class Abinit < Formula
       args << "--with-linalg-libs=-L#{Formula["veclibfort"].opt_lib} -lveclibfort"
     end
 
-    if build.with? "netcdf"
+    if build.with? "etsf_io"
+      fail "Building with etsf_io support requires netcdf" if build.without? "netcdf"
+      trio_flavor = "netcdf+etsf_io"
+      args << "--with-etsf-io-incs=-I#{Formula["etsf_io"].opt_include}"
+      args << "--with-etsf-io-libs=-L#{Formula["etsf_io"].opt_lib} -letsf_io_low_level -letsf_io_utils -letsf_io"
+      args << "--with-netcdf-incs=-I#{Formula["netcdf"].opt_include}"
+      args << "--with-netcdf-libs=-L#{Formula["netcdf"].opt_lib} -lnetcdff -lnetcdf"
+    elsif build.with? "netcdf"
       trio_flavor = "netcdf"
       args << "--with-netcdf-incs=-I#{Formula["netcdf"].opt_include}"
       args << "--with-netcdf-libs=-L#{Formula["netcdf"].opt_lib} -lnetcdff -lnetcdf"
@@ -114,45 +116,3 @@ class Abinit < Formula
     system "#{bin}/abinit", "-b"
   end
 end
-
-# Eliminate this patch for Abinit v7.10.4+
-__END__
-diff --git a/src/57_iovars/outvars.F90 b/src/57_iovars/outvars.F90
-index 558b783..5ec12f5 100644
---- a/src/57_iovars/outvars.F90
-+++ b/src/57_iovars/outvars.F90
-@@ -352,7 +352,7 @@ subroutine outvars(choice,dmatpuflag,dtsets,filnam4,iout,&
-
- #if defined HAVE_TRIO_ETSF_IO
-  call etsf_io_low_close(abs(ncid), lstat)
--#elif defined HAVE_TRIO_NETCDF
-+#elif 0
-  ncerr=nf90_close(ncid)
-  if (ncerr/=nf90_NoErr) then
-    message='Netcdf Error while closing the OUT.nc file: '//trim(nf90_strerror(ncerr))
-diff --git a/src/57_iovars/write_var_netcdf.F90 b/src/57_iovars/write_var_netcdf.F90
-index e0e3400..fe5f190 100644
---- a/src/57_iovars/write_var_netcdf.F90
-+++ b/src/57_iovars/write_var_netcdf.F90
-@@ -116,7 +116,7 @@ type(etsf_io_low_error) :: error_data
-    end if
-  end if
-
--#elif defined HAVE_TRIO_NETCDF
-+#elif 0
-  if (ncid>0) then
- !  ### Put the file in definition mode
-    ncerr=nf90_redef(ncid)
-diff --git a/src/94_scfcv/outscfcv.F90 b/src/94_scfcv/outscfcv.F90
-index 92fcc52..7d51105 100644
---- a/src/94_scfcv/outscfcv.F90
-+++ b/src/94_scfcv/outscfcv.F90
-@@ -1080,7 +1080,7 @@ subroutine outscfcv(atindx1,cg,compch_fft,compch_sph,cprj,dimcprj,dtefield,dtfil
-    if (isalchemical(Crystal)) then
-      MSG_WARNING("Alchemical pseudos are not supported by ETSF-IO, GSR file won't be produced")
-    else
--#ifdef HAVE_TRIO_NETCDF
-+#ifdef HAVE_TRIO_ETSF_IO
-      NCF_CHECK(ncfile_create(ncf,fname,NF90_CLOBBER),"Creating GSR file")
-      call crystal_ncwrite(Crystal,ncf%ncid)
-      call ebands_ncwrite(Bands,dtset%nshiftk_orig,dtset%shiftk_orig,dtset%nshiftk,dtset%shiftk,dtset%ngkpt,dtset%kptrlatt,ncf%ncid)
