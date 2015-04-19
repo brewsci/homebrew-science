@@ -4,6 +4,13 @@ class Dssp < Formula
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dssp/dssp_2.2.1.orig.tar.gz"
   sha256 "5fb5e7c085de16c05981e3a72869c8b082911a0b46e6dcc6dbd669c9f267e8e1"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "d24eda9478670b24b40b27dac9ef9f31034c3f6ab2007900f4a972ec1208a0fd" => :yosemite
+    sha256 "66276ea7fa9226c2cf0a901231d7b9cd79ca806f402ef865b201ecea83c19597" => :mavericks
+    sha256 "f904611240d8959d7ebe0694da2a10fdb7bbaeb6c317f90f441bd449373e539c" => :mountain_lion
+  end
+
   depends_on "boost"
 
   resource "pdb" do
