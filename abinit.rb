@@ -5,9 +5,9 @@ class Abinit < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "c6589a26acfdabb5c90786a35083ac7d69a11dfdd004d656443cd0d3dc62df23" => :yosemite
-    sha256 "1be9246057cd984978fc0e739f9c73b6739be2ee37ceff21b2f9926f4a5f438a" => :mavericks
-    sha256 "1e89a2320d9c6edb71d50e44dd16d561694abf0826846e31fb7f5c941e8df501" => :mountain_lion
+    sha256 "e62b983ca62eefd76bd04833a4679836b0ba9c385fb7bcdd3db4f07f6853b09f" => :yosemite
+    sha256 "5a839c84ffc3ab0d061913ecf131b60bb3401a684bf36f374d1a8650e52cde89" => :mavericks
+    sha256 "acc64cc3ac8701d910189eb2c850e974a95336c8c00b2940d0199a90f53247bb" => :mountain_lion
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
