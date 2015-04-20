@@ -1,9 +1,10 @@
-require 'formula'
-
 class Fasttree < Formula
-  homepage 'http://meta.microbesonline.org/fasttree/'
-  url 'http://www.microbesonline.org/fasttree/FastTree-2.1.7.c'
-  sha1 'd9381924829e7d19d56154ebbde0e44044b4b7ab'
+  homepage "http://microbesonline.org/fasttree/"
+  #doi "10.1371/journal.pone.0009490"
+  #tag "bioinformatics"
+
+  url "http://microbesonline.org/fasttree/FastTree-2.1.8.c"
+  sha256 "b172d160f1b12b764d21a6937c3ce01ba42fa8743d95e083e031c6947762f837"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -15,6 +16,13 @@ class Fasttree < Formula
 
   needs :openmp # => :recommended
 
+  option "with-double", "Use double precision maths for accurate branch lengths (disables SSE)"
+  option "without-openmp", "Disable multithreading support"
+  option "without-sse", "Disable SSE parallel instructions"
+
+  # See discussion (https://github.com/Homebrew/homebrew-science/pull/2134#issuecomment-94607619)
+  fails_with :llvm
+
   fails_with :clang do
     build 425
     cause "segmentation fault when running Fasttree"
@@ -22,7 +30,11 @@ class Fasttree < Formula
   end
 
   def install
-    system "#{ENV.cc} -DOPENMP -fopenmp -O3 -finline-functions -funroll-loops -Wall -o FastTree FastTree-#{version}.c -lm"
+    opts = "-O3 -finline-functions -funroll-loops -Wall"
+    opts << " -DOPENMP -fopenmp" if build.with? "openmp"
+    opts << " -DUSE_DOUBLE" if build.with? "double"
+    opts << " -DNO_SSE" if build.without? "sse"
+    system "#{ENV.cc} #{opts} -o FastTree FastTree-#{version}.c -lm"
     bin.install "FastTree"
   end
 
