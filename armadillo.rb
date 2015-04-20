@@ -1,8 +1,7 @@
 class Armadillo < Formula
   homepage "http://arma.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-5.000.0.tar.gz"
-  sha256 "23351f8ef031b9b34375d84bfc2df62cabd0631976ba697ff9716b64d0322eca"
-  version "5.0.0"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-5.000.1.tar.gz"
+  sha256 "8ca55fbfce220517374a879ddc0c79e1afd3993f89cc58621aa502e9533f3cdb"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -16,8 +15,8 @@ class Armadillo < Formula
   depends_on "cmake" => :build
   depends_on "arpack"
   depends_on "superlu"
-  depends_on "openblas" if OS.linux?
   depends_on "hdf5" => :optional
+  depends_on "openblas" if OS.linux?
 
   option :cxx11
 
@@ -30,7 +29,6 @@ class Armadillo < Formula
     system "cmake", ".", *args
     system "make", "install"
 
-    # Copy examples/ directory to prefix
     prefix.install "examples"
   end
 
@@ -47,6 +45,6 @@ class Armadillo < Formula
         }
     EOS
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-larmadillo", "-o", "test"
-    assert `./test`.include?(version)
+    assert_equal `./test`.to_i, version.to_s.to_i
   end
 end
