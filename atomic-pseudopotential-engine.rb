@@ -3,6 +3,14 @@ class AtomicPseudopotentialEngine < Formula
   url "http://www.tddft.org/programs/APE/sites/default/files/ape-2.2.1.tar.gz"
   sha256 "91c09e1d5ddcfb1d421a0d1d416c760de10afbf7f54e6ba1ad767661e1671357"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "ec58f7d1754ba07eed5dd9795d59cde7c4e498983e1c928a0049a233080ec261" => :yosemite
+    sha256 "0cdfc7a395022c9259238a37dea44d697d09a86378481832e493059df437616e" => :mavericks
+    sha256 "7c001340788e4d420e7e7c16c3c24053ad9550a989b6ab344c7a237c60cba97e" => :mountain_lion
+  end
+
   depends_on :fortran
   depends_on "gsl"
   depends_on "libxc"
