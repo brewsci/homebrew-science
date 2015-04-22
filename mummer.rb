@@ -31,7 +31,7 @@ class Mummer < Formula
 
   test do
     TOOLS.each do |tool|
-      system "#{bin}/#{tool} -h 2>&1 |grep #{tool}"
+      system "#{bin}/#{tool} -h 2>&1 |grep -i Usage"
     end
   end
 end
