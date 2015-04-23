@@ -7,11 +7,12 @@ class Fasttree < Formula
   sha256 "b172d160f1b12b764d21a6937c3ce01ba42fa8743d95e083e031c6947762f837"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "369bb09b371ed05d55a403750738c5749fb95c07" => :yosemite
-    sha1 "829bfc5f6fc144a6642c29b8a2e6a4e078998e8c" => :mavericks
-    sha1 "acad8b55ad7eb9f6a63cf6b96ef3961e1d01ed79" => :mountain_lion
+    revision 1
+    sha256 "aa51e0bac1e69fdcca6b7bc3ce2f991cd8ebddccda9bd017dd9d7c97c37d3b9f" => :yosemite
+    sha256 "8fc2e85716afb2b6230faa5ddf48398cc3e8905106a0d429193add343e24dbc4" => :mavericks
+    sha256 "4118a55ddf727c3069c9380d164d716e403554b2dff6b5bb833686cb21a3ec19" => :mountain_lion
   end
 
   option "with-double", "Use double precision maths for accurate branch lengths (disables SSE)"
