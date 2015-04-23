@@ -7,11 +7,11 @@ class Samtools01 < Formula
   sha256 "500019b4d1886ad995513d5ce8b413b14b51f16f251ce76bc0b35a446b182a47"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "233b4c802c5648ea70e8de7faa0d51be32786860" => :yosemite
-    sha1 "a5d3ce8692e7e1e7067d2c6a942e456b6b731fec" => :mavericks
-    sha1 "73c1d0bfd0462ff57c0354fa3870765a2df64737" => :mountain_lion
+    sha256 "acd7f43c7c12af030a02831aaead36711a41a4bda60fe4a406020b72e77cec3a" => :yosemite
+    sha256 "fffd6868c552e316ae0055d9a695aea5107a5303e88f313360c34ef11ef40097" => :mavericks
+    sha256 "8238ae7e31e946ac98c259fccdecdcd929368257f4c174e8b17938a9f6e9d7a9" => :mountain_lion
   end
 
   option "with-dwgsim", "Build with 'Whole Genome Simulation'"
