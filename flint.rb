@@ -1,11 +1,10 @@
-require "formula"
-
 class Flint < Formula
   homepage "http://flintlib.org"
   #doi "10.1007/978-3-642-15582-6_18"
   #tag "math"
-  url "http://flintlib.org/flint-2.4.4.tar.gz"
-  sha1 "71075ce6d851af6244110644479bf29b4403212c"
+  url "http://flintlib.org/flint-2.4.5.tar.gz"
+  mirror "https://mirrors.kernel.org/debian/pool/main/f/flint/flint_2.4.5.orig.tar.gz"
+  sha256 "e489354df00f0d84976ccdd0477028693977c87ccd14f3924a89f848bb0e01e3"
   head "https://github.com/wbhart/flint2.git", :branch => "trunk"
 
   bottle do
@@ -25,7 +24,7 @@ class Flint < Formula
   end
 
   test do
-    (testpath / "test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<-EOS.undent
       #include <stdlib.h>
       #include <stdio.h>
       #include <gmp.h>
