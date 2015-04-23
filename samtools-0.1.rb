@@ -3,8 +3,8 @@ class Samtools01 < Formula
   # doi "10.1093/bioinformatics/btp352"
   # tag "bioinformatics"
 
-  url "https://downloads.sourceforge.net/project/samtools/samtools/0.1.19/samtools-0.1.19.tar.bz2"
-  sha1 "ff3f4cf40612d4c2ad26e6fcbfa5f8af84cbe881"
+  url "https://github.com/samtools/samtools/archive/0.1.20.tar.gz"
+  sha256 "500019b4d1886ad995513d5ce8b413b14b51f16f251ce76bc0b35a446b182a47"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
