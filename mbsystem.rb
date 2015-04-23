@@ -15,7 +15,7 @@ class Mbsystem < Formula
   depends_on "netcdf"
   depends_on "proj"
   depends_on "fftw"
-  depends_on "gv"
+  depends_on "homebrew/x11/gv"
   depends_on "lesstif"
 
   option "without-levitus", "Don't install Levitus database (no mblevitus)"
@@ -38,8 +38,7 @@ class Mbsystem < Formula
                           "--disable-static",
                           "--enable-shared",
                           "--with-gmt-include=#{Formula["gmt"].opt_include}/gmt",
-                          "--with-gmt-lib=#{Formula["gmt"].opt_lib}/gmt"#,
-                          #"--with-otps-dir=<path-to-OTPS>"
+                          "--with-gmt-lib=#{Formula["gmt"].opt_lib}/gmt"
     system "make", "check" if build.with? "check"
     system "make", "install"
   end
