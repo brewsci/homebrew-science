@@ -8,10 +8,10 @@ class Flint < Formula
   head "https://github.com/wbhart/flint2.git", :branch => "trunk"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "617731bca8e304ff9351c0fbee22ac078bbeee5e" => :yosemite
-    sha1 "ec020b7499a3b7d19fa4a2c44d2abc30d34c21aa" => :mavericks
-    sha1 "29dbbfc5cf472a0922376ec47e40975b9caec6bb" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "791a7d2fc59c971a8201a3b81b7a5d4315165b58ba9c2b5b3807111d9e9896ad" => :yosemite
+    sha256 "499a90a4ab6d7783fcf43fa35428f90b5923c7a28722474231736668d9b1f26a" => :mavericks
+    sha256 "e82ce164d3161c934971f674a5459ee9a354baf7b4c4d4cca7f2bd5006a626d0" => :mountain_lion
   end
 
   depends_on "gmp"
