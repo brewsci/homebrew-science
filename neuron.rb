@@ -3,6 +3,13 @@ class Neuron < Formula
   url "http://www.neuron.yale.edu/ftp/neuron/versions/v7.3/nrn-7.3.tar.gz"
   sha256 "71cff5962966c5cd5d685d90569598a17b4b579d342126b31e2d431128cc8832"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "1b48082098ae9a2691b575849c36419038f800c0fa21d90548e3befbf82de47b" => :yosemite
+    sha256 "af20483fcc52a1fa9343eebca893dfb510b487243a76c345b8c74e8eaaac22d5" => :mavericks
+    sha256 "93b83c24f246f6b574838563e20e5efeb729edfe163866a132490fb22a5e8340" => :mountain_lion
+  end
+
   depends_on "inter-views"
   depends_on :mpi => :optional
   depends_on :python if MacOS.version <= :snow_leopard
