@@ -14,9 +14,9 @@ class Tbl2asn < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "d6267f0ee43987f34aec6b81027ea3bb847efbefad7de94ced009f3c58e76c8d" => :yosemite
-    sha256 "da8bed566415973b70668dd970304db43e08629ab6c6323196d3516d85f6cc98" => :mavericks
-    sha256 "47e97e133b2a477510985f6d882d9691028073052e2d7943c3d85658ded72ed1" => :mountain_lion
+    sha256 "7ce5ef183140c8f434eb502cefe23ab47ce34f82049a9c44ac0278029975353a" => :yosemite
+    sha256 "b3a38555218920e11b2286eb06e0ba6e88d733b588a0d6c628363bbe8913137d" => :mavericks
+    sha256 "b85880c7198de7c0abbde134a2e2f4f68dc89f546730c474fe89801066aaefc5" => :mountain_lion
   end
 
   resource "doc" do
