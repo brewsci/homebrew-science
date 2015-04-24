@@ -4,11 +4,12 @@ class Opencascade < Formula
   sha1 "fe359a12e110e9136adac2db1539026be6cc579e"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "e95b4b1558699266030fd40cc1bf7af4bfef48ca" => :yosemite
-    sha1 "9548fea6e97848083f68cb3560d15aab3e544205" => :mavericks
-    sha1 "0c3b5d96a08a19824677160d998ae461f5125be3" => :mountain_lion
+    revision 1
+    sha256 "156c57d3345600ba9911dfbe9844bb36cd86e55b07669562c2010e222c411e63" => :yosemite
+    sha256 "b8b1ebb93e0bb650a0984ce684659ac188685ebdf0426811bd7353edd2cb1c60" => :mavericks
+    sha256 "47555cbfe72c5929b303becec9fb555271fc4a0887f672f04370eede0b4ebeeb" => :mountain_lion
   end
 
   conflicts_with "oce", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
