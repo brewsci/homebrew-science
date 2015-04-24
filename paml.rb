@@ -1,5 +1,3 @@
-require "formula"
-
 class Paml < Formula
   homepage "http://abacus.gene.ucl.ac.uk/software/paml.html"
   url "http://abacus.gene.ucl.ac.uk/software/paml4.8a.tgz"
@@ -18,7 +16,7 @@ class Paml < Formula
   def install
     cd "src" do
       system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
-      bin.install %w[baseml basemlg codeml pamp evolver yn00 chi2]
+      bin.install %w[baseml basemlg chi2 codeml evolver infinitesites mcmctree pamp yn00]
     end
 
     (share/"paml").install "dat"
@@ -34,5 +32,10 @@ class Paml < Formula
       Dat and ctl files:
         #{HOMEBREW_PREFIX}/share/paml
     EOS
+  end
+
+  test do
+    cp Dir[doc/"examples/DatingSoftBound/*"], testpath
+    system "infinitesites"
   end
 end
