@@ -5,6 +5,14 @@ class Plink < Formula
   # tag "bioinformatics"
   # doi "10.1086/519795"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "e9aae1de18b36eb1b9fa200a9ec4527af50e14df9b1ae245bd983eb592920250" => :yosemite
+    sha256 "b123ad9ffbc9825aece2080ce51ca6814c8a5821dcee5b865b328b24917332f7" => :mavericks
+    sha256 "e0b9b89dff5335544012f7592cfa72cfddc44ee33b6809c9a16c02343df7fa4e" => :mountain_lion
+  end
+
   # allows plink to build with clang and new versions of gcc
   # borrowed from Debian; discussion at:
   # https://lists.debian.org/debian-mentors/2012/04/msg00410.html
