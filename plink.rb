@@ -1,9 +1,9 @@
-require "formula"
-
 class Plink < Formula
-  url "http://pngu.mgh.harvard.edu/~purcell/plink/dist/plink-1.07-src.zip"
   homepage "http://pngu.mgh.harvard.edu/~purcell/plink/"
-  sha1 "d41a2d014ebc02bf11e5235292b50fad6dedd407"
+  url "http://pngu.mgh.harvard.edu/~purcell/plink/dist/plink-1.07-src.zip"
+  sha256 "4af56348443d0c6a1db64950a071b1fcb49cc74154875a7b43cccb4b6a7f482b"
+  # tag "bioinformatics"
+  # doi "10.1086/519795"
 
   # allows plink to build with clang and new versions of gcc
   # borrowed from Debian; discussion at:
@@ -15,13 +15,12 @@ class Plink < Formula
   option "without-webcheck", "Build without default version webcheck"
 
   def install
-    ENV.deparallelize
-    inreplace "Makefile", "WEBCHECK = 1", "WEBCHECK =" if build.without? "webcheck"
-
-    make_args = (OS.mac?) ? %W[SYS=MAC] : []
+    make_args = (OS.mac?) ? ["SYS=MAC"] : ["FORCE_DYNAMIC=1"]
+    make_args << "WITH_WEBCHECK=0" if build.without? "webcheck"
     system "make", *make_args
-    (share+"plink").install %w{test.map test.ped}
+    (share / "plink").install "test.map", "test.ped"
     bin.install "plink"
+    doc.install "COPYING.txt", "README.txt"
   end
 
   test do
