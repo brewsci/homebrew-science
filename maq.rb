@@ -6,6 +6,14 @@ class Maq < Formula
   url "https://downloads.sourceforge.net/project/maq/maq/0.7.1/maq-0.7.1.tar.bz2"
   sha256 "e1671e0408b0895f5ab943839ee8f28747cf5f55dc64032c7469b133202b6de2"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "8ad73094199d8b664142722acc65ef2e1eb3c7e5ed636ed49ed0e71cc4061ebf" => :yosemite
+    sha256 "a8d55037495dbd7c0329a3650cb37720e7dcef324d85fbba123cdb0440f9cbc9" => :mavericks
+    sha256 "fc0b293027d0b9c0836fd2768362d3a8419f444a1154e65a393064d63f7e492b" => :mountain_lion
+  end
+
   depends_on "Getopt::Std" => :perl
   depends_on "File::Copy" => :perl
 
