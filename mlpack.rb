@@ -5,6 +5,14 @@ class Mlpack < Formula
   url "http://www.mlpack.org/files/mlpack-1.0.12.tar.gz"
   sha256 "f47abfc2ab75f1d7f4c73a3368c4428223f025cc6fbc6703735df6a2734a838c"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "38230ff4a36fe2aae5eaaeef91078aed3ae03d8c95799f8ddbf1dddeac67e815" => :yosemite
+    sha256 "3a644c1c52c1bc935844768791fd76c27af995ca0c79a3a2bbf7833ed6e1d16e" => :mavericks
+    sha256 "9b8fd8ca8c7c001a73a83796a3e200d445861c4f3aa1a9cba7c5bfa9f023cc96" => :mountain_lion
+  end
+
   needs :cxx11
   cxx11dep = MacOS.version < :mavericks ? ["c++11"] : []
 
