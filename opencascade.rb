@@ -1,5 +1,3 @@
-require "formula"
-
 class Opencascade < Formula
   homepage "http://www.opencascade.org/"
   url "http://files.opencascade.com/OCCT/OCC_6.8.0_release/opencascade-6.8.0.tgz"
@@ -38,13 +36,14 @@ class Opencascade < Formula
     cmake_args << "-DINSTALL_DIR:PATH=#{prefix}"
     cmake_args << "-D3RDPARTY_DIR:PATH=#{HOMEBREW_PREFIX}"
     cmake_args << "-D3RDPARTY_TCL_DIR:PATH=/usr"
+    cmake_args << "-D3RDPARTY_TK_INCLUDE_DIR:PATH=/usr/include"
     cmake_args << "-DINSTALL_TESTS:BOOL=ON" if build.with? "tests"
     cmake_args << "-D3RDPARTY_TBB_DIR:PATH=#{HOMEBREW_PREFIX}" if build.with? "tbb"
 
     # must specify, otherwise finds old ft2config.h in /usr/X11R6
     cmake_args << "-D3RDPARTY_FREETYPE_INCLUDE_DIR:PATH=#{HOMEBREW_PREFIX}/include/freetype2"
 
-    %w{freeimage gl2ps opencl tbb}.each do |feature|
+    %w[freeimage gl2ps opencl tbb].each do |feature|
       cmake_args << "-DUSE_#{feature.upcase}:BOOL=ON" if build.with? feature
     end
 
@@ -54,10 +53,10 @@ class Opencascade < Formula
       cmake_args << "-D3RDPARTY_OPENCL_DLL:FILEPATH=#{opencl_path}/Libraries/libcl2module.dylib"
 
       # link against the Apple built-in OpenCL Framework
-      #inreplace "adm/cmake/TKOpenGL/CMakeLists.txt", "list( APPEND TKOpenGl_USED_LIBS OpenCL )", <<-EOF.undent
+      # inreplace "adm/cmake/TKOpenGL/CMakeLists.txt", "list( APPEND TKOpenGl_USED_LIBS OpenCL )", <<-EOF.undent
       #  find_library(FRAMEWORKS_OPENCL NAMES OpenCL)
       #  list( APPEND TKOpenGl_USED_LIBS ${FRAMEWORKS_OPENCL} )
-      #EOF
+      # EOF
     end
 
     system "cmake", ".", *cmake_args
