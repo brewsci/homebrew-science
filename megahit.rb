@@ -3,9 +3,8 @@ class Megahit < Formula
   # doi "arXiv:1409.7208"
   # tag "bioinformatics"
 
-  url "https://github.com/voutcn/megahit/archive/v0.2.0-a.tar.gz"
-  version "0.2.0-a"
-  sha256 "5b30a163027b248bf2d96c766c3bcf1f4fe50466e368a3844b3c4e0a2491d8c4"
+  url "https://github.com/voutcn/megahit/archive/v0.2.1.tar.gz"
+  sha256 "28299b06e20950eed8a3f5b580b26a0bdffc260112f27dde860bd12f99d06f7b"
 
   head "https://github.com/voutcn/megahit.git"
 
