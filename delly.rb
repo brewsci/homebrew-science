@@ -28,7 +28,7 @@ class Delly < Formula
   def install
     if build.with? "binary"
       resource("linux-binary-0.6.5").stage do
-        bin.install "delly_v0.6.6_CentOS5.4_x86_64bit" => "delly"
+        bin.install "delly_v0.6.5_CentOS5.4_x86_64bit" => "delly"
       end
     else
       inreplace "Makefile", ".htslib .bamtools .boost", ""
