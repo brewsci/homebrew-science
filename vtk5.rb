@@ -16,6 +16,8 @@ class Vtk5 < Formula
 
   deprecated_option "examples" => "with-examples"
   deprecated_option "qt-extern" => "with-qt-extern"
+  deprecated_option "qt" => "with-qt"
+  deprecated_option "python" => "with-python"
   deprecated_option "tcl" => "with-tcl"
   deprecated_option "remove-legacy" => "without-legacy"
 
