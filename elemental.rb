@@ -1,36 +1,89 @@
-require 'formula'
-
 class Elemental < Formula
   homepage "http://libelemental.org/"
-  url "http://libelemental.org/pub/releases/Elemental-0.84-p1.tgz"
-  sha1 "ddbc22f73125570c56c21c6c1191c7f7427d2173"
   head "https://github.com/elemental/Elemental.git"
 
+  stable do
+    url "https://github.com/elemental/Elemental/archive/0.85.tar.gz"
+    sha256 "ccf2b8d3b92e99fb0f248b2c82222bef15a7644d7dc3a2826935216b0bd82d9d"
+  end
+
+  devel do
+    url "https://github.com/elemental/Elemental/archive/0.86-rc1.tar.gz"
+    sha256 "4f27c55828f27ce1685aaf65018cc149849692b7dfbd9352fc203fed1a96c924"
+    version "0.86-rc1"
+    depends_on :python => :recommended
+  end
+
   option "without-check", "Skip build time tests (not recommended)"
-  option "with-qt5", "Build with Qt5 (used for matrix visualizations)"
 
   depends_on "cmake" => :build
   depends_on :mpi => [:cc, :cxx, :f90]
-  depends_on "qt5" => :optional
+
+  depends_on "metis"     if build.head? || build.devel?
+  depends_on "openblas"  => :optional
+  depends_on "qt5"       => :optional
+  depends_on "scalapack" => :optional
 
   needs :cxx11
 
   def install
-    # Override std_cmake_args; CMAKE_BUILD_TYPE must be one of
-    # [Hybrid, Pure][Debug, Release]
-    args = ["-DCMAKE_INSTALL_PREFIX=#{prefix}",
-            "-DCMAKE_BUILD_TYPE=PureRelease",
+    ENV.cxx11
+    args = ["-DCMAKE_INSTALL_PREFIX=#{libexec}",  # Lots of junk ends up in bin.
             "-DCMAKE_FIND_FRAMEWORK=LAST",
             "-DCMAKE_VERBOSE_MAKEFILE=ON",
+            "-DCMAKE_C_COMPILER=#{ENV["MPICC"]}",
+            "-DCMAKE_CXX_COMPILER=#{ENV["MPICXX"]}",
+            "-DCMAKE_Fortran_COMPILER=#{ENV["MPIFC"]}",
             "-Wno-dev"]
 
-    # Elemental changes flags between 0.84-p1 & 0.85-dev (HEAD)
-    el = build.head? ? "EL" : "ELEM"
+    # Python is disabled in stable because there's no way to
+    # specify the destination of the Python files.
+    if build.without? "python"
+      args << "-DINSTALL_PYTHON_PACKAGE=OFF"
+    else
+      args << "-DPYTHON_SITE_PACKAGES=#{libexec}/lib/python2.7/site-packages"
+    end
+
+    if build.head?
+      args << "-DCMAKE_BUILD_TYPE=Release"
+      args << ("-DEL_HYBRID=" + ((ENV.compiler == :clang) ? "OFF" : "ON"))
+    else
+      args << "-DBUILD_KISSFFT=OFF"
+      args << ("-DCMAKE_BUILD_TYPE=" + ((ENV.compiler == :clang) ? "Pure" : "Hybrid") + "Release")
+    end
+
+    math_libs = ""
+    math_libs += "-L#{Formula["scalapack"].opt_lib} -lscalapack " if build.with? "scalapack"
+    if build.with? "openblas"
+      math_libs += "-L#{Formula["openblas"].opt_lib} -lopenblas"
+    else
+      math_libs += (OS.mac? ? "-framework Accelerate" : "-llapack -lblas -lm")
+    end
+    args << "-DMATH_LIBS=#{math_libs}"
+
+    # METIS / ParMETIS.
+    args << "-DBUILD_METIS=OFF"
+
+    args += ["-DMANUAL_METIS=ON",
+             "-DMETIS_ROOT=#{Formula["metis"].opt_prefix}",
+             "-DMETIS_LIBS=-L#{Formula["metis"].opt_lib} -lmetis",
+            ] if build.devel?
+
+    # Building against our own ParMETIS seems borderline impossible
+    # because of the mess in parmetislib.h.
+    args += ["-DMETIS_INCLUDE_DIRS=#{Formula["metis"].opt_include}",
+             "-DMETIS_LIBRARIES=-L#{Formula["metis"].opt_lib} -lmetis",
+             "-DBUILD_PARMETIS=ON",
+              # "-DBUILD_PARMETIS=OFF",
+              # "-DPARMETIS_DIR=#{Formula["parmetis"].opt_libexec}",
+              # "-DPARMETIS_INCLUDE_DIR=#{Formula["parmetis"].opt_include}",
+              # "-DPARMETIS_LIB_DIR=#{Formula["parmetis"].opt_lib}",
+            ] if build.head?
 
     # Bundle tests & examples together for check because examples directory
     # includes code that exercises Qt5 functionality (via spy plots)
-    args += ["-D#{el}_TESTS=ON", "-D#{el}_EXAMPLES=ON"] if build.with? "check"
-    args << "-D#{el}_USE_QT5=ON" if build.with? "qt5"
+    args += ["-DEL_TESTS=ON", "-DEL_EXAMPLES=ON"] if build.with? "check"
+    args << "-DEL_USE_QT5=ON" if build.with? "qt5"
 
     mkdir "build" do
       system "cmake", "..", *args
@@ -45,14 +98,19 @@ class Elemental < Formula
         opoo "Qt5 tests may return errors if run in tmux or GNU Screen" if build.with? "qt5"
 
         # Basic smoke test of build for now
-        system "mpiexec -np 2 bin/tests/core/AxpyInterface"
+        system "mpiexec", "-np", "2", "bin/tests/core/AxpyInterface"
         # Qt5 test; if enabled, spy plot of matrix will be made; otherwise,
         # test merely runs without producing spy plot
-        system "mpiexec -np 2 bin/examples/matrices/Legendre"
+        system "mpiexec", "-np", "2", "bin/examples/matrices/Legendre"
       end
 
       system "make", "install"
+      ln_sf libexec/"include", include
+      ln_sf libexec/"lib", lib
     end
   end
 
+  test do
+    system libexec/"bin/examples/lapack_like/SVD", "--height", "300", "--width", "300"
+  end
 end
