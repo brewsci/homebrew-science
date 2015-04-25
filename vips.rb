@@ -1,9 +1,7 @@
-require "formula"
-
 class Vips < Formula
   homepage "http://www.vips.ecs.soton.ac.uk/"
-  url "http://www.vips.ecs.soton.ac.uk/supported/7.42/vips-7.42.2.tar.gz"
-  sha1 "3867242fc9023f943cc4dac09a71bde0dc36cae3"
+  url "http://www.vips.ecs.soton.ac.uk/supported/7.42/vips-7.42.3.tar.gz"
+  sha256 "6d001480b75a20d04d44869fb4cb93e4203e73ecd865dc68b1c11f56c9e74baa"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -50,5 +48,10 @@ class Vips < Formula
     system "./configure", *args
     system "make", "check" if build.with? "check"
     system "make", "install"
+  end
+
+  test do
+    system "#{bin}/vips", "list", "classes"
+    system "#{bin}/vipsheader", test_fixtures("test.png")
   end
 end
