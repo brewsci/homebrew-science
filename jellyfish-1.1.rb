@@ -1,12 +1,10 @@
-require "formula"
-
 class Jellyfish11 < Formula
   homepage "http://www.cbcb.umd.edu/software/jellyfish/"
   #doi "10.1093/bioinformatics/btr011"
   #tag "bioinformatics"
 
   url "http://www.cbcb.umd.edu/software/jellyfish/jellyfish-1.1.11.tar.gz"
-  sha1 "8bd6a7b382e94d37adfddd916dec2b0e36f840fd"
+  sha256 "496645d96b08ba35db1f856d857a159798c73cbc1eccb852ef1b253d1678c8e2"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
