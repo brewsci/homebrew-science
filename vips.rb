@@ -4,10 +4,10 @@ class Vips < Formula
   sha256 "6d001480b75a20d04d44869fb4cb93e4203e73ecd865dc68b1c11f56c9e74baa"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "fbd9aeaf7f1fe2bfb6c6767d85e584f9e86e330f" => :yosemite
-    sha1 "a48e24b9f314b23fce06693e76958f8d62d63114" => :mavericks
-    sha1 "1f364bb02abafc5275a878e8e0e588a1c82e482f" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "277998919346d9192b49e9cf77938d83ed5965c1e082e4bc609eaf459178e7ce" => :yosemite
+    sha256 "4102d4f73fc6a2f3463ee6701183b544c3775104e6df481567b200f1d016302b" => :mavericks
+    sha256 "e2b090c7561349998d3a162a375821534bc0656eb4266bff281ff451e4cee4ff" => :mountain_lion
   end
 
   option "without-check", "Disable build time checks (not recommended)"
