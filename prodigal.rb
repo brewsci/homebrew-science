@@ -8,11 +8,11 @@ class Prodigal < Formula
   sha256 "0409e95dc9fd8df57aff0fe6c9da6895dab5b5a90a28fb2fcdbd52f31c581a55"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "58b6b6ea89bc542585104fba63ffd5b9a1a5a52b" => :yosemite
-    sha1 "cad820e17038130c8e245df756a3c3b6bf75ab72" => :mavericks
-    sha1 "00c541a276de2938ffff968174c4b3076943a136" => :mountain_lion
+    sha256 "04589946de1192c7473c63a8f933fc421a5d5d5eebd61f8f659895dd18c0d87c" => :yosemite
+    sha256 "78e0d323775b06739c84984b79c3444bc40d0c1ec3f89d8d5a410f53e48539a5" => :mavericks
+    sha256 "0c0a4cfa497f3521023f15d7f3e94f197db313e432368489cd9ed80734f3ae50" => :mountain_lion
   end
 
   def install
