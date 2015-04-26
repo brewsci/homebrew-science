@@ -7,11 +7,12 @@ class Jellyfish11 < Formula
   sha256 "496645d96b08ba35db1f856d857a159798c73cbc1eccb852ef1b253d1678c8e2"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "b4b2ff85afb9eb9a01195cc18f57f9eeb95588f3" => :yosemite
-    sha1 "3c50af45fa15a69b72ec34f012f406b7b866382f" => :mavericks
-    sha1 "64ca4a63f5b5bd5d4d4f48705ea694b5925a3de7" => :mountain_lion
+    revision 1
+    sha256 "719f8126dea0b27deeaf8fb720dcdea3820b5d61b28b07e13e86be0af9f738b1" => :yosemite
+    sha256 "d649707ed054452a311d5f01bcf98bdff674801d4fb253f16abe18fe7940cc0a" => :mavericks
+    sha256 "e5c6e3b53f473f31c44bdcbf9c8e04ac74f01199982dde27dc89d384a31630b8" => :mountain_lion
   end
 
   keg_only "It conflicts with jellyfish."
