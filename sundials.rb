@@ -4,10 +4,11 @@ class Sundials < Formula
   sha256 "9935760931fa6539edd0741acbcf4986770426fd5ea40e50ad4ebed0fc77b0d3"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "6ce2d98a061a44ade157093254cd86813f041174" => :yosemite
-    sha1 "82a43cfedf44a69ddc967ce2420f13e423d38f56" => :mavericks
-    sha1 "c1e2aa6e4e2269d5609ebfec87aa34f518318673" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    revision 1
+    sha256 "84a1e0763d655022a8e788c04ccba8c831bd76e578d17f9b5ade6e239bd214a6" => :yosemite
+    sha256 "f0ef4ffb3569bb33f521195feabe74a4ec9399d045f19c5621f3d4eeb550468b" => :mavericks
+    sha256 "202cc19efc1950290abf7256e7890ab47d6b25c139e25854dd8b0d5945a52fe4" => :mountain_lion
   end
 
   depends_on "openblas" => :optional
