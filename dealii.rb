@@ -3,6 +3,13 @@ class Dealii < Formula
   url "https://github.com/dealii/dealii/releases/download/v8.2.1/dealii-8.2.1.tar.gz"
   sha256 "d75674e45fe63cd9fa294460fe45228904d51a68f744dbb99cd7b60720f3b2a0"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "ca9f1bbe60c229cfcbd34beda08ff279802939d9fbaedf7cb33eead2987c77a1" => :yosemite
+    sha256 "1e5965b467f34334e7119d07fe0a38022a11ed957e7d921939bd9cc7d5181da5" => :mavericks
+    sha256 "2bc7686e6fcf0ebff89344b734f40a995d903364e1a363c5cf201647f8d1b077" => :mountain_lion
+  end
+
   head do
     url "https://github.com/dealii/dealii.git"
   end
