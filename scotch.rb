@@ -4,11 +4,11 @@ class Scotch < Formula
   sha256 "6461cc9f28319a9dbe6cc10e28c0cbe90b4b25e205723c3edcde9a3ff974d6d8"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "f86dcb86ef14e9861736f2e51f1d8e3675625ba0" => :yosemite
-    sha1 "31f8ed4c57bc77a49ab1795c098b8a3edde0a5a4" => :mavericks
-    sha1 "8cd53c51772977558b4d2b052769ec1243b71122" => :mountain_lion
+    sha256 "f5d7f717ee59d66140e6b5ccfb1677409f064cbb74b02d7ce3825ff31c2419a0" => :yosemite
+    sha256 "c3ff2a6e8779d9dcb2013d179c7748f210a9a9d0ccccadbf3afd2d5a6e6bea52" => :mavericks
+    sha256 "1cd1a69dc8b2adb57bdd4e996649508c5af204886d305e2a607b7e517f003b01" => :mountain_lion
   end
 
   option "without-check", "skip build-time tests (not recommended)"
