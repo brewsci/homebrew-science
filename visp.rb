@@ -7,6 +7,14 @@ class Visp < Formula
     sha256 "1c8a37cadd0012526be9ceaa182eb21fb0d45aac622a1f0f2d255225e85797aa"
   end
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "092bb8d4bb1b74ee69ca402ffe66d73677cf5e1b61fb9d6931299b2cd0827880" => :yosemite
+    sha256 "b961e8a9d5b95312159989fccfea007cd931095cc977d0c855cc8177dcfbfb7e" => :mavericks
+    sha256 "c3aa7137649ad12c5960fbde9b863d09b8dcc2e1fa28ec339f6a24b9134d0db6" => :mountain_lion
+  end
+
   depends_on "cmake"    => :build
   depends_on "opencv"   => :recommended
   depends_on "jpeg"     => :recommended
