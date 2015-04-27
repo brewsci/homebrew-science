@@ -3,7 +3,7 @@ class Pastix < Formula
   url "https://gforge.inria.fr/frs/download.php/file/34392/pastix_5.2.2.20.tar.bz2"
   sha1 "d55acf287ed0b6a59fc12606a21e42e3d38507c5"
   head "git://scm.gforge.inria.fr/ricar/ricar.git"
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"

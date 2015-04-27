@@ -2,6 +2,7 @@ class Scotch < Formula
   homepage "https://gforge.inria.fr/projects/scotch"
   url "https://gforge.inria.fr/frs/download.php/file/34099/scotch_6.0.4.tar.gz"
   sha256 "6461cc9f28319a9dbe6cc10e28c0cbe90b4b25e205723c3edcde9a3ff974d6d8"
+  revision 1
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
