@@ -1,7 +1,7 @@
 class Scotch < Formula
   homepage "https://gforge.inria.fr/projects/scotch"
-  url "https://gforge.inria.fr/frs/download.php/file/34099/scotch_6.0.3.tar.gz"
-  sha1 "7bad26fbe2304759a77bd92348229876edcead1e"
+  url "https://gforge.inria.fr/frs/download.php/file/34099/scotch_6.0.4.tar.gz"
+  sha256 "6461cc9f28319a9dbe6cc10e28c0cbe90b4b25e205723c3edcde9a3ff974d6d8"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -14,8 +14,7 @@ class Scotch < Formula
   option "without-check", "skip build-time tests (not recommended)"
 
   depends_on :mpi => :cc
-
-  depends_on "xz"   => :optional  # Provides lzma compression.
+  depends_on "xz" => :optional # Provides lzma compression.
 
   patch :DATA
 
@@ -76,7 +75,7 @@ index 8327bc7..a1d4243 100644
  #else /* ((defined COMMON_PTHREAD) || (defined SCOTCH_PTHREAD)) */
    printf ("Scotch not compiled with either COMMON_PTHREAD or SCOTCH_PTHREAD\n");
  #endif /* ((defined COMMON_PTHREAD) || (defined SCOTCH_PTHREAD)) */
- 
+
 -  free (thrdtab);
 -
    return (0);
