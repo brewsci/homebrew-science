@@ -1,12 +1,10 @@
-require "formula"
-
 class Blast < Formula
   homepage "http://blast.ncbi.nlm.nih.gov/"
-  #doi "10.1016/S0022-2836(05)80360-2"
-  #tag "bioinformatics"
+  # doi "10.1016/S0022-2836(05)80360-2"
+  # tag "bioinformatics"
 
   url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.30/ncbi-blast-2.2.30+-src.tar.gz"
-  mirror "http://mirrors.vbi.vt.edu/mirrors/ftp.ncbi.nih.gov/blast/executables/blast+/2.2.30/ncbi-blast-2.2.30+-src.tar.gz"
+  mirror "https://mirrors.kernel.org/debian/pool/main/n/ncbi-blast+/ncbi-blast+_2.2.30.orig.tar.gz"
   version "2.2.30"
   sha256 "26f72d51c81b9497f33b7274109565c36692572faef4d72377f79b7e59910e40"
 
@@ -17,6 +15,10 @@ class Blast < Formula
     sha1 "0d595ea4d7c57f4b3fb4f9ca473dd031daac14b9" => :mavericks
     sha1 "8d9d1aea37644bb8fa85574a826054e408c0b2e7" => :mountain_lion
   end
+
+  # Build failure reported to toolbox@ncbi.nlm.nih.gov on 11 May 2015,
+  # patch provided by developers; should be included in next release
+  patch :p0, :DATA
 
   option "without-static", "Build without static libraries & binaries"
   option "with-dll", "Build dynamic libraries"
@@ -83,6 +85,28 @@ class Blast < Formula
   end
 
   test do
-    system 'blastn -version'
+    system bin/"blastn", "-version"
   end
 end
+
+__END__
+--- c++/include/corelib/ncbimtx.inl (revision 467211)
++++ c++/include/corelib/ncbimtx.inl (working copy)
+@@ -388,7 +388,17 @@
+     _ASSERT(m_Lock);
+
+     m_ObjLock.Lock();
+-    m_Listeners.remove(TRWLockHolder_ListenerWeakRef(listener));
++    // m_Listeners.remove(TRWLockHolder_ListenerWeakRef(listener));
++    // The above gives strange errors about invalid operands to operator==
++    // with the Apple Developer Tools release containing Xcode 6.3.1 and
++    // "Apple LLVM version 6.1.0 (clang-602.0.49) (based on LLVM 3.6.0svn)".
++    // The below workaround should be equivalent.
++    TRWLockHolder_ListenerWeakRef ref(listener);
++    TListenersList::iterator it;
++    while ((it = find(m_Listeners.begin(), m_Listeners.end(), ref))
++           != m_Listeners.end()) {
++        m_Listeners.erase(it);
++    }
+     m_ObjLock.Unlock();
+ }
