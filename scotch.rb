@@ -75,7 +75,7 @@ index 8327bc7..a1d4243 100644
  #else /* ((defined COMMON_PTHREAD) || (defined SCOTCH_PTHREAD)) */
    printf ("Scotch not compiled with either COMMON_PTHREAD or SCOTCH_PTHREAD\n");
  #endif /* ((defined COMMON_PTHREAD) || (defined SCOTCH_PTHREAD)) */
-
+ 
 -  free (thrdtab);
 -
    return (0);
