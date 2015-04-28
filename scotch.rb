@@ -7,10 +7,9 @@ class Scotch < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 1
-    sha256 "0f0e113cd07fbed49428a6868d971558f38f534247081d04f7f0deb6be9835b6" => :yosemite
-    sha256 "5e6cd917d34f3e23c654a01f949a4a25653b2a9ab45da0894767f9e006a57eb0" => :mavericks
-    sha256 "4473312e8eae500b664d875f42de0d675056d4475edabb246594a7b2081c7ef5" => :mountain_lion
+    sha256 "1e8625ed27ad1e9326acea04e570e41c7cc42b7373991dd8db7e45fa213a13aa" => :yosemite
+    sha256 "12ab21d4df72976c5aa82c9d5aace2d8c8b2b30b2a92344ee5a74399e5383d54" => :mavericks
+    sha256 "21752692104035f6ce6125a97124d38bc0f161730180bbe3bcd1c6582621886b" => :mountain_lion
   end
 
   option "without-check", "skip build-time tests (not recommended)"
