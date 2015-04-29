@@ -1,18 +1,15 @@
-require 'formula'
-
 class Mrfast < Formula
-  homepage 'http://mrfast.sourceforge.net/'
-  url 'https://downloads.sourceforge.net/project/mrfast/mrfast/mrfast-2.6.0.1.tar.gz'
-  sha256 '8635a217a91dcc1d16a21d4ad34898bd4e9a0080cc101f9cf7c28b172db31e8b'
+  homepage "http://mrfast.sourceforge.net/"
+  url "https://downloads.sourceforge.net/project/mrfast/mrfast/mrfast-2.6.1.0.tar.gz"
+  sha256 "dc040b1517945f900cbc9d69ed4528573f681bf723ccd1431b47cb5c22b2cdef"
 
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=-c #{ENV.cflags}"
-    bin.install 'mrfast'
+    bin.install "mrfast"
   end
 
   test do
-    actual = `#{bin}/mrfast -h`.split("\n").first
-    expect = "mrFAST : Micro-Read Fast Alignment Search Tool."
-    expect.eql? actual
+    (testpath/"test.fasta").write ">0\nMEEPQSDPSV\n"
+    system bin/"mrfast", "--index", testpath/"test.fasta"
   end
 end
