@@ -20,7 +20,7 @@ class Rampart < Formula
     sha1 "dee76143f82715dfdc2108df6cbda9f51e121bf0" => :mountain_lion
   end
 
-  depends_on :java => "1.7"
+  depends_on :java => "1.7+"
 
   # Dataset improvement
   depends_on "musket" => :optional

@@ -1,6 +1,15 @@
 class Kat < Formula
   homepage "https://github.com/TGAC/KAT"
-  head "https://github.com/TGAC/KAT.git"
+  # tag "bioinformatics"
+  url "https://github.com/TGAC/KAT/releases/download/Release-1.0.7/kat-1.0.7.tar.gz"
+  sha256 "89f6e55a9462f774028f0047dfa5db1d8a26a9e53e766bec12af3a9d8a720eeb"
+
+  head do
+    url "https://github.com/TGAC/KAT.git"
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+  end
+
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
@@ -8,11 +17,6 @@ class Kat < Formula
     sha1 "a556bf165b6d934d80fb0f6c5d537bdabc0a2449" => :mavericks
     sha1 "878b362d6e7033138611218d716d1140ed4330e3" => :mountain_lion
   end
-
-  #tag "bioinformatics"
-
-  url "https://github.com/TGAC/KAT/releases/download/Release-1.0.6/kat-1.0.6.tar.gz"
-  sha1 "845f59aebff01730247b6c8ecf8b1cf2d642b5da"
 
   depends_on "pkg-config" => :build
   depends_on "boost"
@@ -22,6 +26,8 @@ class Kat < Formula
 
   def install
     ENV.libstdcxx if ENV.compiler == :clang && MacOS.version >= :mavericks
+    system "./autogen.sh" if build.head?
+
     inreplace "configure", "1.1.11", Formula["jellyfish-1.1"].version
     system "./configure",
       "--disable-debug",
@@ -33,6 +39,7 @@ class Kat < Formula
   end
 
   test do
-    system "#{bin}/kat", "--version"
+    assert_match version.to_s,
+                 shell_output("#{bin}/kat --version")
   end
 end
