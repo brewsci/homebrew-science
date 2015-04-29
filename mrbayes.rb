@@ -11,9 +11,9 @@ class Mrbayes < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "d8753bb5ad04d7f5481c5744af4ff78235751e8a936040d13e666d870b2af641" => :yosemite
-    sha256 "39f07a0d316efb2af118d66961607b56457d7a140fad57a0cd26a2c3382fd4d6" => :mavericks
-    sha256 "acd69ab3f139618ab5404e85cbebc3b11bdf413edfc930e13f7d79d1ff1492cc" => :mountain_lion
+    sha256 "72e4f76b89c9ba2af17053982eb70ceb4be5abc08b51fc064cba29afb62eb295" => :yosemite
+    sha256 "93d5d55f6eed5e6bbeb9a1a012b33ec6901b55fb5f5187d44b4ba66070494446" => :mavericks
+    sha256 "8056f58206496186e970b1f91508fd6741dc6f8087f6ad9db50a285f333c326a" => :mountain_lion
   end
 
   option "with-beagle", "Build with BEAGLE library support"
