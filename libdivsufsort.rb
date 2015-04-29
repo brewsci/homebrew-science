@@ -23,6 +23,20 @@ class Libdivsufsort < Formula
   end
 
   test do
-    # no test due to being library only
+    (testpath/"test.c").write <<-EOS
+      #include <divsufsort.h>
+      #include <stdio.h>
+      int main() {
+        const unsigned char s[] = "panamabananas";
+        int sa[sizeof s];
+        int i;
+        divsufsort(s, sa, sizeof s);
+        for (i = 0; i < sizeof s; ++i)
+          printf(" %d", sa[i]);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-ldivsufsort", "-o", "test"
+    assert_equal shell_output("./test"), " 13 5 3 1 7 9 11 6 4 2 8 10 0 12"
   end
 end
