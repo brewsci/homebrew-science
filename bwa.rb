@@ -7,7 +7,7 @@ class Bwa < Formula
   head "https://github.com/lh3/bwa.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha1 "476b7108c5755990eca5a49b071861d800d405d6" => :yosemite
     sha1 "b6536565e0660cc6e9e6351c1c0420c4f9c2059d" => :mavericks
