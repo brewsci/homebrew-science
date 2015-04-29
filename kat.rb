@@ -11,11 +11,11 @@ class Kat < Formula
   end
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "2b66feafb04212b405e10fd9d3698bd0001233b9" => :yosemite
-    sha1 "a556bf165b6d934d80fb0f6c5d537bdabc0a2449" => :mavericks
-    sha1 "878b362d6e7033138611218d716d1140ed4330e3" => :mountain_lion
+    sha256 "e014fb1e638d216189d91ba15bec71db04a253c3cc205e74a86dc6be1ceec6a0" => :yosemite
+    sha256 "d953de44bead07fbae63d87a61d2f0444a0fb18eadb8fde8f834b766172e1b61" => :mavericks
+    sha256 "e3058870b4be5dba2c7e5ca94925cd5d586afa77327d056839ce74c1e07d9f4a" => :mountain_lion
   end
 
   depends_on "pkg-config" => :build
