@@ -1,10 +1,10 @@
 class Mrbayes < Formula
   homepage "http://mrbayes.sourceforge.net/"
-  #tag "bioinformatics"
-  #doi "10.1093/bioinformatics/btg180"
+  # tag "bioinformatics"
+  # doi "10.1093/bioinformatics/btg180"
 
-  url "https://downloads.sourceforge.net/project/mrbayes/mrbayes/3.2.4/mrbayes-3.2.4.tar.gz"
-  sha1 "54e6151baa7a27983c598bc831155b71e8ec9ef4"
+  url "https://downloads.sourceforge.net/project/mrbayes/mrbayes/3.2.5/mrbayes-3.2.5.tar.gz"
+  sha256 "a9f3f308ead95cfee50a4953ff19e60c5edf2c6c8d4809bec86d5625cdefdb87"
 
   head "https://mrbayes.svn.sourceforge.net/svnroot/mrbayes/trunk/"
 
@@ -54,6 +54,6 @@ class Mrbayes < Formula
   end
 
   test do
-    system "echo version |#{bin}/mb"
+    pipe_output(bin/"mb", "Execute #{share}/mrbayes/examples/finch.nex")
   end
 end
