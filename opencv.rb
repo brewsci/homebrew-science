@@ -22,16 +22,9 @@ class Opencv < Formula
   end
 
   devel do
-    url "https://github.com/Itseez/opencv/archive/3.0.0-beta.tar.gz"
-    sha1 "560895197d1a61ed88fab9ec791328c4c57c0179"
-    version "3.0.0-beta"
-
-    # Avoid explicit links to a Python framework
-    # https://github.com/Itseez/opencv/pull/3866
-    patch do
-      url "https://gist.githubusercontent.com/tdsmith/f67fd567702f2b51dacd/raw/b4c5428b87a5551ad75f951d45c38aacec4f2441/opencv3_python.diff"
-      sha256 "be689ac2ce44edfb1f8f9bdaf11e3cd5933fe26e9195ff57e391e6c49b3a1607"
-    end
+    url "https://github.com/Itseez/opencv/archive/3.0.0-rc1.tar.gz"
+    sha256 "8f14897d9d191448e12e9902f7dd05ecbef027a7faf489a7c30a4e715e987e7e"
+    version "3.0.0-rc1"
   end
 
   option "32-bit"
