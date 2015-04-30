@@ -28,6 +28,9 @@ class Neuron < Formula
   patch :DATA
 
   def install
+    dylib = OS.mac? ? "dylib" : "so"
+    inreplace "configure", "$IV_LIBDIR/libIVhines.la", "$IV_LIBDIR/libIVhines.#{dylib}"
+
     args = ["--with-iv=#{Formula["inter-views"].opt_prefix}"]
     args << "--with-paranrn" if build.with? "mpi"
 
@@ -55,6 +58,8 @@ class Neuron < Formula
     end
 
     ln_sf Dir["#{libexec}/lib/*.dylib"], lib
+    ln_sf Dir["#{libexec}/lib/*.so.*"], lib
+    ln_sf Dir["#{libexec}/lib/*.so"], lib
     ln_sf Dir["#{libexec}/lib/*.la"], lib
     ln_sf Dir["#{libexec}/lib/*.o"], lib
 
@@ -106,39 +111,3 @@ index cecf310..7618ee0 100644
 
  # Tell versions [3.59,3.63) of GNU make to not export all variables.
  # Otherwise a system limit (for SysV at least) may be exceeded.
-diff --git i/configure w/configure
-index 5d34712..1d02e9c 100755
---- i/configure
-+++ w/configure
-@@ -22413,7 +22413,7 @@ if test "${with_iv+set}" = set; then :
-				IV_LIBDIR="$IV_DIR"/lib
-			fi
-			IV_LIBS="-L$IV_LIBDIR -lIVhines $X_LIBS"
--			IV_LIBS_LIBTOOL="$IV_LIBDIR/libIVhines.la"
-+			IV_LIBS_LIBTOOL="$IV_LIBDIR/libIVhines.dylib"
-			IV_INCLUDE=-I$IV_DIR/include
-				elif test -d /usr/local/iv ; then
-			echo " not in  $IV_DIR"
-@@ -22423,7 +22423,7 @@ if test "${with_iv+set}" = set; then :
-				IV_LIBDIR="$IV_DIR"/lib
-			fi
-			IV_LIBS="-L$IV_LIBDIR -lIVhines $X_LIBS"
--			IV_LIBS_LIBTOOL="$IV_LIBDIR/libIVhines.la"
-+			IV_LIBS_LIBTOOL="$IV_LIBDIR/libIVhines.dylib"
-			IV_INCLUDE=-I$IV_DIR/include
-				else
-			echo " not in  $IV_DIR"
-@@ -22443,7 +22443,7 @@ if test "${with_iv+set}" = set; then :
-		  IV_LIBDIR="$IV_DIR"/lib
-	  fi
-	  IV_LIBS="-L$IV_LIBDIR -lIVhines $X_LIBS"
--	  IV_LIBS_LIBTOOL="$IV_LIBDIR/libIVhines.la"
-+	  IV_LIBS_LIBTOOL="$IV_LIBDIR/libIVhines.dylib"
-	  IV_INCLUDE=-I$IV_DIR/include
-	fi
-
-@@ -25884,4 +25884,3 @@ if test -n "$ac_unrecognized_opts" && test "$enable_option_checking" != no; then
-   { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: unrecognized options: $ac_unrecognized_opts" >&5
- $as_echo "$as_me: WARNING: unrecognized options: $ac_unrecognized_opts" >&2;}
- fi
--
