@@ -5,9 +5,10 @@ class Neuron < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "1b48082098ae9a2691b575849c36419038f800c0fa21d90548e3befbf82de47b" => :yosemite
-    sha256 "af20483fcc52a1fa9343eebca893dfb510b487243a76c345b8c74e8eaaac22d5" => :mavericks
-    sha256 "93b83c24f246f6b574838563e20e5efeb729edfe163866a132490fb22a5e8340" => :mountain_lion
+    revision 1
+    sha256 "9bf15cfbca9705355210124779d03e562ec00d143f20a4207f2e211bf9034ab1" => :yosemite
+    sha256 "f93236ba8505520cd7fc84a8f040a3ff7efb6610d4ce51d962036cd67d6be8e4" => :mavericks
+    sha256 "b57130d879639a770b329dde55a62d195c61351842ea4b96ccf013edcdf51532" => :mountain_lion
   end
 
   depends_on "inter-views"
