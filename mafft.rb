@@ -1,10 +1,10 @@
 class Mafft < Formula
   homepage "http://mafft.cbrc.jp/alignment/software/index.html"
-  #doi "10.1093/nar/gkf436"
-  #tag "bioinformatics"
+  # doi "10.1093/nar/gkf436"
+  # tag "bioinformatics"
 
-  url "http://mafft.cbrc.jp/alignment/software/mafft-7.157-with-extensions-src.tgz"
-  sha1 "55cd5f1d6ef43cfe01c82770836c72ad32c221c4"
+  url "http://mafft.cbrc.jp/alignment/software/mafft-7.221-with-extensions-src.tgz"
+  sha256 "0bc78111966d9b00ddfa14fa217fa5bb0c593a558674a13f02dca7bcd51f7fcf"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -37,15 +37,15 @@ class Mafft < Formula
 
   def caveats
     if MacOS.version <= :snow_leopard
-        <<-EOS.undent
+      <<-EOS.undent
         This build of MAFFT is not multithreaded on Snow Leopard
         because its compiler does not support thread-local storage.
-        EOS
+      EOS
     end
   end
 
   test do
-    (testpath/"test.fa").write(">1\nA\n>2\nA")
+    (testpath/"test.fa").write ">1\nA\n>2\nA"
     system "mafft", "test.fa"
   end
 end
