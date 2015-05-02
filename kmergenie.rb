@@ -7,11 +7,11 @@ class Kmergenie < Formula
   sha256 "319db3dab3837347d710088ec203673e14b6751fa10d193f9ecf3afbc06e9d1e"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "8e1536217c14b7a76a77a352ef0b686f21f2abf2" => :yosemite
-    sha1 "36856e81e9824d586b670db1afe6d46b57848c9a" => :mavericks
-    sha1 "7712fa5cacb912203753cae0b2b5154d14d1cd92" => :mountain_lion
+    sha256 "61a4897c10b8e2cafb6a5cd823cf9ddac5f0826ff6abe7c331ac6d1c2a4e7d01" => :yosemite
+    sha256 "f832032cdabffe987bc576226b9fb9a9c5e0ef682a5ccf8e18d78beb65e663c3" => :mavericks
+    sha256 "18e7b379c41f80e7f064f1d96230b9c0632d4ca0f27e109633260444cee676a4" => :mountain_lion
   end
 
   depends_on "r"
