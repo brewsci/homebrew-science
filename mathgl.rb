@@ -11,6 +11,13 @@ class Mathgl < Formula
   url "https://downloads.sourceforge.net/project/mathgl/mathgl/mathgl%202.3.2/mathgl-2.3.2.tar.gz"
   sha256 "63c2125c9dc7921d0e149cfb27c4304f5481449c8f03d5bff5437de1863289ee"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "ddd38b94688fbda6dcae3166994eb1c795e5d4f516a368b5437408561d6b46aa" => :yosemite
+    sha256 "73e652604683c62a1e2d2a0d011a31c6c3682b49baa89a9fd42e1536034d27b5" => :mavericks
+    sha256 "db2b58fd30a3390b108d6c8da73e15f3fc04f90ad5664068e36a83f951ee7890" => :mountain_lion
+  end
+
   option "with-qt=", "Build with Qt 4 or 5 support"
 
   depends_on "cmake"   => :build
