@@ -1,7 +1,7 @@
 class Z3 < Formula
   homepage "http://z3.codeplex.com/"
-  url "https://github.com/Z3Prover/z3/archive/z3-4.3.2.tar.gz"
-  sha256 "c9ccc7d1e9b9dcc7129eaf1160c1a577726f4e870ba4681ea9c8a4521bfaa0f3"
+  url "https://github.com/Z3Prover/z3/archive/z3-4.4.0.tar.gz"
+  sha256 "65b72f9eb0af50949e504b47080fb3fc95f11c435633041d9a534473f3142cba"
   head "https://github.com/Z3Prover/z3.git"
 
   bottle do
