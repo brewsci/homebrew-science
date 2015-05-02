@@ -1,12 +1,10 @@
-require "formula"
-
 class Kmergenie < Formula
   homepage "http://kmergenie.bx.psu.edu/"
-  #doi "10.1093/bioinformatics/btt310"
-  #tag "bioinformatics"
+  # doi "10.1093/bioinformatics/btt310"
+  # tag "bioinformatics"
 
-  url "http://kmergenie.bx.psu.edu/kmergenie-1.6476.tar.gz"
-  sha1 "744ccd0f033af6be15fc9f6edfa31af08b316e40"
+  url "http://kmergenie.bx.psu.edu/kmergenie-1.6976.tar.gz"
+  sha256 "319db3dab3837347d710088ec203673e14b6751fa10d193f9ecf3afbc06e9d1e"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
