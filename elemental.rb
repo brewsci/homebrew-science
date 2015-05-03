@@ -7,6 +7,13 @@ class Elemental < Formula
     sha256 "ccf2b8d3b92e99fb0f248b2c82222bef15a7644d7dc3a2826935216b0bd82d9d"
   end
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "6ae6a4730ab89feb4b05072e809b07ed1c2d074f6efca5e9e96cb1c8aeb424ea" => :yosemite
+    sha256 "8c5ec0fed0184bad047151cfbdec7a9c60c9d921cc9b4e041c7ed1122a6c8e34" => :mavericks
+    sha256 "a57d7224e16c784815c5c670d73994d798b86821fb2e85cf5b18770ad74b1c57" => :mountain_lion
+  end
+
   devel do
     url "https://github.com/elemental/Elemental/archive/0.86-rc1.tar.gz"
     sha256 "4f27c55828f27ce1685aaf65018cc149849692b7dfbd9352fc203fed1a96c924"
