@@ -6,6 +6,14 @@ class Vcfanno < Formula
   sha256 "a452c5b8cf0abf7ed79381f3c54913e6e6959d5cce9be3ae55456eab6cff1e42"
   head "https://github.com/brentp/vcfanno.git"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "f347d7e77234ce7119789ccf4c9d67375edb46f67bf59123ac99d8cb6f754964" => :yosemite
+    sha256 "55c7e64a989303207b4663edcaed598b4414a3c9460211ca2fc7e6eea7a4af7a" => :mavericks
+    sha256 "fa722c41b7602e55cef998ecddd0a66cbf08fda2beea9e2bc07d573e5a91c929" => :mountain_lion
+  end
+
   depends_on "go" => :build
 
   go_resource "github.com/BurntSushi/toml" do
