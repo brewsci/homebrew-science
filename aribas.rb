@@ -3,6 +3,14 @@ class Aribas < Formula
   url "ftp://ftp.mathematik.uni-muenchen.de/pub/forster/aribas/UNIX_LINUX/aribas-1.64.tar.gz"
   sha256 "11b2a934774088e2c66a9d9397806dbb8d33f0da48d6c800a492c2a43c258169"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "527b9121f9ac87e6baaba446946dd0c77852f592591c152789aaa04f2e8cd2da" => :yosemite
+    sha256 "488254a6933194e7d6df5003ade3b24e09e1f98fd00b0adf697a1859a7ff26fd" => :mavericks
+    sha256 "86c8efd01bc594f1857dc84fa638412f9918b2851d59361198f74cfb3d0ef63a" => :mountain_lion
+  end
+
   def patches
     # Build a 32-bit binary because 64-bit builds can segfault.
     DATA
