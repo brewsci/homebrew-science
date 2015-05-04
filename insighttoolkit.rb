@@ -1,7 +1,7 @@
 class Insighttoolkit < Formula
   homepage "http://www.itk.org"
-  url "https://downloads.sourceforge.net/project/itk/itk/4.7/InsightToolkit-4.7.1.tar.gz"
-  sha1 "70815c884b82899c51c7563296ba4b9ac0bf5e26"
+  url "https://downloads.sourceforge.net/project/itk/itk/4.7/InsightToolkit-4.7.2.tar.gz"
+  sha1 "9f05222b79682a438799ebf90cf6e2db2fe94535"
   head "git://itk.org/ITK.git"
 
   bottle do
