@@ -15,8 +15,9 @@ class Mummer < Formula
     sha256 "68a8351484551600a6f81bac291cd1f2b4cb2176188a87d322b671740bc754a9" => :mountain_lion
   end
 
+  # annotate conflicts with gd
   TOOLS = %w[
-    annotate combineMUMs delta-filter dnadiff exact-tandems mapview mgaps
+    combineMUMs delta-filter dnadiff exact-tandems mapview mgaps
     mummer mummerplot nucmer promer repeat-match
     run-mummer1 run-mummer3 show-coords show-diff show-snps show-tiling]
 
