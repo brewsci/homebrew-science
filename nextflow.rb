@@ -1,9 +1,9 @@
 class Nextflow < Formula
   homepage "http://www.nextflow.io/"
   # tag "bioinformatics"
-  version "0.13.3"
-  url "http://www.nextflow.io/releases/v0.13.3/nextflow"
-  sha256 "2de679ab789e5f4f39e0b971f1fee32707f99f200b3fe68e16a13b9af29be957"
+  version "0.13.4"
+  url "http://www.nextflow.io/releases/v0.13.4/nextflow"
+  sha256 "64eae8d4095dd004840afd94a4b30012b26630808adbc78aebf7445061c5271e"
   head "https://github.com/nextflow-io/nextflow.git"
 
   bottle do
