@@ -9,10 +9,10 @@ class Mummer < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 1
-    sha256 "155182ed24450891d6799ec0367716de3b7bf109715b8441f83f196d9fedc3b7" => :yosemite
-    sha256 "d2bc2b64b9623aa6426d2ecc2405a6583f9cebe3dbb074681798fb3649d750b9" => :mavericks
-    sha256 "68a8351484551600a6f81bac291cd1f2b4cb2176188a87d322b671740bc754a9" => :mountain_lion
+    revision 2
+    sha256 "6aa44d5a02b5e39bb7858581e6380954e9ea7049a2b0767fdae6ca4069d79e16" => :yosemite
+    sha256 "bfc60ae7f0f87e56fc8cba0c50c4e93004c100f8ea51daaf941bb94ec1ed69b3" => :mavericks
+    sha256 "e7910c5501c92e38c0ccdeeb7e91984e3349e0cf9ca99f5b48a780f7d7bffd58" => :mountain_lion
   end
 
   # annotate conflicts with gd
