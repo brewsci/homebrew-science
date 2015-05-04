@@ -1,7 +1,17 @@
 class InterViews < Formula
   homepage "http://www.neuron.yale.edu/neuron/"
-  url "http://www.neuron.yale.edu/ftp/neuron/versions/v7.3/iv-18.tar.gz"
-  sha256 "a875692a20211e0856e9e283ab9ef5da022b4d49853aa7f2f734104f399e7af1"
+
+  stable do
+    url "http://www.neuron.yale.edu/ftp/neuron/versions/v7.3/iv-18.tar.gz"
+    sha256 "a875692a20211e0856e9e283ab9ef5da022b4d49853aa7f2f734104f399e7af1"
+  end
+
+  devel do
+    url "http://www.neuron.yale.edu/ftp/neuron/versions/alpha/iv-19.tar.gz"
+    sha256 "3cb76ad00ebf4282d4c586540f54624fef7ecf8cd3fa2e6b3075d8fdacdc42e0"
+  end
+
+  head "http://www.neuron.yale.edu/hg/neuron/iv", :using => :hg
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
