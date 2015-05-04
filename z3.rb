@@ -7,9 +7,9 @@ class Z3 < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "2ce2e28b1ed47fd2df764fdba8ed61fa6896f6cb4f443afed7dcee6fae69b080" => :yosemite
-    sha256 "cb5f83f5a2b2d263d51ae8df5c0cbf7fdee4d72d58c26a17ea57f19bf2a96ccb" => :mavericks
-    sha256 "9e58713737a98619cc05c0f89fb63ba61ed66c4a98beeea650d6a83c4bdb8beb" => :mountain_lion
+    sha256 "f288000445d47ae31fd3ed128cc560d0b3792bfc528a9f76168d8a1bb766e501" => :yosemite
+    sha256 "494af7b3806ad8d222d7d4f0a15a0fd649f648e40a30e29353afa80948a0df44" => :mavericks
+    sha256 "a9b987921c8e84bb8759e9a408861d791fc0a1ec3698563bb80fd8fead6b03b6" => :mountain_lion
   end
 
   depends_on :python
