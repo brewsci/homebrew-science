@@ -6,11 +6,11 @@ class Field3d < Formula
   head "https://github.com/imageworks/Field3D.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "a8b12023df85cce80486922f6f1dc799193a73c0" => :yosemite
-    sha1 "cda2b036a3a36d3000406943f1f708d0cf71fd0a" => :mavericks
-    sha1 "9e7854c38d8af4a2f07f21b931d2751a533813e9" => :mountain_lion
+    sha256 "705f96253caac068e68444180a5f7a0e561dcbea6ea2e769dfc327d2bb7c0cf7" => :yosemite
+    sha256 "058a60e3ee7e584c163f5863807dbce5371d2c951b47c83f50014c34a859b812" => :mavericks
+    sha256 "7c38e793d5bd9201207a38d263d715096fcfa8cf73c0a140b542f6c5999606a9" => :mountain_lion
   end
 
   depends_on "scons" => :build
