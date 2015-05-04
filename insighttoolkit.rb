@@ -6,7 +6,9 @@ class Insighttoolkit < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "0a6b452dd71cfa0a1c521d7ef585280366fe7c055f2c7640ad8031c55cc3c693" => :yosemite
+    sha256 "94bee2ef435e83e915fe85d6d8f3add29389798cb39cedd446360f8f7b261e2b" => :yosemite
+    sha256 "1fb08bc3c7d49d1b38874a34785c9a435cfcc0d2b3236c4211fa72dedbdf054d" => :mavericks
+    sha256 "442ae301583c59429c1a5739653c5a377e5f9a612c814a83993beec6aea1d130" => :mountain_lion
   end
 
   option :cxx11
