@@ -4,6 +4,7 @@ class Openimageio < Formula
   homepage "http://openimageio.org"
   url "https://github.com/OpenImageIO/oiio/archive/Release-1.5.13.tar.gz"
   sha256 "ff9fd20eb2ad3a4d05e9e2849f18a62d4fe7a9330de21f177db597562d947429"
+  revision 1
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
