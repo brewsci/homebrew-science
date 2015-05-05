@@ -2,15 +2,10 @@ require "formula"
 
 class Gmt < Formula
   homepage "http://gmt.soest.hawaii.edu/"
-  url "ftp://ftp.soest.hawaii.edu/gmt/legacy/gmt-5.1.1-src.tar.bz2"
-  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/legacy/gmt-5.1.1-src.tar.bz2"
-  mirror "ftp://ftp.iris.washington.edu/pub/gmt/legacy/gmt-5.1.1-src.tar.bz2"
-  mirror "ftp://ftp.iag.usp.br/pub/gmt/legacy/gmt-5.1.1-src.tar.bz2"
-  mirror "ftp://ftp.scc.u-tokai.ac.jp/pub/gmt/legacy/gmt-5.1.1-src.tar.bz2"
-  mirror "ftp://gmt.mirror.ac.za/pub/gmt/legacy/gmt-5.1.1-src.tar.bz2"
-  mirror "ftp://ftp.geologi.uio.no/pub/gmt/legacy/gmt-5.1.1-src.tar.bz2"
-  mirror "ftp://gd.tuwien.ac.at/pub/gmt/legacy/gmt-5.1.1-src.tar.bz2"
-  sha1 "ff64936dfdec8a57a89d29f505f27e435169d33f"
+  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.1.2-src.tar.bz2"
+  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-5.1.2-src.tar.bz2"
+  mirror "ftp://gd.tuwien.ac.at/pub/gmt/gmt-5.1.2-src.tar.bz2"
+  sha1 "aed2d79f83717c158adae1f634e6c3d8e5a09515"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -30,24 +25,14 @@ class Gmt < Formula
   resource "gshhg" do
     url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.4.tar.gz"
     mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.4.tar.gz"
-    mirror "ftp://ftp.iris.washington.edu/pub/gmt/gshhg-gmt-2.3.4.tar.gz"
-    mirror "ftp://ftp.iag.usp.br/pub/gmt/gshhg-gmt-2.3.4.tar.gz"
-    mirror "ftp://ftp.scc.u-tokai.ac.jp/pub/gmt/gshhg-gmt-2.3.4.tar.gz"
-    mirror "ftp://gmt.mirror.ac.za/pub/gmt/gshhg-gmt-2.3.4.tar.gz"
-    mirror "ftp://ftp.geologi.uio.no/pub/gmt/gshhg-gmt-2.3.4.tar.gz"
     mirror "ftp://gd.tuwien.ac.at/pub/gmt/gshhg-gmt-2.3.4.tar.gz"
     sha1 "dc989e96a88533e7d44b788d1be8e0d7620f56d4"
   end
 
   resource "dcw" do
-    url "ftp://ftp.soest.hawaii.edu/gmt/legacy/dcw-gmt-1.1.1.tar.gz"
-    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/legacy/dcw-gmt-1.1.1.tar.gz"
-    mirror "ftp://ftp.iris.washington.edu/pub/gmt/legacy/dcw-gmt-1.1.1.tar.gz"
-    mirror "ftp://ftp.iag.usp.br/pub/gmt/legacy/dcw-gmt-1.1.1.tar.gz"
-    mirror "ftp://ftp.scc.u-tokai.ac.jp/pub/gmt/legacy/dcw-gmt-1.1.1.tar.gz"
-    mirror "ftp://gmt.mirror.ac.za/pub/gmt/legacy/dcw-gmt-1.1.1.tar.gz"
-    mirror "ftp://ftp.geologi.uio.no/pub/gmt/legacy/dcw-gmt-1.1.1.tar.gz"
-    mirror "ftp://gd.tuwien.ac.at/pub/gmt/legacy/dcw-gmt-1.1.1.tar.gz"
+    url "ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.1.tar.gz"
+    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/dcw-gmt-1.1.1.tar.gz"
+    mirror "ftp://gd.tuwien.ac.at/pub/gmt/dcw-gmt-1.1.1.tar.gz"
     sha1 "deca85f21426604c8574a18d16c931a1fd9ae27b"
   end
 
