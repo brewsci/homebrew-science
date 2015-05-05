@@ -1,7 +1,7 @@
 class Libsbml < Formula
   homepage "http://sbml.org/Software/libSBML"
-  url "https://downloads.sourceforge.net/project/sbml/libsbml/5.11.0/stable/libSBML-5.11.0-core-plus-packages-src.tar.gz"
-  sha1 "cfe9697bf9e28758c0dbd7b7c6b6ad3a7a01c56e"
+  url "https://downloads.sourceforge.net/project/sbml/libsbml/5.11.4/stable/libSBML-5.11.4-core-plus-packages-src.tar.gz"
+  sha256 "6429188b689b331b0b8f2c8b55b3f2339196ccd4c93191648fa767e1d02152a3"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
