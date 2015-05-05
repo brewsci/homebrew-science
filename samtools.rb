@@ -20,12 +20,7 @@ class Samtools < Formula
   option "without-curses", "Skip use of libcurses, for platforms without it, or different curses naming"
 
   depends_on "htslib"
-
-  resource "dwgsim" do
-    # http://sourceforge.net/apps/mediawiki/dnaa/index.php?title=Whole_Genome_Simulation
-    url "https://downloads.sourceforge.net/project/dnaa/dwgsim/dwgsim-0.1.11.tar.gz"
-    sha1 "e0275122618fa38dae815d2b43c4da87614c67dd"
-  end
+  depends_on "dwgsim" => :optional
 
   def install
     if build.without? "curses"
@@ -39,16 +34,6 @@ class Samtools < Formula
     inreplace "Makefile", "include $(HTSDIR)/htslib.mk", ""
     htslib = Formula["htslib"].opt_prefix
     system "make", "HTSDIR=#{htslib}/include", "HTSLIB=#{htslib}/lib/libhts.a"
-
-    if build.with? "dwgsim"
-      ohai "Building dwgsim"
-      samtools = pwd
-      resource("dwgsim").stage do
-        ln_s samtools, "samtools"
-        system "make", "CC=#{ENV.cc}"
-        bin.install %w{dwgsim dwgsim_eval}
-      end
-    end
 
     bin.install "samtools"
     bin.install %w{misc/maq2sam-long misc/maq2sam-short misc/md5fa misc/md5sum-lite misc/wgsim}
