@@ -19,7 +19,7 @@ class Blat < Formula
   def install
     ENV.append_to_cflags "-I#{Formula["libpng"].opt_include}"
     bin.mkpath
-    system "make", "MACHTYPE=#{OS.linux? ? "linux" : "darwin"}", "BINDIR=#{bin}"
+    system "make", "MACHTYPE=#{`uname -m`.chomp}", "BINDIR=#{bin}"
   end
 
   test do
