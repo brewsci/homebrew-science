@@ -15,9 +15,10 @@ class InterViews < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "4367f0c7ba84821a1bad6c8b6743972f3d10ad77ead55f02fcc10578b913f524" => :yosemite
-    sha256 "f8ac5b2f5f664814b0088b236c84731ff09588d8462db4e8bba011b9591371ad" => :mavericks
-    sha256 "667bc2bb4c4ab535733b7e89619a5945b46d0125a2eccfa44478c20e44448ca3" => :mountain_lion
+    revision 1
+    sha256 "b567187f0b58e0304e1bf3c9a401ed6961fd0644bfbc7482c3bd1a59f64ee9bb" => :yosemite
+    sha256 "7a2bdc42a76d30d90735424035ae23c9713021f8a3dcb77d4094c5fd06ba194d" => :mavericks
+    sha256 "947175f2ffe311d7fbee454fb2cf8b564cb9e2529d381b4452ace099722f77f7" => :mountain_lion
   end
 
   depends_on :x11
