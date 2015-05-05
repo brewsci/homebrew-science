@@ -17,8 +17,9 @@ class Blat < Formula
   depends_on "libpng" => :build
 
   def install
+    ENV.append_to_cflags "-I#{Formula["libpng"].opt_include}"
     bin.mkpath
-    system "make", "MACHTYPE=darwin", "BINDIR=#{bin}"
+    system "make", "MACHTYPE=#{OS.linux? ? "linux" : "darwin"}", "BINDIR=#{bin}"
   end
 
   test do
