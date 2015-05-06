@@ -1,10 +1,9 @@
 class Lmod < Formula
   homepage "https://www.tacc.utexas.edu/research-development/tacc-projects/lmod"
-  url "https://downloads.sourceforge.net/project/lmod/Lmod-5.9.tar.bz2"
-  sha256 "d22c58f0a2b863481a6b9c0d6a3528ac4d96ed648b8aec90d0425c318ce46cab"
+  url "https://downloads.sourceforge.net/project/lmod/Lmod-5.9.3.tar.bz2"
+  sha256 "718593fef9acc37e59cf9cf63ca8dfb2c6f1aa7346707389ef5999cc66d2661f"
 
   depends_on "lua"
-  depends_on "luarocks" => :recommended
   depends_on "luafilesystem" => :lua
   depends_on "luaposix" => :lua
 
