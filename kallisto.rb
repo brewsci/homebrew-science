@@ -1,5 +1,6 @@
 class Kallisto < Formula
   homepage "https://pachterlab.github.io/kallisto/"
+  # tag "bioinformatics"
   url "https://github.com/pachterlab/kallisto/archive/v0.42.tar.gz"
   sha256 "860285d293f86113a442ff4c0f7b039123fe22644796b8aae0e5741283dfbd49"
 
