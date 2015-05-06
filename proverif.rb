@@ -1,10 +1,7 @@
-require "formula"
-
 class Proverif < Formula
   homepage "http://prosecco.gforge.inria.fr/personal/bblanche/proverif"
-  url "http://prosecco.gforge.inria.fr/personal/bblanche/proverif/proverif1.88pl1.tar.gz"
-  sha1 "d03d63d9ad30eaec3c6f60ab187a0da6490000ca"
-  version "1.88.1"
+  url "http://prosecco.gforge.inria.fr/personal/bblanche/proverif/proverif1.89.tar.gz"
+  sha256 "985a2b1a82e358c32b71b707ef915ca8204c3e3584504fb2188025410ce30660"
 
   depends_on "objective-caml"
 
@@ -12,17 +9,15 @@ class Proverif < Formula
     system "./build"
 
     bin.install "proverif", "proveriftotex", "spassconvert"
-    doc.install Dir["docs/*"]
-    doc.install "README"
-    prefix.install "examples"
+    doc.install Dir["docs/*"], "README", "examples"
 
     (prefix/"cryptoverif").install "cryptoverif.pvl"
-    (share/"emacs"/"proverif").install Dir["emacs/*"]
+    (share/"emacs/site-lisp").install Dir["emacs/*"]
     (prefix/"tests").install "test", "test-type"
   end
 
   test do
-    system "#{bin}/proverif", "#{prefix}/examples/horn/auth/needham"
+    system "#{bin}/proverif", doc/"examples/horn/auth/needham"
   end
 
   def caveats; <<-EOS.undent
