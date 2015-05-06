@@ -203,6 +203,13 @@ class Sundials < Formula
 
     system "make", "install"
   end
+
+  def caveats; <<-EOS.undent
+    Some failures were observed on Yosemite when using MPICH2.
+    The failures did not occur with OpenMPI. For more information, see
+    https://github.com/Homebrew/homebrew-science/issues/1814.
+    EOS
+  end
 end
 
 __END__
