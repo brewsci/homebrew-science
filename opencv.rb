@@ -1,6 +1,7 @@
 class Opencv < Formula
   homepage "http://opencv.org/"
   head "https://github.com/Itseez/opencv.git"
+  revision 1
 
   stable do
     url "https://github.com/Itseez/opencv/archive/2.4.11.tar.gz"
