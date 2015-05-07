@@ -1,8 +1,7 @@
-require "formula"
-
 class Recon < Formula
   homepage "http://www.repeatmasker.org/RepeatModeler.html"
-  #doi "10.1101/gr.88502"
+  # doi "10.1101/gr.88502"
+  # tag "bioinformatics"
   url "http://www.repeatmasker.org/RECON-1.07.tar.gz"
   sha1 "215ef7d47d41faf657bcb4ee211019ed713e399e"
 
@@ -16,6 +15,6 @@ class Recon < Formula
   end
 
   test do
-    system "#{bin}/recon.pl 2>&1 |grep -q recon"
+    assert_match "usage", shell_output("#{bin}/recon.pl 2>&1", 255)
   end
 end
