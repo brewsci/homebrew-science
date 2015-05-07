@@ -5,6 +5,14 @@ class Recon < Formula
   url "http://www.repeatmasker.org/RECON-1.07.tar.gz"
   sha1 "215ef7d47d41faf657bcb4ee211019ed713e399e"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "2edce365cc98496064c014f68e8ae60fd9be691f7fae10834386acc40f9401d6" => :yosemite
+    sha256 "c3d875ca2a2715e03be0cb439d3848c6bc5fb19e80bec51ea2d296bbdcf03d27" => :mavericks
+    sha256 "5b1e6e98ae5a2b9dc18ca9d7a1de74db21fe1b7918498e12019e7a3e72ff12d1" => :mountain_lion
+  end
+
   def install
     inreplace "scripts/recon.pl", '$path = "";', "$path = \"#{bin}\";"
     bin.mkdir
