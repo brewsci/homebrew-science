@@ -1,7 +1,6 @@
 class Mlpack < Formula
   homepage "http://www.mlpack.org"
   # doi "arXiv:1210.6293"
-  # Tagged release post 1.10.12. See: https://github.com/mlpack/mlpack/issues/417#issuecomment-85901766
   url "http://www.mlpack.org/files/mlpack-1.0.12.tar.gz"
   sha256 "f47abfc2ab75f1d7f4c73a3368c4428223f025cc6fbc6703735df6a2734a838c"
 
