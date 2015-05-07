@@ -13,7 +13,7 @@ Or `brew tap homebrew/science` and then `brew install <formula>`.
 ## Troubleshooting
 **IMPORTANT** First read the [Troubleshooting Checklist](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Troubleshooting.md#troubleshooting).
 
-Use `brew gist-logs <formula>` to create a [Gist](https://gist.github.com/) and post the link your the issue.
+Use `brew gist-logs <formula>` to create a [Gist](https://gist.github.com/) and post the link in your issue.
 
 Search [open](https://github.com/Homebrew/homebrew-science/issues?state=open) and [closed](https://github.com/Homebrew/homebrew-science/issues?state=closed) issues. See also Homebrew's  [Common Issues](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Common-Issues.md) and [FAQ](https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/FAQ.md).
 
