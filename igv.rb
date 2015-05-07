@@ -3,8 +3,10 @@ class Igv < Formula
   # tag "bioinformatics"
   # doi "10.1093/bib/bbs017"
   head "https://github.com/broadinstitute/IGV.git"
-  url "http://www.broadinstitute.org/igv/projects/downloads/IGV_2.3.48.zip"
-  sha256 "cdfc7082c2c831b5809a19d7e86dc09d35eff7e725d70a96837bc28b2f8c534a"
+  url "http://www.broadinstitute.org/igv/projects/downloads/IGV_2.3.52.zip"
+  sha256 "b0bef5e92372c80e2d42f58e2e75d5fd736cc4fcb27caf13a85b8f09180bbb41"
+
+  depends_on :java
 
   def install
     inreplace "igv.sh", /^prefix=.*/, "prefix=#{libexec}"
@@ -15,6 +17,6 @@ class Igv < Formula
 
   test do
     (testpath/"script").write "exit"
-    assert_match "IGV", shell_output("igv -b script")
+    assert_match "IGV", `#{bin}/igv -b script`
   end
 end
