@@ -1,10 +1,10 @@
 class Repeatmodeler < Formula
   homepage "http://www.repeatmasker.org/RepeatModeler.html"
-  #tag "bioinformatics"
+  # tag "bioinformatics"
 
-  version "1.0.7"
-  url "http://www.repeatmasker.org/RepeatModeler-open-1-0-7.tar.gz"
-  sha1 "01e07eedd051c32285dc650da7643f5aecaf490c"
+  version "1.0.8"
+  url "http://www.repeatmasker.org/RepeatModeler-open-1-0-8.tar.gz"
+  sha256 "3ac87af3fd3da0c9a2ca8e7b8885496abdf3383e413575548c1d234c15f27ecc"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -35,6 +35,7 @@ class Repeatmodeler < Formula
   def install
     prefix.install Dir["*"]
     bin.install_symlink %w[../BuildDatabase ../RepeatModeler]
+
     (prefix/"config.txt").write <<-EOS.undent
 
       /usr/bin/perl
@@ -48,6 +49,9 @@ class Repeatmodeler < Formula
       Y
       3
       EOS
+  end
+
+  def post_install
     cd prefix do
       system "perl ./configure <config.txt"
     end if build.with? "configure"
@@ -55,7 +59,9 @@ class Repeatmodeler < Formula
 
   def caveats; <<-EOS.undent
     To reconfigure RepeatModeler, run
-      cd #{prefix} && perl ./configure
+      brew postinstall repeatmodeler
+    or
+      cd #{prefix} && perl ./configure <config.txt
     EOS
   end
 
