@@ -8,7 +8,7 @@ class Recon < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "2edce365cc98496064c014f68e8ae60fd9be691f7fae10834386acc40f9401d6" => :yosemite
+    sha256 "b3e222db9633614433c6cabd5c2ee46c78f18194421cb4e8df0820608eb90d22" => :yosemite
     sha256 "c3d875ca2a2715e03be0cb439d3848c6bc5fb19e80bec51ea2d296bbdcf03d27" => :mavericks
     sha256 "5b1e6e98ae5a2b9dc18ca9d7a1de74db21fe1b7918498e12019e7a3e72ff12d1" => :mountain_lion
   end
