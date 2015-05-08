@@ -121,7 +121,7 @@ class R < Formula
         bin.install_symlink prefix/"R.framework/Resources/bin/R"
         bin.install_symlink prefix/"R.framework/Resources/bin/Rscript"
         frameworks.install_symlink prefix/"R.framework"
-        include.install_symlink prefix/"R.framework/Resources/include/R.h"
+        include.install_symlink Dir[prefix/"R.framework/Resources/include/*"]
         lib.install_symlink prefix/"R.framework/Resources/lib/libR.dylib"
         man1.install_symlink prefix/"R.framework/Resources/man1/R.1"
         man1.install_symlink prefix/"R.framework/Resources/man1/Rscript.1"
