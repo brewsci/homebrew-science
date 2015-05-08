@@ -1,5 +1,3 @@
-require "formula"
-
 class Gmt < Formula
   homepage "http://gmt.soest.hawaii.edu/"
   url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.1.2-src.tar.bz2"
@@ -8,10 +6,10 @@ class Gmt < Formula
   sha1 "aed2d79f83717c158adae1f634e6c3d8e5a09515"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "82835826607bbb20641a48eb427338f30504b49f" => :yosemite
-    sha1 "9c6b2ba6289adbaf8ee28d204afc561553e7a650" => :mavericks
-    sha1 "2adadc07e198685629bbc7a6672e3c95a3279532" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "920a2fd1af474714c5c7b6789ea9546ecb77bb40ebf4ec922611736705f01eaf" => :yosemite
+    sha256 "54e047ddb2fb0510613945baa928fe5dabf519cde349f6a51b5bf06b98154802" => :mavericks
+    sha256 "3a73d3ae439b24d594d6001df57b5cc9a39d517cb794e6fec972ceeca163cf2c" => :mountain_lion
   end
 
   depends_on "cmake" => :build
