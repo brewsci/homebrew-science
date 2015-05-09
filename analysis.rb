@@ -3,6 +3,14 @@ class Analysis < Formula
   url "https://github.com/molpopgen/analysis/archive/0.8.7.tar.gz"
   sha256 "3af7ce89358376d3d27ee97b518735ddddc7a5cb6e0b340833c8e1a44fdb34be"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "40055b7f5992ceb0e82ebbb416c0ef9ed4ddadc128df8230edcf012242059c6b" => :yosemite
+    sha256 "67b41c0f0a5ff58e4a7e56c5656bbb6daff0819e27218e3a214245f74fff502c" => :mavericks
+    sha256 "5fc72ebd81ba0027610720a264ff3aba6613e10fe2de905b74b9c46c32649c55" => :mountain_lion
+  end
+
   depends_on "gsl"
   depends_on "libsequence"
 
