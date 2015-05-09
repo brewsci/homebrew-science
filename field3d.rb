@@ -9,9 +9,9 @@ class Field3d < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "705f96253caac068e68444180a5f7a0e561dcbea6ea2e769dfc327d2bb7c0cf7" => :yosemite
-    sha256 "058a60e3ee7e584c163f5863807dbce5371d2c951b47c83f50014c34a859b812" => :mavericks
-    sha256 "7c38e793d5bd9201207a38d263d715096fcfa8cf73c0a140b542f6c5999606a9" => :mountain_lion
+    sha256 "6bceec6214a549add84d22e8157a77f1837d2d92a091d58f5f3581d65f4f667f" => :yosemite
+    sha256 "a2a5910fdfa5fbdec7bed7f36669e34811054135d89d542aa886d4795bf9ee92" => :mavericks
+    sha256 "a144bb3a86c0801bd601572286c8cb5595316112112d07d8a0d5cb20fe49af3b" => :mountain_lion
   end
 
   depends_on "scons" => :build
