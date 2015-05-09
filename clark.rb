@@ -3,8 +3,8 @@ class Clark < Formula
   # tag "bioinformatics"
   # doi "10.1186/s12864-015-1419-2"
 
-  url "http://clark.cs.ucr.edu/Download/CLARKV1.1.tar.gz"
-  sha256 "9e1e2bc3eee3260925508a2f0b835199b681e6b019a7b9dc54c30bd3766b5ce5"
+  url "http://clark.cs.ucr.edu/Download/CLARKV1.1.2.tar.gz"
+  sha256 "d97936a6c3c9215f659296a665c662de3f9406dcc957f8f58b313edd2c52f371"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -17,9 +17,8 @@ class Clark < Formula
   needs :openmp
 
   def install
-    system "sh", "make.sh"
-    bin.install "CLARK"
-    bin.install "CLARK-l"
+    system "sh", "install.sh"
+    bin.install Dir["exe/*"]
     doc.install "README.txt", "LICENSE_GNU_GPL.txt"
   end
 
