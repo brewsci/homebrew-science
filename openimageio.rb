@@ -8,9 +8,9 @@ class Openimageio < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "4e839b3d37e7f2b914320eece4b772defae9648c7ac18ff4b8389e290792378c" => :yosemite
-    sha256 "528a7ea11bdb226f870ab10748440db205ee29164b034bc1247a0979449205aa" => :mavericks
-    sha256 "55b87460a6f13124bbe033604e3b2a9c2bace62a8bb2fa49ecad1445563d308f" => :mountain_lion
+    sha256 "434018fb5d454145ca6bcebb756e2feb3a7e1b20990e706dd906fa6c35f40364" => :yosemite
+    sha256 "0065c7db083fc0a6b67dc229473a27437efda04067fbce0be3224153303c80ee" => :mavericks
+    sha256 "4b5a7ac6395cf8c913d44d00f00a4957f452a20c4c95ee4b3975fdf56bb45f85" => :mountain_lion
   end
 
   option "with-tests",  "Dowload 95MB of test images and verify Oiio (~2 min)"
