@@ -9,9 +9,9 @@ class Clark < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "2bcb2cef51f100e4c1f68d09daf9ec1fd142d619fd45aeb6ff0daf9433366196" => :yosemite
-    sha256 "1b2ee269e30d182741088bacea70e08efbaf7d8fb686fcfa70b4180f5982e304" => :mavericks
-    sha256 "0170bdb097e001e805d0764b7f69b51409e4e1df97f4a89bd9688c6a40e9afe1" => :mountain_lion
+    sha256 "a0f1ca3b707728175ca5c3774ca3c6ea55d4455f44ca36705b5fa2f60b11a53b" => :yosemite
+    sha256 "1e34d4ff84565b78abf776ca99c3384b0349bb4f5b48f493821e6760beacac26" => :mavericks
+    sha256 "3bc269e1bc75327c298c1f0b6d21741f9895e3755405d65b7352eba1b8547f3e" => :mountain_lion
   end
 
   needs :openmp
