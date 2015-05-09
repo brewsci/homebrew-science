@@ -1,7 +1,7 @@
 class Vips < Formula
   homepage "http://www.vips.ecs.soton.ac.uk/"
-  url "http://www.vips.ecs.soton.ac.uk/supported/7.42/vips-7.42.3.tar.gz"
-  sha256 "6d001480b75a20d04d44869fb4cb93e4203e73ecd865dc68b1c11f56c9e74baa"
+  url "http://www.vips.ecs.soton.ac.uk/supported/8.0/vips-8.0.2.tar.gz"
+  sha256 "1e6d102b425685467f58003f9d41cd097b772cdf50b4d7995f73751dce86fa3a"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
