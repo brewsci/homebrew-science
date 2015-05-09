@@ -1,51 +1,28 @@
-require 'formula'
-
 class Analysis < Formula
   homepage "https://github.com/molpopgen/analysis"
-  url 'http://molpopgen.org/software/analysis/analysis-0.8.4.tar.gz'
-  sha1 '96d3e382216d34a0c2803087d6024323a8f20a2b'
+  url "https://github.com/molpopgen/analysis/archive/0.8.7.tar.gz"
+  sha256 "3af7ce89358376d3d27ee97b518735ddddc7a5cb6e0b340833c8e1a44fdb34be"
 
-  depends_on "boost"
   depends_on "gsl"
   depends_on "libsequence"
 
-  # Automake looks for boost_regex, rather than boost_regex-mt
-  patch :DATA
+  # add missing include
+  # https://github.com/molpopgen/analysis/pull/3
+  patch do
+    url "https://github.com/tdsmith/molpopgen-analysis/commit/01c796d.diff"
+    sha256 "abaefd36f108f1981e28d874e4cd78ca961d07841e69b4af607d0585354c72d5"
+  end
+
+  needs :cxx11
 
   def install
+    ENV.cxx11
     system "./configure", "--prefix=#{prefix}"
-
     system "make"
-    system "make install"
+    system "make", "install"
   end
 
   test do
-    system 'gestimator 2>&1 |grep -q gestimator'
+    assert shell_output("#{bin}/gestimator 2>&1", 1).include? "gestimator"
   end
 end
-
-
-__END__
---- analysis-0.8.4.orig/src/Makefile.am
-+++ analysis-0.8.4/src/Makefile.am
-@@ -77,7 +77,7 @@
- GSL=
- endif
- 
--polydNdS_LDADD=-lboost_regex
-+polydNdS_LDADD=-lboost_regex-mt
- 
- if HAVE_STRSTREAM
- STRSTREAM = -DHAVE_STRSTREAM
-
---- analysis-0.8.4.orig/src/Makefile.in
-+++ analysis-0.8.4/src/Makefile.in
-@@ -330,7 +330,7 @@
- @HAVE_GSL_HEADERS_TRUE@rsq_LDADD = -lgsl -lgslcblas
- @HAVE_GSL_HEADERS_FALSE@GSL = 
- @HAVE_GSL_HEADERS_TRUE@GSL = -DHAVE_GSL
--polydNdS_LDADD = -lboost_regex
-+polydNdS_LDADD = -lboost_regex-mt
- @HAVE_STRSTREAM_FALSE@STRSTREAM = 
- @HAVE_STRSTREAM_TRUE@STRSTREAM = -DHAVE_STRSTREAM
- @HAVE_SSTREAM_FALSE@SSTREAM = 
