@@ -2,9 +2,9 @@ class Pathvisio < Formula
   homepage "http://www.pathvisio.org/"
   # tag "bioinformatics"
   # doi "10.1186/1471-2105-9-399"
-  url "http://pathvisio.org/data/releases/current/pathvisio_bin-3.1.3-r3968.tar.gz"
-  sha1 "54b14c34464c2714fc4455dd933038f03985ddcd"
-  version "3.1.3"
+  url "http://pathvisio.org/data/releases/current/pathvisio_bin-3.2.0-r3999.tar.gz"
+  sha256 "77464484215f954c75d506df5d92361568e36afa2caa7d12d123a460f32766d8"
+  version "3.2.0"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
