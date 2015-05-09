@@ -9,9 +9,10 @@ class Libsequence < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 1
-    sha256 "2ddee49b6d9cac4d864fc9703f0883b562ae2e0a0e0687de47699ae1d8cf772e" => :yosemite
-    sha256 "d3734a60eece746f0e72bc58275350ed196c55dd1fe12000a74738a14547b3a7" => :mavericks
+    revision 2
+    sha256 "3488ce470dd77c1bb26cd28d2104393de35a8c780ad89e83f499ec5b59813c87" => :yosemite
+    sha256 "6ba89329001cdacc6434016f78d1053e760a1468363b98e1b8b553205bc850a6" => :mavericks
+    sha256 "a1d89ba3fa084506185ed5842b6a8b5709281591178a9a3df414edb22d459463" => :mountain_lion
   end
 
   cxx11 = OS.linux? || MacOS.version > :mountain_lion ? [] : ["c++11"]
