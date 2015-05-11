@@ -1,6 +1,6 @@
 class Megahit < Formula
   homepage "https://github.com/voutcn/megahit"
-  # doi "arXiv:1409.7208"
+  # doi "10.1093/bioinformatics/btv033"
   # tag "bioinformatics"
 
   url "https://github.com/voutcn/megahit/archive/v0.2.1.tar.gz"
