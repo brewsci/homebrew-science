@@ -1,6 +1,6 @@
 class Kmc < Formula
   homepage "http://sun.aei.polsl.pl/kmc/"
-  # doi "arXiv:1407.1507"
+  # doi "10.1093/bioinformatics/btv022"
   # tag "bioinformatics"
 
   url "https://github.com/marekkokot/KMC/archive/2.1.1.tar.gz"
