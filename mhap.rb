@@ -3,8 +3,8 @@ class Mhap < Formula
   # doi "10.1101/008003"
   # tag "bioinformatics"
 
-  url "https://github.com/marbl/MHAP/releases/download/v1.0/mhap-1.0.tar.gz"
-  sha256 "5f8293c3014213a9b911780d2b2f0af992fa0ce637528796cfa042a3bbf16d3b"
+  url "https://github.com/marbl/MHAP/releases/download/v1.5b1/mhap-1.5b1.tar.gz"
+  sha256 "fa3a7fbf370d61deedb1866cf141ddf6b7538b05009be1fd8f2cbd55ff28ca99"
 
   head "https://github.com/marbl/MHAP.git"
 
