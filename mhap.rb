@@ -11,9 +11,9 @@ class Mhap < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "effd7e5aa3d11957c679f2049f93849d5b6d9d8f" => :yosemite
-    sha1 "fb2198b8e91a6d7ba99ec84ecda4e4cf7329a91c" => :mavericks
-    sha1 "af6b3d2dc212fc2e4a3ba0c4a81d1a0f7903593b" => :mountain_lion
+    sha256 "e39888765f401e11d86693ee5c3b998033155c2e443119d082ceac61f6b0c861" => :yosemite
+    sha256 "43e32fd1b5b37a12fa1ff84e47a7c6fba25eaf9f25227e2aa13a18b0bfa34dfc" => :mavericks
+    sha256 "c7babd4e75ace00f0d9cc4dd538b3ee2ae1eac2e5353b6bd02c1fa0577dd1ad6" => :mountain_lion
   end
 
   def install
