@@ -3,8 +3,8 @@ class Mhap < Formula
   # doi "10.1101/008003"
   # tag "bioinformatics"
 
-  url "https://github.com/marbl/MHAP/releases/download/v0.1/mhap-0.1.tar.gz"
-  sha1 "c98096803c12d9d5e5281f0bf7809d909bccf185"
+  url "https://github.com/marbl/MHAP/releases/download/v1.0/mhap-1.0.tar.gz"
+  sha256 "5f8293c3014213a9b911780d2b2f0af992fa0ce637528796cfa042a3bbf16d3b"
 
   head "https://github.com/marbl/MHAP.git"
 
@@ -17,11 +17,11 @@ class Mhap < Formula
   end
 
   def install
-    prefix.install "mhap-0.1.jar", Dir["lib/*"]
-    bin.write_jar_script prefix/"mhap-0.1.jar", "mhap"
+    prefix.install "mhap-#{version}.jar", Dir["lib/*"]
+    bin.write_jar_script prefix/"mhap-#{version}.jar", "mhap"
   end
 
   test do
-    assert_match "Usage", shell_output("#{bin}/mhap 2>&1", 1)
+    assert_match "Usage", shell_output("#{bin}/mhap --help")
   end
 end
