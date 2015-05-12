@@ -5,10 +5,11 @@ class XmiMsim < Formula
   sha1 "cb8f83fe594f8808079d64dfd7e592c710891efc"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "f498a5402679a6ffbffb463775b04ccd7c1e94e7" => :yosemite
-    sha1 "c9da8882d9613159c547decb97c9fd6ab0fb8560" => :mavericks
-    sha1 "517f5934dfae0065872ad70cd3731e8d9913df5a" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    revision 1
+    sha256 "49fc58ca90739c5947aca3120914c5bfce6b7c76a5cbeb6d8fa84e1f0e6df218" => :yosemite
+    sha256 "d5d7305dcbc4245a1ca697c264cfa71b325edc7d5fa64146aafb719164b4fdb1" => :mavericks
+    sha256 "91bbeef271ed7cacd0e13eb0c37f40d57173bfab4275cab41ffb1c3437d33d81" => :mountain_lion
   end
 
   depends_on :fortran
