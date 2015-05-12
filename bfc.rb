@@ -1,6 +1,6 @@
 class Bfc < Formula
   homepage "https://github.com/lh3/bfc"
-  # doi "arXiv:1502.03744"
+  # doi "10.1093/bioinformatics/btv290"
   # tag "bioinformatics"
 
   url "https://github.com/lh3/bfc/archive/submitted-v1.tar.gz"
