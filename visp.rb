@@ -1,9 +1,9 @@
 class Visp < Formula
-  homepage "http://www.irisa.fr/lagadic/visp/visp.html"
+  homepage "https://www.irisa.fr/lagadic/visp/visp.html"
   head "svn://scm.gforge.inria.fr/svn/visp/trunk/ViSP ViSP-code"
 
   stable do
-    url "http://gforge.inria.fr/frs/download.php/latestfile/475/ViSP-2.10.0.tar.gz"
+    url "https://gforge.inria.fr/frs/download.php/latestfile/475/ViSP-2.10.0.tar.gz"
     sha256 "1c8a37cadd0012526be9ceaa182eb21fb0d45aac622a1f0f2d255225e85797aa"
   end
 
