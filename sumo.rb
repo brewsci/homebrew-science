@@ -1,7 +1,7 @@
 class Sumo < Formula
   homepage "https://sourceforge.net/projects/sumo/"
-  url "https://downloads.sourceforge.net/project/sumo/sumo/version%200.22.0/sumo-all-0.22.0.tar.gz"
-  sha1 "32206adaccb35e41afb697bb3c841a5578e8f167"
+  url "https://downloads.sourceforge.net/project/sumo/sumo/version%200.23.0/sumo-all-0.23.0.tar.gz"
+  sha256 "8a6354a11717cdff2f3f247239fb55472ea57268b392e5e442777a1c05d92299"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -24,13 +24,13 @@ class Sumo < Formula
   depends_on :python
 
   resource "gtest" do
-    url "http://googletest.googlecode.com/files/gtest-1.7.0.zip"
-    sha1 "f85f6d2481e2c6c4a18539e391aa4ea8ab0394af"
+    url "https://googletest.googlecode.com/files/gtest-1.7.0.zip"
+    sha256 "247ca18dd83f53deb1328be17e4b1be31514cedfc1e3424f672bf11fd7e0d60d"
   end
 
   resource "TextTest" do
-    url "https://pypi.python.org/packages/source/T/TextTest/TextTest-3.27.tar.gz"
-    sha1 "065495abe3d0b19161ef81f110c82ad4d09efe39"
+    url "https://pypi.python.org/packages/source/T/TextTest/TextTest-3.28.tar.gz"
+    sha256 "700e9648c193fd29796af7df6074a306224f99d1837966433d612abce08ca47a"
   end
 
   def install
