@@ -3,6 +3,13 @@ class Swetest < Formula
   url "http://www.astro.com/ftp/swisseph/swe_unix_src_2.01.00.tar.gz"
   sha256 "bd601d5e7982926a291eb6ed50ef846f85412411ebdc2a7ae67dbd200f952289"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "4c8d6ac3424b55faa73f1ff35f8abd95cd7497aa9e8740c92d902af17ba6e2e1" => :yosemite
+    sha256 "d1fb07a32fe088ce708d31770ba9bc506b93cc3f03be9c915a2b414f0d98ef1b" => :mavericks
+    sha256 "2e10f551bec64b7e2437fc4a1da2d4c7e62001bbdd663b407b5b25ba60651ccb" => :mountain_lion
+  end
+
   resource "seasnam" do
     url "http://www.astro.com/ftp/swisseph/ephe/seasnam.txt"
     sha256 "788fed3698bab62e53a9d519aed511566936b5577b3309251dba12da131c214b"
