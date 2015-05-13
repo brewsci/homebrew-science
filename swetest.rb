@@ -1,40 +1,42 @@
 class Swetest < Formula
   homepage "http://www.astro.com/swisseph/"
-  url "http://www.astro.com/ftp/swisseph/swe_unix_src_2.00.00.tar.gz"
-  sha1 "db521595e097937ba8ca8bbc8405a6410626685a"
+  url "http://www.astro.com/ftp/swisseph/swe_unix_src_2.01.00.tar.gz"
+  sha256 "bd601d5e7982926a291eb6ed50ef846f85412411ebdc2a7ae67dbd200f952289"
 
   resource "seasnam" do
-    url "ftp://ftp.astro.com/pub/swisseph/ephe/seasnam.txt"
-    sha1 "e28fd6b633cce2b5c022e940c652bee9be11224e"
+    url "http://www.astro.com/ftp/swisseph/ephe/seasnam.txt"
+    sha256 "788fed3698bab62e53a9d519aed511566936b5577b3309251dba12da131c214b"
   end
 
   resource "sefstars" do
-    url "ftp://ftp.astro.com/pub/swisseph/ephe/sefstars.txt"
-    sha256 "8bac1c03a5aea691f12a57f7998fd044c8c95206d29328092cbe3134de636ac4"
+    url "http://www.astro.com/ftp/swisseph/ephe/sefstars.txt"
+    sha256 "007d98f1d829ffdbd380025eaa383b4c63fc2d2ff2715d7e2586de38ce319de1"
   end
 
   resource "seas" do
-    url "ftp://ftp.astro.com/pub/swisseph/ephe/seas_18.se1"
-    sha1 "35b39c2f09e7d9ae55c2824e37000bc9ca8aa92f"
+    url "http://www.astro.com/ftp/swisseph/ephe/seas_18.se1"
+    sha256 "0afe3f94769b6718082411c2c4fb06bf9d1aaa6c0bc1bad8f8b8725421ef8748"
   end
 
   resource "semo" do
-    url "ftp://ftp.astro.com/pub/swisseph/ephe/semo_18.se1"
-    sha1 "2386cef39987c88db5b61273356f3cac6bf766ae"
+    url "http://www.astro.com/ftp/swisseph/ephe/semo_18.se1"
+    sha256 "ecfa54dbf5bc0b5a9bc3e04ed28629a821e98625eacae38f4070593bba0e2980"
   end
 
   resource "sepl" do
-    url "ftp://ftp.astro.com/pub/swisseph/ephe/sepl_18.se1"
-    sha1 "f92d86afa1b3dce22acf7f0ee34f7b4382addd65"
+    url "http://www.astro.com/ftp/swisseph/ephe/sepl_18.se1"
+    sha256 "0b7e416e3c1be9e6a0dd1d711dae7f7685793a0e7df13f76363a493dc27b6ea1"
   end
 
   def install
-    # hack away the epehemeris path, as the default won't do.
-    system "echo \"#define SE_EPHE_PATH \\\".:#{share}\\\"\" >> src/swephexp.h"
+    # Hack away the epehemeris path, as the default won't do.
+    open("src/swephexp.h", "a") do |file|
+      file.write "#define SE_EPHE_PATH \".:#{share}\""
+    end
 
     # we have to clean because the archive already has a linux compiled library
-    system "make -C src clean"
-    system "make -C src swetest"
+    system "make", "-C", "src", "clean"
+    system "make", "-C", "src", "swetest"
 
     bin.install "src/swetest"
 
@@ -47,6 +49,6 @@ class Swetest < Formula
   end
 
   test do
-    system "#{bin}/swetest -b12.10.1875 -ut04:45:00 -eswe -geopos52.2851905,-1.5200789"
+    system bin/"swetest", "-b12.10.1875", "-ut04:45:00", "-eswe", "-geopos52.2851905,-1.5200789"
   end
 end
