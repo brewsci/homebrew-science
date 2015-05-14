@@ -5,6 +5,14 @@ class Genewise < Formula
   url "http://www.ebi.ac.uk/~birney/wise2/wise2.4.1.tar.gz"
   sha256 "240e2b12d6cd899040e2efbcb85b0d3c10245c255f3d07c1db45d0af5a4d5fa1"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "72bb8ed394cc810e66f2b2084ffbe90675a0e543cf1cf87cb1e2e3f40fb07aed" => :yosemite
+    sha256 "e60789a737289730fc125edc53d04fa3e5829b9f199a3f59db9903601e2dce98" => :mavericks
+    sha256 "03a26e3341062439ce638ace8ce908bd0683dffdd3c5c374a8dab32651f82bde" => :mountain_lion
+  end
+
   depends_on "pkg-config" => :build
   depends_on "glib"
 
