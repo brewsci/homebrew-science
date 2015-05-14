@@ -8,6 +8,14 @@ class Rnammer < Formula
   url "http://bioinformatics.se/resources_2/rnammer-1.2.src.tar.Z"
   sha256 "c8f0df0c44e3c31b81de5b74de9e6033907976bfdc283ad8c3402af5efc2aae2"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "bc428721cca56c1ffcefabf647ecbbd764db6958170273dcf4bf2d5267dca284" => :yosemite
+    sha256 "48b2df8a08826f70dece5b2b9301d17034857e2f2795954817173f89555129e9" => :mavericks
+    sha256 "6fab09e3365e396672e866df3e681889feac656266403f114eca520f8fe6a3bf" => :mountain_lion
+  end
+
   depends_on "hmmer2"
 
   def patches
