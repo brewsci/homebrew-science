@@ -7,9 +7,9 @@ class Ipopt < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha1 "f029ffd9a451fcbd9084990ca5219a4ef88621b8" => :yosemite
-    sha1 "95239d26cac57d0b1ea542d74369d7111adde128" => :mavericks
-    sha1 "49e3f04ec304f2ccc9ebd7fca47a3698af941c8e" => :mountain_lion
+    sha256 "8374352edbab068e3c262a256e31e8d9feabcdcdd4120bb9a8b6c210d997142c" => :yosemite
+    sha256 "d7dfea0ed738381ee2ef7d28fbb34ade36ca923313d7930e56b66658b4fcf65c" => :mavericks
+    sha256 "a8f6890e64f548c2465bb18ce967b88e7a1f3d41051747aabbe32c6be564f671" => :mountain_lion
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
