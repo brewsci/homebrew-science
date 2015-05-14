@@ -19,10 +19,10 @@ class Prokka < Formula
   depends_on "parallel"
 
   depends_on "barrnap" => :recommended # fast rRNA searching using NHMMER
+  depends_on "rnammer" => :optional
 
   # These optional dependencies have no formulae.
   # depends_on "minced" => :recommended # find CRISPRs
-  # depends_on "rnammer" => :optional # requires patch to ensure it uses older HMMer 2.x
   # depends_on "signalp" => :optional # for --gram / sig_peptide predictions
 
   def install
