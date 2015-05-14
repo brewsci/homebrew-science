@@ -13,9 +13,9 @@ class Pymol < Formula
     sha1 "57911681119609114ee61c6b7298cabcd1c69256" => :mountain_lion
   end
 
-  depends_on "homebrew/dupes/tcl-tk" => ["enable-threads", "with-x11"]
+  depends_on "homebrew/dupes/tcl-tk" => ["with-threads", "with-x11"]
   depends_on "glew"
-  depends_on "python" => "with-brewed-tk"
+  depends_on "python" => "with-tcl-tk"
   depends_on "freetype"
   depends_on "libpng"
   depends_on :x11
