@@ -7,8 +7,9 @@ class Kallisto < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "0820e4244eb899074edf27d706f9fcfec742b5e8025deef7408ec244a10e2312" => :yosemite
-    sha256 "b8d02c19f47e73e56fcc976e957bcc22d008dae7f603652e329298d68c409074" => :mavericks
+    sha256 "4ac31c5cbe9ea2cbf9f707571b334c815e110c39af02fbd5377990873b71ac3b" => :yosemite
+    sha256 "396690ea206684d83dc21066d4bdbae74d00033d029ccad3634a9a415cbb0b9d" => :mavericks
+    sha256 "4cdbabe76ca4741150919680b8d1418c0cdfe43876cd864c4b935447533223fc" => :mountain_lion
   end
 
   needs :cxx11
