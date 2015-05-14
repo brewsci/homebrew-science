@@ -1,5 +1,7 @@
 class Reapr < Formula
   homepage "https://www.sanger.ac.uk/resources/software/reapr/"
+  # doi "10.1186/gb-2013-14-5-r47"
+  # tag "bioinformatics"
   url "ftp://ftp.sanger.ac.uk/pub/resources/software/reapr/Reapr_1.0.17.tar.gz"
   sha1 "4d2a8856a6d19d259aeec8591a024ba598003acc"
 
