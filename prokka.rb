@@ -5,6 +5,8 @@ class Prokka < Formula
   url "http://www.vicbioinformatics.com/prokka-1.11.tar.gz"
   sha256 "ee18146c768fe6ac8e6c9e28bb35f686a5b79d5d5362c4b7665f6a33978101ae"
 
+  head "https://github.com/tseemann/prokka.git"
+
   depends_on "Bio::Perl" => :perl
   depends_on "XML::Simple" => :perl
   depends_on "Time::Piece" => :perl if OS.linux?
