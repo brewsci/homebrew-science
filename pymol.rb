@@ -6,11 +6,11 @@ class Pymol < Formula
   revision 1
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "4b3adcc1bb4f352533cf26eab50801912f9789cb" => :yosemite
-    sha1 "40ec03a7b15e8514a4cd77a3d43ca7c582e84f16" => :mavericks
-    sha1 "57911681119609114ee61c6b7298cabcd1c69256" => :mountain_lion
+    sha256 "b87a054a59855d81fa79c6bdaaed196c2b5d177491090f706ca7c3d570906b84" => :yosemite
+    sha256 "cc66758469a6635ac66142ccfc285ff679efa5a3a0b13bfcb671f7342a4c5233" => :mavericks
+    sha256 "d94bb41550f2b57786cc4b563b13ec48073f98c925c3baf38f2b9b02fa4267e4" => :mountain_lion
   end
 
   depends_on "homebrew/dupes/tcl-tk" => ["with-threads", "with-x11"]
