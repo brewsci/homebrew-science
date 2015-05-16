@@ -4,11 +4,11 @@ class Sumo < Formula
   sha256 "8a6354a11717cdff2f3f247239fb55472ea57268b392e5e442777a1c05d92299"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "c8c74bfec8a87bd8d5dd40639160083d00bd79ed" => :yosemite
-    sha1 "43ff8b705a99a6f30c919f36ce447baec192605f" => :mavericks
-    sha1 "ba8193a50e9954bfad8b36f9ee3aad7054f1fe39" => :mountain_lion
+    sha256 "fc42a513a71d13b54d230ac0bc26cbc96a0aa2323ee434c4313ef28e4e1f3217" => :yosemite
+    sha256 "13ab2b7e6d904ee4009162a7a8a3c6038d3aec2a48c4407a5093b5aa729ab9e4" => :mavericks
+    sha256 "4b2e04b94e1a95cc5759d422402b34c9534cbc8873911038fe41a2ee0fbc271d" => :mountain_lion
   end
 
   option "with-check", "Enable additional build-time checking"
