@@ -1,17 +1,12 @@
-require "formula"
-
 class Kmerstream < Formula
   homepage "https://github.com/pmelsted/KmerStream"
-  #doi "10.1101/003962"
+  # tag "bioinformatics"
+  # doi "10.1101/003962"
+  url "https://github.com/pmelsted/KmerStream/archive/v1.0.tar.gz"
+  sha256 "65372515dc19fb30c89f912c4a8c302ee3b266e931bbb2983e232e1c9ea62efe"
   head "https://github.com/pmelsted/KmerStream.git"
 
-  url "https://github.com/pmelsted/KmerStream/archive/v1.0.tar.gz"
-  sha1 "97688502c15c2b7457054aaf8e8a8f07f4fd159b"
-
-  fails_with :clang do
-    build 600
-    cause "Requires OpenMP"
-  end
+  needs :openmp
 
   def install
     system "make"
