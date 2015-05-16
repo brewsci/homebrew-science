@@ -6,9 +6,9 @@ class Proverif < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "90d02aabbc2df37bf61f6486c030e2d91968eccd6c76e7db55e58ac4c0eeffcc" => :yosemite
-    sha256 "4bcf183ee2bd750cd732d54c250cf4e978707aba28b01bb05d5194999eee9f62" => :mavericks
-    sha256 "3765f3715e03aee2ffe1eb8c7f17c4efc865af62455271762c6c337a5deba134" => :mountain_lion
+    sha256 "60d688d67296523154187081ba6bc046481f0995eb2253fff34cf1416bc7db1b" => :yosemite
+    sha256 "bbca3ce1cb0a4d0f4ebb75e9d3cf5758beee768dee481d3571e97b32979b6687" => :mavericks
+    sha256 "f7ccdb5ba4c721f6316ea67287c6e13c6c852826f95c44b1659a6936a1e7abb1" => :mountain_lion
   end
 
   depends_on "objective-caml"
