@@ -5,9 +5,10 @@ class Vips < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "2b94e9380aeab4f5d563cefc8cb27d82d640c656978934b00bc8c5e5fed279b9" => :yosemite
-    sha256 "374783e313c669962feeb7f506088554e830e29e2020a95ea80420008d421263" => :mavericks
-    sha256 "6e95a70bb84215775810b2c296a18aa9cc3534a48b359434019a7d010f2c8fb6" => :mountain_lion
+    revision 1
+    sha256 "48352eb8154fb4ebe9f107fd894658a53816adfb6f0f7593836a10a1193d737e" => :yosemite
+    sha256 "75c929255d36eed9403db0c15d4c6ae54ebdfaf64237cf0329140643879b1cfb" => :mavericks
+    sha256 "0038d628b9ef4b00d7ba96f3f65ebb42df399c347b1d89da395fa9485ae4ad5f" => :mountain_lion
   end
 
   option "without-check", "Disable build time checks (not recommended)"
