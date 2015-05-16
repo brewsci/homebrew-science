@@ -6,11 +6,11 @@ class Grabix < Formula
   head "https://github.com/arq5x/grabix.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "b10d761ad686e2ea8e86e5fac59cb49f1abc85ff" => :yosemite
-    sha1 "627dd3da48e1ba0888a0527e597d271e740e40f8" => :mavericks
-    sha1 "ed81ea6340dfefdb5862aac293e7e8a17204ddc1" => :mountain_lion
+    sha256 "47903048212bd2cbe4ef80745860bee4aa719d249626251e5f41ab943c5ff6d0" => :yosemite
+    sha256 "298640d3efa6b8cc3f24f9bdd1025330b4f397d48d6694b37829acef381f841b" => :mavericks
+    sha256 "b5f9657e9017f8bb29988184da0fbdd0bdb8a7a9462722ff12e2b80ca9ae936c" => :mountain_lion
   end
 
   def install
