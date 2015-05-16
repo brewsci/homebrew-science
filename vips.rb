@@ -37,6 +37,7 @@ class Vips < Formula
   depends_on "cfitsio" => :optional
   depends_on "webp" => :optional
   depends_on "python3" => :optional
+  depends_on "libmatio" => :optional
 
   def install
     args = %W[
@@ -51,7 +52,7 @@ class Vips < Formula
   end
 
   test do
-    system "#{bin}/vips", "list", "classes"
+    system "#{bin}/vips", "-l"
     system "#{bin}/vipsheader", test_fixtures("test.png")
   end
 end
