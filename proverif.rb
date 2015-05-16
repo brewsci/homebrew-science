@@ -1,7 +1,7 @@
 class Proverif < Formula
   homepage "http://prosecco.gforge.inria.fr/personal/bblanche/proverif"
-  url "http://prosecco.gforge.inria.fr/personal/bblanche/proverif/proverif1.89.tar.gz"
-  sha256 "985a2b1a82e358c32b71b707ef915ca8204c3e3584504fb2188025410ce30660"
+  url "http://prosecco.gforge.inria.fr/personal/bblanche/proverif/proverif1.90.tar.gz"
+  sha256 "7132729a7674c8c71414d0f0d9a86f6cb4aae7552598a8cd8b0239673521a991"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
