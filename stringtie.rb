@@ -12,8 +12,8 @@ class Stringtie < Formula
   # doi "10.1038/nbt.3122"
   # tag "bioinformatics"
 
-  url "http://ccb.jhu.edu/software/stringtie/dl/stringtie-1.0.3.tar.gz"
-  sha256 "1567d9d87d9375a3db03fa0b682eaef4e89899df64fd001c14d475cc9e737e08"
+  url "http://ccb.jhu.edu/software/stringtie/dl/stringtie-1.0.4.tar.gz"
+  sha256 "635099d543bfaf0ec1c84020eb4aa3375714c12e2d0d435dae44901d49fe3ef2"
 
   def install
     system "make", "release"
