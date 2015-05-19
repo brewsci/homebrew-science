@@ -38,7 +38,7 @@ class Genometools < Formula
     system "make", "test", *args if build.with? "check"
     system "make", "install", *args
 
-    (share/"genometools").install bin/"gtdata"
+    prefix.install bin/"gtdata"
   end
 
   test do
