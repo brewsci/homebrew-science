@@ -4,9 +4,9 @@ class Stringtie < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "629fc4718be56af23c58ad49450445443280cf5f4abe7e0d9fdad62a01ea7d39" => :yosemite
-    sha256 "3f615ab88a8d943cdb1555b1176506aa547be2b37ac213c9d1332463329f6051" => :mavericks
-    sha256 "299ffb79d445e9984f5fe8050f34e74d67a3ba93c363d574105edef47f1cbdc5" => :mountain_lion
+    sha256 "de3a457c45fc023c2b9c4e2d8530ec77ade761269897af535fb82a5a904bb354" => :yosemite
+    sha256 "157abc752800f726bce574ac5dc1322e2ed112b953fdd06dcdf819c1d7abf258" => :mavericks
+    sha256 "03e7791e8119e5ab2e38eb417bd289f6a266bede9d52bbd98a33e79797c98785" => :mountain_lion
   end
 
   # doi "10.1038/nbt.3122"
