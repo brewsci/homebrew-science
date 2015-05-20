@@ -1,12 +1,12 @@
-require 'formula'
-
 class TransAbyss < Formula
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/trans-abyss"
-  #doi "10.1038/nmeth.1517"
-  head "https://github.com/bcgsc/transabyss.git"
+  # doi "10.1038/nmeth.1517"
+  # tag "bioinformatics"
 
   url "https://github.com/bcgsc/transabyss/archive/1.5.1.tar.gz"
-  sha1 "6bbe6123bd0142b6b10190ff95752641090350b0"
+  sha256 "076e94af1e918f7ec8ee2f6c8f7d6d94ab97f9a3cc950fa9e0e591ca6a83d9d8"
+
+  head "https://github.com/bcgsc/transabyss.git"
 
   depends_on "abyss"
   depends_on "blat"
@@ -28,8 +28,8 @@ class TransAbyss < Formula
   end
 
   test do
-    system "transabyss --help"
-    system "transabyss-analyze --help"
-    system "transabyss-merge --help"
+    system "#{bin}/transabyss", "--help"
+    system "#{bin}/transabyss-analyze", "--help"
+    system "#{bin}/transabyss-merge", "--help"
   end
 end
