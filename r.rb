@@ -1,7 +1,6 @@
 class RDownloadStrategy < SubversionDownloadStrategy
   def stage
-    quiet_safe_system "cp", "-r", @clone, Dir.pwd
-    Dir.chdir cache_filename
+    cp_r File.join(cached_location, "."), Dir.pwd
   end
 end
 
