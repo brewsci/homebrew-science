@@ -3,8 +3,8 @@ class TransAbyss < Formula
   # doi "10.1038/nmeth.1517"
   # tag "bioinformatics"
 
-  url "https://github.com/bcgsc/transabyss/archive/1.5.2.tar.gz"
-  sha256 "8b5b0a333c1407a73170521a439e5f381b07c9df8f660c5f5f52000c04aa03c2"
+  url "https://github.com/bcgsc/transabyss/archive/1.5.3.tar.gz"
+  sha256 "6b2471b05443962a5e99ba53427cc622e42b1e1e94572f4a58f54673df4c82fd"
 
   head "https://github.com/bcgsc/transabyss.git"
 
