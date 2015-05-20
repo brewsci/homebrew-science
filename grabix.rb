@@ -1,8 +1,8 @@
 class Grabix < Formula
   homepage "https://github.com/arq5x/grabix"
   # tag "bioinformatics"
-  url "https://github.com/arq5x/grabix/archive/0.1.5.tar.gz"
-  sha256 "b3eee3f95f2a3c90f5b652c0f1259e9c9a44a541788d3116444760c6a9c26165"
+  url "https://github.com/arq5x/grabix/archive/0.1.6.tar.gz"
+  sha256 "a1c92311501f583ad1912b6e0394f95d06b8e3aafe1db6a7ba517d5aed161043"
   head "https://github.com/arq5x/grabix.git"
 
   bottle do
