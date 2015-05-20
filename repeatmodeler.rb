@@ -7,10 +7,10 @@ class Repeatmodeler < Formula
   sha256 "3ac87af3fd3da0c9a2ca8e7b8885496abdf3383e413575548c1d234c15f27ecc"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
-    sha1 "3d516316eb1f2292eb69f04c431dfe9a8fea166f" => :yosemite
-    sha1 "a2ca0624ac59dc50db38a798ea196438646ecf7c" => :mavericks
-    sha1 "7b4cb9aa5e075aa33e5aba832547947449bc60e6" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "a9554c56b1727320b1b5048ff89884941af6ee6a64a2afc7f3c621172264d522" => :yosemite
+    sha256 "fce72ab593a100187d325b9789387e39e91dc3779de763556fb6aa516b1aaf18" => :mavericks
+    sha256 "c2088c839d630afdc8e89a44f48ad3912cc86cb5ff52b041e58c7b4328cface8" => :mountain_lion
   end
 
   option "without-configure", "Do not run configure"
