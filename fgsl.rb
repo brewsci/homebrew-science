@@ -2,6 +2,7 @@ class Fgsl < Formula
   homepage "http://www.lrz.de/services/software/mathematik/gsl/fortran/"
   url "http://www.lrz.de/services/software/mathematik/gsl/fortran/fgsl-1.0.0.tar.gz"
   sha1 "f39362bd4d0c2daf8382d8ec818bb166ae5a7dea"
+  revision 1
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
