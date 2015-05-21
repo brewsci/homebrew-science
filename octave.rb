@@ -4,6 +4,7 @@ class Octave < Formula
   mirror "https://ftp.gnu.org/gnu/octave/octave-3.8.2.tar.bz2"
   sha256 "83bbd701aab04e7e57d0d5b8373dd54719bebb64ce0a850e69bf3d7454f33bae"
   head "http://www.octave.org/hg/octave", :branch => "default", :using => :hg
+  revision 1
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
