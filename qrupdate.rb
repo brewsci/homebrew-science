@@ -4,7 +4,7 @@ class Qrupdate < Formula
   homepage 'http://sourceforge.net/projects/qrupdate/'
   url 'https://downloads.sourceforge.net/qrupdate/qrupdate-1.1.2.tar.gz'
   sha1 'f7403b646ace20f4a2b080b4933a1e9152fac526'
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
