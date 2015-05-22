@@ -7,10 +7,9 @@ class Superlu < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 3
-    sha256 "4547fbc3f0aad075102b8274c99fbd116c0bd26b1dc74eac6b25cfe4ab048cd6" => :yosemite
-    sha256 "017eba66d0898865031be538e38bd860d114bd2a8dc8b9a70be569947ed7d259" => :mavericks
-    sha256 "98a0638d2fd4b1e819180cddc06e8f9ce5d46747920c191fe3111b3e10cb135e" => :mountain_lion
+    sha256 "55c85e1b687b25cd43473499ea977269d9ec40fde4ef42a456ce8b6c5efa7287" => :yosemite
+    sha256 "98be45e96305c0d49578b6d9938eed1dc3df49f4144f44dbe904e5faaebe3159" => :mavericks
+    sha256 "6f4e344d0eb901394e69e88cad6f51d0cf595a9e382f28a8a7cc6b288a2ab8a5" => :mountain_lion
   end
 
   option "without-check", "skip build-time tests (not recommended)"
