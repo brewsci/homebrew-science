@@ -7,9 +7,9 @@ class Mumps < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha1 "3381afc966c3f1f6768a92d4986e43a0c1ac4a7d" => :yosemite
-    sha1 "7a9614223d9e5185746667c6bc85c4f2df3d587c" => :mavericks
-    sha1 "7418c442ffea6699b454f497b3f2bc6252aea9a1" => :mountain_lion
+    sha256 "2fa9603ef3fe7936a39dbe5443acc7a647253ec1c0370f94c14a5e160ee6d7af" => :yosemite
+    sha256 "1f58248376b2ed17d41c50709edac5f4ee688751f1d12b6d96a7da91a04c86b4" => :mavericks
+    sha256 "ec33985bc13b1a5cafa88d7b509348fb1351af6da4c6c2a2deb80b0e7a63f657" => :mountain_lion
   end
 
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
