@@ -4,7 +4,7 @@ class TransAbyss < Formula
   # tag "bioinformatics"
 
   url "https://github.com/bcgsc/transabyss/archive/1.5.3.tar.gz"
-  sha256 "6b2471b05443962a5e99ba53427cc622e42b1e1e94572f4a58f54673df4c82fd"
+  sha256 "0661f70d9d971edb3b225906082860c5531adcc4ecb4cceb24365b96c529af96"
 
   head "https://github.com/bcgsc/transabyss.git"
 
