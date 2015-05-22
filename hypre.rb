@@ -8,10 +8,9 @@ class Hypre < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 2
-    sha256 "f0a78608401a2273d25d118cc7df8cd0262e420a901cb17afa7a64ddc007a954" => :yosemite
-    sha256 "e5963a87667dcd156b484f711bac8cd41ac6e418f63cceb2fd7506c43149e997" => :mavericks
-    sha256 "70d59ae8866ae5b72edd543b32e75862b9f03eb0cc71468fefd7e0bd32fa8fe2" => :mountain_lion
+    sha256 "9dae8c7b50e04196ed74f70249b9dba95abcd5305f713c052aa8c882970f9f88" => :yosemite
+    sha256 "734a02e3e099d508241a8b572663dbbaf81b1851732ee4bce8b737d9f9fd39ae" => :mavericks
+    sha256 "03efc47b263fa95b1a69ecc9158f49d2b9cd15848c60d349bb508eb95357400d" => :mountain_lion
   end
 
   depends_on :fortran => :recommended
