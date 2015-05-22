@@ -7,8 +7,9 @@ class Openblas < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "bb37139a9c32a083edb7e55293383b0c6816427497db5e55e66df43aa4a9628c" => :yosemite
-    sha256 "ff0f0a3775ab498c326b412be6b9743ab5d00453d6b7c23669a194f9f66b9358" => :mountain_lion
+    sha256 "29e57f8aec83207cccfe3727cbba9d68f1beee7667cab889c7edf99fa95dc52f" => :yosemite
+    sha256 "564079bfa0b8cd88cd75c556a26c7f9d7c7b35d96410a90c81effd547ba5bf99" => :mavericks
+    sha256 "c0aa12e957941953ec017b13e8f82a7d100df48172433117d3d57d3b6375092b" => :mountain_lion
   end
 
   depends_on :fortran
