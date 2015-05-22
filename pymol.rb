@@ -7,9 +7,9 @@ class Pymol < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "b87a054a59855d81fa79c6bdaaed196c2b5d177491090f706ca7c3d570906b84" => :yosemite
-    sha256 "cc66758469a6635ac66142ccfc285ff679efa5a3a0b13bfcb671f7342a4c5233" => :mavericks
-    sha256 "d94bb41550f2b57786cc4b563b13ec48073f98c925c3baf38f2b9b02fa4267e4" => :mountain_lion
+    sha256 "f9508e972a15a881b346222545ad9a63f1ba838066fe72ca57ddf366965c80fa" => :yosemite
+    sha256 "e9813a889011afcdfd61ecaf5b581e5408461b6d14028e646406bf706270d7ae" => :mavericks
+    sha256 "d0348d18fdbb87c697ef2d68ab6849421bef34406181048b2011cb0bad1787b8" => :mountain_lion
   end
 
   depends_on "glew"
