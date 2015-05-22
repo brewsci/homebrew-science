@@ -8,9 +8,9 @@ class Octave < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "dc908422d6642e975030bc1bc8cb8627263ac3d1caae3a08e852eaa1611045cb" => :yosemite
-    sha256 "67184251fc692ca7db6d339a04e1043ea18386aec2ab90c286bba55955c1c21b" => :mavericks
-    sha256 "6534179f8066aaa4aa1792067e0038b1a2868b4275738e9a10ef5b0086130689" => :mountain_lion
+    sha256 "e63999effbedc0f96613a4fac2528d130be09ce4ee85b0e1311c3061ed2d0622" => :yosemite
+    sha256 "262f20e29136d2eab67d2af9107b388dd55075e3d005dbbcba4de0c5b0fc8357" => :mavericks
+    sha256 "682635f491858976e17d23fc3308e2743bc5200116c68fbea663ac94a352a448" => :mountain_lion
   end
 
   stable do
