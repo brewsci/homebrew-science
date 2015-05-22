@@ -6,9 +6,9 @@ class EtsfIo < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "e0499a8beae7e9dbad907e794610213342891cf6e24adc018da926518a20ca96" => :yosemite
-    sha256 "55adbf17bd8d8ccaa43215b3ab7628a01116e286fba64d09b3ee9b3d50dab077" => :mavericks
-    sha256 "38faa1e76b2f6d72fe29ae0c1753f607dd9cb7aa0b7d8e318ba7580a31c53089" => :mountain_lion
+    sha256 "cd03510221814aef2f3d0e2039e42c31b41ee9735fd271a04d883c94dc73a694" => :yosemite
+    sha256 "a1a3888da1bbbb4f808768413f57267ddd90f97111992e4d9f161a494a51728a" => :mavericks
+    sha256 "2ccb27658150b9cf718d4e297e6b74e9f70516fed326d27694e15c68680d077c" => :mountain_lion
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
