@@ -7,12 +7,11 @@ class Qrupdate < Formula
   revision 2
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 2
-    sha1 "6cf2f84c29df94e4ddd137fb75b2a36a30bc4ea7" => :yosemite
-    sha1 "c2b46258201e5218e187fd65b70395ae06b8113c" => :mavericks
-    sha1 "03888309204008476b2e8fda517f1ee8b5a5ba4f" => :mountain_lion
+    sha256 "c06f83599521ac084727982e284a571331974e634a00168771dd48984937f2d7" => :yosemite
+    sha256 "e5157b5d52d77c07e5e832522d983a9436a55b42ee0309046ad235e6a2f0ee80" => :mavericks
+    sha256 "2efd4bdff479a3eabbe853ad988fa8396b7fe38fa85dccdca46b9cbd9e98be87" => :mountain_lion
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
