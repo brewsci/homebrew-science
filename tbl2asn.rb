@@ -1,14 +1,14 @@
 class Tbl2asn < Formula
   homepage "https://www.ncbi.nlm.nih.gov/genbank/tbl2asn2/"
-  #tag "bioinformatics"
+  # tag "bioinformatics"
 
   version "24.3"
   if OS.mac?
     url "ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/mac.tbl2asn.gz"
-    sha256 "0fc76b2d35974c9d20a444272ed556a0f094659a3bc4162b16ffbddaceff4ce9"
+    sha256 "1e7052673a26a55cf710bad58245af3a2534358d368e2077a17fed8ff13bbc32"
   elsif OS.linux?
     url "ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/linux64.tbl2asn.gz"
-    sha256 "d1ccef96cec34fcfc74f4c70a1d0582f66508a754fa3ae137bb33e1ce310fe37"
+    sha256 "00265752e4b69f17e2e1066e42187bf0f65126ce3a2c6ac4bc2fd6ddae139163"
   end
 
   bottle do
