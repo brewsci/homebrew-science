@@ -8,6 +8,7 @@ class Gmsh < Formula
   homepage "http://geuz.org/gmsh"
   url "http://geuz.org/gmsh/src/gmsh-2.9.2-source.tgz"
   sha256 "541cfb469655912380ad3dcc509c0fac5f3efd218c29da0e32c9ffdfc589aa99"
+  revision 1
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"

@@ -2,6 +2,7 @@ class Slepc < Formula
   homepage "http://www.grycap.upv.es/slepc"
   url "http://www.grycap.upv.es/slepc/download/download.php?filename=slepc-3.5.3.tar.gz"
   sha1 "5e886c5018dc0d227ae815feb80d4cdd8779c23c"
+  revision 1
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"

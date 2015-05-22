@@ -3,7 +3,7 @@ class Hypre < Formula
   url "http://ftp.mcs.anl.gov/pub/petsc/externalpackages/hypre-2.9.0b.tar.gz"
   mirror "ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/hypre-2.9.0b.tar.gz"
   sha1 "aaf8354437be38aa2fbcc944ab64d464a5b39207"
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"

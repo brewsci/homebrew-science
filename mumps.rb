@@ -3,7 +3,7 @@ class Mumps < Formula
   url "http://mumps.enseeiht.fr/MUMPS_5.0.0.tar.gz"
   mirror "http://graal.ens-lyon.fr/MUMPS/MUMPS_5.0.0.tar.gz"
   sha1 "991297608725be2440ece30f4a65dd748624ca5e"
-  revision 2
+  revision 3
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"

@@ -3,7 +3,7 @@ class Petsc < Formula
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.5.3.tar.gz"
   sha1 "4c755b3c122f88e38bb5259c748f772545fcaf21"
   head "https://bitbucket.org/petsc/petsc", :using => :git
-  revision 2
+  revision 3
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
