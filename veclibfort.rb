@@ -5,7 +5,7 @@ class Veclibfort < Formula
   url 'https://github.com/mcg1969/vecLibFort/archive/0.4.2.tar.gz'
   sha1 'fee75b043a05f1dc7ec6649cbab73e23a71a9471'
   head 'https://github.com/mcg1969/vecLibFort.git'
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"

@@ -2,7 +2,7 @@ class SuperluDist < Formula
   homepage "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
   url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_dist_3.3.tar.gz"
   sha256 "d2fd8dc847ae63ed7980cff2ad4db8d117640ecdf0234c9711e0f6ee1398cac2"
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"

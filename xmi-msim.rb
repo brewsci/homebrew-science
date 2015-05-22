@@ -3,6 +3,7 @@ class XmiMsim < Formula
   url "http://lvserver.ugent.be/xmi-msim/xmimsim-5.0.tar.gz"
   mirror "https://xmi-msim.s3.amazonaws.com/xmimsim-5.0.tar.gz"
   sha1 "cb8f83fe594f8808079d64dfd7e592c710891efc"
+  revision 1
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
