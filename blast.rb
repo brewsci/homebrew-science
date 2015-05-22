@@ -7,6 +7,7 @@ class Blast < Formula
   mirror "https://mirrors.kernel.org/debian/pool/main/n/ncbi-blast+/ncbi-blast+_2.2.30.orig.tar.gz"
   version "2.2.30"
   sha256 "26f72d51c81b9497f33b7274109565c36692572faef4d72377f79b7e59910e40"
+  revision 1
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -40,7 +41,8 @@ class Blast < Formula
     # See http://www.ncbi.nlm.nih.gov/viewvc/v1?view=revision&revision=65204
     inreplace "c++/src/build-system/Makefile.in.top", "/usr/bin/basename", "basename"
 
-    args = %W[--prefix=#{prefix} --without-debug --with-mt]
+    # Move libraries to libexec. Libraries and headers conflict with ncbi-c++-toolkit.
+    args = %W[--prefix=#{prefix} --libdir=#{libexec} --without-debug --with-mt]
 
     args << (build.with?("mysql") ? "--with-mysql" : "--without-mysql")
     args << (build.with?("freetype") ? "--with-freetype=#{Formula["freetype"].opt_prefix}" : "--without-freetype")
@@ -66,8 +68,8 @@ class Blast < Formula
       system "make"
       system "make", "install"
 
-      # libproj.a conflicts with the formula proj
-      libexec.install Dir["#{lib}/lib*.a"] if build.with? "static"
+      # Remove headers. Libraries and headers conflict with ncbi-c++-toolkit.
+      rm_r include
     end
   end
 
@@ -79,8 +81,6 @@ class Blast < Formula
     Static binaries should be used for speed if the executable requires
     fast startup time, such as if another program is frequently restarting
     the blast executables.
-
-    Static libraries are installed in #{libexec}
     EOS
   end
 
