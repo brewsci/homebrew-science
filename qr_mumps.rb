@@ -2,6 +2,7 @@ class QrMumps < Formula
   homepage "http://buttari.perso.enseeiht.fr/qr_mumps"
   url "http://buttari.perso.enseeiht.fr/qr_mumps/releases/1.0/qr_mumps-1.0.tgz"
   sha1 "6f02a92cb1ea25d66eb122a2fa065b6f7da48f7b"
+  revision 1
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"

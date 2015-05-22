@@ -3,7 +3,7 @@ class Pastix < Formula
   url "https://gforge.inria.fr/frs/download.php/file/34392/pastix_5.2.2.20.tar.bz2"
   sha1 "d55acf287ed0b6a59fc12606a21e42e3d38507c5"
   head "git://scm.gforge.inria.fr/ricar/ricar.git"
-  revision 2
+  revision 3
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -12,7 +12,7 @@ class Pastix < Formula
     sha256 "f5230b9f49f81c94d324e32b78b2d19a20b9cda2d17db55870a225d8b6448266" => :mountain_lion
   end
 
-  depends_on "scotch"   => :build
+  depends_on "scotch"
   depends_on "hwloc"
   depends_on "metis4"   => :optional     # Use METIS ordering.
   depends_on "openblas" => :optional     # Use Accelerate by default.

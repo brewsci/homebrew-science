@@ -5,6 +5,7 @@ class Lammps < Formula
   # lammps releases are named after their release date. We transform it to
   # YYYY.MM.DD (year.month.day) so that we get a comparable version numbering (for brew outdated)
   version "2015.02.10"
+  revision 1
 
   head "http://git.icms.temple.edu/lammps-ro.git"
 
