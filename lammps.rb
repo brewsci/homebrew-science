@@ -12,9 +12,9 @@ class Lammps < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "1e0de572d8e795c66bc042a99adbb9724c44ea46da3ba50623bcc431431be31e" => :yosemite
-    sha256 "f6ea49bc99f926d3eec73d20c3e0098636ba57b4f6b40cc19060fd10b0a42cd1" => :mavericks
-    sha256 "c7c201a7e876d3062882d1814cf700fd079e6409a0098e1ea678e91c20275244" => :mountain_lion
+    sha256 "3f66831fed5f14b9f122f8ef54ec6d25f82e95fb6731bbfae0971d9b856ffe71" => :yosemite
+    sha256 "11887bd0166669fbff851963e3fa47dac112be2860a6fbc68cc5883ff3f8f333" => :mavericks
+    sha256 "c2df2c7d94118f61161871f68222bb2dd049311a8991290eb444851c1d9cb2ae" => :mountain_lion
   end
 
   # user-submitted packages not considered "standard"
