@@ -1,8 +1,7 @@
 class Maxima < Formula
   homepage "http://maxima.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.34.1-source/maxima-5.34.1.tar.gz"
-  sha1 "3f33730ca374c282a543da5ed78572eff72da34f"
-  revision 1
+  url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.36.1-source/maxima-5.36.1.tar.gz"
+  sha1 "7ab4136e59906f5230fb72ffd2582f4d4bd13b0c"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
