@@ -1,8 +1,7 @@
-require "formula"
-
 class Platanus < Formula
   homepage "http://platanus.bio.titech.ac.jp/platanus-assembler/"
-  #doi "10.1101/gr.170720.113"
+  # doi "10.1101/gr.170720.113"
+  # tag "bioinformatics"
 
   version "1.2.1"
   if OS.mac?
@@ -21,15 +20,15 @@ class Platanus < Formula
 
       # Fix the dependent shared library install names.
       gccformula = Formula["gcc"]
-      gcc = gccformula.opt_lib/"gcc/x86_64-apple-darwin13.2.0"/gccformula.version
-      system "install_name_tool -change /opt/local/lib/libstdc++.6.dylib #{gcc}/libstdc++.6.dylib platanus"
-      system "install_name_tool -change /opt/local/lib/gcc48/libgomp.1.dylib #{gcc}/libgomp.1.dylib platanus"
-      system "install_name_tool -change /opt/local/lib/gcc48/libgcc_s.1.dylib #{gcc}/libgcc_s.1.dylib platanus"
+      gcclib = gccformula.opt_lib/"gcc/5"
+      system "install_name_tool -change /opt/local/lib/libstdc++.6.dylib #{gcclib}/libstdc++.6.dylib platanus"
+      system "install_name_tool -change /opt/local/lib/gcc48/libgomp.1.dylib #{gcclib}/libgomp.1.dylib platanus"
+      system "install_name_tool -change /opt/local/lib/gcc48/libgcc_s.1.dylib #{gcclib}/libgcc_s.1.dylib platanus"
     end
     bin.install "platanus"
   end
 
   test do
-    system "#{bin}/platanus 2>&1 |grep platanus"
+    assert_match "Usage", shell_output("#{bin}/platanus 2>&1", 1)
   end
 end
