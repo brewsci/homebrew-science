@@ -10,9 +10,9 @@ class Sratoolkit < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "964d931b8e9c57bb32622d5627f914c8e0e9f54bec52e95a2429e264668cf80e" => :yosemite
-    sha256 "d67ebf5724b97eb1862a2fc5b6d2a872d2af80bbc52bf465eb69e975113c02b6" => :mavericks
-    sha256 "03a4a2de29671c99a87d738642aecedfb35fab035a238dc87bb966207c3473d5" => :mountain_lion
+    sha256 "4fc7c18f137a50a1bce786baf565295d73fce7dd76393867bd9b7210f30862e5" => :yosemite
+    sha256 "11f66c21d9329765495b6c5651a5628a66f4247593895c8fc712b991a21acd48" => :mavericks
+    sha256 "8a43efea621a11bb6e6f54c27ccde6bf0ee8ed12ab4a3b0fe4c42cd3bcf54336" => :mountain_lion
   end
 
   resource "ngs-sdk" do
