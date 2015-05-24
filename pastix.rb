@@ -7,9 +7,9 @@ class Pastix < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "61f1e05697d2dae3363deb62a61be5b794ce8096d40b1b7e598b0a21124e3cb0" => :yosemite
-    sha256 "594ec6ecbea74f2f361b23166f743b075c425c28f82b5e886f090afc822ee8b1" => :mavericks
-    sha256 "f5230b9f49f81c94d324e32b78b2d19a20b9cda2d17db55870a225d8b6448266" => :mountain_lion
+    sha256 "4dc1de1d66b728154b6157095259c4231b20f450e57d872f7b8252c8a558d55f" => :yosemite
+    sha256 "8ba979033897b56109d1f50a5e5270ff11d3ed756b771498ffd2cfd299724b44" => :mavericks
+    sha256 "c937cf0feae8da2a185ac9e984c917fba3b5cfd0c19f6518d4ca0938ec671efc" => :mountain_lion
   end
 
   depends_on "scotch"
