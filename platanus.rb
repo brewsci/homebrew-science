@@ -4,6 +4,14 @@ class Platanus < Formula
   # tag "bioinformatics"
 
   version "1.2.1"
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "ca6b30cad08fdc5f14d761c0ed875cc3aafb3c1150d6e299b78e0461ced2af4d" => :yosemite
+    sha256 "3324c9c9ab3138b04c2f6d1b33627015b3610f935dc594342d484c8dbb3cf4b4" => :mavericks
+    sha256 "e8fb31a2d08592ef4cc83e1cee4009f6d1252229573a92d5ee56dbce7b99df49" => :mountain_lion
+  end
+
   if OS.mac?
     url "http://platanus.bio.titech.ac.jp/Platanus_release/20140423010201/platanus.macOSX"
     sha1 "efeca85a45cbc802c7c0ff4771f83e14889b31e8"
