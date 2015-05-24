@@ -11,10 +11,9 @@ class Blast < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    revision 4
-    sha256 "97ceb730f0e337c0226482540ba80be02f1532d530d64055249e306a46427822" => :yosemite
-    sha256 "ef753168975423c481862be97688847986a2fe64709b135c0d634ca2b502964c" => :mavericks
-    sha256 "cd3f9044fc34579f876ddb674331be26418d4dc21a72f9b1a09814d057dec8e4" => :mountain_lion
+    sha256 "93f8dace4ea679ffa89c390f3d8bb8eb935bbd9a1a1703d11469a8c61bc8bd4d" => :yosemite
+    sha256 "e723325cfd5be95604b12272f82fc9889f0771a02c7eecc3ca77799b97834a31" => :mavericks
+    sha256 "4f15450fba3980e6c838f802540e2fb303254bc89f96c4dcafd9637f38a6b65d" => :mountain_lion
   end
 
   # Build failure reported to toolbox@ncbi.nlm.nih.gov on 11 May 2015,
