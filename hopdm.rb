@@ -6,6 +6,14 @@ class Hopdm < Formula
   sha1 '5d4df64f1a03251c0c22f9d292c26da2f2cea1eb'
   revision 2
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "92d3028eccabb89f9e49b738d7efad65bdfdc8a9fe30440313b796b3757e6788" => :yosemite
+    sha256 "641edf265659632e619cfea730170f62260cb38fbc84957a903ebf0abb2993c7" => :mavericks
+    sha256 "4cf0172f203b065d9bf79cc2f2277fa485e249607ad0f5b97d85f6cc730b1857" => :mountain_lion
+  end
+
   depends_on :fortran
 
   patch :DATA
