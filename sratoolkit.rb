@@ -3,10 +3,9 @@ class Sratoolkit < Formula
   # doi "10.1093/nar/gkq1019"
   # tag "bioinformatics"
 
-  url "https://github.com/ncbi/sra-tools/archive/2.4.5-5.tar.gz"
-  sha256 "dabebdba7003862293eaab3b9d5f08018216338f1c389f2371220075feb6d986"
+  url "https://github.com/ncbi/sra-tools/archive/2.5.0.tar.gz"
+  sha256 "4aca37fcb022c67bbf7acd8c78386a2f46f68817d369144fc24ac1a22ddb94df"
   head "https://github.com/ncbi/sra-tools.git"
-  version "2.4.5-5"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -17,13 +16,13 @@ class Sratoolkit < Formula
   end
 
   resource "ngs-sdk" do
-    url "https://github.com/ncbi/ngs/archive/1.1.0.tar.gz"
-    sha256 "1ccaf90e3a4ee66662007c1e26be0e5236ecb3ad9f4f705e7a8e1ec4d39eca25"
+    url "https://github.com/ncbi/ngs/archive/1.1.1.tar.gz"
+    sha256 "1eedd2aa2363b2320559762fa0223a98f9b766ac0f252566edc09253ea7da8f4"
   end
 
   resource "ncbi-vdb" do
-    url "https://github.com/ncbi/ncbi-vdb/archive/2.4.5-5.tar.gz"
-    sha256 "7e1bbd203314bf65990f1db8a61483bb3963ca36a36f20f653582317cdb448b2"
+    url "https://github.com/ncbi/ncbi-vdb/archive/2.5.0.tar.gz"
+    sha256 "f3ab2f05471e160bee19b59e641e2004df406bc9a30f335d6efe532b32e9901e"
   end
 
   depends_on "autoconf" => :build
@@ -37,6 +36,7 @@ class Sratoolkit < Formula
       cd "ngs-sdk" do
         system "./configure", "--prefix=#{prefix}", "--build=#{prefix}"
         system "make"
+        system "make", "test"
         system "make", "install"
       end
     end
@@ -65,6 +65,7 @@ class Sratoolkit < Formula
   end
 
   test do
-    system "#{bin}/fastq-dump", "--version"
+    system bin/"fastq-dump", "SRR000001"
+    assert File.read("SRR000001.fastq").include?("@SRR000001.1 EM7LVYS02FOYNU length=284")
   end
 end
