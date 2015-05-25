@@ -24,12 +24,6 @@ class Osgearth < Formula
     sha256 "182e5c81c3250e1752e744b6a35af4ef680bb6251276b49ef7d17f1d25e9ce70"
   end
 
-  # all merged upstream, remove on next version
-  # find a v8 lib: https://github.com/gwaldron/osgearth/pull/434
-  # find JavaScriptCore lib: https://github.com/gwaldron/osgearth/pull/435
-  # find libnoise lib: https://github.com/gwaldron/osgearth/pull/436
-  patch :DATA
-
   def install
     if (build.with? "docs-examples") && (!which("sphinx-build"))
       # temporarily vendor a local sphinx install
@@ -93,53 +87,3 @@ class Osgearth < Formula
     system "#{bin}/osgearth_version"
   end
 end
-
-__END__
-diff --git a/CMakeModules/FindV8.cmake b/CMakeModules/FindV8.cmake
-index 9f5684d..94cf4c4 100644
---- a/CMakeModules/FindV8.cmake
-+++ b/CMakeModules/FindV8.cmake
-@@ -21,7 +21,7 @@ FIND_PATH(V8_INCLUDE_DIR v8.h
- )
- 
- FIND_LIBRARY(V8_BASE_LIBRARY
--    NAMES v8_base v8_base.ia32 libv8_base
-+    NAMES v8_base v8_base.ia32 v8_base.x64 libv8_base
-     PATHS
-     ${V8_DIR}
-     ${V8_DIR}/lib
-@@ -40,7 +40,7 @@ FIND_LIBRARY(V8_BASE_LIBRARY
- )
- 
- FIND_LIBRARY(V8_BASE_LIBRARY_DEBUG
--    NAMES v8_base v8_base.ia32 libv8_base
-+    NAMES v8_base v8_base.ia32 v8_base.x64 libv8_base
-     PATHS
-     ${V8_DIR}
-     ${V8_DIR}/lib
-diff --git a/CMakeModules/FindJavaScriptCore.cmake b/CMakeModules/FindJavaScriptCore.cmake
-index 1bca250..3877cd5 100644
---- a/CMakeModules/FindJavaScriptCore.cmake
-+++ b/CMakeModules/FindJavaScriptCore.cmake
-@@ -21,7 +21,7 @@ FIND_PATH(JAVASCRIPTCORE_INCLUDE_DIR JavaScriptCore.h
- )
-
- FIND_LIBRARY(JAVASCRIPTCORE_LIBRARY
--    NAMES libJavaScriptCore
-+    NAMES libJavaScriptCore JavaScriptCore
-     PATHS
-     ${JAVASCRIPTCORE_DIR}
-     ${JAVASCRIPTCORE_DIR}/lib
-diff --git a/CMakeModules/FindLibNoise.cmake b/CMakeModules/FindLibNoise.cmake
-index 99d006b..0051b51 100644
---- a/CMakeModules/FindLibNoise.cmake
-+++ b/CMakeModules/FindLibNoise.cmake
-@@ -43,7 +43,7 @@ FIND_LIBRARY(LIBNOISE_LIBRARY
- )
-
- FIND_LIBRARY(LIBNOISE_LIBRARY
--  NAMES libnoise
-+  NAMES libnoise noise
-   PATHS
-     ~/Library/Frameworks
-     /Library/Frameworks
