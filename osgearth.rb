@@ -1,9 +1,7 @@
-require "formula"
-
 class Osgearth < Formula
   homepage "http://osgearth.org"
-  url "https://github.com/gwaldron/osgearth/archive/osgearth-2.5.tar.gz"
-  sha1 "97ed0075422c3efcb7b958f89ae02b32d670c48e"
+  url "https://github.com/gwaldron/osgearth/archive/osgearth-2.6.tar.gz"
+  sha256 "965c93837520ab9538038843ff83ee1903548f8be191ee211e40abb0e6c1bb4a"
 
   head "https://github.com/gwaldron/osgearth.git", :branch => "master"
 
@@ -23,7 +21,7 @@ class Osgearth < Formula
 
   resource "sphinx" do
     url "https://pypi.python.org/packages/source/S/Sphinx/Sphinx-1.2.1.tar.gz"
-    sha1 "448cdb89d96c85993e01fe793ce7786494cbcda7"
+    sha256 "182e5c81c3250e1752e744b6a35af4ef680bb6251276b49ef7d17f1d25e9ce70"
   end
 
   # all merged upstream, remove on next version
@@ -33,13 +31,13 @@ class Osgearth < Formula
   patch :DATA
 
   def install
-    if build.with? "docs-examples" and not which("sphinx-build")
+    if (build.with? "docs-examples") && (!which("sphinx-build"))
       # temporarily vendor a local sphinx install
       sphinx_dir = prefix/"sphinx"
       sphinx_site = sphinx_dir/"lib/python2.7/site-packages"
       sphinx_site.mkpath
       ENV.prepend_create_path "PYTHONPATH", sphinx_site
-      resource("sphinx").stage {quiet_system "python2.7", "setup.py", "install", "--prefix=#{sphinx_dir}"}
+      resource("sphinx").stage { quiet_system "python2.7", "setup.py", "install", "--prefix=#{sphinx_dir}" }
       ENV.prepend_path "PATH", sphinx_dir/"bin"
     end
 
