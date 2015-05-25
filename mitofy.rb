@@ -1,27 +1,30 @@
-require 'formula'
-
 class Mitofy < Formula
-  homepage 'http://dogma.ccbb.utexas.edu/mitofy/'
-  url 'http://dogma.ccbb.utexas.edu/mitofy/mitofy.tgz'
-  sha1 'd55569b6ab186b1e50012f2ba8aa984a4ee2a34e'
-  version '20120322'
+  homepage "http://dogma.ccbb.utexas.edu/mitofy/"
+  # doi "10.1093/molbev/msq029"
+  # tag "bioinformatics"
+
+  url "http://dogma.ccbb.utexas.edu/mitofy/mitofy.tgz"
+  sha256 "29e73b0f0a09e698209809081cc0de1ef0ee7e3cf9ae873b01504911025bb244"
+  version "20120322"
+
+  # Includes vendored dependencies of BLAST 2.2.25 and tRNAscan-SE 1.4 compiled for Mac OS.
 
   def install
-    libexec.install Dir['*']
+    prefix.install Dir["*"]
 
     # Install a shell script to launch mitofy.
     bin.mkdir
-    open(bin / 'mitofy', 'w') do |file|
+    open(bin/"mitofy", "w") do |file|
       file.write <<-EOS.undent
         #!/bin/sh
-        exec perl -I#{libexec}/annotate #{libexec}/annotate/mitofy.pl "$@"
+        exec perl -I#{prefix}/annotate #{prefix}/annotate/mitofy.pl "$@"
       EOS
     end
   end
 
   def caveats; <<-EOS.undent
     To use the Mitofy web app, run the following commands:
-      sudo cp #{opt_prefix}/libexec/cgi/* /Library/WebServer/CGI-Executables/
+      sudo cp #{opt_prefix}/cgi/* /Library/WebServer/CGI-Executables/
       sudo mkdir /Library/WebServer/CGI-Executables/cgi_out
       sudo chown _www:_www /Library/WebServer/CGI-Executables/cgi_out
       sudo apachectl start
@@ -33,6 +36,6 @@ class Mitofy < Formula
   end
 
   test do
-    system 'mitofy'
+    system "#{bin}/mitofy"
   end
 end
