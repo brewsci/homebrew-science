@@ -1,17 +1,15 @@
-require "formula"
-
 class Pspp < Formula
-  homepage "http://www.gnu.org/software/pspp/"
-  url "http://ftpmirror.gnu.org/pspp/pspp-0.8.4.tar.gz"
-  mirror "http://ftp.gnu.org/gnu/pspp/pspp-0.8.4.tar.gz"
-  sha1 "75c2ee0e1b87e9d653fb9cf2dd95da8d9b5d1caf"
+  homepage "https://www.gnu.org/software/pspp/"
+  url "https://ftpmirror.gnu.org/pspp/pspp-0.8.4.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/pspp/pspp-0.8.4.tar.gz"
+  sha256 "bfcc3b0e98a5e2d44b4f3383e52c1a26b7eacf5bf419786f49fa16d00bc1c52c"
+  revision 1
 
   option "without-check", "Skip running the PSPP test suite"
   option "without-gui", "Build without gui support"
 
   depends_on "pkg-config" => :build
 
-  depends_on :x11
   depends_on "gsl"
   depends_on "glib"
   depends_on "gettext"
