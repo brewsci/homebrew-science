@@ -1,9 +1,10 @@
 class ClustalOmega < Formula
   homepage "http://www.clustal.org/omega/"
-  #tag "bioinformatics"
-  #doi "10.1038/msb.2011.75"
+  # doi "10.1038/msb.2011.75"
+  # tag "bioinformatics"
+
   url "http://www.clustal.org/omega/clustal-omega-1.2.1.tar.gz"
-  sha1 "50f67eb3244c25c9380e7afef0e157161535121b"
+  sha256 "0ef32727aa25c6ecf732083e668a0f45bc17085c28a5c7b4459f4750419f2b0a"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -16,8 +17,8 @@ class ClustalOmega < Formula
   depends_on "argtable"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}",
+      "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
   end
 
