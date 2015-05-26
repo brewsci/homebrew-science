@@ -5,6 +5,13 @@ class NcbiCxxToolkit < Formula
   url "ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools++/CURRENT/ncbi_cxx--12_0_0.tar.gz"
   sha256 "432d5c72cc02dad263f1b2f1ab875e04e60b1ded0c5537ed54e8095b50554d20"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "4510dcbeabf2aed8abd3b72e9f17bad7384670e6fa2a3e60c1c08b8d1f7c88c9" => :yosemite
+    sha256 "b0fc4b35768876ab1ad2d5c08e911d5eb1cc179193d123fcbd52e7f48f1089c1" => :mavericks
+    sha256 "a2735fe595865420230f43284cdbbabfdda2cda5920af408c07aee4ff292bdf4" => :mountain_lion
+  end
+
   head "http://anonsvn.ncbi.nlm.nih.gov/repos/v1/trunk/c++", :using => :svn
 
   fails_with :gcc => "5" do
