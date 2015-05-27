@@ -5,12 +5,11 @@ class Snid < Formula
   revision 2
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 1
-    sha1 "2ef005bb6abe42793d2cd4cfe07c46ec4b3a2e21" => :yosemite
-    sha1 "2a7b4f7002c84b9f2ebac050b1098abc98c07177" => :mavericks
-    sha1 "7dadd38507870b8edda727636748e6f1df7fbb85" => :mountain_lion
+    sha256 "0ec373a313ba1961806f28bb46217786f0010c37e95261d664b46336b7a83af9" => :yosemite
+    sha256 "855d5fe8b71e8d9f2ad2b4ae9dbc21f7f736e40e0ec8d3ded403530b5176f877" => :mavericks
+    sha256 "3cb5fe729d14efdc2ec972e5e224141be7cb5564c09cfa68598da67e1441016a" => :mountain_lion
   end
 
   depends_on :x11
