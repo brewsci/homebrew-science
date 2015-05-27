@@ -5,9 +5,9 @@ class Maxima < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "29fc92fcd0619a76f6e7339f1f0f04106aa4f844e28dc8f4c941c9a667d9e22d" => :yosemite
-    sha256 "e6ed2513be37d62c8f73fe7dfa91a4dbcf7c149f0e03fb8eecb96d46f27ba5dc" => :mavericks
-    sha256 "7b4f568ed4d3f0ca84c079de617778b67d60d1640ce45af2802df92d610e1765" => :mountain_lion
+    sha256 "b4de12a5030ca617f54b3b521594bf41d9189f5ad2f9a2a59b92da65b89753ed" => :yosemite
+    sha256 "cac81a7194531c4c71d31e2a7e2d8f58079cf33789c468ffeacda93652f975be" => :mavericks
+    sha256 "dc3300cce67db65b6c2f4204e2841b72d8106b5a931ccdf92c56b06029a78a5f" => :mountain_lion
   end
 
   depends_on "sbcl" => :build
