@@ -3,7 +3,7 @@ class Ipopt < Formula
   url "http://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.1.tgz"
   sha1 "cbb197f6a90e0e1d64e438a5159da5f33f06aa08"
   head "https://projects.coin-or.org/svn/Ipopt/trunk", :using => :svn
-  revision 2
+  revision 3
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -28,7 +28,7 @@ class Ipopt < Formula
     ENV.delete("MPIFC")  # which leads to the linker crashing.
     ENV.delete("MPICXX")
     mumps_libs = %w[-ldmumps -lmumps_common -lpord -lmpiseq]
-    mumps_incdir = Formula["mumps"].libexec / "include"
+    mumps_incdir = Formula["mumps"].opt_libexec/"include"
     mumps_libcmd = "-L#{Formula["mumps"].opt_lib} " + mumps_libs.join(" ")
 
     args = ["--disable-debug",
