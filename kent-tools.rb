@@ -8,9 +8,9 @@ class KentTools < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "0b436198f2e9041baa7e7982093376410176c39d9be953c8f7941112f7c57ee9" => :yosemite
-    sha256 "0dd2eb9c9167224e9fa0a0c78bd7d4cbdc9f3f9c708fe1f540c3345f3fcec07c" => :mavericks
-    sha256 "e16188ebf456226abf5dbe34e44fe33026864febd42e732b752f36e8e075867c" => :mountain_lion
+    sha256 "9c5e426ee9255fe8a04ac510e52e8e1830ed5657d99ec2a9dae25eb90c1308d8" => :yosemite
+    sha256 "6f869c09ee9c3a33bf8f69b75dfefaa456346879104268b26e4f9057a1276db5" => :mavericks
+    sha256 "29cd9e14a04bb59dafe8c87a3d9e96f19cabcef98118eaba5c04ca66bd6dae4b" => :mountain_lion
   end
 
   depends_on :mysql
