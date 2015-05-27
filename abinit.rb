@@ -2,6 +2,7 @@ class Abinit < Formula
   homepage "http://www.abinit.org"
   url "http://ftp.abinit.org/abinit-7.10.4.tar.gz"
   sha256 "ebd0a3abd01db4374beda092d1f16c9e00d327712b1ed389bb32e1c80f37c6ef"
+  revision 1
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -14,7 +15,6 @@ class Abinit < Formula
   option "with-testsuite", "Run full test suite (time consuming)"
 
   depends_on "cmake" => :build
-  depends_on :python => :build
 
   depends_on :mpi => [:cc, :cxx, :f77, :f90]
   depends_on :fortran
