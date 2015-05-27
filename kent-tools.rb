@@ -1,8 +1,9 @@
 class KentTools < Formula
+  desc "Utilities for the UCSC Genome Browser"
   homepage "http://genome.ucsc.edu/"
-  url "http://hgdownload.cse.ucsc.edu/admin/exe/userApps.v313.src.tgz"
+  url "http://hgdownload.cse.ucsc.edu/admin/exe/userApps.v316.src.tgz"
   head "git://genome-source.cse.ucsc.edu/kent.git"
-  sha256 "2d374e9ad20c5c092feb081a85c7a8d04fee8324c41d33751c931c747ca36a0f"
+  sha256 "1190e52702ff2661ac48fe4f0ef9f966718f44ec09596a6f77c8049c638a59fe"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
