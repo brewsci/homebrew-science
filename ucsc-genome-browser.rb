@@ -1,10 +1,11 @@
 class UcscGenomeBrowser < Formula
+  desc "A mirror of the UCSC Genome Browser"
   homepage "http://genome.ucsc.edu"
-  #doi "10.1093/nar/gkq963"
-  #tag "bioinformatics"
+  # doi "10.1093/nar/gkq963"
+  # tag "bioinformatics"
 
-  url "http://hgdownload.cse.ucsc.edu/admin/jksrc.v304.zip"
-  sha1 "499f9f758bae7d43a013a9629ced7fddedca29ee"
+  url "http://hgdownload.cse.ucsc.edu/admin/jksrc.v316.zip"
+  sha256 "8ad7d11c776c52abc69557f393cb0df38c79efc8875a1f0652928ca0e8240f72"
   head "git://genome-source.cse.ucsc.edu/kent.git"
 
   keg_only <<-EOF.undent
@@ -43,7 +44,7 @@ class UcscGenomeBrowser < Formula
     mv "#{prefix}/htdocs-#{user}", prefix/"htdocs"
   end
 
-  # Todo: Best would be if this formula would put a complete working
+  # TODO: Best would be if this formula would put a complete working
   #       apache virtual site into #{share} and instruct the user to just
   #       do a symlink.
   def caveats; <<-EOF.undent
@@ -75,5 +76,14 @@ class UcscGenomeBrowser < Formula
 
       Point your browser to http://localhost/cgi-bin/hgGateway
     EOF
+  end
+
+  test do
+    (testpath/"test.fa").write <<-EOF.undent
+      >test
+      ACTG
+    EOF
+    system "#{bin}/faOneRecord test.fa test > out.fa"
+    compare_file "test.fa", "out.fa"
   end
 end
