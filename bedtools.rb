@@ -1,9 +1,12 @@
 class Bedtools < Formula
   homepage "https://github.com/arq5x/bedtools2"
-  #doi "10.1093/bioinformatics/btq033"
-  #tag "bioinformatics"
-  url "https://github.com/arq5x/bedtools2/archive/v2.23.0.tar.gz"
-  sha1 "7618000d534816cf54983eac39e0eb8f93f9e204"
+  desc "bedtools: A powerful toolset for genome arithmetic"
+  # doi "10.1093/bioinformatics/btq033"
+  # tag "bioinformatics"
+
+  url "https://github.com/arq5x/bedtools2/archive/v2.24.0.tar.gz"
+  sha256 "74dd9dbbdf47ef055a1fb8fc9f2f400d0a381e0f4f4d5d1759d5daa1b7ccdd52"
+
   head "https://github.com/arq5x/bedtools2.git"
 
   bottle do
