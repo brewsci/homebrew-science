@@ -1,8 +1,9 @@
 class Xraylib < Formula
   homepage "https://github.com/tschoonj/xraylib"
+  desc "A library for X-ray-matter interaction fundamental parameters"
   url "http://lvserver.ugent.be/xraylib/xraylib-3.1.0.tar.gz"
   mirror "https://xraylib.s3.amazonaws.com/xraylib-3.1.0.tar.gz"
-  sha1 "38a8ea77984234d24eeff50d94a662baa6cf6907"
+  sha256 "61a7c7fd0a911562151422bc6ca77df8beba37ec4e337765cf60dfbe1e04a1e3"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -34,22 +35,26 @@ class Xraylib < Formula
       --disable-php
     ]
 
-    args << ((build.with? "fortran") ? "--enable-fortran" : "--disable-fortran")
+    args << ((build.with? "fortran") ? "--enable-fortran2003" : "--disable-fortran2003")
     args << ((build.with? "perl") ? "--enable-perl" : "--disable-perl")
     args << ((build.with? "lua") ? "--enable-lua" : "--disable-lua")
     args << ((build.with? "ruby") ? "--enable-ruby" : "--disable-ruby")
     args << ((build.with? "java") ? "--enable-java" : "--disable-java")
 
     if build.without?("python") && build.with?("python3")
-      # regular build: either no or one type of python bindings required
-      args << ((build.with?("python") || build.with?("python3")) ? "--enable-python" : "--disable-python")
-      args << "PYTHON=python3" if build.with? "python3"
-
+      args << "--enable-python"
+      args << "PYTHON=python3"
       system "./configure", *args
       system "make"
       system "make", "check" if build.with? "check"
       system "make", "install"
-    else
+    elsif build.with?("python") && build.without?("python3")
+      args << "--enable-python"
+      system "./configure", *args
+      system "make"
+      system "make", "check" if build.with? "check"
+      system "make", "install"
+    elsif build.with?("python3")
       # build for both python2 and python3 bindings
       # since the configure script allows for only one python binding,
       # some tricks are required here...
@@ -95,6 +100,13 @@ class Xraylib < Formula
       cd("python3") do
         system "make", "install"
       end
+    else
+      # install without python
+      args << "--disable-python"
+      system "./configure", *args
+      system "make"
+      system "make", "check" if build.with? "check"
+      system "make", "install"
     end
   end
 
