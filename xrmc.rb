@@ -1,8 +1,10 @@
 class Xrmc < Formula
   homepage "https://github.com/golosio/xrmc"
+  desc "Monte Carlo simulation of X-ray imaging and spectroscopy experiments"
   url "http://lvserver.ugent.be/xrmc/files/xrmc-6.5.0.tar.gz"
   mirror "https://xrmc.s3.amazonaws.com/xrmc-6.5.0.tar.gz"
   sha256 "4995eaaf3b4583d443d0cf2003d73d1855b443938e431a4f758a607f540e026a"
+  revision 1
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
