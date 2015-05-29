@@ -119,6 +119,9 @@ class Opencv < Formula
       py_lib = OS.linux? ? `python-config --configdir`.chomp : "#{py_prefix}/lib"
       args << "-DPYTHON#{py_ver}_LIBRARY=#{py_lib}/libpython2.7.#{dylib}"
       args << "-DPYTHON#{py_ver}_INCLUDE_DIR=#{py_prefix}/include/python2.7"
+      # Make sure find_program locates system Python
+      # https://github.com/Homebrew/homebrew-science/issues/2302
+      args << "-DCMAKE_PREFIX_PATH=#{py_prefix}" if OS.mac?
     end
 
     if build.with? "cuda"
