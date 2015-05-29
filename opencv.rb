@@ -26,6 +26,16 @@ class Opencv < Formula
     url "https://github.com/Itseez/opencv/archive/3.0.0-rc1.tar.gz"
     sha256 "8f14897d9d191448e12e9902f7dd05ecbef027a7faf489a7c30a4e715e987e7e"
     version "3.0.0-rc1"
+
+    resource "icv-macosx" do
+      url "https://downloads.sourceforge.net/project/opencvlibrary/3rdparty/ippicv/ippicv_macosx_20141027.tgz", :using => :nounzip
+      sha256 "07e9ae595154f1616c6c3e33af38695e2f1b0c99c925b8bd3618aadf00cd24cb"
+    end
+
+    resource "icv-linux" do
+      url "https://downloads.sourceforge.net/project/opencvlibrary/3rdparty/ippicv/ippicv_linux_20141027.tgz", :using => :nounzip
+      sha256 "a5669b0e3b500ee813c18effe1de2477ef44af59422cf7f8862a360f3f821d80"
+    end
   end
 
   option "32-bit"
@@ -143,6 +153,14 @@ class Opencv < Formula
       args << "-DENABLE_SSE41=ON" if Hardware::CPU.sse4?
       args << "-DENABLE_SSE42=ON" if Hardware::CPU.sse4_2?
       args << "-DENABLE_AVX=ON" if Hardware::CPU.avx?
+    end
+
+    if devel?
+      inreplace buildpath/"3rdparty/ippicv/downloader.cmake",
+        "${OPENCV_ICV_PLATFORM}-${OPENCV_ICV_PACKAGE_HASH}",
+        "${OPENCV_ICV_PLATFORM}"
+      platform = OS.mac? ? "macosx" : "linux"
+      resource("icv-#{platform}").stage buildpath/"3rdparty/ippicv/downloads/#{platform}"
     end
 
     mkdir "macbuild" do
