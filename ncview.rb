@@ -2,12 +2,13 @@ require 'formula'
 
 class Ncview < Formula
   homepage 'http://meteora.ucsd.edu/~pierce/ncview_home_page.html'
-  url 'ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.2.tar.gz'
-  mirror 'https://fossies.org/linux/misc/ncview-2.1.2.tar.gz'
-  sha1 '425b0f5d505af9c1f974903435af385582be7ae4'
+  url 'ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.5.tar.gz'
+  mirror 'https://fossies.org/linux/misc/ncview-2.1.5.tar.gz'
+  sha1 '31685d068f158ea235654cbee118980f3f038eab'
 
   depends_on :x11
   depends_on "netcdf"
+  depends_on "udunits"
 
   # Disable a block in configure that tries to pass an RPATH to the compiler.
   # The code guesses wrong which causes the linking step to fail.
@@ -21,13 +22,9 @@ class Ncview < Formula
 end
 
 __END__
-Don't try to mess with the compiler rpath. Just not a good idea.
-
-diff --git a/configure b/configure
-index b80ae96..a650f6f 100755
---- a/configure
-+++ b/configure
-@@ -8672,29 +8672,6 @@ if test x$CC_TEST_SAME != x$NETCDF_CC_TEST_SAME; then
+--- ncview-2.1.5-orig/configure	2015-03-18 09:39:32.000000000 -0700
++++ ncview-2.1.5/configure	2015-05-29 13:44:28.000000000 -0700
+@@ -5806,32 +5806,6 @@
  	exit -1
  fi
  
@@ -44,16 +41,17 @@ index b80ae96..a650f6f 100755
 -# for the Intel icc compiler, but also that the icc compiler sets $ac_compiler_gnu
 -# to "yes".  Go figure.
 -#----------------------------------------------------------------------------------
+-echo "ac_computer_gnu: $ac_compiler_gnu"
 -if test x$ac_compiler_gnu = xyes; then
 -	RPATH_FLAGS=""
 -	for word in $UDUNITS2_LDFLAGS $NETCDF_LDFLAGS; do
 -		if test `expr $word : -L/` -eq 3; then
--			RPDIR=`expr substr $word 3 999`;
+-			#RPDIR=`expr substr $word 3 999`;
+-			RPDIR=${word:2}
 -			RPATH_FLAGS="$RPATH_FLAGS -Wl,-rpath,$RPDIR"
 -		fi
 -	done
 -
 -fi
- 
- 
+-
  ac_config_files="$ac_config_files Makefile src/Makefile"
