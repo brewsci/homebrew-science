@@ -1,5 +1,6 @@
 class Osgearth < Formula
   homepage "http://osgearth.org"
+  desc "a geospatial SDK and terrain engine for OpenSceneGraph applications."
   url "https://github.com/gwaldron/osgearth/archive/osgearth-2.6.tar.gz"
   sha256 "965c93837520ab9538038843ff83ee1903548f8be191ee211e40abb0e6c1bb4a"
 
@@ -18,6 +19,7 @@ class Osgearth < Formula
   depends_on "minizip" => :recommended
   depends_on "v8" => :optional
   depends_on "tinyxml" => :optional
+  depends_on MinimumMacOSRequirement => :mavericks
 
   resource "sphinx" do
     url "https://pypi.python.org/packages/source/S/Sphinx/Sphinx-1.2.1.tar.gz"
