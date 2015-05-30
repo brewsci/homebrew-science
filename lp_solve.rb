@@ -72,7 +72,6 @@ class LpSolve < Formula
       mkdir_p temp_site_packages
       ENV['PYTHONPATH'] = temp_site_packages
       args = [
-        "--no-user-cfg",
         "--force",
         "--verbose",
         "--install-scripts=#{share}/python",
@@ -94,7 +93,7 @@ class LpSolve < Formula
           # Even their version number is broken ...
           inreplace "setup.py", 'version = "5.5.0.9",', "version = '#{version}',"
 
-          system "python", "setup.py", "install", *args
+          system "python", "setup.py", "--no-user-cfg", "install", *args
 
           # Save the examples
           (share/'lp_solve').install Dir['ex*.py'], 'lpdemo.py', 'Python.htm'
