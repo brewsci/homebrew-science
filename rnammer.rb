@@ -1,4 +1,5 @@
 class Rnammer < Formula
+  desc "Predicts 5s/8s, 16s/18s, and 23s/28s ribosomal RNA in full genome sequences"
   homepage "http://www.cbs.dtu.dk/services/RNAmmer/"
   # doi "10.1093/nar/gkm160"
   # tag "bioinformatics"
@@ -24,10 +25,6 @@ class Rnammer < Formula
   end
 
   def install
-    # Fix "FATAL: POSIX threads support is not compiled into HMMER;
-    # --cpu doesn't have any effect"
-    inreplace "core-rnammer", " --cpu 1", ""
-
     share.mkdir
     mv "lib", share/"rnammer"
     man1.install "man/rnammer.1"
