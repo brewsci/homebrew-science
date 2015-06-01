@@ -36,6 +36,14 @@ class Rnammer < Formula
     bin.install_symlink "../rnammer", "../core-rnammer"
   end
 
+  def caveats; <<-EOS.undent
+    For academic users there is no license fee. For the complete license see
+      #{opt_prefix}/LICENSE
+    There is also a web service at
+      http://www.cbs.dtu.dk/services/RNAmmer/
+    EOS
+  end
+
   test do
     system "#{bin}/rnammer", "-v"
   end
