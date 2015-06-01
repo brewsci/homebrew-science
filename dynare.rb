@@ -20,6 +20,7 @@ class Dynare < Formula
     depends_on "bison"    => :build
   end
 
+  depends_on :tex    => :build
   depends_on "boost" => :build
   depends_on "xz"    => :build
   depends_on "fftw"
@@ -27,7 +28,6 @@ class Dynare < Formula
   depends_on "libmatio"
   depends_on :fortran
 
-  depends_on :tex      => :build if build.with? "doc"
   depends_on "doxygen" => :build if build.with? "doc"
 
   depends_on "slicot" => ["with-default-integer-8"] if build.with? "matlab="
