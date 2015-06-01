@@ -9,6 +9,14 @@ class RnaStar < Formula
 
   head "https://github.com/alexdobin/STAR.git"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "b1581ed25ac7dd736acfbe4db632031b3885744bf5e71e7455734696d51e0a92" => :yosemite
+    sha256 "98cec003bf3ee5f234a4e161f305fb30fb39eb4f53c2a7f5e24beb8a1facf2c3" => :mavericks
+    sha256 "467ee2a2ffbe6c5346d744d43cbe0460ad3607756a37ea6702bd75611a333be8" => :mountain_lion
+  end
+
   # Fix error: 'omp.h' file not found
   needs :openmp
 
