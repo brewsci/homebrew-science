@@ -12,7 +12,7 @@ class Cufflinks < Formula
   end
 
   depends_on "homebrew/versions/boost155" => :build
-  depends_on "samtools-0.1"
+  depends_on "samtools-0.1" => :build
   depends_on "eigen"
 
   def install
