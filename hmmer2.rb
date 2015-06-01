@@ -1,10 +1,11 @@
 class Hmmer2 < Formula
+  desc "Profiles protein sequences with hidden Markov models of a sequence family's consensus"
   homepage "http://hmmer.janelia.org/"
   # doi "10.1142/9781848165632_0019", "10.1186/1471-2105-11-431", "10.1371/journal.pcbi.1002195"
   # tag "bioinformatics"
 
   url "http://selab.janelia.org/software/hmmer/2.3.2/hmmer-2.3.2.tar.gz"
-  sha1 "aa34cb97cbc43ff3bd92dd111ba5677298fe2d40"
+  sha256 "d20e1779fcdff34ab4e986ea74a6c4ac5c5f01da2993b14e92c94d2f076828b4"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -19,13 +20,12 @@ class Hmmer2 < Formula
   def install
     # Fix "make: Nothing to be done for `install'."
     rm "INSTALL"
-
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--enable-threads"
     system "make"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/hmmsearch", "-h"
+    assert_match "threshold", shell_output("#{bin}/hmmpfam 2>&1", 1)
   end
 end
