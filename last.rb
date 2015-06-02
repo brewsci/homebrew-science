@@ -1,8 +1,12 @@
 class Last < Formula
+  desc "LAST finds similar regions between sequences"
   homepage "http://last.cbrc.jp/"
-  #doi "10.1101/gr.113985.110"
-  url "http://last.cbrc.jp/last-548.zip"
-  sha256 "a76e807cb169a2c4a2b23a859e6955f925771687fb53362ee45899f7282cb6d4"
+  # doi "10.1101/gr.113985.110"
+  # tag "bioinformatics"
+
+  url "http://last.cbrc.jp/last-581.zip"
+  sha256 "8a25ca32585df56160214445195ce29861824ed570fe25e2344015f59fd81b0a"
+
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
