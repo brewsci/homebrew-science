@@ -10,9 +10,9 @@ class Last < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "54162ea841730fb32fe67de564d940c45248031944d4ce53e742b925a529c882" => :yosemite
-    sha256 "2ae17f897ca784c3bde7762952d27e14c982b1f54a1769a1e33b0a6d137cc8c6" => :mavericks
-    sha256 "9bd5be1e2e0a013f8927bd6a5150f08db8bc3496be13e791e2fd3a232bea6425" => :mountain_lion
+    sha256 "9cd5e65821807e813ca092e74c829d0603b5af3ada0a61358a00bb268aabfa7f" => :yosemite
+    sha256 "d35f171412e0b6a91f2107a10241a6fd06d2426a24c6d3f18184cd7b3650cef5" => :mavericks
+    sha256 "a1e551765c684464924b862620f0cfc72854c11a14d2a17f614f8e3dd00af1ba" => :mountain_lion
   end
 
   head "http://last.cbrc.jp/last", :using => :hg
