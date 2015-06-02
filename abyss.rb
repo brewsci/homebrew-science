@@ -8,12 +8,11 @@ class Abyss < Formula
   sha256 "1030fcea4bfae942789deefd3a4ffb30653143e02eb6a74c7e4087bb4bf18a14"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 1
-    sha1 "c8776cb322adf97f681cf861b50cc7446e61882a" => :yosemite
-    sha1 "42dad6232c616687f85d654c92c8a4bb7647e3e7" => :mavericks
-    sha1 "ddb43b491782dbd7a50cf82a88f486857beebe8b" => :mountain_lion
+    sha256 "f0df6ae35b0db758ecba42d60cf7f6bf793e9cfe54bf05e6663afc51f4cbb5eb" => :yosemite
+    sha256 "d1c37d46cbef0781ab1078d390b530f805e731ca7ed1272225db6f32d4c04b23" => :mavericks
+    sha256 "943dd756f97b6c787f86cd95b150cab78d70d673648a2209b867e58ee4827906" => :mountain_lion
   end
 
   head do
