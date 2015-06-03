@@ -4,6 +4,14 @@ class Exabayes < Formula
   url "http://sco.h-its.org/exelixis/material/exabayes/1.4.1/exabayes-1.4.1-src.tar.gz"
   sha256 "23e00b361a29365757e760b1acbb9d71744d2be5d9c450f8afdfaf5594d8994f"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "82489020ce980129b4bf9e60f04ae2369e622fc320c3ff79f3db11753e0234d1" => :yosemite
+    sha256 "f167fbaff7cf7e468903f4bd2d329c6d457fec135b6ea80c1ce3364f6d32a5ab" => :mavericks
+    sha256 "4ab4ed65c609e80b2e28b56703e3432ce280696b214f33ee69f8499683e8015f" => :mountain_lion
+  end
+
   # Fix: ./src/comm/PendingSwap.hpp:50:8: error: no type named 'unique_ptr' in namespace 'std'
   # ExaBayes needs std::unique_ptr, unordered_map, array
   needs :cxx11
