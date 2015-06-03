@@ -9,6 +9,14 @@ class Vcflib < Formula
 
   head "https://github.com/ekg/vcflib.git"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "3c18a240c6771826d350589bead3a31642edd6b4d87d0fbbd2dd7e56f7a75730" => :yosemite
+    sha256 "d3d3747651f85477a39a60f09e1394ec9cec7ea3cb24625b355f4345d9be0791" => :mavericks
+    sha256 "4ba328be1a131b4f591c0debb839e82ac0da9f6b101ee16dc8f17141492577e9" => :mountain_lion
+  end
+
   # Fix /usr/bin hashbang: https://github.com/ekg/vcflib/pull/84
   patch do
     url "https://patch-diff.githubusercontent.com/raw/ekg/vcflib/pull/84.diff"
