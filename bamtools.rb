@@ -8,6 +8,14 @@ class Bamtools < Formula
 
   head "https://github.com/pezmaster31/bamtools.git"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "894b4a13a34c4984516ada5832f9b57e3790f1b48e4ebe45a2a4eb869980f42d" => :yosemite
+    sha256 "b0c3e294ee6b469517c0b2bc821a2f4f9773d32657d76f0db3fe0634fb5163d5" => :mavericks
+    sha256 "b26168e99d0d4ec38e47d47fdd46163655a34d486b0fc400d0430e2617715c7c" => :mountain_lion
+  end
+
   depends_on "cmake" => :build
 
   patch do
