@@ -13,6 +13,14 @@ class TransrateTools < Formula
 
   head "https://github.com/Blahah/transrate-tools.git"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "47947f01e619d29edd4576c45a1114e0b454cf747295a5fae9e8cf87ee5d0dbe" => :yosemite
+    sha256 "c19b295330ce5c4c2d7db7900ee74ee0fdddb3ac41ca263e618afee4727ff3dc" => :mavericks
+    sha256 "ad076deade726b03813b300510467e385b6fce5f00a4577a5104bf164bef7407" => :mountain_lion
+  end
+
   depends_on "cmake" => :build
 
   # Vendored: depends_on "bamtools"
