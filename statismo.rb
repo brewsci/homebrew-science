@@ -1,7 +1,7 @@
 class Statismo < Formula
   homepage "https://github.com/statismo/statismo"
-  url "https://github.com/statismo/statismo/archive/v0.10.2.tar.gz"
-  sha256 "e0f66dea821e53d6327c8a624d41ac407ba7066849c33b6d9e58253b355955e8"
+  url "https://github.com/statismo/statismo/archive/v0.11.0.tar.gz"
+  sha256 "f9b7109996d9e42e48b07923ea6edacca57b8ac7c573de1c905dbba921385c4c"
   head "https://github.com/statismo/statismo.git"
 
   bottle do
@@ -12,18 +12,18 @@ class Statismo < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "eigen" => :build
-  depends_on "boost" => :build
-  depends_on "hdf5" => :build
-  depends_on "vtk" => :build
-  depends_on "insighttoolkit" => :build
-  depends_on "python" => :build
+  depends_on "eigen"
+  depends_on "boost"
+  depends_on "hdf5"
+  depends_on "vtk"
+  depends_on "insighttoolkit"
 
   def install
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTING=OFF
       -DBUILD_EXAMPLES=ON
+      -DBUILD_CLI_TOOLS=ON
       -DBUILD_DOCUMENTATION=OFF
       -DVTK_SUPPORT=ON
       -DITK_SUPPORT=ON
@@ -34,5 +34,9 @@ class Statismo < Formula
       system "cmake", *args
       system "make", "install"
     end
+  end
+
+  test do
+    system "#{bin}/statismo-build-shape-model", "--help"
   end
 end
