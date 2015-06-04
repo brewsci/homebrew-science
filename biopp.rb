@@ -4,6 +4,14 @@ class Biopp < Formula
   url "http://biopp.univ-montp2.fr/repos/sources/bpp-phyl-omics-2.2.0.tar.gz"
   sha256 "a48f4c6f0ea1758c1f6dc8a262d5cbad95769739d46ce9af08527107a548bfaa"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "7b10fdfea716cfb8246d98ea5935106a89dd2a9d575bfe1cfa4c53e4e90f9265" => :yosemite
+    sha256 "75e4db0699c879390bd95d7195a97235035a4e3f819bae2ac7118136628b475c" => :mavericks
+    sha256 "448f891edff3e24b7188c17f0ae5cba1eb38c7c709dbf68d3c601b15c817097a" => :mountain_lion
+  end
+
   resource "bppcore" do
     url "http://biopp.univ-montp2.fr/repos/sources/bpp-core-2.2.0.tar.gz"
     sha256 "aacd4afddd1584ab6bfa1ff6931259408f1d39958a0bdc5f78bf1f9ee4e98b79"
