@@ -1,10 +1,12 @@
 class Salmon < Formula
-  homepage "http://www.cs.cmu.edu/~ckingsf/software/sailfish/downloads.html"
+  desc "Transcript-level quantification from RNA-seq reads"
+  homepage "https://github.com/COMBINE-lab/salmon"
   # tag "bioinformatics"
 
-  url "https://github.com/kingsfordgroup/sailfish/archive/v0.3.0.tar.gz"
-  sha1 "69f5752d79b3d8c8ba477ac8ba8d96350a68ebc4"
-  head "https://github.com/kingsfordgroup/sailfish.git", :branch => "develop"
+  url "https://github.com/COMBINE-lab/salmon/archive/v0.4.2.tar.gz"
+  sha256 "702c4893a3c73a72bce68b2ff1283467f470df5c6be72c1b0fcb2470229d512b"
+
+  head "https://github.com/COMBINE-lab/salmon.git"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
