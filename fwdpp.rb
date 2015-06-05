@@ -8,8 +8,8 @@ class Fwdpp < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "9d28e4961f85e18a1c2c705e2d5acd4d1a29288be5c7e83a906445fc65469dfb" => :yosemite
-    sha256 "6dff09399729959b34aa3a047a8e0b00a701de13c8bdf2ed7d1aa2ee0740be65" => :mavericks
+    sha256 "05fba0c74a1d839e83d0085b56f6dbd17a315eaf0d6f6d5e7bd5af4c6dfe1ea4" => :yosemite
+    sha256 "7b2eadb4370421bfa375ee479ebf2b97a7fd4c7130bd46d364c156f47dcd4f23" => :mavericks
   end
 
   option "without-check", "Disable build-time checking (not recommended)"
