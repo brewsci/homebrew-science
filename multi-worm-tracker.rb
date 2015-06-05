@@ -9,9 +9,10 @@ class MultiWormTracker < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "2d4997151063d70183eb96cfe013a881f86245621d058aa55ee55c45367975c2" => :yosemite
-    sha256 "cfd9ceb23080745ddfc6654e80363aca510ea3df490e1f3b91860f2bb06d5c07" => :mavericks
-    sha256 "70b5cb33a50031c0c8d6eb56b5e4bcf8b8fff3996aa4c509bfef76f3d8e44f8b" => :mountain_lion
+    revision 1
+    sha256 "7a085b8be54b5a51e2a8971fb4f095a6d26dfd7d2c5dad753ec6c6d68abb19ab" => :yosemite
+    sha256 "a6294aad75e06433796ec033bf811de62c9509f697aa50446bbcaf89a9e2181b" => :mavericks
+    sha256 "98d60693f2466afcfb92c50c7f537f17bfa13484bc1f257907306c54c999ca93" => :mountain_lion
   end
 
   depends_on :java
