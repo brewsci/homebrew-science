@@ -18,7 +18,7 @@ class MultiWormTracker < Formula
 
   def install
     prefix.install Dir["*"]
-    bin.write_jar_script prefix/"analysis/Chore.jar", "Chore"
+    bin.write_jar_script prefix/"analysis/Chore.jar", "Chore", "$MWT_JAVA_OPTIONS"
   end
 
   test do
