@@ -2,8 +2,8 @@ class Fwdpp < Formula
   homepage "https://molpopgen.github.io/fwdpp/"
   # doi "10.1534/genetics.114.165019"
 
-  url "https://github.com/molpopgen/fwdpp/archive/0.3.0.tar.gz"
-  sha256 "f13a334397d86b9efea10391b5f5475248bfed4a0a5cadf44ad9ba524c8f0a70"
+  url "https://github.com/molpopgen/fwdpp/archive/0.3.1.tar.gz"
+  sha256 "7adfc7a17ba87c1ad53b091078db4830205e79a5bc86e8b924d9c1c75a0e3623"
   head "https://github.com/molpopgen/fwdpp.git"
 
   bottle do
