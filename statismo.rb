@@ -6,9 +6,9 @@ class Statismo < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "916a4135113d9842866fbbca9c26ba2a229f25dd9914e101524406dac51b718f" => :yosemite
-    sha256 "0fb090a76886999f7c6d85b1227ca140e7d4f4827b411ecee7b1610c1128f5f1" => :mavericks
-    sha256 "f23c9e5f546976c09788339255e3b37544f1f6eddae5367dd56c74d920b58956" => :mountain_lion
+    sha256 "97cd9accdb47d8187b9da59ff50df6ce9be04b0079429fd836f5eedc9264077f" => :yosemite
+    sha256 "bde700f313bf3deae9f65fffc2e29851e5cac4adbec51278255f78a1a1b810e9" => :mavericks
+    sha256 "1a628acd7e8df42a9fe9c109fa604ac51630d027a8e60cbd04144392334c4863" => :mountain_lion
   end
 
   depends_on "cmake" => :build
