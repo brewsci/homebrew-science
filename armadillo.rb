@@ -1,7 +1,7 @@
 class Armadillo < Formula
   homepage "http://arma.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-5.000.1.tar.gz"
-  sha256 "8ca55fbfce220517374a879ddc0c79e1afd3993f89cc58621aa502e9533f3cdb"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-5.200.1.tar.gz"
+  sha256 "3673fc7cbeefca826108efe7c36e21322f259809f874c161ca284a114fb7f693"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
