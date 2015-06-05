@@ -5,9 +5,9 @@ class Armadillo < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "bf38ed1dd4ec537d5740ed8ad8fc9777fa20a663f9aaa722e2d02e4fad6934a9" => :yosemite
-    sha256 "dbb1bb3caf03c9ed4faffc0e20ffcea251125cb430870ed9cea07b2f7735e682" => :mavericks
-    sha256 "50321ecc405c92db73bf1aaccb540a0e31cce7b102fedb038af817b7702f9640" => :mountain_lion
+    sha256 "b7ba1ac68d71bc8e91e2460d8f24174cd45df10488310f5625b7697c07f0c25a" => :yosemite
+    sha256 "4972dd99d18c8fd9336b6ffc4434c70b6cd5a5c52224c0764eaee2c546e7440e" => :mavericks
+    sha256 "cdbd4f24faf7d05b5abb7230ba4df222d5aeb853b69fb3596999e7a5b1e7f0c5" => :mountain_lion
   end
 
   option "with-hdf5", "Enable the ability to save and load matrices stored in the HDF5 format"
