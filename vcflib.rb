@@ -12,9 +12,9 @@ class Vcflib < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "3c18a240c6771826d350589bead3a31642edd6b4d87d0fbbd2dd7e56f7a75730" => :yosemite
-    sha256 "d3d3747651f85477a39a60f09e1394ec9cec7ea3cb24625b355f4345d9be0791" => :mavericks
-    sha256 "4ba328be1a131b4f591c0debb839e82ac0da9f6b101ee16dc8f17141492577e9" => :mountain_lion
+    sha256 "d9453aa105682ac17539efd11983b2d7018327cf58a6c19807613a8f0b2d959b" => :yosemite
+    sha256 "aaebf992cb9fe3a63e4551126f99d2a44ff17e3321a787fdac5de5cc8d5db41f" => :mavericks
+    sha256 "1ab06e308fd9787b81408193b389fb63e9f53a838750f89eeeae3efbad6244a3" => :mountain_lion
   end
 
   def install
