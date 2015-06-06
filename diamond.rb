@@ -3,8 +3,8 @@ class Diamond < Formula
   # doi "10.1038/nmeth.3176"
   # tag "bioinformatics"
 
-  url "https://github.com/bbuchfink/diamond/archive/v0.7.7.tar.gz"
-  sha256 "e5be7ea7e35d32bbe7c66d767e0a4e7c5a7482ee44e35cdadf84f207295e6e6d"
+  url "https://github.com/bbuchfink/diamond/archive/v0.7.9.tar.gz"
+  sha256 "25dc43e41768f7a41c98b8b1dcf5aa2c51c0eaf62e71bff22ad01c97b663d341"
 
   # Fix fatal error: 'omp.h' file not found
   needs :openmp
