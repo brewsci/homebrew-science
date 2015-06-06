@@ -1,31 +1,11 @@
 class Opencv < Formula
+  desc "Open Source Computer Vision Library"
   homepage "http://opencv.org/"
   head "https://github.com/Itseez/opencv.git"
-  revision 1
 
   stable do
-    url "https://github.com/Itseez/opencv/archive/2.4.11.tar.gz"
-    sha256 "b5331ea85a709b0fe871b1ce92e631afcd5ae822423863da6b559dd2cb7845bc"
-
-    # Avoid explicit links to a Python framework
-    # https://github.com/Itseez/opencv/pull/3865
-    patch do
-      url "https://gist.githubusercontent.com/tdsmith/484553cd2d0c19a4baa7/raw/b766154fa6c7ac1be3491b0c6b58b3d66c07f818/opencv_python.diff"
-      sha256 "cfe31c32d5a4ef0e89df684e210360602fb2d295b19f9ca4791731a9e274d776"
-    end
-  end
-
-  bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "15160718f0baa14ff5ffdfdcb7fe27ee1980ff5388275c743eda9e7fa65730f1" => :yosemite
-    sha256 "eed5669d5840aa0ead8e36fb9f421b47f69ddb99cfdd7acdc16a40128198acc1" => :mavericks
-    sha256 "6b113f9d44eee1ce6681dda5d1411cb9a0f981e0efd9403e216e848ae18df605" => :mountain_lion
-  end
-
-  devel do
-    url "https://github.com/Itseez/opencv/archive/3.0.0-rc1.tar.gz"
-    sha256 "8f14897d9d191448e12e9902f7dd05ecbef027a7faf489a7c30a4e715e987e7e"
-    version "3.0.0-rc1"
+    url "https://github.com/Itseez/opencv/archive/3.0.0.tar.gz"
+    sha256 "da51a4e459b0bcbe14fb847c4f168415f421765fb91996f42b9e1ce0575f05d5"
 
     resource "icv-macosx" do
       url "https://downloads.sourceforge.net/project/opencvlibrary/3rdparty/ippicv/ippicv_macosx_20141027.tgz", :using => :nounzip
@@ -36,6 +16,13 @@ class Opencv < Formula
       url "https://downloads.sourceforge.net/project/opencvlibrary/3rdparty/ippicv/ippicv_linux_20141027.tgz", :using => :nounzip
       sha256 "a5669b0e3b500ee813c18effe1de2477ef44af59422cf7f8862a360f3f821d80"
     end
+  end
+
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "15160718f0baa14ff5ffdfdcb7fe27ee1980ff5388275c743eda9e7fa65730f1" => :yosemite
+    sha256 "eed5669d5840aa0ead8e36fb9f421b47f69ddb99cfdd7acdc16a40128198acc1" => :mavericks
+    sha256 "6b113f9d44eee1ce6681dda5d1411cb9a0f981e0efd9403e216e848ae18df605" => :mountain_lion
   end
 
   option "32-bit"
@@ -158,13 +145,11 @@ class Opencv < Formula
       args << "-DENABLE_AVX=ON" if Hardware::CPU.avx?
     end
 
-    if devel?
-      inreplace buildpath/"3rdparty/ippicv/downloader.cmake",
-        "${OPENCV_ICV_PLATFORM}-${OPENCV_ICV_PACKAGE_HASH}",
-        "${OPENCV_ICV_PLATFORM}"
-      platform = OS.mac? ? "macosx" : "linux"
-      resource("icv-#{platform}").stage buildpath/"3rdparty/ippicv/downloads/#{platform}"
-    end
+    inreplace buildpath/"3rdparty/ippicv/downloader.cmake",
+      "${OPENCV_ICV_PLATFORM}-${OPENCV_ICV_PACKAGE_HASH}",
+      "${OPENCV_ICV_PLATFORM}"
+    platform = OS.mac? ? "macosx" : "linux"
+    resource("icv-#{platform}").stage buildpath/"3rdparty/ippicv/downloads/#{platform}"
 
     mkdir "macbuild" do
       system "cmake", "..", *args
