@@ -4,6 +4,13 @@ class Cantera < Formula
   sha256 "306c218500eaabdf1e920601348d2b3acc1fb66b02eea842d98b3fbb41ebbc78"
   head "https://github.com/cantera/cantera.git"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    sha256 "6e5847b2a338a0de5fa734a646c4deb3c48767031613ac7033e0430f7bed620a" => :yosemite
+    sha256 "e77a16a8ab7c58cf059aa02d6bcdf1cfe54ff73f9037ca408960a39a3bf30e05" => :mavericks
+    sha256 "b83be1f05c2c3b98b6a8167756bf03ef0ad7401d38d30123d1f0307bcb885ad0" => :mountain_lion
+  end
+
   option "with-matlab=", "Path to Matlab root directory"
   option "without-check", "Disable build-time checking (not recommended)"
 
