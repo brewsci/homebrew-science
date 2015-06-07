@@ -1,9 +1,10 @@
 require "formula"
 
 class Swrcfit < Formula
+  desc "Fitting of soil water retention curve"
   homepage "http://swrcfit.sourceforge.net/"
-  url "https://github.com/sekika/swrcfit/archive/v1.3.tar.gz"
-  sha1 "48c6fdcd76adfe49177ebabdf0bd95e88c31286b"
+  url "https://github.com/sekika/swrcfit/archive/v2.0.tar.gz"
+  sha256 "7497393aa35a54c126dc1149cbf4f60e9ff798c30a2c77b887dc3524317a6127"
 
   head "https://github.com/sekika/swrcfit.git"
 
@@ -12,7 +13,6 @@ class Swrcfit < Formula
 
   def install
     (share / "swrcfit/example").install "swrc.txt"
-    system "mkdir", bin
     system "./Install.sh", bin
   end
 
