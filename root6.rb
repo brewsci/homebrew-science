@@ -1,9 +1,10 @@
 class Root6 < Formula
+  desc "An object oriented framework for large scale data analysis"
   homepage "http://root.cern.ch"
-  version "6.02.05"
+  version "6.04.00"
   url "http://root.cern.ch/download/root_v#{version}.source.tar.gz"
   mirror "https://fossies.org/linux/misc/root_v#{version}.source.tar.gz"
-  sha1 "3cec8b763d8c1ddfd80b41983000359704f16e1e"
+  sha256 "c5fa1e5706f2f5f4e134c78926ed9cfcfe543aff3d39c41762911668a9eebeea"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
