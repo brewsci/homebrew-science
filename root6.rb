@@ -9,9 +9,9 @@ class Root6 < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha1 "1689e8f11a5b54c2c4fb0a0e397037cb0581bef4" => :yosemite
-    sha1 "a33bfe58e62c6ab19550c638b6cace609a1fe86d" => :mavericks
-    sha1 "77907f45cc903d5bbcb6458e2687cffed21eab96" => :mountain_lion
+    sha256 "2cc02fe8446a264e31ccaa0927e8d7b2c45a3e56478d53babbc43e54bf7cb2e3" => :yosemite
+    sha256 "521f4db183d5f7127f27edbac6941c0cdf69b38f5fe172e6e81578a33d15c7fc" => :mavericks
+    sha256 "b959b55c00c942f613ac7fadeaec86dc8221be49592254ecb8e227d61c19289c" => :mountain_lion
   end
 
   depends_on "cmake" => :build
