@@ -56,6 +56,10 @@ class SuiteSparse < Formula
     lib.mkpath
     include.mkpath
     system "make", "install", *make_args
+    ["AMD", "CAMD", "CHOLMOD", "KLU", "LDL", "SPQR", "UMFPACK"].each do |pkg|
+      (doc/pkg).install Dir["#{pkg}/Doc/*"]
+    end
+
 
     if build.with? "matlab"
       matlab = ARGV.value("with-matlab-path") || "matlab"
@@ -71,6 +75,7 @@ class SuiteSparse < Formula
       mdest = share / "suite-sparse/matlab"
       mdest.install "MATLAB_Tools"
       mdest.install "RBio/RBio"
+      (doc/"matlab").install Dir["MATLAB_Tools/Factorize/Doc/*"]
     end
   end
 
