@@ -1,17 +1,32 @@
-require 'formula'
+class LinuxRequirement < Requirement
+  fatal true
+  satisfy OS.linux?
+  def message
+    "This software only builds on Linux."
+  end
+end
 
 class Yaha < Formula
-  homepage 'http://faculty.virginia.edu/irahall/yaha/'
-  url 'http://faculty.virginia.edu/irahall/support/yaha/YAHA.0.1.79.tar.gz'
-  sha1 'f8dd4d61e8f30606fc3b4c40451cc9e86f9a7b0b'
+  desc "Long-read alignment with optimal breakpoint detection"
+  homepage "https://github.com/GregoryFaust/yaha"
+  # doi "10.1093/bioinformatics/bts456"
+  # tag "bioinformatics"
+
+  url "https://github.com/GregoryFaust/yaha/releases/download/v0.1.83/yaha-0.1.83.tar.gz"
+  sha256 "76e052cd92630c6e9871412e37e46f18bfbbf7fc5dd2f345b3b9a73eb74939ef"
+
+  # Uses Linux header file: https://github.com/Homebrew/homebrew-science/pull/2373
+  depends_on LinuxRequirement
 
   def install
-    raise 'Yaha not yet supported for MacOSX' if OS.mac?
-    bin.install 'yaha'
-    doc.install Dir['YAHA_User_Guide*.pdf']
+    inreplace "Makefile", "CPPFLAGS := ", "CPPFLAGS := -fpermissive "
+    system "make"
+    bin.install "bin/yaha"
+    doc.install Dir["YAHA_User_Guide*.pdf"], "README.md", "LICENSE.txt"
+    (share/"yaha").install "testdata"
   end
 
   test do
-    system 'yaha'
+    system "yaha"
   end
 end
