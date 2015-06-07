@@ -29,6 +29,7 @@ class R < Formula
   option "with-librmath-only", "Only build standalone libRmath library"
 
   depends_on "pkg-config" => :build
+  depends_on "texinfo" => :build
   depends_on :fortran
   depends_on "readline"
   depends_on "gettext"
