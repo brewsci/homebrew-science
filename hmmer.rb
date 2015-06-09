@@ -1,7 +1,9 @@
 class Hmmer < Formula
+  desc "Build profile HMMs and scan against sequence databases"
   homepage "http://hmmer.janelia.org"
   # doi "10.1371/journal.pcbi.1002195"
   # tag "bioinformatics"
+
   url "http://selab.janelia.org/software/hmmer3/3.1b2/hmmer-3.1b2.tar.gz"
   sha256 "dd16edf4385c1df072c9e2f58c16ee1872d855a018a2ee6894205277017b5536"
 
@@ -27,10 +29,11 @@ class Hmmer < Formula
     system "make", "check" if build.with? "check"
     system "make", "install"
 
-    share.install "tutorial"
+    doc.install "Userguide.pdf"
+    (share/"hmmer").install "tutorial"
   end
 
   test do
-    system "#{bin}/hmmsearch", "-h"
+    assert_match "PF00069.17", shell_output("hmmstat #{share}/hmmer/tutorial/minifam")
   end
 end
