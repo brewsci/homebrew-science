@@ -1,5 +1,3 @@
-require "formula"
-
 class Paraview < Formula
   homepage "http://paraview.org"
   url "http://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v4.2&type=source&os=all&downloadFile=ParaView-v4.2.0-source.tar.gz"
@@ -72,7 +70,7 @@ class Paraview < Formula
   end
 
   test do
-    system "#{prefix}/paraview.app/Contents/MacOS/paraview", "--version"
+    shell_output("#{prefix}/paraview.app/Contents/MacOS/paraview --version", 1)
   end
 end
 
