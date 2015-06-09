@@ -5,6 +5,14 @@ class Poretools < Formula
   sha256 "7cd55a8f30290992dcf8d7792401e7f21efadfde02b3f4604d6680d2f8300479"
   head "https://github.com/arq5x/poretools.git"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "45451e7b15182743417c26ca8a185b3e190bf6737f88bd073b05ecfa2f223ec3" => :yosemite
+    sha256 "0d13e263e393ef97ed3bc06aeaa73c2c27097ae9c75d517a2acc288ecbaf91ad" => :mavericks
+    sha256 "b1ce68410088646e5d23177d6706851c9d1c288dd75c94f8e9b74e680fc3b1e5" => :mountain_lion
+  end
+
   depends_on "hdf5"
   depends_on "r"
   depends_on :python if MacOS.version <= :snow_leopard
