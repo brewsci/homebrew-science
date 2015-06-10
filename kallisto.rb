@@ -1,8 +1,10 @@
 class Kallisto < Formula
+  desc "kallisto: quantify abundances of transcripts from RNA-Seq data"
   homepage "https://pachterlab.github.io/kallisto/"
   # tag "bioinformatics"
-  url "https://github.com/pachterlab/kallisto/archive/v0.42.1.tar.gz"
-  sha256 "e620623fe36ee183cf7e1245aba8e0b7490f530c2b68c81d6e8f0c21e2c97381"
+
+  url "https://github.com/pachterlab/kallisto/archive/v0.42.2.tar.gz"
+  sha256 "85b89b840dae06c56f59b6ad98b7832ff965df5d259975bc19244584cf918fbf"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
