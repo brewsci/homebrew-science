@@ -1,8 +1,12 @@
 class Barrnap < Formula
-  homepage "http://www.vicbioinformatics.com/software.barrnap.shtml"
-  url "http://www.vicbioinformatics.com/barrnap-0.5.tar.gz"
-  sha1 "eaed1d131e6b5ba29d41b685c8b5c15acfa3325d"
-  head "https://github.com/Victorian-Bioinformatics-Consortium/barrnap.git"
+  desc "BAsic Rapid Ribosomal RNA Predictor"
+  homepage "https://github.com/tseemann/barrnap"
+  # tag "bioinformatics"
+
+  url "https://github.com/tseemann/barrnap/archive/0.7.tar.gz"
+  sha256 "ef2173e250f06cca7569c03404c9d4ab6a908ef7643e28901fbe9a732d20c09b"
+
+  head "https://github.com/tseemann/barrnap.git"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -19,6 +23,8 @@ class Barrnap < Formula
   end
 
   test do
-    system "#{bin}/barrnap", "--version"
+    assert_match "##gff-version", shell_output("barrnap -q #{prefix}/examples/nohits.fna")
+    assert_match "Name=16S_rRNA", shell_output("barrnap -q #{prefix}/examples/small.fna")
+    assert_match "Name=16S_rRNA", shell_output("barrnap -q --kingdom mito #{prefix}/examples/mitochondria.fna")
   end
 end
