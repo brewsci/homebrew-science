@@ -12,6 +12,9 @@ class Biopp < Formula
     sha256 "448f891edff3e24b7188c17f0ae5cba1eb38c7c709dbf68d3c601b15c817097a" => :mountain_lion
   end
 
+  depends_on "cmake" => :build
+  depends_on "qt" => :recommended
+
   resource "bppcore" do
     url "http://biopp.univ-montp2.fr/repos/sources/bpp-core-2.2.0.tar.gz"
     sha256 "aacd4afddd1584ab6bfa1ff6931259408f1d39958a0bdc5f78bf1f9ee4e98b79"
@@ -42,7 +45,10 @@ class Biopp < Formula
     sha256 "c7ec73a5af84808362f301479c548b6a01c47a66065b28a053ff8043409e861a"
   end
 
-  depends_on "cmake" => :build
+  resource "bppqt" do
+    url "http://biopp.univ-montp2.fr/repos/sources/bpp-qt-2.2.0.tar.gz"
+    sha256 "9662f66bc3491d8e128263f6bd91fcdbecdb375ec9f24519f44855cdcdb9d553"
+  end
 
   def install
     %w[bppcore bppseq bppphyl bpppopgen bppseqomics bppraa].each do |r|
@@ -50,6 +56,16 @@ class Biopp < Formula
         mkdir "build" do
           system "cmake", "..", *std_cmake_args
           system "make", "#{r}-shared", "#{r}-static"
+          system "make", "install"
+        end
+      end
+    end
+
+    if build.with? "qt"
+      resource("bppqt").stage do
+        mkdir "build" do
+          system "cmake", "..", *std_cmake_args
+          system "make", "bppqt-shared", "bppqt-static"
           system "make", "install"
         end
       end
@@ -98,9 +114,11 @@ class Biopp < Formula
           return(0);
       }
     EOS
+    libs = %W[-lbpp-core -lbpp-seq -lbpp-phyl -lbpp-raa -lbpp-seq-omics
+              -lbpp-phyl-omics -lbpp-popgen]
+    libs << "-lbpp-qt" if build.with? "qt"
     system ENV.cxx, "-o", "test", "bpp-phyl-test.cpp",
-      "-I#{include}", "-L#{lib}", "-lbpp-core", "-lbpp-seq", "-lbpp-phyl",
-      "-lbpp-raa", "-lbpp-seq-omics", "-lbpp-phyl-omics", "-lbpp-popgen"
+           "-I#{include}", "-L#{lib}", *libs
     system "./test"
   end
 end
