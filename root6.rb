@@ -20,6 +20,8 @@ class Root6 < Formula
   depends_on :python => :recommended
   depends_on :x11 => :recommended if OS.linux?
 
+  conflicts_with "root"
+
   needs :cxx11
 
   def cmake_opt(opt, pkg = opt)
