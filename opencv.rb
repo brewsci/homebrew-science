@@ -18,9 +18,10 @@ class Opencv < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "15160718f0baa14ff5ffdfdcb7fe27ee1980ff5388275c743eda9e7fa65730f1" => :yosemite
-    sha256 "eed5669d5840aa0ead8e36fb9f421b47f69ddb99cfdd7acdc16a40128198acc1" => :mavericks
-    sha256 "6b113f9d44eee1ce6681dda5d1411cb9a0f981e0efd9403e216e848ae18df605" => :mountain_lion
+    revision 1
+    sha256 "d21eb0ec17c67f071ab36a35567247a66b5f2b6a3244a811a6bd329bf3081109" => :yosemite
+    sha256 "1735be17e9a31f78fdde4a0899b597ff7ab3a6dd5887dcf605c9e638870a8a86" => :mavericks
+    sha256 "86d8819b3f4bea67a8bcb3df1db4f789638622952d3b582f0a74fc7f21d3ccb6" => :mountain_lion
   end
 
   option "32-bit"
