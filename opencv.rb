@@ -1,4 +1,5 @@
 class Opencv < Formula
+  desc "Open source computer vision library"
   homepage "http://opencv.org/"
   head "https://github.com/Itseez/opencv.git", :branch => "2.4"
   revision 1
