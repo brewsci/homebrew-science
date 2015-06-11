@@ -9,11 +9,11 @@ class Barrnap < Formula
   head "https://github.com/tseemann/barrnap.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "62e01fed459ed2730d05a40ef04f95961f87f7f8" => :yosemite
-    sha1 "bb43599e3ba3facc77a888a0403214afed5e0f5e" => :mavericks
-    sha1 "81e26c00aeec754174d2825c406207dc14afbc72" => :mountain_lion
+    sha256 "fec76972178844abb223274fc4a3c45b987168d2163c4074998100d688a97e6a" => :yosemite
+    sha256 "3d84c1dfdac365506270abd6df0e0c451ef43df9039829d52eefe7b59ada2b14" => :mavericks
+    sha256 "362da60326bfc61270f00879a30ecfb97e423893c210612c292f6c0e51ec4d81" => :mountain_lion
   end
 
   depends_on "hmmer"
