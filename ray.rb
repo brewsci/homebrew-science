@@ -1,14 +1,17 @@
-require 'formula'
-
 class Ray < Formula
-  homepage 'http://denovoassembler.sourceforge.net'
-  url 'https://downloads.sourceforge.net/project/denovoassembler/Ray-2.3.1.tar.bz2'
-  sha1 'cf7de83f671b38b51177de21604944c49e161f89'
-  head 'https://github.com/sebhtml/ray.git'
+  desc "Parallel genome assemblies for parallel DNA sequencing"
+  homepage "http://denovoassembler.sourceforge.net"
+  # doi "10.1089/cmb.2009.0238"
+  # tag "bioinformatics"
 
-  resource 'RayPlatform' do
-    #homepage 'https://github.com/sebhtml/RayPlatform'
-    url 'https://github.com/sebhtml/RayPlatform.git'
+  url "https://downloads.sourceforge.net/project/denovoassembler/Ray-2.3.1.tar.bz2"
+  sha256 "3122edcdf97272af3014f959eab9a0f0e5a02c8ffc897d842b06b06ccd748036"
+
+  head "https://github.com/sebhtml/ray.git"
+
+  resource "RayPlatform" do
+    # homepage "https://github.com/sebhtml/RayPlatform"
+    url "https://github.com/sebhtml/RayPlatform.git"
   end
 
   depends_on :mpi => :cxx
@@ -25,18 +28,17 @@ class Ray < Formula
 
   def install
     if build.head?
-      rm 'RayPlatform' # Remove the broken symlink
-      resource('RayPlatform').stage buildpath/'RayPlatform'
+      rm "RayPlatform" # Remove the broken symlink
+      resource("RayPlatform").stage buildpath/"RayPlatform"
     end
 
     system "make", "PREFIX=#{prefix}"
-    system "make install"
-    # The binary 'Ray' is installed in the prefix, but we want it in bin:
-    bin.install 'Ray'
-    rm prefix/'Ray'
+    system "make", "install"
+    # The binary "Ray" is installed in the prefix, but we want it in bin:
+    bin.install prefix/"Ray"
   end
 
   test do
-    system bin/'Ray', '--version'
+    system bin/"Ray", "--version"
   end
 end
