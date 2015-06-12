@@ -7,9 +7,10 @@ class Biopp < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "7b10fdfea716cfb8246d98ea5935106a89dd2a9d575bfe1cfa4c53e4e90f9265" => :yosemite
-    sha256 "75e4db0699c879390bd95d7195a97235035a4e3f819bae2ac7118136628b475c" => :mavericks
-    sha256 "448f891edff3e24b7188c17f0ae5cba1eb38c7c709dbf68d3c601b15c817097a" => :mountain_lion
+    revision 1
+    sha256 "78bfb23487417b433c6ab4cccc895e7a3b0584e96868bf59f001c22a3f715f09" => :yosemite
+    sha256 "a09ed60fc8333de3c1d9a15192d647fd02ca80e9a6fec79db8163b1ef26fbe4a" => :mavericks
+    sha256 "07026550e81a868284e88c9db44dcd34f7f0b6f1885e44a2651b7489dbd45365" => :mountain_lion
   end
 
   depends_on "cmake" => :build
