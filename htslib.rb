@@ -1,9 +1,10 @@
 class Htslib < Formula
+  desc "C library for high-throughput sequencing data formats"
   homepage "http://www.htslib.org/"
   # tag "bioinformatics"
 
   url "https://github.com/samtools/htslib/archive/1.2.1.tar.gz"
-  sha1 "904c7e8d1c37d52406a6c3e290d1b03b50acab91"
+  sha256 "4f67f0fc73ae86f3ed4336d8d8f6da3c12066e9cb5f142b685622dd6b8f9ae42"
   head "https://github.com/samtools/htslib.git"
 
   bottle do
@@ -17,14 +18,16 @@ class Htslib < Formula
   conflicts_with "tabix", :because => "both htslib and tabix install bin/tabix"
 
   def install
-    # Write version to avoid 0.0.1 version information output from Makefile
-    system "echo '#define HTS_VERSION \"#{version}\"' > version.h"
-    system "make"
-    system "make", "install", "prefix=" + prefix
+    system "make", "install", "prefix=#{prefix}"
+    (share/"htslib").install "test"
   end
 
   test do
-    system "#{bin}/bgzip --help 2>&1 |grep bgzip"
-    system "#{bin}/tabix --help 2>&1 |grep tabix"
+    sam = share/"htslib/test/ce#1.sam"
+    assert_match "SAM", shell_output("htsfile #{sam}")
+    system "bgzip -c #{sam} > sam.gz"
+    assert File.exist?("sam.gz")
+    system "tabix", "-p", "sam", "sam.gz"
+    assert File.exist?("sam.gz.tbi")
   end
 end
