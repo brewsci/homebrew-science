@@ -30,11 +30,14 @@ class Hmmer < Formula
     system "make", "check" if build.with? "check"
     system "make", "install"
 
-    doc.install "Userguide.pdf"
-    (share/"hmmer").install "tutorial"
+    # Installing libhmmer.a causes trouble for infernal.
+    # See https://github.com/Homebrew/homebrew-science/issues/1931
+    libexec.install lib/"libhmmer.a", include
+
+    doc.install "Userguide.pdf", "tutorial"
   end
 
   test do
-    assert_match "PF00069.17", shell_output("hmmstat #{share}/hmmer/tutorial/minifam")
+    assert_match "PF00069.17", shell_output("#{bin}/hmmstat #{doc}/tutorial/minifam")
   end
 end
