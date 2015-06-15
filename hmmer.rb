@@ -10,10 +10,10 @@ class Hmmer < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 1
-    sha256 "6ebacf56ceb47a16d71d49ffcf25e3cb46b8bd47c690cedbaa71dee709290703" => :yosemite
-    sha256 "787e19eb2d8e648df3e2717d30a726bd1e58556c95c9417a59e268e0face2e5a" => :mavericks
-    sha256 "d0ce08d257b38f4188f6d49e67c947a73044150e0e878d52b839f320d6ef4e65" => :mountain_lion
+    revision 2
+    sha256 "763b5182ac642be5cf45334e801d35540c4d7db7bf8767791b652dcaed669c6b" => :yosemite
+    sha256 "a3f95b4293f5dac713c558e40a6b0ebcad140234b8f03d2144c4b3625fd17271" => :mavericks
+    sha256 "96ddaa4a6cedbb776bf94aeff38c102d5c5fd619e89056ba6d6fa645c946259f" => :mountain_lion
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
