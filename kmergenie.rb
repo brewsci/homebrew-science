@@ -1,4 +1,5 @@
 class Kmergenie < Formula
+  desc "Estimates the best k-mer length for genome de novo assembly"
   homepage "http://kmergenie.bx.psu.edu/"
   # doi "10.1093/bioinformatics/btt310"
   # tag "bioinformatics"
@@ -14,19 +15,25 @@ class Kmergenie < Formula
     sha256 "18e7b379c41f80e7f064f1d96230b9c0632d4ca0f27e109633260444cee676a4" => :mountain_lion
   end
 
+  option "with-maxkmer=", "Specify maximum supported k-mer length (default: 121)"
+
   depends_on "r"
 
   def install
     ENV.deparallelize
-    system "make"
-    libexec.install "kmergenie", "specialk",
-      "scripts", "third_party"
+
+    maxkmer = ARGV.value("with-maxkmer") || 121
+    args = ["k=#{maxkmer}"]
+    args << "osx=1" if OS.mac?
+    system "make", *args
+
+    libexec.install "kmergenie", "specialk", "scripts", "third_party"
     bin.install_symlink "../libexec/kmergenie"
     doc.install "CHANGELOG", "LICENSE", "README"
   end
 
   test do
-    system "#{bin}/kmergenie 2>&1 |grep -q kmergenie"
-    system "#{libexec}/specialk"
+    system "#{bin}/kmergenie 2>&1 | grep -q threads"
+    system "#{libexec}/specialk 2>&1 | grep -q threads"
   end
 end
