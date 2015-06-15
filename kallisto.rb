@@ -4,7 +4,7 @@ class Kallisto < Formula
   # tag "bioinformatics"
 
   url "https://github.com/pachterlab/kallisto/archive/v0.42.2.tar.gz"
-  sha256 "85b89b840dae06c56f59b6ad98b7832ff965df5d259975bc19244584cf918fbf"
+  sha256 "6107fed6089c4c4e8a3f8d16c2539736321c134b518c95600ae93ddd3d699219"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
