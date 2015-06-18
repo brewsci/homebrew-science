@@ -6,10 +6,9 @@ end
 
 class R < Formula
   homepage "http://www.r-project.org/"
-  url "http://cran.rstudio.com/src/base/R-3/R-3.2.0.tar.gz"
-  mirror "http://cran.r-project.org/src/base/R-3/R-3.2.0.tar.gz"
-  sha256 "f5ae953f18ba6f3d55b46556bbbf73441350f9fd22625402b723a2b81ff64f35"
-  revision 1
+  url "http://cran.rstudio.com/src/base/R-3/R-3.2.1.tar.gz"
+  mirror "http://cran.r-project.org/src/base/R-3/R-3.2.1.tar.gz"
+  sha256 "d59dbc3f04f4604a5cf0fb210b8ea703ef2438b3ee65fd5ab536ec5234f4c982"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
