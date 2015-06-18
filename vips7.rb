@@ -2,6 +2,7 @@ class Vips7 < Formula
   homepage "http://www.vips.ecs.soton.ac.uk/"
   url "http://www.vips.ecs.soton.ac.uk/supported/7.42/vips-7.42.3.tar.gz"
   sha256 "6d001480b75a20d04d44869fb4cb93e4203e73ecd865dc68b1c11f56c9e74baa"
+  desc "Vips Version 7"
 
   option "without-check", "Disable build time checks (not recommended)"
 
