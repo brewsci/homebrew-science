@@ -1,16 +1,7 @@
 class Neuron < Formula
   homepage "http://www.neuron.yale.edu/neuron/"
-
-  stable do
-    url "http://www.neuron.yale.edu/ftp/neuron/versions/v7.3/nrn-7.3.tar.gz"
-    sha256 "71cff5962966c5cd5d685d90569598a17b4b579d342126b31e2d431128cc8832"
-  end
-
-  devel do
-    url "http://www.neuron.yale.edu/ftp/neuron/versions/alpha/nrn-7.4.rel-1324.tar.gz"
-    sha256 "cfc5270f9f06321dfaa3b55beb68dc4ec82cdfd747647bb1528e0ccc850de201"
-    version "7.4.rel-1324"
-  end
+  url "http://www.neuron.yale.edu/ftp/neuron/versions/v7.4/nrn-7.4.tar.gz"
+  sha256 "9d56b79290f8914457ac795d63342deeb999f0860843b0ae435e5f4a2eac1e5f"
 
   head "http://www.neuron.yale.edu/hg/neuron/nrn", :using => :hg
 
