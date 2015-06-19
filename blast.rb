@@ -30,6 +30,7 @@ class Blast < Formula
   depends_on "hdf5"     => :optional
   depends_on "jpeg"     => :recommended
   depends_on "libpng"   => :recommended
+  depends_on "lzo"      => :optional
   depends_on "pcre"     => :recommended
   depends_on :mysql     => :optional
   depends_on :python if MacOS.version <= :snow_leopard
