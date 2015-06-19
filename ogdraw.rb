@@ -1,23 +1,22 @@
-require 'formula'
-
-# OrganellarGenomeDRAW
 class Ogdraw < Formula
-  homepage 'http://ogdraw.mpimp-golm.mpg.de/'
-  #doi "10.1007/s00294-007-0161-y" => "2007", "10.1093/nar/gkt289" => "2013"
-  #tag "bioinformatics"
-  url 'http://ogdraw.mpimp-golm.mpg.de/resources/GeneMap-1.1.1.tar.gz'
-  sha1 '16ea480aa13d702cc30a7160b8a3668c51627989'
+  desc "OrganellarGenomeDRAW: convert GenBank files to graphical maps"
+  homepage "http://ogdraw.mpimp-golm.mpg.de/"
+  # doi "10.1007/s00294-007-0161-y", "10.1093/nar/gkt289"
+  # tag "bioinformatics"
 
-  depends_on 'imagemagick'
+  url "http://ogdraw.mpimp-golm.mpg.de/resources/GeneMap-1.1.1.tar.gz"
+  sha256 "d850aabd3c273e965ece148178a60ec9a097aad6cfa08c94a0e06a924fc9e063"
 
-  depends_on 'Bio::Perl' => :perl
-  depends_on 'Bio::Restriction::Analysis' => :perl
-  depends_on 'Bio::Root::Root' => :perl
-  depends_on 'Bio::SeqFeature::Generic' => :perl
-  depends_on 'Bio::SeqIO' => :perl
-  depends_on 'Image::Magick' => :perl
-  depends_on 'PostScript::Simple' => :perl
-  depends_on 'XML::Generator' => :perl
+  depends_on "imagemagick"
+
+  depends_on "Bio::Perl" => :perl
+  depends_on "Bio::Restriction::Analysis" => :perl
+  depends_on "Bio::Root::Root" => :perl
+  depends_on "Bio::SeqFeature::Generic" => :perl
+  depends_on "Bio::SeqIO" => :perl
+  depends_on "Image::Magick" => :perl
+  depends_on "PostScript::Simple" => :perl
+  depends_on "XML::Generator" => :perl
 
   # drawgenemap: Add --irscan and --ircoord options
   patch do
@@ -35,15 +34,13 @@ class Ogdraw < Formula
     system *%W[perl Makefile.PL PREFIX=#{prefix}]
     system "make", "pure_install"
     bin.install "irscan/bin/irscan_linux_x86" => "irscan" if OS.linux?
-  end
 
-  def caveats; <<-EOS.undent
-    Set the PERL5LIB environment variable:
-      export PERL5LIB=#{HOMEBREW_PREFIX}/lib/perl5/site_perl:${PERL5LIB}
-    EOS
+    libexec.install bin/"drawgenemap"
+    (bin/"drawgenemap").write_env_script libexec/"drawgenemap",
+      :PERL5LIB => lib/"perl5/site_perl:$PERL5LIB"
   end
 
   test do
-    system "PERL5LIB=#{HOMEBREW_PREFIX}/lib/perl5/site_perl #{bin}/drawgenemap"
+    system "#{bin}/drawgenemap"
   end
 end
