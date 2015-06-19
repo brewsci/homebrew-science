@@ -9,6 +9,12 @@ class Blasr < Formula
 
   head "https://github.com/PacificBiosciences/blasr.git"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "cd3242383848697bb8b2cb3e50098f34fbc3a775b0169b91145f053ed316583d" => :mountain_lion
+  end
+
   depends_on "hdf5"
 
   fails_with :clang do
