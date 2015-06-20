@@ -1,10 +1,12 @@
 class Megahit < Formula
+  desc "Ultra-fast SMP/GPU succinct DBG metagenome assembly"
   homepage "https://github.com/voutcn/megahit"
   # doi "10.1093/bioinformatics/btv033"
   # tag "bioinformatics"
 
-  url "https://github.com/voutcn/megahit/archive/v0.2.1.tar.gz"
-  sha256 "28299b06e20950eed8a3f5b580b26a0bdffc260112f27dde860bd12f99d06f7b"
+  url "https://github.com/voutcn/megahit/archive/v0.3.0-beta3.tar.gz"
+  version "3.0b3"
+  sha256 "bc45ac0c7a62f8cb96521cc1a74b0f657bc81280101dfd5afc1863c16d904add"
 
   head "https://github.com/voutcn/megahit.git"
 
@@ -28,17 +30,15 @@ class Megahit < Formula
 
   def install
     system "make"
-    bin.install ["megahit",
-                 "megahit_assemble",
-                 "megahit_iter_k124",
-                 "megahit_iter_k61",
-                 "megahit_iter_k92",
-                 "sdbg_builder_cpu"]
-
-    doc.install "ChangeLog.md", "README.md"
+    bin.install Dir["megahi*"]
+    doc.install "LICENSE", "ChangeLog.md", "README.md"
+    (share/"megahit").install "example"
   end
 
   test do
-    system "#{bin}/megahit --help 2>&1 |grep megahit"
+    outdir = "megahit.outdir"
+    system "#{bin}/megahit", "--12", "#{share}/megahit/example/readsInterleaved1.fa.gz", "-o", outdir
+    assert File.exist?("#{outdir}/final.contigs.fa")
+    assert File.read("#{outdir}/opts.txt").include?(outdir)
   end
 end
