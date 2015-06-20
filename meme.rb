@@ -1,7 +1,11 @@
 class Meme < Formula
+  desc "Tools for motif discovery"
   homepage "http://meme-suite.org"
-  url "http://meme-suite.org/meme-software/4.10.1/meme_4.10.1_2.tar.gz"
-  sha256 "e2568d029ed7de1e2f46a48932fe72a1ac743e44795c0930a41b887c0385471c"
+  # tag "bioinformatics"
+  # doi "10.1093/nar/gkp335"
+
+  url "http://meme-suite.org/meme-software/4.10.1/meme_4.10.1_3.tar.gz"
+  sha256 "9ccc0cfdb7d1467d5b021328fcf1407685d63fb6e65fa34b5b5929b493a35d66"
   version "4.10.1"
 
   bottle do
@@ -16,10 +20,13 @@ class Meme < Formula
     with other packages.
   EOF
 
+  depends_on :mpi => [:recommended]
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    ENV.deparallelize
+    args = ["--disable-debug", "--disable-dependency-tracking",
+            "--prefix=#{prefix}"]
+    system "./configure", *args
     system "make", "install"
     doc.install "tests"
   end
