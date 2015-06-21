@@ -10,9 +10,10 @@ class Meme < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "8c5dca82cd95d3f0b42b79e4ffc0d6d5a016cf91815a89b1d4c269756a3091c1" => :yosemite
-    sha256 "de1bb3015892af1de27a589b33e1f7a6859dfca537f1c34dd1831341d4b270ca" => :mavericks
-    sha256 "e9e311a2ac2929bdc5d9b402dc921312c47dffb134dcefb8b56583d488b73ab2" => :mountain_lion
+    revision 1
+    sha256 "29400cf90467c47610fe940c4a083e1ecdc130c7f9003f9868c81768c39839f3" => :yosemite
+    sha256 "f99df86939f31199bcae07306f1f628b2560a1c247c151692e6ab841532b262e" => :mavericks
+    sha256 "d32ef25758ad84270ec2aaa817c96a7d9e1555eb4556a4fa2f6dd0dccc58408d" => :mountain_lion
   end
 
   keg_only <<-EOF.undent
