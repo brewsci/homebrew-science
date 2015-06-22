@@ -9,6 +9,7 @@ class R < Formula
   url "http://cran.rstudio.com/src/base/R-3/R-3.2.1.tar.gz"
   mirror "http://cran.r-project.org/src/base/R-3/R-3.2.1.tar.gz"
   sha256 "d59dbc3f04f4604a5cf0fb210b8ea703ef2438b3ee65fd5ab536ec5234f4c982"
+  revision 1
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -38,10 +39,18 @@ class R < Formula
   depends_on "libpng"
   depends_on "xz"
 
-  depends_on "cairo" if OS.mac?
-  depends_on :x11 => :recommended
-  depends_on "valgrind" => :optional
   depends_on "openblas" => :optional
+  depends_on "valgrind" => :optional
+
+  if OS.mac?
+    depends_on "cairo"
+    depends_on "pango" => :optional
+    depends_on :x11 => :optional
+  else
+    depends_on "cairo" => :optional
+    depends_on "pango" => :optional
+    depends_on :x11 => :recommended
+  end
 
   # This is the same script that Debian packages use.
   resource "completion" do
@@ -53,6 +62,9 @@ class R < Formula
   patch :DATA
 
   def install
+    # Fix cairo detection with Quartz-only cairo
+    inreplace ["configure", "m4/cairo.m4"], "cairo-xlib.h", "cairo.h"
+
     args = [
       "--prefix=#{prefix}",
       "--with-libintl-prefix=#{Formula["gettext"].opt_prefix}",
@@ -145,9 +157,8 @@ class R < Formula
 
   test do
     if build.without? "librmath-only"
-      (testpath / "test.R").write("print(1+1);")
-      system "r < test.R --no-save"
-      system "rscript", "test.R"
+      system bin/"Rscript", "-e", "print(1+1)"
+      system bin/"Rscript", "-e", "quit('no', capabilities('cairo')[['cairo']] != TRUE)" if OS.mac?
     end
   end
 
