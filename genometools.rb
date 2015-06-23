@@ -1,9 +1,10 @@
 class Genometools < Formula
+  desc "GenomeTools: The versatile open source genome analysis software"
   homepage "http://genometools.org/"
   # doi "10.1109/TCBB.2013.68"
   # tag "bioinformatics"
-  url "http://genometools.org/pub/genometools-1.5.5.tar.gz"
-  sha256 "b28a9b3424898cdbdafa26a522db7d14f6295275d4746e7c409c581377060872"
+  url "http://genometools.org/pub/genometools-1.5.6.tar.gz"
+  sha256 "f0dce0ba75fe7c74c278651c52ec716485bb2dd1cbb197ec38e13f239aace61c"
   head "https://github.com/genometools/genometools.git"
 
   bottle do
