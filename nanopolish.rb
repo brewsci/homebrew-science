@@ -1,14 +1,13 @@
 class Nanopolish < Formula
+  desc "Signal-level algorithms for MinION data"
   homepage "https://github.com/jts/nanopolish"
-  # doi "10.1101/015552"
+  # doi "10.1038/nmeth.3444"
   # tag "bioinformatics"
 
   # Does not include htslib nor fast5.
-  # url "https://github.com/jts/nanopolish/archive/v0.2.0.tar.gz"
+  # url "https://github.com/jts/nanopolish/archive/v0.3.0.tar.gz"
   url "https://github.com/jts/nanopolish.git",
-    :tag => "v0.2.0", :revision => "e14e34d523add8db94aa4a5d403db6cd74488215"
-
-  sha256 "24cb601d67b867cfba084fca3f20c669693fdf89567482b0903f92af612594a1"
+    :tag => "v0.3.0", :revision => "832b678d88e26379887c1f123a4e92fb1b074470"
   head "https://github.com/jts/nanopolish.git"
 
   bottle do
