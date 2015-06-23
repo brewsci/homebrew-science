@@ -10,9 +10,9 @@ class Genometools < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "ee67c68ce596c7c2436fd2dabb93560ae132a256aab5a104d34e5cae36cc7802" => :yosemite
-    sha256 "9194816db5777b9054d5d6f3335540670d07fd5808a4067d118d9e20c77179a7" => :mavericks
-    sha256 "0d2493080712493c0d7fe7550d41dccca78cb36ae4493b1bec4a9eb6cd258cdd" => :mountain_lion
+    sha256 "cb8a169582b5d2916b2ab87ea8da8d52b13f84f7801f45bc8d9e972ffea33b23" => :yosemite
+    sha256 "ab7656573d0c74c49ae7070bb00bf802a590695365c0e2e380ed90db5a4254fa" => :mavericks
+    sha256 "3effd88b8de554f112e2358042f0f791c9f387495dfbff3a4dd75e7c5419adf4" => :mountain_lion
   end
 
   option :universal
