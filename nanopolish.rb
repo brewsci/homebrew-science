@@ -13,8 +13,9 @@ class Nanopolish < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "499f50775412507cd99f303bc6724d57ddc8c33b48393e7e45acac9d8b365f10" => :yosemite
-    sha256 "48c76d109ec9fa33bfcc1ab723fb93505f9b9b4e370b757f476ea1cd2e3e267f" => :mountain_lion
+    sha256 "4b15a0afde48482d41582c89e8f0453622a369472b41c61ee42cd98160d46d8a" => :yosemite
+    sha256 "dc95e46b3e42fd7f68ac6580857fba3ff4b54d0b3631e2b37f9a1d2786e23f2c" => :mavericks
+    sha256 "79f2f51948ec3066a3422660ab040c6569abda872861f8f031bbc71fc13e52f6" => :mountain_lion
   end
 
   needs :cxx11
