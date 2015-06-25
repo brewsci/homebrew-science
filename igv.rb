@@ -10,9 +10,9 @@ class Igv < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "858a5ea4634a473f0ce4c786eab14762403a7aa08208d098397f2603e7d59b12" => :yosemite
-    sha256 "3c8aff4b35fd9b2b5fa748ca0588d4c7237cd632706edbc69648c8e1c2966a60" => :mavericks
-    sha256 "90d71592d24bb5893d374ddd018474e93b55c6c691bbab2bf91659723de8ca41" => :mountain_lion
+    sha256 "e1f244ca417e6bb05f395eb8c0c02ac7b3e15afd5e30aa8f702af4a8e5c51841" => :yosemite
+    sha256 "6dd6238c4ccf6100e676dbca9d7577662784a5ed9f21c57f272b52fe8d6feb50" => :mavericks
+    sha256 "373652f5ace3c2a936036edb92b464172f25c17be244b04fb951065c4e5813dc" => :mountain_lion
   end
 
   depends_on :java
