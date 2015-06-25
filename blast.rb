@@ -3,11 +3,9 @@ class Blast < Formula
   # doi "10.1016/S0022-2836(05)80360-2"
   # tag "bioinformatics"
 
-  url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.30/ncbi-blast-2.2.30+-src.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/n/ncbi-blast+/ncbi-blast+_2.2.30.orig.tar.gz"
-  version "2.2.30"
-  sha256 "26f72d51c81b9497f33b7274109565c36692572faef4d72377f79b7e59910e40"
-  revision 1
+  url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.31/ncbi-blast-2.2.31+-src.tar.gz"
+  version "2.2.31"
+  sha256 "f0960e8af2a6021fde6f2513381493641f687453a804239a7e598649b432f8a5"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
