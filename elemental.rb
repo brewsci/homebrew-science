@@ -1,6 +1,5 @@
 class Elemental < Formula
   homepage "http://libelemental.org/"
-  head "https://github.com/elemental/Elemental.git"
 
   stable do
     url "https://github.com/elemental/Elemental/archive/0.85.tar.gz"
@@ -19,6 +18,12 @@ class Elemental < Formula
     sha256 "4f27c55828f27ce1685aaf65018cc149849692b7dfbd9352fc203fed1a96c924"
     version "0.86-rc1"
     depends_on :python => :recommended
+    depends_on "metis"
+  end
+
+  head do
+    url "https://github.com/elemental/Elemental.git"
+    depends_on "metis"
   end
 
   option "without-check", "Skip build time tests (not recommended)"
@@ -26,7 +31,6 @@ class Elemental < Formula
   depends_on "cmake" => :build
   depends_on :mpi => [:cc, :cxx, :f90]
 
-  depends_on "metis"     if build.head? || build.devel?
   depends_on "openblas"  => :optional
   depends_on "qt5"       => :optional
   depends_on "scalapack" => :optional
