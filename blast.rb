@@ -1,9 +1,11 @@
 class Blast < Formula
+  desc "Basic Local Alignment Search Tool"
   homepage "http://blast.ncbi.nlm.nih.gov/"
   # doi "10.1016/S0022-2836(05)80360-2"
   # tag "bioinformatics"
 
   url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.31/ncbi-blast-2.2.31+-src.tar.gz"
+  mirror "http://mirrors.vbi.vt.edu/mirrors/ftp.ncbi.nih.gov/blast/executables/blast+/2.2.31/ncbi-blast-2.2.31+-src.tar.gz"
   version "2.2.31"
   sha256 "f0960e8af2a6021fde6f2513381493641f687453a804239a7e598649b432f8a5"
 
