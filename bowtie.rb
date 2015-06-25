@@ -1,10 +1,11 @@
 class Bowtie < Formula
+  desc "Ultrafast memory-efficient short read aligner"
   homepage "http://bowtie-bio.sourceforge.net/index.shtml"
   # doi "10.1186/gb-2009-10-3-r25"
   # tag "bioinformatics"
 
-  url "https://github.com/BenLangmead/bowtie/archive/v1.1.1.tar.gz"
-  sha1 "297b0c56d3847a8cc11a4c03917c03bd6080d365"
+  url "https://github.com/BenLangmead/bowtie/archive/v1.1.2.tar.gz"
+  sha256 "717145f12d599e9b3672981f5444fbbdb8e02bfde2a80eba577e28baa4125ba7"
   head "https://github.com/BenLangmead/bowtie.git"
 
   bottle do
@@ -17,26 +18,18 @@ class Bowtie < Formula
   end
 
   def install
-    ENV.libstdcxx
-    system "make", "allall"
+    system "make", "install", "prefix=#{prefix}"
 
-    # preserve directory structure for tests/scripts
-    libexec.install Dir["bowtie*"]
-    libexec.install %w[scripts genomes indexes reads]
-    bin.install_symlink %W[
-      #{libexec}/bowtie
-      #{libexec}/bowtie-build
-      #{libexec}/bowtie-inspect
-    ]
-    doc.install %w[AUTHORS LICENSE MANUAL MANUAL.markdown NEWS TUTORIAL]
+    doc.install "MANUAL", "NEWS", "TUTORIAL"
+    (share/"bowtie").install "scripts", "genomes", "indexes", "reads"
 
-    inreplace libexec/"scripts/test/simple_tests.pl" do |s|
+    inreplace share/"bowtie/scripts/test/simple_tests.pl" do |s|
       s.gsub! "$bowtie = \"\"", "$bowtie = \"#{bin}/bowtie\""
       s.gsub! "$bowtie_build = \"\"", "$bowtie_build = \"#{bin}/bowtie-build\""
     end
   end
 
   test do
-    system "perl", "#{libexec}/scripts/test/simple_tests.pl"
+    system "perl", share/"bowtie/scripts/test/simple_tests.pl"
   end
 end
