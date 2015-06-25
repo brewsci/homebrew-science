@@ -1,10 +1,11 @@
 class Sratoolkit < Formula
+  desc "Tools for using data from INSDC Sequence Read Archive"
   homepage "https://github.com/ncbi/sra-tools"
   # doi "10.1093/nar/gkq1019"
   # tag "bioinformatics"
 
-  url "https://github.com/ncbi/sra-tools/archive/2.5.0.tar.gz"
-  sha256 "4aca37fcb022c67bbf7acd8c78386a2f46f68817d369144fc24ac1a22ddb94df"
+  url "https://github.com/ncbi/sra-tools/archive/2.5.2.tar.gz"
+  sha256 "d128c14e13ac2e8affd3497dc59490d4932551e9524d5db697eef0951ea786f1"
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
@@ -16,13 +17,13 @@ class Sratoolkit < Formula
   end
 
   resource "ngs-sdk" do
-    url "https://github.com/ncbi/ngs/archive/1.1.1.tar.gz"
-    sha256 "1eedd2aa2363b2320559762fa0223a98f9b766ac0f252566edc09253ea7da8f4"
+    url "https://github.com/ncbi/ngs/archive/1.1.3.tar.gz"
+    sha256 "269c0286ed42fe00aec70d918298a0a5ca740c74189ef08fb97ee199611f13e1"
   end
 
   resource "ncbi-vdb" do
-    url "https://github.com/ncbi/ncbi-vdb/archive/2.5.0.tar.gz"
-    sha256 "f3ab2f05471e160bee19b59e641e2004df406bc9a30f335d6efe532b32e9901e"
+    url "https://github.com/ncbi/ncbi-vdb/archive/2.5.2.tar.gz"
+    sha256 "f10f478338f9418beab0f1e16254a3f728d7b9c6f1e2c02c2ef9512c648c0903"
   end
 
   depends_on "autoconf" => :build
@@ -32,6 +33,11 @@ class Sratoolkit < Formula
 
   def install
     ENV.deparallelize
+
+    # Linux fix: libbz2.a(blocksort.o): relocation R_X86_64_32 against `.rodata.str1.1'
+    # https://github.com/Homebrew/homebrew-science/issues/2338
+    ENV["LDFLAGS"]="" if OS.linux?
+
     resource("ngs-sdk").stage do
       cd "ngs-sdk" do
         system "./configure", "--prefix=#{prefix}", "--build=#{prefix}"
@@ -53,7 +59,12 @@ class Sratoolkit < Formula
     # Fix the error: undefined reference to `SZ_encoder_enabled'
     inreplace "tools/pacbio-load/Makefile", "-shdf5 ", "-shdf5 -ssz "
 
-    system "./configure", "--prefix=#{prefix}", "--with-ngs-sdk-prefix=#{prefix}", "--with-ncbi-vdb-sources=#{include}/ncbi-vdb", "--with-ncbi-vdb-build=#{prefix}", "--prefix=#{prefix}", "--build=#{prefix}"
+    system "./configure",
+      "--prefix=#{prefix}",
+      "--with-ngs-sdk-prefix=#{prefix}",
+      "--with-ncbi-vdb-sources=#{include}/ncbi-vdb",
+      "--with-ncbi-vdb-build=#{prefix}",
+      "--build=#{prefix}"
     system "make"
     system "make", "install"
     rm_rf "#{bin}/ncbi"
