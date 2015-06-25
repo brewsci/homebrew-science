@@ -8,11 +8,12 @@ class Bcftools < Formula
   head "https://github.com/samtools/bcftools.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "8cfb381d2fb4521a3750084a6c67790a0b248ffa" => :yosemite
-    sha1 "3a216df0a0f34ab4187d082523b3c0bfef11eace" => :mavericks
-    sha1 "628e8bd74cd72548fb3907cb75e1e9bd65e512c3" => :mountain_lion
+    revision 1
+    sha256 "e5722e46e71e0af5719fee3949b76a56cb75d94318ffc1aa68ce0d758cddcd32" => :yosemite
+    sha256 "4b5c238d91a078c98637fec874644fbe352d14f01f83c3a8de4c6627301ced4a" => :mavericks
+    sha256 "4395d3e784632d25f34dfb431ebae11457206dddef3a580f87ed75c6500b594d" => :mountain_lion
   end
 
   option "with-polysomy", "Enable polysomy command. Makes licence GPL3 not MIT/Expat."
