@@ -1,10 +1,11 @@
 class Igv < Formula
+  desc "Interactive Genomics Viewer"
   homepage "http://www.broadinstitute.org/software/igv"
   # tag "bioinformatics"
   # doi "10.1093/bib/bbs017"
+  url "http://www.broadinstitute.org/igv/projects/downloads/IGV_2.3.57.zip"
+  sha256 "88950118fee35d6ecd71708bb4ec272519ca632f8778f4cbce677487ce28ba39"
   head "https://github.com/broadinstitute/IGV.git"
-  url "http://www.broadinstitute.org/igv/projects/downloads/IGV_2.3.52.zip"
-  sha256 "b0bef5e92372c80e2d42f58e2e75d5fd736cc4fcb27caf13a85b8f09180bbb41"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
