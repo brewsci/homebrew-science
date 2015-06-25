@@ -16,6 +16,9 @@ class Blast < Formula
     sha256 "722ff4c4196cd81a3402734f141eb0131a1e8f1336431523b32d7108f3de260a" => :mountain_lion
   end
 
+  # Fix configure: error: Do not know how to build MT-safe with compiler g++-5 5.1.0
+  fails_with :gcc => "5"
+
   # Build failure reported to toolbox@ncbi.nlm.nih.gov on 11 May 2015,
   # patch provided by developers; should be included in next release
   patch :p0, :DATA
