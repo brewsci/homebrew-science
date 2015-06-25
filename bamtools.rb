@@ -3,8 +3,8 @@ class Bamtools < Formula
   homepage "https://github.com/pezmaster31/bamtools"
   # tag "bioinformatics"
 
-  url "https://github.com/pezmaster31/bamtools/archive/v2.3.0.tar.gz"
-  sha256 "288046e6d5d41afdc5fce8608c5641cf2b8e670644587c1315b90bbe92f039af"
+  url "https://github.com/pezmaster31/bamtools/archive/v2.4.0.tar.gz"
+  sha256 "f1fe82b8871719e0fb9ed7be73885f5d0815dd5c7277ee33bd8f67ace961e13e"
 
   head "https://github.com/pezmaster31/bamtools.git"
 
