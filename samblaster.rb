@@ -1,10 +1,11 @@
 class Samblaster < Formula
+  desc "Tool to mark duplicates in SAM files"
   homepage "https://github.com/GregoryFaust/samblaster"
-  #doi "10.1093/bioinformatics/btu314"
-  #tag "bioinformatics"
+  # doi "10.1093/bioinformatics/btu314"
+  # tag "bioinformatics"
 
-  url "https://github.com/GregoryFaust/samblaster/releases/download/v.0.1.21/samblaster-v.0.1.21.tar.gz"
-  sha1 "69514701966b1876af24ee09d4b4dd5a1622af86"
+  url "https://github.com/GregoryFaust/samblaster/archive/v.0.1.22.tar.gz"
+  sha256 "829f6036cf081a2a64716bbb1940d4b5fef96979adfee8650c1ffe4ce6f46c8b"
   head "https://github.com/GregoryFaust/samblaster"
 
   bottle do
