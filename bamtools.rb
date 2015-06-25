@@ -1,6 +1,7 @@
 class Bamtools < Formula
   desc "BamTools: API and command-line toolkit for BAM data"
   homepage "https://github.com/pezmaster31/bamtools"
+  # doi "10.1093/bioinformatics/btr174"
   # tag "bioinformatics"
 
   url "https://github.com/pezmaster31/bamtools/archive/v2.4.0.tar.gz"
