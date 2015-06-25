@@ -9,11 +9,11 @@ class Samblaster < Formula
   head "https://github.com/GregoryFaust/samblaster"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "01da597dca44539d4c8218f6320c1d333cbbf9f4" => :yosemite
-    sha1 "17c2c763ff473604a5f0e492980c562222a83708" => :mavericks
-    sha1 "16eb49671b88fb0ddc9730f7f3bb3ccd76231c52" => :mountain_lion
+    sha256 "52e903cdfb8d83b45ed5196cf0677691ce2e82a1de3ae55fe0d0f6aeff7188f7" => :yosemite
+    sha256 "8fa4a1f0d5e951e52a3549ba510e4d2c1d259c74af398315a72f93eb927f1c09" => :mavericks
+    sha256 "ad7a536d87ec4f4d36307590037ff597898cef59d1ab81b4ef1aeac5e2c38a71" => :mountain_lion
   end
 
   def install
