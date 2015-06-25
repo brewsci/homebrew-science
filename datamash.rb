@@ -7,9 +7,9 @@ class Datamash < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "507abcb8fc1ddd8f3d15347355e9ca0069c34e4eedc40dcafda5f10c930c3278" => :yosemite
-    sha256 "f6beb68ca96513fb83bbce4d20f8303ee9cccde90b83f2ede375d7aee240940d" => :mavericks
-    sha256 "ddc8d16975d24b36a6853c011436feafb99822254829cad79cc5ca00a17771cd" => :mountain_lion
+    sha256 "31f58c1a0413c3caded21dc1f8dc990ea5902c556bc07c968ce1ce1c6c6effcd" => :yosemite
+    sha256 "35ec93c7848276b993f558f18ebad3c278eb14936913a33c07777b2652f9e7ec" => :mavericks
+    sha256 "89170423888b0250b2d53c18b128440dda6e18bdf21a49603426d2cb0fc8867e" => :mountain_lion
   end
 
   head do
