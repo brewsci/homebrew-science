@@ -10,9 +10,10 @@ class Htslib < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "7dcc5ba144967b427807c858256753c1077af19c" => :yosemite
-    sha1 "526fdef181ed7c54cd68b3384346e78f4c18fb26" => :mavericks
-    sha1 "cbb4da3ff94024485eca163d7a42b3c0bfd7c25b" => :mountain_lion
+    revision 1
+    sha256 "427abec04673b9e5ecad88fd4b4af7cc1a835926e7f05bc37f6b564cae59a7da" => :yosemite
+    sha256 "857bf49037bc3caccaf295278e9d895e1b8a5cadf9aeaf1e841211d7d574b681" => :mavericks
+    sha256 "4db40af2120ce5f02cf7377ec43e345659b26f1d735e906cac23f26b83ae67d3" => :mountain_lion
   end
 
   conflicts_with "tabix", :because => "both htslib and tabix install bin/tabix"
