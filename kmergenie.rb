@@ -10,9 +10,10 @@ class Kmergenie < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "61a4897c10b8e2cafb6a5cd823cf9ddac5f0826ff6abe7c331ac6d1c2a4e7d01" => :yosemite
-    sha256 "f832032cdabffe987bc576226b9fb9a9c5e0ef682a5ccf8e18d78beb65e663c3" => :mavericks
-    sha256 "18e7b379c41f80e7f064f1d96230b9c0632d4ca0f27e109633260444cee676a4" => :mountain_lion
+    revision 1
+    sha256 "f473e4557bb61ed1080ff14bd01e98e9ff0efe018b284d44fb0e25ca8b72a3dd" => :yosemite
+    sha256 "08cbf904855f35de632712a0adcdd1a197c5d31226520c2399e7da061e5b496b" => :mavericks
+    sha256 "1f811c455d9ed0bc98517c2a238d8cfdc38a24d06fcfd5d5e7fa1c308d417ea1" => :mountain_lion
   end
 
   option "with-maxkmer=", "Specify maximum supported k-mer length (default: 121)"
