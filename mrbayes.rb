@@ -4,7 +4,7 @@ class Mrbayes < Formula
   # doi "10.1093/bioinformatics/btg180"
 
   url "https://downloads.sourceforge.net/project/mrbayes/mrbayes/3.2.5/mrbayes-3.2.5.tar.gz"
-  sha256 "a9f3f308ead95cfee50a4953ff19e60c5edf2c6c8d4809bec86d5625cdefdb87"
+  sha256 "31309af428fb52208af4663ddad38b6ff120fe8e7cedd75cf50818f59eb49000"
 
   head "https://mrbayes.svn.sourceforge.net/svnroot/mrbayes/trunk/"
 
