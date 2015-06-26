@@ -9,12 +9,11 @@ class Bowtie < Formula
   head "https://github.com/BenLangmead/bowtie.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 1
-    sha1 "4400eb29ef8dde38e5c8c31dafdeafa4cfb35f8a" => :yosemite
-    sha1 "b59b81a427edb0ff21989604e853192330256e6e" => :mavericks
-    sha1 "e837e00af306a2aa1c71e5c40394c79ebfddb6d6" => :mountain_lion
+    sha256 "5a6d33f6249513718c44a77c2cba1ce6b94eb6fffc897b988c6c2944e0c5726b" => :yosemite
+    sha256 "6ad165cc8526e5c601de52f75706f1dbc9f028b004751df1de2a49165d221db7" => :mavericks
+    sha256 "04b8e3cb0a30b88f9771546b41b76a926a04c4be02bab0392ea62b41361c3817" => :mountain_lion
   end
 
   def install
