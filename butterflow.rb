@@ -1,7 +1,8 @@
 class Butterflow < Formula
+  desc "Makes fluid slowmo and motion interpolated videos"
   homepage "https://github.com/dthpham/butterflow"
-  url "http://srv.dthpham.me/butterflow-0.1.8.tar.gz"
-  sha256 "252580bb5d473a7e265cb5882102ab005eabc14e810a48b7032318875afe652d"
+  url "http://srv.dthpham.me/butterflow-0.1.9.tar.gz"
+  sha256 "9f62960bb1a58c7fd7b67e7260d32a51e95ef5c7ff9f0811307463c1f1f338cf"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
