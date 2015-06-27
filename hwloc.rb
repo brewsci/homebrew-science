@@ -6,9 +6,10 @@ class Hwloc < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "844537fd62745f1e45470609fdd8e896304844437ff15db68155927f92f79fe9" => :yosemite
-    sha256 "ab65a49d5f4c421894af46a066166275064632400f005da426fc48e4520d4284" => :mavericks
-    sha256 "76c5d075c3297b770a8270f899851c771db785d4b9a8c7cd7f1bad1269fa7199" => :mountain_lion
+    revision 1
+    sha256 "2314fd97617643387585b8ee4bdf85a3320466ab3037f6c550b04dbe07640e8f" => :yosemite
+    sha256 "76e34bac6990a4caaf56c8eddf595573c9128ec6071d5c4fdabb74a8bf5d35ba" => :mavericks
+    sha256 "d940c936bf0da987756ff3b01f425f5bce06718e2ea8aba28d865e44ebad7617" => :mountain_lion
   end
 
   head do
