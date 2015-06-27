@@ -1,5 +1,6 @@
 class Hwloc < Formula
   homepage "http://www.open-mpi.org/projects/hwloc/"
+  desc "Portable abstraction of the hierarchical topology of modern architectures"
   url "http://www.open-mpi.org/software/hwloc/v1.10/downloads/hwloc-1.10.1.tar.bz2"
   sha256 "35ce13a9a0737d2de1c6facb5c3c0438f7c83b45d6ce652e05ba000f6f2e514a"
 
@@ -27,12 +28,12 @@ class Hwloc < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    share.install "tests"
+    (share/"hwloc").install "tests"
   end
 
   test do
     system ENV.cc, "-I#{include}", "-L#{lib}", "-lhwloc",
-           share/"tests/hwloc_groups.c", "-o", "test"
+           share/"hwloc/tests/hwloc_groups.c", "-o", "test"
     system "./test"
   end
 end
