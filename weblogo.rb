@@ -21,9 +21,9 @@ class Weblogo < Formula
   def install
     # this only installs the command line tool, not the CGI web scripts
     inreplace "seqlogo", "/usr/bin/perl -w", "/usr/bin/env perl"
-    inreplace "seqlogo", 'use lib "$Bin"', "use warnings; use lib '#{share}'"
+    inreplace "seqlogo", 'use lib "$Bin"', "use warnings; use lib '#{share}/weblogo'"
     bin.install "seqlogo"
-    share.install "logo.pm", "template.pm"
+    (share/"weblogo").install "logo.pm", "template.pm"
     doc.install %w[README LICENSE Crooks-2004-GR-WebLogo.pdf]
   end
 
