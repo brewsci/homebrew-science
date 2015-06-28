@@ -1,8 +1,9 @@
 class Qhull < Formula
+  desc "Qhull is a code for computing convex hulls in n dimensions."
   homepage "http://www.qhull.org/"
   url "http://www.qhull.org/download/qhull-2012.1-src.tgz"
   mirror "http://lil.fr.distfiles.macports.org/qhull/qhull-2012.1-src.tgz"
-  sha1 "60f61580e1d6fbbd28e6df2ff625c98d15b5fbc6"
+  sha256 "a35ecaa610550b7f05c3ce373d89c30cf74b059a69880f03080c556daebcff88"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -21,11 +22,21 @@ class Qhull < Formula
   #    with a symlink `binname` that points to `binname-version`. This is
   #    pointless for something that is managed by a package manager.
   # https://trac.macports.org/export/83287/trunk/dports/math/qhull/files/patch-CMakeLists.txt.diff'}
+  #
+  # Patch originally from MacPorts - qhull does not compile with clang 3.5.0:
+  #
+  #  * Avoid dependence on <iterator>
+  # http://lists.freebsd.org/pipermail/freebsd-ports-bugs/2014-December/298242.html
+  # https://trac.macports.org/export/136618/trunk/dports/math/qhull/files/patch-use-stl-iterator.diff
   patch :DATA
 
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+  end
+
+  test do
+    system "#{bin}/rbox c D2 | #{bin}/qconvex s n"
   end
 end
 
@@ -57,3 +68,25 @@ __END__
  
  # ---------------------------------------
  # Define qhull executables linked to qhullstatic library
+--- a/src/libqhullcpp/QhullIterator.h	2012-01-26 04:32:05.000000000 +0100
++++ b/src/libqhullcpp/QhullIterator.h	2014-12-19 15:19:26.000000000 +0100
+@@ -16,8 +16,7 @@
+ #include <assert.h>
+ #include <string>
+ #include <vector>
+-//! Avoid dependence on <iterator>
+-namespace std { struct bidirectional_iterator_tag; struct random_access_iterator_tag; }
++#include <iterator>
+
+ namespace orgQhull {
+
+--- a/src/libqhullcpp/QhullLinkedList.h	2012-01-26 04:32:05.000000000 +0100
++++ b/src/libqhullcpp/QhullLinkedList.h	2014-12-19 15:19:26.000000000 +0100
+@@ -9,7 +9,7 @@
+ #ifndef QHULLLINKEDLIST_H
+ #define QHULLLINKEDLIST_H
+
+-namespace std { struct bidirectional_iterator_tag; struct random_access_iterator_tag; }
++#include <iterator>
+
+ #include "QhullError.h"
