@@ -9,9 +9,10 @@ class Weblogo < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "1ee5b0c428f165ae1c41e08e05ccd2cc3190c60c069b36e798225cf0c1aef19e" => :yosemite
-    sha256 "7c4085e2c4f372e6b2b32bad9ac64936d25c5c0daa040b35541a4531f1dad5f4" => :mavericks
-    sha256 "be96774db77a74553b96553d17920a2f3ac61519d846fbcfd0c5348038a2e589" => :mountain_lion
+    revision 1
+    sha256 "267edf2808b1d8dd8248b8c5d0696c703e92478d7c08f799272e3a6c290a2e50" => :yosemite
+    sha256 "927f1ca59e1bc45ac75759480b12bf0bb57864be5f0e2998cf6eb7739061efcd" => :mavericks
+    sha256 "7a9a5e874106d63aeaafacba7e31b767d5c95a738ba628c953ba5d90e1b3f6b6" => :mountain_lion
   end
 
   depends_on "imagemagick"
