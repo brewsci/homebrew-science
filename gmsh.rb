@@ -5,10 +5,12 @@ class GmshSvnStrategy < SubversionDownloadStrategy
 end
 
 class Gmsh < Formula
+  desc "Gmsh is a 3D grid generator with a build-in CAD engine."
   homepage "http://geuz.org/gmsh"
-  url "http://geuz.org/gmsh/src/gmsh-2.9.2-source.tgz"
-  sha256 "541cfb469655912380ad3dcc509c0fac5f3efd218c29da0e32c9ffdfc589aa99"
-  revision 1
+  url "http://geuz.org/gmsh/src/gmsh-2.9.3-source.tgz"
+  sha256 "9fc4b376f53c1b84267d0f10896830acb6e41fff393386768169cba3558eb8c6"
+
+  head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -18,8 +20,6 @@ class Gmsh < Formula
     sha256 "f4a518f7ba84b06fcce16243f3e6dc40b8450116ecab03a7fa0bd44e84b4b4cc" => :mountain_lion
   end
 
-  head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
-
   depends_on :fortran
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
   depends_on "cmake" => :build
@@ -27,13 +27,9 @@ class Gmsh < Formula
   depends_on "slepc" => :optional
   depends_on "opencascade" => :recommended
   depends_on "fltk" => :optional
+  depends_on "cairo" if build.with? "fltk"
 
   def install
-    if !build.head? && ((build.with? "petsc") || (build.with? "slepc"))
-      onoe "stable is incompatible with PETSc/SLEPc 3.5.2. Build with --HEAD."
-      exit 1
-    end
-
     # In OS X, gmsh sets default directory locations as if building a
     # binary. These locations must be reset so that they make sense
     # for a Homebrew-based build.
