@@ -10,9 +10,10 @@ class Hmmer2 < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "a7c3e09d523b973688399319cb3fd539cf69a050a3f64e4ab376e60684e231bb" => :yosemite
-    sha256 "b17a9e698eea14f5b0f37b38d995c3e5cd63443218a92e453e210cf144cceff3" => :mavericks
-    sha256 "cce31ff4bdf0b5e87654b38bf4219622ea906127f5b6b08561cc759d845a8d4c" => :mountain_lion
+    revision 1
+    sha256 "fea2319bdad10e37f6f0d52fcbd6706328c49f6ec28168463828e04a8deb3f7d" => :yosemite
+    sha256 "0eba7cfb9ea8d0f8822dfbcc444931b40cb0339daef714cc7bd920dff8cbbdb1" => :mavericks
+    sha256 "286f8cb2634e5a68c8836348665ba76af14cf76084fdb0f2084735d53a679467" => :mountain_lion
   end
 
   keg_only "hmmer2 conflicts with hmmer version 3"
