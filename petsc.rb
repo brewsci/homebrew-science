@@ -1,7 +1,8 @@
 class Petsc < Formula
   homepage "http://www.mcs.anl.gov/petsc/index.html"
+  desc "Scalable (parallel) solution of scientific applications modeled by partial differential equations"
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.5.3.tar.gz"
-  sha1 "4c755b3c122f88e38bb5259c748f772545fcaf21"
+  sha256 "e4d70c14fbb96e45b2c304ba05bc93d17d2fd2ff1a3b3c69b9e818e8a62f453c"
   head "https://bitbucket.org/petsc/petsc", :using => :git
   revision 3
 
@@ -139,7 +140,7 @@ class Petsc < Formula
     prefix.install_symlink "#{prefix}/#{petsc_arch}/conf"
     # symlink only files (don't symlink pkgconfig as it won't symlink to opt/lib)
     lib.install_symlink Dir["#{prefix}/#{petsc_arch}/lib/*.*"]
-    share.install_symlink Dir["#{prefix}/#{petsc_arch}/share/*"]
+    (share/"petsc").install_symlink Dir["#{prefix}/#{petsc_arch}/share/*"]
   end
 
   def caveats; <<-EOS
