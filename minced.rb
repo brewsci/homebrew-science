@@ -1,6 +1,14 @@
 class Minced < Formula
   desc "Mining CRISPRs in Environmental Datasets"
   homepage "https://github.com/ctSkennerton/minced"
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-science"
+    cellar :any
+    sha256 "52af6d39cf5c38d4be24c04a1febec2dea60e2725eb43b4594c8de816984058b" => :yosemite
+    sha256 "e702a38fc2a6c461369d297e66f1baa74a22e2ce2e37cedeeb48f49de9c7ea42" => :mavericks
+    sha256 "3fa76116539321ca84774df87972b08c54a810a59d86d5a9a5dba56abc8f0464" => :mountain_lion
+  end
+
   # tag "bioinformatics"
 
   url "https://github.com/ctSkennerton/minced/releases/download/0.1.6/minced.jar"
