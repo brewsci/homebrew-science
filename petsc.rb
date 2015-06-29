@@ -8,9 +8,10 @@ class Petsc < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "222b9905333e22863585b9dd9058f2f8ef6be4957b97c011fb349e3ee45ad12f" => :yosemite
-    sha256 "210eda8c4d7fa4da49ab4227e345ec7f0ccfc06c28564ae2f0ba5729cd1b210b" => :mavericks
-    sha256 "a7ff0220bc53623cf31acf13d2e692762770927e148f203126173660f0a9baab" => :mountain_lion
+    revision 1
+    sha256 "beccee6c2fc6719c1ae371c5c94e224be24747c75a5fe549b1b9a63bde61cc45" => :yosemite
+    sha256 "ab8979b3454f061781b04875f9bb87c9c760dff248a55b2663e46f9fa6ba8a7d" => :mavericks
+    sha256 "3de4e6690239a775974a0e56fe8efd2c0ef48a984ba1a3a5fcacfb09eb45eb69" => :mountain_lion
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
