@@ -3,6 +3,7 @@ class Butterflow < Formula
   homepage "https://github.com/dthpham/butterflow"
   url "http://srv.dthpham.me/butterflow-0.1.9.tar.gz"
   sha256 "9f62960bb1a58c7fd7b67e7260d32a51e95ef5c7ff9f0811307463c1f1f338cf"
+  revision 1
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -19,6 +20,7 @@ class Butterflow < Formula
   depends_on "opencv" => "with-ffmpeg"
 
   def install
+    ENV.prepend_path "PYTHONPATH", Formula["opencv"].opt_lib/"python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)
     bin.install Dir["#{libexec}/bin/*"]
