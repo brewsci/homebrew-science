@@ -2,9 +2,9 @@ class Hisat < Formula
   homepage "http://ccb.jhu.edu/software/hisat/"
   # tag "bioinformatics"
   # doi "10.1038/nmeth.3317"
-  url "http://ccb.jhu.edu/software/hisat/downloads/hisat-0.1.5-beta-source.zip"
-  sha256 "0a58d820297fae2f90a783bdb714621a6051fe2bde0a60d518cb3672eeda2210"
-  version "0.1.5b"
+  url "http://ccb.jhu.edu/software/hisat/downloads/hisat-0.1.6-beta-source.zip"
+  sha256 "69fbd79d8f29b221aa72f0db33148d67d44a3e2cfe16dadf0663a58b7741ff9c"
+  version "0.1.6b"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
