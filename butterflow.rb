@@ -8,8 +8,8 @@ class Butterflow < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "e0ee3bd62ebb24352c28bf56dadc8ba955ab010e8bc704101569db7ed7a18a0c" => :yosemite
-    sha256 "04b037d4595596e3731b5dc0824ee294ac1de6b65b7b520c4a2da97029c4c0cd" => :mavericks
+    sha256 "c3424c90e217cee45c461747545da5a4999967bbfed7f977312808ed7f6c79db" => :yosemite
+    sha256 "0b5be6c1f6ff5df7659b213ba250784bfd53d4f1ef5c4fa03f5221c21497a80b" => :mavericks
   end
 
   # To satisfy OpenCL 1.1 requirement
