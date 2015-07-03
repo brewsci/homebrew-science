@@ -12,6 +12,7 @@ class GraphTool < Formula
 
   option "without-cairo", "Build without cairo support for plotting"
   option "without-gtk+3", "Build without gtk+3 support for interactive plotting"
+  option "without-python", "Build without python2 support"
 
   cxx11 = MacOS.version < :mavericks ? ["c++11"] : []
   with_pythons = build.with?("python3") ? ["with-python3"] : []
@@ -22,7 +23,6 @@ class GraphTool < Formula
   depends_on "cgal" => cxx11
   depends_on "google-sparsehash" => cxx11 + [:recommended]
   depends_on "gtk+3" => :recommended
-  depends_on :python => :recommended
   depends_on :python3 => :optional
   depends_on "boost-python" => cxx11 + with_pythons
 
@@ -63,7 +63,10 @@ class GraphTool < Formula
 
     Language::Python.each_python(build) do |python, version|
       config_args_x = ["PYTHON=#{python}"]
-      config_args_x << "PYTHON_EXTRA_LDFLAGS=#{`#{python}-config --ldflags`.chomp}"
+      if OS.mac?
+        config_args_x << "PYTHON_LDFLAGS=-undefined dynamic_lookup"
+        config_args_x << "PYTHON_EXTRA_LDFLAGS=-undefined dynamic_lookup"
+      end
       config_args_x << "--with-python-module-path=#{lib}/python#{version}/site-packages"
 
       if python == "python3"
