@@ -13,9 +13,9 @@ class Nextflow < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "a63c9eeb236de4d38bf14b3c5ae84d054c16335c9afeee85274eee914c1c7956" => :yosemite
-    sha256 "0233a03b52b2e2cef07922ad4a3166b0895ac193d48904e9f95662d5ffd1185d" => :mavericks
-    sha256 "f6a838b641fac81bb55df883d01f41985af753ac1a6ba1ddb916732a1c72b2c9" => :mountain_lion
+    sha256 "b31da359fb7e808ab8a0237ce07b4493890a9590b7e24af4876c8d51fddafd34" => :yosemite
+    sha256 "c41f4b0b94a943c4fe789d41267c72acdfb7af8206e916ec39df728f5b5b53bd" => :mavericks
+    sha256 "6c23a0920d56198715fa11cd395e19857a3309e9ef87e651e3561945f21329e7" => :mountain_lion
   end
 
   depends_on :java => "1.7+"
