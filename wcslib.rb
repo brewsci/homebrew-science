@@ -1,7 +1,7 @@
 class Wcslib < Formula
   homepage "http://www.atnf.csiro.au/people/mcalabre/WCS/"
   url "ftp://ftp.atnf.csiro.au/pub/software/wcslib/wcslib-5.7.tar.bz2"
-  sha1 "93555d3bab4a97944a6c371713d933725fcebc26"
+  sha256 "a0822088ddd128618b5fbbbc1787f5a80568da4f4f53ce76545c9cf1f4140632"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
