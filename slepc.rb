@@ -1,7 +1,8 @@
 class Slepc < Formula
+  desc "Scalable Library for Eigenvalue Computations"
   homepage "http://www.grycap.upv.es/slepc"
   url "http://www.grycap.upv.es/slepc/download/download.php?filename=slepc-3.5.3.tar.gz"
-  sha1 "5e886c5018dc0d227ae815feb80d4cdd8779c23c"
+  sha256 "0cbc3bc5ab589f17d01fb45bb99d59c804a8664f0eec851c3b463b60ba97f9b2"
   revision 1
 
   bottle do
@@ -44,7 +45,7 @@ class Slepc < Formula
     ENV["PETSC_DIR"] = "#{Formula["petsc"].opt_prefix}/#{petsc_arch_complex}"
     system "./configure", "--prefix=#{prefix}/#{petsc_arch_complex}", *args
     system "make"
-    # TODO investigate why complex tests fail to run on Linuxbrew
+    # TODO: investigate why complex tests fail to run on Linuxbrew
     system "make", "test"  if build.with? "check"
     system "make", "install"
 
@@ -58,7 +59,7 @@ class Slepc < Formula
     lib.install_symlink Dir["#{prefix}/#{petsc_arch}/lib/*.*"]
     prefix.install_symlink "#{prefix}/#{petsc_arch}/conf"
     doc.install "docs/slepc.pdf", Dir["docs/*.htm"], "docs/manualpages"  # They're not really man pages.
-    share.install "share/slepc/datafiles"
+    (share/"slepc").install "share/slepc/datafiles"
   end
 
   def caveats; <<-EOS.undent
