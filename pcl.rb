@@ -98,6 +98,7 @@ class Pcl < Formula
       -DBUILD_global_tests:BOOL=OFF
       -DWITH_TUTORIALS:BOOL=OFF
       -DWITH_DOCS:BOOL=OFF
+      -DPCL_QT_VERSION=4
     ]
 
     if build.head? && (build.with? "cuda")
