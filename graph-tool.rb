@@ -12,38 +12,36 @@ class GraphTool < Formula
 
   option "without-cairo", "Build without cairo support for plotting"
   option "without-gtk+3", "Build without gtk+3 support for interactive plotting"
+  option "without-matplotlib", "Use a matplotlib you've installed yourself instead of a Homebrew-packaged matplotlib"
+  option "without-numpy", "Use a numpy you've installed yourself instead of a Homebrew-packaged numpy"
   option "without-python", "Build without python2 support"
+  option "without-scipy", "Use a scipy you've installed yourself instead of a Homebrew-packaged scipy"
 
   cxx11 = MacOS.version < :mavericks ? ["c++11"] : []
   with_pythons = build.with?("python3") ? ["with-python3"] : []
 
   depends_on "pkg-config" => :build
   depends_on "boost" => cxx11
+  depends_on "boost-python" => cxx11 + with_pythons
   depends_on "cairomm" => cxx11 if build.with? "cairo"
   depends_on "cgal" => cxx11
   depends_on "google-sparsehash" => cxx11 + [:recommended]
   depends_on "gtk+3" => :recommended
   depends_on :python3 => :optional
-  depends_on "boost-python" => cxx11 + with_pythons
+
+  depends_on "homebrew/python/numpy" => [:recommended] + with_pythons
+  depends_on "homebrew/python/scipy" => [:recommended] + with_pythons
+  depends_on "homebrew/python/matplotlib" => [:recommended] + with_pythons
+
+  if build.with? "cairo"
+    depends_on "py2cairo" if build.with? "python"
+    depends_on "py3cairo" if build.with? "python3"
+  end
 
   if build.with? "gtk+3"
     depends_on "gnome-icon-theme"
     depends_on "librsvg" => "with-gtk+3"
     depends_on "pygobject3" => with_pythons
-  end
-
-  if build.with? "python"
-    depends_on "py2cairo" if build.with? "cairo"
-    depends_on "matplotlib" => :python
-    depends_on "numpy" => :python
-    depends_on "scipy" => :python
-  end
-
-  if build.with? "python3"
-    depends_on "py3cairo" if build.with? "cairo"
-    depends_on "matplotlib" => :python3
-    depends_on "numpy" => :python3
-    depends_on "scipy" => :python3
   end
 
   def install
