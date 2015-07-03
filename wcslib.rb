@@ -4,11 +4,11 @@ class Wcslib < Formula
   sha256 "a0822088ddd128618b5fbbbc1787f5a80568da4f4f53ce76545c9cf1f4140632"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "7300ee942f787b6a73ff680e25f9a70b605a0072" => :yosemite
-    sha1 "17dc76d100bc1b3beefe0e26152d9edd8c277a8c" => :mavericks
-    sha1 "d7e093d7f1cb1775dac992e75450830d840f39c2" => :mountain_lion
+    sha256 "b041274c39a79f7043f883ccc5e914e8bb66c35084a4cd17fa8b528faa205880" => :yosemite
+    sha256 "c8595299a62857f9ef20221d664e71093bc88ab8334c331075e67226f8717933" => :mavericks
+    sha256 "7d2ed55eef5dbc5504b5eba8a2a986ae3b32182ba9c4baff8d75ee797ec5f51f" => :mountain_lion
   end
 
   option "with-pgsbox", "Build PGSBOX, a general curvilinear axis drawing routine for PGPLOT"
