@@ -11,9 +11,9 @@ class Megahit < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "41a61c841545d46ef17a5ab3f7d4c29f4eb6a177be26b2d4849fa570ba400f8e" => :yosemite
-    sha256 "6702ed1aadd3fac6797e53adf2dd783ec222993829c87f80c8783a3d4a8e8576" => :mavericks
-    sha256 "f9823210aee5b6d6383d06bb91a4771d8352ff0da4ffa2837901562dc814b48c" => :mountain_lion
+    sha256 "2c97141462746f7ee016e3701d3dbc8d29fcff0ddcf39005be064e3791a4ea80" => :yosemite
+    sha256 "4b3f125ec9e00ed8a6e68af070c01a4be3b409880ee17be348f84491c1d79485" => :mavericks
+    sha256 "50447828734d6529c3b78dd6c4ace0e00572969161746d89c8fd791f4cb90755" => :mountain_lion
   end
 
   fails_with :llvm do
