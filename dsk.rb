@@ -7,9 +7,9 @@ class Dsk < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "328b7711ec0f17cd4afeaf60a44f08c3e68016e209a1a20fa9e4da299fb83ac2" => :yosemite
-    sha256 "6cbf60c7f424a19dc96cb8c736b28c7073407deea3567eb1bc498c3a066c3d23" => :mavericks
-    sha256 "fa6cabf7f176d8c36726d7f4c46046857fee54de216e0bf06209f02df48aeffe" => :mountain_lion
+    sha256 "8c755f6f6caaa56a85af63ce40ca20e2c3006d5ba378f5d8b1150d1822748192" => :yosemite
+    sha256 "9a528fc1925499203f2feb91ba8458d6fef1a2416c3bf1445e96611f98041e29" => :mavericks
+    sha256 "39b7f548c8170a07b94cc987ccdc9212a31d9341b9954c22963fa4a7ee7b9343" => :mountain_lion
   end
 
   depends_on "cmake" => :build
