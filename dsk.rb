@@ -1,7 +1,8 @@
 class Dsk < Formula
+  desc "Low memory k-mer counting software"
   homepage "http://minia.genouest.org/dsk/"
-  url "http://gatb-tools.gforge.inria.fr/versions/src/dsk-2.0.2-Source.tar.gz"
-  sha256 "bf2668e583a48021ba08f65aedbe447ba41084aad58020b2d77115bc81fad47f"
+  url "http://gatb-tools.gforge.inria.fr/versions/src/dsk-2.0.5-Source.tar.gz"
+  sha256 "65e37d39d68db972f64ff65dc9948943732b240fb7854908f716de436ea0d069"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
