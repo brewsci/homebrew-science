@@ -6,11 +6,11 @@ class Yaggo < Formula
   head "https://github.com/gmarcais/yaggo.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
+    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "ede41d5f56f1891e7f8cded47408a336cda5a06a" => :yosemite
-    sha1 "1f29452de12580785532298d047cdce559369784" => :mavericks
-    sha1 "a8d79edd5fecd2fb69c6b79c8fd3725c23bc3202" => :mountain_lion
+    sha256 "2b02a318dfc967e09ffca0e08e863a773a4a69bcdcc3330e9855305879e28e5f" => :yosemite
+    sha256 "1bed00bb4046bf1d45d9ce347a4ef3c1cebdff23f1bc8b3e4801577ad8908926" => :mavericks
+    sha256 "72d376f21e01993bd3ee9e9d3c5d9ab8752868a4db5bdac521cf28a75fd97ac2" => :mountain_lion
   end
 
   def install
