@@ -10,11 +10,10 @@ class Daligner < Formula
   head "https://github.com/thegenemyers/DALIGNER.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "658f6bcdf275a4024b15bfafe6eb0391ee54c0a3" => :yosemite
-    sha1 "3bfe5b57169b04c6a15bd9361fd6571096d77fe7" => :mavericks
-    sha1 "473ce0f16f71dade9537264944e62e4791a2f322" => :mountain_lion
+    sha256 "5be3c4c9da4b1e05921ced5fe07882012835dc83acf8dfc31f102985c17344f5" => :yosemite
+    sha256 "3483a17210caff7a027dcf2fdb0b5610514a41285c4fe32cc2411f101856758b" => :mavericks
+    sha256 "2599b9b12ddb85dded8c32f04b452bc1cd68313ae23527644cb9de25b4c6ecb9" => :mountain_lion
   end
 
   def install
