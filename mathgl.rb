@@ -7,9 +7,10 @@ class Mathgl < Formula
     self.class.with_qt? version
   end
 
+  desc "Scientific graphics library"
   homepage "http://mathgl.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/mathgl/mathgl/mathgl%202.3.2/mathgl-2.3.2.tar.gz"
-  sha256 "63c2125c9dc7921d0e149cfb27c4304f5481449c8f03d5bff5437de1863289ee"
+  url "https://downloads.sourceforge.net/project/mathgl/mathgl/mathgl%202.3.3/mathgl-2.3.3.tar.gz"
+  sha256 "324fb8155223251f28afd3c7074d6930f09bb7a60c122c3e06af228a448d4fc9"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
