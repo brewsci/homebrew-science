@@ -1,11 +1,11 @@
 class Daligner < Formula
+  desc "DALIGNER: Find all significant local alignments between reads"
   homepage "https://github.com/thegenemyers/DALIGNER"
-  #doi "10.1007/978-3-662-44753-6_5"
-  #tag "bioinformatics"
+  # doi "10.1007/978-3-662-44753-6_5"
+  # tag "bioinformatics"
 
-  version "2015-01-09"
-  url "https://github.com/thegenemyers/DALIGNER/archive/8edd180ba7b5302c6f1fc859eef5c646db99fd87.tar.gz"
-  sha1 "790dc0e5b09716d3a66882efc74708ddfcea8e88"
+  url "https://github.com/thegenemyers/DALIGNER/archive/V1.0.tar.gz"
+  sha256 "2fb03616f0d60df767fbba7c8f0021ec940c8d822ab2011cf58bd56a8b9fb414"
 
   head "https://github.com/thegenemyers/DALIGNER.git"
 
@@ -20,9 +20,10 @@ class Daligner < Formula
   def install
     system "make"
     bin.install %w[daligner HPCdaligner HPCmapper LAcat LAcheck LAmerge LAshow LAsort LAsplit]
+    doc.install "README"
   end
 
   test do
-    system "#{bin}/daligner 2>&1 |grep daligner"
+    assert_match "Usage", shell_output("#{bin}/daligner 2>&1", 1)
   end
 end
