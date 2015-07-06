@@ -13,10 +13,9 @@ class Mathgl < Formula
   sha256 "324fb8155223251f28afd3c7074d6930f09bb7a60c122c3e06af228a448d4fc9"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "ddd38b94688fbda6dcae3166994eb1c795e5d4f516a368b5437408561d6b46aa" => :yosemite
-    sha256 "73e652604683c62a1e2d2a0d011a31c6c3682b49baa89a9fd42e1536034d27b5" => :mavericks
-    sha256 "db2b58fd30a3390b108d6c8da73e15f3fc04f90ad5664068e36a83f951ee7890" => :mountain_lion
+    sha256 "9ad89cbb3533fb0af7f64a2db88a255e260a5e6fd01162fa40087b946c669952" => :yosemite
+    sha256 "5a1f45d39c3e25352c7d0d1647286a828ef07c8b62e4024cc4e0c3830f50efc2" => :mavericks
+    sha256 "ee214a47e20725538eb3f4e85e7f868cfb7e9022be7e168dff914caf1be73b34" => :mountain_lion
   end
 
   option "with-qt=", "Build with Qt 4 or 5 support"
