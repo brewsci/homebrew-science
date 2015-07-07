@@ -5,7 +5,7 @@ class LinksScaffolder < Formula
 
   url "http://www.bcgsc.ca/platform/bioinfo/software/links/releases/1.5/links_v1-5.tar.gz"
   version "1.5"
-  sha256 "b06f7d4c4c9de4e6c723d54fd2a2786f236a295166d3d36b9a166ecab36c5161"
+  sha256 "2009b1ea80ab868bf6c36bc247b348de54dae44e6547565eb24bbbe4875639fb"
 
   depends_on "Bloom::Faster" => :perl
 
