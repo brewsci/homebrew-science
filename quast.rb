@@ -1,10 +1,11 @@
 class Quast < Formula
+  desc "QUAST: Quality Assessment Tool for Genome Assemblies"
   homepage "http://bioinf.spbau.ru/en/quast"
   # doi "10.1093/bioinformatics/btt086"
   # tag "bioinformatics"
 
-  url "https://downloads.sourceforge.net/project/quast/quast-2.3.tar.gz"
-  sha1 "9bf176f852cf1b77f201b15e7d9262ae29cff727"
+  url "https://downloads.sourceforge.net/project/quast/quast-3.0.tar.gz"
+  sha256 "d8f65808007ca989dfb740935dc3a28909ceb2d9d77ac456bfbc54287fdd9ee7"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
