@@ -1,6 +1,13 @@
 class DazzDb < Formula
   desc "DAZZ_DB: The Dazzler Data Base"
   homepage "https://github.com/thegenemyers/DAZZ_DB"
+  bottle do
+    cellar :any
+    sha256 "9d250aca96917cb8a33d0329a397468ce6e58b0a9fb3536741a6291cee646925" => :yosemite
+    sha256 "8ad2de72d4d6f0a1a51c65acec52d3ed220a96ffa804e1c4942667caf872dcb3" => :mavericks
+    sha256 "5a911e0c31bb18d467455c196bf74a1f709fa5d538572489ba5d033921a5536a" => :mountain_lion
+  end
+
   # doi "10.1007/978-3-662-44753-6_5"
   # tag "bioinformatics"
 
