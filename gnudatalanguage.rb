@@ -6,10 +6,9 @@ class Gnudatalanguage < Formula
   revision 1
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "ee611942e88f7876834e74498d2780905bb80657d447ebde5b5046c06bace626" => :yosemite
-    sha256 "06676b26c8a04b2986f53762793c5c7b8db0f3b8bf9236758ca7ba993dad73c6" => :mavericks
-    sha256 "ffa274854445489a7f04a6cb49d669e8660e4c8beb7bae8984018d0ae575305c" => :mountain_lion
+    sha256 "f0cd1ed7bb896d4997cb46ab95f9d24bf679ad445af46b2b2eadc0848512cda1" => :yosemite
+    sha256 "a70e346d02a83c18df4f02cffcdbaa81eb59ae5be460495c3ff14fdc0ce5fe45" => :mavericks
+    sha256 "a39bce8d89f0beb638584e4c0c60bd2e0a6d4ff3a8b8b1d4597e8d073374cc77" => :mountain_lion
   end
 
   depends_on "cmake" => :build
