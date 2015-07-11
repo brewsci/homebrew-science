@@ -1,8 +1,8 @@
 class SuperluDist < Formula
+  desc "A general purpose library for the direct solution of large, sparse, nonsymmetric systems of linear equations on high performance machines."
   homepage "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
-  url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_dist_3.3.tar.gz"
-  sha256 "d2fd8dc847ae63ed7980cff2ad4db8d117640ecdf0234c9711e0f6ee1398cac2"
-  revision 2
+  url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_dist_4.1.tar.gz"
+  sha256 "50793bdd26f4b0a4a9c40e41299db8df219af5a38ffb4f3e4c0f29f9d573f0eb"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -16,6 +16,12 @@ class SuperluDist < Formula
 
   depends_on "parmetis"
   depends_on "openblas" => :optional
+
+  # fix duplicate symbols [mc64dd_,mc64ed_,mc64fd_] when linking with superlu
+  patch do
+    url "https://bitbucket.org/petsc/pkg-superlu_dist/commits/2faf8669a2ba20250ffe2d8a1b63d4f8ef8c5b74/raw/"
+    sha256 "09dcd7de83ef9d2590465742df76753cb7c61bfe8e7819c02613d9bcf20ed255"
+  end
 
   def install
     # prevent linking errors on linuxbrew:
