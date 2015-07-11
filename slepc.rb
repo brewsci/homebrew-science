@@ -1,9 +1,8 @@
 class Slepc < Formula
   desc "Scalable Library for Eigenvalue Computations"
   homepage "http://www.grycap.upv.es/slepc"
-  url "http://www.grycap.upv.es/slepc/download/download.php?filename=slepc-3.5.3.tar.gz"
-  sha256 "0cbc3bc5ab589f17d01fb45bb99d59c804a8664f0eec851c3b463b60ba97f9b2"
-  revision 1
+  url "http://slepc.upv.es/download/download.php?filename=slepc-3.6.0.tar.gz"
+  sha256 "591e20d793c273ff12bf1cd4bee79c6c55203dd67ad62a3023f35f4d0ce248c6"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
