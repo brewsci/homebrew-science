@@ -1,8 +1,8 @@
 class Scotch < Formula
+  desc "A software package for graph and mesh/hypergraph partitioning, graph clustering, and sparse matrix ordering"
   homepage "https://gforge.inria.fr/projects/scotch"
-  url "https://gforge.inria.fr/frs/download.php/file/34099/scotch_6.0.4.tar.gz"
-  sha256 "6461cc9f28319a9dbe6cc10e28c0cbe90b4b25e205723c3edcde9a3ff974d6d8"
-  revision 1
+  url "https://gforge.inria.fr/frs/download.php/file/34618/scotch_6.0.4.tar.gz"
+  sha256 "f53f4d71a8345ba15e2dd4e102a35fd83915abf50ea73e1bf6efe1bc2b4220c7"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -17,17 +17,18 @@ class Scotch < Formula
   depends_on :mpi => :cc
   depends_on "xz" => :optional # Provides lzma compression.
 
-  patch :DATA
-
   def install
     cd "src" do
-      ln_s "Make.inc/Makefile.inc.i686_mac_darwin8", "Makefile.inc"
+      ln_s "Make.inc/Makefile.inc.i686_mac_darwin10", "Makefile.inc"
+      # default CFLAGS: -O3 -Drestrict=__restrict -DCOMMON_FILE_COMPRESS_GZ -DCOMMON_PTHREAD -DCOMMON_PTHREAD_BARRIER -DCOMMON_RANDOM_FIXED_SEED -DCOMMON_TIMING_OLD -DSCOTCH_PTHREAD -DSCOTCH_RENAME
+      # MPI implementation is not threadsafe, do not use DSCOTCH_PTHREAD
 
       cflags   = %w[-O3 -fPIC -Drestrict=__restrict -DCOMMON_PTHREAD_BARRIER
+                    -DCOMMON_PTHREAD
                     -DSCOTCH_CHECK_AUTO -DCOMMON_RANDOM_FIXED_SEED
                     -DCOMMON_TIMING_OLD -DSCOTCH_RENAME
                     -DCOMMON_FILE_COMPRESS_BZ2 -DCOMMON_FILE_COMPRESS_GZ]
-      ldflags  = %w[-lm -lz -lbz2]
+      ldflags  = %w[-lm -lz -lpthread -lbz2]
 
       cflags  += %w[-DCOMMON_FILE_COMPRESS_LZMA]   if build.with? "xz"
       ldflags += %W[-L#{Formula["xz"].lib} -llzma] if build.with? "xz"
@@ -61,23 +62,3 @@ class Scotch < Formula
     end
   end
 end
-
-__END__
-diff --git a/src/check/test_common_thread.c b/src/check/test_common_thread.c
-index 8327bc7..a1d4243 100644
---- a/src/check/test_common_thread.c
-+++ b/src/check/test_common_thread.c
-@@ -197,11 +197,11 @@ char *              argv[])
-     errorPrint ("main: cannot launch or run threads");
-     return     (1);
-   }
-+
-+  free (thrdtab);
- #else /* ((defined COMMON_PTHREAD) || (defined SCOTCH_PTHREAD)) */
-   printf ("Scotch not compiled with either COMMON_PTHREAD or SCOTCH_PTHREAD\n");
- #endif /* ((defined COMMON_PTHREAD) || (defined SCOTCH_PTHREAD)) */
- 
--  free (thrdtab);
--
-   return (0);
- }
