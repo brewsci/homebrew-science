@@ -1,10 +1,9 @@
 class Fwdpp < Formula
   homepage "https://molpopgen.github.io/fwdpp/"
-  # doi "10.1534/genetics.114.165019"
-
   url "https://github.com/molpopgen/fwdpp/archive/0.3.3.tar.gz"
   sha256 "9b6b4dda5a0625f086ec931bc39745fd4db94dd91ff7da0658f82e95af71b05c"
   head "https://github.com/molpopgen/fwdpp.git"
+  # doi "10.1534/genetics.114.165019"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -27,14 +26,14 @@ class Fwdpp < Formula
     system "make"
     system "make", "check" if build.with? "check"
     system "make", "install"
-    share.install "examples" # install examples
-    share.install "unit"     # install unit tests
+    pkgshare.install "examples" # install examples
+    pkgshare.install "unit"     # install unit tests
   end
 
   test do
     # run unit tests compiled with 'make check'
     if build.with? "check"
-      Dir["#{share}/unit/*"].each { |f| system f if File.file?(f) && File.executable?(f) }
+      Dir["#{pkgshare}/unit/*"].each { |f| system f if File.file?(f) && File.executable?(f) }
     end
   end
 end
