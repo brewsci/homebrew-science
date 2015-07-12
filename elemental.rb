@@ -7,10 +7,10 @@ class Elemental < Formula
   end
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "6ae6a4730ab89feb4b05072e809b07ed1c2d074f6efca5e9e96cb1c8aeb424ea" => :yosemite
-    sha256 "8c5ec0fed0184bad047151cfbdec7a9c60c9d921cc9b4e041c7ed1122a6c8e34" => :mavericks
-    sha256 "a57d7224e16c784815c5c670d73994d798b86821fb2e85cf5b18770ad74b1c57" => :mountain_lion
+    revision 1
+    sha256 "64e4ab14479423b75e2676f70e985605f3eced11ec9d49fa79e61c330d1ad40e" => :yosemite
+    sha256 "e531728234b0ce946c0dfb64b25222cbebdfac625a5ac38bbc9de6b9954a7037" => :mavericks
+    sha256 "1fd737518f9f95c7892b1dfa44ffbf44fce71561c3e9c840fdd3a87691f1fbe6" => :mountain_lion
   end
 
   devel do
