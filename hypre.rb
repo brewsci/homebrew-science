@@ -1,9 +1,9 @@
 class Hypre < Formula
+  desc "A library of high performance preconditioners that features parallel multigrid methods for both structured and unstructured grid problems"
   homepage "http://computation.llnl.gov/casc/hypre/software.html"
-  url "http://ftp.mcs.anl.gov/pub/petsc/externalpackages/hypre-2.9.0b.tar.gz"
-  mirror "ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/hypre-2.9.0b.tar.gz"
-  sha1 "aaf8354437be38aa2fbcc944ab64d464a5b39207"
-  revision 2
+  url "http://ftp.mcs.anl.gov/pub/petsc/externalpackages/hypre-2.10.0b.tar.gz"
+  mirror "ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/hypre-2.10.0b.tar.gz"
+  sha256 "b55dbdc692afe5a00490d1ea1c38dd908dae244f7bdd7faaf711680059824c11"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -24,6 +24,12 @@ class Hypre < Formula
   option "without-accelerate", "Build without Accelerate framework (use internal BLAS routines)"
   option "with-debug", "Build with debug flags"
   option "with-bigint", "Build with 64-bit indices"
+
+  # bug fix for SEGV
+  patch do
+    url "https://bitbucket.org/petsc/pkg-hypre/commits/566a6568170a4abbfc2488d02de23f76da0473b5/raw/"
+    sha256 "8af48d5612771ef49edd3d9a462df71b864f34abb1ec03c8234591c96c683f7f"
+  end
 
   def install
     cd "src" do
@@ -55,14 +61,6 @@ class Hypre < Formula
                         "--with-lapack=yes",
                         "--with-lapack-libs=lapack clapack f77lapack",
                         "--with-lapack-lib-dirs=/usr/lib"]
-      end
-
-      # lib/Makefile treats the hypre internal BLAS & LAPACK implementations
-      # as dependencies for libHYPRE.a (the hypre library). If building with
-      # an external BLAS library, strip out these dependencies.
-      if build.with?("openblas") || build.with?("accelerate")
-        inreplace "lib/Makefile", /.*BLASFILES.*/, ""
-        inreplace "lib/Makefile", /.*LAPACKFILES.*/, ""
       end
 
       config_args << "--disable-fortran" if build.without? :fortran
@@ -182,7 +180,7 @@ class Hypre < Formula
   def caveats; <<-EOS.undent
       Please register for hypre at:
 
-      http://computation.llnl.gov/casc/hypre/download/hypre-2.9.0b_reg.html
+      http://computation.llnl.gov/casc/hypre/download/hypre-2.10.0b_reg.html
     EOS
   end
 end
