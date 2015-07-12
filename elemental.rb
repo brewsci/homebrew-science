@@ -42,9 +42,12 @@ class Elemental < Formula
     args = ["-DCMAKE_INSTALL_PREFIX=#{libexec}",  # Lots of junk ends up in bin.
             "-DCMAKE_FIND_FRAMEWORK=LAST",
             "-DCMAKE_VERBOSE_MAKEFILE=ON",
-            "-DCMAKE_C_COMPILER=#{ENV["MPICC"]}",
-            "-DCMAKE_CXX_COMPILER=#{ENV["MPICXX"]}",
-            "-DCMAKE_Fortran_COMPILER=#{ENV["MPIFC"]}",
+            "-DCMAKE_C_COMPILER=#{ENV["CC"]}",
+            "-DCMAKE_CXX_COMPILER=#{ENV["CXX"]}",
+            "-DCMAKE_Fortran_COMPILER=#{ENV["FC"]}",
+            "-DMPI_C_COMPILER=#{ENV["MPICC"]}",
+            "-DMPI_CXX_COMPILER=#{ENV["MPICXX"]}",
+            "-DMPI_Fortran_COMPILER=#{ENV["MPIFC"]}",
             "-Wno-dev"]
 
     # Python is disabled in stable because there's no way to
