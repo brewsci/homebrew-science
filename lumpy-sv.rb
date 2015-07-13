@@ -6,11 +6,10 @@ class LumpySv < Formula
   # tag "bioinformatics"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "76b8040a6bb5586829cee50723ada9b0a08c95db" => :yosemite
-    sha1 "347569ef2f558c13cc860857113e287ed046fb31" => :mavericks
-    sha1 "9a951d727f67fc9a315d26a260d0ad4f1b69cd6f" => :mountain_lion
+    sha256 "fd9aede7dbebd6ce2f637021cab59eca573672c97aab708400590544d587cb9c" => :yosemite
+    sha256 "abf2c320127023a5d4b578cfb36bd5af654804c58e9eb09b9caee652be419316" => :mavericks
+    sha256 "3788bd3abbbd508a5b44e2df6306cbf6d5b090a6b508077596ed73da7ffacb83" => :mountain_lion
   end
 
   depends_on "samblaster" => :optional
