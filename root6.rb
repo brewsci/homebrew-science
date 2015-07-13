@@ -47,6 +47,8 @@ class Root6 < Formula
 
     mkdir "cmake-build" do
       system "cmake", "..", "-Dgnuinstall=ON", "-Dbuiltin_freetype=ON",
+        "-Droofit=ON",  # build with RooFit
+        "-Dminuit2=ON", # build with Minuit2
         cmake_opt("python"),
         cmake_opt("ssl", "openssl"),
         cmake_opt("xrootd"),
