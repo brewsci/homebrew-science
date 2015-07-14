@@ -13,11 +13,10 @@ class Gmsh < Formula
   head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "09fc0d092facb3c0ef2cd40fdcd5bebc5fc26fddf5759f6e2138988b61a2bc98" => :yosemite
-    sha256 "ea8557dfa9e8833ab2ba69fffc5290af352c3f9cd45f289e22731884a3c61c83" => :mavericks
-    sha256 "f4a518f7ba84b06fcce16243f3e6dc40b8450116ecab03a7fa0bd44e84b4b4cc" => :mountain_lion
+    sha256 "28caba1817f10be27219da916bd580b830c281124650f6c82954bc6d05834553" => :yosemite
+    sha256 "60cacdcf840288736120069fdf650dd462d0cd7fcedacefc22f5d06d63fab855" => :mavericks
+    sha256 "a714ae24efefcaacd57a94e7b7a3a795714cff68bad7aedc6eebdce5489df8f1" => :mountain_lion
   end
 
   depends_on :fortran
