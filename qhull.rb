@@ -6,11 +6,11 @@ class Qhull < Formula
   sha256 "a35ecaa610550b7f05c3ce373d89c30cf74b059a69880f03080c556daebcff88"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "67b8992742d9c2bd0a07d731aa6ed7a55ac361f9" => :yosemite
-    sha1 "9ea434329af6194b30a0fee4cf2833fdb208929a" => :mavericks
-    sha1 "ff1e819f3427676f55b21a9da9e3378229b72a62" => :mountain_lion
+    revision 1
+    sha256 "1e747fca91a9bb0528fac7694d03f7856fa826aaf8350818bc58a279f2e35e15" => :yosemite
+    sha256 "69ab2f5f21a086464f7aa70f83314b8dd08fa24abd08761f3df446ae0bd988e3" => :mavericks
+    sha256 "76b8b8a669bd1d5029083deb47df9e7601861cf193893c61637a98bce98876ec" => :mountain_lion
   end
 
   depends_on "cmake" => :build
