@@ -3,6 +3,12 @@ class GraphTool < Formula
   url "http://downloads.skewed.de/graph-tool/graph-tool-2.2.44.tar.bz2"
   sha256 "42b97c24c155ddd95c79a16b4e3cb034cb3139e912c37aed66e6493e4ff20566"
 
+  bottle do
+    sha256 "8d9ec4a8eff050f3eb65c66318e1a74d9ba2e68185f393f59a5577bb6e2325b0" => :yosemite
+    sha256 "9e9b87d27858a52dce599d2f6956072a4c68d8853b182ecb1b4fe143c718311e" => :mavericks
+    sha256 "713daa0e2ec965e6cde55bc4086d94c3bd1a051ba800cb3eee0588c6310af167" => :mountain_lion
+  end
+
   head do
     url "https://github.com/count0/graph-tool.git"
     depends_on "autoconf" => :build
