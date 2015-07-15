@@ -8,10 +8,10 @@ class Root6 < Formula
   head "http://root.cern.ch/git/root.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "2cc02fe8446a264e31ccaa0927e8d7b2c45a3e56478d53babbc43e54bf7cb2e3" => :yosemite
-    sha256 "521f4db183d5f7127f27edbac6941c0cdf69b38f5fe172e6e81578a33d15c7fc" => :mavericks
-    sha256 "b959b55c00c942f613ac7fadeaec86dc8221be49592254ecb8e227d61c19289c" => :mountain_lion
+    revision 1
+    sha256 "c5141ef686d0538128fe2d8f426177a6567b3aa122604c094b11044a6567962e" => :yosemite
+    sha256 "094df33fc9e3baa291633a6011e214691e52032ca29f06f3d03ad7f47cd7b245" => :mavericks
+    sha256 "9b7dd452d68b5f2182212777393bf9ca0362fb70dd4f6774efc51e784fcaab8b" => :mountain_lion
   end
 
   depends_on "cmake" => :build
