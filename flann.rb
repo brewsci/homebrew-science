@@ -5,6 +5,13 @@ class Flann < Formula
   sha256 "dfbb9321b0d687626a644c70872a2c540b16200e7f4c7bd72f91ae032f445c08"
   revision 1
 
+  bottle do
+    cellar :any
+    sha256 "ca40319fa78946b322841b9ce208f5c10e28e03e5a4913cd270538b80ee78b2e" => :yosemite
+    sha256 "fa19463e2515be50e21b6204ffef67ae6147ba9adcc609aefcfc37a541cdcb0a" => :mavericks
+    sha256 "1c403208c33bfef7484d1adc23438b293aff7cd49f54c41f8fd821fb66658e92" => :mountain_lion
+  end
+
   deprecated_option "enable-matlab" => "with-octave"
   deprecated_option "enable-python" => "with-python"
 
