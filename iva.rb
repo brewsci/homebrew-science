@@ -6,9 +6,9 @@ class Iva < Formula
   head "https://github.com/sanger-pathogens/iva.git"
   bottle do
     cellar :any
-    sha256 "7eaaf89dab0d3165a4c800dfbf9de3b3adf2a16aab69e70e1232a170893d3d26" => :yosemite
-    sha256 "0303ee322adb3a3c13692fe6c2b080fa37de565695ded8f9564f990d13f390de" => :mavericks
-    sha256 "5fab8191a8e18cf0d3c1c5de6ef1a64f8569504d4233da62ac687f68a9acea71" => :mountain_lion
+    sha256 "b195e144b9eabea298815c3c5e220db78040e42e16e91caeedc824e0f6b4fa69" => :yosemite
+    sha256 "5bdfa78f91d580095f3f94a6986f93f3abbbbaa3667885de88932adbf2564acb" => :mavericks
+    sha256 "e919339bd100d9eb9ca456896f2fe81d2db46a5d88d71ac80bfcf7c49157db4e" => :mountain_lion
   end
 
   # tag "bioinformatics"
