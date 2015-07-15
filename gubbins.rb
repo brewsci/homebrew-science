@@ -4,6 +4,12 @@ class Gubbins < Formula
   url "https://github.com/sanger-pathogens/gubbins/archive/v1.4.1.tar.gz"
   sha256 "dcc98f70fb91357d4cb2cd0d8d37a03c77b3d2287a61e40ea21e0aee85d4d8ca"
   head "https://github.com/sanger-pathogens/gubbins.git"
+  bottle do
+    cellar :any
+    sha256 "107eee089eb4958a2a09d7a4bcce226021c6b6278cebd37181ac60b129f71564" => :yosemite
+    sha256 "7a757509f482a02c51d4273f11cd38f360ac4e585aff92a31480ce55bd8e7c26" => :mavericks
+  end
+
   # tag "bioinformatics"
   # doi "10.1093/nar/gku1196"
 
