@@ -22,6 +22,7 @@ class Genometools < Formula
   option "with-hmmer", "Build with HMMER (to enable protein domain search functionality in the ltrdigest tool)"
 
   depends_on "pkg-config" => :build
+  depends_on :python => :recommended unless OS.mac? && MacOS.version >= :lion
 
   if build.with? "pangocairo"
     depends_on "cairo"
@@ -40,9 +41,18 @@ class Genometools < Formula
     system "make", "install", *args
 
     prefix.install bin/"gtdata"
+
+    if build.with? "python"
+      cd "gtpython" do
+        inreplace "gt/dlload.py", "gtlib = CDLL(\"libgenometools\" + soext)", "gtlib = CDLL(\"#{lib}/libgenometools\" + soext)"
+        system "python", *Language::Python.setup_install_args(prefix)
+        system "python", "-m", "unittest", "discover", "tests"
+      end
+    end
   end
 
   test do
     system "#{bin}/gt", "-test"
+    system "python", "-c", "from gt import *" if build.with? "python"
   end
 end
