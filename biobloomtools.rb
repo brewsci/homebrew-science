@@ -5,7 +5,7 @@ class Biobloomtools < Formula
   # tag "bioinformatics"
 
   url "https://github.com/bcgsc/biobloom/releases/download/2.0.12/biobloomtools-2.0.12.tar.gz"
-  sha256 "34314242d44f1891c4e1cae214ee1b151b8dea1c34760dce2f76f0d3764098f4"
+  sha256 "13053036ca4a23032a7fb201bf22862187e4d8f584c3b1f6440d829210954a3e"
 
   head do
     url "https://github.com/bcgsc/biobloom.git"
