@@ -1,10 +1,17 @@
 class Biobloomtools < Formula
+  desc "BioBloom Tools (BBT): Bloom filter for bioinformatics"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/biobloomtools/"
-  #doi "10.1093/bioinformatics/btu558"
-  #tag "bioinformatics"
+  # doi "10.1093/bioinformatics/btu558"
+  # tag "bioinformatics"
 
-  url "http://www.bcgsc.ca/platform/bioinfo/software/biobloomtools/releases/2.0.6/biobloomtools-2.0.6.tar.gz"
-  sha1 "8eb6fed35104b32bb12a5ee3fdb9d6ca9b752aa1"
+  url "https://github.com/bcgsc/biobloom/releases/download/2.0.12/biobloomtools-2.0.12.tar.gz"
+  sha256 "34314242d44f1891c4e1cae214ee1b151b8dea1c34760dce2f76f0d3764098f4"
+
+  head do
+    url "https://github.com/bcgsc/biobloom.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
@@ -16,21 +23,15 @@ class Biobloomtools < Formula
 
   depends_on "boost" => :build
 
-  fails_with :clang do
-    build 600
-    cause "error: reference to 'shared_ptr' is ambiguous"
-  end
-
   def install
-    # Fix error: 'citycrc.h' file not found
-    inreplace "Common/city.cc", "#ifdef __SSE4_2__", "#if 0"
-
+    system "./autogen.sh" if build.head?
     system "./configure",
       "--disable-debug",
       "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--prefix=#{prefix}"
     system "make", "install"
+    doc.install "README.html", "README.md"
   end
 
   test do
