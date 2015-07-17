@@ -14,11 +14,10 @@ class Biobloomtools < Formula
   end
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
-    sha1 "715218ca44ec4a5e572ebaa71a7e5f7348e6ba7c" => :yosemite
-    sha1 "2eb4b97895569fa83ba54dec06d35aaf90552009" => :mavericks
-    sha1 "7d69cd24a383009b85046bf9cb2af86e8f568489" => :mountain_lion
+    sha256 "68c125cd6e5e02b1eb2aa79e40ca6e82c2bb2ed8764f6d11445463fb460032d4" => :yosemite
+    sha256 "fcf60aca3e3326a1a422535190de56d2c8dc1d26af1cd1320f642485db7fe64c" => :mavericks
+    sha256 "0730a556dc8b5cbc99f653ab8eeb4de922875ca3b23113b9103cf42406ec6a43" => :mountain_lion
   end
 
   depends_on "boost" => :build
