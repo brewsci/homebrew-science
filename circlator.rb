@@ -4,6 +4,13 @@ class Circlator < Formula
   url "https://github.com/sanger-pathogens/circlator/archive/v0.14.2.tar.gz"
   sha256 "fa8a6568a731ef5a996ffa024d03cfd85dfcddf624a5109e47a0bf2059bd0a9d"
   head "https://github.com/sanger-pathogens/circlator.git"
+  bottle do
+    cellar :any
+    sha256 "0393b4bd5ad13107054c649960dab77e4e2c76078706472c25919b15fd7623a3" => :yosemite
+    sha256 "20a8f52d0ca68debca47f73e017ea9adce287c032162b17bdc778718c7ab7415" => :mavericks
+    sha256 "15f514448d737cfad7037eee1124139fd9e9026fabae4362d939462ffe82de03" => :mountain_lion
+  end
+
   # tag "bioinformatics"
 
   depends_on "zlib" unless OS.mac?
