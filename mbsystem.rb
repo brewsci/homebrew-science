@@ -2,6 +2,7 @@ class Mbsystem < Formula
   homepage "http://www.mbari.org/data/mbsystem/mb-cookbook/index.html"
   url "ftp://ftp.ldeo.columbia.edu/pub/MB-System/mbsystem-5.5.2233.tar.gz"
   sha256 "13693a326cd44aa25ec5a0a69a5ffca4d47e3a529c0cc0abaf83165c8adf6958"
+  revision 1
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
@@ -16,7 +17,7 @@ class Mbsystem < Formula
   depends_on "proj"
   depends_on "fftw"
   depends_on "homebrew/x11/gv"
-  depends_on "lesstif"
+  depends_on "homebrew/x11/openmotif"
 
   option "without-levitus", "Don't install Levitus database (no mblevitus)"
   option "without-check", "Disable build time checks (not recommended)"
