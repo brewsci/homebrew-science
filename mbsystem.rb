@@ -4,10 +4,9 @@ class Mbsystem < Formula
   sha256 "ad27595c93562e34ff4d973259e0379edcfbf74bc5ef5a5103a2f75d96809f7d"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "6795b3c639c9ff021361a26040137d6df499e428150cee433549a723728e70d6" => :yosemite
-    sha256 "46f8de1d57c11b07e911ee5f3e5321607e79615b16b2d5f501d87d6459494e42" => :mavericks
-    sha256 "136c0424984c848424c2e3b2fe0cb5a6ca4ace0e17389376a0c2bd35d25cc9d9" => :mountain_lion
+    sha256 "a7b29a93c1f6fdcf03aa220fbbfb4ae2371718dc4744553ef5584be4289d16a6" => :yosemite
+    sha256 "ebfe7096b38889c65e6d75e279d5caf724e7890639e80f195f95071951bef927" => :mavericks
+    sha256 "5c47f7b604b7bb91cc37ef61f05f1526a878214d2962e41ad0a51cd39f9e9403" => :mountain_lion
   end
 
   depends_on :x11
