@@ -4,6 +4,13 @@ class Xmgredit < Formula
   sha256 '04de5d65f8332c320f346ad27f0343c1a8501838841efc0b566c168ee4558f47'
   revision 1
 
+  bottle do
+    cellar :any
+    sha256 "15f605a4a94ff08f818b031fdf2f07cf1a2cd480438881485a01818c73d60a6f" => :yosemite
+    sha256 "2fca016edad3a475ee4eb6e04760cd749d974dfb5dae88789c81c2e10fffa850" => :mavericks
+    sha256 "ce16e2f6905d27871f00815e0a3ff8a8fec6d178ef42acc151aebdefe1e73f5c" => :mountain_lion
+  end
+
   depends_on :x11
 
   depends_on 'homebrew/x11/openmotif'
