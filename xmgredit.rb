@@ -1,13 +1,12 @@
-require 'formula'
-
 class Xmgredit < Formula
   url 'http://dl.dropbox.com/u/72178/dist/xmgredit-5.tar.gz'
   homepage 'http://www.stccmop.org/~pturner/'
-  sha1 '7580e10e0779e5ea9d154fa27c1c9a852d86a0da'
+  sha256 '04de5d65f8332c320f346ad27f0343c1a8501838841efc0b566c168ee4558f47'
+  revision 1
 
   depends_on :x11
 
-  depends_on 'lesstif'
+  depends_on 'homebrew/x11/openmotif'
   depends_on 'netcdf'
   depends_on 'triangle'
 
