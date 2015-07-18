@@ -1,8 +1,7 @@
 class Mbsystem < Formula
   homepage "http://www.mbari.org/data/mbsystem/mb-cookbook/index.html"
-  url "ftp://ftp.ldeo.columbia.edu/pub/MB-System/mbsystem-5.5.2233.tar.gz"
-  sha256 "13693a326cd44aa25ec5a0a69a5ffca4d47e3a529c0cc0abaf83165c8adf6958"
-  revision 1
+  url "ftp://ftp.ldeo.columbia.edu/pub/mbsystem/mbsystem-5.5.2252.tar.gz"
+  sha256 "ad27595c93562e34ff4d973259e0379edcfbf74bc5ef5a5103a2f75d96809f7d"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
