@@ -5,10 +5,10 @@ class SuperluDist < Formula
   sha256 "50793bdd26f4b0a4a9c40e41299db8df219af5a38ffb4f3e4c0f29f9d573f0eb"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
-    sha256 "4ee905552a04328f91b8ed94ef5de50e6528ee9901d0809fca67cf3bfaa759cc" => :yosemite
-    sha256 "07e5ccc50442e335e68a2787166f138b1d1f9ee492ad99153cd29de793a0179e" => :mavericks
-    sha256 "ec296ebdd3e9af551c99969953fb1390c0d516cc9ba9a56d0e2097a85b06f85c" => :mountain_lion
+    cellar :any
+    sha256 "647c2ee926f6bab77ed4a3cfcc3675092bc0203804f0e47ab90a7364acfd344f" => :yosemite
+    sha256 "6b5a052985da5eb7998dd88e857a06dd3da92507609ad9c24dd650f16046fc58" => :mavericks
+    sha256 "d55c97f07e91997f2ef0e473dc67885d111f0157675af4610616fe2bda2b0f03" => :mountain_lion
   end
 
   depends_on :fortran
