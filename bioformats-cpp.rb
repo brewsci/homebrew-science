@@ -1,8 +1,8 @@
 class BioformatsCpp < Formula
   desc "Microscopy file formats including OME-TIFF"
   homepage "http://www.openmicroscopy.org/site/products/bio-formats"
-  url "http://downloads.openmicroscopy.org/bio-formats/5.1.2/artifacts/bioformats-dfsg-5.1.2.zip"
-  sha256 "907f6d2c146ef45db034005c5ad86310c10d252dae95d0ddfec6d5bacbdda247"
+  url "http://downloads.openmicroscopy.org/bio-formats/5.1.3/artifacts/bioformats-dfsg-5.1.3.zip"
+  sha256 "765137c548d9f4fdc111e22eec4d413effebbee273d8bba7392b59ad1499f41b"
   head "https://github.com/openmicroscopy/bioformats.git", :branch => "develop", :shallow => false
 
   bottle do
