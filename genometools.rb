@@ -8,12 +8,11 @@ class Genometools < Formula
   head "https://github.com/genometools/genometools.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 1
-    sha256 "b3e1555202c919115e3c4fb6199f5062d3819894df6a74c76894a65af15c31de" => :yosemite
-    sha256 "1b5bde3c8025a545a1f4b05c19cb8a9868bd2a736ef26e6688b199915fefe529" => :mavericks
-    sha256 "22787830d70fdc4519aa9dd401293a7aaeeb98cddaab2e146fff1d33426f954b" => :mountain_lion
+    revision 2
+    sha256 "4fc4414aab0218b0339e9be0df71819ac848b71a26142722cb8e585143427fbb" => :yosemite
+    sha256 "23b1f6321e853427cef823ae43b3f531bdd3837231229e2cc29790f3a7d4a7c8" => :mavericks
+    sha256 "312b6bc4255448db7ce2953d46400da4aaf3da8a9d20d6dff66bdf5288ec9871" => :mountain_lion
   end
 
   option :universal
