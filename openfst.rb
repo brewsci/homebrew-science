@@ -5,6 +5,13 @@ class Openfst < Formula
   url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.5.0.tar.gz"
   sha256 "01c2b810295a942fede5b711bd04bdc9677855c846fedcc999c792604e02177b"
 
+  bottle do
+    cellar :any
+    sha256 "1bfc2e5b726d2230a2c8d8114e8317d9509aa2efd88bceb4e5074ed9fbb6a7cf" => :yosemite
+    sha256 "cf7ad2775f80643bef502de1fd14666df330a0a56bdcdebe14eeda205d25e148" => :mavericks
+    sha256 "bbf6182d91486e61f2f7dac0b1ed1814e212e50f88f0aeae757ba66bcb9cf80e" => :mountain_lion
+  end
+
   needs :cxx11
 
   def install
