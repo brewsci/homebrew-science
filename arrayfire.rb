@@ -4,6 +4,11 @@ class Arrayfire < Formula
   url "http://arrayfire.com/arrayfire_source/arrayfire-full-3.0.0.tar.bz2"
   sha256 "32cf82d6e48b50f370f4ecde6fb30c180713bf3302cd196d120c4d152b36c9d2"
 
+  bottle do
+    sha256 "8eac279009251b387b4356f2d5afa6fcfffc757bd28ec9fddee48b10e3957c3d" => :yosemite
+    sha256 "24729eca4396b8005a81115a803740a113f54fb4df25a0a77fb71edf46f1d794" => :mavericks
+  end
+
   depends_on :macos => :mavericks
   depends_on "cmake" => :build
   depends_on "boost" => :build
