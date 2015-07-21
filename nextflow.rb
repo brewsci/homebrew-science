@@ -11,11 +11,10 @@ class Nextflow < Formula
   head "https://github.com/nextflow-io/nextflow.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha256 "b31da359fb7e808ab8a0237ce07b4493890a9590b7e24af4876c8d51fddafd34" => :yosemite
-    sha256 "c41f4b0b94a943c4fe789d41267c72acdfb7af8206e916ec39df728f5b5b53bd" => :mavericks
-    sha256 "6c23a0920d56198715fa11cd395e19857a3309e9ef87e651e3561945f21329e7" => :mountain_lion
+    sha256 "69015ab04b52896a7cd546f12b8113656620ec02377f4ab2d9e715e8bda135c0" => :yosemite
+    sha256 "cb54b26855345f07ff8ccaffb88b77ca201aa8c8c1c2eca9b63e17434cf8a3ec" => :mavericks
+    sha256 "6802f8fae6ba32a6115110321db49495993d5313861aaf8532b981b421e8f17e" => :mountain_lion
   end
 
   depends_on :java => "1.7+"
