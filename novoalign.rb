@@ -4,11 +4,11 @@ class Novoalign < Formula
   homepage "http://www.novocraft.com/"
   #tag "bioinformatics"
 
-  version "3.02.10"
+  version "3.02.13"
   url "http://www.novocraft.com/homebrew/novocraftV%s.%s.tar.gz" %
     [version, if OS.mac? then "MacOSX" else "Linux2.6" end]
-  sha1(if OS.mac? then "13984b67b9cc2b00ee8ae2bbabdd57fa9e0f7d6d"
-    elsif OS.linux? then "01b238a622393f3b9162a40412a4236bbd0cd088"
+  sha256(if OS.mac? then "cb51ac1f7ffa96b528fea18c4b9f9b16a7ebd195efddd20caa54a251e2c19e76"
+      elsif OS.linux? then "e2cce841c44638ac93704c6f51c5390cf116d7aca7a77cc4551cb2aeceebf47d"
     else raise "Unknown operating system"
     end)
   bottle do
