@@ -42,7 +42,7 @@ class SuperluDist < Formula
       ARCHFLAGS    = cr
       RANLIB       = true
       CC           = #{ENV["MPICC"]}
-      CFLAGS       = -fPIC -O2
+      CFLAGS       = -fPIC -O2 -I#{Formula["parmetis"].opt_include} -I#{Formula["metis"].opt_include}
       NOOPTS       = -fPIC
       FORTRAN      = #{ENV["MPIF77"]}
       F90FLAGS     = -O2
