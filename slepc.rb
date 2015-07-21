@@ -5,11 +5,9 @@ class Slepc < Formula
   sha256 "591e20d793c273ff12bf1cd4bee79c6c55203dd67ad62a3023f35f4d0ce248c6"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
-    revision 1
-    sha256 "58641318a441a76650b33a2ae5771f407df53493686425b1610b934b626929c6" => :yosemite
-    sha256 "c8f0b84f8870ddec53a2eae888fe298c3df39caff98fa75588fd42c609e46bdb" => :mavericks
-    sha256 "887a1451913249737108f65903959ea46a049ef6b811d628e08b8eb4095abeeb" => :mountain_lion
+    sha256 "8ad8eaac73a54fb590550d65e205f7e31e0d5be0d7c40d76b8a3d910e77634f9" => :yosemite
+    sha256 "342eaff4609669bcde04fd9ef3edb7f8f0ade42722cb76cccc8e64d701228626" => :mavericks
+    sha256 "c2e57809aed7d2bd465b001a9ee09cb5bdbde7a19bf401a0438449f7a6d76374" => :mountain_lion
   end
 
   deprecated_option "complex" => "with-complex"
