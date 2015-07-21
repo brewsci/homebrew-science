@@ -6,9 +6,10 @@ class SuperluDist < Formula
 
   bottle do
     cellar :any
-    sha256 "647c2ee926f6bab77ed4a3cfcc3675092bc0203804f0e47ab90a7364acfd344f" => :yosemite
-    sha256 "6b5a052985da5eb7998dd88e857a06dd3da92507609ad9c24dd650f16046fc58" => :mavericks
-    sha256 "d55c97f07e91997f2ef0e473dc67885d111f0157675af4610616fe2bda2b0f03" => :mountain_lion
+    revision 1
+    sha256 "248d87755fcd723d5a4d00aa61355d61247b527b1b8113249c0f41dc2a6fac22" => :yosemite
+    sha256 "3a8f4d391986bdb8d67e0c6c7299ff3e0df66ca7b0f753e8e565a0db4beacbb6" => :mavericks
+    sha256 "ba1b2ac27ebaa2ce335ff170a8fec66afc7037a33de15ae2e1912ccf95089b19" => :mountain_lion
   end
 
   depends_on :fortran
