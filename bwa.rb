@@ -15,6 +15,7 @@ class Bwa < Formula
     sha256 "787af05be50a58ac1e3a39bdde57f939f76628b34651898ba8cbac19005149ca" => :yosemite
     sha256 "af7d34365a5d3a13cedc74f5d26e5640a3638717c8bfc20395bb24de1108aa7f" => :mavericks
     sha256 "4195e81b4ab9758f1e9c4b05c06c504ea8ec240d8ce18436727236f1957a6907" => :mountain_lion
+    sha256 "f60955dd3c1980ab4cb3ba65c8db24dba461306389357a5e18c3be74067d0f71" => :x86_64_linux
   end
 
   def install
