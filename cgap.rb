@@ -9,7 +9,7 @@ class Cgap < Formula
 
   depends_on 'matplotlib' => :python
   depends_on 'scipy' => :python
-  depends_on LanguageModuleDependency.new :python, 'biopython', 'Bio'
+  depends_on LanguageModuleRequirement.new :python, 'biopython', 'Bio'
 
   depends_on 'Bio::Perl' => :perl
 

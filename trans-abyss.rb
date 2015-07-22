@@ -17,8 +17,8 @@ class TransAbyss < Formula
   depends_on "samtools"
 
   depends_on "pysam" => :python
-  depends_on LanguageModuleDependency.new :python, "biopython", "Bio"
-  depends_on LanguageModuleDependency.new :python, "python-igraph", "igraph"
+  depends_on LanguageModuleRequirement.new :python, "biopython", "Bio"
+  depends_on LanguageModuleRequirement.new :python, "python-igraph", "igraph"
 
   def install
     prefix.install Dir["*"]
