@@ -11,10 +11,8 @@ class Aribas < Formula
     sha256 "86c8efd01bc594f1857dc84fa638412f9918b2851d59361198f74cfb3d0ef63a" => :mountain_lion
   end
 
-  def patches
-    # Build a 32-bit binary because 64-bit builds can segfault.
-    DATA
-  end
+  # Build a 32-bit binary because 64-bit builds can segfault.
+  patch :DATA
 
   def install
     # Prevent "-m32" from being removed from C compiler args.

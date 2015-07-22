@@ -20,10 +20,8 @@ class Rnammer < Formula
 
   depends_on "hmmer2"
 
-  def patches
-    # Fix "unknown platform"
-    DATA
-  end
+  # Fix "unknown platform"
+  patch :DATA
 
   def install
     share.mkdir
