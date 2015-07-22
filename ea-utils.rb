@@ -4,6 +4,14 @@ class EaUtils < Formula
   url "https://drive.google.com/uc?export=download&id=0B7KhouP0YeRAc2xackxzRnFrUEU"
   version "1.1.2-806"
   sha256 "31f059ac2d6282d8e0e25047fc6aa5448f8c41de6067eaf6b456054cd53c782c"
+
+  bottle do
+    cellar :any
+    sha256 "3364b9f7317c29863d1734faa0028e90e9d17630d148ca3fe997d2e5b9c3277e" => :yosemite
+    sha256 "cd83d2c7541f6f65f628d283c022cee5bc8e91bab2b84661f4d4ab91098c787a" => :mavericks
+    sha256 "2917813183f027df67162e369486eb88c25cfe793d414ca61eebdbb27dc982ce" => :mountain_lion
+  end
+
   depends_on "gsl"
 
   # Patch from upstream issue: https://code.google.com/p/sparsehash/issues/detail?id=99
