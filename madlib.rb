@@ -6,6 +6,12 @@ class Madlib < Formula
 
   head "https://github.com/madlib/madlib.git"
 
+  bottle do
+    sha256 "9f2482b2421226b461d5d95ad12011797fb730c1225bc79ae03ad37fa5c38a8a" => :yosemite
+    sha256 "fbbf99df8688564f32741708cdfee2ea7632b23a9509b4fd12490cd44da35f8e" => :mavericks
+    sha256 "4e1adb36f808003f1b01530141c520e0dc81d88097863246b06f4e5d212202f4" => :mountain_lion
+  end
+
   boost_opts = []
   boost_opts << "c++11" if MacOS.version < :mavericks
   depends_on "boost" => boost_opts
