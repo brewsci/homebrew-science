@@ -1,9 +1,12 @@
 class Bwa < Formula
-  homepage "http://bio-bwa.sourceforge.net/"
+  desc "Burrow-Wheeler Aligner for pairwise alignment of DNA"
+  homepage "https://github.com/lh3/bwa"
   # doi "10.1093/bioinformatics/btp324"
   # tag "bioinformatics"
+
   url "https://downloads.sf.net/project/bio-bwa/bwa-0.7.12.tar.bz2"
-  sha1 "6389ca75328bae6d946bfdd58ff4beb0feebaedd"
+  sha256 "701dcad147ae470d741717a72c369b338df7f80bff4bb8eee8176c66f16d608c"
+
   head "https://github.com/lh3/bwa.git"
 
   bottle do
@@ -18,13 +21,13 @@ class Bwa < Formula
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
     bin.install "bwa"
-    doc.install %w[README.md NEWS.md]
+    doc.install "README.md", "NEWS.md"
     man1.install "bwa.1"
   end
 
   test do
     (testpath/"test.fasta").write ">0\nMEEPQSDPSV\n"
-    system "#{bin}/bwa index test.fasta"
+    system "#{bin}/bwa", "index", "test.fasta"
     assert File.exist?("test.fasta.bwt")
   end
 end
