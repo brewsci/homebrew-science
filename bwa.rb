@@ -10,12 +10,11 @@ class Bwa < Formula
   head "https://github.com/lh3/bwa.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    sha1 "476b7108c5755990eca5a49b071861d800d405d6" => :yosemite
-    sha1 "b6536565e0660cc6e9e6351c1c0420c4f9c2059d" => :mavericks
-    sha1 "f90f7796e699f43d903414d645062510be77fab7" => :mountain_lion
-    sha256 "30a4bd731dc643001364bf5133e9441073583f4417dedf7dd48ebcb71fdf702e" => :x86_64_linux
+    revision 1
+    sha256 "787af05be50a58ac1e3a39bdde57f939f76628b34651898ba8cbac19005149ca" => :yosemite
+    sha256 "af7d34365a5d3a13cedc74f5d26e5640a3638717c8bfc20395bb24de1108aa7f" => :mavericks
+    sha256 "4195e81b4ab9758f1e9c4b05c06c504ea8ec240d8ce18436727236f1957a6907" => :mountain_lion
   end
 
   def install
