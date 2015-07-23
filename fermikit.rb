@@ -1,10 +1,13 @@
 class Fermikit < Formula
+  desc "Assembly-based variant calling for Illumina reads"
   homepage "https://github.com/lh3/fermikit"
   # doi "arXiv:1504.06574"
   # tag "bioinformatics"
 
   url "https://github.com/lh3/fermikit/releases/download/v0.12/fermikit-0.12.tar.bz2"
-  sha256 "7d0f3d5ff6e790defc32b1f529dcd33b0c6f6a6d7223b8866542e7cebecfc125"
+  sha256 "c2d7281d3720fc06cfb5685dfa0b5b151636b44e4419fbac5a136cd5d73feb0a"
+
+  head "https://github.com/lh3/fermikit.git"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-science"
