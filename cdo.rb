@@ -12,11 +12,14 @@ class Cdo < Formula
 
   option "with-grib2", "Compile Fortran bindings"
   deprecated_option "enable-grib2" => "with-grib2"
+  option "with-openmp", "Compile with OpenMP support"
 
   if build.with? "grib2"
     depends_on "grib-api"
     depends_on "jasper"
   end
+
+  needs :openmp if build.with? "openmp"
 
   depends_on "hdf5"
   depends_on "netcdf"
