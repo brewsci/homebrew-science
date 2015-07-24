@@ -2,7 +2,7 @@ class Opencv < Formula
   desc "Open source computer vision library"
   homepage "http://opencv.org/"
   head "https://github.com/Itseez/opencv.git", :branch => "2.4"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/Itseez/opencv/archive/2.4.11.tar.gz"
@@ -17,7 +17,7 @@ class Opencv < Formula
   end
 
   bottle do
-    revision 1
+    revision 2
     sha256 "d21eb0ec17c67f071ab36a35567247a66b5f2b6a3244a811a6bd329bf3081109" => :yosemite
     sha256 "1735be17e9a31f78fdde4a0899b597ff7ab3a6dd5887dcf605c9e638870a8a86" => :mavericks
     sha256 "86d8819b3f4bea67a8bcb3df1db4f789638622952d3b582f0a74fc7f21d3ccb6" => :mountain_lion
@@ -32,6 +32,7 @@ class Opencv < Formula
   option "with-cuda", "Build with CUDA support"
   option "with-quicktime", "Use QuickTime for Video I/O instead of QTKit"
   option "with-opengl", "Build with OpenGL support"
+  option "with-ximea", "Build with XIMEA support"
   option "without-numpy", "Use a numpy you've installed yourself instead of a Homebrew-packaged numpy"
   option "without-python", "Build without Python support"
 
@@ -97,6 +98,7 @@ class Opencv < Formula
     args << "-DWITH_JASPER="    + arg_switch("jasper")
     args << "-DWITH_QT="        + arg_switch("qt")
     args << "-DWITH_GSTREAMER=" + arg_switch("gstreamer")
+    args << "-DWITH_XIMEA="     + arg_switch("ximea")
 
     if build.with? "python"
       py_prefix = `python-config --prefix`.chomp
