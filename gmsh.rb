@@ -14,9 +14,9 @@ class Gmsh < Formula
 
   bottle do
     cellar :any
-    sha256 "28caba1817f10be27219da916bd580b830c281124650f6c82954bc6d05834553" => :yosemite
-    sha256 "60cacdcf840288736120069fdf650dd462d0cd7fcedacefc22f5d06d63fab855" => :mavericks
-    sha256 "a714ae24efefcaacd57a94e7b7a3a795714cff68bad7aedc6eebdce5489df8f1" => :mountain_lion
+    sha256 "25927e31f905c130b86c5946aa1b114807847ffe816eb2673966ae926129113d" => :yosemite
+    sha256 "26ee586aa04648b8b2cb593f3b5cd1a437b962154723366d47d5851c4ca10cdf" => :mavericks
+    sha256 "8092c762e97de606106a636dd78f6946fb0beb73cf8cae8db0c082d3be75a3e0" => :mountain_lion
   end
 
   depends_on :fortran
