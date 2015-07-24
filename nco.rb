@@ -5,7 +5,6 @@ class Nco < Formula
   sha256 "974dea6ac11d8b265e8dd5b29376fede5ea76a50dc06afb4d5de49d7e8d48774"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "149711db327862ee54ac2746f70574ac825dd25a8a0a406d99a1b3ebe1132b01" => :yosemite
     sha256 "c20f5aed3a1975e73fab0fa04c55f7d6b01e31c78df56ffb0da7727317e5ba10" => :mavericks

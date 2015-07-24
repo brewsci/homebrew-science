@@ -8,7 +8,6 @@ class Sparseassembler < Formula
   version "2012-08-17"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "209503883314cd020633fc0f6e859bd3a33439b7" => :yosemite
     sha1 "1281430fd29de1d589a7b9607b636434b9a3d2ef" => :mavericks

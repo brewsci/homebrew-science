@@ -7,7 +7,6 @@ class Seqdb < Formula
   revision 1
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "e5ace3b70b6d8e7b06d3049af0732fa41b6630fd" => :yosemite
     sha1 "38dd2da378af6ec032fd653cd5c81510ce3dd2e6" => :mavericks

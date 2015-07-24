@@ -9,7 +9,6 @@ class Pandaseq < Formula
   head "https://github.com/neufeld/pandaseq.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     sha1 "2328d5a45a4a62d2207b33dbe466c3185f656f7c" => :yosemite
     sha1 "dadf17c27dd856db51312638b2dd7c87adae5582" => :mavericks
     sha1 "567433f4ccaf824021f30ae0e729a28ad1434fd9" => :mountain_lion

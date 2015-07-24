@@ -8,7 +8,6 @@ class Shrimp < Formula
   version "2.2.3"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "2ab2012cdc0dec1e27d8c02a7b2c04b2f24f7d3cb078bc2599e527aa23ffcc4d" => :yosemite
     sha256 "3fae6267589367040d39b817ff6278585116d0c12e63dc7efdd6210b1d75e136" => :mavericks

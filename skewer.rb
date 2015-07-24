@@ -8,7 +8,6 @@ class Skewer < Formula
   version "0.1.124"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "eb3863b75964499df80d3033bcaa8f97808f127d1282698ead72ce255d82302f" => :yosemite
     sha256 "6b1184f8166e7f554624e32451fc3ce5bdfdd605abfe0a8b127199b48a088f7b" => :mavericks

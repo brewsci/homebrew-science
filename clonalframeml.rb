@@ -5,7 +5,6 @@ class Clonalframeml < Formula
   version "1.7"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "09ccaab46eea44a62ffc6e2bda598099a6f83ba36c10855be99796529976a344" => :yosemite
     sha256 "d927b125595ec16af0e5e4b7f483dbd538737cf8b932c441baadcfeef235c9c0" => :mavericks

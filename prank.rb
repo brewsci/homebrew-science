@@ -7,7 +7,6 @@ class Prank < Formula
   head "https://github.com/ariloytynoja/prank-msa.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "645b55928f814076559c0515ba5760006efbd6352d9599c09f769e5b05d9441a" => :yosemite
     sha256 "c935677f529955560e10caedadaa2294e7df2a29559691c8bd5c4f4406b782d7" => :mavericks

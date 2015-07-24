@@ -2,7 +2,6 @@ class Stringtie < Formula
   homepage "http://ccb.jhu.edu/software/stringtie"
   head "https://github.com/gpertea/stringtie"
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "de3a457c45fc023c2b9c4e2d8530ec77ade761269897af535fb82a5a904bb354" => :yosemite
     sha256 "157abc752800f726bce574ac5dc1322e2ed112b953fdd06dcdf819c1d7abf258" => :mavericks

@@ -9,7 +9,6 @@ class Barrnap < Formula
   head "https://github.com/tseemann/barrnap.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "fec76972178844abb223274fc4a3c45b987168d2163c4074998100d688a97e6a" => :yosemite
     sha256 "3d84c1dfdac365506270abd6df0e0c451ef43df9039829d52eefe7b59ada2b14" => :mavericks

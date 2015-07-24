@@ -6,7 +6,6 @@ class Openimageio < Formula
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "434018fb5d454145ca6bcebb756e2feb3a7e1b20990e706dd906fa6c35f40364" => :yosemite
     sha256 "0065c7db083fc0a6b67dc229473a27437efda04067fbce0be3224153303c80ee" => :mavericks

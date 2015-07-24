@@ -7,7 +7,6 @@ class Libsequence < Formula
   head "https://github.com/molpopgen/libsequence.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 2
     sha256 "3488ce470dd77c1bb26cd28d2104393de35a8c780ad89e83f499ec5b59813c87" => :yosemite

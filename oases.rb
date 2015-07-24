@@ -8,7 +8,6 @@ class Oases < Formula
   sha256 "a90d469bd19d355edf6193dcf321f77216389d2831a849d4c151c1c0c771ab36"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "6c9a086271088e7933f75c1cd3d89c50e37bea568dac1026784dede336f858a1" => :yosemite
     sha256 "e4f27e40c47e47e76e066f96a60186ba54fa6268c6f65eefcd190cf97f8812c3" => :mavericks

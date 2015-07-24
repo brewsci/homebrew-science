@@ -7,7 +7,6 @@ class Trimmomatic < Formula
   sha256 "6968583a6c5854a44fff7d427e7ccdcb8dc17f4616082dd390a0633f87a09e3d"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "167c3b4bd6b20ea9ecd5d90c8dc03ef1b40e049b99c3b8121ea35f8549eaabf8" => :yosemite
     sha256 "a3b3a456599ab75b9ad0ef8c11cabdc35152c3c47b67f66d060599e56606b4e3" => :mavericks

@@ -7,7 +7,6 @@ class Libccd < Formula
   head 'https://github.com/danfis/libccd.git'
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "e75db5205d2a92cf32f26f6a8ab554e80ef583ef" => :yosemite
     sha1 "4b51107e036d27f9613bfce599a3a7e0d521ec52" => :mavericks

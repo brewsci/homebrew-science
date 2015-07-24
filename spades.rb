@@ -9,7 +9,6 @@ class Spades < Formula
   sha1 "cca0dde2acb21854e9a87b0ace9ac3e08da55202"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "9a1c20f1088872cc813d160f6bdf9e62b2670818" => :yosemite
     sha1 "c379f3bfdce510a95fb5fd4b6a5678988c48b77a" => :mavericks

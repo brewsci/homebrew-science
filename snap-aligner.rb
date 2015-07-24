@@ -8,7 +8,6 @@ class SnapAligner < Formula
   head "https://github.com/amplab/snap.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "1156de4f5ae32546089cf7d7959ced5dd84d766f" => :yosemite
     sha1 "1222129ca847bce9e868afc049a6133d099233ab" => :mavericks

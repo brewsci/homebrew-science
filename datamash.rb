@@ -5,7 +5,6 @@ class Datamash < Formula
   sha256 "1a0b300611a5dff89e08e20773252b00f5e2c2d65b2ad789872fc7df94fa8978"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "31f58c1a0413c3caded21dc1f8dc990ea5902c556bc07c968ce1ce1c6c6effcd" => :yosemite
     sha256 "35ec93c7848276b993f558f18ebad3c278eb14936913a33c07777b2652f9e7ec" => :mavericks

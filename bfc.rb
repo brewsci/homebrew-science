@@ -9,7 +9,6 @@ class Bfc < Formula
   head "https://github.com/lh3/bfc.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "4c85ff047fca62de9e3646aacd39c06e693f3078" => :yosemite
     sha1 "7e55239986b9e61182f1517e2eacc65f6e794406" => :mavericks

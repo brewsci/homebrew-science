@@ -9,7 +9,6 @@ class Scarpa < Formula
   sha1 "f238d8ea418951754b0f37aad7f09c9cf00fc909"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "515f728ee679f124b7429d384ac64aa46a5c00bf" => :yosemite
     sha1 "12a58085f99a35728046c57526474c5a4be92501" => :mavericks

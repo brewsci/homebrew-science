@@ -9,7 +9,6 @@ class Seqtk < Formula
   head "https://github.com/lh3/seqtk.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha1 "8c2975651cea0d3af8f4b611719376497e3d0d8a" => :yosemite
     sha1 "d54e3028681e6e2d8918f7639ae7542e9ca0256a" => :mavericks

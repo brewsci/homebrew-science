@@ -7,7 +7,6 @@ class Fsa < Formula
   sha1 "457aee5baca17357e52041eac7e3ecbc226bea75"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "de201cdf3bb5b3fec6e517993e977de341c54a92" => :yosemite
     sha1 "03486aadcae599e5846fa94b13887e85c5d1ee12" => :mavericks

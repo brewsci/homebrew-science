@@ -5,7 +5,6 @@ class Netcdf < Formula
   sha256 "bdde3d8b0e48eed2948ead65f82c5cfb7590313bc32c4cf6c6546e4cea47ba19"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "bafd64140f1154d12ce580f7c7c232106713ca2b4894da8f839834fd29dba459" => :yosemite
     sha256 "8c247f3f508b2f1e0cf32e4d2ed952c4ff4406b61b381cd26c3c937b0227e6f6" => :mavericks
     sha256 "aaa436412224ba0455effa0a610cfbc15d0a01fe14b2bb514a1f930c7466c7d4" => :mountain_lion

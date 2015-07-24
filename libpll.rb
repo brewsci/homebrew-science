@@ -5,7 +5,6 @@ class Libpll < Formula
   head "https://git.assembla.com/phylogenetic-likelihood-library.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "6d4886d7286af7ba1c7f4615bd1aab9af0a87a72d72767d8659b836649059a10" => :yosemite
     sha256 "0f9f835ab42cace506d68c8e90e47d5a558a0387297672592a1736057666c6bd" => :mavericks

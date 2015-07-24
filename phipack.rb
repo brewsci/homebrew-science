@@ -2,7 +2,6 @@ class Phipack < Formula
   desc "A quick and robust genomic recombination test"
   homepage "http://www.maths.otago.ac.nz/~dbryant/software.html"
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "1fabe869b7a87d8fec85ca7cf7ee1899d12a38994a6046f203f83026733c91a3" => :yosemite
     sha256 "c0af865b47d6146ffa65ae63049933c0cebe523e8ea51edd3b43e85af63c43c8" => :mavericks

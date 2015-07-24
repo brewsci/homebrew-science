@@ -7,7 +7,6 @@ class Stacks < Formula
   sha256 "1ffd9357e29e09fd8bdc85a03e13b2c615ef6b5a9394bcef031386da0e155b65"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "57915a5d94db9e595426938c4378dd9d491cd8f062eda3b546db6c94783d139e" => :yosemite
     sha256 "08838646eec18d586f3d504b25e4980b5fb14ddbc568ad30498f8d51b6c704b4" => :mavericks
   end

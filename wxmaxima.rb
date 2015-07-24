@@ -4,7 +4,6 @@ class Wxmaxima < Formula
   sha1 "9508d3badb6c339f34e73e01c5065f679329a17c"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "d110a3c63e434f87f4441952a28d48889cfc6a10" => :yosemite
     sha1 "3e66edeec9ae6008f34024238857423fbfd04df5" => :mavericks

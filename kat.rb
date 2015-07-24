@@ -11,7 +11,6 @@ class Kat < Formula
   end
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "e014fb1e638d216189d91ba15bec71db04a253c3cc205e74a86dc6be1ceec6a0" => :yosemite
     sha256 "d953de44bead07fbae63d87a61d2f0444a0fb18eadb8fde8f834b766172e1b61" => :mavericks

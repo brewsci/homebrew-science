@@ -5,7 +5,6 @@ class EtsfIo < Formula
   revision 2
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "cd03510221814aef2f3d0e2039e42c31b41ee9735fd271a04d883c94dc73a694" => :yosemite
     sha256 "a1a3888da1bbbb4f808768413f57267ddd90f97111992e4d9f161a494a51728a" => :mavericks
     sha256 "2ccb27658150b9cf718d4e297e6b74e9f70516fed326d27694e15c68680d077c" => :mountain_lion

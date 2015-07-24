@@ -7,7 +7,6 @@ class Fastuniq < Formula
   sha256 "9ebf251566d097226393fb5aa9db30a827e60c7a4bd9f6e06022b4af4cee0eae"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "19465fcbe38c09187aed0df6a5ff2aeb640cabee976220b9a6eefb51d632de5e" => :yosemite
     sha256 "07890a374729fe11b214426e5ab17f5b57b80b735bd5f84611dd37f71de2259f" => :mavericks

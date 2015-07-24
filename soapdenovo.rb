@@ -13,7 +13,6 @@ class Soapdenovo < Formula
   version "2.04.r240"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "a7a895850e20c67f85cb5691902805653de54690" => :yosemite
     sha1 "08865280b912d9faec1447a6ef3442612807ddac" => :mavericks

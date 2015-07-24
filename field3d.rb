@@ -7,7 +7,6 @@ class Field3d < Formula
   head "https://github.com/imageworks/Field3D.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "6bceec6214a549add84d22e8157a77f1837d2d92a091d58f5f3581d65f4f667f" => :yosemite
     sha256 "a2a5910fdfa5fbdec7bed7f36669e34811054135d89d542aa886d4795bf9ee92" => :mavericks

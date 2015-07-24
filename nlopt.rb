@@ -5,7 +5,6 @@ class Nlopt < Formula
   head "https://github.com/stevengj/nlopt.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "071053cd7acd4fbf738a39b9fba6559bb8b039db85de2e61fe2073b2579c25d3" => :yosemite
     sha256 "2242e6cde091f4526e468944ca1f0c2e2bec28c6b9e085e44211a84e5c4f5bda" => :mavericks

@@ -8,7 +8,6 @@ class Bcftools < Formula
   head "https://github.com/samtools/bcftools.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 1
     sha256 "e5722e46e71e0af5719fee3949b76a56cb75d94318ffc1aa68ce0d758cddcd32" => :yosemite

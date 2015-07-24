@@ -7,7 +7,6 @@ class Qrupdate < Formula
   revision 2
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "c06f83599521ac084727982e284a571331974e634a00168771dd48984937f2d7" => :yosemite
     sha256 "e5157b5d52d77c07e5e832522d983a9436a55b42ee0309046ad235e6a2f0ee80" => :mavericks

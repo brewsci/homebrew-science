@@ -8,7 +8,6 @@ class Last < Formula
   sha256 "8a25ca32585df56160214445195ce29861824ed570fe25e2344015f59fd81b0a"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "9cd5e65821807e813ca092e74c829d0603b5af3ada0a61358a00bb268aabfa7f" => :yosemite
     sha256 "d35f171412e0b6a91f2107a10241a6fd06d2426a24c6d3f18184cd7b3650cef5" => :mavericks

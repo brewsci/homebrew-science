@@ -4,7 +4,6 @@ class Gmcloser < Formula
   sha256 "5f25d428a2530f2faa4af1858f9725945e95e6ebb55e43a0cfb4545b01508d0c"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "68f334e3619c2c63e0c0ab0aede877bbfabb190a23a5e17d785704f14b4e4c7b" => :yosemite
     sha256 "4a34cc424e51e845b9894258c6a69a94ccd80802573b0b404a34e40c3f10ce37" => :mavericks

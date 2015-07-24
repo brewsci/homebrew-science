@@ -7,7 +7,6 @@ class Fasttree < Formula
   sha256 "b172d160f1b12b764d21a6937c3ce01ba42fa8743d95e083e031c6947762f837"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 1
     sha256 "aa51e0bac1e69fdcca6b7bc3ce2f991cd8ebddccda9bd017dd9d7c97c37d3b9f" => :yosemite

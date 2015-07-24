@@ -7,7 +7,6 @@ class Edirect < Formula
   version "2.00"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "2db4443d1cf282114efd531e878d6a83c4c93b2d" => :yosemite
     sha1 "448f84d3ea4fa58bb5cc2bbd46510cdaab06e6fb" => :mavericks

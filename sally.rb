@@ -6,7 +6,6 @@ class Sally < Formula
   sha256 "da706cb818fc2a3fc8f4a624d41010801ee8f96f0573b83be0c5fde886099148"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "714d4d1cd6797ae20e3590de75a5761a211d0488fc9166044bd52b3cc8c502be" => :yosemite
     sha256 "73de142db9176ebde43ab21c5ce077c8059ccf687cc0a0c205cb0682cc9eb3d7" => :mavericks

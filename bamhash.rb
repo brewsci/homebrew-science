@@ -8,7 +8,6 @@ class Bamhash < Formula
   head "https://github.com/DecodeGenetics/BamHash.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha1 "7b0a924e7d19c6f24c0a3ad3a13cb1623ef2f4c8" => :yosemite
     sha1 "e87aab324de4290409cc764eb0ca4cf35b57a7b6" => :mavericks

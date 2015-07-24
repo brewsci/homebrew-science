@@ -8,7 +8,6 @@ class Veclibfort < Formula
   revision 2
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "e981968fc514cbccfa297059be14bab5f75cf769a2da51a571c6c737e5a77a02" => :yosemite
     sha256 "3260bc42e14b071a2b02b482baed8443b35835972b5edbbae9903864cb164fee" => :mavericks

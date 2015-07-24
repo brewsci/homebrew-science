@@ -4,7 +4,6 @@ class Kraken < Formula
   sha256 "7c0ac64ee0acdcce18e16b51b636b7cdc6d07ea7ab465bb64df078c5a710346b"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "8aa0b49d43549c08ab6dbad12cf0a5e2762b5c8f020a9e57019880a5ab0aeda9" => :yosemite
     sha256 "2f2bf03509e930ee0dd6080ec81fe73dc2bc271d0adf40e198edb898e6f77860" => :mavericks

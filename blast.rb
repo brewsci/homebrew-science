@@ -10,7 +10,6 @@ class Blast < Formula
   sha256 "f0960e8af2a6021fde6f2513381493641f687453a804239a7e598649b432f8a5"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "66c5d14b4dc4b2d14b2088b78345a6eea5813fba084e5bac8bc7fe0639784e98" => :yosemite
     sha256 "f03007d42ed1286cdedd2f9dd4647f31e5f1c2463c575674b41172920c859bbe" => :mavericks
     sha256 "722ff4c4196cd81a3402734f141eb0131a1e8f1336431523b32d7108f3de260a" => :mountain_lion

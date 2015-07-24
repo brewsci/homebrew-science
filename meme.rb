@@ -9,7 +9,6 @@ class Meme < Formula
   version "4.10.1"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     revision 1
     sha256 "29400cf90467c47610fe940c4a083e1ecdc130c7f9003f9868c81768c39839f3" => :yosemite
     sha256 "f99df86939f31199bcae07306f1f628b2560a1c247c151692e6ab841532b262e" => :mavericks

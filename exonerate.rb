@@ -8,7 +8,6 @@ class Exonerate < Formula
   sha1 "ad4de207511e4d421e5cc28dda2261421c515bf0"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     sha1 "dea2a01264de5d3b918afacdd01946960f12f75a" => :yosemite
     sha1 "c2a808a60fd9f77b7d09133b2a136a3d3af05b8d" => :mavericks
     sha1 "d337e9190f4cade5fabd3cc6ba4ce33ee1615e4b" => :mountain_lion

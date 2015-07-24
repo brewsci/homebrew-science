@@ -4,7 +4,6 @@ class Uproc < Formula
   homepage "http://uproc.gobics.de/"
   head "https://github.com/gobics/uproc.git"
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "e85ca47439010ba2bbed0676569516018647b12d" => :yosemite
     sha1 "a6d9496f7271755e9104ad7fa4af59476b982815" => :mavericks

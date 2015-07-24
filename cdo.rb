@@ -4,7 +4,6 @@ class Cdo < Formula
   sha256 "9970a7d5c29a59011fea8df6977e66b7d2a5d2dc8b0723a28ac0237d6e69dea8"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "0ecdd9d6614622ef3ce5b0c209d3641affbf58f2a093fb54efc4947a4c1a1a2e" => :yosemite
     sha256 "8e85667e942f3f4dcb32c5a951077c6954c9729c1a0de373db346d231748919d" => :mavericks

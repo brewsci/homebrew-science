@@ -8,7 +8,6 @@ class Muscle < Formula
   sha1 "2fe55db73ff4e7ac6d4ca692f8f213d1c5071dac"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 1
     sha256 "0a990ee3f64ded25220d31a433c042bcdba901a73dbece2ec9ada87922f63223" => :yosemite

@@ -7,7 +7,6 @@ class Ncview < Formula
   sha1 '31685d068f158ea235654cbee118980f3f038eab'
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "564f53319cf2c8c7f1c1d1bec558ca77da0668212c32b4e5843dd8db12ba678b" => :yosemite
     sha256 "4617447e12dabd3a80da5fb49975d5f681903cf35f81bbf85665ad10d4e9b720" => :mavericks
     sha256 "0fa4015cffb9727ddf3555db2d2cab8be8b02f2d23f11fc53a0fd5bd4bc7a9cf" => :mountain_lion

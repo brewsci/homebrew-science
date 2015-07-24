@@ -11,7 +11,6 @@ class Minc < Formula
   revision 1
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "3db0b7126c24f0d21e10180bd8dd4adee8cda1b8" => :yosemite
     sha1 "0edbcf2269249f2ab56db811e17970df0b468229" => :mavericks

@@ -7,7 +7,6 @@ class Tisean < Formula
   revision 2
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "7f371b4adb10c1f3b9ac5899aecda52d05f5667941aa419422b8874305bfea67" => :yosemite
     sha256 "0e67267ae5ee08fe0855d670577e02585884f6851bf8f1fa3f1d469d32f0a197" => :mavericks

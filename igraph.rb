@@ -4,7 +4,6 @@ class Igraph < Formula
   sha256 "d978030e27369bf698f3816ab70aa9141e9baf81c56cc4f55efbe5489b46b0df"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "a0e438be157ccc4ad4658a40a5c28f468ffc865a8f4d7cde4869df655799d481" => :yosemite
     sha256 "020801feed2868e70736ce34946f00934d324774ed9de4dc28dcaa994b2ec0df" => :mavericks

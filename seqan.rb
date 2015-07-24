@@ -7,7 +7,6 @@ class Seqan < Formula
   sha1 "2413d558c2665ae813bb0a2ab3aa57e07cc00675"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "26f7482ddf437875f0254d75887e0a088c545c4f" => :yosemite
     sha1 "bfcd857c0b28f56770ea87b9cbada300c944787c" => :mavericks

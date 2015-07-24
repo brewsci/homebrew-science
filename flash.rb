@@ -7,7 +7,6 @@ class Flash < Formula
   sha256 "685ca6f7fedda07434d8ee03c536f4763385671c4509c5bb48beb3055fd236ac"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "206839e1465012091e27ec4c3c35f8872f35602b24e28d5883d59f56ab9640f8" => :yosemite
     sha256 "888410d1c714b4cd7d26231774b0cfc767bf2c89e1ecd719f5252de1e1a90c34" => :mavericks

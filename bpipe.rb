@@ -9,7 +9,6 @@ class Bpipe < Formula
   head "https://github.com/ssadedin/bpipe.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "ea55f54357111679fa9ec52b750100cfbc32c6ca" => :yosemite
     sha1 "3e35a2ea71c536dd71bccbb6ed5df44bbe843952" => :mavericks

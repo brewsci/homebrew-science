@@ -8,7 +8,6 @@ class Bioawk < Formula
   head "https://github.com/lh3/bioawk.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "ed7b2bcdf5420729429d7c30450250bd1fa4b4d6" => :yosemite
     sha1 "7093a34c9ad55cd869aaa2973bd6777c239d6734" => :mavericks

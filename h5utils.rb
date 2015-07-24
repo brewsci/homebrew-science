@@ -7,7 +7,6 @@ class H5utils < Formula
   revision 1
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     sha1 "ae6942b74ef1419e2d9acfcd6629f7004d852e4c" => :yosemite
     sha1 "38e7a2ba5070d8a5473590c5b0c8df24b5d41a9a" => :mavericks
     sha1 "0fa17a4f9d9fcc79e56332e1888fc1f88747abbe" => :mountain_lion

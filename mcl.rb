@@ -5,7 +5,6 @@ class Mcl < Formula
   sha256 "b5786897a8a8ca119eb355a5630806a4da72ea84243dba85b19a86f14757b497"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "ee751daa79605617936d8ec30f456d46d13729dbf3a43238b746683f721145c2" => :yosemite
     sha256 "e8e0fcb0da6f1177a00d4c11674824df03944c0896d1e752f513fdd94f74fa17" => :mavericks

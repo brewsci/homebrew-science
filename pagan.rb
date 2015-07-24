@@ -8,7 +8,6 @@ class Pagan < Formula
   sha1 "56e90fffcc715f1230d56babdaaaab0a2e9c9073"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha1 "c3930ba3305619525c4214c17aca22dc9ec0bd22" => :yosemite
     sha1 "9db9d0ac080e7e45c758518c596dd26b2b1e7046" => :mavericks

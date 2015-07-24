@@ -5,7 +5,6 @@ class Parmetis < Formula
   sha1 "e0df69b037dd43569d4e40076401498ee5aba264"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 2
     sha256 "98818f2f53c82461dd816b6b86cd569d05ba1d341c470d4948195397a9b1f7a1" => :yosemite

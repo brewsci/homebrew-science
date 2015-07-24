@@ -8,7 +8,6 @@ class Ssake < Formula
   sha1 "a06300a7715578774914c14e7e025c2d9174c39d"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "5cb173578454d2734be7728649731052736f5314" => :yosemite
     sha1 "8f120502cadff08b74dff6efe540c3a6f455d26b" => :mavericks

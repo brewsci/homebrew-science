@@ -4,7 +4,6 @@ class AdolC < Formula
   sha1 "6a17cb179dcbc59edc45c97b8928a2ebfa1e2c38"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     revision 1
     sha256 "5905ef5d9019122e20139820eee3a9da55f5260300d7eb9a77863837c70cfd57" => :yosemite
     sha256 "d416356ba3c00b9dadd4ef547ffcbe011c24b0a97fc9fb8ee6b0dcb283a07998" => :mavericks

@@ -8,7 +8,6 @@ class Hmmer2 < Formula
   sha256 "d20e1779fcdff34ab4e986ea74a6c4ac5c5f01da2993b14e92c94d2f076828b4"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 1
     sha256 "fea2319bdad10e37f6f0d52fcbd6706328c49f6ec28168463828e04a8deb3f7d" => :yosemite

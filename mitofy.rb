@@ -8,7 +8,6 @@ class Mitofy < Formula
   version "20120322"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "3194d6f95b55e17e7e2099583d2590df400531c82d17333ca94b1f892ea0e74b" => :yosemite
     sha256 "5d8abbd913f8881787cba13c0b22f5fe27c6e3104a1432896edfe075f866fa37" => :mavericks

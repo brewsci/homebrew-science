@@ -4,7 +4,6 @@ class FluxSimulator < Formula
   sha256 "9e4da0b4e1c21bddd9f8d0cca67bd6a55de43c08db40833ac2fbb531f3a8cff1"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "68231532c19d443f371ca74e80072e89558727eeecd0288eefd163658feb6368" => :yosemite
     sha256 "59be70eccfeff668f29d8478aba0e1a72d06d76a76b72d298e5aa8860d83c407" => :mavericks

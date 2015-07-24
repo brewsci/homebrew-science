@@ -4,7 +4,6 @@ class Sumo < Formula
   sha256 "8a6354a11717cdff2f3f247239fb55472ea57268b392e5e442777a1c05d92299"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "fc42a513a71d13b54d230ac0bc26cbc96a0aa2323ee434c4313ef28e4e1f3217" => :yosemite
     sha256 "13ab2b7e6d904ee4009162a7a8a3c6038d3aec2a48c4407a5093b5aa729ab9e4" => :mavericks

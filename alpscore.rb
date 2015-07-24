@@ -5,7 +5,6 @@ class Alpscore < Formula
   head "https://github.com/ALPSCore/ALPSCore.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "dff1ed0ffee80e639a15257abb4b6618a33f219d4420c356d2422908730b5133" => :yosemite
     sha256 "7868af8f9808fefb7d3a2a4b04aafe59dd1550a0dcd71879443607bc0284e660" => :mavericks
     sha256 "cdb246670465d0780a554d8e0bf51b70ddccea35387cc8d5bb1efc90cf5a09d5" => :mountain_lion

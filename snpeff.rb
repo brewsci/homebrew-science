@@ -7,7 +7,6 @@ class Snpeff < Formula
   sha256 "c8528928f5f206d5bb6003f0ef12e50c40d84cd69d3c2dff21df9f93704e2ca0"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "ccbeeb69dc15af0e5fd9e951a7a7a5268065e86a6d04fc0f687f9b865f9713e9" => :yosemite
     sha256 "695f0dd0f5fc4e557c79ccbc4b73a39521279c04e2df5043470863733d3a33fc" => :mavericks

@@ -6,7 +6,6 @@ class Cuba < Formula
   sha1 "2415fb0d29e06a9b86eadb7750fe79bc77dd44c0"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "ab45cb4ad7dee2a0ef6e6fb95b515dbee2ea8f6e" => :yosemite
     sha1 "0f2d8087ebe59c0d345b4aafa457023419e1656a" => :mavericks

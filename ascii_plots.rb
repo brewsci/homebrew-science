@@ -8,7 +8,6 @@ class AsciiPlots < Formula
   head "https://github.com/dzerbino/ascii_plots.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "350c067eab3921083ea7216527895fd9098bb8eddc14bfad2a6e619e24ea5e33" => :yosemite
     sha256 "3c19b4a2cd1a3d69e313f2452a7dc244354cf5ef2dcf77f27c6c6052d541aa23" => :mavericks

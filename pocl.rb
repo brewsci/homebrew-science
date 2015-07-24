@@ -4,7 +4,6 @@ class Pocl < Formula
   sha1 "d1fb03637059b5098d61c4772a1dd7cc104a9276"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     sha1 "c7191b243ea86068bfc5f63452bcbc00e090126a" => :yosemite
     sha1 "62a3bd6f6db0d6ab6b70d2f238c071f596a427a0" => :mavericks
   end

@@ -11,7 +11,6 @@ class Nanopolish < Formula
   head "https://github.com/jts/nanopolish.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "4b15a0afde48482d41582c89e8f0453622a369472b41c61ee42cd98160d46d8a" => :yosemite
     sha256 "dc95e46b3e42fd7f68ac6580857fba3ff4b54d0b3631e2b37f9a1d2786e23f2c" => :mavericks

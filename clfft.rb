@@ -4,7 +4,6 @@ class Clfft < Formula
   sha256 "d77506af774bbe8ccf4226a58e623c8a29587edcf02984e72851099be0efe04b"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "fd803537e3af8d9189852ac87001d6be4562f5a20a9d8cb11d799548dbc71bb5" => :yosemite
     sha256 "8265a5b1a675ad57825240e75cc58bf3a83996808019f6fc43cc7c55c78fc8c8" => :mavericks

@@ -6,7 +6,6 @@ class Delly < Formula
   head "https://github.com/tobiasrausch/delly.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "2abe5ca47e8e9de6bd7a38912063841959e6f0ac9ff4bf35ddc1f74e626f009d" => :yosemite
     sha256 "32bf93246a9b613221d5c4144dc7d42f1e85f2b920c30b02f639597a3688f6b8" => :mavericks
     sha256 "f74527a577cf146ac7b72d1f23c8105112fc57c207820dcc4cb08589624c28cf" => :mountain_lion

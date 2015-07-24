@@ -7,7 +7,6 @@ class AbyssExplorer < Formula
   sha1 "f9b41c5c9d458cf46399571de9c6070b04a2e8b5"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "054c74139e044f50d8bf05c7a08b2a8c8628c700" => :yosemite
     sha1 "8f12e9d104f5c43f87690d81230cd922e1766aaf" => :mavericks

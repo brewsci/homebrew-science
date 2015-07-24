@@ -7,7 +7,6 @@ class Lighter < Formula
   head "https://github.com/mourisl/Lighter.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "d643e55d2b6b165eb85da63363a199920e32cace" => :yosemite
     sha1 "5a54e5e535c1e3f5662c6b009c33c56eb77c3145" => :mavericks

@@ -6,7 +6,6 @@ class Trimadap < Formula
   sha256 "553069d81004b120d9df7d6161edce9317c0f95e5eefe2ec3325dd4081a90acd"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "8d249f2eab9c8ab60062c86863e6d50a200544f5ea04ba680c68d2587812284d" => :yosemite
     sha256 "f2feda18417156d7ebc03750267caa85a8375605eaa7b0941e7c7b3771379cbb" => :mavericks

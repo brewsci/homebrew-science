@@ -2,7 +2,6 @@ class Htsbox < Formula
   homepage "https://github.com/lh3/htsbox"
   head "https://github.com/lh3/htsbox.git"
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "4a0b008515d88edea4307d336da15b9950a6e170" => :yosemite
     sha1 "26662eaaea1233820256298ba6788fbc3d5dc1fc" => :mavericks

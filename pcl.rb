@@ -47,7 +47,6 @@ class Pcl < Formula
   end
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     revision 1
     sha256 "25768ba908632c255f145863c059f4d1f19b0afbbc61be02b111a245d87123af" => :yosemite
     sha256 "16c17967a634d7dd333260831e17f27b789ad9974386e5fe24afa84c4660c2a4" => :mavericks

@@ -14,7 +14,6 @@ class Cap3 < Formula
   version "2015-02-11"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "61329ff5526879a0320d501ffb4af26c59e49c1566d591367bb64f242a28893d" => :yosemite
     sha256 "9080e7cf4f6b244361b01add77a5498d297c186ca1012b17455a2cdb71d568a8" => :mavericks

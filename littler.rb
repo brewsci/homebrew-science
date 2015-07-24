@@ -8,7 +8,6 @@ class Littler < Formula
   revision 1
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "1e5af583921af3996ad8af8605306a1dcd1f0e6d34d4e3b1b24e034e24bb12e1" => :yosemite
     sha256 "9082a86dadb7abb648c00c8f6ce811662de8b3ab0863c67e8be8e9e2fe354a8a" => :mavericks
     sha256 "6b22b34a9b733ce90ee62f90191ccc17566000d9bfe2e80161bc227aa1e63b66" => :mountain_lion

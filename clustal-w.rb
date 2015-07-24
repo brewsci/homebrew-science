@@ -6,7 +6,6 @@ class ClustalW < Formula
   sha1 "f29784f68585544baa77cbeca6392e533d4cf433"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "60bf60642a075b54773032eca33594f01cd92a4c" => :yosemite
     sha1 "38c7402db59638e80c44384c94106266bdb427e5" => :mavericks

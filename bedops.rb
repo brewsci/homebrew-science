@@ -9,7 +9,6 @@ class Bedops < Formula
   head 'https://github.com/bedops/bedops.git'
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "ac1a745078141fc3c14950ba1bd27b15cc886ac5290942f03572d8f76b127a8a" => :yosemite
     sha256 "24f16e72a7f1401a67e50c851bcc02ea1d694fc08092331ebc611010acc24085" => :mavericks

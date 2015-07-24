@@ -4,7 +4,6 @@ class Armadillo < Formula
   sha256 "3673fc7cbeefca826108efe7c36e21322f259809f874c161ca284a114fb7f693"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "b7ba1ac68d71bc8e91e2460d8f24174cd45df10488310f5625b7697c07f0c25a" => :yosemite
     sha256 "4972dd99d18c8fd9336b6ffc4434c70b6cd5a5c52224c0764eaee2c546e7440e" => :mavericks
     sha256 "cdbd4f24faf7d05b5abb7230ba4df222d5aeb853b69fb3596999e7a5b1e7f0c5" => :mountain_lion

@@ -4,7 +4,6 @@ class Mrfast < Formula
   sha256 "dc040b1517945f900cbc9d69ed4528573f681bf723ccd1431b47cb5c22b2cdef"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "2a8a3f7c2f7f336942ddfa2efae0a2a7fb2daa353258390af202887c87de944f" => :yosemite
     sha256 "4443cb3e4ff648f90729ee779b2ea735add1814a1b44d760afb41ea91c78297d" => :mavericks

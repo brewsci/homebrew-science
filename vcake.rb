@@ -7,7 +7,6 @@ class Vcake < Formula
   sha256 "ce0a85b422d17b95b5520536ed98c90c0691463371a07fdbd0af753658fdf9c3"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "e3de093b83befbb9ba2e479bc789d15bfbd493f94c826ba92c5207e2c7fc9718" => :yosemite
     sha256 "9ee7af972691069240da61d5ef742138ba65b6cc880729b579bf42ed5eb4a376" => :mavericks

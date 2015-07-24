@@ -7,7 +7,6 @@ class Hopdm < Formula
   revision 2
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "92d3028eccabb89f9e49b738d7efad65bdfdc8a9fe30440313b796b3757e6788" => :yosemite
     sha256 "641edf265659632e619cfea730170f62260cb38fbc84957a903ebf0abb2993c7" => :mavericks

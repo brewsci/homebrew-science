@@ -4,7 +4,6 @@ class Proverif < Formula
   sha256 "7132729a7674c8c71414d0f0d9a86f6cb4aae7552598a8cd8b0239673521a991"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "60d688d67296523154187081ba6bc046481f0995eb2253fff34cf1416bc7db1b" => :yosemite
     sha256 "bbca3ce1cb0a4d0f4ebb75e9d3cf5758beee768dee481d3571e97b32979b6687" => :mavericks

@@ -6,7 +6,6 @@ class InterViews < Formula
   head "http://www.neuron.yale.edu/hg/neuron/iv", :using => :hg
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "450c67bb59269255d149bc07debe9b76e829e4715063bd972a4b73cdbcdb8d1e" => :yosemite
     sha256 "bdb29d9c03e11784b04b22463c581cbe5a01d63f8125800acdd76df74e85630f" => :mavericks
     sha256 "9df2b7d27735b76e3a88e01718a430ad29118f167a57745ba3288d6a6a6fd2f4" => :mountain_lion

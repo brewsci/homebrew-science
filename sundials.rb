@@ -4,7 +4,6 @@ class Sundials < Formula
   sha256 "9935760931fa6539edd0741acbcf4986770426fd5ea40e50ad4ebed0fc77b0d3"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     revision 2
     sha256 "e7ba57874cf0857e4608d57053854533fd184942bc0f65e0074f2f6132a25d00" => :yosemite
     sha256 "6f320bc63ca42d5be05aaef4ff1aaaea43d553fb25c806d9f674aebd3b5cb2a4" => :mavericks

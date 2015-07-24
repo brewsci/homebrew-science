@@ -5,7 +5,6 @@ class Dgtal < Formula
   head "https://github.com/DGtal-team/DGtal.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     revision 1
     sha256 "3a315b3392ba9c91b69cfa30b6bd7fa7d9673c6b511aae64bcd69fb521d6ff7c" => :yosemite
     sha256 "7d7045432737c74713a2948892c9fefa2225270189db6bc50232a08de522158d" => :mavericks

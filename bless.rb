@@ -8,7 +8,6 @@ class Bless < Formula
   sha1 "95082ceda46ea01ee6b8caa10718de00901a04de"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "e5a148a6174d4958e212155c94d7333f08ee997f" => :mountain_lion
   end

@@ -9,7 +9,6 @@ class Fasta < Formula
   sha1 "184acbac526ebdb3cad0009d87bd2a68b4756a03"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "752acd5b851cb56d4d42468a3e0257aa8771a5a3" => :yosemite
     sha1 "ef93a8f05f798a36f04cdd5813668afab612bbff" => :mavericks

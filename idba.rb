@@ -9,7 +9,6 @@ class Idba < Formula
   sha1 "6dcbd35281c2bc46b8df550a369952a9138e92a2"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "ba49a3b357e8406997b67350f92ded9005675e25" => :yosemite
     sha1 "0980af9b110108e391d151f8c07cd2be4986e455" => :mavericks

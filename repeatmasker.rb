@@ -9,7 +9,6 @@ class Repeatmasker < Formula
   sha1 '9b00047639845bcff6dccf4148432ab2378d095c'
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     sha1 "c46730ceac418dfa4ed61989c944ca64ab224433" => :yosemite
     sha1 "f037a6b32368ed09cdfc2e639d302dd5828064af" => :mavericks
     sha1 "ad7aefdfd3b9393cdb12974647b52575a76f65da" => :mountain_lion

@@ -6,7 +6,6 @@ class Xraylib < Formula
   sha256 "61a7c7fd0a911562151422bc6ca77df8beba37ec4e337765cf60dfbe1e04a1e3"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     revision 2
     sha256 "363c11159efb91d7e4d0756047d5d7602835ac29eaa9a4ba5356efa1c5ff6a56" => :yosemite
     sha256 "6955f883661c1d1b95cedd856728dd39bdafb76c96a62e36ae98956314d80d0f" => :mavericks

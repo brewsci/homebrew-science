@@ -10,7 +10,6 @@ class Augustus < Formula
   sha1 "19f40b3b834aba0386646d9cb8120caf3f0eb64e"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "4950105f9950e28ea862bc0c3158707ba2d41f31" => :yosemite
     sha1 "8200186f17826e50584c67cd58ed0bd0cf5db15f" => :mavericks

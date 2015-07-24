@@ -7,7 +7,6 @@ class CeresSolver < Formula
   head 'https://ceres-solver.googlesource.com/ceres-solver.git'
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     sha1 "f63f940e4d950fde0c231e0ea431bd2a0834d1d8" => :yosemite
     sha1 "21afb7720c98d4961d66ca517f31ccbc9037fe2c" => :mavericks
     sha1 "04b4f8954e4dcc4284138cdaf5837cf4575a4c20" => :mountain_lion

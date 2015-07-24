@@ -5,7 +5,6 @@ class Platanus < Formula
 
   version "1.2.1"
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "ca6b30cad08fdc5f14d761c0ed875cc3aafb3c1150d6e299b78e0461ced2af4d" => :yosemite
     sha256 "3324c9c9ab3138b04c2f6d1b33627015b3610f935dc594342d484c8dbb3cf4b4" => :mavericks

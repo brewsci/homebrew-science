@@ -10,7 +10,6 @@ class Bedtools < Formula
   head "https://github.com/arq5x/bedtools2.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "5f1fcc24f01e23dafb14a492b276f749f54be2c64bf1570eb4410d170043f649" => :yosemite
     sha256 "ecae0fef48e1a28abb1acec96408cd4c3236e52da188daaa9f2eaf8368526b44" => :mavericks

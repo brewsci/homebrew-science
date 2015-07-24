@@ -4,7 +4,6 @@ class Nfft < Formula
   sha1 "9338cb0afbd5f4ddaf2bc5f9be5329ad61dc2ded"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "b784629c946fc3d4478ae58cd731a26805226a00" => :yosemite
     sha1 "e5803723bb732944c9b3806f4cebb58a8a8d6244" => :mavericks

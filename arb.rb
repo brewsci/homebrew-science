@@ -5,7 +5,6 @@ class Arb < Formula
   head "https://github.com/fredrik-johansson/arb.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "f197f70e77fef5508015282639034df17e14f99e76c9d3e80376982529fce302" => :yosemite
     sha256 "a25d7f83620b4e73410e578c40a436ec9113045ebcfecea337a8416b87cd81de" => :mavericks

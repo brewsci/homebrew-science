@@ -5,7 +5,6 @@ class Ckon < Formula
   head "https://github.com/tschaume/ckon.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "5e314bc8906e51866e3c210561987983a51ae14d" => :yosemite
     sha1 "d73d9cafbe6d405cbd295171ff45676db3ccb394" => :mavericks

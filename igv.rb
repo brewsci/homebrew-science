@@ -8,7 +8,6 @@ class Igv < Formula
   head "https://github.com/broadinstitute/IGV.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "e1f244ca417e6bb05f395eb8c0c02ac7b3e15afd5e30aa8f702af4a8e5c51841" => :yosemite
     sha256 "6dd6238c4ccf6100e676dbca9d7577662784a5ed9f21c57f272b52fe8d6feb50" => :mavericks

@@ -7,7 +7,6 @@ class Quake < Formula
   sha1 "5ee22ae15415b97ef88e55f0dc786d07ed7aff7b"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "5c8f0b65e4a4a53684d9eb79a9e3f49dd2192676" => :yosemite
     sha1 "aaab051aaf0a8d2459ef6a5c8299594cf68977d0" => :mavericks

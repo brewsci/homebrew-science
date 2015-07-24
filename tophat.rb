@@ -4,7 +4,6 @@ class Tophat < Formula
   sha256 "547c5c9d127cbf7d61bc73c4251ff98a07d57e59b3718666a18b58acfb8fcfbf"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "73296a1c7563a896cd80448424bd2406df4c28961d0ca4911b455602bfbfa829" => :yosemite
     sha256 "262b03db609f12566948e21ad2cf38c7b9c272650d707b49b1630577cf815979" => :mavericks

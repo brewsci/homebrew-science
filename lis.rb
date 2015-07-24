@@ -7,7 +7,6 @@ class Lis < Formula
   revision 1
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "0c3ee087d95296e10436630068382a1f584c74b8" => :yosemite
     sha1 "bee267db184712cd22f6c581d55bfa73ca26c79d" => :mavericks

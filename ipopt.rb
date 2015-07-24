@@ -6,7 +6,6 @@ class Ipopt < Formula
   revision 3
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "129d9e418612d9771f509d1c3c7c349fc23e6ca9955ee2af6a38456660a4690d" => :yosemite
     sha256 "afa33eb1ac04988d72eb0a01874df8aaf4c0b394efee678457b672bab69910c1" => :mavericks
     sha256 "f705d7a6a0f743a1618baa28754d4edd44bba3ddd76d675f8f3118745157cdc9" => :mountain_lion

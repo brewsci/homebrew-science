@@ -8,7 +8,6 @@ class Andi < Formula
   sha256 "3bb5a114995c50d800d9d7c4cd984f259b18f785a6627f81eceee47481a4f1d3"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "caa3c95977c845f8e3635d342a6c07b43e1e26505b68ab1d817aed7b7f664f31" => :yosemite
     sha256 "b1cedba1d1807db3811f25e06f6942e51aa86a1d11c8645892a9a43bd86d4203" => :mavericks

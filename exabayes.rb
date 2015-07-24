@@ -5,7 +5,6 @@ class Exabayes < Formula
   sha256 "23e00b361a29365757e760b1acbb9d71744d2be5d9c450f8afdfaf5594d8994f"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "82489020ce980129b4bf9e60f04ae2369e622fc320c3ff79f3db11753e0234d1" => :yosemite
     sha256 "f167fbaff7cf7e468903f4bd2d329c6d457fec135b6ea80c1ce3364f6d32a5ab" => :mavericks

@@ -5,7 +5,6 @@ class Paml < Formula
   version "4.8a"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 2
     sha256 "37becefadba2dcd90bf6f9bdc7c100d5558e795cd3eb8d038c33bdf6bce366f9" => :yosemite

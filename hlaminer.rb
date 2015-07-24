@@ -8,7 +8,6 @@ class Hlaminer < Formula
   sha1 "d1c97731885bc7a12f67027e0e0b01c8bfb03bd2"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "d5a92d02d1b447cfa49292351867059408bb07d4" => :yosemite
     sha1 "764cc41b5fbc89ab28df3bdd0f1149d125a0d168" => :mavericks

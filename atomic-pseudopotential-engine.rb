@@ -5,7 +5,6 @@ class AtomicPseudopotentialEngine < Formula
   revision 1
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "f1b0b6247cd971edbd15a1ea398d1db01fc79ea79ab5c767ffb134274c82c444" => :yosemite
     sha256 "2dd32e82c7215acd30fa2ea79567507f7f080d1a02355f744d661184815e0683" => :mavericks

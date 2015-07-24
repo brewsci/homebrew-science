@@ -9,7 +9,6 @@ class NewickUtils < Formula
   head "https://github.com/tjunier/newick_utils.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "84c2a07c1dc11ad92a926b74cf59cb437e86329e" => :yosemite
     sha1 "3b1d80495a15915b62e084ae130209c065d73048" => :mavericks

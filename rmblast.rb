@@ -4,7 +4,6 @@ class Rmblast < Formula
 
   version "2.2.28"
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "7bbdd22297a0c56ba26f9a0a3df04119736fd232" => :yosemite
     sha1 "e440f190b9a9ff114011dd82b4760874540077e4" => :mavericks

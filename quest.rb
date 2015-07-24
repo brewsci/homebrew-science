@@ -6,7 +6,6 @@ class Quest < Formula
   sha256 "4a1e75798192938b2bc709140181b16aa83e7add60471735b4d84e2c23679ac7"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "d6a7bdafb4229d4bca2837884c9ee50a073f7bfce181b0a34db94cb3c3455885" => :yosemite
     sha256 "68dca3f3bcb940b146768e18579dfbd7969ed3a6626f0e19bdf3fb1257620b53" => :mavericks

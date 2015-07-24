@@ -6,7 +6,6 @@ class Genewise < Formula
   sha256 "240e2b12d6cd899040e2efbcb85b0d3c10245c255f3d07c1db45d0af5a4d5fa1"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "72bb8ed394cc810e66f2b2084ffbe90675a0e543cf1cf87cb1e2e3f40fb07aed" => :yosemite
     sha256 "e60789a737289730fc125edc53d04fa3e5829b9f199a3f59db9903601e2dce98" => :mavericks

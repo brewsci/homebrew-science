@@ -5,7 +5,6 @@ class Statismo < Formula
   head "https://github.com/statismo/statismo.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "97cd9accdb47d8187b9da59ff50df6ce9be04b0079429fd836f5eedc9264077f" => :yosemite
     sha256 "bde700f313bf3deae9f65fffc2e29851e5cac4adbec51278255f78a1a1b810e9" => :mavericks
     sha256 "1a628acd7e8df42a9fe9c109fa604ac51630d027a8e60cbd04144392334c4863" => :mountain_lion

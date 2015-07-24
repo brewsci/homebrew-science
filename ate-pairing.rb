@@ -7,7 +7,6 @@ class AtePairing < Formula
   head "https://github.com/herumi/ate-pairing.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "f7a8169f159ab719bdee92687fc5ccde8173ce20" => :yosemite
     sha1 "5b7964a28e436acfb7f2f4eda408f7026cd84b66" => :mavericks

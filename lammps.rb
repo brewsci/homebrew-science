@@ -10,7 +10,6 @@ class Lammps < Formula
   head "http://git.icms.temple.edu/lammps-ro.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "3f66831fed5f14b9f122f8ef54ec6d25f82e95fb6731bbfae0971d9b856ffe71" => :yosemite
     sha256 "11887bd0166669fbff851963e3fa47dac112be2860a6fbc68cc5883ff3f8f333" => :mavericks

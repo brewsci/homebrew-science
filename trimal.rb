@@ -8,7 +8,6 @@ class Trimal < Formula
   sha256 "cb8110ca24433f85c33797b930fa10fe833fa677825103d6e7f81dd7551b9b4e"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "2331c8c379260be28d7e5257aa3c5e3247c6ed2559d128ed203de27dcfa8f687" => :yosemite
     sha256 "0c7b37a4c4e046101f4d65906502006b2bc10abaeb27e2917c9f476de72ad9f6" => :mavericks

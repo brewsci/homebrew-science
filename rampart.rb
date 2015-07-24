@@ -13,7 +13,6 @@ class Rampart < Formula
   sha1 "bfdd0271b37bfb1a308babb1f328bfcbc7cb3841"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "fbb04392b0a279c71e06f3077506062f8c888c57" => :yosemite
     sha1 "84c0684ba916b0ea9858d53da512e7fcf3b6d7ff" => :mavericks

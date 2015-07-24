@@ -4,7 +4,6 @@ class Wcslib < Formula
   sha256 "a0822088ddd128618b5fbbbc1787f5a80568da4f4f53ce76545c9cf1f4140632"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "b041274c39a79f7043f883ccc5e914e8bb66c35084a4cd17fa8b528faa205880" => :yosemite
     sha256 "c8595299a62857f9ef20221d664e71093bc88ab8334c331075e67226f8717933" => :mavericks

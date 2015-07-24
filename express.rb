@@ -2,7 +2,6 @@ class Express < Formula
   homepage "http://bio.math.berkeley.edu/eXpress/"
   head "https://github.com/adarob/eXpress.git"
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "1ab122db4fa3af3e8e9d93e49702c1a1aa75a249" => :yosemite
     sha1 "3e17818affce1700e88a1d0934be13d76e4241ae" => :mavericks

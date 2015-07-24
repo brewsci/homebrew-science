@@ -6,7 +6,6 @@ class Bamutil < Formula
   head "https://github.com/statgen/bamUtil.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "3e59cc21fe42f8399875c07f4797f6eab76fc5c5" => :yosemite
     sha1 "18fd138775828456a819567b8b57e97999d8cfb9" => :mavericks

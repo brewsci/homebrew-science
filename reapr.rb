@@ -6,7 +6,6 @@ class Reapr < Formula
   sha1 "4d2a8856a6d19d259aeec8591a024ba598003acc"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     sha1 "f31e1933d3472e02798db71c0a556e8700fadacb" => :yosemite
     sha1 "07fe3f9f162afa5908018ef0501c0e59aa2d545f" => :mavericks
     sha1 "695744fc78fd1b5dde72bcad87e80c3606c853c2" => :mountain_lion

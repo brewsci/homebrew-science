@@ -9,7 +9,6 @@ class Samtools < Formula
   head "https://github.com/samtools/samtools.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "de1ad3b2b528b175bdfcf0e78ac923da8187c7de" => :yosemite
     sha1 "37fca3fb8113838ae9178c2fc17043e9e3e42791" => :mavericks

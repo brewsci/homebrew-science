@@ -17,7 +17,6 @@ class Opencv < Formula
   end
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     revision 1
     sha256 "d21eb0ec17c67f071ab36a35567247a66b5f2b6a3244a811a6bd329bf3081109" => :yosemite
     sha256 "1735be17e9a31f78fdde4a0899b597ff7ab3a6dd5887dcf605c9e638870a8a86" => :mavericks

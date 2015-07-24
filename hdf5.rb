@@ -4,7 +4,6 @@ class Hdf5 < Formula
   sha1 "3c48bcb0d5fb21a3aa425ed035c08d8da3d5483a"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     revision 2
     sha256 "167816e82ce219b054419289c29debb70638ae25d8013c53485d1e31868e3905" => :yosemite
     sha256 "54de74a2a43c4802ab5c94f406655af72058f707366799611a5d7dfb8194952e" => :mavericks

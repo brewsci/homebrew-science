@@ -7,7 +7,6 @@ class Mummer < Formula
   sha256 "1efad4f7d8cee0d8eaebb320a2d63745bb3a160bb513a15ef7af46f330af662f"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 2
     sha256 "6aa44d5a02b5e39bb7858581e6380954e9ea7049a2b0767fdae6ca4069d79e16" => :yosemite

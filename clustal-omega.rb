@@ -7,7 +7,6 @@ class ClustalOmega < Formula
   sha256 "0ef32727aa25c6ecf732083e668a0f45bc17085c28a5c7b4459f4750419f2b0a"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "2e1ee794f4b1e2c7875f2bfb053281227a068a9accfcb9d3988b810a84b32bc3" => :yosemite
     sha256 "1d00c72cb42d76b62a58d9cb760ff8a0f74603934e7ecfb86be85f6f98a75439" => :mavericks

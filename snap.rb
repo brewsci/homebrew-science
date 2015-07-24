@@ -8,7 +8,6 @@ class Snap < Formula
   sha1 "0ff0612ecb7040dfaa58b4330396d025abc0b758"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha1 "c7973c56253ee5bd6208a563aad10004e82fe220" => :yosemite
     sha1 "4ff738f010788c7cee6eba6a3e1a571d970239bf" => :mavericks

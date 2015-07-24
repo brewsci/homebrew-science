@@ -6,7 +6,6 @@ class Readsim < Formula
   sha256 "44ff24eb2e3127bfa717ba65857ecd5380303b6c2f4067d3b4b30a41eb790bb3"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "0b3103ce65332c1fe781d6a52a3ac46d89c99d0d87a8e12f872c6d50ee597c9e" => :yosemite
     sha256 "c663b3d74d092eb246a1e6d23bc1b466fc10b73bd89c621510c5155ff2095516" => :mavericks

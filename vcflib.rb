@@ -8,7 +8,6 @@ class Vcflib < Formula
   head "https://github.com/ekg/vcflib.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "d9453aa105682ac17539efd11983b2d7018327cf58a6c19807613a8f0b2d959b" => :yosemite
     sha256 "aaebf992cb9fe3a63e4551126f99d2a44ff17e3321a787fdac5de5cc8d5db41f" => :mavericks

@@ -7,7 +7,6 @@ class Glimmerhmm < Formula
   sha1 "e85b28db2cc2906d7ecc8b93963e6e9163ad4950"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "3a0c44274577c5c287c86ee14da88947efdf9950" => :yosemite
     sha1 "dae57d85c6a4b06f603d711ce2bc403191d7a542" => :mavericks

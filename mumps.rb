@@ -6,7 +6,6 @@ class Mumps < Formula
   revision 3
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "2fa9603ef3fe7936a39dbe5443acc7a647253ec1c0370f94c14a5e160ee6d7af" => :yosemite
     sha256 "1f58248376b2ed17d41c50709edac5f4ee688751f1d12b6d96a7da91a04c86b4" => :mavericks
     sha256 "ec33985bc13b1a5cafa88d7b509348fb1351af6da4c6c2a2deb80b0e7a63f657" => :mountain_lion

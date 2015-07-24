@@ -8,7 +8,6 @@ class Slicot < Formula
   revision 1
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "e0e4a0778475c65552e3da2891df7b11b198e5e0" => :yosemite
     sha1 "c92aff9daacbedaa31a71abbb0d38911e7fc2f2d" => :mavericks

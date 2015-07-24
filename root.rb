@@ -7,7 +7,6 @@ class Root < Formula
   head "https://github.com/root-mirror/root.git", :branch => "v5-34-00-patches"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha1 "94980703c0d054341efc6e9fbb51affbd8f93190" => :yosemite
     sha1 "34b2ddd5e9f9432f6f327b16cbddcce19053adb0" => :mavericks
     sha1 "351cf0629eea5352640e264de2b9e1dfe6f12e63" => :mountain_lion

@@ -6,7 +6,6 @@ class Wcstools < Formula
   sha1 "05d97277fdfcabd40f926b0b7ac66b0f434497f0"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "e33240bd4f007854cc524e63bb16632788e78d6e" => :yosemite
     sha1 "388f01432720ad17b31e6ce4d1c726346f785d22" => :mavericks

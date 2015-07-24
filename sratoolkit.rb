@@ -9,7 +9,6 @@ class Sratoolkit < Formula
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "29ad5dd3cb04e9a1ba3b465d8412f3dd6043ec1f13b3046b7e747febb6f935b5" => :yosemite
     sha256 "0573f01ba736dff7d6d57309969e33c2783123764df7372dd24eed3c27e37d7a" => :mavericks

@@ -8,7 +8,6 @@ class Kmergenie < Formula
   sha256 "319db3dab3837347d710088ec203673e14b6751fa10d193f9ecf3afbc06e9d1e"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 1
     sha256 "f473e4557bb61ed1080ff14bd01e98e9ff0efe018b284d44fb0e25ca8b72a3dd" => :yosemite

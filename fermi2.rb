@@ -5,7 +5,6 @@ class Fermi2 < Formula
   sha256 "1308ce95505270b1aac8ab4d115d19809eebd3ba0e2ee18a66c90c4c78dd2366"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "ca79efffdf75b8943314d713357fccef22c2d66da853cf91457fff66430e78ac" => :yosemite
     sha256 "e3c3944c79d7f857ac5a8a67ec778d4e199ef85b4d18b56314d84eecb0404645" => :mavericks

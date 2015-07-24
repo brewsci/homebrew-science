@@ -3,7 +3,6 @@ class Proteinortho < Formula
   url "http://www.bioinf.uni-leipzig.de/Software/proteinortho/proteinortho_v5.11.tar.gz"
   sha256 "25f3374854dfeefaf29d701e85d60013fc2b4a035257c4b0ef0d8ba304ac80cc"
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "ecfd27b026b742c4b48d64e5b727b8f3dcb6207e905d27406a8d58205bfed3a6" => :yosemite
     sha256 "c90ddf8615f5781064c2b7886ad442d4524009a4c92a65d2c35f8a573b01f3e2" => :mountain_lion

@@ -4,7 +4,6 @@ class Libsbml < Formula
   sha256 "6429188b689b331b0b8f2c8b55b3f2339196ccd4c93191648fa767e1d02152a3"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "1c13663adfed5be986dc8f636e0c51aee2281bd4b47ce8724457a1257091f06b" => :yosemite
     sha256 "35a417bfedffc2282cc89b96bb61ee2f6ad2a8a85f86ef3e98041a9dd3920d45" => :mavericks

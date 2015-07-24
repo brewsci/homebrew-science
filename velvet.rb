@@ -3,7 +3,6 @@ class Velvet < Formula
   url "http://www.ebi.ac.uk/~zerbino/velvet/velvet_1.2.10.tgz"
   sha1 "216f0941609abf3a73adbba19ef1f364df489d18"
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "ecf378cb7ed8b9b566c3f0f1049083c6b83ea4af" => :yosemite
     sha1 "ebf96b199d156ed982d4adbf8609fe664db7b9a7" => :mavericks

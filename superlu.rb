@@ -5,7 +5,6 @@ class Superlu < Formula
   revision 2
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "55c85e1b687b25cd43473499ea977269d9ec40fde4ef42a456ce8b6c5efa7287" => :yosemite
     sha256 "98be45e96305c0d49578b6d9938eed1dc3df49f4144f44dbe904e5faaebe3159" => :mavericks

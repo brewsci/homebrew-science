@@ -8,7 +8,6 @@ class Artemis < Formula
   sha256 "f368714105646cfc31460cfcfb72b8b33490c7684ee5323d7dd181060039c80f"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "f820d56e5b383d2c9b8d4525229034aea0185e195104be6cc6ad2036bf31a7b0" => :yosemite
     sha256 "49bd7b5ad6c279fd05ceb484ad75386284ecf5f9e4c520899b6f589d3d2af46a" => :mavericks

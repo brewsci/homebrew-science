@@ -7,7 +7,6 @@ class Blat < Formula
   sha1 "a2cae7407e512166bf7b1ed300db9be6649693bd"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 1
     sha256 "7e1ae73487db28bca75585482ccf50f206468f714365730af8dae7cc1c892ef2" => :yosemite

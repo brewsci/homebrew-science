@@ -9,7 +9,6 @@ class Nxtrim < Formula
   sha1 "6502be8546b8d0ebc0120cc2791aefd26471e8a4"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     sha1 "7a4bb42527550571a9ba7597a20dbf83174586cf" => :yosemite
     sha1 "37593e250fbde7b93bd107dec77e12cacb51cd11" => :mavericks
     sha1 "f9db6b90a23cab1befc9b317ea8f8de8ad799cb1" => :mountain_lion

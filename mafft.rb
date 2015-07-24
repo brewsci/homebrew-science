@@ -7,7 +7,6 @@ class Mafft < Formula
   sha256 "0bc78111966d9b00ddfa14fa217fa5bb0c593a558674a13f02dca7bcd51f7fcf"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "ca251da2e73a13e9598ab25eb528c4305ceb14af0652c90ebb76074990c4e2ec" => :yosemite
     sha256 "ce06f63d9cd72f5b0faec1cf517d857151a5e061e25a32e6f1a21fb67153c60e" => :mavericks
     sha256 "5c9b9ab39a0e54e180a2fc3e365280e529b4c931a069661232cc4a4dceb0782c" => :mountain_lion

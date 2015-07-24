@@ -8,7 +8,6 @@ class Beast < Formula
   sha1 "47a5aca20fecf6cb61a301f8b03d1e750858721a"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "e1357fad70b3a51ce734a705667f2e9d16bdddf480bf340559cdad0bbcaacb65" => :yosemite
     sha256 "c411831dc26441e4b5bd92dc1926fbd8171d5c8d26d17239f2ce1e9604f67f8b" => :mavericks

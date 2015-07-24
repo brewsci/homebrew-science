@@ -5,7 +5,6 @@ class Vips7 < Formula
   sha256 "6d001480b75a20d04d44869fb4cb93e4203e73ecd865dc68b1c11f56c9e74baa"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "990f0754c31b59f6c1717df32b51aab982fab1b94b050b9e76875f460c36aa08" => :yosemite
     sha256 "65abd59e09cea2dec766ad72feb9ab8fa30b9797856e2a959385c2526617d45c" => :mavericks
     sha256 "5eeb413ec0895891058c0da0f2fb1a437f7dad792a9cb51d8e6a45d4e1fb5bee" => :mountain_lion

@@ -4,7 +4,6 @@ class Scamp < Formula
   sha256 "cbcd57f5042feefa081dc0c5ff07f7f50114a7ef41e79c060ed163caae119d41"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "4741e1c8913f2ae595feb6b7f1bf1893db735ebfbc894b7103be8d558ab9a174" => :yosemite
     sha256 "cdeb2f05a331c8e054ecec9871c331c62085100306fbf2a3153cd84042ad5c9e" => :mavericks
     sha256 "3f97a48db06832ac3d1ce8a367d0b37cb4dd2728cc053d7f98a38d7cc5e9f08a" => :mountain_lion

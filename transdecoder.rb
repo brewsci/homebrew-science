@@ -8,7 +8,6 @@ class Transdecoder < Formula
   head "https://github.com/TransDecoder/TransDecoder.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "559044bf89f298ede284e3a9f72ef0fc7bd6c912e2b5ee753ceade016370d704" => :yosemite
     sha256 "fae619c6f41eec60f5bf1bd76af2b110253be8fee275c7610c3bf7ac80873b02" => :mavericks

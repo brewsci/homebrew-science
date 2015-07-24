@@ -7,7 +7,6 @@ class Samtools01 < Formula
   sha256 "500019b4d1886ad995513d5ce8b413b14b51f16f251ce76bc0b35a446b182a47"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "acd7f43c7c12af030a02831aaead36711a41a4bda60fe4a406020b72e77cec3a" => :yosemite
     sha256 "fffd6868c552e316ae0055d9a695aea5107a5303e88f313360c34ef11ef40097" => :mavericks

@@ -6,7 +6,6 @@ class PicardTools < Formula
   sha1 "af24555cf6c673ab95a042fae322a189bee05326"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "69f0e158f58319b32cf81c13d4c1b3c08ac1364c" => :yosemite
     sha1 "04d7d6625c93622d98849f1b2f8cdb1a96d5839d" => :mavericks

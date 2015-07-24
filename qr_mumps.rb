@@ -5,7 +5,6 @@ class QrMumps < Formula
   revision 1
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "71487d708b396d794bc9b7b6c1584a74f1a466afbc6814832226807cdf691ae0" => :yosemite
     sha256 "c1123bf4096116d03d511de1bebaa894df84cf043ad8f82600adb89e3bb95acf" => :mavericks
     sha256 "7eaca6620c9215fa69b415a832c3086916180451bc4376853cfe8b5e27c4309e" => :mountain_lion

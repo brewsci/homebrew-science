@@ -5,7 +5,6 @@ class Pymol < Formula
   head "https://svn.code.sf.net/p/pymol/code/trunk/pymol"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "f9508e972a15a881b346222545ad9a63f1ba838066fe72ca57ddf366965c80fa" => :yosemite
     sha256 "e9813a889011afcdfd61ecaf5b581e5408461b6d14028e646406bf706270d7ae" => :mavericks

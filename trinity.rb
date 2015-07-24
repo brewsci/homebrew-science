@@ -8,7 +8,6 @@ class Trinity < Formula
   head "https://github.com/trinityrnaseq/trinityrnaseq.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "f9541b1af75e7159212656ca4150d1a31463731f1fd750ca402f902709436c75" => :yosemite
     sha256 "519e843cd74610987b2fa6757a17b1d565d147904ceb0c0287aec1eafad90bb7" => :mavericks
     sha256 "f79aeab456fad74f45276ff723e05c14783b81083cc87ff18fa72209e7485ade" => :mountain_lion

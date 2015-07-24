@@ -5,7 +5,6 @@ class SuiteSparse < Formula
   sha1 "2fec3bf93314bd14cbb7470c0a2c294988096ed6"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 3
     sha256 "a8a12ded1414f3221509b8f69d5c31ef2c2b119dc0d7b1f4ea4b2280468ff211" => :yosemite

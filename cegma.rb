@@ -9,7 +9,6 @@ class Cegma < Formula
   sha1 "4c046fe0376d69f6969a32af3481c60088306b9b"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "05109e3eb93ebe55011ffa94350082a4b7894e8c" => :yosemite
     sha1 "eee84e57db04c733be24fe0e910828fc861b60c4" => :mavericks

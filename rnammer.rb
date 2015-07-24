@@ -10,7 +10,6 @@ class Rnammer < Formula
   sha256 "c8f0df0c44e3c31b81de5b74de9e6033907976bfdc283ad8c3402af5efc2aae2"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 1
     sha256 "b078fa5dc6bf519898c8581e8ea732b50697d89c730129b3468cf2987a583aec" => :yosemite

@@ -4,7 +4,6 @@ class Opencascade < Formula
   sha1 "fe359a12e110e9136adac2db1539026be6cc579e"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 1
     sha256 "156c57d3345600ba9911dfbe9844bb36cd86e55b07669562c2010e222c411e63" => :yosemite

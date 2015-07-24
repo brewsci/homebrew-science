@@ -7,7 +7,6 @@ class Hisat < Formula
   version "0.1.6b"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "e34b8f4f30502f56398a2d261bb7da2ff3a597c3ca52a4feb4e460bb99006e8f" => :yosemite
     sha256 "8d6569d480eaddde24e587df969e177a8fef78430aece34fb20e25429878c5ac" => :mavericks

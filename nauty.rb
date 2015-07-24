@@ -5,7 +5,6 @@ class Nauty < Formula
   sha1 "a533cfd764bf56b35e117c46cb85b0142833e8b2"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "56737485de432d2eede7000386b308ebb767e14b" => :yosemite
     sha1 "570ab91fca5c0ac09f601892796b9720c0ddddc7" => :mavericks

@@ -11,7 +11,6 @@ class Plink2 < Formula
   depends_on "homebrew/dupes/zlib"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 1
     sha256 "02fcc689eaa65c3a2125ae9431c8c023856a17a39c0df8b10d073aca31019ded" => :yosemite

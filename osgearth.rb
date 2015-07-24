@@ -7,7 +7,6 @@ class Osgearth < Formula
   head "https://github.com/gwaldron/osgearth.git", :branch => "master"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "718111c4b402b589d0820bc4b8333847c63143ece2758e77d873d5f4c41d7d07" => :yosemite
     sha256 "db863191db807f40851b49f6d2cb0c5c77c70f4c91848d997f244ce9d60b156a" => :mavericks

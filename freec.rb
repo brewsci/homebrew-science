@@ -7,7 +7,6 @@ class Freec < Formula
   version "7.2"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "af7558fda0442a9c242abeb6a9492d82926197f14b31b3e0059a067189e1ae93" => :yosemite
     sha256 "f02914ae0075e54a4378d771f9dd5a98aa67da035606040b707758f9ead7163d" => :mavericks

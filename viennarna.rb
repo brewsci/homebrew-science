@@ -7,7 +7,6 @@ class Viennarna < Formula
   sha256 "367f6a89ddbf7d326ab9ff7d87e3441774e434e1ef599d3511a4bf92a3b392eb"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "d904e8069d9f78c88509effdcd557b7aabdd3ea98cd545bfe877cedf241b6d6e" => :yosemite
     sha256 "25087b1886e24201b585f09fd7e5acb0291369d5f42ff2bd09bd5e3f39d6fff9" => :mavericks

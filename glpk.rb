@@ -5,7 +5,6 @@ class Glpk < Formula
   sha1 "44b30b0de777a0a07e00615ac6791af180ff4d2c"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 1
     sha256 "5467bd20c061d10636c32f374ad7c5dc8860d6bf34397151d8b582a673899eab" => :yosemite

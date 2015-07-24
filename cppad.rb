@@ -8,7 +8,6 @@ class Cppad < Formula
   head "https://github.com/coin-or/CppAD.git"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "319ab2e269a4af07de3fc27455e903f511ce1e58" => :yosemite
     sha1 "82a159c76205f98760d9dd993a9648a035b7a3c8" => :mavericks

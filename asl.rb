@@ -4,7 +4,6 @@ class Asl < Formula
   sha256 "628b5ef035b58184113e721b05b9340c8bce77d22f9261eaa2448ec96d97dd8a"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "f2c4e1a1864add2c2480e9b673e9c5f269054e3ab704cbfe04873b0b34a5b386" => :yosemite
     sha256 "cafce1cf283108446c6106cec2918ec642cb8d5f1dc5d797294b9bca69233a97" => :mavericks
     sha256 "0c7734c9e10a0610f29b0ab556fefe8d6e171c37430c097efe621e9c21a74e24" => :mountain_lion

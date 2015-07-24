@@ -7,7 +7,6 @@ class Masurca < Formula
   sha1 "3598f0b9580bd7518e09db173ada700b5e241b74"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     sha1 "a23d26fbcd3de3975da85a3c3a7efba9c16845de" => :yosemite
     sha1 "480a1a8842f554b6e862f2073d791f3449877218" => :mavericks
     sha1 "6f76d1e0f4896e710f52a6f632c626766d1bf244" => :mountain_lion

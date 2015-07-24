@@ -6,7 +6,6 @@ class XmiMsim < Formula
   revision 1
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "20d513767c84fdce79035995a1c944baa502c8902d9ada3e5936b21b7634b2c2" => :yosemite
     sha256 "256f4aacfda4a9ce1e86a6c568c9f8fee0fe6e88ed93b18ae1ae86356fe5a83d" => :mavericks
     sha256 "1761c9e032b189f30309a6afdb46f4883a3e06e49818a5a8164a7b098d6babf9" => :mountain_lion

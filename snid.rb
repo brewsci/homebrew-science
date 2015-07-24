@@ -5,7 +5,6 @@ class Snid < Formula
   revision 2
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "0ec373a313ba1961806f28bb46217786f0010c37e95261d664b46336b7a83af9" => :yosemite
     sha256 "855d5fe8b71e8d9f2ad2b4ae9dbc21f7f736e40e0ec8d3ded403530b5176f877" => :mavericks

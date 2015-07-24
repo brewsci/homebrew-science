@@ -5,7 +5,6 @@ class Circos < Formula
   sha256 "6e1fc82e1f2f74056fa3229eb43f069e5813e911e9d75e6267f5e1e569a87b49"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "c0fae55ac184e19ca1cee85e335c31c98c9046d407648c7da976efe1ec7dfd2d" => :yosemite
     sha256 "30b9f02fd823e111562a102e6757ea43a7ecb9b8a735d6a3f597f2845c276564" => :mavericks
   end

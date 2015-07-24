@@ -7,7 +7,6 @@ class Jellyfish11 < Formula
   sha256 "496645d96b08ba35db1f856d857a159798c73cbc1eccb852ef1b253d1678c8e2"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     revision 1
     sha256 "719f8126dea0b27deeaf8fb720dcdea3820b5d61b28b07e13e86be0af9f738b1" => :yosemite

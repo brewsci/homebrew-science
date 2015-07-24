@@ -7,7 +7,6 @@ class Kmerstream < Formula
   head "https://github.com/pmelsted/KmerStream.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "22e8ce50d637f586ba2fcfed72377f8c7d7ffdce801fe0f90d701fdc6b6ad705" => :yosemite
     sha256 "2c5bffccb04d1defd9b49e5568e4aec4c1e265674b5bf6f2f33bf89d02e464bc" => :mavericks

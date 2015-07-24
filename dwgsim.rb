@@ -6,7 +6,6 @@ class Dwgsim < Formula
   head "https://github.com/nh13/DWGSIM.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "fa90c65c4e4b60e4f5393459012764bee2a17d59b714a6ff6ee155bdc5f9e99b" => :yosemite
     sha256 "bf3ee48fcf6e92be1dcb615d2a619f6737856e12ada59f6e896546fe596bcefe" => :mavericks

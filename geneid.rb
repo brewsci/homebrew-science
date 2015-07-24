@@ -5,7 +5,6 @@ class Geneid < Formula
   version "1.4.4"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "8f4611d292aa4ea16438c82e7959afee0ef010d4" => :yosemite
     sha1 "337b80bafc8cdb354eb75ecb0e61bf73e82b991b" => :mavericks

@@ -9,7 +9,6 @@ class Samblaster < Formula
   head "https://github.com/GregoryFaust/samblaster"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "52e903cdfb8d83b45ed5196cf0677691ce2e82a1de3ae55fe0d0f6aeff7188f7" => :yosemite
     sha256 "8fa4a1f0d5e951e52a3549ba510e4d2c1d259c74af398315a72f93eb927f1c09" => :mavericks

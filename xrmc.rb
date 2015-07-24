@@ -7,7 +7,6 @@ class Xrmc < Formula
   revision 1
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "c65c774606b4f4828b9ecaa9da78fb294c943ff95496288b9f75640cb2b10f53" => :yosemite
     sha256 "a90b22ee5bb19e9c2aff0e342fae61f66323608334b932b8be23023e20201d40" => :mavericks
     sha256 "cc9fd9634165a26fcadfc8a7ec9632fea2122c5458db368f6bc111fe4e6ccaea" => :mountain_lion

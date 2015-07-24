@@ -8,7 +8,6 @@ class Vtk5 < Formula
   revision 1
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     sha1 "ddebd8c0d9dc9315f36762b4179d7c4264460b0f" => :yosemite
     sha1 "365ec2a27a039bc01a7b9ffcb3ff08a2d65d169f" => :mavericks
     sha1 "78c4a464bf75f62b4b162a015562646aa9f572be" => :mountain_lion

@@ -4,7 +4,6 @@ class Oce < Formula
   sha256 "9ab0dc2a2d125b46cef458b56c6d171dfe2218d825860d616c5ab17994b8f74d"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     sha256 "75932d64aab68b7fad6c27a365cee5158924d311f9fbe789c063379b87759a2d" => :yosemite
     sha256 "b98386e67112e79bfecb597f61fd00e86d8c2ed0b51fa07bdf5d3b105b34d9e0" => :mavericks
     sha256 "c7e01db93d10a1bcccb7f52419caaec057eeb5cf246f25f7ca2514533b1d83eb" => :mountain_lion

@@ -6,7 +6,6 @@ class Transpose < Formula
   sha256 "cc287954901364e6a4e4e2fd41eef74550a1b5cb2649d09dd2f3f2ac99fc009e"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
     sha256 "cbc7684f60be84826b10ede4017a99fa285f74e336acb17ef58a6503cf35a89d" => :yosemite
     sha256 "1f96e5d4c395b4014b6b03f1504ca34f8caedf90358b3414e59989a3c0f2a74e" => :mavericks

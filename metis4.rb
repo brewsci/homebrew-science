@@ -4,7 +4,6 @@ class Metis4 < Formula
   sha1 "63303786414a857eaeea2b2a006521401bccda5e"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/science"
     cellar :any
     sha1 "e970d99900426597a3d37ad788e987d3bb8ddd52" => :yosemite
     sha1 "a97518d2f40a9cccd11705675c0c0e310246d8d4" => :mavericks
