@@ -5,6 +5,13 @@ class Gap < Formula
   version "4.7.8"
   sha256 "d1643d0258a0cb037acbe132aacf888bc2b832afb9c4a284d27310c5ad07233e"
 
+  bottle do
+    cellar :any
+    sha256 "de0228a42a0b098bc3a41d3feeda72eb203dfc082319a8f267f3d50dd9f5a360" => :yosemite
+    sha256 "ff2779456b887b198ca0cb8a87bcf28398b72fc26a8778860c543ee7486c179a" => :mavericks
+    sha256 "f09b54becde5b616bfcf2d8e03e44cf34cd0fcc29e9db84a8ccc743663259f9c" => :mountain_lion
+  end
+
   # NOTE:  the archive contains the [GMP library](http://gmplib.org) under
   #   `extern/`, which is not needed if it is already installed (for example,
   #   with Homebrew), and a number of GAP packages under `pkg/`, some of
