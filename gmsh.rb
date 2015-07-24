@@ -7,8 +7,8 @@ end
 class Gmsh < Formula
   desc "Gmsh is a 3D grid generator with a build-in CAD engine."
   homepage "http://geuz.org/gmsh"
-  url "http://geuz.org/gmsh/src/gmsh-2.9.3-source.tgz"
-  sha256 "9fc4b376f53c1b84267d0f10896830acb6e41fff393386768169cba3558eb8c6"
+  url "http://geuz.org/gmsh/src/gmsh-2.10.0-source.tgz"
+  sha256 "10db05a73bf7f05f6663ddb3b76045ce9decb28b36ad2e54547861254829a860"
 
   head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
 
