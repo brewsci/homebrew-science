@@ -10,6 +10,12 @@ class Getdp < Formula
   url "http://www.geuz.org/getdp/src/getdp-2.6.0-source.tgz"
   sha256 "ebbf6791e815dda7a306efbfe3cc0acd30cc2ad9ecf6ac0f2fb9fc75a9aae051"
 
+  bottle do
+    sha256 "dc9d380494af610648a2a75f64c5cec7cd84ca7f451ea3d63bca03aede7c3610" => :yosemite
+    sha256 "7551be949972b0b469830c1b874e0f57c6d624cedc67ebe01dac41946a202d5a" => :mavericks
+    sha256 "e42699e4804d2b74119ac7af6f8cd4a815432ae0e63e93369152f297f917cf71" => :mountain_lion
+  end
+
   head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
 
   option "without-check", "skip build-time tests (not recommended)"
