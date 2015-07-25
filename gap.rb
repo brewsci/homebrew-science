@@ -109,29 +109,24 @@ class Gap < Formula
   #   given, not according to the options with which the formula is installed
   def caveats
     if build.without?("InstPackages")
-
-      <<-EOS
-If the formula is installed without `--with-InstPackages' option, some
-packages in
-  #{libexec/"pkg"}
-need to be built manualy, or using
-  #{INST_PACKAGES_SCRIPT_URL}
-script, as described in Section 7 of
-  #{libexec/"INSTALL"}
+      <<-EOS.undent
+        If the formula is installed without the `--with-InstPackages' option,
+        some packages in:
+          #{libexec/"pkg"}
+        will need to be built manually with the following script:
+          #{INST_PACKAGES_SCRIPT_URL}
+        See the Section 7 of #{libexec/"INSTALL"} for more info.
       EOS
-
     else
-
-      <<-EOS
-If the formula is installed with `--with-InstPackages' option, some packages
-in
-  #{libexec/"pkg"}
-have been automatically built during the installation process using
-  #{INST_PACKAGES_SCRIPT_URL}
-script.  However, this script is known to produce a number of error messages,
-and thus it might have failed to build certain packages.
+      <<-EOS.undent
+        When the formula is installed with the `--with-InstPackages' option,
+        some packages in
+          #{libexec/"pkg"}
+        are automatically built using the following script:
+          #{INST_PACKAGES_SCRIPT_URL}
+        However, this script is known to produce a number of error messages,
+        and thus it might have failed to build certain packages.
       EOS
-
     end
   end
 
