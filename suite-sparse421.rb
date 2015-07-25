@@ -6,12 +6,10 @@ class SuiteSparse421 < Formula
   sha256 "e8023850bc30742e20a3623fabda02421cb5774b980e3e7c9c6d9e7e864946bd"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-science"
     cellar :any
-    revision 3
-    sha256 "a8a12ded1414f3221509b8f69d5c31ef2c2b119dc0d7b1f4ea4b2280468ff211" => :yosemite
-    sha256 "1a72480470bad707c47527b9f8681eadce7d48c349459f1ff7646b41bb399c79" => :mavericks
-    sha256 "8f7ee4f0c536a695417b248f3af6927448e1cd07f0759d5eb827c30e95ffabab" => :mountain_lion
+    sha256 "5d2ae0ae1c9c34d61ab513d40fef24d2741a88eb58dd77b5d02eb9008b3a1844" => :yosemite
+    sha256 "9fae6dac5f6d01333e4218e25412f62c9eaa71c337181fb147c96b0cacdef457" => :mavericks
+    sha256 "0b1b7d6aafffc1103c59d7d78479a6f2dfb786b9da056167b769a58629f9427e" => :mountain_lion
   end
 
   option "with-matlab", "Install Matlab interfaces and tools"
