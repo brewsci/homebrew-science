@@ -17,10 +17,9 @@ class Octave < Formula
   end
 
   bottle do
-    revision 1
-    sha256 "0b0fadeefbb7bf3d078b73a1fcaad8e64d4e7319dfb256a34e39d402fa1fb83c" => :yosemite
-    sha256 "ea4536731e805befcd627aea4abab646c1e6a4621280d74f025836c44d0cb1b3" => :mavericks
-    sha256 "65754b67ca1deed994cc1a538c63b00ae6dc6c6f12f0995a1417b7a7e6a4ff7a" => :mountain_lion
+    sha256 "98d8a35cd7c4e20e13b77e6999bc75a39ef52f8e5fa6deafd80f60e10c8db8d0" => :yosemite
+    sha256 "0a28985e322d56002755469a22cc5ae3c487c191d35c8b5b3b25c34abcc0b2cb" => :mavericks
+    sha256 "35344dafa1cb05d8d7d1c77c469e012d404b0a5062c840ed062570c94fce3d2b" => :mountain_lion
   end
 
   head do
