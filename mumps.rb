@@ -6,9 +6,10 @@ class Mumps < Formula
   sha256 "50355b2e67873e2239b4998a46f2bbf83f70cdad6517730ab287ae3aae9340a0"
 
   bottle do
-    sha256 "2fa9603ef3fe7936a39dbe5443acc7a647253ec1c0370f94c14a5e160ee6d7af" => :yosemite
-    sha256 "1f58248376b2ed17d41c50709edac5f4ee688751f1d12b6d96a7da91a04c86b4" => :mavericks
-    sha256 "ec33985bc13b1a5cafa88d7b509348fb1351af6da4c6c2a2deb80b0e7a63f657" => :mountain_lion
+    cellar :any
+    sha256 "4510d3460be5aa0bef39e2f776c34eecc978e736453cb687876cc55fcf949255" => :yosemite
+    sha256 "7b8097db2750879d77a2a4b39d0d1147b008fcf014b4b6902fd44fb5b808b9fd" => :mavericks
+    sha256 "01779df7a8e244e0e6ea198d1f6b402cff5799de9f1fa745275b69fb8c44a962" => :mountain_lion
   end
 
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
