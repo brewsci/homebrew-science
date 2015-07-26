@@ -7,8 +7,9 @@ class Fwdpp < Formula
   # doi "10.1534/genetics.114.165019"
 
   bottle do
-    sha256 "68b01354e294675f1522fcb05a0a5c3798973d8d77899f7861d6c04cbdc2423d" => :yosemite
-    sha256 "ffb35271a5c30ed93f3086c9918a4bf400657b9bc860a29bcbdaae8c2176515c" => :mavericks
+    cellar :any
+    sha256 "6b03d1d5ba93ba52ad5223610330e1fa43edaaf08babbfb591f6d23179022896" => :yosemite
+    sha256 "e5f12354b576b612135fb1a27075ef7d402f84988597db49ee633414f5342c41" => :mavericks
   end
 
   option "without-check", "Disable build-time checking (not recommended)"
