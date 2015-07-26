@@ -7,9 +7,9 @@ class Root < Formula
   head "https://github.com/root-mirror/root.git", :branch => "v5-34-00-patches"
 
   bottle do
-    sha1 "94980703c0d054341efc6e9fbb51affbd8f93190" => :yosemite
-    sha1 "34b2ddd5e9f9432f6f327b16cbddcce19053adb0" => :mavericks
-    sha1 "351cf0629eea5352640e264de2b9e1dfe6f12e63" => :mountain_lion
+    sha256 "820773380d9f4571d39b6a19424531a35a7adfeced20c8d9ffbd7b9f3c81d48e" => :yosemite
+    sha256 "54f5b3573aad05a95684a58b3639b8a17168affdfb3df424075f852a22449564" => :mavericks
+    sha256 "59f2826352d953477b376d1639313441c772598600f83dc361ab086fca98b62d" => :mountain_lion
   end
 
   option "with-qt", "Build with Qt graphics backend and GSI's Qt integration"
