@@ -1,9 +1,9 @@
 class Root < Formula
+  desc "Root object oriented framework for large scale data analysis"
   homepage "http://root.cern.ch"
-  version "5.34.26"
-  sha1 "f9013c37c37946b79dce777d731ccb64e5b28bb8"
+  version "5.34.32"
+  sha256 "939c7592802a54b6cbc593efb6e51699bf52e92baf6d6b20f486aaa08480fc5f"
   url "ftp://root.cern.ch/root/root_v#{version}.source.tar.gz"
-  mirror "http://ftp.riken.jp/pub/ROOT/root_v#{version}.source.tar.gz"
   head "https://github.com/root-mirror/root.git", :branch => "v5-34-00-patches"
 
   bottle do
