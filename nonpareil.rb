@@ -9,9 +9,9 @@ class Nonpareil < Formula
 
   bottle do
     cellar :any
-    sha1 "9fa1b02ccc8d561c9586b07d854c71227a77739e" => :yosemite
-    sha1 "cd8a9999c84c41fc39aaa7f62cc1ab44a3a26300" => :mavericks
-    sha1 "11adac7a92b44e5fd171bc1684a8b76fdceb848f" => :mountain_lion
+    sha256 "654afb8d18101c7a82c96b5c3254e6fec0d6816df24cdc90d4b92af7fc06a419" => :yosemite
+    sha256 "a130e6c42e95307364af276989286ffbdef539281f46e5246426ed6864adcd40" => :mavericks
+    sha256 "85fecd99f93abe1e30fdc17ca997bb94bcccb97a0d84e8e5fc1d23bff98e38cf" => :mountain_lion
   end
   depends_on "r"
   depends_on :mpi => [:cxx, :optional]
