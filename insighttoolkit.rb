@@ -1,7 +1,8 @@
 class Insighttoolkit < Formula
+  desc "ITK is a toolkit for performing registration and segmentation"
   homepage "http://www.itk.org"
-  url "https://downloads.sourceforge.net/project/itk/itk/4.7/InsightToolkit-4.7.2.tar.gz"
-  sha1 "9f05222b79682a438799ebf90cf6e2db2fe94535"
+  url "https://downloads.sourceforge.net/project/itk/itk/4.8/InsightToolkit-4.8.0.tar.gz"
+  sha256 "8de5081f81707faf0cddd42f7eeea9498ce790672eb382a0d72b153623dca08a"
   head "git://itk.org/ITK.git"
 
   bottle do
@@ -30,15 +31,6 @@ class Insighttoolkit < Formula
   option "with-examples", "Compile and install various examples"
   option "with-itkv3-compatibility", "Include ITKv3 compatibility"
   option "with-remove-legacy", "Disable legacy APIs"
-  option "with-review", "Enable modules under review"
-
-  if build.with?("python") && build.stable?
-    onoe <<-EOS.undent
-      You need to build the HEAD version of ITK to be able to use Python Wrappings.
-      This feature will be available in the next stable release (ITK 4.8.0).
-      EOS
-    exit 1
-  end
 
   def install
     args = std_cmake_args + %W[
@@ -52,6 +44,7 @@ class Insighttoolkit < Formula
       -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
       -DModule_ITKLevelSetsv4Visualization=ON
       -DModule_SCIFIO=ON
+      -DModule_ITKReview=ON
     ]
     args << ".."
     args << "-DBUILD_EXAMPLES=" + ((build.include? "examples") ? "ON" : "OFF")
@@ -65,7 +58,6 @@ class Insighttoolkit < Formula
     args << "-DITK_USE_SYSTEM_TIFF=ON" if build.with? "libtiff"
     args << "-DITK_USE_SYSTEM_GDCM=ON" if build.with? "gdcm"
     args << "-DITK_LEGACY_REMOVE=ON" if build.include? "remove-legacy"
-    args << "-DModule_ITKReview=ON" if build.with? "review"
 
     args << "-DVCL_INCLUDE_CXX_0X=ON" if build.cxx11?
     ENV.cxx11 if build.cxx11?
