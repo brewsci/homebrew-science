@@ -4,8 +4,8 @@ class Lighter < Formula
   # tag 'bioinformatics'
   # doi '10.1186/s13059-014-0509-9'
 
-  url "https://github.com/mourisl/Lighter/archive/v1.0.6.tar.gz"
-  sha256 "3f0e936f323d492600dc9d7e77df03f347f1421a78d725396b9a5edf051a9ade"
+  url "https://github.com/mourisl/Lighter/archive/v1.0.7.tar.gz"
+  sha256 "fde9969f49fa618d12713473b15c79884f91da6017710329e3c9f890f464465f"
   head "https://github.com/mourisl/Lighter.git"
 
   bottle do
