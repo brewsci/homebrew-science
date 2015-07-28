@@ -1,9 +1,11 @@
 class Lighter < Formula
+  desc "Fast and memory-efficient sequencing error corrector"
   homepage "https://github.com/mourisl/Lighter"
   # tag 'bioinformatics'
   # doi '10.1186/s13059-014-0509-9'
-  url "https://github.com/mourisl/Lighter/archive/v1.0.5.tar.gz"
-  sha1 "a39e399cedf48ee01d4244b4184355d19dfc438b"
+
+  url "https://github.com/mourisl/Lighter/archive/v1.0.6.tar.gz"
+  sha256 "3f0e936f323d492600dc9d7e77df03f347f1421a78d725396b9a5edf051a9ade"
   head "https://github.com/mourisl/Lighter.git"
 
   bottle do
