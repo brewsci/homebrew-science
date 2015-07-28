@@ -7,6 +7,13 @@ class Vislcg3 < Formula
   sha256 "c85446c671fdb55dc01bf6092dd32ccb05ad4e057563d5c4293ee2409df610ba"
   head "http://beta.visl.sdu.dk/svn/visl/tools/vislcg3/trunk", :using => :svn
 
+  bottle do
+    cellar :any
+    sha256 "ce6ef548649d6251d3b5d00b52c07cdb45115b45a97deb3d50bd7391cc9acf1d" => :yosemite
+    sha256 "4cd4219de2c35319635a427464c2d0128425c054e3d8cf3b8c8e577571b105e8" => :mavericks
+    sha256 "e40f0caec6e68ad7f37a2423f3be0a0a83c7971470dbc70568f8b7f95b8f4f4d" => :mountain_lion
+  end
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "icu4c"
