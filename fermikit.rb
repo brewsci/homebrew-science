@@ -1,11 +1,11 @@
 class Fermikit < Formula
   desc "Assembly-based variant calling for Illumina reads"
   homepage "https://github.com/lh3/fermikit"
-  # doi "arXiv:1504.06574"
+  # doi "10.1093/bioinformatics/btv440"
   # tag "bioinformatics"
 
-  url "https://github.com/lh3/fermikit/releases/download/v0.12/fermikit-0.12.tar.bz2"
-  sha256 "c2d7281d3720fc06cfb5685dfa0b5b151636b44e4419fbac5a136cd5d73feb0a"
+  url "https://github.com/lh3/fermikit/releases/download/v0.13/fermikit-0.13.tar.bz2"
+  sha256 "067c7b8b5ddcac417f5c95d9138abe3077df9d147d6dc50ae7d4a563ac5ad82f"
 
   head "https://github.com/lh3/fermikit.git"
 
