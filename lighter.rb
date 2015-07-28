@@ -10,9 +10,9 @@ class Lighter < Formula
 
   bottle do
     cellar :any
-    sha1 "d643e55d2b6b165eb85da63363a199920e32cace" => :yosemite
-    sha1 "5a54e5e535c1e3f5662c6b009c33c56eb77c3145" => :mavericks
-    sha1 "aa88bf40adcb470a41729e0a30c0c1ba91c62e55" => :mountain_lion
+    sha256 "7f60cbb79ea3dda1c729aaf93545a84b0baa1c3ff24c8c7eac0f034939cde3d9" => :yosemite
+    sha256 "e1c981cff85350143704b3fd14f511d6f7ff78c81c8108932f1cc29b299ac16f" => :mavericks
+    sha256 "a4007f03c452268fe047d35425133fe845ece973192b4e277e2c1265686c3dac" => :mountain_lion
   end
 
   def install
