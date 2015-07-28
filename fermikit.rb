@@ -11,9 +11,9 @@ class Fermikit < Formula
 
   bottle do
     cellar :any
-    sha256 "7cfc4ed60eec5fa75cd2af4d09c1a31080949ba8dda2fd85750109a82fcac60a" => :yosemite
-    sha256 "a61fc63afe190b41ea0f5ac38705c44b9b6f33f990177bceb638e1eb7ea5b911" => :mavericks
-    sha256 "b0f62232855027e6adccf5fafd87855616784d564ebe100560292ff40a15377a" => :mountain_lion
+    sha256 "b467bb944e76c9bac1631e99504af33ab246deff71d35f6ebe43b5cf6526f3a2" => :yosemite
+    sha256 "13cb6bc58404555edb8141637461336f18c2079ad931e8fe8806f656a7142745" => :mavericks
+    sha256 "7e3964a923ed60cd1c44cc8dab675b4bd4d988b5fd8bfd041d2a65ddc10eb33c" => :mountain_lion
   end
 
   depends_on "bfc"
