@@ -21,6 +21,6 @@ class Cmor < Formula
 
     system "./configure", *args
     system "make", "install"
-    share.install "Test"
+    pkgshare.install "Test"
   end
 end
