@@ -4,6 +4,13 @@ class R8s < Formula
   url "http://loco.biosci.arizona.edu/r8s/r8s.dist.tgz"
   version "1.8"
   sha256 "a388d70275abfabf73a84a4346175ae94b3a3b2f1f399a4d3657bb430a22f903"
+  bottle do
+    cellar :any
+    sha256 "e46feb1ae0e09b56aa5380de42fcccaf828bad63714898a64a973ce8ab5c538f" => :yosemite
+    sha256 "bc6200cd561eee09a4a7d0733c68f18ff460b67249d5761d059f19f47d2f15dd" => :mavericks
+    sha256 "0b4788187a432ed9762d16d45a209596ce95943f9b802b6b0a61c1b06378c33a" => :mountain_lion
+  end
+
   # doi "10.1093/bioinformatics/19.2.301"
   # tag "bioinformatics"
 
