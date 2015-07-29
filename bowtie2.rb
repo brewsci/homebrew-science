@@ -18,11 +18,11 @@ class Bowtie2 < Formula
 
   def install
     system "make", "install", "WITH_TBB=1", "prefix=#{prefix}"
-    share.install "example", "scripts"
+    pkgshare.install "example", "scripts"
   end
 
   test do
-    system "bowtie2-build", "#{share}/example/reference/lambda_virus.fa", "lambda_virus"
+    system "bowtie2-build", "#{pkgshare}/example/reference/lambda_virus.fa", "lambda_virus"
     assert File.exist?("lambda_virus.1.bt2")
   end
 end
