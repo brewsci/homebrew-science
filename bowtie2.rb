@@ -1,10 +1,11 @@
 class Bowtie2 < Formula
+  desc "A fast and sensitive gapped read aligner"
   homepage "http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
   # doi "10.1038/nmeth.1923"
   # tag "bioinformatics"
   head "https://github.com/BenLangmead/bowtie2.git"
-  url "https://github.com/BenLangmead/bowtie2/archive/v2.2.5.tar.gz"
-  sha256 "fbbd630596d066f84c925d08db854d448b9780d672702e13bd76648133ac92e2"
+  url "https://github.com/BenLangmead/bowtie2/archive/v2.2.6.tar.gz"
+  sha256 "fb4d09a96700cc929e8191659ee8509bb2f19816235322d1f012338d4a177358"
 
   bottle do
     cellar :any
@@ -13,17 +14,11 @@ class Bowtie2 < Formula
     sha256 "fd0bda8aec4d0d9a1f9b433d465fed2c026d1b88ea44688315fbde892d9d64a9" => :mountain_lion
   end
 
+  depends_on "tbb"
+
   def install
-    system "make"
-    bin.install %W[bowtie2
-                   bowtie2-align-l bowtie2-align-s
-                   bowtie2-build   bowtie2-build-l   bowtie2-build-s
-                   bowtie2-inspect bowtie2-inspect-l bowtie2-inspect-s]
-
-    doc.install %W[AUTHORS LICENSE MANUAL
-                   NEWS README TUTORIAL VERSION]
-
-    share.install %W[example scripts]
+    system "make", "install", "WITH_TBB=1", "prefix=#{prefix}"
+    share.install "example", "scripts"
   end
 
   test do
