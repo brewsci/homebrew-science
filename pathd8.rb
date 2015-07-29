@@ -4,6 +4,13 @@ class Pathd8 < Formula
   url "http://www2.math.su.se/PATHd8/PATHd8.zip"
   version "1.0"
   sha256 "6f92c1104b5fcdacdcc387024b5a1324790a165d0418795dec2ec68ebb946749"
+  bottle do
+    cellar :any
+    sha256 "7c528b0dc0e519835fdfff2747d1c7286754836775d520dc2192ce13bba61b39" => :yosemite
+    sha256 "6adf43717f2e2044cb5e7f14a8449e4ff3edcaa6753198f0fdfc1422bcc1b0d9" => :mavericks
+    sha256 "16a7b4f5c4c4997988ca2f8cf9f4930419d769ff2b69e82f4745ebef78ab31e7" => :mountain_lion
+  end
+
   # doi "10.1080/10635150701613783"
   # tag "bioinformatics"
 
