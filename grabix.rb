@@ -1,4 +1,5 @@
 class Grabix < Formula
+  desc "Tool for random access into BGZF files"
   homepage "https://github.com/arq5x/grabix"
   # tag "bioinformatics"
   url "https://github.com/arq5x/grabix/archive/0.1.6.tar.gz"
