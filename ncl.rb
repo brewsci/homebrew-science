@@ -7,9 +7,11 @@ class Ncl < Formula
   sha256 "6e792ede614f6969a0cd342fea1505b4ea3e3e4c0f50a1c0c16a3af67bfe9737"
 
   bottle do
-    sha1 "b947e17defc2915c7b8eb80727c5105e33a97a4c" => :yosemite
-    sha1 "78b8bced22543506a48bba1ab2d86b72263c2d06" => :mavericks
-    sha1 "f20283932a9b76677fe96f97e8d34b2238da8c8b" => :mountain_lion
+    cellar :any
+    revision 1
+    sha256 "ae9815430b8e5f3f13f15aa7a7721cded1418983207f19f6e42d39ee0fa732e3" => :yosemite
+    sha256 "ce0281513cf22d3c6dd7e419ced8f672fd649bb32ca57ed6de5872b292c8ddea" => :mavericks
+    sha256 "f800df10f205f1fe880877e18bcd7dee1c383b9e7b071f62484ea3c14404fb69" => :mountain_lion
   end
 
   def install
