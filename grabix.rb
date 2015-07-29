@@ -16,10 +16,10 @@ class Grabix < Formula
     system "make"
     bin.install "grabix"
     doc.install "README.md"
-    share.install "simrep.chr1.bed"
+    pkgshare.install "simrep.chr1.bed"
   end
 
   test do
-    assert_equal `#{bin}/grabix check #{share}/simrep.chr1.bed`.chomp, "no"
+    assert_equal `#{bin}/grabix check #{pkgshare}/simrep.chr1.bed`.chomp, "no"
   end
 end
