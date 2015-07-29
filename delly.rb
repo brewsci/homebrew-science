@@ -1,4 +1,5 @@
 class Delly < Formula
+  desc "Structural variant discovery by paired-end and split-read analysis"
   homepage "https://github.com/tobiasrausch/delly"
   url "https://github.com/tobiasrausch/delly/archive/v0.6.5.tar.gz"
   sha256 "6977001ef3a3eb5049515a4586640f77d60c4f784f7636c7c5cc456912081283"
@@ -40,12 +41,12 @@ class Delly < Formula
                      "src/delly"
       bin.install "src/delly"
     end
-    share.install "test", "variantFiltering"
+    pkgshare.install "test", "variantFiltering"
     doc.install "README.md"
   end
 
   test do
-    system "delly", "--outfile=#{testpath}/test.vcf", share/"test/DEL.bam"
+    system "delly", "--outfile=#{testpath}/test.vcf", pkgshare/"test/DEL.bam"
     File.exist? testpath/"test.vcf"
   end
 end
