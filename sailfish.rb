@@ -1,12 +1,9 @@
-require "formula"
-
 class Sailfish < Formula
   homepage "http://www.cs.cmu.edu/~ckingsf/software/sailfish"
-  #doi "10.1038/nbt.2862"
-  #tag "bioinformatics"
-
+  # doi "10.1038/nbt.2862"
+  # tag "bioinformatics"
   url "https://github.com/kingsfordgroup/sailfish/archive/v0.6.3.tar.gz"
-  sha1 "6a8782bf3b1b31e543f5f067dc870c0b45bd8059"
+  sha256 "5fded7dc88e525d17eb7abe102ac8ce8d8c3c8e9997d8aa1c512dddbef813632"
 
   depends_on "cmake" => :build
   depends_on "boost" => :recommended
@@ -15,7 +12,6 @@ class Sailfish < Formula
   keg_only "sailfish conflicts with jellyfish."
 
   fails_with :clang do
-    build 600
     cause "Currently, the only supported compiler is GCC(>=4.7). We hope to support Clang soon."
   end
 
