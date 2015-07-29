@@ -1,5 +1,3 @@
-require 'formula'
-
 class Gfan < Formula
   homepage 'http://home.imf.au.dk/jensen/software/gfan/gfan.html'
   url 'http://home.imf.au.dk/jensen/software/gfan/gfan0.5.tar.gz'
@@ -12,7 +10,7 @@ class Gfan < Formula
     system "make"
     system "make PREFIX=#{prefix} install"
     doc.install Dir['doc/*']
-    share.install Dir['examples', 'homepage', 'testsuite']
+    pkgshare.install "examples", "homepage", "testsuite"
   end
 
   test do
