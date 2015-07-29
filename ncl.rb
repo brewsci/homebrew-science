@@ -1,10 +1,10 @@
 class Ncl < Formula
+  desc "A C++ library for parsing NEXUS files"
   homepage "http://ncl.sourceforge.net/"
-  #doi "10.1093/bioinformatics/btg319"
-  #tag "bioinformatics"
-
+  # doi "10.1093/bioinformatics/btg319"
+  # tag "bioinformatics"
   url "https://downloads.sourceforge.net/project/ncl/NCL/ncl-2.1.18/ncl-2.1.18.tar.gz"
-  sha1 "54e4f1ff4fef52cfd633b467a839e57a2670a397"
+  sha256 "6e792ede614f6969a0cd342fea1505b4ea3e3e4c0f50a1c0c16a3af67bfe9737"
 
   bottle do
     sha1 "b947e17defc2915c7b8eb80727c5105e33a97a4c" => :yosemite
@@ -22,11 +22,11 @@ class Ncl < Formula
     system "make", "check"
     system "make", "install"
 
-    share.install "data", "example", "test"
+    pkgshare.install "data", "example", "test"
   end
 
   test do
-    cp "#{share}/data/sample.tre", "."
+    cp "#{pkgshare}/data/sample.tre", "."
     system "#{bin}/NCLconverter", "sample.tre"
     assert File.exist?("out.xml")
   end
