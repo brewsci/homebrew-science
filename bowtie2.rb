@@ -15,10 +15,20 @@ class Bowtie2 < Formula
     sha256 "6b775646d6b84ff565536b10ae3ce7b3ab47a2c935f8120bc31a2cdf8d77c8ea" => :mountain_lion
   end
 
-  depends_on "tbb"
+  option "without-tbb", "Build without using Intel Thread Building Blocks (TBB)"
+
+  if build.with? "tbb"
+    depends_on "tbb"
+  end
 
   def install
-    system "make", "install", "WITH_TBB=1", "prefix=#{prefix}"
+    if build.with? "tbb"
+      system "make", "install", "WITH_TBB=1",
+             "EXTRA_FLAGS=-L #{HOMEBREW_PREFIX}/lib",
+             "INC=-I #{HOMEBREW_PREFIX}/include", "prefix=#{prefix}"
+    else
+      system "make", "install", "prefix=#{prefix}"
+    end
     pkgshare.install "example", "scripts"
   end
 
