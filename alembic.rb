@@ -1,20 +1,22 @@
-require "formula"
-
 class Alembic < Formula
+  desc "Open computer graphics interchange framework"
   homepage "http://alembic.io"
-  head "https://code.google.com/p/alembic/", :using => :hg
-  url "https://code.google.com/p/alembic/", :using => :hg,
+  url "https://code.google.com/p/alembic/",
+    :using => :hg,
     :tag => "1_05_04"
   version "1.5.4"
+  head "https://code.google.com/p/alembic/", :using => :hg
 
   needs :cxx11
 
   depends_on "cmake" => :build
   depends_on "boost"
+  depends_on "boost-python"
   depends_on "hdf5"
   depends_on "ilmbase"
 
   def install
+    ENV.libcxx if ENV.compiler == :clang
     cmake_args = std_cmake_args + %W[
       -DUSE_PYILMBASE=OFF
       -DUSE_PRMAN=OFF
@@ -26,7 +28,6 @@ class Alembic < Formula
     system "cmake", ".", *cmake_args
     system "make", "install"
 
-    #move everything upwards
     lib.install_symlink Dir[prefix/"alembic-#{version}/lib/static/*"]
     include.install_symlink Dir[prefix/"alembic-#{version}/include/*"]
     bin.install_symlink Dir[prefix/"alembic-#{version}/bin/*"]
