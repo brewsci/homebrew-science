@@ -5,6 +5,13 @@ class Alembic < Formula
     :using => :hg,
     :tag => "1_05_04"
   version "1.5.4"
+  bottle do
+    cellar :any
+    sha256 "a652d4cae925b9f49a29ea1126d285d4345fdb74a6e090bc085facc5c123326f" => :yosemite
+    sha256 "93d31f9574ba141331cdaf8cea04f7335685cd85aeec9bf18704d1bca3c2a329" => :mavericks
+    sha256 "41988d94cda0abce8f408a8cd997dc10a5ab5fadcfb577c2dd3816e9e11bbed3" => :mountain_lion
+  end
+
   head "https://code.google.com/p/alembic/", :using => :hg
 
   needs :cxx11
