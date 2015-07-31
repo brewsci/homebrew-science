@@ -17,9 +17,7 @@ class Bowtie2 < Formula
 
   option "without-tbb", "Build without using Intel Thread Building Blocks (TBB)"
 
-  if build.with? "tbb"
-    depends_on "tbb"
-  end
+  depends_on "tbb" => :recommended
 
   def install
     if build.with? "tbb"
