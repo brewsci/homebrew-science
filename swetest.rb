@@ -11,33 +11,29 @@ class Swetest < Formula
 
   resource "seasnam" do
     url "http://www.astro.com/ftp/swisseph/ephe/seasnam.txt"
-    sha256 "788fed3698bab62e53a9d519aed511566936b5577b3309251dba12da131c214b"
+    sha256 "88f91ac63f3ead524dc44eec9923fe0c7de73eb6c72ed9ed38575c626f026efa"
   end
-
   resource "sefstars" do
     url "http://www.astro.com/ftp/swisseph/ephe/sefstars.txt"
     sha256 "007d98f1d829ffdbd380025eaa383b4c63fc2d2ff2715d7e2586de38ce319de1"
   end
-
   resource "seas" do
     url "http://www.astro.com/ftp/swisseph/ephe/seas_18.se1"
     sha256 "0afe3f94769b6718082411c2c4fb06bf9d1aaa6c0bc1bad8f8b8725421ef8748"
   end
-
   resource "semo" do
     url "http://www.astro.com/ftp/swisseph/ephe/semo_18.se1"
     sha256 "ecfa54dbf5bc0b5a9bc3e04ed28629a821e98625eacae38f4070593bba0e2980"
   end
-
   resource "sepl" do
     url "http://www.astro.com/ftp/swisseph/ephe/sepl_18.se1"
     sha256 "0b7e416e3c1be9e6a0dd1d711dae7f7685793a0e7df13f76363a493dc27b6ea1"
   end
 
   def install
-    # Hack away the epehemeris path, as the default won't do.
+    # Hack away the ephemeris path, as the default won't do.
     open("src/swephexp.h", "a") do |file|
-      file.write "#define SE_EPHE_PATH \".:#{share}\""
+      file.write "#define SE_EPHE_PATH \".:#{libexec}\""
     end
 
     # we have to clean because the archive already has a linux compiled library
@@ -47,11 +43,11 @@ class Swetest < Formula
     bin.install "src/swetest"
 
     # install ephemeris
-    share.install resource("seasnam")
-    share.install resource("sefstars")
-    share.install resource("seas")
-    share.install resource("semo")
-    share.install resource("sepl")
+    libexec.install resource("seasnam")
+    libexec.install resource("sefstars")
+    libexec.install resource("seas")
+    libexec.install resource("semo")
+    libexec.install resource("sepl")
   end
 
   test do
