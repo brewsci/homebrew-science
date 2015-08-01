@@ -8,9 +8,10 @@ class Sambamba < Formula
   head "https://github.com/lomereiter/sambamba.git"
 
   bottle do
-    sha256 "400bee1dc9a5d0c571fc5b1a4a2479ec50ffb929af27a237f8a1225314a49272" => :yosemite
-    sha256 "249b5a66154fbc96b34e9bf869abeaa35a96e862f50a8f0aa48f9c59c1350889" => :mavericks
-    sha256 "169955f15b3bbb01f90696aec59f0c671df484ca92122b8eae1106e84e216fca" => :mountain_lion
+    revision 1
+    sha256 "5aa219d9f4cbd0d0568250f2ff3e196129069efe4e9e3da5429638a094167250" => :yosemite
+    sha256 "83a4920a1a3f9b867437a806158384de57dea6f565f427bed49c37cca6988a7f" => :mavericks
+    sha256 "390278b35a4c5cb30f9728566d0c9cfe57a1e05f40f527b4e5d0a7e53b22ab3c" => :mountain_lion
   end
 
   depends_on "ldc" => :build
