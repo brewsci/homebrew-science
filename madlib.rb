@@ -1,8 +1,8 @@
 class Madlib < Formula
   desc "Library for scalable in-database analytics."
   homepage "http://madlib.net"
-  url "https://github.com/madlib/madlib/archive/v1.7.1.tar.gz"
-  sha256 "10fccd0ab9a88073cb13cbc699e5fa66a374f98da8cb109dd851544b57f5568a"
+  url "https://github.com/madlib/madlib/archive/v1.8.tar.gz"
+  sha256 "15d8ee925866f477f4fb62964a1ea6a15796e9c7db676d786928495249078df3"
 
   head "https://github.com/madlib/madlib.git"
 
@@ -25,9 +25,9 @@ class Madlib < Formula
     sha256 "024f9d4740fde187cde469dbe8e3c277fe522a3420458c4ba428085c090afa69"
   end
 
-  fails_with :clang do
-    build 602
-    cause "Multiple compiler errors"
+  resource "eigen" do
+    url "https://bitbucket.org/eigen/eigen/get/3.2.2.tar.gz"
+    sha256 "318d68c5a9c20ec20d08f1a50a10fb4991a25fd5474a969e771cd9f2a79c9e5f"
   end
 
   fails_with :clang do
@@ -46,12 +46,17 @@ class Madlib < Formula
   end
 
   def install
+    # http://jira.madlib.net/browse/MADLIB-913
+    ENV.libstdcxx if ENV.compiler == :clang
+
     resource("pyxb").fetch
+    resource("eigen").fetch
 
     args = %W[
       -DCMAKE_INSTALL_PREFIX=#{prefix}
       -DCMAKE_BUILD_TYPE=Release
       -DPYXB_TAR_SOURCE=#{resource("pyxb").cached_download}
+      -DEIGEN_TAR_SOURCE=#{resource("eigen").cached_download}
     ]
     system "./configure", *args
     system "make", "install"
