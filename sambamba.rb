@@ -25,7 +25,7 @@ class Sambamba < Formula
 
   test do
     cd pkgshare do
-      system "#{bin}/sambamba", "sort", "-t2", "-n", "ex1_header.bam", "-o", "ex1_header.nsorted.bam", "-m", "200K"
+      system *%W[#{bin}/sambamba sort -t2 -n ex1_header.bam -o ex1_header.nsorted.bam -m 200K]
       assert File.exist?("ex1_header.nsorted.bam")
     end
   end
