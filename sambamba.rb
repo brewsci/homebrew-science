@@ -1,9 +1,10 @@
 class Sambamba < Formula
+  desc "Tools for working with SAM/BAM data"
   homepage "https://lomereiter.github.io/sambamba"
   # doi "10.1093/bioinformatics/btv098"
   # tag "bioinformatics"
 
-  url "https://github.com/lomereiter/sambamba.git", :tag => "v0.5.4", :revision => "66dd706d81e59fa70a36f030e47d9967fa3a46a8"
+  url "https://github.com/lomereiter/sambamba.git", :tag => "v0.5.5", :revision => "15bf114da5062765a40cc927cdd5c5b66dc36144"
   head "https://github.com/lomereiter/sambamba.git"
 
   bottle do
@@ -18,11 +19,12 @@ class Sambamba < Formula
     ENV.deparallelize
     system "make", "sambamba-ldmd2-64"
     bin.install "build/sambamba"
-    (libexec/"share").install "BioD/test/data/ex1_header.bam"
+    doc.install "README.md"
+    pkgshare.install "BioD/test/data/ex1_header.bam"
   end
 
   test do
-    cd libexec/"share" do
+    cd pkgshare do
       system "#{bin}/sambamba", "sort", "-t2", "-n", "ex1_header.bam", "-o", "ex1_header.nsorted.bam", "-m", "200K"
       assert File.exist?("ex1_header.nsorted.bam")
     end
