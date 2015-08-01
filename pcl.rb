@@ -55,9 +55,6 @@ class Pcl < Formula
 
   head do
     url "https://github.com/PointCloudLibrary/pcl.git"
-
-    depends_on "glew"
-    depends_on CudaRequirement => :optional
   end
 
   option "with-examples", "Build pcl examples."
@@ -74,11 +71,24 @@ class Pcl < Formula
 
   depends_on "qhull"
   depends_on "libusb"
-  depends_on "qt" => :recommended
+
+  if build.head?
+    depends_on "glew"
+    depends_on CudaRequirement => :optional
+    depends_on "qt" => :optional
+    depends_on "qt5" => :optional
+  else
+    depends_on "qt" => :recommended
+  end
+
   if build.with? "qt"
     depends_on "sip" # Fix for building system
     depends_on "pyqt" # Fix for building system
     depends_on "vtk" => [:recommended, "with-qt"]
+  elsif build.with? "qt5"
+    depends_on "sip" # Fix for building system
+    depends_on "pyqt5" => ["with-python", "without-python3"] # Fix for building system
+    depends_on "vtk" => [:recommended, "with-qt5"]
   else
     depends_on "vtk" => :recommended
   end
@@ -94,10 +104,16 @@ class Pcl < Formula
       -DBUILD_global_tests:BOOL=OFF
       -DWITH_TUTORIALS:BOOL=OFF
       -DWITH_DOCS:BOOL=OFF
-      -DPCL_QT_VERSION=4
     ]
+    if build.with? "qt"
+      args << "-DPCL_QT_VERSION=4"
+    elsif build.with? "qt5"
+      args << "-DPCL_QT_VERSION=5"
+    else
+      args << "-DWITH_QT:BOOL=FALSE"
+    end
 
-    if build.head? && (build.with? "cuda")
+    if build.with? "cuda"
       args += %W[
         -DWITH_CUDA:BOOL=AUTO_OFF
         -DBUILD_GPU:BOOL=ON
@@ -143,7 +159,6 @@ class Pcl < Formula
       args << "-DCMAKE_DISABLE_FIND_PACKAGE_OpenNI:BOOL=TRUE"
     end
 
-    args << "-DWITH_QT:BOOL=FALSE" if build.without? "qt"
     args << "-DCMAKE_DISABLE_FIND_PACKAGE_VTK:BOOL=TRUE" if build.without? "vtk"
 
     args << ".."
