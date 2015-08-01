@@ -7,9 +7,9 @@ class Madlib < Formula
   head "https://github.com/madlib/madlib.git"
 
   bottle do
-    sha256 "9f2482b2421226b461d5d95ad12011797fb730c1225bc79ae03ad37fa5c38a8a" => :yosemite
-    sha256 "fbbf99df8688564f32741708cdfee2ea7632b23a9509b4fd12490cd44da35f8e" => :mavericks
-    sha256 "4e1adb36f808003f1b01530141c520e0dc81d88097863246b06f4e5d212202f4" => :mountain_lion
+    sha256 "946c93f1a6026985583fbd40dc5282c16755ca933c4565cb204b591a0df4006d" => :yosemite
+    sha256 "9d0fe84684da54b840e0d89729935f501901d4b2537066017ac4ca5953414f2f" => :mavericks
+    sha256 "200cf3d8190878226a7a1ce6fb632250039b29b1217d4de3c6f08fb3c508e04e" => :mountain_lion
   end
 
   boost_opts = []
