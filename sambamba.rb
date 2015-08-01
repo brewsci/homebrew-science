@@ -4,7 +4,7 @@ class Sambamba < Formula
   # doi "10.1093/bioinformatics/btv098"
   # tag "bioinformatics"
 
-  url "https://github.com/lomereiter/sambamba.git", :tag => "v0.5.5", :revision => "15bf114da5062765a40cc927cdd5c5b66dc36144"
+  url "https://github.com/lomereiter/sambamba.git", :tag => "v0.5.6", :revision => "9d761c5d69cfbcd53ceb4cca25b5a6f694ea09ac"
   head "https://github.com/lomereiter/sambamba.git"
 
   bottle do
