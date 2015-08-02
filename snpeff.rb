@@ -1,7 +1,8 @@
 class Snpeff < Formula
+  desc "Genetic variant annotation and effect prediction toolbox"
   homepage "http://snpeff.sourceforge.net/"
   # tag "bioinformatics"
-
+  # doi "10.4161/fly.19695"
   url "https://downloads.sourceforge.net/project/snpeff/snpEff_v4_1g_core.zip"
   version "4.1g"
   sha256 "c8528928f5f206d5bb6003f0ef12e50c40d84cd69d3c2dff21df9f93704e2ca0"
@@ -18,18 +19,18 @@ class Snpeff < Formula
   def install
     inreplace "scripts/snpEff" do |s|
       s.gsub! /^jardir=.*/, "jardir=#{libexec}"
-      s.gsub! "${jardir}/snpEff.config", "#{share}/snpEff.config"
+      s.gsub! "${jardir}/snpEff.config", "#{pkgshare}/snpEff.config"
     end
 
     bin.install "scripts/snpEff"
     libexec.install "snpEff.jar", "SnpSift.jar"
-    share.install "snpEff.config", "scripts", "galaxy"
+    pkgshare.install "snpEff.config", "scripts", "galaxy"
   end
 
   def caveats; <<-EOS.undent
       Download the human database using the command
           snpEff download -v GRCh38.76
-      The databases will be installed in #{share}/data
+      The databases will be installed in #{pkgshare}/data
     EOS
   end
 
