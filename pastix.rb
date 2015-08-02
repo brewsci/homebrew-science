@@ -84,21 +84,21 @@ class Pastix < Formula
       system "make", "examples"
       system "./example/bin/simple", "-lap", "100"
       prefix.install "config.in"    # For the record.
-      share.install "example"       # Contains all test programs.
+      pkgshare.install "example"       # Contains all test programs.
       ohai "Simple test result is in ~/Library/Logs/Homebrew/pastix. Please check."
     end
   end
 
   test do
-    Dir.foreach("#{share}/example/bin") do |example|
+    Dir.foreach("#{pkgshare}/example/bin") do |example|
       next if example =~ /^\./ || example =~ /plot_memory_usage/ || example =~ /mem_trace.o/ || example =~ /murge_sequence/
       next if example == "reentrant"  # May fail due to thread handling. See http://goo.gl/SKDGPV
       if example == "murge-product"
-        system "#{share}/example/bin/#{example}", "100", "10", "1"
+        system "#{pkgshare}/example/bin/#{example}", "100", "10", "1"
       elsif example =~ /murge/
-        system "#{share}/example/bin/#{example}", "100", "4"
+        system "#{pkgshare}/example/bin/#{example}", "100", "4"
       else
-        system "#{share}/example/bin/#{example}", "-lap", "100"
+        system "#{pkgshare}/example/bin/#{example}", "-lap", "100"
       end
     end
     ohai "All test output is in ~/Library/Logs/Homebrew/pastix. Please check."
