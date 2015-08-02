@@ -1,5 +1,12 @@
 class Phyml < Formula
   desc "Fast maximum likelihood-based phylogenetic inference"
+  bottle do
+    cellar :any
+    sha256 "ccae08800290289e8989d6da5aab65adb6cded93e6a32b284f184a7c372f947b" => :yosemite
+    sha256 "c8cc4b9434128305c7a759a73e67f28dc3a4418531be80694ab80a06786e770d" => :mavericks
+    sha256 "723aa3d01acf9ec3b4fc4aa8ed48abd0db5208abb9c7f8e23c5549e6668a29b5" => :mountain_lion
+  end
+
   # tag "bioinformatics"
   # doi "10.1093/sysbio/syq010"
   homepage "http://www.atgc-montpellier.fr/phyml/"
