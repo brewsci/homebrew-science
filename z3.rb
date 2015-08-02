@@ -7,9 +7,10 @@ class Z3 < Formula
 
   bottle do
     cellar :any
-    sha256 "f288000445d47ae31fd3ed128cc560d0b3792bfc528a9f76168d8a1bb766e501" => :yosemite
-    sha256 "494af7b3806ad8d222d7d4f0a15a0fd649f648e40a30e29353afa80948a0df44" => :mavericks
-    sha256 "a9b987921c8e84bb8759e9a408861d791fc0a1ec3698563bb80fd8fead6b03b6" => :mountain_lion
+    revision 1
+    sha256 "491c51fa7e7ae45022c8a8ad4f5c12010faa9d53a1ed543f1e57be32ca067893" => :yosemite
+    sha256 "9053fe4bc9bccf65659a68ff6f1e41037c8eb27a68edb3404bbe44ef64775172" => :mavericks
+    sha256 "74b091b81f87aec59b4610d480ffa5d7570640058ce2d7e7e09d913152221b3c" => :mountain_lion
   end
 
   depends_on :python
