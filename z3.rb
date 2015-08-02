@@ -1,5 +1,6 @@
 class Z3 < Formula
-  homepage "http://z3.codeplex.com/"
+  desc "A high-performance theorem prover"
+  homepage "https://github.com/Z3Prover/z3"
   url "https://github.com/Z3Prover/z3/archive/z3-4.4.0.tar.gz"
   sha256 "65b72f9eb0af50949e504b47080fb3fc95f11c435633041d9a534473f3142cba"
   head "https://github.com/Z3Prover/z3.git"
@@ -23,12 +24,12 @@ class Z3 < Formula
       system "make"
       system "make", "install"
     end
-    share.install "examples"
+    pkgshare.install "examples"
   end
 
   test do
     system ENV.cc, "-I#{include}", "-L#{lib}", "-lz3",
-           share/"examples/c/test_capi.c", "-o", testpath/"test"
+           pkgshare/"examples/c/test_capi.c", "-o", testpath/"test"
     system "./test"
   end
 end
