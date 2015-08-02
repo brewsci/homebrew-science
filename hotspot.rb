@@ -5,6 +5,13 @@ class Hotspot < Formula
   sha256 "9ecdbba612b80f137b78314c23ac94aa6840d217bf4256faf8adee88a73fdd0c"
   head "https://github.com/rthurman/hotspot.git"
 
+  bottle do
+    cellar :any
+    sha256 "fc949fe55227e919164e64f7e6d6f9c1c7444cca515ae4159e0deb1219864ed2" => :yosemite
+    sha256 "5bd2cd5293c8e791e4e29f7bd85d9aba76a6eedbec03903f0e02722173398be2" => :mavericks
+    sha256 "e69620eb7ce1bf2614a081aa206cd4802099f83a53316b29bae31e94ad5412ea" => :mountain_lion
+  end
+
   depends_on "gsl"
 
   def install
