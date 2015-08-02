@@ -2,6 +2,7 @@ class Openimageio < Formula
   homepage "http://openimageio.org"
   url "https://github.com/OpenImageIO/oiio/archive/Release-1.5.14.tar.gz"
   sha256 "b9553fe616c94b872b1e17d1a74d450cdcaf1ad512905253e7d02683dfaa9d63"
+  revision 1
 
   head "https://github.com/OpenImageIO/oiio.git"
 
@@ -52,7 +53,7 @@ class Openimageio < Formula
   end
 
   resource "tgautils" do
-    url "http://googlesites.inequation.org/TGAUTILS.ZIP?attredirects=0"
+    url "https://raw.githubusercontent.com/DomT4/LibreMirror/57cade6cc3d84fa214624669f8b078e53b191faa/tgautils/TGAUTILS.ZIP"
     sha256 "1c05c376800d75332e544b665354b9e234f97352266b4dea40d5424d8bcb3299"
     version "1.0.0"
   end
