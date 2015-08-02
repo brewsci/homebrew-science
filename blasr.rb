@@ -16,6 +16,7 @@ class Blasr < Formula
 
   depends_on "hdf5"
 
+  # https://github.com/PacificBiosciences/blasr/issues/28
   fails_with :clang do
     build 602
     cause <<-EOS.undent
