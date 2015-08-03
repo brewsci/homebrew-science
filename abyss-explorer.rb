@@ -1,4 +1,5 @@
 class AbyssExplorer < Formula
+  desc "Visualize genome sequence assemblies"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss-explorer"
   #doi "10.1109/TVCG.2009.116"
   #tag "bioinformatics"
