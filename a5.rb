@@ -1,4 +1,5 @@
 class A5 < Formula
+  desc "Pipeline for de novo assembly of microbial genomes"
   homepage "https://sourceforge.net/projects/ngopt/"
   #doi "10.1371/journal.pone.0042304", "arXiv:1401.5130"
   #tag "bioinformatics"
