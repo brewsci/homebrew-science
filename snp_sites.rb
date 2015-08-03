@@ -22,7 +22,7 @@ class SnpSites < Formula
     system "make", "install"
 
     ln_s "#{bin}/snp-sites", "#{bin}/snp_sites"
-    share.install "tests/data"
+    pkgshare.install "tests/data"
   end
 
   test do
