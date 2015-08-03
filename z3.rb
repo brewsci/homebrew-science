@@ -4,6 +4,7 @@ class Z3 < Formula
   url "https://github.com/Z3Prover/z3/archive/z3-4.4.0.tar.gz"
   sha256 "65b72f9eb0af50949e504b47080fb3fc95f11c435633041d9a534473f3142cba"
   head "https://github.com/Z3Prover/z3.git"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,18 +14,15 @@ class Z3 < Formula
     sha256 "74b091b81f87aec59b4610d480ffa5d7570640058ce2d7e7e09d913152221b3c" => :mountain_lion
   end
 
-  depends_on :python
-
   def install
-    package_dir = lib/"python2.7/site-packages"
-    mkdir_p package_dir
-    inreplace "scripts/mk_util.py", /^PYTHON_PACKAGE_DIR=.*/, "PYTHON_PACKAGE_DIR=\"#{package_dir}\""
-
+    inreplace "scripts/mk_util.py", "dist-packages", "site-packages"
     system "python", "scripts/mk_make.py", "--prefix=#{prefix}"
+
     cd "build" do
       system "make"
       system "make", "install"
     end
+
     pkgshare.install "examples"
   end
 
