@@ -8,7 +8,7 @@ class Mfusg < Formula
 
   def install
     prefix.install "mfusg.txt", "readme.txt", "release.txt", "problems.txt"
-    share.install "test"
+    pkgshare.install "test"
     doc.install Dir["doc/*"]
 
     cd "pymake" do
@@ -18,6 +18,6 @@ class Mfusg < Formula
   end
 
   test do
-    system "#{bin}/mfusg", "#{share}/test/03_conduit_confined/ex3.nam"
+    system "#{bin}/mfusg", "#{pkgshare}/test/03_conduit_confined/ex3.nam"
   end
 end
