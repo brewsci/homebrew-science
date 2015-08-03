@@ -1,5 +1,5 @@
 class AstrometryNet < Formula
-  desc "Automatic identification of astronomical images, aka automated astrometry, plate solving, or lost-in-space attitude determination"
+  desc "Automatic identification of astronomical images"
   homepage "http://astrometry.net"
   url "http://astrometry.net/downloads/astrometry.net-0.56.tar.gz"
   sha256 "7f15e9b1c978fa5dd28638e2bcd0063e3cd0b6f348a75b9df7812ee300229010"
