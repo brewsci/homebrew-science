@@ -7,6 +7,7 @@ class LinuxRequirement < Requirement
 end
 
 class AllpathsLg < Formula
+  desc "Short read genome assembler"
   homepage "http://www.broadinstitute.org/software/allpaths-lg/blog/"
   #doi "10.1073/pnas.1017351108"
   #tag "bioinformatics"
