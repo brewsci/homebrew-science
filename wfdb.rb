@@ -32,7 +32,7 @@ class Wfdb < Formula
 
     # For some reason the configure script doesn't install the man pages properly
     # even though '--mandir' is used.
-    share.install prefix/"man" if stable?
+    share.install prefix/"man" if build.stable?
   end
 
   def caveats; <<-EOS.undent
