@@ -1,7 +1,8 @@
 class Amos < Formula
+  desc "A Modular Open-Source Assembler"
   homepage "http://sourceforge.net/apps/mediawiki/amos/index.php?title=AMOS"
-  #doi "10.1002/0471250953.bi1108s33"
-  #tag "bioinformatics"
+  # doi "10.1002/0471250953.bi1108s33"
+  # tag "bioinformatics"
 
   url "https://downloads.sourceforge.net/project/amos/amos/3.1.0/amos-3.1.0.tar.gz"
   sha1 "28e799e37713594ba7147d300ecae6574beb14a4"
