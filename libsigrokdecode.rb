@@ -1,5 +1,3 @@
-require "formula"
-
 class Libsigrokdecode < Formula
   url "http://sigrok.org/download/source/libsigrokdecode/libsigrokdecode-0.3.0.tar.gz"
   homepage "http://sigrok.org/"
@@ -92,7 +90,6 @@ class Libsigrokdecode < Formula
       system "./autogen.sh" if build.head?
       system "./configure", *common_args
       system "make", "install"
-      share.install
     end
 
     ENV.deparallelize
