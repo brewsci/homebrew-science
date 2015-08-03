@@ -6,9 +6,10 @@ class Wfdb < Formula
   head "https://github.com/bemoody/wfdb.git"
 
   bottle do
-    sha256 "90a6785716be809f80a3d269b0d849b7b047a5b6979b15c82a843f09e980bbf8" => :yosemite
-    sha256 "1bb573712810085ef699519126707d1236b92cdada363a4966f63bbf318d94cb" => :mavericks
-    sha256 "0b8a7209b37e2c64f265cdc8bd7708d70997a3304b0098eadb479063ff719324" => :mountain_lion
+    revision 1
+    sha256 "c33ed3f0cf3d7a1fd01e4906c29300657709231bdd8b036e01ec2c4bb7853716" => :yosemite
+    sha256 "76a857947309a59644fef27374218e1e0f587412802f3f15c58550d70304a45c" => :mavericks
+    sha256 "cb0b49a7d841be2c4600339aabb48ee02b605c77197d873b7054b794c0cd3c90" => :mountain_lion
   end
 
   def install
