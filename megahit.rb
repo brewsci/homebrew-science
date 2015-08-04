@@ -10,9 +10,9 @@ class Megahit < Formula
   head "https://github.com/voutcn/megahit.git"
 
   bottle do
-    sha256 "2c97141462746f7ee016e3701d3dbc8d29fcff0ddcf39005be064e3791a4ea80" => :yosemite
-    sha256 "4b3f125ec9e00ed8a6e68af070c01a4be3b409880ee17be348f84491c1d79485" => :mavericks
-    sha256 "50447828734d6529c3b78dd6c4ace0e00572969161746d89c8fd791f4cb90755" => :mountain_lion
+    sha256 "39bcf4cec53c187adffd5e4105ca19b5726d3715e67427206887e437462cecd6" => :yosemite
+    sha256 "afd1ffa9738d466fee70cdca229f1c4d908eccc76652afe5405c5d172615a5fb" => :mavericks
+    sha256 "e993b4ee192dbddd4b5b29be589b14cc40f70094abc5aa30255d1b239d738d63" => :mountain_lion
   end
 
   fails_with :llvm do
