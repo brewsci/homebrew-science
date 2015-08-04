@@ -1,11 +1,11 @@
 class Simpleitk < Formula
+  desc "SimpleITK is a simplified layer built on top of ITK"
   homepage "http://www.simpleitk.org"
-  url "https://downloads.sourceforge.net/project/simpleitk/SimpleITK/0.8.0/Source/SimpleITK-0.8.0.tar.gz"
-  sha1 "7f62f397d0b85dfe52bf2fd66155e5b3cdc95af9"
+  url "https://downloads.sourceforge.net/project/simpleitk/SimpleITK/0.9.0/Source/SimpleITK-0.9.0.tar.gz"
+  sha256 "111454070e62f93f7b241604f8ba41488032a80d09a5a0e8a1803dfdeaa26bc7"
   head "https://github.com/SimpleITK/SimpleITK.git"
 
   depends_on "cmake" => :build
-  depends_on "insighttoolkit"
   depends_on "swig" => :build
   depends_on :python
   depends_on :java => :optional
@@ -21,6 +21,7 @@ class Simpleitk < Formula
   def install
     args = std_cmake_args + %W[
       -DBUILD_TESTING=OFF
+      -DUSE_SYSTEM_SWIG=ON
     ]
     args << "-DBUILD_EXAMPLES=" + ((build.include? "examples") ? "ON" : "OFF")
     args << "-DWRAP_CSHARP=" + ((build.with? "csharp") ? "ON" : "OFF")
@@ -33,12 +34,23 @@ class Simpleitk < Formula
 
     # CMake picks up the system's python dylib, even if we have a brewed one.
     args << "-DPYTHON_LIBRARY='#{%x(python-config --prefix).chomp}/lib/libpython2.7.dylib'"
+    args << "-DPYTHON_INCLUDE_DIR='#{%x(python-config --prefix).chomp}/include/python2.7'"
 
-    system "cmake", ".", *args
-    system "make", "install"
+    # Superbuild does only work in an out-of-source build, create a new folder
+    mkdir "sitk-build" do
 
-    ENV.prepend_create_path "PYTHONPATH", lib+"python2.7/site-packages"
-    system "python", "Wrapping/PythonPackage/setup.py", "install", "--prefix=#{prefix}", "--record=installed.txt", "--single-version-externally-managed"
+      # The cmake Superbuild will take care of downloading and compiling important
+      # dependencies to be able to build simpleitk
+      system "cmake", "../SuperBuild/", *args
+      system "make"
+
+      ENV.prepend_create_path "PYTHONPATH", lib+"python2.7/site-packages"
+      if build.head?
+        system "python", "SimpleITK-build/Wrapping/Python/Packaging/setup.py", "install", "--prefix=#{prefix}", "--record=installed.txt", "--single-version-externally-managed"
+      else
+        system "python", "SimpleITK-build/Wrapping/PythonPackage/setup.py", "install", "--prefix=#{prefix}", "--record=installed.txt", "--single-version-externally-managed"
+      end
+    end
   end
 
   test do
