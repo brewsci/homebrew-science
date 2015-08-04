@@ -4,8 +4,8 @@ class Megahit < Formula
   # doi "10.1093/bioinformatics/btv033"
   # tag "bioinformatics"
 
-  url "https://github.com/voutcn/megahit/archive/v0.3.3.tar.gz"
-  sha256 "f6c5edb6a42e020e82fa2d670ed803022fae243c9aea19f948d3176aa52e3fce"
+  url "https://github.com/voutcn/megahit/archive/v1.0.1.tar.gz"
+  sha256 "c938a8c64c07b14dbed346eda2d286a129d9b4b57e70ee7503e9d8556c510fc5"
 
   head "https://github.com/voutcn/megahit.git"
 
@@ -37,6 +37,6 @@ class Megahit < Formula
     outdir = "megahit.outdir"
     system "#{bin}/megahit", "--12", "#{share}/megahit/example/readsInterleaved1.fa.gz", "-o", outdir
     assert File.exist?("#{outdir}/final.contigs.fa")
-    assert File.read("#{outdir}/opts.txt").include?(outdir)
+    assert_match outdir, File.read("#{outdir}/opts.txt")
   end
 end
