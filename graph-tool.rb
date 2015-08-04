@@ -75,6 +75,7 @@ class GraphTool < Formula
 
       if python == "python3"
         inreplace "configure", "libboost_python", "libboost_python3"
+        inreplace "configure", "ax_python_lib=boost_python", "ax_python_lib=boost_python3"
       end
 
       mkdir "build-#{python}-#{version}" do
