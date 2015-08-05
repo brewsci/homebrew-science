@@ -11,9 +11,9 @@ class Vcftools < Formula
 
   bottle do
     cellar :any
-    sha256 "3628fc7a18c01c578881757b7ec4564345a175f77adbdc634a63c4130bfb1afa" => :yosemite
-    sha256 "52bf2fb95c8abf3db5214861a18b4c1f33f798e7cce3eb33e3ae866909d5be07" => :mavericks
-    sha256 "a43af6012444b87cfc525aa31097814a35316c9c54dd1cc2752715da8b328f14" => :mountain_lion
+    sha256 "c23bd10a337957be077c646d09b8300dca5775108f00c6bfbffe6d21d7b24f57" => :yosemite
+    sha256 "b5ef3582f162ed1a5be8eb93b1033d2bca429839842aad25c2dc36c6ec6dbe39" => :mavericks
+    sha256 "3e55f4cdeeaa33e626076d05f0ded4633d295281acc78f5f05984648885415ee" => :mountain_lion
   end
 
   depends_on "homebrew/dupes/zlib" => :optional
