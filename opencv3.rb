@@ -50,6 +50,7 @@ class Opencv3 < Formula
 
   depends_on "eigen" => :recommended
   depends_on "ffmpeg" => :optional
+  depends_on "gphoto2" => :optional
   depends_on "gstreamer" => :optional
   depends_on "gst-plugins-good" if build.with? "gstreamer"
   depends_on "jasper" => :optional
@@ -60,6 +61,7 @@ class Opencv3 < Formula
   depends_on "libtiff"
   depends_on "openexr" => :recommended
   depends_on "openni" => :optional
+  depends_on "openni2" => :optional
   depends_on :python => :recommended unless OS.mac? && MacOS.version > :snow_leopard
   depends_on :python3 => :optional
   depends_on "qt" => :optional
@@ -111,6 +113,7 @@ class Opencv3 < Formula
     args << "-DWITH_1394=" + arg_switch("libdc1394")
     args << "-DWITH_EIGEN=" + arg_switch("eigen")
     args << "-DWITH_FFMPEG=" + arg_switch("ffmpeg")
+    args << "-DWITH_GPHOTO2=" + arg_switch("gphoto2")
     args << "-DWITH_GSTREAMER=" + arg_switch("gstreamer")
     args << "-DWITH_JASPER=" + arg_switch("jasper")
     args << "-DWITH_OPENEXR=" + arg_switch("openexr")
@@ -147,6 +150,12 @@ class Opencv3 < Formula
         s.gsub! "/usr/include/ni", "#{Formula["openni"].opt_include}/ni"
         s.gsub! "/usr/lib", "#{Formula["openni"].opt_lib}"
       end
+    end
+
+    if build.with? "openni2"
+      args << "-DWITH_OPENNI2=ON"
+      ENV["OPENNI2_INCLUDE"] ||= "#{Formula["openni2"].opt_include}/ni2"
+      ENV["OPENNI2_REDIST"] ||= "#{Formula["openni2"].opt_lib}/ni2"
     end
 
     if build.with? "python"
