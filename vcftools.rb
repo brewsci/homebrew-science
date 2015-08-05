@@ -1,13 +1,6 @@
 class Vcftools < Formula
   desc "Tools for working with VCF files"
   homepage "https://vcftools.github.io/"
-  bottle do
-    cellar :any
-    sha256 "3628fc7a18c01c578881757b7ec4564345a175f77adbdc634a63c4130bfb1afa" => :yosemite
-    sha256 "52bf2fb95c8abf3db5214861a18b4c1f33f798e7cce3eb33e3ae866909d5be07" => :mavericks
-    sha256 "a43af6012444b87cfc525aa31097814a35316c9c54dd1cc2752715da8b328f14" => :mountain_lion
-  end
-
   # doi "10.1093/bioinformatics/btr330"
   # tag "bioinformatics"
 
@@ -15,6 +8,13 @@ class Vcftools < Formula
   sha256 "9d2324512e9f1237d5cece74ba63965eb43643e9eada8685afe8217760a20a91"
 
   head "https://github.com/vcftools/vcftools.git"
+
+  bottle do
+    cellar :any
+    sha256 "3628fc7a18c01c578881757b7ec4564345a175f77adbdc634a63c4130bfb1afa" => :yosemite
+    sha256 "52bf2fb95c8abf3db5214861a18b4c1f33f798e7cce3eb33e3ae866909d5be07" => :mavericks
+    sha256 "a43af6012444b87cfc525aa31097814a35316c9c54dd1cc2752715da8b328f14" => :mountain_lion
+  end
 
   depends_on "homebrew/dupes/zlib" => :optional
 
