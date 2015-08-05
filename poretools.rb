@@ -117,7 +117,7 @@ class Poretools < Formula
     libexec.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
     (bin/"poretools").write_env_script(libexec+"bin/poretools", :R_LIBS => ENV["R_LIBS"], :PYTHONPATH => ENV["PYTHONPATH"])
 
-    resource("test").stage { (share/"test_data").install Dir["*"] }
+    resource("test").stage { (pkgshare/"test_data").install Dir["*"] }
   end
 
   test do
@@ -133,6 +133,6 @@ class Poretools < Formula
     N75	741
     EOS
 
-    assert_equal result, shell_output("#{bin}/poretools stats #{share}/test_data/")
+    assert_equal result, shell_output("#{bin}/poretools stats #{pkgshare}/test_data/")
   end
 end
