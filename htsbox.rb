@@ -11,9 +11,9 @@ class Htsbox < Formula
 
   bottle do
     cellar :any
-    sha1 "4a0b008515d88edea4307d336da15b9950a6e170" => :yosemite
-    sha1 "26662eaaea1233820256298ba6788fbc3d5dc1fc" => :mavericks
-    sha1 "74cf4e471b03bfb74e52ed92b6a01a159bfc7d56" => :mountain_lion
+    sha256 "25862df2d67c335b7f6d02f8c3a29f4a0c25280e7fd0e1c216db456451ed825d" => :yosemite
+    sha256 "d736c37859db258b1437e7ade182dc4d1a545630a66ba684e3cbea65434d933e" => :mavericks
+    sha256 "3a04a5a8efdd6a4175fdc8d40e172db1f0761f6dba5f25dc27c1303590c9c3d3" => :mountain_lion
   end
 
   depends_on "htslib"
