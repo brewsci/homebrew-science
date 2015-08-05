@@ -14,7 +14,7 @@ class Lmfit < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
-    (share/"lmfit/demos").install Dir["demo/*.c"]
+    (pkgshare/"demos").install Dir["demo/*.c"]
   end
 
   def caveats
@@ -23,10 +23,10 @@ class Lmfit < Formula
 
   test do
     # curve1.c tests lmcurve.h
-    system ENV.cc, (share/"lmfit/demos/curve1.c"), "-I#{include}", "-L#{lib}", "-llmfit", "-o", "curve1"
+    system ENV.cc, (pkgshare/"demos/curve1.c"), "-I#{include}", "-L#{lib}", "-llmfit", "-o", "curve1"
     system "./curve1"
     # surface1.c tests lmmin.h
-    system ENV.cc, (share/"lmfit/demos/surface1.c"), "-I#{include}", "-L#{lib}", "-llmfit", "-o", "surface1"
+    system ENV.cc, (pkgshare/"demos/surface1.c"), "-I#{include}", "-L#{lib}", "-llmfit", "-o", "surface1"
     system "./surface1"
   end
 end

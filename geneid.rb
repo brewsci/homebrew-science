@@ -15,7 +15,7 @@ class Geneid < Formula
     system "make"
     bin.install Dir["bin/*"]
     doc.install "README", *Dir["docs/*"]
-    (share/"geneid").install Dir["param/*.param"]
+    pkgshare.install Dir["param/*.param"]
   end
 
   def caveats; <<-EOS.undent

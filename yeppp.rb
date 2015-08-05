@@ -26,7 +26,7 @@ class Yeppp < Formula
     cd "examples/c" do
       system "make"
     end
-    (share/"yeppp").install "examples"
+    pkgshare.install "examples"
   end
 
   test do

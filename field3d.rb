@@ -24,7 +24,7 @@ class Field3d < Formula
     include.install Dir["install/**/**/release/include/*"]
     lib.install Dir["install/**/**/release/lib/*"]
     man1.install "man/f3dinfo.1"
-    (share/"field3d").install "contrib", "test", "apps/sample_code"
+    pkgshare.install "contrib", "test", "apps/sample_code"
   end
 
   test do
@@ -33,7 +33,7 @@ class Field3d < Formula
            "-L#{Formula["boost"].opt_lib}", "-lboost_system",
            "-I#{Formula["hdf5"].opt_include}",
            "-L#{Formula["hdf5"].opt_lib}", "-lhdf5",
-           share/"field3d/sample_code/create_and_write/main.cpp",
+           pkgshare/"sample_code/create_and_write/main.cpp",
            "-o", "test"
     system "./test"
   end

@@ -27,11 +27,11 @@ class Parmetis < Formula
 
     system "make", "config", "prefix=#{prefix}", "shared=1"
     system "make", "install"
-    (share/"parmetis").install "Graphs" # Sample data for test
+    pkgshare.install "Graphs" # Sample data for test
   end
 
   test do
-    system "mpirun", "-np", "4", "#{bin}/ptest", "#{share}/parmetis/Graphs/rotor.graph"
+    system "mpirun", "-np", "4", "#{bin}/ptest", "#{pkgshare}/Graphs/rotor.graph"
     ohai "Test results are in ~/Library/Logs/Homebrew/parmetis."
   end
 end

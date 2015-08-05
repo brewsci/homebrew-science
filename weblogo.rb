@@ -23,7 +23,7 @@ class Weblogo < Formula
     inreplace "seqlogo", "/usr/bin/perl -w", "/usr/bin/env perl"
     inreplace "seqlogo", 'use lib "$Bin"', "use warnings; use lib '#{share}/weblogo'"
     bin.install "seqlogo"
-    (share/"weblogo").install "logo.pm", "template.pm"
+    pkgshare.install "logo.pm", "template.pm"
     doc.install %w[README LICENSE Crooks-2004-GR-WebLogo.pdf]
   end
 

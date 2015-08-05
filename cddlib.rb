@@ -18,6 +18,6 @@ class Cddlib < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
     doc.install Dir["doc/*"]
-    (share/"cddlib").install Dir["examples*"]
+    pkgshare.install Dir["examples*"]
   end
 end

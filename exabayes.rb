@@ -24,7 +24,7 @@ class Exabayes < Formula
     args << "--enable-mpi" if build.with? "mpi"
     system "./configure", *args
     system "make", "install"
-    (share/"exabayes").install "examples", "manual"
+    pkgshare.install "examples", "manual"
   end
 
   def caveats; <<-EOS.undent

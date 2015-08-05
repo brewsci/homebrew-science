@@ -35,7 +35,7 @@ class Bcftools < Formula
 
     system *args
 
-    (share/"bcftools").install "test"
+    pkgshare.install "test"
   end
 
   test do

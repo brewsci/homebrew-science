@@ -23,7 +23,7 @@ class Yaha < Formula
     system "make"
     bin.install "bin/yaha"
     doc.install Dir["YAHA_User_Guide*.pdf"], "README.md", "LICENSE.txt"
-    (share/"yaha").install "testdata"
+    pkgshare.install "testdata"
   end
 
   test do

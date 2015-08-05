@@ -25,7 +25,7 @@ class Art < Formula
     system "make", "clean"
     system "make", "install"
     doc.install %w[AUTHORS COPYING ChangeLog NEWS README art_454_README art_SOLiD_README art_illumina_README]
-    (share/"art").install %w[examples 454_profiles Illumina_profiles SOLiD_profiles]
+    pkgshare.install %w[examples 454_profiles Illumina_profiles SOLiD_profiles]
   end
 
   test do

@@ -15,6 +15,6 @@ class Bact < Formula
     system "make", "test"
     bin.install "bact_learn", "bact_classify", "bact_mkmodel"
     doc.install "README", "AUTHORS", "COPYING", "index.html", "bact.css"
-    (share/"bact").install Dir["jp*"], Dir["med.*"]
+    pkgshare.install Dir["jp*"], Dir["med.*"]
   end
 end

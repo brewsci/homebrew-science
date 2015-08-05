@@ -19,7 +19,7 @@ class Bowtie < Formula
     system "make", "install", "prefix=#{prefix}"
 
     doc.install "MANUAL", "NEWS", "TUTORIAL"
-    (share/"bowtie").install "scripts", "genomes", "indexes", "reads"
+    pkgshare.install "scripts", "genomes", "indexes", "reads"
 
     inreplace share/"bowtie/scripts/test/simple_tests.pl" do |s|
       s.gsub! "$bowtie = \"\"", "$bowtie = \"#{bin}/bowtie\""

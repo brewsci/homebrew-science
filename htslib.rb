@@ -19,7 +19,7 @@ class Htslib < Formula
 
   def install
     system "make", "install", "prefix=#{prefix}"
-    (share/"htslib").install "test"
+    pkgshare.install "test"
   end
 
   test do

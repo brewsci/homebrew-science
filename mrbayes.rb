@@ -40,7 +40,7 @@ class Mrbayes < Formula
     end
 
     # Doc and examples are not included in the svn
-    (share/"mrbayes").install ["documentation", "examples"] unless build.head?
+    pkgshare.install ["documentation", "examples"] unless build.head?
   end
 
   def caveats
@@ -53,6 +53,6 @@ class Mrbayes < Formula
   end
 
   test do
-    pipe_output(bin/"mb", "Execute #{share}/mrbayes/examples/finch.nex")
+    pipe_output(bin/"mb", "Execute #{pkgshare}/examples/finch.nex")
   end
 end

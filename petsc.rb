@@ -138,7 +138,7 @@ class Petsc < Formula
     prefix.install_symlink "#{prefix}/#{petsc_arch}/conf"
     # symlink only files (don't symlink pkgconfig as it won't symlink to opt/lib)
     lib.install_symlink Dir["#{prefix}/#{petsc_arch}/lib/*.*"]
-    (share/"petsc").install_symlink Dir["#{prefix}/#{petsc_arch}/share/*"]
+    pkgshare.install_symlink Dir["#{prefix}/#{petsc_arch}/share/*"]
   end
 
   def caveats; <<-EOS

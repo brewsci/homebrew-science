@@ -28,7 +28,7 @@ class Hwloc < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    (share/"hwloc").install "tests"
+    pkgshare.install "tests"
   end
 
   test do

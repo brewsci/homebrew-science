@@ -21,7 +21,7 @@ class Phylip < Formula
 
     rm Dir["#{libexec}/font*"]
     bin.install_symlink Dir["#{libexec}/*"] - Dir["#{libexec}/*.{so,jar,unx}"]
-    (share/"phylip").install ["phylip.html", "doc"]
+    pkgshare.install ["phylip.html", "doc"]
   end
 
   def caveats

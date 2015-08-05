@@ -57,7 +57,7 @@ class Slepc < Formula
     lib.install_symlink Dir["#{prefix}/#{petsc_arch}/lib/*.*"]
     prefix.install_symlink "#{prefix}/#{petsc_arch}/conf"
     doc.install "docs/slepc.pdf", Dir["docs/*.htm"], "docs/manualpages"  # They're not really man pages.
-    (share/"slepc").install "share/slepc/datafiles"
+    pkgshare.install "share/slepc/datafiles"
   end
 
   def caveats; <<-EOS.undent

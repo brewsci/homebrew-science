@@ -21,7 +21,7 @@ class Galfit < Formula
 
   def install
     bin.install "galfit"
-    (share/"galfit").install resource("example")
+    pkgshare.install resource("example")
   end
 
   def caveats; <<-EOS.undent

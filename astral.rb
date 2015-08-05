@@ -19,11 +19,11 @@ class Astral < Formula
   depends_on :java
 
   def install
-    (share/"astral").install Dir["*"]
-    bin.write_jar_script share/"astral/astral.#{version}.jar", "astral"
+    pkgshare.install Dir["*"]
+    bin.write_jar_script pkgshare/"astral.#{version}.jar", "astral"
   end
 
   test do
-    system "astral", "-i", share/"astral/test_data/trivial.tre"
+    system "astral", "-i", pkgshare/"test_data/trivial.tre"
   end
 end

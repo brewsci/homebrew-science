@@ -30,12 +30,12 @@ class Megahit < Formula
     system "make"
     bin.install Dir["megahi*"]
     doc.install "LICENSE", "ChangeLog.md", "README.md"
-    (share/"megahit").install "example"
+    pkgshare.install "example"
   end
 
   test do
     outdir = "megahit.outdir"
-    system "#{bin}/megahit", "--12", "#{share}/megahit/example/readsInterleaved1.fa.gz", "-o", outdir
+    system "#{bin}/megahit", "--12", "#{pkgshare}/example/readsInterleaved1.fa.gz", "-o", outdir
     assert File.exist?("#{outdir}/final.contigs.fa")
     assert_match outdir, File.read("#{outdir}/opts.txt")
   end

@@ -12,7 +12,7 @@ class Graphlan < Formula
     prefix.install Dir["*.py"], "src", "pyphlan"
     bin.install_symlink "../graphlan.py" => "graphlan"
     bin.install_symlink "../graphlan_annotate.py" => "graphlan_annotate"
-    (share/"graphlan").install "examples", "export2graphlan"
+    pkgshare.install "examples", "export2graphlan"
     doc.install "license.txt", "readme.txt"
   end
 

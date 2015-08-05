@@ -27,8 +27,8 @@ class Glimmer3 < Formula
       libexec.install script
     end
 
-    (share/"#{name}").install Dir.glob('sample-run/*.predict')
-    (share/"#{name}").install 'sample-run/tpall.fna'
+    pkgshare.install Dir.glob('sample-run/*.predict')
+    pkgshare.install 'sample-run/tpall.fna'
 
     inreplace 'scripts/g3-iterated.csh', '/nfshomes/adelcher', HOMEBREW_PREFIX
     inreplace 'scripts/g3-from-training.csh', '/nfshomes/adelcher', HOMEBREW_PREFIX

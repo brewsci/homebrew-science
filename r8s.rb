@@ -25,7 +25,7 @@ class R8s < Formula
     end
     system "make"
     bin.install "r8s"
-    (share/"r8s").install Dir["SAMPLE_*", "*.pdf"]
+    pkgshare.install Dir["SAMPLE_*", "*.pdf"]
   end
 
   def caveats; <<-EOS.undent
