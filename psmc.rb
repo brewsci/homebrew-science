@@ -1,6 +1,13 @@
 class Psmc < Formula
   desc "Pairwise Sequentially Markovian Coalescent (PSMC) model"
   homepage "https://github.com/lh3/psmc"
+  bottle do
+    cellar :any
+    sha256 "fc899e94c6d9eaafaaacb1af70d3aa074bb0cd4c8f8d9895670c2ba8b3e6f761" => :yosemite
+    sha256 "2c45d58d00910f8502bae0bf520ee345093bf57cb24edfb02252fccbdf062f53" => :mavericks
+    sha256 "af3b4d8927a341412c0d4dbde99ddb0f88dd28bc1250079c24d4846c3816d066" => :mountain_lion
+  end
+
   # doi "10.1038/nature10231"
   # tag "bioinformatics"
 
