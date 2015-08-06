@@ -12,9 +12,9 @@ class Nextflow < Formula
 
   bottle do
     cellar :any
-    sha256 "33234927d2d50db1f5918899cfb3d7473bd9a30dc8f3acb22e86f0019da2d1d9" => :yosemite
-    sha256 "cd650c5981218ddc38095a768c569973a1c60c1bfa50c6561a14e74a25a716da" => :mavericks
-    sha256 "1b2646c14f6e130331b41af0668c2268a91c75a25cc7b3adf488afe289203324" => :mountain_lion
+    sha256 "3b5e711d4bca4068560624d36c1b2ae76aa506c56002ca2cd4f27d0002e06edd" => :yosemite
+    sha256 "736ae47d7ab394e5488b2edb8233a8a2aa25fdad8fa782844648aea00810b62c" => :mavericks
+    sha256 "5a10eb5af77238eeeb8c281396a8d12d0db9a05ec5aadd8500744ba226903e4e" => :mountain_lion
   end
 
   depends_on :java => "1.7+"
