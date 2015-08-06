@@ -11,12 +11,6 @@ class Opencv3 < Formula
       sha256 "8fa18564447a821318e890c7814a262506dd72aaf7721c5afcf733e413d2e12b"
     end
   end
-  bottle do
-    sha256 "52eb80230c4958f5240a16bcb9bf0930fd25a95b84b0fcbc96ec21e4f6e9bb68" => :yosemite
-    sha256 "01b822e8e75578b195c1a5edb69ceb4d16ed4e57f652505032c46bb15af3433d" => :mavericks
-    sha256 "6d7a0737b6995f22151d7b20e9cac205aaa325cd5abd365190b939fe5a3af9c3" => :mountain_lion
-  end
-
 
   head do
     url "https://github.com/Itseez/opencv.git"
@@ -24,6 +18,13 @@ class Opencv3 < Formula
     resource "contrib" do
       url "https://github.com/Itseez/opencv_contrib.git"
     end
+  end
+
+  bottle do
+    revision 1
+    sha256 "e152b2de3676f031ca5bb2e51174280cb0610d93aeef7b44be3ce0d45b05e70b" => :yosemite
+    sha256 "c9b2d992266754ac4e15a5c974e42524f9b6daa11c8cfec25dcd446a989a653e" => :mavericks
+    sha256 "f4d8d0ce0ce159563649e148b5e7ddbc31bd892bb7e4c438c698bb5953709196" => :mountain_lion
   end
 
   keg_only "opencv3 and opencv install many of the same files."
