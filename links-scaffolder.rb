@@ -1,11 +1,11 @@
 class LinksScaffolder < Formula
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/links"
-  # doi "10.1101/016519"
+  # doi "10.1186/s13742-015-0076-3"
   # tag "bioinformatics"
 
-  url "http://www.bcgsc.ca/platform/bioinfo/software/links/releases/1.5/links_v1-5.tar.gz"
-  version "1.5"
-  sha256 "2009b1ea80ab868bf6c36bc247b348de54dae44e6547565eb24bbbe4875639fb"
+  url "http://www.bcgsc.ca/platform/bioinfo/software/links/releases/1.5.1/links_v1-5-1.tar.gz"
+  version "1.5.1"
+  sha256 "3f4dbcdd0fc6735ae316d7c379b038a3fada16233a120b2d6f2220d51a24a908"
 
   depends_on "Bloom::Faster" => :perl
 
