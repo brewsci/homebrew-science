@@ -29,6 +29,9 @@ class Trilinos < Formula
 
   depends_on "openblas" => :optional
 
+  openblasdep = (build.with? "openblas") ? ["with-openblas"] : []
+  mpidep      = (build.with? "mpi")      ? ["with-mpi"]      : []
+
   depends_on "adol-c"       => :recommended
   depends_on "boost"        => :recommended
   depends_on "cppunit"      => :recommended
@@ -36,14 +39,14 @@ class Trilinos < Formula
   depends_on "hwloc"        => :recommended
   depends_on "libmatio"     => [:recommended] + ((build.with? "hdf5") ? ["with-hdf5"] : [])
   depends_on "metis"        => :recommended
-  depends_on "mumps"        => :recommended
+  depends_on "mumps"        => [:recommended] + openblasdep
   depends_on "netcdf"       => ["with-fortran", :recommended]
   depends_on "parmetis"     => :recommended if build.with? "mpi"
-  depends_on "scalapack"    => :recommended
+  depends_on "scalapack"    => [:recommended] + openblasdep
   depends_on "scotch"       => :recommended
-  depends_on "suite-sparse" => :recommended
-  depends_on "superlu"      => :recommended
-  depends_on "superlu_dist" => :recommended if build.with? "parmetis"
+  depends_on "suite-sparse" => [:recommended] + openblasdep
+  depends_on "superlu"      => [:recommended] + openblasdep
+  depends_on "superlu_dist" => [:recommended] + openblasdep if build.with? "parmetis"
 
   #-depends_on "petsc"        => :optional # ML packages currently do not compile with PETSc >= 3.3
   #-depends_on "qd"           => :optional # Fails due to global namespace issues (std::pow vs qd::pow)
@@ -51,9 +54,9 @@ class Trilinos < Formula
 
   # Experimental TPLs:
   depends_on "eigen"        => :recommended
-  depends_on "hypre"        => [:recommended] + ((build.with? "mpi") ? ["with-mpi"] : []) # EpetraExt tests fail to compile
+  depends_on "hypre"        => [:recommended] + mpidep + openblasdep # EpetraExt tests fail to compile
   depends_on "glpk"         => :recommended
-  depends_on "hdf5"         => [:recommended] + ((build.with? "mpi") ? ["with-mpi"] : [])
+  depends_on "hdf5"         => [:recommended] + mpidep
   depends_on "tbb"          => :recommended
   depends_on "glm"          => :recommended
   depends_on "yaml-cpp"     => :recommended
@@ -123,8 +126,8 @@ class Trilinos < Formula
     args << "-DIntrepid_ENABLE_TESTS=OFF"
     args << "-DSacado_ENABLE_TESTS=OFF"
     args << "-DEpetraExt_ENABLE_TESTS=OFF" if build.with? "hypre"
-    args << "-DTrilinos_ENABLE_FEI=OFF" if not OS.mac?
-    args << "-DTrilinos_ENABLE_Sundance=OFF" if not OS.mac?
+    args << "-DTrilinos_ENABLE_FEI=OFF" unless OS.mac?
+    args << "-DTrilinos_ENABLE_Sundance=OFF" if !OS.mac? || MacOS.version < :mavericks
 
     # Third-party libraries
     args << onoff("-DTPL_ENABLE_Boost:BOOL=",       (build.with? "boost"))
@@ -159,10 +162,10 @@ class Trilinos < Formula
     # Even though METIS seems to conflicts with ParMETIS in Trilinos config (see TPLsList.cmake in the source folder),
     # we still need to provide METIS_INCLUDE_DIRS so that metis.h is picked up on Linuxbrew.
     if build.with? "metis"
-      ext = OS.mac? ? "dylib" : "so"
       args << "-DTPL_ENABLE_METIS:BOOL=ON"
-      args << "-DTPL_METIS_LIBRARIES=#{Formula["metis"].opt_lib}/libmetis.#{ext}"
-      args << "-DMETIS_INCLUDE_DIRS=#{Formula["metis"].opt_include}"
+      args << "-DMETIS_LIBRARY_DIRS=#{Formula["metis"].opt_lib}"
+      args << "-DMETIS_LIBRARY_NAMES=metis"
+      args << "-DTPL_METIS_INCLUDE_DIRS=#{Formula["metis"].opt_include}"
     else
       args << "-DTPL_ENABLE_METIS:BOOL=OFF"
     end
@@ -171,7 +174,7 @@ class Trilinos < Formula
     # TODO: use extra LIBRARY_NAMES with 5.0 only?
     if build.with? "mumps"
       args << "-DTPL_ENABLE_MUMPS:BOOL=ON"
-      args << "-DMUMPS_LIBRARY_DIRS=#{Formula["mumps"].opt_prefix}"
+      args << "-DMUMPS_LIBRARY_DIRS=#{Formula["mumps"].opt_lib}"
       args << "-DMUMPS_LIBRARY_NAMES=dmumps;pord;mumps_common"
     end
 
@@ -180,11 +183,10 @@ class Trilinos < Formula
 
     if build.with? "parmetis"
       # Ensure CMake picks up METIS 5 and not METIS 4.
-      ext = OS.mac? ? "dylib" : "so"
-      ext_parmetis = OS.mac? ? "a" : "so"
       args << "-DTPL_ENABLE_ParMETIS:BOOL=ON"
-      args << "-DTPL_ParMETIS_LIBRARIES=#{Formula["parmetis"].opt_lib}/libparmetis.#{ext_parmetis};#{Formula["metis"].opt_lib}/libmetis.#{ext}"
-      args << "-DParMETIS_INCLUDE_DIRS=#{Formula["parmetis"].opt_include}"
+      args << "-DParMETIS_LIBRARY_DIRS=#{Formula["parmetis"].opt_lib};#{Formula["metis"].opt_lib}"
+      args << "-DParMETIS_LIBRARY_NAMES=parmetis;metis"
+      args << "-DTPL_ParMETIS_INCLUDE_DIRS=#{Formula["parmetis"].opt_include}"
     else
       args << "-DTPL_ENABLE_ParMETIS:BOOL=OFF"
     end
@@ -230,7 +232,6 @@ class Trilinos < Formula
       --with-openblas --without-scotch
     EOS
   end
-
 
   test do
     system "#{bin}/Epetra_BasicPerfTest_test.exe", "16", "12", "1", "1", "25", "-v"
