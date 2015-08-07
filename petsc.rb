@@ -1,8 +1,8 @@
 class Petsc < Formula
   desc "Scalable (parallel) solution of scientific applications modeled by partial differential equations"
   homepage "http://www.mcs.anl.gov/petsc/index.html"
-  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.6.0.tar.gz"
-  sha256 "46e44b56f9f163e692c71b35f5d6b9b6746ab3484b7c4879d0f3eb475d98f053"
+  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.6.1.tar.gz"
+  sha256 "aeac101565a4ba609c3f3f13ada475720bcd32a44676e3cbfe792da1c9fb32a2"
   head "https://bitbucket.org/petsc/petsc", :using => :git
 
   bottle do
@@ -23,20 +23,22 @@ class Petsc < Formula
   depends_on :x11 => :optional
   depends_on "cmake" => :build
 
-  depends_on "superlu"      => :recommended
-  depends_on "superlu_dist" => :recommended
+  depends_on "openblas" => :optional
+  openblasdep = (build.with? "openblas") ? ["with-openblas"] : []
+
+  depends_on "superlu"      => [:recommended] + openblasdep
+  depends_on "superlu_dist" => [:recommended] + openblasdep
   depends_on "metis"        => :recommended
   depends_on "parmetis"     => :recommended
-  depends_on "scalapack"    => :recommended
-  depends_on "mumps"        => :recommended # mumps is built with mpi by default
-  depends_on "hypre"        => ["with-mpi", :recommended]
-  depends_on "sundials"     => ["with-mpi", :recommended]
+  depends_on "scalapack"    => [:recommended] + openblasdep
+  depends_on "mumps"        => [:recommended] + openblasdep # mumps is built with mpi by default
+  depends_on "hypre"        => ["with-mpi", :recommended] + openblasdep
+  depends_on "sundials"     => ["with-mpi", :recommended] + openblasdep
   depends_on "hdf5"         => ["with-mpi", :recommended]
   depends_on "hwloc"        => :recommended
-  depends_on "suite-sparse" => :recommended
+  depends_on "suite-sparse" => [:recommended] + openblasdep
   depends_on "netcdf"       => ["with-fortran", :recommended]
   depends_on "fftw"         => ["with-mpi", "with-fortran", :recommended]
-  depends_on "openblas"     => :optional
 
   # TODO: add ML, YAML dependencies when the formulae are available
 
