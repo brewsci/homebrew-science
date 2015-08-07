@@ -14,12 +14,15 @@ class Slepc < Formula
 
   option "with-complex", "Use complex version by default. Otherwise, real-valued version will be symlinked"
   option "without-check", "Skip run-time tests (not recommended)"
+  option "with-openblas", "Install dependencies with openblas"
 
-  depends_on "petsc" => :build
+  openblasdep = (build.with? "openblas") ? ["with-openblas"] : []
+
+  depends_on "petsc" => [:build] + openblasdep
   depends_on :mpi => [:cc, :f90]
   depends_on :fortran
-  depends_on :x11  => :optional
-  depends_on "arpack" => [:recommended, "with-mpi"]
+  depends_on :x11 => :optional
+  depends_on "arpack" => [:recommended, "with-mpi"] + openblasdep
 
   def install
     ENV.deparallelize
@@ -44,7 +47,7 @@ class Slepc < Formula
     system "./configure", "--prefix=#{prefix}/#{petsc_arch_complex}", *args
     system "make"
     # TODO: investigate why complex tests fail to run on Linuxbrew
-    system "make", "test"  if build.with? "check"
+    system "make", "test" if build.with? "check"
     system "make", "install"
 
     ohai "Test results are in ~/Library/Logs/Homebrew/slepc. Please check."
@@ -56,7 +59,7 @@ class Slepc < Formula
                             "#{prefix}/#{petsc_arch}/finclude", "#{prefix}/#{petsc_arch}/slepc-private"
     lib.install_symlink Dir["#{prefix}/#{petsc_arch}/lib/*.*"]
     prefix.install_symlink "#{prefix}/#{petsc_arch}/conf"
-    doc.install "docs/slepc.pdf", Dir["docs/*.htm"], "docs/manualpages"  # They're not really man pages.
+    doc.install "docs/slepc.pdf", Dir["docs/*.htm"], "docs/manualpages" # They're not really man pages.
     pkgshare.install "share/slepc/datafiles"
   end
 
