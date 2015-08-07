@@ -5,6 +5,12 @@ class Gromacs < Formula
   mirror "https://fossies.org/linux/privat/gromacs-5.0.6.tar.gz"
   sha256 "e07e950c4cd6cb84b83b145b70a15c25338ad6a7d7d1a0a83cdbd51cad954952"
 
+  bottle do
+    sha256 "a3ad3a83daed226c2ab65bd96a92d40835eba9216845aac80ba620c616423ce9" => :yosemite
+    sha256 "3be648a5e2a5b005b4425e435332545c6da278b267811240892e61e6e5c9e4fa" => :mavericks
+    sha256 "fcf55dd607545c0bf40589d63dc7f5113a31679c98793c3201b00a2d9e7d7cc9" => :mountain_lion
+  end
+
   deprecated_option "with-x" => "with-x11"
   deprecated_option "enable-mpi" => "with-mpi"
 
