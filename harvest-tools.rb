@@ -6,8 +6,8 @@ class HarvestTools < Formula
   sha256 "6f9a7ab056d52fad78bdb7a93832ff8b509b77566c22481a2d81089736e10af4"
 
   bottle do
-    sha1 "8a1e63ffa7954e78d8038284dc7d771c22a29a25" => :yosemite
-    sha1 "c903c72ff4da08c195a25a14d13b3c60d1612b73" => :mavericks
+    sha256 "9fdf80746d5a9aee3e8a532316c5803f67cb327bc443544bc563ac642f336cea" => :yosemite
+    sha256 "01a6c4e6f7a5f83cc2c037911526bba1e092c2de0e066447e9145359230ccbc3" => :mavericks
   end
 
   depends_on "autoconf" => :build
