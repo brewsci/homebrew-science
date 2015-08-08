@@ -63,12 +63,12 @@ class Poretools < Formula
   end
 
   resource "codetools" do
-    url "http://cran.r-project.org/src/contrib/codetools_0.2-11.tar.gz"
+    url "https://cran.r-project.org/src/contrib/Archive/codetools/codetools_0.2-11.tar.gz"
     sha256 "b02e8b17ea9173b73c20e84fbd36c420d5a79bb56a6b9d0d45c22a7d540f54d5"
   end
 
   resource "MASS" do
-    url "http://cran.r-project.org/src/contrib/MASS_7.3-40.tar.gz"
+    url "https://cran.r-project.org/src/contrib/Archive/MASS/MASS_7.3-40.tar.gz"
     sha256 "9e0c937162cb485511ce77c8519a21558370c20f3c6dc34493b895cb355cb516"
   end
 
@@ -101,8 +101,8 @@ class Poretools < Formula
     system "R", "-q", "-e", "install.packages('devtools', lib='" + libexec/"vendor/R/library" + "', repos='http://cran.r-project.org')"
 
     # install r dependencies
-    ENV.prepend "LDFLAGS", "-L" + Formula["openssl"].lib
-    ENV.prepend "CPPFLAGS", "-I" + Formula["openssl"].include
+    ENV.prepend "LDFLAGS", "-L" + Formula["openssl"].opt_lib
+    ENV.prepend "CPPFLAGS", "-I" + Formula["openssl"].opt_include
     resr.each do |rr|
       resource(rr).stage do
         system "R", "-q", "-e", "library(devtools); install(pkg='.', lib='" + libexec/"vendor/R/library" + "')"
