@@ -1,20 +1,9 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "http://opencv.org/"
+  url "https://github.com/Itseez/opencv/archive/2.4.12.tar.gz"
+  sha256 "8989f946a66fa3fc2764d637b1c866caf28d074ece187f86baba66544054eefc"
   head "https://github.com/Itseez/opencv.git", :branch => "2.4"
-  revision 2
-
-  stable do
-    url "https://github.com/Itseez/opencv/archive/2.4.11.tar.gz"
-    sha256 "b5331ea85a709b0fe871b1ce92e631afcd5ae822423863da6b559dd2cb7845bc"
-
-    # Avoid explicit links to a Python framework
-    # https://github.com/Itseez/opencv/pull/3865
-    patch do
-      url "https://gist.githubusercontent.com/tdsmith/484553cd2d0c19a4baa7/raw/b766154fa6c7ac1be3491b0c6b58b3d66c07f818/opencv_python.diff"
-      sha256 "cfe31c32d5a4ef0e89df684e210360602fb2d295b19f9ca4791731a9e274d776"
-    end
-  end
 
   bottle do
     sha256 "4fb2b8a8e86c6c43dba0ebf1058c6c02f13a48eddad66885ed3478a9363a49b9" => :yosemite
