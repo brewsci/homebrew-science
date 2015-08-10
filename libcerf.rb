@@ -4,6 +4,13 @@ class Libcerf < Formula
   url "http://apps.jcns.fz-juelich.de/src/libcerf/libcerf-1.4.tgz"
   sha256 "101265dd1e1b10339adb70b22b60e65ef12c4e01c4a3f52e508562eceef62272"
 
+  bottle do
+    cellar :any
+    sha256 "16372609c0c725e5ea4ee9c43ef5c8d99623f60bbd5571947b49a4382f20034b" => :yosemite
+    sha256 "c327717cdb1e4ac087f227d9452efc826ddfe5d2eaf14a5e8d1e4d3e65f93fd6" => :mavericks
+    sha256 "80f1af3717b8ca7ea6387e0e065eb7bd8a83a0b0c41793f07ddcfc80588b398d" => :mountain_lion
+  end
+
   option "without-check", "Disable build-time checking (not recommended)"
 
   def install
