@@ -1,15 +1,17 @@
 class Arrayfire < Formula
   desc "a general purpose GPU library"
   homepage "http://arrayfire.com"
-  url "http://arrayfire.com/arrayfire_source/arrayfire-full-3.0.0.tar.bz2"
-  sha256 "32cf82d6e48b50f370f4ecde6fb30c180713bf3302cd196d120c4d152b36c9d2"
+  url "http://arrayfire.com/arrayfire_source/arrayfire-full-3.0.2.tar.bz2"
+  sha256 "0253da88d5823b365dcf2627885150a8cea848311791fb5b7a9d6ce91075d8db"
 
   bottle do
     sha256 "8eac279009251b387b4356f2d5afa6fcfffc757bd28ec9fddee48b10e3957c3d" => :yosemite
     sha256 "24729eca4396b8005a81115a803740a113f54fb4df25a0a77fb71edf46f1d794" => :mavericks
   end
 
+  # https://github.com/arrayfire/arrayfire/issues/794
   depends_on :macos => :mavericks
+
   depends_on "cmake" => :build
   depends_on "boost" => :build
   depends_on "boost-compute" => :build
@@ -27,14 +29,8 @@ class Arrayfire < Formula
 
   # build forge separately so we can tell it to use the system freetype
   resource "forge" do
-    url "https://github.com/arrayfire/forge/archive/af3.0.tar.gz"
-    sha256 "c5664f272b5fdf5b76c782921d9f401578bd81b0534b4dfe710f4708198393bb"
-  end
-
-  patch do
-    # fix missing include
-    url "https://github.com/arrayfire/arrayfire/pull/793.patch"
-    sha256 "032dc323c304d6b1c196f7779ddce691d08ae53baab97106da4ea74ae08b6293"
+    url "https://github.com/arrayfire/forge/archive/af3.0.1.tar.gz"
+    sha256 "f77f2722c063e2186c9a951ca102c9405c05b63535ee754601e3a41eabf13e0f"
   end
 
   def install
