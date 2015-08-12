@@ -1,8 +1,8 @@
 class Adam < Formula
-  desc "Genomics processing engine and specialized file format"
+  desc "Genomics analysis platform with specialized file formats built using Apache Avro, Apache Spark and Parquet"
   homepage "https://github.com/bigdatagenomics/adam"
   url "https://github.com/bigdatagenomics/adam/releases/download/adam-parent-0.13.0/adam-0.13.0-bin.tar.gz"
-  sha1 "5cfe704c768b7be0d493e3052257578f971fc3ec"
+  sha256 "76ef3054695dbeefb91a29936d05595df6090716e09d189feb3307d3efd47cce"
 
   head do
     url "https://github.com/bigdatagenomics/adam.git"
