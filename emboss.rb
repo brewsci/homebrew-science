@@ -1,10 +1,8 @@
-require "formula"
-
 class Emboss < Formula
   homepage "http://emboss.sourceforge.net/"
   url "ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz"
-  mirror "ftp://ftp.ebi.ac.uk/pub/software/unix/EMBOSS/EMBOSS-6.6.0.tar.gz"
-  mirror "https://science-annex.org/pub/emboss/EMBOSS-6.6.0.tar.gz"
+  mirror "http://mirrors.mit.edu/gentoo-distfiles/distfiles/EMBOSS-6.6.0.tar.gz"
+  mirror "http://science-annex.org/pub/emboss/EMBOSS-6.6.0.tar.gz"
   sha1 "93749ebd0a777efd3749974d2401c3a2a013a3fe"
 
   bottle do
