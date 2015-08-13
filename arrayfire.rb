@@ -5,8 +5,8 @@ class Arrayfire < Formula
   sha256 "0253da88d5823b365dcf2627885150a8cea848311791fb5b7a9d6ce91075d8db"
 
   bottle do
-    sha256 "8eac279009251b387b4356f2d5afa6fcfffc757bd28ec9fddee48b10e3957c3d" => :yosemite
-    sha256 "24729eca4396b8005a81115a803740a113f54fb4df25a0a77fb71edf46f1d794" => :mavericks
+    sha256 "2df7a97b0ecf66b090bc3ecca712b15312f122ccc946123aee48f2e57ed7e998" => :yosemite
+    sha256 "1c410a35ce155304266d7c7326b366e6051d6e3fa68ce39900384f3b728b1ae9" => :mavericks
   end
 
   # https://github.com/arrayfire/arrayfire/issues/794
