@@ -3,6 +3,7 @@ class SuiteSparse < Formula
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
   url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.4.4.tar.gz"
   sha256 "f2ae47e96f3f37b313c3dfafca59f13e6dbc1e9e54b35af591551919810fb6fd"
+  revision 1
 
   bottle do
     cellar :any
@@ -30,12 +31,14 @@ class SuiteSparse < Formula
     mv "SuiteSparse_config/SuiteSparse_config_Mac.mk",
        "SuiteSparse_config/SuiteSparse_config.mk"
 
-    cflags = (ENV.compiler == :clang) ? "" : "-fopenmp"
+    cflags = "#{ENV.cflags}"
+    cflags += (ENV.compiler == :clang) ? "" : " -fopenmp"
+    cflags += " -I#{Formula["tbb"].opt_include}" if build.with? "tbb"
 
     make_args = ["CFLAGS=#{cflags}",
                  "INSTALL_LIB=#{lib}",
                  "INSTALL_INCLUDE=#{include}",
-                 "RANLIB=echo",
+                 "RANLIB=echo"
                 ]
     if build.with? "openblas"
       make_args << "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"
@@ -55,14 +58,13 @@ class SuiteSparse < Formula
     # -DNTIMER is needed to avoid undefined reference to SuiteSparse_time
     make_args << "CF=-fPIC -O3 -fno-common -fexceptions -DNTIMER $(CFLAGS)" unless OS.mac?
 
-    system "make", "default", *make_args  # Also build demos.
+    system "make", "default", *make_args # Also build demos.
     lib.mkpath
     include.mkpath
     system "make", "install", *make_args
     ["AMD", "CAMD", "CHOLMOD", "KLU", "LDL", "SPQR", "UMFPACK"].each do |pkg|
       (doc/pkg).install Dir["#{pkg}/Doc/*"]
     end
-
 
     if build.with? "matlab"
       matlab = ARGV.value("with-matlab-path") || "matlab"

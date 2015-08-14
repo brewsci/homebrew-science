@@ -4,6 +4,7 @@ class SuiteSparse421 < Formula
   url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.2.1.tar.gz"
   mirror "http://pkgs.fedoraproject.org/repo/pkgs/suitesparse/SuiteSparse-4.2.1.tar.gz/4628df9eeae10ae5f0c486f1ac982fce/SuiteSparse-4.2.1.tar.gz"
   sha256 "e8023850bc30742e20a3623fabda02421cb5774b980e3e7c9c6d9e7e864946bd"
+  revision 1
 
   bottle do
     cellar :any
@@ -33,7 +34,13 @@ class SuiteSparse421 < Formula
     mv "SuiteSparse_config/SuiteSparse_config_Mac.mk",
        "SuiteSparse_config/SuiteSparse_config.mk"
 
-    make_args = ["INSTALL_LIB=#{lib}", "INSTALL_INCLUDE=#{include}"]
+    cflags = "#{ENV.cflags}"
+    cflags += " -I#{Formula["tbb"].opt_include}" if build.with? "tbb"
+
+    make_args = ["CFLAGS=#{cflags}",
+                 "INSTALL_LIB=#{lib}",
+                 "INSTALL_INCLUDE=#{include}"
+                ]
     if build.with? "openblas"
       make_args << "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"
     elsif OS.mac?
@@ -52,7 +59,7 @@ class SuiteSparse421 < Formula
     # -DNTIMER is needed to avoid undefined reference to SuiteSparse_time
     make_args << "CF=-fPIC -O3 -fno-common -fexceptions -DNTIMER $(CFLAGS)" unless OS.mac?
 
-    system "make", "default", *make_args  # Also build demos.
+    system "make", "default", *make_args # Also build demos.
     lib.mkpath
     include.mkpath
     system "make", "install", *make_args
