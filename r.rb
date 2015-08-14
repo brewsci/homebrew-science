@@ -6,10 +6,9 @@ end
 
 class R < Formula
   homepage "http://www.r-project.org/"
-  url "http://cran.rstudio.com/src/base/R-3/R-3.2.1.tar.gz"
-  mirror "http://cran.r-project.org/src/base/R-3/R-3.2.1.tar.gz"
-  sha256 "d59dbc3f04f4604a5cf0fb210b8ea703ef2438b3ee65fd5ab536ec5234f4c982"
-  revision 1
+  url "http://cran.rstudio.com/src/base/R-3/R-3.2.2.tar.gz"
+  mirror "http://cran.r-project.org/src/base/R-3/R-3.2.2.tar.gz"
+  sha256 "9c9152e74134b68b0f3a1c7083764adc1cb56fd8336bec003fd0ca550cd2461d"
 
   bottle do
     revision 1
