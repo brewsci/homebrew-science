@@ -159,6 +159,13 @@ class R < Formula
     end
   end
 
+  def post_install
+    cellar_site_library = r_home/"site-library"
+    site_library.mkpath
+    cellar_site_library.unlink if cellar_site_library.exist? || cellar_site_library.symlink?
+    ln_s site_library, cellar_site_library
+  end
+
   test do
     if build.without? "librmath-only"
       system bin/"Rscript", "-e", "print(1+1)"
@@ -168,12 +175,6 @@ class R < Formula
 
   def caveats
     if build.without? "librmath-only" then <<-EOS.undent
-      If you would like your installed R packages to survive minor R upgrades,
-      you can run:
-        mkdir -p ~/Library/R/#{xy}/library
-      so R will preferentially install packages under your home directory
-      instead of in the Cellar.
-
       To enable rJava support, run the following command:
         R CMD javareconf JAVA_CPPFLAGS=-I/System/Library/Frameworks/JavaVM.framework/Headers
       If you've installed a version of Java other than the default, you might need to instead use:
@@ -184,12 +185,16 @@ class R < Formula
     end
   end
 
-  def xy
-    stable.version.to_s.slice(/(\d.\d)/)
+  def installed_short_version
+    `#{bin}/Rscript -e 'cat(as.character(getRversion()[1,1:2]))'`.strip
   end
 
   def r_home
     OS.mac? ? (prefix/"R.framework/Resources") : (prefix/"lib/R")
+  end
+
+  def site_library
+    HOMEBREW_PREFIX/"lib/R/#{installed_short_version}/site-library"
   end
 end
 
