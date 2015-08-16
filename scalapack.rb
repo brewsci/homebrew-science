@@ -1,9 +1,10 @@
 class Scalapack < Formula
+  desc "library of high-performance linear algebra routines for parallel distributed memory machines"
   homepage "http://www.netlib.org/scalapack/"
   url "http://www.netlib.org/scalapack/scalapack-2.0.2.tgz"
-  sha1 "ff9532120c2cffa79aef5e4c2f38777c6a1f3e6a"
+  sha256 "0c74aeae690fe5ee4db7926f49c5d0bb69ce09eea75beb915e00bba07530395c"
   head "https://icl.cs.utk.edu/svn/scalapack-dev/scalapack/trunk", :using => :svn
-  revision 2
+  revision 3
 
   bottle do
     sha256 "3a78fbd2b569d877708063fda6cefdedd5192bbf45f0417aa9334d041c77907c" => :yosemite
@@ -21,7 +22,16 @@ class Scalapack < Formula
 
   def install
     args = std_cmake_args
-    args << "-DBUILD_SHARED_LIBS=ON"
+    # until the bug in pdlamch() of Scalapack is fixed
+    # http://icl.cs.utk.edu/lapack-forum/viewtopic.php?f=13&t=4676&p=11434#p11434
+    # avoid building shared libraries, as this could lead to SEGV in user's executables.
+    # Namely, scalapack library will be infront of lapack library in the list of dynamic libraries
+    # and thus if the user program or any third-party-library calls pdlamch(),
+    # it will be found in scalapack instead of lapack, which will result in SEGV.
+    # Arpack is a good example, which does not depend on Scalapack in any way, but calls
+    # internally pdlamch(). Thus combining both MUMPS, which uses Scalapack
+    # and Arpack in a single program leads to SEGV.
+    # args << "-DBUILD_SHARED_LIBS=ON"
 
     if build.with? "openblas"
       blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
