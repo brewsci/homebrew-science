@@ -137,6 +137,11 @@ class R < Formula
         man1.install_symlink prefix/"R.framework/Resources/man1/Rscript.1"
       end
 
+      # if this was built with a Homebrew gfortran, immunize to minor gcc version changes
+      if (r_home/"etc/Makeconf").read.include? Formula["gcc"].prefix
+        inreplace r_home/"etc/Makeconf", Formula["gcc"].prefix, Formula["gcc"].opt_prefix
+      end
+
       bash_completion.install resource("completion")
 
       prefix.install "make-check.log" if build.with? "check"
@@ -181,6 +186,10 @@ class R < Formula
 
   def xy
     stable.version.to_s.slice(/(\d.\d)/)
+  end
+
+  def r_home
+    OS.mac? ? (prefix/"R.framework/Resources") : (prefix/"lib/R")
   end
 end
 
