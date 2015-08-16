@@ -1,7 +1,8 @@
 class Asl < Formula
+  desc "The AMPL modeling language solver library"
   homepage "http://www.ampl.com"
-  url "https://github.com/ampl/mp/archive/2.0.1.tar.gz"
-  sha256 "628b5ef035b58184113e721b05b9340c8bce77d22f9261eaa2448ec96d97dd8a"
+  url "https://github.com/ampl/mp/archive/2.0.2.tar.gz"
+  sha256 "34d0ffef4af6f34ac5e50cfdb6819af823c2f6fb1db763b82de98b08d9069f63"
 
   bottle do
     sha256 "f2c4e1a1864add2c2480e9b673e9c5f269054e3ab704cbfe04873b0b34a5b386" => :yosemite
@@ -16,9 +17,15 @@ class Asl < Formula
   depends_on "doxygen" => :optional
 
   # https://github.com/ampl/mp/issues/55
-  patch do
+  patch :p1 do
     url "https://github.com/ampl/mp/commit/8a777497b9ccac035a5d59cb12e3d9a3ba815256.diff"
     sha256 "5da9fa46e1509bce744933166891da12c895b8ffd2e6705008377bdb81259b22"
+  end
+
+  # https://github.com/ampl/mp/pull/60
+  patch :p1 do
+    url "https://gist.githubusercontent.com/dpo/dde4bf8030209fcf0569/raw/ed93e2653b51b5da754aabc89e08704421860009/a.diff"
+    sha256 "7a6eb262d48e9c9e869ae72e8dbc64adf2ed819f5b3f6e298cd5fae3784d0e8d"
   end
 
   resource "miniampl" do
