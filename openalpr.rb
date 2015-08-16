@@ -44,6 +44,8 @@ class Openalpr < Formula
         end
       end
 
+      args << "-DCMAKE_INSTALL_SYSCONFDIR:PATH=#{etc}"
+
       system "cmake", "..", *args
       system "make", "install"
     end
