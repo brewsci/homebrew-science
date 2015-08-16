@@ -1,16 +1,16 @@
 class Biointerchange < Formula
-  desc "BioInterchange: a tool for scaling and integrating genomics data"
+  desc "Scaling and integrating genomics data."
   homepage "https://www.codamono.com"
   # tag "bioinformatics"
 
   if OS.mac?
-    version "2.0.1+74"
-    url "https://www.codamono.com/brew/osx-10-10/biointerchange-2.0.1+74.tar.gz"
-    sha256 "ed1864b13aaf23518d32867683bfcc9bc8c15902c12b549433832e83b43926a6"
+    version "2.0.2+83"
+    url "https://www.codamono.com/brew/osx-10-10/biointerchange-2.0.2+83.tar.gz"
+    sha256 "5559366bda2141fef951b770ec975d493871ab120173861f80a24734caaee617"
   elsif OS.linux?
-    version "2.0.1+75"
-    url "https://www.codamono.com/brew/debian-8-amd64/biointerchange-2.0.1+75.tar.gz"
-    sha256 "a8a9bff83d3fe83ac8151b129a4b45584047f62d2e1a34da55e6b4810bdcaa83"
+    version "2.0.2+84"
+    url "https://www.codamono.com/brew/debian-8-amd64/biointerchange-2.0.2+84.tar.gz"
+    sha256 "05a317da8c11817b9a4ad6288daabb43d7ca8403f6636dc3037bfc70b83482f9"
   end
 
   def install
