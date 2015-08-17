@@ -1,20 +1,10 @@
 class Octave < Formula
   desc "a high-level interpreted language for numerical computations."
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "http://ftpmirror.gnu.org/octave/octave-3.8.2.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/octave/octave-3.8.2.tar.bz2"
-  sha256 "83bbd701aab04e7e57d0d5b8373dd54719bebb64ce0a850e69bf3d7454f33bae"
+  url "http://ftpmirror.gnu.org/octave/octave-4.0.0.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/octave/octave-4.0.0.tar.gz"
+  sha256 "4c7ee0957f5dd877e3feb9dfe07ad5f39b311f9373932f0d2a289dc97cca3280"
   head "http://www.octave.org/hg/octave", :branch => "default", :using => :hg
-  revision 2
-
-  stable do
-    # Allows clang 3.5 to compile with a recent libc++ release.
-    # See: https://savannah.gnu.org/bugs/?43298
-    patch do
-      url "https://gist.github.com/tchaikov/6ce5f697055b0756126a/raw/4fc94a1fa1d5b032f8586ce3ab0015b04351426f/octave-clang3.5-fix.patch"
-      sha1 "6e5c0d8f6b07803152c8a1caad39a113fc8b8d0a"
-    end
-  end
 
   bottle do
     sha256 "98d8a35cd7c4e20e13b77e6999bc75a39ef52f8e5fa6deafd80f60e10c8db8d0" => :yosemite
@@ -22,116 +12,120 @@ class Octave < Formula
     sha256 "35344dafa1cb05d8d7d1c77c469e012d404b0a5062c840ed062570c94fce3d2b" => :mountain_lion
   end
 
-  head do
-    # Allows clang 3.5 to compile with a recent libc++ release.
-    # See: https://savannah.gnu.org/bugs/?43298
+  stable do
+    # Fix compilation of classdef with the clang compiler (bug #41178)
+    # See: http://savannah.gnu.org/bugs/?41178
     patch do
-      url "https://gist.github.com/schoeps/ec25b19bf30f97d33cdb/raw/6f164415e5e0fb556c1cfc2b039985d25dfad872/octave-clang3.5-fix.patch"
-      sha1 "c3209b0bebd69ff5b9fa2d0463c8034d53f99225"
+      url "http://savannah.gnu.org/support/download.php?file_id=34691"
+      sha256 "25a9c0b937b50de0acb4dc50e4d6d285ef54f1673e4b84530b53effe983bdd88"
     end
   end
 
-  # Allows mkoctfile to process "-framework vecLib" properly.
-  # See: https://savannah.gnu.org/bugs/?42002
-  patch do
-    url "https://savannah.gnu.org/patch/download.php?file_id=31072"
-    sha1 "19f2dcaf636f1968c4b1639797415f83fb21d5a3"
-  end
-
-  # Allows other software to interface Octave and find its headers.
-  # See: https://github.com/shogun-toolbox/shogun/issues/2396
   patch :DATA
 
   skip_clean "share/info" # Keep the docs
 
-  option "without-check",          "Skip build-time tests (not recommended)"
-  option "without-docs",           "Don't build documentation"
-  option "without-gui",            "Do not build the experimental GUI"
-  option "with-native-graphics",   "Use native OpenGL/FLTKgraphics (does not work with the GUI)"
-  option "without-gnuplot",        "Do not use gnuplot graphics"
-  option "with-jit",               "Use the experimental JIT support (not recommended)"
+  # essential dependencies
+  depends_on :fortran
+  depends_on "pcre"
 
-  option "with-openblas",          "Use OpenBLAS instead of native LAPACK/BLAS"
+  # options, enabled by default
+  option "without-check",          "Do not perform build-time tests (not recommended)"
   option "without-curl",           "Do not use cURL (urlread/urlwrite/@ftp)"
+  option "without-docs",           "Do not build documentation"
   option "without-fftw",           "Do not use FFTW (fft,ifft,fft2,etc.)"
   option "without-glpk",           "Do not use GLPK"
+  option "without-gnuplot",        "Do not use gnuplot graphics"
   option "without-hdf5",           "Do not use HDF5 (hdf5 data file support)"
   option "without-qhull",          "Do not use the Qhull library (delaunay,voronoi,etc.)"
   option "without-qrupdate",       "Do not use the QRupdate package (qrdelete,qrinsert,qrshift,qrupdate)"
-  option "without-suite-sparse421", "Do not use SuiteSparse (sparse matrix operations)"
+  option "without-suite-sparse",   "Do not use SuiteSparse (sparse matrix operations)"
   option "without-zlib",           "Do not use zlib (compressed MATLAB file formats)"
 
-  depends_on :fortran
+  # options, disabled by default
+  option "with-gui",               "Use the graphical user interface (still buggy)"
+  option "with-jit",               "Use the experimental JIT support (not recommended)"
+  option "with-openblas",          "Use OpenBLAS instead of native LAPACK/BLAS"
+  option "with-osmesa",            "Use the OSmesa library (not recommended)"
 
-  depends_on "pkg-config"     => :build
+  # build dependencies
   depends_on "gnu-sed"        => :build
+  depends_on "pkg-config"     => :build
   depends_on "texinfo"        => :build if build.with?("docs") && OS.linux?
 
-  head do
-    depends_on "bison"        => :build
-    depends_on "automake"     => :build
-    depends_on "autoconf"     => :build
-    depends_on "qscintilla2"
-    depends_on "qt"
-    depends_on "fltk"
-    depends_on "fontconfig"
-    depends_on "freetype"
-  end
-
-  depends_on "pcre"
+  # gui dependencies
   if build.with? "gui"
     depends_on "qscintilla2"
     depends_on "qt"
   end
-  if build.with? "native-graphics"
-    depends_on "fltk"
+
+  # dependencies needed for development build
+  head do
+    depends_on "autoconf"     => :build
+    depends_on "automake"     => :build
+    depends_on "bison"        => :build
     depends_on "fontconfig"
     depends_on "freetype"
+    depends_on "librsvg"      => :build
   end
-  depends_on "llvm"           if build.with? "jit"
-  depends_on "curl"           if build.with?("curl") && MacOS.version == :leopard
-  depends_on :java            => :recommended
 
-  depends_on "gnuplot"       => [:recommended, build.with?("gui") ? "with-qt" : ""]
+  # recommended dependencies
   depends_on "suite-sparse421" => :recommended
-  depends_on "readline"       => :recommended
-  depends_on "arpack"         => :recommended
-  depends_on "fftw"           => :recommended
-  depends_on "glpk"           => :recommended
-  depends_on "gl2ps"          => :recommended
-  depends_on "graphicsmagick" => :recommended  # imread/imwrite
-  depends_on "hdf5"           => :recommended
-  depends_on "qhull"          => :recommended
-  depends_on "qrupdate"       => :recommended
-  depends_on "epstool"        => :recommended
+  depends_on "readline"        => :recommended
+  depends_on "arpack"          => :recommended
+  depends_on "epstool"         => :recommended
+  depends_on "fftw"            => :recommended
+  depends_on "ghostscript"     => :recommended  # ps/pdf image output
+  depends_on "glpk"            => :recommended
+  depends_on "gl2ps"           => :recommended
+  depends_on "gnuplot"         => :recommended
+  depends_on "graphicsmagick"  => :recommended  # imread/imwrite
+  depends_on "hdf5"            => :recommended
+  depends_on :java             => :recommended
+  depends_on "qhull"           => :recommended
+  depends_on "qrupdate"        => :recommended
 
-  depends_on "ghostscript"    => :recommended  # ps/pdf image output
+  # conditional dependecies
+  depends_on "curl"           if build.with?("curl") && MacOS.version == :leopard
+  depends_on "llvm"           if build.with? "jit"
   depends_on "pstoedit"       if build.with? "ghostscript"
 
+  # optional dependencies
   depends_on "openblas"       => :optional
 
   def install
     ENV.m64 if MacOS.prefer_64_bit?
     ENV.append_to_cflags "-D_REENTRANT"
     ENV.append "LDFLAGS", "-L#{Formula["readline"].opt_lib} -lreadline" if build.with? "readline"
+
+    # basic arguments
     args = ["--prefix=#{prefix}"]
+    args << "--enable-dependency-tracking"
+    args << "--enable-link-all-dependencies"
+    args << "--enable-shared"
 
-    args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas" if build.with? "openblas"
+    # arguments, enabled by default
     args << "--disable-docs"     if build.without? "docs"
-    args << "--enable-jit"       if build.with? "jit"
+    args << "--disable-java"     if build.without? "java"
     args << "--disable-gui"      if build.without? "gui"
-    args << "--without-opengl"   if build.without?("native-graphics") && !build.head?
-
     args << "--disable-readline" if build.without? "readline"
+    args << "--disable-static"
+    args << "--with-x=no"        if OS.mac? # We don't need X11 for Mac at all
     args << "--without-curl"     if build.without? "curl"
     args << "--without-fftw3"    if build.without? "fftw"
     args << "--without-glpk"     if build.without? "glpk"
     args << "--without-hdf5"     if build.without? "hdf5"
-    args << "--disable-java"     if build.without? :java
     args << "--without-qhull"    if build.without? "qhull"
     args << "--without-qrupdate" if build.without? "qrupdate"
+    args << "--without-zlib"     if build.without? "zlib"
 
-    if build.without? "suite-sparse421"
+    # arguments, disabled by default
+    args << "--enable-jit"       if build.with?    "jit"
+    args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas" if build.with? "openblas"
+    args << "--without-OSMesa"   if build.without? "osmesa"
+
+    # arguments if building without suite-sparse
+    if build.without? "suite-sparse"
       args << "--without-amd"
       args << "--without-camd"
       args << "--without-colamd"
@@ -141,12 +135,8 @@ class Octave < Formula
       args << "--without-cholmod"
       args << "--without-umfpack"
     else
-      sparse = Tab.for_name("suite-sparse421")
-      ENV.append_to_cflags "-L#{Formula["metis4"].opt_lib} -lmetis" if sparse.with? "metis4"
+      ENV.append_to_cflags "-L#{Formula["metis4"].opt_lib} -lmetis" if Tab.for_name("suite-sparse421").with? "metis4"
     end
-
-    args << "--without-zlib"     if build.without? "zlib"
-    args << "--with-x=no"        if OS.mac? # We don't need X11 for Mac at all
 
     system "./bootstrap" if build.head?
 
@@ -158,30 +148,49 @@ class Octave < Formula
     # can cause linking problems.
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
 
-    if build.with?("gnuplot") && build.with?("gui")
-      # ~/.octaverc takes precedence over site octaverc
-      open("scripts/startup/local-rcfile", "a") do |file|
-        file.write "setenv('GNUTERM','#{build.with?("gui") ? "qt" : ""}')"
-      end
-    end
-
     system "./configure", *args
-    system "make", "all"
+    system "make", "all", "ICOTOOL=true" #do not complain about missing icotool
     system "make check 2>&1 | tee make-check.log" if build.with? "check"
     system "make", "install"
     prefix.install "make-check.log" if File.exist? "make-check.log"
     prefix.install "test/fntests.log" if File.exist? "test/fntests.log"
   end
 
+  test do
+    system "octave", "--eval", "(22/7 - pi)/pi"
+  end
+
   def caveats
     s = ""
+
+    if build.with? "gui"
+      s += <<-EOS.undent
+
+      The graphical user interface is now used when running Octave interactively.
+      The start-up option --no-gui will run the familiar command line interface, and
+      still allows use of the GUI dialogs and qt plotting toolkit.
+      The option --no-gui-libs runs a minimalist command line interface that does not
+      link with the Qt libraries and uses the fltk toolkit for plotting.
+
+      EOS
+
+    else
+
+      s += <<-EOS.undent
+
+      The graphical user interface is disabled by default since it is still buggy on
+      OS X; use brew with the option --with-gui to enable it.
+
+      EOS
+
+    end
 
     if build.with? "gnuplot"
       s += <<-EOS.undent
 
-        gnuplot's Qt terminal is supported by default with the Octave GUI.
-        Use other gnuplot graphics terminals by setting the environment variable
-        GNUTERM in ~/.octaverc, and building gnuplot with the matching options.
+        Octave was compiled with gnuplot; enable it via graphics_toolkit('gnuplot').
+        All graphics terminals can be used by setting the environment variable GNUTERM
+        in ~/.octaverc, and building gnuplot with the matching options.
 
           setenv('GNUTERM','qt')    # Default graphics terminal with Octave GUI
           setenv('GNUTERM','x11')   # Requires XQuartz; install gnuplot --with-x
@@ -191,40 +200,6 @@ class Octave < Formula
           You may also set this variable from within Octave.
 
       EOS
-    end
-
-    if build.with?("native graphics") || build.head?
-      s += <<-EOS.undent
-
-        You have configured Octave to use "native" OpenGL/FLTK plotting by
-        default. If you prefer gnuplot, you can activate it for all future
-        figures with the command
-            graphics_toolkit ('gnuplot')
-        or for a specific figure handle h using
-            graphics_toolkit (h,'gnuplot')
-      EOS
-    end
-
-    if build.head?
-      s += <<-EOS.undent
-
-        The HEAD installation activates the experimental GUI by default.
-        To use the CLI version of octave, run the command "octave-cli".
-      EOS
-    elsif build.with? "gui"
-      s += <<-EOS.undent
-
-        The Octave GUI is experimental and not enabled by default. To use it,
-        use the command-line argument "--force-gui"; e.g.,
-            octave --force-gui
-      EOS
-      if build.with? "native-graphics"
-        s += <<-EOS.undent
-
-          Native graphics do *not* work with the GUI. You must switch to
-          gnuplot when using it.
-        EOS
-      end
     end
 
     logfile = "#{prefix}/make-check.log"
@@ -249,18 +224,86 @@ class Octave < Formula
     s += "\n" unless s.empty?
     s
   end
-
-  test do
-    system "octave", "--eval", "'(22/7 - pi)/pi'"
-  end
 end
 
 __END__
-diff --git a/libinterp/corefcn/comment-list.h b/libinterp/corefcn/comment-list.h
-index 2f2c4d5..18df774 100644
---- a/libinterp/corefcn/comment-list.h
-+++ b/libinterp/corefcn/comment-list.h
-@@ -25,7 +25,7 @@ along with Octave; see the file COPYING.  If not, see
+diff -ur a/liboctave/operators/libcxx-fix.h b/liboctave/operators/libcxx-fix.h
+--- /dev/null	2015-05-23 16:21:53.000000000 +0200
++++ b/liboctave/operators/libcxx-fix.h	2015-07-25 11:23:50.000000000 +0200
+@@ -0,0 +1,69 @@
++#ifndef _LIBCPP_VERSION
++#error "for libc++ only"
++#endif
++
++namespace libcxx_fix {
++
++using std::is_integral;
++using std::is_same;
++using std::enable_if;
++
++template <class _Tp, class _Tn = void>
++struct numeric_type
++{
++    typedef void type;
++    static const bool value = false;
++};
++
++template <class _Tp>
++struct numeric_type<_Tp, typename enable_if<is_integral<_Tp>::value ||
++                                            is_same<_Tp, double>::value>::type>
++{
++    typedef double type;
++    static const bool value = true;
++};
++
++template <class _Tp>
++struct numeric_type<_Tp, typename enable_if<is_same<_Tp, long double>::value ||
++                                            is_same<_Tp, float>::value>::type>
++{
++    typedef _Tp type;
++    static const bool value = true;
++};
++
++template <>
++struct numeric_type<void, void>
++{
++    static const bool value = true;
++};
++
++template <class _A1, class _A2,
++          bool = numeric_type<_A1>::value &&
++                 numeric_type<_A2>::value>
++class promote
++{};
++
++template <class _A1, class _A2>
++class promote<_A1, _A2, true>
++{
++private:
++    typedef typename numeric_type<_A1>::type __type1;
++    typedef typename numeric_type<_A2>::type __type2;
++public:
++    typedef decltype(__type1() + __type2()) type;
++};
++
++template <class _A1, class _A2>
++inline _LIBCPP_INLINE_VISIBILITY
++typename promote<_A1, _A2>::type
++pow(_A1 __x, _A2 __y) _NOEXCEPT
++{
++    typedef typename promote<_A1, _A2>::type __result_type;
++#if _LIBCPP_STD_VER > 11
++    static_assert((!(is_same<_A1, __result_type>::value &&
++                     is_same<_A2, __result_type>::value)), "");
++#endif
++    return ::pow(static_cast<__result_type>(__x), static_cast<__result_type>(__y));
++}
++
++}
+diff -ur a/libinterp/corefcn/comment-list.h b/libinterp/corefcn/comment-list.h
+--- a/libinterp/corefcn/comment-list.h	2015-05-23 16:21:53.000000000 +0200
++++ b/libinterp/corefcn/comment-list.h	2015-07-25 11:23:50.000000000 +0200
+@@ -25,7 +25,7 @@
  
  #include <string>
  
@@ -269,16 +312,58 @@ index 2f2c4d5..18df774 100644
  
  extern std::string get_comment_text (void);
  
-diff --git a/libinterp/corefcn/oct.h b/libinterp/corefcn/oct.h
-index c6d21ad..db06357 100644
---- a/libinterp/corefcn/oct.h
-+++ b/libinterp/corefcn/oct.h
-@@ -28,7 +28,7 @@ along with Octave; see the file COPYING.  If not, see
+diff -ur a/libinterp/corefcn/oct.h b/libinterp/corefcn/oct.h
+--- a/libinterp/corefcn/oct.h	2015-05-23 16:21:53.000000000 +0200
++++ b/libinterp/corefcn/oct.h	2015-07-25 11:24:22.000000000 +0200
+@@ -28,7 +28,7 @@
  // config.h needs to be first because it includes #defines that can */
  // affect other header files.
  
 -#include <config.h>
 +#include "config.h"
- 
+
  #include "Matrix.h"
- 
+
+diff -ur a/liboctave/Makefile.in b/liboctave/Makefile.in
+--- a/liboctave/Makefile.in	2015-05-26 18:21:48.000000000 +0200
++++ b/liboctave/Makefile.in	2015-07-25 11:21:34.000000000 +0200
+@@ -3864,7 +3864,8 @@
+   operators/Sparse-diag-op-defs.h \
+   operators/Sparse-op-decls.h \
+   operators/Sparse-op-defs.h \
+-  operators/Sparse-perm-op-defs.h
++  operators/Sparse-perm-op-defs.h \
++  operators/libcxx-fix.h
+
+ OPERATORS_SRC =
+ OP_SRCDIR = $(abs_top_srcdir)/liboctave/operators
+diff -ur a/liboctave/operators/module.mk b/liboctave/operators/module.mk
+--- a/liboctave/operators/module.mk	2015-05-23 16:21:53.000000000 +0200
++++ b/liboctave/operators/module.mk	2015-07-25 11:20:50.000000000 +0200
+@@ -35,7 +35,8 @@
+   operators/Sparse-diag-op-defs.h \
+   operators/Sparse-op-decls.h \
+   operators/Sparse-op-defs.h \
+-  operators/Sparse-perm-op-defs.h
++  operators/Sparse-perm-op-defs.h \
++  operators/libcxx-fix.h
+
+ ## There are no distributed source files in this directory
+ OPERATORS_SRC =
+diff -ur a/liboctave/operators/mx-inlines.cc b/liboctave/operators/mx-inlines.cc
+--- a/liboctave/operators/mx-inlines.cc	2015-05-23 16:21:53.000000000 +0200
++++ b/liboctave/operators/mx-inlines.cc	2015-07-25 11:23:11.000000000 +0200
+@@ -307,7 +307,13 @@
+
+ // Let the compiler decide which pow to use, whichever best matches the
+ // arguments provided.
++#if defined(_LIBCPP_VERSION) && (_LIBCPP_VERSION >= 1101)
++// Workaround http://llvm.org/bugs/show_bug.cgi?id=21083
++#include "libcxx-fix.h"
++using libcxx_fix::pow;
++#else
+ using std::pow;
++#endif
+ DEFMXMAPPER2X (mx_inline_pow, pow)
+
+ // Arbitrary function appliers. The function is a template parameter to enable
