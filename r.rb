@@ -105,13 +105,11 @@ class R < Formula
     args << "--without-tcltk" if build.without? "tcltk"
     args << "--without-x" if build.without? "x11"
 
-    # Also add gettext include so that libintl.h can be found when installing packages.
-    ENV.append "CPPFLAGS", "-I#{Formula["gettext"].opt_include}"
-    ENV.append "LDFLAGS",  "-L#{Formula["gettext"].opt_lib}"
-
-    # Sometimes the wrong readline is picked up.
-    ENV.append "CPPFLAGS", "-I#{Formula["readline"].opt_include}"
-    ENV.append "LDFLAGS",  "-L#{Formula["readline"].opt_lib}"
+    # Help CRAN packages find gettext, readline, and openssl
+    %w[gettext readline openssl].each do |f|
+      ENV.append "CPPFLAGS", "-I#{Formula[f].opt_include}"
+      ENV.append "LDFLAGS", "-L#{Formula[f].opt_lib}"
+    end
 
     # Pull down recommended packages if building from HEAD.
     system "./tools/rsync-recommended" if build.head?
