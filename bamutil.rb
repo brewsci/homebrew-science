@@ -1,8 +1,9 @@
 class Bamutil < Formula
+  desc "Collection of tools to work with SAM/BAM files."
   homepage "http://genome.sph.umich.edu/wiki/BamUtil"
   # tag "bioinformatics"
-  url "http://genome.sph.umich.edu/w/images/5/5e/BamUtilLibStatGen.1.0.12.tar.gz"
-  sha1 "55fb13337c71e1bcd3301bac5636d62b13cd2388"
+  url "http://genome.sph.umich.edu/w/images/7/70/BamUtilLibStatGen.1.0.13.tgz"
+  sha256 "16c1d01c37d1f98b98c144f3dd0fda6068c1902f06bd0989f36ce425eb0c592b"
   head "https://github.com/statgen/bamUtil.git"
 
   bottle do
