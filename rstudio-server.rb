@@ -3,6 +3,12 @@ class RstudioServer < Formula
   url "https://github.com/rstudio/rstudio/archive/v0.99.473.tar.gz"
   sha256 "a402995251393d50fa70e2e02188a8b32dc34e067f2f8461f087bf71f643585c"
 
+  bottle do
+    sha256 "ce5defab059bdc9452c007e94772d957594688bed899061b4fe6f10864ec2c3e" => :yosemite
+    sha256 "d6da8dd62a9e94705b14890bbc6932f9abe4ac745578d368c54cc2d783636819" => :mavericks
+    sha256 "fe343ba1961d3ba11ab86597084e180de97edea88cf1d2c4470b269a3225b2ff" => :mountain_lion
+  end
+
   depends_on "ant" => :build
   depends_on "cmake" => :build
   depends_on "homebrew/versions/boost150" => :build
