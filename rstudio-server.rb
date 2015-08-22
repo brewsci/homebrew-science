@@ -1,12 +1,7 @@
 class RstudioServer < Formula
   homepage "http://www.rstudio.com"
-  url "https://github.com/rstudio/rstudio/archive/v0.98.1103.tar.gz"
-  sha256 "084049aae03cbaaa74a848f491d57cffab5ea67372ece0e256d54e04bd5fc6da"
-
-  bottle do
-    sha256 "f565aadae5569dfbf64d48c9985929ef92e3736e2f59625b180f74bc2c92c11c" => :yosemite
-    sha256 "de79c98f73085962bb880abad93036b8d0ddd35d2faad630806326337a40b862" => :mavericks
-  end
+  url "https://github.com/rstudio/rstudio/archive/v0.99.473.tar.gz"
+  sha256 "a402995251393d50fa70e2e02188a8b32dc34e067f2f8461f087bf71f643585c"
 
   depends_on "ant" => :build
   depends_on "cmake" => :build
@@ -20,8 +15,8 @@ class RstudioServer < Formula
   end
 
   resource "gwt" do
-    url "https://s3.amazonaws.com/rstudio-buildtools/gwt-2.6.0.zip"
-    sha256 "bd4c13a5d1078446d519a742ee233971e55c447d1b87ffd5b1f90e54dd876b9a"
+    url "https://s3.amazonaws.com/rstudio-buildtools/gwt-2.7.0.zip"
+    sha256 "aa65061b73836190410720bea422eb8e787680d7bc0c2b244ae6c9a0d24747b3"
   end
 
   resource "junit" do
@@ -59,8 +54,18 @@ class RstudioServer < Formula
     sha256 "5242d35eb5f0d6fae295422b39a61070c17f9a7923e6bc996c74b9a825c1d699"
   end
 
-  resource "shinyapps" do
-    url "https://github.com/rstudio/shinyapps.git", :branch => "v0.98.1000"
+  resource "libclang" do
+    url "https://s3.amazonaws.com/rstudio-buildtools/libclang-3.5.zip"
+    sha256 "ecb06fb65ddf0eb7c04be28edd11cc38717102afbe4dbfd6e237ea58d1da85ea"
+  end
+
+  resource "libclang-builtin-headers" do
+    url "https://s3.amazonaws.com/rstudio-buildtools/libclang-builtin-headers.zip"
+    sha256 "0b8f54c8d278dd5cd2fb3ec6f43e9ea1bfc9e8d595ff88127073d46550e88a74"
+  end
+
+  resource "rsconnect" do
+    url "https://github.com/rstudio/rsconnect.git", :branch => "v0.99"
   end
 
   def install
@@ -71,21 +76,30 @@ class RstudioServer < Formula
 
     gwt_lib = buildpath/"src/gwt/lib/"
     (gwt_lib/"gin/1.5").install resource("gin")
-    (gwt_lib/"gwt/2.6.0").install resource("gwt")
+    (gwt_lib/"gwt/2.7.0").install resource("gwt")
     gwt_lib.install resource("junit")
     (gwt_lib/"selenium/2.37.0").install resource("selenium")
     (gwt_lib/"selenium/2.37.0").install resource("selenium-server")
     (gwt_lib/"selenium/chromedriver/2.7").install resource("chromedriver-mac")
 
+    common_dir = buildpath/"dependencies/common"
+
     resource("pandoc").stage do
-      (buildpath/"dependencies/common/pandoc/1.13.1/").install "mac/pandoc"
-      (buildpath/"dependencies/common/pandoc/1.13.1/").install "mac/pandoc-citeproc"
+      (common_dir/"pandoc/1.13.1/").install "mac/pandoc"
+      (common_dir/"pandoc/1.13.1/").install "mac/pandoc-citeproc"
     end
 
-    (buildpath/"dependencies/common/dictionaries").install resource("dictionaries")
-    (buildpath/"dependencies/common/mathjax-23").install resource("mathjax")
-    (buildpath/"dependencies/common/shinyapps").install resource("shinyapps")
-    chdir("dependencies/common") { system "R", "CMD", "build", "shinyapps" }
+    (common_dir/"dictionaries").install resource("dictionaries")
+    (common_dir/"mathjax-23").install resource("mathjax")
+
+    resource("libclang").stage do
+      (common_dir/"libclang/3.5/").install "mac/x86_64/libclang.dylib"
+    end
+
+    (common_dir/"libclang/builtin-headers").install resource("libclang-builtin-headers")
+
+    (common_dir/"rsconnect").install resource("rsconnect")
+    chdir("dependencies/common") { system "R", "CMD", "build", "rsconnect" }
 
     mkdir "build" do
       system "cmake", "..",
