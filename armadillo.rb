@@ -1,7 +1,7 @@
 class Armadillo < Formula
   homepage "http://arma.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-5.200.1.tar.gz"
-  sha256 "3673fc7cbeefca826108efe7c36e21322f259809f874c161ca284a114fb7f693"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-5.400.2.tar.gz"
+  sha256 "d155f50bcdd716e52c5c59ccba88adbedfa406f92b76b9edb7a84bd737dbff84"
 
   bottle do
     sha256 "b7ba1ac68d71bc8e91e2460d8f24174cd45df10488310f5625b7697c07f0c25a" => :yosemite
