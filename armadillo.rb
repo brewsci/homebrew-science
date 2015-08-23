@@ -4,9 +4,10 @@ class Armadillo < Formula
   sha256 "d155f50bcdd716e52c5c59ccba88adbedfa406f92b76b9edb7a84bd737dbff84"
 
   bottle do
-    sha256 "b7ba1ac68d71bc8e91e2460d8f24174cd45df10488310f5625b7697c07f0c25a" => :yosemite
-    sha256 "4972dd99d18c8fd9336b6ffc4434c70b6cd5a5c52224c0764eaee2c546e7440e" => :mavericks
-    sha256 "cdbd4f24faf7d05b5abb7230ba4df222d5aeb853b69fb3596999e7a5b1e7f0c5" => :mountain_lion
+    cellar :any
+    sha256 "bba2c474a9982df8d905ccdd2920536a240ba7bd0dd146a37fa73a6c705cba9b" => :yosemite
+    sha256 "ee88a8fcc4eb442bfa8aa2b8efac55f3e6e526f8b1b408e9aebd1ab83705c5d4" => :mavericks
+    sha256 "f59558abbc48a4ceba38fb9a00afe3f002bf4b0e52af6d86cbb5180f8a3af7d2" => :mountain_lion
   end
 
   option "with-hdf5", "Enable the ability to save and load matrices stored in the HDF5 format"
