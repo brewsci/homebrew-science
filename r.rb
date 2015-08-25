@@ -39,17 +39,13 @@ class R < Formula
   depends_on "xz"
 
   depends_on "openblas" => :optional
+  depends_on "pango" => :optional
   depends_on "valgrind" => :optional
+  depends_on :x11 => (OS.mac? ? :optional : :recommended)
 
-  if OS.mac?
-    depends_on "cairo"
-    depends_on "pango" => :optional
-    depends_on :x11 => :optional
-  else
-    depends_on "cairo" => :optional
-    depends_on "pango" => :optional
-    depends_on :x11 => :recommended
-  end
+  cairo_opts = build.with?("x11") ? ["with-x11"] : []
+  cairo_opts << :optional if OS.linux?
+  depends_on "cairo" => cairo_opts
 
   # This is the same script that Debian packages use.
   resource "completion" do
