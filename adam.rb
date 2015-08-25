@@ -1,8 +1,8 @@
 class Adam < Formula
   desc "Genomics analysis platform with specialized file formats built using Apache Avro, Apache Spark and Parquet"
   homepage "https://github.com/bigdatagenomics/adam"
-  url "https://github.com/bigdatagenomics/adam/releases/download/adam-parent-0.13.0/adam-0.13.0-bin.tar.gz"
-  sha256 "76ef3054695dbeefb91a29936d05595df6090716e09d189feb3307d3efd47cce"
+  url "https://repo1.maven.org/maven2/org/bdgenomics/adam/adam-distribution_2.10/0.17.1/adam-distribution_2.10-0.17.1-bin.tar.gz"
+  sha256 "30ec40d43e8f2e0ac0690056e2437f2a4af4fad9033f1e41021898b65fa2d986"
 
   bottle do
     cellar :any
@@ -11,8 +11,10 @@ class Adam < Formula
     sha256 "bdcc97aca83ff7a56ac771a038fde3832786d39cb01e4d4fe828a9a6bf4700c2" => :mountain_lion
   end
 
+  depends_on "apache-spark"
+
   head do
-    url "https://github.com/bigdatagenomics/adam.git"
+    url "https://github.com/bigdatagenomics/adam.git", :shallow => false
     depends_on "maven" => :build
   end
 
@@ -23,16 +25,15 @@ class Adam < Formula
       system "mvn", "clean", "install",
                     "-DskipAssembly=True",
                     "-DskipTests=" + (build.with?("check") ? "False" : "True")
-      chmod 0755, "adam-cli/target/appassembler/bin/adam"
-      prefix.install "adam-cli/target/appassembler/repo"
-      bin.install "adam-cli/target/appassembler/bin/adam"
+      libexec.install Dir["adam-cli/target/appassembler/*"]
     else
-      prefix.install "repo"
-      bin.install "bin/adam"
+      libexec.install Dir["*"]
     end
+    rm "#{libexec}/bin/adam.bat"
+    bin.write_exec_script Dir["#{libexec}/bin/*"]
   end
 
   test do
-    system "#{bin}/adam", "buildinfo"
+    system "#{bin}/adam-submit", "buildinfo"
   end
 end
