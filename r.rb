@@ -5,6 +5,7 @@ class RDownloadStrategy < SubversionDownloadStrategy
 end
 
 class R < Formula
+  desc "Software environment for statistical computing"
   homepage "http://www.r-project.org/"
   url "http://cran.rstudio.com/src/base/R-3/R-3.2.2.tar.gz"
   mirror "http://cran.r-project.org/src/base/R-3/R-3.2.2.tar.gz"
