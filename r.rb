@@ -10,6 +10,7 @@ class R < Formula
   url "http://cran.rstudio.com/src/base/R-3/R-3.2.2.tar.gz"
   mirror "http://cran.r-project.org/src/base/R-3/R-3.2.2.tar.gz"
   sha256 "9c9152e74134b68b0f3a1c7083764adc1cb56fd8336bec003fd0ca550cd2461d"
+  revision 1
 
   bottle do
     revision 2
