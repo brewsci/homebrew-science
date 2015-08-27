@@ -68,6 +68,7 @@ class R < Formula
     ]
 
     if OS.linux?
+      args << "--libdir=#{lib}" # avoid using lib64 on CentOS
       args << "--enable-R-shlib"
       # If LDFLAGS contains any -L options, configure sets LD_LIBRARY_PATH to
       # search those directories. Remove -LHOMEBREW_PREFIX/lib from LDFLAGS.
