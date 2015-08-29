@@ -28,8 +28,4 @@ class Gingr < Formula
       bin.install "gingr"
     end
   end
-
-  test do
-    # gingr no longer supports command line options, only GUI
-  end
 end
