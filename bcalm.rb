@@ -21,9 +21,4 @@ class Bcalm < Formula
     bin.install "bcalm"
     doc.install "README.md"
   end
-
-  test do
-    # Currently segfaults with no input file: https://github.com/Malfoy/bcalm/issues/1
-    # No input file to test on yet: https://github.com/Malfoy/bcalm/issues/2
-  end
 end
