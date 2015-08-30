@@ -6,9 +6,10 @@ class Exonerate < Formula
   sha256 "0ea2720b1388fa329f889522f43029b416ae311f57b229129a65e779616fe5ff"
 
   bottle do
-    sha1 "dea2a01264de5d3b918afacdd01946960f12f75a" => :yosemite
-    sha1 "c2a808a60fd9f77b7d09133b2a136a3d3af05b8d" => :mavericks
-    sha1 "d337e9190f4cade5fabd3cc6ba4ce33ee1615e4b" => :mountain_lion
+    revision 1
+    sha256 "35a5e092287ec175496d893e931e933aff70e5a18c5872580442593f87986b23" => :yosemite
+    sha256 "4ddaa4cb9bc60530797cdc8f0b738c118c0ba556fc6042999d7fdbc615153c0e" => :mavericks
+    sha256 "a99061bb8a28b889a88a7ca02f91180c0d44a552c1dd4891776ad5632792aea5" => :mountain_lion
   end
 
   devel do
