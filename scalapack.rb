@@ -23,16 +23,7 @@ class Scalapack < Formula
 
   def install
     args = std_cmake_args
-    # until the bug in pdlamch() of Scalapack is fixed
-    # http://icl.cs.utk.edu/lapack-forum/viewtopic.php?f=13&t=4676&p=11434#p11434
-    # avoid building shared libraries, as this could lead to SEGV in user's executables.
-    # Namely, scalapack library will be infront of lapack library in the list of dynamic libraries
-    # and thus if the user program or any third-party-library calls pdlamch(),
-    # it will be found in scalapack instead of lapack, which will result in SEGV.
-    # Arpack is a good example, which does not depend on Scalapack in any way, but calls
-    # internally pdlamch(). Thus combining both MUMPS, which uses Scalapack
-    # and Arpack in a single program leads to SEGV.
-    # args << "-DBUILD_SHARED_LIBS=ON"
+    args << "-DBUILD_SHARED_LIBS=ON"
 
     if build.with? "openblas"
       blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
