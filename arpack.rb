@@ -6,9 +6,9 @@ class Arpack < Formula
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
-    sha256 "6279a2b0072b0e362d50d218fde6b0ec6ce0dd841e7c143f0045ea0b60601f34" => :yosemite
-    sha256 "13e906401589f1964d9847e6e291b03f55bf8de7b25968d6ca31124482a8ff6e" => :mavericks
-    sha256 "a17839b8ec3e0599361674bc2211cff6705e04661cab093f80ea4edea2b757b0" => :mountain_lion
+    sha256 "eda08d15be408cb40b882913c0d1420f503b6700ec4dadbfa1eca1c596088b06" => :yosemite
+    sha256 "6336c1f26b5559afc0c8568c87d00e7a77467a28e7486c86ca724366a53399f6" => :mavericks
+    sha256 "2ea9e43da77b36845c044e4d9d95b1e0b7fe1f4a18bd3ff4c5ff715c1fab23de" => :mountain_lion
   end
 
   # TODO: enable with 3.3.0
