@@ -4,6 +4,7 @@ class Mumps < Formula
   url "http://mumps.enseeiht.fr/MUMPS_5.0.1.tar.gz"
   mirror "http://graal.ens-lyon.fr/MUMPS/MUMPS_5.0.1.tar.gz"
   sha256 "50355b2e67873e2239b4998a46f2bbf83f70cdad6517730ab287ae3aae9340a0"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +15,7 @@ class Mumps < Formula
 
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
   if build.with? "mpi"
-    depends_on "scalapack" => (build.with? "openblas") ? ["with-openblas"] : :build
+    depends_on "scalapack" => (build.with? "openblas") ? ["with-openblas"] : []
   end
   depends_on "metis"    => :optional if build.without? "mpi"
   depends_on "parmetis" => :optional if build.with? "mpi"
@@ -95,7 +96,7 @@ class Mumps < Formula
                     "FC=#{ENV["MPIFC"]} -fPIC",
                     "FL=#{ENV["MPIFC"]} -fPIC",
                     "SCALAP=-L#{Formula["scalapack"].opt_lib} -lscalapack",
-                    "INCPAR=",  # Let MPI compilers fill in the blanks.
+                    "INCPAR=", # Let MPI compilers fill in the blanks.
                     "LIBPAR=$(SCALAP)"]
     else
       make_args += ["CC=#{ENV["CC"]} -fPIC",
@@ -109,7 +110,7 @@ class Mumps < Formula
       make_args << "LIBBLAS=-lblas -llapack"
     end
 
-    ENV.deparallelize  # Build fails in parallel on Mavericks.
+    ENV.deparallelize # Build fails in parallel on Mavericks.
 
     # First build libs, install them, and then link example programs.
     system "make", "alllib", *make_args
@@ -121,7 +122,7 @@ class Mumps < Formula
       s.change_make_var! "libdir", lib
     end
 
-    system "make", "all", *make_args  # Build examples.
+    system "make", "all", *make_args # Build examples.
 
     if build.with? "mpi"
       include.install Dir["include/*"]
