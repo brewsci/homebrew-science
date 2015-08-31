@@ -8,9 +8,10 @@ class Scalapack < Formula
 
   bottle do
     cellar :any
-    sha256 "993d929b85d33adf35d1685ed20dbb86f4f68905d699eabd3e3902477db4e13b" => :yosemite
-    sha256 "551a8f434451d019cf275c7ebcfad967a6180d5d414e2e68ddd7e42a94d64080" => :mavericks
-    sha256 "fa76bb69b2963a04748e62dc20b84037f6dfabce104ea9850785bd40d88f0ad8" => :mountain_lion
+    revision 1
+    sha256 "80fd977c7637d131e186dc4a016416df1c00d4736cce881631b242c990adc4bd" => :yosemite
+    sha256 "fb9b8db4347d67cc9f3bd9277a7b7026c1f03453e1f28afbf8af96ea96e4f117" => :mavericks
+    sha256 "e0b122d96b125fa524023dc730564b9a45ddc134b1e025c464a4c8f1a7554dcd" => :mountain_lion
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
