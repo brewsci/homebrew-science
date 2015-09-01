@@ -2,7 +2,8 @@ class Parmetis < Formula
   homepage "http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview"
   desc "MPI-based library for graph/mesh partitioning and computing fill-reducing orderings"
   url "http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/parmetis-4.0.3.tar.gz"
-  sha1 "e0df69b037dd43569d4e40076401498ee5aba264"
+  sha256 "f2d9a231b7cf97f1fee6e8c9663113ebf6c240d407d3c118c55b3633d6be6e5f"
+  revision 1
 
   bottle do
     cellar :any
