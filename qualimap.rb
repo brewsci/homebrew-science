@@ -7,9 +7,9 @@ class Qualimap < Formula
   version '20150831'
   bottle do
     cellar :any
-    sha256 "19f916083ad21fe1a05315be7a1ed49c0a7793dddf0f1735af7527ea82e1dd18" => :yosemite
-    sha256 "66f1205aee6ae32ce98072e2176f90c37ac456a8b13bb2b1d657af21a0044704" => :mavericks
-    sha256 "71fadee98ab35e9d47bd06e9081e32848671b58c3e58c0b718e6fb5743f73f6f" => :mountain_lion
+    sha256 "312dbd9f9a0537ef4ab379d5d65d905455e7f01af827de75643d89beb0e305b0" => :yosemite
+    sha256 "8ff12829b1a9ce2cf92a123dfe3e1eaa18b0c7f3929261ae93f6740878e75842" => :mavericks
+    sha256 "52cffc28c7504e6c6cb3757533b2f06ea9af32f965818273f93be9a2a5f5f957" => :mountain_lion
   end
   depends_on 'r' => :optional
 
