@@ -16,7 +16,7 @@ class Cminpack < Formula
   def install
     # https://github.com/devernay/cminpack/pull/4
     # https://github.com/Homebrew/homebrew-science/issues/2696
-    inreplace "cmake/CMakeLists.txt", "${CMAKE_ROOT}", "share/cmake"
+    inreplace "cmake/CMakeLists.txt", "${CMAKE_ROOT}", "share/cmake" unless head?
 
     system "cmake", ".", *std_cmake_args
     system "make", "install"
