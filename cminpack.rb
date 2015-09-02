@@ -13,5 +13,9 @@ class Cminpack < Formula
 
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+
+    man3.install Dir["doc/*.3"]
+    doc.install Dir["doc/*"]
+    pkgshare.install "examples"
   end
 end
