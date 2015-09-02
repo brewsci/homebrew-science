@@ -2,9 +2,9 @@ require 'formula'
 
 class Qualimap < Formula
   homepage 'http://qualimap.bioinfo.cipf.es/'
-  url 'https://bitbucket.org/kokonech/qualimap/downloads/qualimap-build-30-03-15.tar.gz'
-  sha1 'ce5c8262493bda49f3eafd2568b11dfc84af7f64'
-  version '30-03-15'
+  url 'https://bitbucket.org/kokonech/qualimap/downloads/qualimap-build-31-08-15.tar.gz'
+  sha256 "30a721b931b8e5b9304089edadbb15718bb9f2bfae70568836595196b4dd523e"
+  version '20150831'
   bottle do
     cellar :any
     sha256 "19f916083ad21fe1a05315be7a1ed49c0a7793dddf0f1735af7527ea82e1dd18" => :yosemite
