@@ -18,4 +18,10 @@ class Cminpack < Formula
     doc.install Dir["doc/*"]
     pkgshare.install "examples"
   end
+
+  test do
+    cp pkgshare/"examples/thybrdc.c", testpath
+    system ENV.cc, "-o", testpath/"thybrdc", "-I#{include}/cminpack-1", "thybrdc.c", "-L#{lib}", "-lcminpack"
+    system testpath/"thybrdc"
+  end
 end
