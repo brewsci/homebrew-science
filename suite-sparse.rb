@@ -7,9 +7,9 @@ class SuiteSparse < Formula
 
   bottle do
     cellar :any
-    sha256 "dd83e718e3e9ff1e9d1b6c106a0ec1739de91007c242cf98cca999e161372e8d" => :yosemite
-    sha256 "66ca698e1198daec5ab591c646030b49ff6a90714f70b86799c909cb7b4f5c9d" => :mavericks
-    sha256 "523047f522181f05158db6e764afffe4bb6069d113bd914db0fafb327e0eee90" => :mountain_lion
+    sha256 "22929df79a5da41558c3f7c8ef6bf1dfa51f6fb7fc3ee6c4a00fb22b49e2b8a2" => :yosemite
+    sha256 "3e7810e3dab4e2ba18127cf482702e3a6b1780630fb13715ab113f9f720b0433" => :mavericks
+    sha256 "eff66c1b75e03bfa34cba541732fdc8f667b10722a5da43ac30d6b6d266661f0" => :mountain_lion
   end
 
   option "with-matlab", "Install Matlab interfaces and tools"
