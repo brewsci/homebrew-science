@@ -5,6 +5,12 @@ class Trilinos < Formula
   sha256 "cab674e88c8ca2d2c54176af60030ed28203c0793f3c64c240363dbe7fa46b99"
   head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
 
+  bottle do
+    sha256 "083648d9cc7a22bbc5ccdf822653a30b7cdca3fca1a939bf805521c6b50bfc58" => :yosemite
+    sha256 "2d25fadc5ed69495dff755f09d221d74c3f848b902f0d28e1c0c7686c1f8d16d" => :mavericks
+    sha256 "c3228337baae9844b2f471499bf4289912be5536bfb4644fc857a0e57840810e" => :mountain_lion
+  end
+
   option "with-teko",  "Enable the Teko secondary-stable package"
   option "with-shylu", "Enable the ShyLU experimental package"
   option "with-check", "Perform build time checks (time consuming and contains failures)"
