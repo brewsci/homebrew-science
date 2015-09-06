@@ -99,9 +99,9 @@ class Opencv < Formula
     end
 
     if build.with? "cuda"
-      ENV["CUDA_NVCC_FLAGS"] = "-Xcompiler -stdlib=libstdc++; -Xlinker -stdlib=libstdc++"
+      ENV["CUDA_NVCC_FLAGS"] = "-Xcompiler -stdlib=libc++; -Xlinker -stdlib=libc++"
       args << "-DWITH_CUDA=ON"
-      args << "-DCMAKE_CXX_FLAGS=-stdlib=libstdc++"
+      args << "-DCMAKE_CXX_FLAGS=-stdlib=libc++"
       args << "-DCUDA_GENERATION=Kepler"
     else
       args << "-DWITH_CUDA=OFF"
