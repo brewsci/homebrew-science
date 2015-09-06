@@ -8,8 +8,8 @@ class Osgearth < Formula
 
   bottle do
     cellar :any
-    sha256 "718111c4b402b589d0820bc4b8333847c63143ece2758e77d873d5f4c41d7d07" => :yosemite
-    sha256 "db863191db807f40851b49f6d2cb0c5c77c70f4c91848d997f244ce9d60b156a" => :mavericks
+    sha256 "48cba11c49074ecbb6dda61a8a5a44881bb7aa121ecfb0eb9a61fb4eb5f05ad7" => :yosemite
+    sha256 "289d4169172f3a15c3e84b966fab8114bb0e92358af8274aecea8a098e923dda" => :mavericks
   end
 
   option "without-minizip", "Build without Google KMZ file access support"
