@@ -6,8 +6,8 @@ class BioformatsCpp < Formula
   head "https://github.com/openmicroscopy/bioformats.git", :branch => "develop", :shallow => false
 
   bottle do
-    sha256 "08d11e70a0e2a2ae3267523d4a634d86100e148bbdc2b0f527843ae6beacc7f4" => :yosemite
-    sha256 "7bff25763425a418dea9a9ba8378dcf6975a1fd966c9d600f5dc0ebaceef0a1b" => :mavericks
+    sha256 "36ef7c4b166780fc8f4803453532d31e12fec1a52bd021a7b243ee7328f54eb2" => :yosemite
+    sha256 "f3141fcd590302aff563cfbacdd343083da7c34b964e6a0e117c778ee4168554" => :mavericks
   end
 
   option "without-check", "Skip build time tests (not recommended)"
