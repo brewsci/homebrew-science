@@ -1,9 +1,9 @@
 class Parmetis < Formula
-  homepage "http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview"
   desc "MPI-based library for graph/mesh partitioning and computing fill-reducing orderings"
+  homepage "http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview"
   url "http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/parmetis-4.0.3.tar.gz"
   sha256 "f2d9a231b7cf97f1fee6e8c9663113ebf6c240d407d3c118c55b3633d6be6e5f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -21,6 +21,17 @@ class Parmetis < Formula
 
   # Do not build the METIS 5.* that ships with ParMETIS.
   patch :DATA
+
+  # bug fixes from PETSc developers
+  patch do
+    url "https://bitbucket.org/petsc/pkg-parmetis/commits/82409d68aa1d6cbc70740d0f35024aae17f7d5cb/raw/"
+    sha256 "d72c9a656a33b6715cc1601a4a1a89944da00e9911b4ab2d3908d41a32dee31b"
+  end
+
+  patch do
+    url "https://bitbucket.org/petsc/pkg-parmetis/commits/1c1a9fd0f408dc4d42c57f5c3ee6ace411eb222b/raw/"
+    sha256 "11b909a346f4dd8ec73b17ecb0c7215524e3793e252c749bb3199e83fa294597"
+  end
 
   def install
     ENV["LDFLAGS"] = "-L#{Formula["metis"].lib} -lmetis -lm"
