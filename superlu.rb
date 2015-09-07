@@ -1,8 +1,8 @@
 class Superlu < Formula
+  desc "Solve large, sparse nonsymmetric systems of equations"
   homepage "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
-  url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_4.3.tar.gz"
-  sha1 "d2863610d8c545d250ffd020b8e74dc667d7cbdd"
-  revision 2
+  url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_5.0.tar.gz"
+  sha256 "4856fa42b623e7047c1b0532ed0fc35f5dc283a74246a7f25ef8aa5155084ecc"
 
   bottle do
     cellar :any
@@ -44,7 +44,7 @@ class Superlu < Formula
 
     prefix.install "make.inc"
     File.open(prefix / "make_args.txt", "w") do |f|
-      f.puts(make_args.join(" "))  # Record options passed to make.
+      f.puts(make_args.join(" ")) # Record options passed to make.
     end
     lib.install Dir["lib/*"]
     (include / "superlu").install Dir["SRC/*.h"]
