@@ -1,10 +1,10 @@
 class Radx < Formula
   desc "Software package for radial radar data"
   homepage "https://www.ral.ucar.edu/projects/titan/docs/radial_formats/radx.html"
-  url "ftp://ftp.rap.ucar.edu/pub/titan/radx/radx-20150808.src.tgz"
-  mirror "ftp://ftp.rap.ucar.edu/pub/titan/radx/previous_releases/radx-20150808.src.tgz"
-  version "20150808"
-  sha256 "e81f734ae857e93813bdd619cd7e57b85a2220c0ef6f20fe9240f5f6775d183c"
+  url "ftp://ftp.rap.ucar.edu/pub/titan/radx/radx-20150826.src.tgz"
+  mirror "ftp://ftp.rap.ucar.edu/pub/titan/radx/previous_releases/radx-20150826.src.tgz"
+  version "20150826"
+  sha256 "d379b956bf19ff903dcfa6a5ca134d5241be3085e6d97acca70dd7ec42da8ce3"
 
   bottle do
     cellar :any
@@ -19,7 +19,7 @@ class Radx < Formula
   depends_on "fftw"
 
   # Prevents build failure on Mac OS X 10.8 and below
-  # FIXME: Remove when new version comes out
+  # FIXME: Remove when it gets fixed upstream (reported)
   patch do
     url "https://gist.githubusercontent.com/tomyun/ee3a910e07c9ccc4610e/raw/3b151798488c5dc7091506a25ac704dad6687e97/radx-fix-sockutil-mac.diff"
     sha256 "19d55b7beb985a6facc75a02a92739c3a4208797eea2cbd0f2353a86c7aa90db"
