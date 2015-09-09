@@ -11,9 +11,9 @@ class Bedtools < Formula
 
   bottle do
     cellar :any
-    sha256 "5f1fcc24f01e23dafb14a492b276f749f54be2c64bf1570eb4410d170043f649" => :yosemite
-    sha256 "ecae0fef48e1a28abb1acec96408cd4c3236e52da188daaa9f2eaf8368526b44" => :mavericks
-    sha256 "6a9e646386fc5eef3f3d5fff8cb5ad13f6c4bf3d377e9fa393f088b024bc0c1f" => :mountain_lion
+    sha256 "8246a5d3e65c550b5881c3243f13a9580564446f9ec66d1585e5f0355cd7ecd4" => :yosemite
+    sha256 "a3258bc5227735ee8cc1fe20a2dfd1a1ec94d0eb9c559db62298405f56aafaef" => :mavericks
+    sha256 "ed5cdb74539d9feab382d7a20c9648a2a31101f7870916761430a96031062136" => :mountain_lion
   end
 
   def install
