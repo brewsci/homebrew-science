@@ -6,9 +6,9 @@ class Superlu < Formula
 
   bottle do
     cellar :any
-    sha256 "55c85e1b687b25cd43473499ea977269d9ec40fde4ef42a456ce8b6c5efa7287" => :yosemite
-    sha256 "98be45e96305c0d49578b6d9938eed1dc3df49f4144f44dbe904e5faaebe3159" => :mavericks
-    sha256 "6f4e344d0eb901394e69e88cad6f51d0cf595a9e382f28a8a7cc6b288a2ab8a5" => :mountain_lion
+    sha256 "0ced0c80441e802e7d5db68b4c4e7822c9cfcdb6f5e621925fcd1662b71a545d" => :yosemite
+    sha256 "6943337b46db21f20a975b37cf068644fe8e2e29df5caae5d51d7cf7333854d1" => :mavericks
+    sha256 "3362dce78fcecccc3bfb99840a6f94b3b99b393e5b1cec88007897d2230875b3" => :mountain_lion
   end
 
   option "without-check", "skip build-time tests (not recommended)"
