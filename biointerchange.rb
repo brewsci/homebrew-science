@@ -4,13 +4,13 @@ class Biointerchange < Formula
   # tag "bioinformatics"
 
   if OS.mac?
-    version "2.0.3+100"
-    url "https://www.codamono.com/brew/osx-10-10/biointerchange-2.0.3+100.tar.gz"
-    sha256 "0bc61490b086b40c56132c4e405c7bf5e9fca28782bb0ee73cd88f4563896b32"
+    version "2.0.4+105"
+    url "https://www.codamono.com/brew/osx-10-10/biointerchange-2.0.4+105.tar.gz"
+    sha256 "731418a77dd8cbf4f672828b303a3f930fe7f9c6aeb61021e98022c674a3ed88"
   elsif OS.linux?
-    version "2.0.3+100"
-    url "https://www.codamono.com/brew/debian-8-amd64/biointerchange-2.0.3+100.tar.gz"
-    sha256 "4f1687adfb1f44dd094edd6a1f451cd6c25fd9f82f84b5457b4c0a3be43b5e5e"
+    version "2.0.4+105"
+    url "https://www.codamono.com/brew/debian-8-amd64/biointerchange-2.0.4+105.tar.gz"
+    sha256 "7629eb6a6be98eb0083ea4347b3893a05769c385f43f5d2805576eb967589431"
   end
 
   def install
