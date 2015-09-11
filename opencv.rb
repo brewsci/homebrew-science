@@ -152,5 +152,7 @@ class Opencv < Formula
     EOS
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
     assert_equal `./test`.strip, version.to_s
+
+    assert_match version.to_s, shell_output("python -c 'import cv2; print(cv2.__version__)'")
   end
 end
