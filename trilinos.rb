@@ -305,7 +305,7 @@ index fc4c408..d44af4c 100644
    ///   the rebind struct is required.
    template<class U>
    struct rebind { typedef Allocator<U> other; };
-+
++  
 +  size_type max_size() const
 +  {
 +     return std::numeric_limits<size_type>::max();
@@ -318,18 +318,18 @@ index 799ff9b..081182f 100644
 --- a/packages/pike/blackbox/src/Pike_BlackBoxModelEvaluator_SolverAdapter.cpp
 +++ b/packages/pike/blackbox/src/Pike_BlackBoxModelEvaluator_SolverAdapter.cpp
 @@ -35,7 +35,7 @@ namespace pike {
-	  // a new parameter
-	  parameterNameToIndex_[models[m]->getParameterName(p)] = parameterNames_.size();
-	  parameterNames_.push_back(models[m]->getParameterName(p));
+ 	  // a new parameter
+ 	  parameterNameToIndex_[models[m]->getParameterName(p)] = parameterNames_.size();
+ 	  parameterNames_.push_back(models[m]->getParameterName(p));
 -	  std::vector<std::pair<int,int>> tmp;
 +	  std::vector<std::pair<int,int> > tmp;
-	  tmp.push_back(std::make_pair(m,p));
-	  parameterIndexToModelIndices_.push_back(tmp);
+ 	  tmp.push_back(std::make_pair(m,p));
+ 	  parameterIndexToModelIndices_.push_back(tmp);
  	}
 @@ -120,7 +120,7 @@ namespace pike {
      TEUCHOS_ASSERT(l >= 0);
      TEUCHOS_ASSERT(l < static_cast<int>(parameterNames_.size()));
-
+     
 -    const std::vector<std::pair<int,int>>& meToSet = parameterIndexToModelIndices_[l];
 +    const std::vector<std::pair<int,int> >& meToSet = parameterIndexToModelIndices_[l];
  
@@ -405,18 +405,18 @@ index ac37aa3..17bd540 100644
 +  double evaluateOrder(const std::vector<std::pair<double,double> >& error);
  
    void runTransientSolve(const double& startTime,
-			 const double& endTime,
-			 const double& stepSize,
-			 RxnAll& rxnME,
+ 			 const double& endTime,
+ 			 const double& stepSize,
+ 			 RxnAll& rxnME,
 -			 std::vector<std::pair<double,double>>& error);
 +			 std::vector<std::pair<double,double> >& error);
  
    void runTransientSolveSingleME(const double& startTime,
-				 const double& endTime,
+ 				 const double& endTime,
 @@ -51,7 +51,7 @@ namespace pike_test {
-				 pike_test::RxnSingleEq1& rxnME1,
-				 pike_test::RxnSingleEq2& rxnME2,
-				 pike_test::RxnSingleEq3& rxnME3,
+ 				 pike_test::RxnSingleEq1& rxnME1,
+ 				 pike_test::RxnSingleEq2& rxnME2,
+ 				 pike_test::RxnSingleEq3& rxnME3,
 -				 std::vector<std::pair<double,double>>& error);
 +				 std::vector<std::pair<double,double> >& error);
  
@@ -450,18 +450,18 @@ index ac37aa3..17bd540 100644
      const std::size_t size = error.size();
      std::vector<double> log_x(size);
 @@ -199,7 +199,7 @@ namespace pike_test {
-			 const double& endTime,
-			 const double& stepSize,
-			 RxnAll& rxnME,
+ 			 const double& endTime,
+ 			 const double& stepSize,
+ 			 RxnAll& rxnME,
 -			 std::vector<std::pair<double,double>>& error)
 +			 std::vector<std::pair<double,double> >& error)
    {
      int numSteps = (endTime - startTime) / stepSize;
      TEUCHOS_ASSERT(std::fabs(numSteps*stepSize - (endTime-startTime) ) < 1.0e-10);
 @@ -219,7 +219,7 @@ namespace pike_test {
-				 pike_test::RxnSingleEq1& rxnME1,
-				 pike_test::RxnSingleEq2& rxnME2,
-				 pike_test::RxnSingleEq3& rxnME3,
+ 				 pike_test::RxnSingleEq1& rxnME1,
+ 				 pike_test::RxnSingleEq2& rxnME2,
+ 				 pike_test::RxnSingleEq3& rxnME3,
 -				 std::vector<std::pair<double,double>>& error)
 +				 std::vector<std::pair<double,double> >& error)
    {
@@ -503,18 +503,18 @@ index 930719e..70ac59f 100644
 --- a/packages/didasko/examples/hypre/hypre_Helpers.hpp
 +++ b/packages/didasko/examples/hypre/hypre_Helpers.hpp
 @@ -51,11 +51,11 @@
-
+ 
  #include <string>
-
+ 
 -EpetraExt_HypreIJMatrix::EpetraExt_HypreIJMatrix* newHypreMatrix(int N);
 +EpetraExt_HypreIJMatrix* newHypreMatrix(int N);
-
+ 
 -Epetra_CrsMatrix::Epetra_CrsMatrix* newCrsMatrix(int N);
 +Epetra_CrsMatrix* newCrsMatrix(int N);
-
+ 
 -Epetra_CrsMatrix::Epetra_CrsMatrix* GetCrsMatrix(EpetraExt_HypreIJMatrix &Matrix);
 +Epetra_CrsMatrix* GetCrsMatrix(EpetraExt_HypreIJMatrix &Matrix);
-
+ 
  bool EquivalentVectors(Epetra_MultiVector &X, Epetra_MultiVector &Y, double tol);
 
 diff --git a/packages/muelu/adapters/CMakeLists.txt b/packages/muelu/adapters/CMakeLists.txt
@@ -529,7 +529,7 @@ index 0e6810b..dbd3756 100644
 +  DEPLIBS muelu muelu-interface
    ADDED_LIB_TARGET_NAME_OUT MUELU_ADAPTERS_LIBNAME
    )
-
+ 
 diff --git a/packages/muelu/src/Interface/CMakeLists.txt b/packages/muelu/src/Interface/CMakeLists.txt
 index 5ea6083..db93429 100644
 --- a/packages/muelu/src/Interface/CMakeLists.txt
@@ -540,7 +540,7 @@ index 5ea6083..db93429 100644
    SOURCES ${SOURCES}
 +  DEPLIBS muelu
    )
-
+ 
  # for debugging
 
 diff --git a/packages/mesquite/CMakeLists.txt b/packages/mesquite/CMakeLists.txt
@@ -549,9 +549,9 @@ index 7cbf084..3865e24 100644
 +++ b/packages/mesquite/CMakeLists.txt
 @@ -25,7 +25,7 @@ ELSE()
    #
-
+ 
    TRIBITS_PACKAGE(Mesquite DISABLE_STRONG_WARNINGS)
 -  SET( ${PACKAGE_NAME}_ENABLE_TESTS ${Trilinos_ENABLE_TESTS} )
 +  # SET( ${PACKAGE_NAME}_ENABLE_TESTS ${Trilinos_ENABLE_TESTS} )
-
- ENDIF()
+ 
+ ENDIF() 
