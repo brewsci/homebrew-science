@@ -4,6 +4,8 @@ class Iva < Formula
   url "https://github.com/sanger-pathogens/iva/archive/v1.0.0.tar.gz"
   sha256 "c2054b7e922accf03e038d5f128b1e2f96c6cabc92c8a67a3b01e0412c29b7d3"
   head "https://github.com/sanger-pathogens/iva.git"
+  revision 1
+
   bottle do
     cellar :any
     sha256 "b195e144b9eabea298815c3c5e220db78040e42e16e91caeedc824e0f6b4fa69" => :yosemite
