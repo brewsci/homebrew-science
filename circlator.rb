@@ -4,6 +4,8 @@ class Circlator < Formula
   url "https://github.com/sanger-pathogens/circlator/archive/v0.14.2.tar.gz"
   sha256 "fa8a6568a731ef5a996ffa024d03cfd85dfcddf624a5109e47a0bf2059bd0a9d"
   head "https://github.com/sanger-pathogens/circlator.git"
+  revision 1
+
   bottle do
     cellar :any
     sha256 "0393b4bd5ad13107054c649960dab77e4e2c76078706472c25919b15fd7623a3" => :yosemite
