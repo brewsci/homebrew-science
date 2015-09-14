@@ -4,6 +4,13 @@ class Pulseview < Formula
   sha1 "92be17ef8196fb98162d27b5c0fca382d92dee31"
   revision 1
 
+  bottle do
+    cellar :any
+    sha256 "3a27f349741760f785416a6a83de6b2953f3c7992dafccc548af1858d5562f93" => :yosemite
+    sha256 "d22cd4a9a9841760d57908e9d8cf3d563fb20932a207d8da3baa605436e7b0d9" => :mavericks
+    sha256 "a8758f86e01c207d5662b67c9c118138aa7772c4e334f5b018192ff389c29998" => :mountain_lion
+  end
+
   head do
     url "git://sigrok.org/pulseview", :shallow => false
     depends_on "glib"
