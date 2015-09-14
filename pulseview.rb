@@ -1,9 +1,8 @@
-require "formula"
-
 class Pulseview < Formula
   homepage "http://sigrok.org/"
   url "http://sigrok.org/download/source/pulseview/pulseview-0.2.0.tar.gz"
   sha1 "92be17ef8196fb98162d27b5c0fca382d92dee31"
+  revision 1
 
   head do
     url "git://sigrok.org/pulseview", :shallow => false
