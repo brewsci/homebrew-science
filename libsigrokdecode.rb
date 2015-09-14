@@ -3,6 +3,7 @@ class Libsigrokdecode < Formula
   homepage "http://sigrok.org/"
   head "git://sigrok.org/libsigrokdecode", :shallow => false
   sha1 "a75f2839cf62d965281bac22919e761c5210e32e"
+  revision 1
 
   depends_on "pkg-config" => :build
   depends_on "glib"
