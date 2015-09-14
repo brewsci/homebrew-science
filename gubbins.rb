@@ -8,8 +8,8 @@ class Gubbins < Formula
 
   bottle do
     cellar :any
-    sha256 "107eee089eb4958a2a09d7a4bcce226021c6b6278cebd37181ac60b129f71564" => :yosemite
-    sha256 "7a757509f482a02c51d4273f11cd38f360ac4e585aff92a31480ce55bd8e7c26" => :mavericks
+    sha256 "f7dc6a0cc78a477340d522ddb43b41cbf18203e657b5d990b7177b7f5054244f" => :yosemite
+    sha256 "12fe0fc7e28520bc79adf5568f69b7a75598478e00e51f7bebcd9f0685ed44fb" => :mavericks
   end
 
   # tag "bioinformatics"
