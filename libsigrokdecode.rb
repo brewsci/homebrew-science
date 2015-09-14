@@ -59,6 +59,12 @@ class Libsigrokdecode < Formula
       sha1 "140db550820f98042d95432a87a9d7e3078b1490"
     end
   end
+  bottle do
+    sha256 "d1b4a60ea7394ef0a4122e284f801bf2d39bbd0106518e39b7d9683e073a48f2" => :yosemite
+    sha256 "56cb21acc02072ba1995f96a90dee82af86458cd53b7d0bb04f4747ccffc1892" => :mavericks
+    sha256 "832c21361874d493b5a1ebed85b13b931b027f9b4e7b78414f94e9eefa9e4b98" => :mountain_lion
+  end
+
 
   def install
     common_args = %W(
