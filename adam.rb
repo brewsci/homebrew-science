@@ -5,10 +5,10 @@ class Adam < Formula
   sha256 "30ec40d43e8f2e0ac0690056e2437f2a4af4fad9033f1e41021898b65fa2d986"
 
   bottle do
-    cellar :any
-    sha256 "f6dc4e21f9264f9110504445a33a099076c75052d28551ad520377a8356915e4" => :yosemite
-    sha256 "5bdd0363cdc6d5dd1656a0c576de3e6ccc76f8b81ac74f6d519236d022703988" => :mavericks
-    sha256 "bdcc97aca83ff7a56ac771a038fde3832786d39cb01e4d4fe828a9a6bf4700c2" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "fd710b911bf60d3ec091531dc7c2b44d0ea4d9e814d24382ed74e82c84ffa3d2" => :yosemite
+    sha256 "d044b5c388ec3a7d583657bf84d8b9da1b42b7a7aaaf9ff437f48d0ccdf960f7" => :mavericks
+    sha256 "8d2d9899d83308a4187b3a2f015f07b73ddf67266c4424ad9b0312a034910833" => :mountain_lion
   end
 
   depends_on "apache-spark"
