@@ -6,9 +6,9 @@ class Armadillo < Formula
 
   bottle do
     cellar :any
-    sha256 "a2e0953ab1b591fce524ee606c545a389adeb610f56383bee678a5db64f4d4c5" => :yosemite
-    sha256 "17e9bebca7028204e819f473dadc62b8a46084fc8b30bcc057c8b9a744853591" => :mavericks
-    sha256 "b9b0abf7b5f58a855fcb3be054eacd48c8212cb4f1a825c464ca126bad9fa458" => :mountain_lion
+    sha256 "9329ab8f224cd293036b1c6258ed2c3a3c324d8eabe03758e2d06295f29a21b9" => :yosemite
+    sha256 "edb5d907e9b6bb4c0088a70d11029446fa306c0d1310634181d38bb1483e7b85" => :mavericks
+    sha256 "9c499df6791cafa6f9e443a7b81c9e5f511c8070f866dca7388d9805c8b10377" => :mountain_lion
   end
 
   option "with-hdf5", "Enable the ability to save and load matrices stored in the HDF5 format"
