@@ -9,10 +9,10 @@ class Bpipe < Formula
   head "https://github.com/ssadedin/bpipe.git"
 
   bottle do
-    cellar :any
-    sha1 "ea55f54357111679fa9ec52b750100cfbc32c6ca" => :yosemite
-    sha1 "3e35a2ea71c536dd71bccbb6ed5df44bbe843952" => :mavericks
-    sha1 "18a96ed694e553c8836ad48c6defa4766324289c" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "36a96e3b9ea1e381cca6962345a205ceaa36eb0fe97b3acb03d6836826ce8451" => :yosemite
+    sha256 "5ecc8d67f38a5a4ef08fdbbed7136b4f10b98aba0b8bfefaf50dc7f29622e528" => :mavericks
+    sha256 "be4b953b7de193274c88824f075c240d14d9eb4a5cb05615a61ddbd5271df19e" => :mountain_lion
   end
 
   depends_on :java
