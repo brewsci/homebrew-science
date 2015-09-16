@@ -7,9 +7,9 @@ class Circlator < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f4fb0d48fab19da0526fd85376b0d0d310d13d750bd090ad3b28bd1a4b9aecd3" => :yosemite
-    sha256 "f28e1432d6b79e02da20cb1c4cc146c55b77155bb885b1f195ab9dc29fe9f674" => :mavericks
-    sha256 "c24a31e8b4ac5488fc02bda87107a3761bce4e249f0309a5aef01f0d94aa0e39" => :mountain_lion
+    sha256 "d292c6d6bb730ac1574d9ce5bd4eb35cb1a7f785a87e191bb758a832649db1d6" => :el_capitan
+    sha256 "61e8c3a5489bd09c7012c2fe325aa557445ef78c1ae27c8a31d2d478b71db209" => :yosemite
+    sha256 "7765ab7ce30088c19218285eaf2ad68152a3a4a22c0c059b1ec4c078649e99d3" => :mavericks
   end
 
   # tag "bioinformatics"
