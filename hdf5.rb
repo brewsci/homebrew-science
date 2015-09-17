@@ -1,7 +1,9 @@
 class Hdf5 < Formula
+  desc "File format designed to store large amounts of data"
   homepage "http://www.hdfgroup.org/HDF5"
-  url "http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.14/src/hdf5-1.8.14.tar.bz2"
-  sha1 "3c48bcb0d5fb21a3aa425ed035c08d8da3d5483a"
+  url "http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.15-patch1.tar.bz2"
+  version "1.8.15"
+  sha256 "a5afc630c4443547fff15e9637b5b10404adbed4c00206d89517d32d6668fb32"
 
   bottle do
     revision 2
@@ -38,7 +40,6 @@ class Hdf5 < Formula
       --disable-dependency-tracking
       --with-zlib=/usr
       --with-szlib=#{Formula["szip"].opt_prefix}
-      --enable-filters=all
       --enable-static=yes
       --enable-shared=yes
       --enable-unsupported
@@ -72,16 +73,16 @@ class Hdf5 < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.c").write <<-EOS.undent
       #include <stdio.h>
-      #include "H5public.h"
+      #include "hdf5.h"
       int main()
       {
         printf(\"%d.%d.%d\\n\",H5_VERS_MAJOR,H5_VERS_MINOR,H5_VERS_RELEASE);
         return 0;
       }
     EOS
-    system "h5cc", "test.cpp"
-    assert `./a.out`.include?(version)
+    system "h5cc", "test.c"
+    assert_match(/#{version}/, shell_output("./a.out"))
   end
 end
