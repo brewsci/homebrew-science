@@ -4,6 +4,7 @@ class Trilinos < Formula
   url "https://trilinos.org/oldsite/download/files/trilinos-12.2.1-Source.tar.bz2"
   sha256 "4a884fd5eef885815d25fc24c5a4b95e5e67b9eefaa01d61524eef92ae9319fd"
   head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
+  revision 1
 
   bottle do
     revision 1
@@ -98,6 +99,11 @@ class Trilinos < Formula
                -DTrilinos_VERBOSE_CONFIGURE:BOOL=OFF
                -DTrilinos_WARNINGS_AS_ERRORS_FLAGS=""]
 
+    # Explicit instantiation will build object files for the Trilinos templated classes with the most common types.
+    # That should speed up compilation time for librareis/driver programs which use Trilinos.
+    # see https://trilinos.org/pipermail/trilinos-users/2015-September/005146.html
+    args << "-DTrilinos_ENABLE_EXPLICIT_INSTANTIATION:BOOL=ON"
+
     # enable tests only when we inted to run checks.
     # that reduced the build time from 130 min to 51 min.
     args << onoff("-DTrilinos_ENABLE_TESTS:BOOL=",  (build.with? "check"))
@@ -123,7 +129,13 @@ class Trilinos < Formula
     args << "-DTrilinos_ASSERT_MISSING_PACKAGES=OFF" if build.head?
 
     args << onoff("-DTPL_ENABLE_MPI:BOOL=",         (build.with? "mpi"))
-    args << onoff("-DTrilinos_ENABLE_OpenMP:BOOL=", (ENV.compiler != :clang))
+    # TODO:
+    # OpenMP leads deal.II to fail with compiler errors in trilinos headers even though trilinos compiles fine
+    # It could be that there is a missing #include somewhere in Trilinos which becames visible when we
+    # try to use it.
+    # For now disable OpenMP:
+    # args << onoff("-DTrilinos_ENABLE_OpenMP:BOOL=", (ENV.compiler != :clang))
+    args << "-DTrilinos_ENABLE_OpenMP:BOOL=OFF"
     args << "-DTrilinos_ENABLE_CXX11:BOOL=ON"
 
     # Extra non-default packages
@@ -138,6 +150,7 @@ class Trilinos < Formula
     args << "-DTrilinos_ENABLE_STK=OFF"
     args << "-DTrilinos_ENABLE_Stokhos=OFF"
     args << "-DTrilinos_ENABLE_Sundance=OFF" if !OS.mac? || MacOS.version < :mavericks
+    args << "-DTrilinos_ENABLE_Amesos2=OFF" # compiler error with explicit instantiation
     # Amesos, conflicting types of double and complex SLU_D
     # see https://trilinos.org/pipermail/trilinos-users/2015-March/004731.html
     # and https://trilinos.org/pipermail/trilinos-users/2015-March/004802.html
@@ -266,7 +279,7 @@ class Trilinos < Formula
       FEI, Piro, SEACAS, STK, Stokhos
 
     On Linuxbrew install with:
-      --with-openblas --without-scotch
+      --with-openblas
     EOS
   end
 
