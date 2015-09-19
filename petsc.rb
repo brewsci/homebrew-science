@@ -26,7 +26,7 @@ class Petsc < Formula
   depends_on "openblas" => :optional
   openblasdep = (build.with? "openblas") ? ["with-openblas"] : []
 
-  depends_on "superlu"      => [:recommended] + openblasdep
+  depends_on "superlu43"    => [:recommended] + openblasdep
   depends_on "superlu_dist" => [:recommended] + openblasdep
   depends_on "metis"        => :recommended
   depends_on "parmetis"     => :recommended
