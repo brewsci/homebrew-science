@@ -6,9 +6,10 @@ class Netcdf < Formula
   revision 1
 
   bottle do
-    sha256 "bafd64140f1154d12ce580f7c7c232106713ca2b4894da8f839834fd29dba459" => :yosemite
-    sha256 "8c247f3f508b2f1e0cf32e4d2ed952c4ff4406b61b381cd26c3c937b0227e6f6" => :mavericks
-    sha256 "aaa436412224ba0455effa0a610cfbc15d0a01fe14b2bb514a1f930c7466c7d4" => :mountain_lion
+    cellar :any
+    sha256 "46d50dc74c1859454da77ca01d6b1b33933548747b62fb02c8ffcdc3a4deb3d0" => :el_capitan
+    sha256 "272068af89d45c7f1a1b0da755421db5f5fc4888d75d2201d6bf0c03e14d747e" => :yosemite
+    sha256 "df9f358a1f0e0f32b8f102b4b72a2767cffa4b0125636ee11a0ca0a376f058b2" => :mavericks
   end
 
   deprecated_option "enable-fortran" => "with-fortran"
