@@ -5,6 +5,7 @@ class Octave < Formula
   mirror "https://ftp.gnu.org/gnu/octave/octave-4.0.0.tar.gz"
   sha256 "4c7ee0957f5dd877e3feb9dfe07ad5f39b311f9373932f0d2a289dc97cca3280"
   head "http://www.octave.org/hg/octave", :branch => "default", :using => :hg
+  revision 1
 
   bottle do
     sha256 "ebc8e637bd179f08a74223e8ee0c728df9ddab2f7035af21a3347ab1e936c0cf" => :yosemite
