@@ -6,10 +6,10 @@ class Hypre < Formula
   sha256 "76414e693e5381e352e759c851c8cd5969dba7001b1dc153fe0f1ff60a5bb168"
 
   bottle do
-    cellar :any
-    sha256 "cc15595f5c90c2b3e9feaf7889acfd41a2206be9a967c55fa758ba5ff2ccae76" => :yosemite
-    sha256 "09c544444b5ffddc4f5c8bae99b82e4f58dcb5cc069008a9648f8e7e8f5c02d0" => :mavericks
-    sha256 "7005b1c2c899c3811c413d427e3ab7146dd7670cfcddefc04c80d484d18a5e94" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "8d99f0e0e1fa80601d5d3a7f793cc892eb2585ffe5f814130319f96c409f18c7" => :el_capitan
+    sha256 "079c1cb42ba9a15b943d869f134145f997b3decc8df4735e82726eaf1507cc84" => :yosemite
+    sha256 "ee7405e767f993c40db5a46009edf8351156707a2a2122de224ac684854224ad" => :mavericks
   end
 
   depends_on :fortran => :recommended
