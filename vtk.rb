@@ -1,8 +1,8 @@
 class Vtk < Formula
   homepage "http://www.vtk.org"
-  url "http://www.vtk.org/files/release/6.2/VTK-6.2.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/VTK-6.2.0.tar.gz"
-  sha256 "efa3ddfba118f3988ead08bdaf9441d33f23a4245d78511a6ce7f267b4f13277"
+  url "http://www.vtk.org/files/release/6.3/VTK-6.3.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/VTK-6.3.0.tar.gz"
+  sha256 "92a493354c5fa66bea73b5fc014154af5d9f3f6cee8d20a826f4cd5d4b0e8a5e"
 
   head "https://github.com/Kitware/VTK.git"
 
