@@ -161,12 +161,12 @@ class Trilinos < Formula
     args << onoff("-DTPL_ENABLE_Matio:BOOL=",       (build.with? "libmatio"))
     args << onoff("-DTPL_ENABLE_yaml-cpp:BOOL=",    (build.with? "yaml-cpp"))
 
-    if (build.with? "suite-sparse") && (build.with? "csparse")
-      args << "-DTPL_ENABLE_CSparse:BOOL=ON"
-      args << "-DCSparse_LIBRARY_NAMES=cxsparse;amd;colamd;suitesparseconfig"
-    else
-      args << "-DTPL_ENABLE_CSparse:BOOL=OFF"
-    end
+    # if (build.with? "suite-sparse") && (build.with? "csparse")
+    #   args << "-DTPL_ENABLE_CSparse:BOOL=ON"
+    #   args << "-DCSparse_LIBRARY_NAMES=cxsparse;amd;colamd;suitesparseconfig"
+    # else
+    args << "-DTPL_ENABLE_CSparse:BOOL=OFF"
+    # end
     args << onoff("-DTPL_ENABLE_Cholmod:BOOL=",     (build.with? "suite-sparse"))
 
     args << onoff("-DTPL_ENABLE_UMFPACK:BOOL=",     (build.with? "suite-sparse"))
@@ -201,7 +201,7 @@ class Trilinos < Formula
       args << "-DMUMPS_LIBRARY_NAMES=dmumps;pord;mumps_common"
     end
 
-    args << onoff("-DTPL_ENABLE_PETSC:BOOL=",       (build.with? "petsc"))
+    args << onoff("-DTPL_ENABLE_PETSC:BOOL=", false) #       (build.with? "petsc"))
     args << onoff("-DTPL_ENABLE_HDF5:BOOL=",        (build.with? "hdf5"))
 
     if build.with? "parmetis"
@@ -216,19 +216,19 @@ class Trilinos < Formula
 
     args << onoff("-DTPL_ENABLE_SCALAPACK:BOOL=",   (build.with? "scalapack"))
 
-    args << onoff("-DTPL_ENABLE_SuperLU:BOOL=",     (build.with? "superlu"))
-    args << "-DSuperLU_INCLUDE_DIRS=#{Formula["superlu"].opt_include}/superlu" if build.with? "superlu"
+    args << onoff("-DTPL_ENABLE_SuperLU:BOOL=", false) #   (build.with? "superlu"))
+    # args << "-DSuperLU_INCLUDE_DIRS=#{Formula["superlu"].opt_include}/superlu" if build.with? "superlu"
 
     # fix for 4.0:
     args << "-DHAVE_SUPERLUDIST_LUSTRUCTINIT_2ARG:BOOL=ON" if build.with? "superlu_dist"
     args << onoff("-DTPL_ENABLE_SuperLUDist:BOOL=", (build.with? "superlu_dist"))
     args << "-DSuperLUDist_INCLUDE_DIRS=#{Formula["superlu_dist"].opt_include}/superlu_dist" if build.with? "superlu_dist"
 
-    args << onoff("-DTPL_ENABLE_QD:BOOL=",         (build.with? "qd"))
-    args << onoff("-DTPL_ENABLE_Lemon:BOOL=",      (build.with? "lemon"))
+    args << onoff("-DTPL_ENABLE_QD:BOOL=", false) #        (build.with? "qd"))
+    args << onoff("-DTPL_ENABLE_Lemon:BOOL=", false) #     (build.with? "lemon"))
     args << onoff("-DTPL_ENABLE_GLM:BOOL=",        (build.with? "glm"))
-    args << onoff("-DTPL_ENABLE_CASK:BOOL=",       (build.with? "cask"))
-    args << onoff("-DTPL_ENABLE_BinUtils:BOOL=",   (build.with? "binutils"))
+    args << onoff("-DTPL_ENABLE_CASK:BOOL=", false) #      (build.with? "cask"))
+    args << onoff("-DTPL_ENABLE_BinUtils:BOOL=", false) #  (build.with? "binutils"))
 
     args << onoff("-DTPL_ENABLE_TBB:BOOL=",         (build.with? "tbb"))
     args << onoff("-DTPL_ENABLE_X11:BOOL=",         (build.with? "x11"))
