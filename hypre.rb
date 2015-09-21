@@ -1,9 +1,9 @@
 class Hypre < Formula
   desc "A library of high performance preconditioners that features parallel multigrid methods for both structured and unstructured grid problems"
   homepage "http://computation.llnl.gov/casc/hypre/software.html"
-  url "http://ftp.mcs.anl.gov/pub/petsc/externalpackages/hypre-2.10.0b.tar.gz"
-  mirror "ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/hypre-2.10.0b.tar.gz"
-  sha256 "b55dbdc692afe5a00490d1ea1c38dd908dae244f7bdd7faaf711680059824c11"
+  url "http://ftp.mcs.anl.gov/pub/petsc/externalpackages/hypre-2.10.0b-p2.tar.gz"
+  mirror "ftp://ftp.mirrorservice.org/sites/distfiles.gentoo.org/distfiles/hypre-2.10.0b-p2.tar.gz"
+  sha256 "76414e693e5381e352e759c851c8cd5969dba7001b1dc153fe0f1ff60a5bb168"
 
   bottle do
     cellar :any
@@ -13,7 +13,7 @@ class Hypre < Formula
   end
 
   depends_on :fortran => :recommended
-  depends_on :mpi => [:cc, :cxx, :f90, :f77, :optional]
+  depends_on :mpi => [:cc, :cxx, :f90, :f77, :recommended]
   depends_on "openblas" => :optional
 
   option "without-check", "Skip build-time tests (not recommended)"
@@ -23,12 +23,6 @@ class Hypre < Formula
   option "without-accelerate", "Build without Accelerate framework (use internal BLAS routines)"
   option "with-debug", "Build with debug flags"
   option "with-bigint", "Build with 64-bit indices"
-
-  # bug fix for SEGV
-  patch do
-    url "https://bitbucket.org/petsc/pkg-hypre/commits/566a6568170a4abbfc2488d02de23f76da0473b5/raw/"
-    sha256 "8af48d5612771ef49edd3d9a462df71b864f34abb1ec03c8234591c96c683f7f"
-  end
 
   def install
     cd "src" do
