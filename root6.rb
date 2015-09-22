@@ -1,10 +1,12 @@
 class Root6 < Formula
-  desc "An object oriented framework for large scale data analysis"
+  # in order to update, simply change version number and update sha256
+  version_number = "6.04.02"
+  desc "Object oriented framework for large scale data analysis"
   homepage "http://root.cern.ch"
-  version "6.04.00"
-  url "http://root.cern.ch/download/root_v#{version}.source.tar.gz"
-  mirror "https://fossies.org/linux/misc/root_v#{version}.source.tar.gz"
-  sha256 "c5fa1e5706f2f5f4e134c78926ed9cfcfe543aff3d39c41762911668a9eebeea"
+  url "http://root.cern.ch/download/root_v#{version_number}.source.tar.gz"
+  mirror "https://fossies.org/linux/misc/root_v#{version_number}.source.tar.gz"
+  version version_number
+  sha256 "81415e37a5592ef565969db84a8390611b298ed1ceda5a36f939f6422fed399a"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
@@ -14,18 +16,17 @@ class Root6 < Formula
     sha256 "9b7dd452d68b5f2182212777393bf9ca0362fb70dd4f6774efc51e784fcaab8b" => :mountain_lion
   end
 
-  depends_on "cmake" => :build
   depends_on "xrootd" => :optional
-  depends_on "openssl" => :optional
-  depends_on :python => :recommended
+  depends_on "openssl" => :recommended # use homebrew's openssl
+  depends_on :python => :recommended # make sure we install pyroot
   depends_on :x11 => :recommended if OS.linux?
-
+  # root5 obviously conflicts, simply need `brew unlink root`
   conflicts_with "root"
-
+  # cling also takes advantage
   needs :cxx11
 
-  def cmake_opt(opt, pkg = opt)
-    "-D#{opt}=#{(build.with? pkg) ? "ON" : "OFF"}"
+  def config_opt(opt, pkg = opt)
+    "--#{(build.with? pkg) ? "enable" : "disable"}-#{opt}"
   end
 
   def install
@@ -37,42 +38,24 @@ class Root6 < Formula
                   "man/man1/setup-pq2.1", "README/INSTALL", "README/README"],
       /bin.thisroot/, "libexec/thisroot"
 
-    # Prevent collision with brewed freetype
-    inreplace "graf2d/freetype/CMakeLists.txt", /install\(/, "#install("
-    # xrootd: Workaround for
-    # TXNetFile.cxx:64:10: fatal error: 'XpdSysPthread.h' file not found
-    # this seems to be related to homebrew superenv
-    inreplace "net/netx/CMakeLists.txt",
-      /include_directories\(/, "\\0${CMAKE_SOURCE_DIR}/proof/proofd/inc "
+    args = %W[
+      --prefix=#{prefix}
+      --elispdir=#{share}/emacs/site-lisp/#{name}
+      --enable-builtin-freetype
+      --enable-roofit
+      --enable-minuit2
+      #{config_opt("python")}
+      #{config_opt("ssl", "openssl")}
+      #{config_opt("xrootd")}
+    ]
 
-    mkdir "cmake-build" do
-      system "cmake", "..", "-Dgnuinstall=ON", "-Dbuiltin_freetype=ON",
-        "-Droofit=ON",  # build with RooFit
-        "-Dminuit2=ON", # build with Minuit2
-        cmake_opt("python"),
-        cmake_opt("ssl", "openssl"),
-        cmake_opt("xrootd"),
-        *std_cmake_args
-      system "make", "install"
-    end
+    system "./configure", "--help"
+    system "./configure", *args
+    system "make"
+    system "make", "install"
 
     libexec.mkpath
     mv Dir["#{bin}/*.*sh"], libexec
-  end
-
-  test do
-    (testpath/"test.C").write <<-EOS.undent
-      #include <iostream>
-      void test() {
-        std::cout << "Hello, world!" << std::endl;
-      }
-    EOS
-    (testpath/"test.bash").write <<-EOS.undent
-      . #{libexec}/thisroot.sh
-      root -l -b -n -q test.C
-    EOS
-    assert_equal "\nProcessing test.C...\nHello, world!\n",
-      `/bin/bash test.bash`
   end
 
   def caveats; <<-EOS.undent
@@ -89,5 +72,20 @@ class Root6 < Formula
     For csh/tcsh users:
       source `brew --prefix root6`/libexec/thisroot.csh
     EOS
+  end
+
+  test do
+    (testpath/"test.C").write <<-EOS.undent
+      #include <iostream>
+      void test() {
+        std::cout << "Hello, world!" << std::endl;
+      }
+    EOS
+    (testpath/"test.bash").write <<-EOS.undent
+      . #{libexec}/thisroot.sh
+      root -l -b -n -q test.C
+    EOS
+    assert_equal "\nProcessing test.C...\nHello, world!\n",
+      `/bin/bash test.bash`
   end
 end
