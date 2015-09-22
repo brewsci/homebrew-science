@@ -6,6 +6,12 @@ class Vtk < Formula
 
   head "https://github.com/Kitware/VTK.git"
 
+  bottle do
+    sha256 "80ac6051f766556c5e92decd5e0019eb933cf884596d0a891205c5710ab36293" => :el_capitan
+    sha256 "2c8658c06dfe9bed5547ae04dbf4b72ad064fc224327e3eaae114d33fafa8659" => :yosemite
+    sha256 "450c805c581e716df69d0b07d40e4b626b71130fed7edf814a4ae6eb07aca600" => :mavericks
+  end
+
   deprecated_option "examples" => "with-examples"
   deprecated_option "qt-extern" => "with-qt-extern"
   deprecated_option "tcl" => "with-tcl"
