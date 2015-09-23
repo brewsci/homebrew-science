@@ -9,9 +9,9 @@ class Alembic < Formula
 
   bottle do
     cellar :any
-    sha256 "a652d4cae925b9f49a29ea1126d285d4345fdb74a6e090bc085facc5c123326f" => :yosemite
-    sha256 "93d31f9574ba141331cdaf8cea04f7335685cd85aeec9bf18704d1bca3c2a329" => :mavericks
-    sha256 "41988d94cda0abce8f408a8cd997dc10a5ab5fadcfb577c2dd3816e9e11bbed3" => :mountain_lion
+    sha256 "fe01ae8b52ef731a968e4265ba2cb417220c0d24b9c83fba65cd84c417992cf1" => :el_capitan
+    sha256 "f15a44339aabbab8d7a720da2f1df254535ad1f06d7be27b4e3c7fe0c015f352" => :yosemite
+    sha256 "edf196a94ff53d1d77ffeaecd13323f639ab90ddf102b08fb9e365859b2d5e88" => :mavericks
   end
 
   head "https://code.google.com/p/alembic/", :using => :hg
