@@ -4,7 +4,7 @@ class Petsc < Formula
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.6.1.tar.gz"
   sha256 "aeac101565a4ba609c3f3f13ada475720bcd32a44676e3cbfe792da1c9fb32a2"
   head "https://bitbucket.org/petsc/petsc", :using => :git
-  revision 2
+  revision 3
 
   bottle do
     sha256 "bd647f0e0c83aa3a53b67ff0fe90fa89e6d1479e83fbcb34e3928884d8c1d02c" => :el_capitan
@@ -75,10 +75,10 @@ class Petsc < Formula
       args << "--with-superlu_dist-lib=-L#{slud.opt_lib} -lsuperlu_dist"
     end
 
-    if build.with? "superlu"
-      slu = Formula["superlu"]
-      args << "--with-superlu-include=#{slu.opt_include}/superlu"
-      args << "--with-superlu-lib=-L#{slu.opt_lib} -lsuperlu"
+    if build.with? "superlu43"
+      slu = Formula["superlu43"]
+      args << "--with-superlu-include=#{slu.include}/superlu"
+      args << "--with-superlu-lib=-L#{slu.lib} -lsuperlu"
     end
 
     args << "--with-fftw-dir=#{oprefix("fftw")}" if build.with? "fftw"
