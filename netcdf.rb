@@ -3,7 +3,7 @@ class Netcdf < Formula
   url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.3.3.1.tar.gz"
   mirror "http://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.3.3.1.tar.gz"
   sha256 "bdde3d8b0e48eed2948ead65f82c5cfb7590313bc32c4cf6c6546e4cea47ba19"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -99,6 +99,10 @@ class Netcdf < Formula
 
     if build.with? "fortran"
       resource("fortran").stage do
+        # fixes "error while loading shared libraries: libnetcdf.so.7".
+        # see https://github.com/Homebrew/homebrew-science/issues/2521#issuecomment-121851582
+        # this should theoretically be enough: ENV.prepend "LDFLAGS", "-L#{lib}", but it is not.
+        ENV.prepend "LD_LIBRARY_PATH", "#{lib}"
         system "./configure", *common_args
         system "make"
         system "make", "check" if build.with? "check"
