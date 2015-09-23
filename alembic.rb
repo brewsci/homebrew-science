@@ -5,6 +5,8 @@ class Alembic < Formula
     :using => :hg,
     :tag => "1_05_04"
   version "1.5.4"
+  revision 1
+
   bottle do
     cellar :any
     sha256 "a652d4cae925b9f49a29ea1126d285d4345fdb74a6e090bc085facc5c123326f" => :yosemite

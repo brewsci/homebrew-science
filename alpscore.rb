@@ -3,6 +3,7 @@ class Alpscore < Formula
   url "https://github.com/ALPSCore/ALPSCore/archive/v0.4.5.tar.gz"
   sha256 "b043f5043f6fdca5efd8e1fc2ba0d893da0fd04bff8adaa213c797b44d68e72e"
   head "https://github.com/ALPSCore/ALPSCore.git"
+  revision 1
 
   bottle do
     sha256 "dff1ed0ffee80e639a15257abb4b6618a33f219d4420c356d2422908730b5133" => :yosemite
