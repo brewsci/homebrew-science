@@ -1,7 +1,8 @@
 class QrMumps < Formula
+  desc "Parallel sparse QR factorization"
   homepage "http://buttari.perso.enseeiht.fr/qr_mumps"
   url "http://buttari.perso.enseeiht.fr/qr_mumps/releases/1.0/qr_mumps-1.0.tgz"
-  sha1 "6f02a92cb1ea25d66eb122a2fa065b6f7da48f7b"
+  sha256 "69bfcb2f5718480c5dec88cc4241c57fec15b44eac53c2e14542f4838f375049"
   revision 1
 
   bottle do
@@ -20,6 +21,25 @@ class QrMumps < Formula
   depends_on "veclibfort" if build.without? "openblas"
 
   needs :openmp
+
+  def make_shared(l, extra)
+    so = (OS.mac?) ? "dylib" : "so"
+    mkdir "#{l}_shared" do
+      system "ar", "-x", "../#{l}.a"
+      ofiles = Dir["*.o"]
+      if OS.mac?
+        system "#{ENV["FC"]}", "-dynamiclib",
+                               "-undefined", "dynamic_lookup",
+                               "-lgomp",
+                               "-o", "../#{l}.#{so}", *extra, *ofiles
+      else
+        system "#{ENV["FC"]}", "-shared",
+                               "-lgomp",
+                                "-Wl,-soname", "-Wl,#{lib}/#{l}",
+                                "-o", "../#{l}.#{so}", *extra, *ofiles
+      end
+    end
+  end
 
   def install
     ENV.deparallelize
@@ -52,36 +72,24 @@ class QrMumps < Formula
     end
 
     # Build shared libraries.
-    so = (OS.mac?) ? "dylib" : "so"
     cd "lib" do
-      Dir["*.a"].each do |l|
-        lname = File.basename(l, ".a") + ".#{so}"
-        mkdir "#{lname}_shared" do
-          system "ar", "-x", "../#{l}"
-          ofiles = Dir["*.o"]
-          if OS.mac?
-            system "#{ENV["FC"]}", "-dynamiclib",
-                                    "-undefined", "dynamic_lookup",
-                                    "-install_name", "#{lib}/#{lname}",
-                                    "-o", "../#{lname}", *ofiles
-          else
-            system "#{ENV["FC"]}", "-shared",
-                                    "-Wl,-soname", "-Wl,#{lib}/#{lname}",
-                                    "-o", "../#{lname}", *ofiles
-          end
-        end
+      make_shared "libqrm_common", []
+      %w[libsqrm libdqrm libcqrm libzqrm].each do |l|
+        make_shared l, ["-L..", "-lqrm_common"]
       end
     end
 
+    so = (OS.mac?) ? "dylib" : "so"
     lib.install Dir["lib/*.a"], Dir["lib/*.#{so}"]
     include.install Dir["include/*.h"]
     (libexec / "modules").install Dir["include/*.mod"]
     doc.install Dir["doc/*"]
-    (share / "qr_mumps").install "examples"
+    pkgshare.install "examples"
+    (pkgshare/"examples").install Dir["include/*.pl"]
 
-    prefix.install "Make.inc"  # For the record.
+    prefix.install "Make.inc" # For the record.
     File.open(prefix / "make_args.txt", "w") do |f|
-      f.puts(make_args.join(" "))  # Record options passed to make.
+      f.puts(make_args.join(" ")) # Record options passed to make.
     end
   end
 
