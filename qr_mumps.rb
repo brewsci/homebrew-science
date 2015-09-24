@@ -6,9 +6,11 @@ class QrMumps < Formula
   revision 1
 
   bottle do
-    sha256 "71487d708b396d794bc9b7b6c1584a74f1a466afbc6814832226807cdf691ae0" => :yosemite
-    sha256 "c1123bf4096116d03d511de1bebaa894df84cf043ad8f82600adb89e3bb95acf" => :mavericks
-    sha256 "7eaca6620c9215fa69b415a832c3086916180451bc4376853cfe8b5e27c4309e" => :mountain_lion
+    cellar :any
+    revision 1
+    sha256 "d8d704c1e1064d9faa8d776633023818fc566ea7c86ff93c66b94134f513c277" => :el_capitan
+    sha256 "e871585f7f5c814c6f770cac68e7b5e4f3064bbcadd379c812ed51f9304c7d1d" => :yosemite
+    sha256 "70e7c431203d2c5243d4bdcb7262c6f2cb39b459c7985386ebeed1842bb49ef5" => :mavericks
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
