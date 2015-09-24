@@ -4,8 +4,8 @@ class Bedtools < Formula
   # doi "10.1093/bioinformatics/btq033"
   # tag "bioinformatics"
 
-  url "https://github.com/arq5x/bedtools2/archive/v2.25.0.tar.gz"
-  sha256 "159122afb9978015f7ec85d7b17739b01415a5738086b20a48147eeefcf08cfb"
+  url "https://github.com/arq5x/bedtools2/archive/v2.24.0.tar.gz"
+  sha256 "74dd9dbbdf47ef055a1fb8fc9f2f400d0a381e0f4f4d5d1759d5daa1b7ccdd52"
 
   head "https://github.com/arq5x/bedtools2.git"
 
