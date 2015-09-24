@@ -7,6 +7,13 @@ class Swrcfit < Formula
 
   head "https://github.com/sekika/swrcfit.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "bf912ac45ab874a4a3a9127ec019d952429acb84764aee9395fd7447b2ac8e76" => :el_capitan
+    sha256 "24b0d41cf132bd5d095aa3f7db1eb1fcd9f248bb7d016dade491eb81d1c7e6a3" => :yosemite
+    sha256 "8e57d8f35d20d8cc12e4218b1dce690230ccf45d1db0477ef6639eeae0856894" => :mavericks
+  end
+
   depends_on "octave"
   depends_on "wget"
 
