@@ -8,6 +8,7 @@ class Blast < Formula
   mirror "http://mirrors.vbi.vt.edu/mirrors/ftp.ncbi.nih.gov/blast/executables/blast+/2.2.31/ncbi-blast-2.2.31+-src.tar.gz"
   version "2.2.31"
   sha256 "f0960e8af2a6021fde6f2513381493641f687453a804239a7e598649b432f8a5"
+  revision 1
 
   bottle do
     sha256 "66c5d14b4dc4b2d14b2088b78345a6eea5813fba084e5bac8bc7fe0639784e98" => :yosemite
