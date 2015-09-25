@@ -101,7 +101,13 @@ class Pcl < Formula
     ]
 
     if build.head? && (build.with? "cuda")
-      args << "-DWITH_CUDA:BOOL=AUTO_OFF"
+      args += %W[
+        -DWITH_CUDA:BOOL=AUTO_OFF
+        -DBUILD_GPU:BOOL=ON
+        -DBUILD_gpu_people:BOOL=ON
+        -DBUILD_gpu_surface:BOOL=ON
+        -DBUILD_gpu_tracking:BOOL=ON
+      ]
     else
       args << "-DWITH_CUDA:BOOL=OFF"
     end
