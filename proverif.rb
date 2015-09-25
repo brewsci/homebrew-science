@@ -5,10 +5,10 @@ class Proverif < Formula
   sha256 "ea2310199f2814da294572adc58a27edc7e1342a178859badd3cab01ce804ad2"
 
   bottle do
-    cellar :any
-    sha256 "60d688d67296523154187081ba6bc046481f0995eb2253fff34cf1416bc7db1b" => :yosemite
-    sha256 "bbca3ce1cb0a4d0f4ebb75e9d3cf5758beee768dee481d3571e97b32979b6687" => :mavericks
-    sha256 "f7ccdb5ba4c721f6316ea67287c6e13c6c852826f95c44b1659a6936a1e7abb1" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "3a313fe625cd749542822acfb78343d66c3b37aad14db581ea321625c34804a4" => :el_capitan
+    sha256 "3c7ab465a96998586add43f8863e0024bbb1dab60c88ca881e14eacfa33e30b2" => :yosemite
+    sha256 "43fb3b720d64812fbf9e08b21b86f8ff6b5865a6b50364f1d6637f1b5d92a424" => :mavericks
   end
 
   depends_on "ocaml"
