@@ -10,10 +10,11 @@ class Bedtools < Formula
   head "https://github.com/arq5x/bedtools2.git"
 
   bottle do
-    cellar :any
-    sha256 "8246a5d3e65c550b5881c3243f13a9580564446f9ec66d1585e5f0355cd7ecd4" => :yosemite
-    sha256 "a3258bc5227735ee8cc1fe20a2dfd1a1ec94d0eb9c559db62298405f56aafaef" => :mavericks
-    sha256 "ed5cdb74539d9feab382d7a20c9648a2a31101f7870916761430a96031062136" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "80327fefdeb4e62c8c8ca63a952280770d18ee13dcda3cdbaa7d665ac22fdf3d" => :el_capitan
+    sha256 "ac21a1867ba547bac8f920289e26184115a0b0171b4e3ff3d7aada4fee5c8006" => :yosemite
+    sha256 "c11b62597d927e97a3e66875519cc1f28f39afb31fd68a423498282bb357583e" => :mavericks
   end
 
   def install
