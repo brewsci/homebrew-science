@@ -7,9 +7,9 @@ class Trilinos < Formula
   revision 1
 
   bottle do
-    revision 1
-    sha256 "24a77520a134f8b95b7fcf177c339f5a3a222ae4450165a3effb5c8b0c0a4d3e" => :yosemite
-    sha256 "820772e5ebe5ace04f0c0a1f5d7b41b275700431c10d8f07fad88c69f7a4572e" => :mavericks
+    sha256 "e317149a9d2e66e80d1dea72e85163d6100e5d50f98e24440b0980bed8df677a" => :el_capitan
+    sha256 "1156e876092f7f21c20594b484b7cb668811dc1a2b57542447462ef15f076358" => :yosemite
+    sha256 "070c7d52fbbe501d7cfbdbae6b3a68d3b01bc242a45dde462b00aa577e3981a9" => :mavericks
   end
 
   option "with-check", "Perform build time checks (time consuming and contains failures)"
