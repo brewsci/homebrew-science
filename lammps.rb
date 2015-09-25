@@ -11,9 +11,9 @@ class Lammps < Formula
 
   bottle do
     cellar :any
-    sha256 "3f66831fed5f14b9f122f8ef54ec6d25f82e95fb6731bbfae0971d9b856ffe71" => :yosemite
-    sha256 "11887bd0166669fbff851963e3fa47dac112be2860a6fbc68cc5883ff3f8f333" => :mavericks
-    sha256 "c2df2c7d94118f61161871f68222bb2dd049311a8991290eb444851c1d9cb2ae" => :mountain_lion
+    sha256 "2f90ba6263c289926dbad7327df2264d21c477edca98a3f1b62a2b946f0783d4" => :el_capitan
+    sha256 "e47498dbc526a81fbae00189a80af7a0ef166f6e7d365b8fb71bfc960b9837e9" => :yosemite
+    sha256 "b29cc59b3e3f139a9dc4ff04743ef0f1a4ba953394c2da70d8e645174ae05111" => :mavericks
   end
 
   # user-submitted packages not considered "standard"
