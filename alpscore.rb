@@ -1,9 +1,9 @@
 class Alpscore < Formula
+  desc "Applications and Libraries for Physics Simulations"
   homepage "http://alpscore.org"
-  url "https://github.com/ALPSCore/ALPSCore/archive/v0.4.5.tar.gz"
-  sha256 "b043f5043f6fdca5efd8e1fc2ba0d893da0fd04bff8adaa213c797b44d68e72e"
+  url "https://github.com/ALPSCore/ALPSCore/archive/v0.5.tar.gz"
+  sha256 "05fa4bc65eba8f2e09ef89907ed5763aa775289654ea324a25d403836a1cbb28"
   head "https://github.com/ALPSCore/ALPSCore.git"
-  revision 1
 
   bottle do
     cellar :any
@@ -17,7 +17,7 @@ class Alpscore < Formula
   option "with-doc",    "Build documentation"
   option "with-static", "Build static instead of shared libraries"
 
-  depends_on "cmake"   => :build
+  depends_on "cmake" => :build
   depends_on :mpi => [:cc, :cxx, :recommended]
 
   boost_options = []
@@ -28,6 +28,7 @@ class Alpscore < Formula
   depends_on "hdf5" => ((build.cxx11?) ? ["c++11"] : [])
 
   def install
+    ENV.cxx11 if build.cxx11?
     args = std_cmake_args
     args.delete "-DCMAKE_BUILD_TYPE=None"
     args << "-DCMAKE_BUILD_TYPE=Release"
@@ -73,7 +74,7 @@ class Alpscore < Formula
     EOS
     args_compile = ["test.cpp",
                     "-lalps-accumulators", "-lalps-hdf5", "-lalps-utilities", "-lalps-params",
-                    "-lboost_filesystem-mt", "-lboost_system-mt", "-lboost_program_options-mt"
+                    "-lboost_filesystem-mt", "-lboost_system-mt", "-lboost_program_options-mt",
                    ]
     args_compile << "-lboost_mpi-mt" if build.with? "mpi"
     args_compile << "-o" << "test"
