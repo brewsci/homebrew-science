@@ -1,7 +1,8 @@
 class Proverif < Formula
+  desc "Proverif, cryptographic protocol verifier in the formal model"
   homepage "http://prosecco.gforge.inria.fr/personal/bblanche/proverif"
-  url "http://prosecco.gforge.inria.fr/personal/bblanche/proverif/proverif1.90.tar.gz"
-  sha256 "7132729a7674c8c71414d0f0d9a86f6cb4aae7552598a8cd8b0239673521a991"
+  url "http://prosecco.gforge.inria.fr/personal/bblanche/proverif/proverif1.91.tar.gz"
+  sha256 "ea2310199f2814da294572adc58a27edc7e1342a178859badd3cab01ce804ad2"
 
   bottle do
     cellar :any
@@ -10,7 +11,7 @@ class Proverif < Formula
     sha256 "f7ccdb5ba4c721f6316ea67287c6e13c6c852826f95c44b1659a6936a1e7abb1" => :mountain_lion
   end
 
-  depends_on "objective-caml"
+  depends_on "ocaml"
 
   def install
     system "./build"
@@ -19,20 +20,20 @@ class Proverif < Formula
     doc.install Dir["docs/*"], "README", "examples"
 
     (prefix/"cryptoverif").install "cryptoverif.pvl"
-    (share/"emacs/site-lisp").install Dir["emacs/*"]
+    (share/"emacs/site-lisp/proverif").install Dir["emacs/*"]
     (prefix/"tests").install "test", "test-type"
-  end
-
-  test do
-    system "#{bin}/proverif", doc/"examples/horn/auth/needham"
   end
 
   def caveats; <<-EOS.undent
     Cryptoverif compatibility library has been installed to
-      #{prefix}/cryptoverif/cryptoverif.pvl
+    #{prefix}/cryptoverif/cryptoverif.pvl
 
     Extensive checks should be perfomed manually using
-      #{prefix}/tests/test
+    #{prefix}/tests/test
     EOS
+  end
+
+  test do
+    system "#{bin}/proverif", doc/"examples/horn/auth/needham"
   end
 end
