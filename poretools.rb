@@ -4,6 +4,7 @@ class Poretools < Formula
   url "https://github.com/arq5x/poretools/archive/v0.5.1.tar.gz"
   sha256 "7cd55a8f30290992dcf8d7792401e7f21efadfde02b3f4604d6680d2f8300479"
   head "https://github.com/arq5x/poretools.git"
+  revision 1
 
   bottle do
     cellar :any

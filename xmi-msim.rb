@@ -3,7 +3,7 @@ class XmiMsim < Formula
   url "http://lvserver.ugent.be/xmi-msim/xmimsim-5.0.tar.gz"
   mirror "https://xmi-msim.s3.amazonaws.com/xmimsim-5.0.tar.gz"
   sha1 "cb8f83fe594f8808079d64dfd7e592c710891efc"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "20d513767c84fdce79035995a1c944baa502c8902d9ada3e5936b21b7634b2c2" => :yosemite
