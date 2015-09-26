@@ -11,6 +11,7 @@ class Mathgl < Formula
   homepage "http://mathgl.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/mathgl/mathgl/mathgl%202.3.3/mathgl-2.3.3.tar.gz"
   sha256 "324fb8155223251f28afd3c7074d6930f09bb7a60c122c3e06af228a448d4fc9"
+  revision 1
 
   bottle do
     sha256 "9ad89cbb3533fb0af7f64a2db88a255e260a5e6fd01162fa40087b946c669952" => :yosemite

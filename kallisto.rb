@@ -5,6 +5,7 @@ class Kallisto < Formula
 
   url "https://github.com/pachterlab/kallisto/archive/v0.42.2.1.tar.gz"
   sha256 "f6f915fbfec2f8a45b2301cff528ed89051a2f0b8d2d41b87a65662f9e11a1fb"
+  revision 1
 
   bottle do
     cellar :any

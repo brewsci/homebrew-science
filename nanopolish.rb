@@ -9,6 +9,7 @@ class Nanopolish < Formula
   url "https://github.com/jts/nanopolish.git",
     :tag => "v0.3.0", :revision => "832b678d88e26379887c1f123a4e92fb1b074470"
   head "https://github.com/jts/nanopolish.git"
+  revision 1
 
   bottle do
     cellar :any
