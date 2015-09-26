@@ -13,9 +13,9 @@ class Nanopolish < Formula
 
   bottle do
     cellar :any
-    sha256 "4b15a0afde48482d41582c89e8f0453622a369472b41c61ee42cd98160d46d8a" => :yosemite
-    sha256 "dc95e46b3e42fd7f68ac6580857fba3ff4b54d0b3631e2b37f9a1d2786e23f2c" => :mavericks
-    sha256 "79f2f51948ec3066a3422660ab040c6569abda872861f8f031bbc71fc13e52f6" => :mountain_lion
+    sha256 "dab598f322332ce9ba53fbeb5931445dc4d831fd4407d8be89d95ef62d0e3f95" => :el_capitan
+    sha256 "0653aa2cf44c4cd880d101f002dba7ccd2fb73fec4b0f4619df983deaeb32d44" => :yosemite
+    sha256 "a701637042df3b4ec2d8f5b9f439e373d2cb6f9797e2c548b51a29faca10c915" => :mavericks
   end
 
   needs :cxx11
