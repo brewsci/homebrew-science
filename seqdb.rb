@@ -4,7 +4,7 @@ class Seqdb < Formula
   homepage 'https://bitbucket.org/mhowison/seqdb'
   url 'https://bitbucket.org/mhowison/seqdb/downloads/seqdb-0.2.0.tar.gz'
   sha1 'd0bc522dee53a0560fefefebcdad53f627bcc540'
-  revision 1
+  revision 2
 
   bottle do
     cellar :any

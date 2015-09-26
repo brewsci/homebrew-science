@@ -7,6 +7,7 @@ class Sratoolkit < Formula
   url "https://github.com/ncbi/sra-tools/archive/2.5.2.tar.gz"
   sha256 "d128c14e13ac2e8affd3497dc59490d4932551e9524d5db697eef0951ea786f1"
   head "https://github.com/ncbi/sra-tools.git"
+  revision 1
 
   bottle do
     cellar :any
