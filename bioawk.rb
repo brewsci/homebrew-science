@@ -1,10 +1,11 @@
 class Bioawk < Formula
+  desc "awk modified for biological data"
   homepage "https://github.com/lh3/bioawk"
   # tag "bioinformatics"
 
-  version "5e8b41d"
-  url "https://github.com/lh3/bioawk/archive/#{version}.tar.gz"
-  sha1 "1042e98bfa6a8601488df1be29eb758b2359826d"
+  url "https://github.com/lh3/bioawk/archive/v1.0.tar.gz"
+  sha256 "5cbef3f39b085daba45510ff450afcf943cfdfdd483a546c8a509d3075ff51b5"
+
   head "https://github.com/lh3/bioawk.git"
 
   bottle do
@@ -21,7 +22,7 @@ class Bioawk < Formula
     system "make"
     bin.install "bioawk"
     doc.install "README.md"
-    man1.install({"awk.1" => "bioawk.1"})
+    man1.install "awk.1" => "bioawk.1"
   end
 
   test do
