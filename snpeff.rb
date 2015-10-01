@@ -8,11 +8,10 @@ class Snpeff < Formula
   sha256 "45d79b829f463028986cf22f00f70665718d5f136515d2435c5fbf300322683a"
 
   bottle do
-    cellar :any
-    revision 1
-    sha256 "2c6e9f12378588d0ea09b270fe39b2b7f2c6c673db3e7d7be94575be76c9d721" => :yosemite
-    sha256 "7644372e72ccaa446192b4fcf883f1b8d218955660b4b9c839e67631994b8d13" => :mavericks
-    sha256 "9d67ed82b345a0e6aa4256e7d675d52b4cbe88ae3a0996552114bb3e37f300ef" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "164788a5d3be7c0bc11c0235045e213ba09f18439b29756b8704c26f65fd4954" => :el_capitan
+    sha256 "ca67c2307eba57330dfa70ccd4ee544797e279f496dedb56ed7f582e89576325" => :yosemite
+    sha256 "79d65e0c47d7358b99a8ba370088d80a4a9278795da087e1069cd335e97e67cf" => :mavericks
   end
 
   depends_on :java => "1.7+"
