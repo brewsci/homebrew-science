@@ -1,8 +1,8 @@
 class Opencascade < Formula
   desc "Environment for 3D modeling and development of numerical simulation software including CAD/CAM/CAE"
   homepage "http://www.opencascade.org/"
-  url "http://files.opencascade.com/OCCT/OCC_6.8.0_release/opencascade-6.8.0.tgz"
-  sha256 "50b145655fd3a4448e291388650cd0dcab8f9d99201aba32e8d26aeff03e8e1c"
+  url "http://files.opencascade.com/OCCT/OCC_6.9.0_release/opencascade-6.9.0.tgz"
+  sha256 "e9da098b304f6b65c3958947c3c687f00128ce020b67d97554a3e3be9cf3d090"
 
   bottle do
     cellar :any
