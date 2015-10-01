@@ -1,7 +1,7 @@
 class RstudioServer < Formula
   homepage "http://www.rstudio.com"
-  url "https://github.com/rstudio/rstudio/archive/v0.99.473.tar.gz"
-  sha256 "a402995251393d50fa70e2e02188a8b32dc34e067f2f8461f087bf71f643585c"
+  url "https://github.com/rstudio/rstudio/archive/v0.99.484.tar.gz"
+  sha256 "8ca4abccb9b554713077cf1057ac13abadfd7606f22ac3386b2a88a38ae8a427"
 
   bottle do
     sha256 "ce5defab059bdc9452c007e94772d957594688bed899061b4fe6f10864ec2c3e" => :yosemite
@@ -11,7 +11,7 @@ class RstudioServer < Formula
 
   depends_on "ant" => :build
   depends_on "cmake" => :build
-  depends_on "homebrew/versions/boost150" => :build
+  depends_on "homebrew/versions/boost150"
   depends_on "r"
   depends_on "openssl"
 
@@ -45,11 +45,6 @@ class RstudioServer < Formula
     sha256 "5bf42fd9bcc45d45b54a0f59d5839feb454f39fd14170b8fab7f59bf59b1af64"
   end
 
-  resource "pandoc" do
-    url "https://s3.amazonaws.com/rstudio-buildtools/pandoc-1.13.1.zip"
-    sha256 "7aedb183913f46cc7e5fd35098e5ed275c5436da0a0f82d5d56c057fd27caf5f"
-  end
-
   resource "dictionaries" do
     url "https://s3.amazonaws.com/rstudio-dictionaries/core-dictionaries.zip"
     sha256 "4341a9630efb9dcf7f215c324136407f3b3d6003e1c96f2e5e1f9f14d5787494"
@@ -58,6 +53,11 @@ class RstudioServer < Formula
   resource "mathjax" do
     url "https://s3.amazonaws.com/rstudio-buildtools/mathjax-23.zip"
     sha256 "5242d35eb5f0d6fae295422b39a61070c17f9a7923e6bc996c74b9a825c1d699"
+  end
+
+  resource "pandoc" do
+    url "https://s3.amazonaws.com/rstudio-buildtools/pandoc-1.13.1.zip"
+    sha256 "7aedb183913f46cc7e5fd35098e5ed275c5436da0a0f82d5d56c057fd27caf5f"
   end
 
   resource "libclang" do
@@ -90,13 +90,13 @@ class RstudioServer < Formula
 
     common_dir = buildpath/"dependencies/common"
 
+    (common_dir/"dictionaries").install resource("dictionaries")
+    (common_dir/"mathjax-23").install resource("mathjax")
+
     resource("pandoc").stage do
       (common_dir/"pandoc/1.13.1/").install "mac/pandoc"
       (common_dir/"pandoc/1.13.1/").install "mac/pandoc-citeproc"
     end
-
-    (common_dir/"dictionaries").install resource("dictionaries")
-    (common_dir/"mathjax-23").install resource("mathjax")
 
     resource("libclang").stage do
       (common_dir/"libclang/3.5/").install "mac/x86_64/libclang.dylib"
@@ -113,7 +113,9 @@ class RstudioServer < Formula
         "-DCMAKE_BUILD_TYPE=Release",
         "-DBOOST_ROOT=#{Formula["boost150"].opt_prefix}",
         "-DBoost_INCLUDE_DIR=#{Formula["boost150"].opt_prefix}/include",
-        "-DCMAKE_INSTALL_PREFIX=#{prefix}/rstudio"
+        "-DCMAKE_INSTALL_PREFIX=#{prefix}/rstudio",
+        "-DCMAKE_EXE_LINKER_FLAGS=-L#{Formula["openssl"].opt_prefix}/lib",
+        "-DCMAKE_CXX_FLAGS=-I#{Formula["openssl"].opt_prefix}/include"
       system "make", "install"
     end
 
@@ -123,6 +125,7 @@ class RstudioServer < Formula
       export PATH=#{opt_prefix}/rstudio/bin:$PATH
       export PATH=#{opt_prefix}/rstudio/bin/pandoc:$PATH
       export PATH=#{opt_prefix}/rstudio/bin/postback:$PATH
+      export PATH=#{opt_prefix}/rstudio/bin/rsclang:$PATH
 
       #{opt_prefix}/rstudio/bin/rserver "$@"
     EOS
