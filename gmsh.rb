@@ -11,6 +11,7 @@ class Gmsh < Formula
   sha256 "10db05a73bf7f05f6663ddb3b76045ce9decb28b36ad2e54547861254829a860"
 
   head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
+  revision 1
 
   bottle do
     cellar :any
