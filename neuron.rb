@@ -1,7 +1,8 @@
 class Neuron < Formula
   homepage "http://www.neuron.yale.edu/neuron/"
+  desc "Neuron is a simulation environment for modeling individual neurons and networks of neurons"
   url "http://www.neuron.yale.edu/ftp/neuron/versions/v7.4/nrn-7.4.tar.gz"
-  sha256 "9d56b79290f8914457ac795d63342deeb999f0860843b0ae435e5f4a2eac1e5f"
+  sha256 "165513a4c5e4f11fb78b6c8a71d92f11a00c120c4bbeec26abfedac241729e98"
 
   head "http://www.neuron.yale.edu/hg/neuron/nrn", :using => :hg
 
