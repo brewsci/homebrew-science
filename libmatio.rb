@@ -4,6 +4,7 @@ class Libmatio < Formula
   homepage 'http://matio.sourceforge.net'
   url 'https://downloads.sourceforge.net/project/matio/matio/1.5.2/matio-1.5.2.tar.gz'
   sha1 'd5a83a51eb2550d75811d2dde967ef3e167d4f52'
+  revision 1
 
   option :universal
   option 'with-hdf5', 'Enable support for newer MAT files that use the HDF5-format'
