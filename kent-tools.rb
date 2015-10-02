@@ -1,9 +1,9 @@
 class KentTools < Formula
   desc "Utilities for the UCSC Genome Browser"
   homepage "http://genome.ucsc.edu/"
-  url "http://hgdownload.cse.ucsc.edu/admin/exe/userApps.v316.src.tgz"
+  url "http://hgdownload.soe.ucsc.edu/admin/exe/userApps.v322.src.tgz"
   head "git://genome-source.cse.ucsc.edu/kent.git"
-  sha256 "1190e52702ff2661ac48fe4f0ef9f966718f44ec09596a6f77c8049c638a59fe"
+  sha256 "2d27bacea1d2680533dceb7da8a44b3146b85520a8d0aba41e4670cbe691c2d4"
 
   bottle do
     cellar :any
