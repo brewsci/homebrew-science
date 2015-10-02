@@ -3,6 +3,7 @@ class Dealii < Formula
   homepage "http://www.dealii.org"
   url "https://github.com/dealii/dealii/releases/download/v8.3.0/dealii-8.3.0.tar.gz"
   sha256 "4ddf72632eb501e1c814e299f32fc04fd680d6fda9daff58be4209e400e41779"
+  revision 1
 
   bottle do
     sha256 "65b1d02766fa92cd6c1796c3bd06ea5cfc7736f013416a309b006b1c0036b89a" => :yosemite
