@@ -1,6 +1,12 @@
 class Sailfish < Formula
   desc "Rapid Mapping-based Isoform Quantification from RNA-Seq Reads"
   homepage "http://www.cs.cmu.edu/~ckingsf/software/sailfish"
+  bottle do
+    sha256 "fd960a7653501eb528d6c74e69ae5c5daffa6634c0260047dfae2d5b43cf5dd1" => :el_capitan
+    sha256 "15e6f342bd538c26992956202c63f78a8600db94be6d81141a907b326723f4b8" => :yosemite
+    sha256 "0c5578f164ef9676172f44b5ad6bcafe4523e6c9b3003678c33eeead5993a139" => :mavericks
+  end
+
   # doi "10.1038/nbt.2862"
   # tag "bioinformatics"
   url "https://github.com/kingsfordgroup/sailfish/archive/v0.7.5.tar.gz"
