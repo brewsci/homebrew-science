@@ -3,9 +3,9 @@ class Snpeff < Formula
   homepage "http://snpeff.sourceforge.net/"
   # tag "bioinformatics"
   # doi "10.4161/fly.19695"
-  url "https://downloads.sourceforge.net/project/snpeff/snpEff_v4_1k_core.zip"
-  version "4.1k"
-  sha256 "45d79b829f463028986cf22f00f70665718d5f136515d2435c5fbf300322683a"
+  url "https://downloads.sourceforge.net/project/snpeff/snpEff_v4_1l_core.zip"
+  version "4.1l"
+  sha256 "1d5b2831c631a175b88bac57aefddea6f79588ef2ccbac8505f66e0961e54bf5"
 
   bottle do
     cellar :any_skip_relocation
