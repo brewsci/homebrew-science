@@ -4,6 +4,12 @@ class Cryptoverif < Formula
   url "http://prosecco.gforge.inria.fr/personal/bblanche/cryptoverif/cryptoverif1.21.tar.gz"
   sha256 "c20077f0753af1a3e9c5d4231f3e7f6ae885451c2432eadc13faaf28351b8143"
 
+  bottle do
+    sha256 "d95da63effd59ea2faae1376907e089468dcd4a132fb86a7f042501c4e0d6348" => :el_capitan
+    sha256 "991b6f79e5bc6f78d46141c82449d3fe9dd51fd0c581bb3cb3428fc915985526" => :yosemite
+    sha256 "d65f87242e90e1ecb9b2635a563d32f31fd8e355b74ce6b8bedef5210af2cec2" => :mavericks
+  end
+
   depends_on "ocaml"
 
   def install
