@@ -5,7 +5,7 @@ class Vtk5 < Formula
   url "http://www.vtk.org/files/release/5.10/vtk-5.10.1.tar.gz"  # update libdir below, too!
   sha1 "deb834f46b3f7fc3e122ddff45e2354d69d2adc3"
   head "git://vtk.org/VTK.git", :branch => "release-5.10"
-  revision 1
+  revision 2
 
   bottle do
     sha1 "ddebd8c0d9dc9315f36762b4179d7c4264460b0f" => :yosemite
