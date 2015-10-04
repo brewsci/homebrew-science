@@ -6,6 +6,13 @@ class Fstar < Formula
     :revision => "f24457213f4007302873f6d42eb2cf8094fa45d0"
   head "https://github.com/FStarLang/FStar.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "df55be25b1af6304340f7bc87a0d8c4409f62639bed5d4ec3b0f6e36d20020f2" => :el_capitan
+    sha256 "667b64d0a14dfd6f0e1d663b380829d52aa16c6e57f1d1fa360beff990e1c17d" => :yosemite
+    sha256 "3f1ee333bd0477e225c80925666043a684db65c2af486c78edc891d312a2eebc" => :mavericks
+  end
+
   depends_on "mono"   => :build
   depends_on "fsharp" => :build
   depends_on "opam"   => :build
