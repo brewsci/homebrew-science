@@ -8,9 +8,9 @@ class Vtk5 < Formula
   revision 2
 
   bottle do
-    sha1 "ddebd8c0d9dc9315f36762b4179d7c4264460b0f" => :yosemite
-    sha1 "365ec2a27a039bc01a7b9ffcb3ff08a2d65d169f" => :mavericks
-    sha1 "78c4a464bf75f62b4b162a015562646aa9f572be" => :mountain_lion
+    sha256 "6163db8061b417758f171492118dfc9f56e88db8bb6d0da9422a02ac10fac1c1" => :el_capitan
+    sha256 "ae0df1d384aa6fb145fe264d19eb3021e5880a697652dd70c0d4bf405a1c04ae" => :yosemite
+    sha256 "443c65770a671b09ca7d31ea22ab5907c857d467c054f08d0e6ea0a7a9db9f17" => :mavericks
   end
 
   deprecated_option "examples" => "with-examples"
