@@ -7,11 +7,10 @@ end
 class Gmsh < Formula
   desc "Gmsh is a 3D grid generator with a build-in CAD engine."
   homepage "http://geuz.org/gmsh"
-  url "http://geuz.org/gmsh/src/gmsh-2.10.0-source.tgz"
-  sha256 "10db05a73bf7f05f6663ddb3b76045ce9decb28b36ad2e54547861254829a860"
+  url "http://geuz.org/gmsh/src/gmsh-2.10.1-source.tgz"
+  sha256 "a47f15541db038c9cb00f004d13c5648a46c3d8ebd6e0bf3b56f9274e13f505d"
 
   head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
-  revision 1
 
   bottle do
     cellar :any
@@ -25,9 +24,18 @@ class Gmsh < Formula
   depends_on "cmake" => :build
   depends_on "petsc" => :optional
   depends_on "slepc" => :optional
-  depends_on "opencascade" => :recommended
   depends_on "fltk" => :optional
   depends_on "cairo" if build.with? "fltk"
+
+  option "with-oce",               "Build with oce support (conflicts with opencascade)"
+  option "without-opencascade",    "Build without opencascade support"
+
+  if build.with?("opencascade") && build.with?("oce")
+    odie "gmsh: --without-opencascade must be specified when using --with-oce"
+  else
+    depends_on "opencascade"      if build.with? "opencascade"
+    depends_on "oce"              if build.with? "oce"
+  end
 
   def install
     # In OS X, gmsh sets default directory locations as if building a
@@ -39,7 +47,10 @@ class Gmsh < Formula
                              "-DGMSH_DOC=#{share}/gmsh",
                              "-DGMSH_MAN=#{man}"]
 
-    if build.with? "opencascade"
+    if build.with? "oce"
+      ENV["CASROOT"] = Formula["oce"].opt_prefix
+      args << "-DENABLE_OCC=ON"
+    elsif build.with? "opencascade"
       ENV["CASROOT"] = Formula["opencascade"].opt_prefix
       args << "-DENABLE_OCC=ON"
     else
