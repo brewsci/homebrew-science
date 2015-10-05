@@ -1,7 +1,8 @@
 class Sumo < Formula
+  desc "Simulation of Urban Mobility"
   homepage "https://sourceforge.net/projects/sumo/"
-  url "https://downloads.sourceforge.net/project/sumo/sumo/version%200.23.0/sumo-all-0.23.0.tar.gz"
-  sha256 "8a6354a11717cdff2f3f247239fb55472ea57268b392e5e442777a1c05d92299"
+  url "https://downloads.sourceforge.net/project/sumo/sumo/version%200.24.0/sumo-all-0.24.0.tar.gz"
+  sha256 "26e5e91fbd8fc38553418599909164d6f44a04ccdf5f365c6feb0cc4365ba51f"
 
   bottle do
     cellar :any
@@ -19,7 +20,7 @@ class Sumo < Formula
   depends_on "libtiff"
   depends_on "proj"
   depends_on "gdal"
-  depends_on "fox"
+  depends_on "homebrew/x11/fox"
   depends_on :python
 
   resource "gtest" do
@@ -28,8 +29,8 @@ class Sumo < Formula
   end
 
   resource "TextTest" do
-    url "https://pypi.python.org/packages/source/T/TextTest/TextTest-3.28.tar.gz"
-    sha256 "700e9648c193fd29796af7df6074a306224f99d1837966433d612abce08ca47a"
+    url "https://pypi.python.org/packages/source/T/TextTest/TextTest-3.28.2.zip"
+    sha256 "2343b59425da2f24e3f9bea896e212e4caa370786c0a71312a4d9bd90ce1033b"
   end
 
   def install
@@ -39,7 +40,7 @@ class Sumo < Formula
       buildpath.install "../gtest-1.7.0"
     end
 
-    ENV["LDFLAGS"] = "-lpython"  # My compilation fails without this flag, despite :python dependency.
+    ENV["LDFLAGS"] = "-lpython" # My compilation fails without this flag, despite :python dependency.
     ENV.append_to_cflags "-I#{buildpath}/gtest-1.7.0/include"
 
     system "./configure", "--disable-debug",
@@ -50,6 +51,9 @@ class Sumo < Formula
                           "--with-gtest-config=gtest-1.7.0/scripts/gtest-config"
 
     system "make", "install"
+
+    # Copy tools/ to cellar. These contain some Python modules that have no setup.py.
+    prefix.install "tools"
 
     # Basic tests, they are fast, so execute them always.
     system "unittest/src/sumo-unittest"
