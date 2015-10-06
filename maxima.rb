@@ -1,7 +1,8 @@
 class Maxima < Formula
+  desc "Computer algebra system"
   homepage "http://maxima.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.36.1-source/maxima-5.36.1.tar.gz"
-  sha1 "7ab4136e59906f5230fb72ffd2582f4d4bd13b0c"
+  url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.37.2-source/maxima-5.37.2.tar.gz"
+  sha256 "b6bc38264405f092817f863d3a09e25027c0d3eb6c61e00db8c232ea2a41aa6b"
 
   bottle do
     sha256 "b4de12a5030ca617f54b3b521594bf41d9189f5ad2f9a2a59b92da65b89753ed" => :yosemite
