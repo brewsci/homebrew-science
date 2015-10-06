@@ -13,9 +13,10 @@ class R < Formula
   revision 1
 
   bottle do
-    sha256 "668d4389db9ccdd8574157fc9a6af6b2f1a48761f8bfb376855e8eae1106f842" => :yosemite
-    sha256 "d3b86b6d25480f8fb07b06681ee980754c6215cf657b85c797779944657e86b6" => :mavericks
-    sha256 "5827361dc017b0611e7db2b886f73226bde4f0946c7a3940381e0b4bb6cc942c" => :mountain_lion
+    revision 1
+    sha256 "b9aaa77a075bb198144b77d9bc430df3ae345b9057f1259fc17470a002770b82" => :el_capitan
+    sha256 "9b578cd8018f05343ac20be4804400328757edec595596647330557d850442d4" => :yosemite
+    sha256 "fa65aae35973928d7c62cbce990e239bf6f8942dd87a5661c13dfad28b05043c" => :mavericks
   end
 
   head do
