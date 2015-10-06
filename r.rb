@@ -162,13 +162,6 @@ class R < Formula
     ln_s site_library, cellar_site_library
   end
 
-  test do
-    if build.without? "librmath-only"
-      system bin/"Rscript", "-e", "print(1+1)"
-      system bin/"Rscript", "-e", "quit('no', capabilities('cairo')[['cairo']] != TRUE)" if OS.mac?
-    end
-  end
-
   def caveats
     if build.without? "librmath-only" then <<-EOS.undent
       To enable rJava support, run the following command:
@@ -178,6 +171,13 @@ class R < Formula
       (where <version> can be found by running `java -version`, `/usr/libexec/java_home`, or `locate jni.h`), or:
         R CMD javareconf JAVA_CPPFLAGS="-I/System/Library/Frameworks/JavaVM.framework/Headers -I$(/usr/libexec/java_home | grep -o '.*jdk')"
       EOS
+    end
+  end
+
+  test do
+    if build.without? "librmath-only"
+      system bin/"Rscript", "-e", "print(1+1)"
+      system bin/"Rscript", "-e", "quit('no', capabilities('cairo')[['cairo']] != TRUE)" if OS.mac?
     end
   end
 
