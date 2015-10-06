@@ -1,8 +1,11 @@
 class Dsk < Formula
   desc "Low memory k-mer counting software"
   homepage "http://minia.genouest.org/dsk/"
-  url "http://gatb-tools.gforge.inria.fr/versions/src/dsk-2.0.5-Source.tar.gz"
-  sha256 "65e37d39d68db972f64ff65dc9948943732b240fb7854908f716de436ea0d069"
+  # doi "10.1093/bioinformatics/btt020"
+  # tag "bioinformatics"
+
+  url "http://gatb-tools.gforge.inria.fr/versions/src/dsk-2.0.7-Source.tar.gz"
+  sha256 "109f1c6e460fcc1d3a880fc0a50fc585a1dd6b4bca614d5c494582a573e5de7b"
 
   bottle do
     cellar :any
