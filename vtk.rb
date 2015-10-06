@@ -38,10 +38,13 @@ class Vtk < Formula
   depends_on "matplotlib" => :python if build.with? "matplotlib"
 
   # If --with-qt and --with-python, then we automatically use PyQt, too!
-  if build.with?("qt") || build.with?("qt5")
-    if build.with? "python"
+  if build.with? "python"
+    if build.with? "qt"
       depends_on "sip"
       depends_on "pyqt"
+    elsif build.with? "qt5"
+      depends_on "sip"
+      depends_on "pyqt5" => ["with-python", "without-python3"]
     end
   end
 
