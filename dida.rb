@@ -1,6 +1,13 @@
 class Dida < Formula
   desc "Distributed Indexing Dispatched Alignment"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/dida"
+  bottle do
+    cellar :any
+    sha256 "ed1693e77dd976f0949bb554a3bc226881dcbccb20cd1b6fb696ab3892e26248" => :el_capitan
+    sha256 "65df860ef7d86f41538d7ab1ebce3978a578a6b552ae09fd28f058b0d869c413" => :yosemite
+    sha256 "2fbf1a21752ea89ddf730f260143df9cdd5b6d7f9909a9ed156b5863c77aa4af" => :mavericks
+  end
+
   # doi "10.1371/journal.pone.0126409"
   # tag "bioinformatics"
 
