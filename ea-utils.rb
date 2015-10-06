@@ -15,6 +15,8 @@ class EaUtils < Formula
   depends_on "gsl"
 
   # Patch from upstream issue: https://code.google.com/p/sparsehash/issues/detail?id=99
+  # https://github.com/sparsehash/sparsehash/commit/6f37a2b8bd3dff54874249799dca4c2458596c1d
+  # https://github.com/sparsehash/sparsehash/commit/7f6351fb06241b96fdb39ae3aff53c2acb1cd7a4
   patch :DATA
 
   def install
@@ -58,3 +60,17 @@ index 7ee1391..f54ea51 100644
        st_iterator;
 
    typedef std::forward_iterator_tag iterator_category;  // very little defined!
+
+diff --git a/sparsehash-2.0.2/src/hashtable_test.cc b/sparsehash-2.0.2/src/hashtable_test.cc
+index 21c60a7..ede7c65 100644
+--- a/sparsehash-2.0.2/src/hashtable_test.cc
++++ b/sparsehash-2.0.2/src/hashtable_test.cc
+@@ -901,7 +901,7 @@ TYPED_TEST(HashtableAllTest, Swap) {
+ #ifdef _MSC_VER
+   other_ht.swap(this->ht_);
+ #else
+-  swap(this->ht_, other_ht);
++  std::swap(this->ht_, other_ht);
+ #endif
+
+   EXPECT_EQ(this->UniqueKey(1), this->ht_.deleted_key());
