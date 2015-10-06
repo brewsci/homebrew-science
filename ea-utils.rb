@@ -7,9 +7,10 @@ class EaUtils < Formula
 
   bottle do
     cellar :any
-    sha256 "3364b9f7317c29863d1734faa0028e90e9d17630d148ca3fe997d2e5b9c3277e" => :yosemite
-    sha256 "cd83d2c7541f6f65f628d283c022cee5bc8e91bab2b84661f4d4ab91098c787a" => :mavericks
-    sha256 "2917813183f027df67162e369486eb88c25cfe793d414ca61eebdbb27dc982ce" => :mountain_lion
+    revision 1
+    sha256 "3d4540c1d1815d1d66b75532c74830418ec6d34ee03ccb9046ec590393c85809" => :el_capitan
+    sha256 "b3d6e6dba971ae87db2bc169dadd15d012e575190d8597b7cb16a7444c50b27a" => :yosemite
+    sha256 "c93e0296e82d0ed2594ca42fbd0530a695569ceb89196d4630b8133381587605" => :mavericks
   end
 
   depends_on "gsl"
