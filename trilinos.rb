@@ -268,8 +268,10 @@ class Trilinos < Formula
       # against the libraries listed in Trilinos_LIBRARIES.
       # See https://github.com/Homebrew/homebrew-science/issues/2148#issuecomment-103614509
       # A workaround it to remove PyTrilinos from the COMPONENTS_LIST :
-      inreplace "#{lib}/cmake/Trilinos/TrilinosConfig.cmake" do |s|
-        s.gsub! "PyTrilinos;", "" if s.include? "COMPONENTS_LIST"
+      if build.with? "python"
+        inreplace "#{lib}/cmake/Trilinos/TrilinosConfig.cmake" do |s|
+          s.gsub! "PyTrilinos;", "" if s.include? "COMPONENTS_LIST"
+        end
       end
     end
   end
