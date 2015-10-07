@@ -10,9 +10,9 @@ class Sratoolkit < Formula
 
   bottle do
     cellar :any
-    sha256 "fe4809b28912bb06ee3be92ddf4a7da16a1f410afb5d2e9d4e4956cb2262cfe3" => :el_capitan
-    sha256 "8f085f8475f84b7cf086898635223d9a9ba5e80f837dbb33ed64ef701bff26bc" => :yosemite
-    sha256 "55a358f9781a64d7aed2d992dd76fd86d2b9943378c33e6d39657658a710f4d8" => :mavericks
+    sha256 "49fbb91d1bce33ef4a42bf006218760d33cd65b26aefefc7dcc67fee74c9804d" => :el_capitan
+    sha256 "8bfa04632f1c2a019da2103e023fd98d8f6353c89c7cab479c9b0be6865297df" => :yosemite
+    sha256 "145df2974d65f27f2d7b6c8b7cc1ad91c971cced0bf1c581530fba265a375d12" => :mavericks
   end
 
   resource "ngs-sdk" do
