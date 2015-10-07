@@ -4,9 +4,9 @@ class Nextflow < Formula
   # doi "10.6084/m9.figshare.1254958"
   # tag "bioinformatics"
 
-  version "0.15.5"
-  url "http://www.nextflow.io/releases/v0.15.5/nextflow"
-  sha256 "159feba94778578e215bb248175730eef606db5789581b18c078037e9b2ea4e7"
+  url "http://www.nextflow.io/releases/v0.15.6/nextflow"
+  version "0.15.6"
+  sha256 "32c421ef3961596be385b7af2db9247bb4ae687c736ff936f5a64e2efd33826e"
 
   head "https://github.com/nextflow-io/nextflow.git"
 
@@ -25,6 +25,6 @@ class Nextflow < Formula
 
   test do
     system "#{bin}/nextflow", "-download"
-    system "echo \"println 'hello'\" | #{bin}/nextflow -q run - |grep hello"
+    system "echo", "println \'hello\' | #{bin}/nextflow -q run - |grep hello"
   end
 end
