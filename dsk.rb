@@ -8,10 +8,10 @@ class Dsk < Formula
   sha256 "109f1c6e460fcc1d3a880fc0a50fc585a1dd6b4bca614d5c494582a573e5de7b"
 
   bottle do
-    cellar :any
-    sha256 "8c755f6f6caaa56a85af63ce40ca20e2c3006d5ba378f5d8b1150d1822748192" => :yosemite
-    sha256 "9a528fc1925499203f2feb91ba8458d6fef1a2416c3bf1445e96611f98041e29" => :mavericks
-    sha256 "39b7f548c8170a07b94cc987ccdc9212a31d9341b9954c22963fa4a7ee7b9343" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "8ef63372b487dbae9e2028accb615c1c491e6b0ec392d5b994b30eb205bf7a0e" => :el_capitan
+    sha256 "baa4fad7e5e2f475addc21c3963cd2829842c2d379aa65875ec61eb97f05ba0b" => :yosemite
+    sha256 "06f53b2c001942c3c174d88280159b3acba0efe270aab6cae286d67f53ee47df" => :mavericks
   end
 
   depends_on "cmake" => :build
