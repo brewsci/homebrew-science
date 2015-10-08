@@ -7,8 +7,8 @@ end
 class Getdp < Formula
   desc "GetDP is an open source finite element solver using mixed elements."
   homepage "http://www.geuz.org/getdp/"
-  url "http://www.geuz.org/getdp/src/getdp-2.6.0-source.tgz"
-  sha256 "ebbf6791e815dda7a306efbfe3cc0acd30cc2ad9ecf6ac0f2fb9fc75a9aae051"
+  url "http://www.geuz.org/getdp/src/getdp-2.6.1-source.tgz"
+  sha256 "b3722dcde0478b1fba34c3c36820f64b0184cdbe0ef7535e23fb87e1da36e96a"
   head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
 
   bottle do
@@ -22,12 +22,16 @@ class Getdp < Formula
 
   depends_on :fortran
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
-  depends_on "arpack" => :recommended
-  depends_on "petsc" => :recommended
-  depends_on "slepc" => :recommended
-  depends_on "gmsh" => :recommended
-  depends_on "gsl" => :recommended
-  depends_on "cmake" => :build
+  depends_on "arpack"   => :recommended
+  depends_on "gmsh"     => :recommended
+  depends_on "gsl"      => :recommended
+  depends_on "hdf5"     => :recommended
+  depends_on "metis"    => :recommended
+  depends_on "mumps"    => :recommended
+  depends_on "petsc"    => :recommended
+  depends_on "slepc"    => :recommended
+
+  depends_on "cmake"    => :build
 
   def install
     args = std_cmake_args
