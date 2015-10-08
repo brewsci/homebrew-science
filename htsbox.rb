@@ -3,9 +3,9 @@ class Htsbox < Formula
   homepage "https://github.com/lh3/htsbox"
   # tag "bioinformatics"
 
-  url "https://github.com/lh3/htsbox/archive/1b2dee28b52f28afdd14510f551e6aaf658efa8d.tar.gz"
+  url "https://github.com/lh3/htsbox/archive/r311.tar.gz"
   version "r311"
-  sha256 "9a1e8bee4527973d1c4f27203a959380ea266cc23ad7d3a51d530815d0ec6ec4"
+  sha256 "a1818f2782872e2800e192290b583b87e8a7c4798158f03c7e3fbfa5a9db4ed2"
 
   head "https://github.com/lh3/htsbox.git"
 
