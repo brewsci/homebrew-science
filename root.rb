@@ -1,8 +1,8 @@
 class Root < Formula
   desc "Root object oriented framework for large scale data analysis"
   homepage "http://root.cern.ch"
-  version "5.34.32"
-  sha256 "939c7592802a54b6cbc593efb6e51699bf52e92baf6d6b20f486aaa08480fc5f"
+  version "5.34.34"
+  sha256 "8c1faf893ed3b279f3500368b3dcd2087352020a69d3055c4d36726e7f6acd58"
   url "ftp://root.cern.ch/root/root_v#{version}.source.tar.gz"
   head "https://github.com/root-mirror/root.git", :branch => "v5-34-00-patches"
 
