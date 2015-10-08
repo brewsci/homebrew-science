@@ -10,10 +10,11 @@ class Htsbox < Formula
   head "https://github.com/lh3/htsbox.git"
 
   bottle do
-    cellar :any
-    sha256 "25862df2d67c335b7f6d02f8c3a29f4a0c25280e7fd0e1c216db456451ed825d" => :yosemite
-    sha256 "d736c37859db258b1437e7ade182dc4d1a545630a66ba684e3cbea65434d933e" => :mavericks
-    sha256 "3a04a5a8efdd6a4175fdc8d40e172db1f0761f6dba5f25dc27c1303590c9c3d3" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "6b6854f17dc317c0acc072dfa558dce9b23ed42f47a04eae3ddff3f632c1adf3" => :el_capitan
+    sha256 "f8ab629404d62b23036df97ab805ddbacacae8d444153b6928a8ea66c125391a" => :yosemite
+    sha256 "fe2624546e9009cc83769ee41fe0834d37b95374b8f915b3478a3ed8cd6afe7c" => :mavericks
   end
 
   depends_on "htslib"
