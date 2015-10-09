@@ -4,12 +4,14 @@ class CdHit < Formula
   # doi "10.1093/bioinformatics/btl158"
   # tag "bioinformatics"
 
-  url "https://github.com/weizhongli/cdhit/releases/download/V4.6.1/cd-hit-v4.6.1-2012-08-27.tgz"
-  mirror "https://cdhit.googlecode.com/files/cd-hit-v4.6.1-2012-08-27.tgz"
-  version "4.6.1"
-  sha256 "5e26431892609511992542c39705a1427e2fd6a526241977c527dfc74f795932"
+  url "https://github.com/weizhongli/cdhit/releases/download/V4.6.4/cd-hit-v4.6.4-2015-0603.tar.gz"
+  version "4.6.4"
+  sha256 "ca0050b6b27649dd548b6d74c2873dd76cff7bfdf70fb6f8e8578d0fa128d92c"
 
   head "https://github.com/weizhongli/cdhit.git"
+
+  # error: 'omp.h' file not found
+  needs :openmp
 
   bottle do
     cellar :any_skip_relocation
