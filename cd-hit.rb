@@ -1,10 +1,15 @@
-require 'formula'
-
 class CdHit < Formula
-  homepage 'https://code.google.com/p/cdhit/'
-  url 'https://cdhit.googlecode.com/files/cd-hit-v4.6.1-2012-08-27.tgz'
-  version '4.6.1'
-  sha1 '744be987a963e368ad46efa59227ea313c35ef5d'
+  desc "Cluster and compare protein or nucleotide sequences"
+  homepage "http://cd-hit.org"
+  # doi "10.1093/bioinformatics/btl158"
+  # tag "bioinformatics"
+
+  url "https://github.com/weizhongli/cdhit/releases/download/V4.6.1/cd-hit-v4.6.1-2012-08-27.tgz"
+  mirror "https://cdhit.googlecode.com/files/cd-hit-v4.6.1-2012-08-27.tgz"
+  version "4.6.1"
+  sha256 "5e26431892609511992542c39705a1427e2fd6a526241977c527dfc74f795932"
+
+  head "https://github.com/weizhongli/cdhit.git"
 
   bottle do
     cellar :any
@@ -19,5 +24,9 @@ class CdHit < Formula
     system "make", *args
     bin.mkpath
     system "make", "PREFIX=#{bin}", "install"
+  end
+
+  test do
+    assert_match "Usage", shell_output("#{bin}/cd-hit -h", 1)
   end
 end
