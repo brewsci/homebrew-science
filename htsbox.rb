@@ -3,11 +3,11 @@ class Htsbox < Formula
   homepage "https://github.com/lh3/htsbox"
   # tag "bioinformatics"
 
-  url "https://github.com/lh3/htsbox/archive/r311.tar.gz"
-  version "r311"
-  sha256 "a1818f2782872e2800e192290b583b87e8a7c4798158f03c7e3fbfa5a9db4ed2"
+  url "https://github.com/lh3/htsbox/archive/r312.tar.gz"
+  version "r312"
+  sha256 "18956deaf1d163a01f36e7849aba8ff01e9d883bd4792f870debdce53d0b665e"
 
-  head "https://github.com/lh3/htsbox.git"
+  head "https://github.com/lh3/htsbox.git", :branch => "lite"
 
   bottle do
     cellar :any_skip_relocation
