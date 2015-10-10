@@ -11,10 +11,9 @@ class Htsbox < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "6b6854f17dc317c0acc072dfa558dce9b23ed42f47a04eae3ddff3f632c1adf3" => :el_capitan
-    sha256 "f8ab629404d62b23036df97ab805ddbacacae8d444153b6928a8ea66c125391a" => :yosemite
-    sha256 "fe2624546e9009cc83769ee41fe0834d37b95374b8f915b3478a3ed8cd6afe7c" => :mavericks
+    sha256 "7a94dbafcf6d0c44a1e7527a027b9ac0422cc5d45d796cc7e804c91d3f18899f" => :el_capitan
+    sha256 "e108883fec20ea411cd33761c1fe3aa7f91689b99b3a29ca78820ba60aed78e0" => :yosemite
+    sha256 "a900b7615452ca156d58a4387a4abc23dc680b68926121fde9dc86ef74859c9d" => :mavericks
   end
 
   depends_on "htslib"
