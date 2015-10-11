@@ -4,7 +4,7 @@ class Petsc < Formula
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.6.1.tar.gz"
   sha256 "aeac101565a4ba609c3f3f13ada475720bcd32a44676e3cbfe792da1c9fb32a2"
   head "https://bitbucket.org/petsc/petsc", :using => :git
-  revision 3
+  revision 4
 
   bottle do
     sha256 "46e523fd9c406970a330618cabae9064a6b8cc68958b9431ce757e8924aeec6e" => :el_capitan
@@ -33,7 +33,7 @@ class Petsc < Formula
   depends_on "parmetis"     => :recommended
   depends_on "scalapack"    => [:recommended] + openblasdep
   depends_on "mumps"        => [:recommended] + openblasdep # mumps is built with mpi by default
-  depends_on "hypre"        => ["with-mpi", :recommended] + openblasdep
+  depends_on "hypre"        => [:recommended] + openblasdep
   depends_on "sundials"     => ["with-mpi", :recommended] + openblasdep
   depends_on "hdf5"         => ["with-mpi", :recommended]
   depends_on "hwloc"        => :recommended
