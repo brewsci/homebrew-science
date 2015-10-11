@@ -3,7 +3,7 @@ class SuiteSparse < Formula
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
   url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.4.4.tar.gz"
   sha256 "f2ae47e96f3f37b313c3dfafca59f13e6dbc1e9e54b35af591551919810fb6fd"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -51,14 +51,22 @@ class SuiteSparse < Formula
     make_args << "LAPACK=$(BLAS)"
     make_args += ["SPQR_CONFIG=-DHAVE_TBB",
                   "TBB=-L#{Formula["tbb"].opt_lib} -ltbb"] if build.with? "tbb"
-    make_args += ["METIS_PATH=",
+
+    # SuiteSparse wants the user to download the source of METIS so it can
+    # compile it. Its way of deciding that METIS has indeed been downloaded is
+    # by checking that METIS_PATH is a valid path. So we specify some valid
+    # path.
+    make_args += ["METIS_PATH=#{Formula["metis4"].opt_prefix}",
                   "METIS=-L#{Formula["metis4"].opt_lib} -lmetis"] if build.with? "metis4"
+    make_args << "CHOLMOD_CONFIG=-DNPARTITION" if build.without? "metis4"
 
     # Add some flags for linux
     # -DNTIMER is needed to avoid undefined reference to SuiteSparse_time
     make_args << "CF=-fPIC -O3 -fno-common -fexceptions -DNTIMER $(CFLAGS)" unless OS.mac?
 
-    system "make", "default", *make_args # Also build demos.
+    # make library doesn't build the demos because the latter expect the source
+    # of METIS to have been downloaded and will attempt to build it.
+    system "make", "library", *make_args
     lib.mkpath
     include.mkpath
     system "make", "install", *make_args
