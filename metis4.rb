@@ -7,9 +7,9 @@ class Metis4 < Formula
 
   bottle do
     cellar :any
-    sha1 "e970d99900426597a3d37ad788e987d3bb8ddd52" => :yosemite
-    sha1 "a97518d2f40a9cccd11705675c0c0e310246d8d4" => :mavericks
-    sha1 "cab47e1fcf1376587317e1c0651e4a2f3e5a09af" => :mountain_lion
+    sha256 "93bcbf85b09f04605bb89bd8b21654aeb74ead15d9850f100316310e76b012fc" => :el_capitan
+    sha256 "e3e0b810f44b481cd75fa2125c6a8d4cfab598297a779cf1d1aa892bd327fa69" => :yosemite
+    sha256 "b0631095992610abe58e927797cbb852899b6a8c4471bd5fea291a628b034edd" => :mavericks
   end
 
   keg_only "Conflicts with metis (5.x)."
