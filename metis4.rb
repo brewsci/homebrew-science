@@ -1,7 +1,9 @@
 class Metis4 < Formula
+  desc "Serial graph partitioning and fill-reducing ordering"
   url "http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/OLD/metis-4.0.3.tar.gz"
   homepage "http://glaros.dtc.umn.edu/gkhome/views/metis"
-  sha1 "63303786414a857eaeea2b2a006521401bccda5e"
+  sha256 "5efa35de80703c1b2c4d0de080fafbcf4e0d363a21149a1ad2f96e0144841a55"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,29 +17,39 @@ class Metis4 < Formula
   def install
     if OS.mac?
       so = "dylib"
-      ar = "libtool -dynamic -install_name #{lib}/$(notdir $@) -undefined dynamic_lookup -o"
+      all_load = "-Wl,-all_load"
+      noall_load = ""
     else
       so = "so"
-      ar = "$(CC) -shared -Wl,-soname -Wl,#{lib}/$(notdir $@) -o"
+      all_load = "-Wl,-whole-archive"
+      noall_load = "-Wl,-no-whole-archive"
     end
-    inreplace "Lib/Makefile", "libmetis.a", "libmetis.#{so}"
-    make_args = ["COPTIONS=-fPIC", "AR=#{ar}", "RANLIB=echo", "METISLIB=../libmetis.#{so}"]
-    system "make", *make_args
+    cd "Lib" do
+      system "make", "CC=#{ENV.cc}", "COPTIONS=-fPIC"
+    end
+    cd "Programs" do
+      system "make", "CC=#{ENV.cc}", "COPTIONS=-fPIC"
+    end
+    system ENV.cc, "-fPIC", "-shared", "#{all_load}", "libmetis.a", "#{noall_load}", "-o", "libmetis.#{so}"
     bin.install %w[pmetis kmetis oemetis onmetis partnmesh partdmesh mesh2nodal mesh2dual graphchk]
     lib.install "libmetis.#{so}"
     include.install Dir["Lib/*.h"]
-    (share / "metis4").install %w[Graphs/mtest Graphs/4elt.graph Graphs/metis.mesh Graphs/test.mgraph]
+    pkgshare.install %w[Programs/io.c Test/mtest.c Graphs/4elt.graph Graphs/metis.mesh Graphs/test.mgraph]
   end
 
   test do
-    system "#{share}/metis4/mtest", "#{share}/metis4/4elt.graph"
-    system "#{bin}/kmetis", "#{share}/metis4/4elt.graph", "40"
-    system "#{bin}/onmetis", "#{share}/metis4/4elt.graph"
-    system "#{bin}/pmetis", "#{share}/metis4/test.mgraph", "2"
-    system "#{bin}/kmetis", "#{share}/metis4/test.mgraph", "2"
-    system "#{bin}/kmetis", "#{share}/metis4/test.mgraph", "5"
-    system "#{bin}/partnmesh", "#{share}/metis4/metis.mesh", "10"
-    system "#{bin}/partdmesh", "#{share}/metis4/metis.mesh", "10"
-    system "#{bin}/mesh2dual", "#{share}/metis4/metis.mesh"
+    cp pkgshare/"io.c", testpath
+    cp pkgshare/"mtest.c", testpath
+    system ENV.cc, "-I#{include}", "-c", "io.c"
+    system ENV.cc, "-I#{include}", "-L#{lib}", "-lmetis", "mtest.c", "io.o", "-o", "mtest"
+    system "./mtest", "#{pkgshare}/4elt.graph"
+    system "#{bin}/kmetis", "#{pkgshare}/4elt.graph", "40"
+    system "#{bin}/onmetis", "#{pkgshare}/4elt.graph"
+    system "#{bin}/pmetis", "#{pkgshare}/test.mgraph", "2"
+    system "#{bin}/kmetis", "#{pkgshare}/test.mgraph", "2"
+    system "#{bin}/kmetis", "#{pkgshare}/test.mgraph", "5"
+    system "#{bin}/partnmesh", "#{pkgshare}/metis.mesh", "10"
+    system "#{bin}/partdmesh", "#{pkgshare}/metis.mesh", "10"
+    system "#{bin}/mesh2dual", "#{pkgshare}/metis.mesh"
   end
 end
