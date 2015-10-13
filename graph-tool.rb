@@ -3,16 +3,17 @@ class GraphTool < Formula
   url "http://downloads.skewed.de/graph-tool/graph-tool-2.9.tar.bz2"
   sha256 "d3df98adc8a7ea6202e270b62c05825a483fc08c51000721356971d76af1146e"
 
-  bottle do
-    sha256 "803e7626e4d4e14cea3473e98aa37ee32a0648d4f7e07a229ff057ec6f304332" => :yosemite
-    sha256 "58c57cc24ee58cbdfdbe6a090931f005c7f757064301027710039e95f68181d3" => :mavericks
-  end
-
   head do
     url "https://github.com/count0/graph-tool.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+  end
+
+  bottle do
+    sha256 "fc76efacf93adb2998584c9aca27e84330e16c1335eb6fd229f3af66fec1b317" => :el_capitan
+    sha256 "750a402f184205fac14673fdd066b2680a034ce37f5ff87fd3dd9b305e1ddceb" => :yosemite
+    sha256 "57e8a733ecf208631515cea7eadd8f52755ad184d75996e01e171284a732126f" => :mavericks
   end
 
   option "without-cairo", "Build without cairo support for plotting"
