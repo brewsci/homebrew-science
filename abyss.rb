@@ -31,6 +31,7 @@ class Abyss < Formula
   # Only header files are used from these packages, so :build is appropriate
   depends_on "boost" => :build
   depends_on "google-sparsehash" => :build
+  depends_on "sqlite" unless OS.mac?
   depends_on :mpi => [:cc, :recommended]
 
   # strip breaks the ability to read compressed files.
