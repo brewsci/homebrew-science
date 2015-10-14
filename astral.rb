@@ -12,7 +12,7 @@ class Astral < Formula
   # tag "bioinformatics"
 
   url "https://github.com/smirarab/ASTRAL/raw/master/Astral.4.7.8.zip"
-  sha256 "5761b8e25b1417ee72ddc0658c02e587d4e84c53e99564aca62a793b1736d289"
+  sha256 "5fb6eb0f899d29f2c23aefdd529a2fd2c3d069bb13fed87e381aeb48650cd4c9"
 
   # head "https://github.com/smirarab/ASTRAL.git"
 
