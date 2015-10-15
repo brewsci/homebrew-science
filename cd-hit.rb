@@ -14,11 +14,10 @@ class CdHit < Formula
   needs :openmp
 
   bottle do
-    cellar :any_skip_relocation
-    revision 1
-    sha256 "98e6cda7f489cb2cf0856129d6c97b7ef95f808fd97ed6c0d95ae0e27c338dbd" => :el_capitan
-    sha256 "ddf15219089f9baf1499f7ad00b8bba57fb911f1a77f77bcc49d4ba378072896" => :yosemite
-    sha256 "c056aab6d91cbd644d88bc2c1714149a3cd06c7c844c32dad06b1521156bc500" => :mavericks
+    cellar :any
+    sha256 "d39f86e1115c63cbfb0f69ac9f10112ba93cde7de8e5113b8c62ab59bd770557" => :el_capitan
+    sha256 "687cb4899593b076dad1c9b7f82134b0e348db6a27dfa53b2743ae67ada0e71b" => :yosemite
+    sha256 "c4140245c4490436da64e35f3dc92e08903df12516e3b949acd013293ecbea4f" => :mavericks
   end
 
   def install
