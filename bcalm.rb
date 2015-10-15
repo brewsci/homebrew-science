@@ -4,8 +4,8 @@ class Bcalm < Formula
   # doi "10.1007/978-3-319-05269-4_4"
   # tag "bioinformatics"
 
-  url "https://github.com/Malfoy/bcalm/archive/1.tar.gz"
-  sha256 "1d9de0d0f4f7f41634a09135741432b681fd1e995934925442b409d47c19ecbf"
+  url "https://github.com/Malfoy/bcalm/archive/2.tar.gz"
+  sha256 "dc50883d2b24bcd13abbc731211ea28f0eef4bd45a91bb24c0641b1ece80c9ce"
 
   head "https://github.com/Malfoy/bcalm.git"
 
