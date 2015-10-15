@@ -1,13 +1,12 @@
 class Vips < Formula
   homepage "http://www.vips.ecs.soton.ac.uk/"
-  url "http://www.vips.ecs.soton.ac.uk/supported/8.0/vips-8.0.2.tar.gz"
-  sha256 "1e6d102b425685467f58003f9d41cd097b772cdf50b4d7995f73751dce86fa3a"
-  revision 1
+  url "http://www.vips.ecs.soton.ac.uk/supported/8.1/vips-8.1.0.tar.gz"
+  sha256 "5a4a95057e29295203ebd6933ac72d9a394ee7dd7bfd49d9009785dba49a95f5"
 
   bottle do
-    sha256 "d098b71f4879def8cbea30a372a57b79946c0d051fc4c86f70a45f6a3a1664b0" => :el_capitan
-    sha256 "425e5b1427674bcbe1430cdb8d06bd0b42aacef1cc8109f90c71e0addf17d940" => :yosemite
-    sha256 "626974acbbf51b2a5351302a8bb773452dd32181c85996e682112eb08ba20695" => :mavericks
+    sha256 "1632ef91f17e12cc7aec013c8de4f14efe460c9a01eaf570059486d7c9a01597" => :el_capitan
+    sha256 "f3e71bef44775eac714521a5d22c27a40e11465eb1e5de4280ead5e122261ff5" => :yosemite
+    sha256 "709f9a8779d8e307a04b609a1489df7d5029b2133c80ad3cbb06d1d3ae124209" => :mavericks
   end
 
   option "without-check", "Disable build time checks (not recommended)"

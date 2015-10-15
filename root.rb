@@ -1,15 +1,15 @@
 class Root < Formula
   desc "Root object oriented framework for large scale data analysis"
   homepage "http://root.cern.ch"
-  version "5.34.32"
-  sha256 "939c7592802a54b6cbc593efb6e51699bf52e92baf6d6b20f486aaa08480fc5f"
+  version "5.34.34"
+  sha256 "8c1faf893ed3b279f3500368b3dcd2087352020a69d3055c4d36726e7f6acd58"
   url "ftp://root.cern.ch/root/root_v#{version}.source.tar.gz"
   head "https://github.com/root-mirror/root.git", :branch => "v5-34-00-patches"
 
   bottle do
-    sha256 "820773380d9f4571d39b6a19424531a35a7adfeced20c8d9ffbd7b9f3c81d48e" => :yosemite
-    sha256 "54f5b3573aad05a95684a58b3639b8a17168affdfb3df424075f852a22449564" => :mavericks
-    sha256 "59f2826352d953477b376d1639313441c772598600f83dc361ab086fca98b62d" => :mountain_lion
+    sha256 "2e7d46e13046175804fa9045ba5b63ecb63d073f54e0568b27ef8eed3ac445e6" => :el_capitan
+    sha256 "cccbfc6de1a4c6ba39265c97e94c057297e07f13f898539c1ffd6e07bc047414" => :yosemite
+    sha256 "487019d87436f66c469c6e2e3533a7ec327c4e42bde4c7f8c376021a49e2cbce" => :mavericks
   end
 
   option "with-qt", "Build with Qt graphics backend and GSI's Qt integration"

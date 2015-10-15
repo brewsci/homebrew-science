@@ -3,17 +3,17 @@ class Htsbox < Formula
   homepage "https://github.com/lh3/htsbox"
   # tag "bioinformatics"
 
-  url "https://github.com/lh3/htsbox/archive/1b2dee28b52f28afdd14510f551e6aaf658efa8d.tar.gz"
-  version "r311"
-  sha256 "9a1e8bee4527973d1c4f27203a959380ea266cc23ad7d3a51d530815d0ec6ec4"
+  url "https://github.com/lh3/htsbox/archive/r312.tar.gz"
+  version "r312"
+  sha256 "18956deaf1d163a01f36e7849aba8ff01e9d883bd4792f870debdce53d0b665e"
 
-  head "https://github.com/lh3/htsbox.git"
+  head "https://github.com/lh3/htsbox.git", :branch => "lite"
 
   bottle do
-    cellar :any
-    sha256 "25862df2d67c335b7f6d02f8c3a29f4a0c25280e7fd0e1c216db456451ed825d" => :yosemite
-    sha256 "d736c37859db258b1437e7ade182dc4d1a545630a66ba684e3cbea65434d933e" => :mavericks
-    sha256 "3a04a5a8efdd6a4175fdc8d40e172db1f0761f6dba5f25dc27c1303590c9c3d3" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "7a94dbafcf6d0c44a1e7527a027b9ac0422cc5d45d796cc7e804c91d3f18899f" => :el_capitan
+    sha256 "e108883fec20ea411cd33761c1fe3aa7f91689b99b3a29ca78820ba60aed78e0" => :yosemite
+    sha256 "a900b7615452ca156d58a4387a4abc23dc680b68926121fde9dc86ef74859c9d" => :mavericks
   end
 
   depends_on "htslib"

@@ -3,13 +3,13 @@ class SuiteSparse < Formula
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
   url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.4.4.tar.gz"
   sha256 "f2ae47e96f3f37b313c3dfafca59f13e6dbc1e9e54b35af591551919810fb6fd"
-  revision 1
+  revision 2
 
   bottle do
-    cellar :any
-    sha256 "22929df79a5da41558c3f7c8ef6bf1dfa51f6fb7fc3ee6c4a00fb22b49e2b8a2" => :yosemite
-    sha256 "3e7810e3dab4e2ba18127cf482702e3a6b1780630fb13715ab113f9f720b0433" => :mavericks
-    sha256 "eff66c1b75e03bfa34cba541732fdc8f667b10722a5da43ac30d6b6d266661f0" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "2ab3b2ecad9e5c871a0b3e0e70f3bab4e7ee3aab06eb9ace8de2be155dfb11e8" => :el_capitan
+    sha256 "ac375ecab7b93e9da612b14dcdd4fa920248dce10794f9131d8d2774967fefdd" => :yosemite
+    sha256 "828dbaf089f5e98c31a9434748ab3d913aa018d473797b2b3e2d3c90ea52b0fb" => :mavericks
   end
 
   option "with-matlab", "Install Matlab interfaces and tools"
@@ -51,14 +51,22 @@ class SuiteSparse < Formula
     make_args << "LAPACK=$(BLAS)"
     make_args += ["SPQR_CONFIG=-DHAVE_TBB",
                   "TBB=-L#{Formula["tbb"].opt_lib} -ltbb"] if build.with? "tbb"
-    make_args += ["METIS_PATH=",
+
+    # SuiteSparse wants the user to download the source of METIS so it can
+    # compile it. Its way of deciding that METIS has indeed been downloaded is
+    # by checking that METIS_PATH is a valid path. So we specify some valid
+    # path.
+    make_args += ["METIS_PATH=#{Formula["metis4"].opt_prefix}",
                   "METIS=-L#{Formula["metis4"].opt_lib} -lmetis"] if build.with? "metis4"
+    make_args << "CHOLMOD_CONFIG=-DNPARTITION" if build.without? "metis4"
 
     # Add some flags for linux
     # -DNTIMER is needed to avoid undefined reference to SuiteSparse_time
     make_args << "CF=-fPIC -O3 -fno-common -fexceptions -DNTIMER $(CFLAGS)" unless OS.mac?
 
-    system "make", "default", *make_args # Also build demos.
+    # make library doesn't build the demos because the latter expect the source
+    # of METIS to have been downloaded and will attempt to build it.
+    system "make", "library", *make_args
     lib.mkpath
     include.mkpath
     system "make", "install", *make_args
