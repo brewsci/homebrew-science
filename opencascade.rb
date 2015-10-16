@@ -3,6 +3,7 @@ class Opencascade < Formula
   homepage "http://www.opencascade.org/"
   url "http://files.opencascade.com/OCCT/OCC_6.9.0_release/opencascade-6.9.0.tgz"
   sha256 "e9da098b304f6b65c3958947c3c687f00128ce020b67d97554a3e3be9cf3d090"
+  revision 2
 
   bottle do
     cellar :any
@@ -26,6 +27,13 @@ class Opencascade < Formula
   depends_on :macos => :snow_leopard
 
   def install
+    # be conservative since 6.9 has problems with clang if -O2
+    # see http://tracker.dev.opencascade.org/print_bug_page.php?bug_id=26042
+    ENV.append_to_cflags "-O1"
+
+    # recent xcode stores it's sdk in the application folder
+    sdk_path = Pathname.new `xcrun --show-sdk-path`.strip
+
     # setting DYLD causes many issues; all tests work fine without; suppress
     inreplace "env.sh", "export DYLD_LIBRARY_PATH", "export OCCT_DYLD_LIBRARY_PATH" if OS.mac?
 
@@ -36,8 +44,8 @@ class Opencascade < Formula
     cmake_args << "-DINSTALL_DIR:PATH=#{prefix}"
     cmake_args << "-D3RDPARTY_DIR:PATH=#{HOMEBREW_PREFIX}"
     cmake_args << "-D3RDPARTY_TCL_DIR:PATH=/usr"
-    cmake_args << "-D3RDPARTY_TCL_INCLUDE_DIR:PATH=/usr/include/tcl8.6" unless OS.mac?
-    cmake_args << "-D3RDPARTY_TK_INCLUDE_DIR:PATH=/usr/include"
+    cmake_args << "-D3RDPARTY_TCL_INCLUDE_DIR:PATH=#{sdk_path}/usr/include/"
+    cmake_args << "-D3RDPARTY_TK_INCLUDE_DIR:PATH=#{sdk_path}/usr/include/"
     cmake_args << "-DINSTALL_TESTS:BOOL=ON" if build.with? "tests"
     cmake_args << "-D3RDPARTY_TBB_DIR:PATH=#{HOMEBREW_PREFIX}" if build.with? "tbb"
 
@@ -48,7 +56,7 @@ class Opencascade < Formula
       cmake_args << "-DUSE_#{feature.upcase}:BOOL=ON" if build.with? feature
     end
 
-    opencl_path = Pathname.new "/System/Library/Frameworks/OpenCL.framework/Versions/Current"
+    opencl_path = Pathname.new "#{sdk_path}/System/Library/Frameworks/OpenCL.framework/Versions/Current"
     if build.with?("opencl") && opencl_path.exist?
       cmake_args << "-D3RDPARTY_OPENCL_INCLUDE_DIR:PATH=#{opencl_path}/Headers"
       cmake_args << "-D3RDPARTY_OPENCL_DLL:FILEPATH=#{opencl_path}/Libraries/libcl2module.dylib"
