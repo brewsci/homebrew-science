@@ -2,8 +2,8 @@ require 'formula'
 
 class CeresSolver < Formula
   homepage 'http://ceres-solver.org/'
-  url 'http://ceres-solver.org/ceres-solver-1.10.0.tar.gz'
-  sha1 '340bf0676ed8b1da02a66ee4595923ba9fc75f1f'
+  url 'http://ceres-solver.org/ceres-solver-1.11.0.tar.gz'
+  sha1 '5e8683bfb410b1ba8b8204eeb0ec1fba009fb2d0'
   head 'https://ceres-solver.googlesource.com/ceres-solver.git'
 
   bottle do
