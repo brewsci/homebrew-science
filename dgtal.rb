@@ -1,7 +1,8 @@
 class Dgtal < Formula
-  homepage "http://libdgtal.org"
-  url "http://liris.cnrs.fr/dgtal/releases/DGtal-0.8.0-Source.tar.gz"
-  sha1 "61c8d4b7db2c31daed9456ab65b0158d0a0e1bab"
+  desc "Digital Geometry Tools and Algorithms Library (DGtal) is a toolkit to perform topology and geometry processing on (grid-based) digital data."
+  homepage "http://dgtal.org"
+  url "http://liris.cnrs.fr/dgtal/releases/DGtal-0.9-Source.tar.gz"
+  sha256 "32190585e4b1bfaf275efa9c7007ed836676a06cf746f67b7f5f70f13f7e9b59"
   head "https://github.com/DGtal-team/DGtal.git"
 
   bottle do
@@ -24,18 +25,6 @@ class Dgtal < Formula
 
   deprecated_option "with-magick" => "with-graphicsmagick"
   deprecated_option "with-qglviewer" => "with-libqglviewer"
-
-  # Bugfix for boost 1.57: https://github.com/DGtal-team/DGtal/issues/938
-  patch do
-    url "https://github.com/dcoeurjo/DGtal/commit/c676dc82d8d959377622a61ceab6354bab7a2baa.diff"
-    sha1 "ef878791a0e31a006f88ea4366344108bf2a4db8"
-  end
-
-  # Bugfix for libqglviewer discovery: https://github.com/DGtal-team/DGtal/issues/974
-  patch do
-    url "https://github.com/dcoeurjo/DGtal/commit/53f2f9621bcc3c2ae2aa19b65d1864a76fde61c9.diff"
-    sha1 "0fdb663defba542d63aec319def100a74f3b7a98"
-  end
 
   needs :cxx11
 
