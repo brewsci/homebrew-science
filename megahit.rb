@@ -4,8 +4,8 @@ class Megahit < Formula
   # doi "10.1093/bioinformatics/btv033"
   # tag "bioinformatics"
 
-  url "https://github.com/voutcn/megahit/archive/v1.0.2.tar.gz"
-  sha256 "32765430cf5b48f823d94737f50396d28efa04a494b635e4e83ba0eba0bbf64b"
+  url "https://github.com/voutcn/megahit/archive/v1.0.3.tar.gz"
+  sha256 "6113d5bfb351f2a4f8e94e998f1f864fa714ef8af7bd40b76902ed25bc692ddf"
 
   head "https://github.com/voutcn/megahit.git"
 
@@ -23,13 +23,11 @@ class Megahit < Formula
     EOS
   end
 
-  # Fix error: 'omp.h' file not found
   needs :openmp
 
   def install
     system "make"
     bin.install Dir["megahi*"]
-    doc.install "LICENSE", "ChangeLog.md", "README.md"
     pkgshare.install "example"
   end
 
