@@ -139,6 +139,12 @@ class R < Formula
         inreplace r_home/"etc/Makeconf", Formula["gcc"].prefix, Formula["gcc"].opt_prefix
       end
 
+      # make Homebrew packages discoverable for R CMD INSTALL
+      inreplace r_home/"etc/Makeconf" do |s|
+        s.gsub! /CPPFLAGS =.*/, "\\0 -I#{HOMEBREW_PREFIX}/include"
+        s.gsub! /LDFLAGS =.*/, "\\0 -L#{HOMEBREW_PREFIX}/lib"
+      end
+
       bash_completion.install resource("completion")
 
       prefix.install "make-check.log" if build.with? "check"
