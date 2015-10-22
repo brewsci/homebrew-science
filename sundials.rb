@@ -2,6 +2,7 @@ class Sundials < Formula
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
   url "http://ftp.mcs.anl.gov/pub/petsc/externalpackages/sundials-2.5.0.tar.gz"
   sha256 "9935760931fa6539edd0741acbcf4986770426fd5ea40e50ad4ebed0fc77b0d3"
+  revision 1
 
   bottle do
     revision 2
@@ -12,7 +13,7 @@ class Sundials < Formula
 
   depends_on "openblas" => :optional
   depends_on :fortran => :optional
-  depends_on :mpi => [:cc, :f77, :optional]
+  depends_on :mpi => [:cc, :f77, :recommended]
 
   option "without-check", "Skip build-time checks and examples (not recommended)"
 
