@@ -3,6 +3,7 @@ class Cantera < Formula
   url "https://github.com/Cantera/cantera/releases/download/v2.2.0/cantera-2.2.0.tar.gz"
   sha256 "306c218500eaabdf1e920601348d2b3acc1fb66b02eea842d98b3fbb41ebbc78"
   head "https://github.com/cantera/cantera.git"
+  revision 1
 
   bottle do
     sha256 "6e5847b2a338a0de5fa734a646c4deb3c48767031613ac7033e0430f7bed620a" => :yosemite
@@ -16,7 +17,7 @@ class Cantera < Formula
   depends_on "scons" => :build
   depends_on :python if OS.mac? && MacOS.version <= :snow_leopard
   depends_on "numpy" => :python
-  depends_on "sundials" => :recommended
+  depends_on "sundials" => ["without-mpi", :recommended]
   depends_on "graphviz" => :optional
   depends_on :python3 => :optional
 
