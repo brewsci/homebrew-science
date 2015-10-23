@@ -1,10 +1,9 @@
 class Petsc < Formula
   desc "Scalable (parallel) solution of scientific applications modeled by partial differential equations"
   homepage "http://www.mcs.anl.gov/petsc/index.html"
-  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.6.1.tar.gz"
-  sha256 "aeac101565a4ba609c3f3f13ada475720bcd32a44676e3cbfe792da1c9fb32a2"
+  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.6.3.tar.gz"
+  sha256 "2458956c876496f3c8160591324459be7c11f2e1ce09ad98347394c67a46d858"
   head "https://bitbucket.org/petsc/petsc", :using => :git
-  revision 5
 
   bottle do
     sha256 "9b4a295bc1e19fab3f862a8c97c2971062771f9dd11e16a045812c61c0c8d767" => :el_capitan
@@ -15,6 +14,7 @@ class Petsc < Formula
   option "without-check", "Skip build-time tests (not recommended)"
   option "with-complex", "Link complex version of PETSc by default."
   option "with-debug", "Build debug version"
+  option "with-ml", "Download and build ML (will not symlink if Trilinos is installed)"
 
   deprecated_option "complex" => "with-complex"
   deprecated_option "debug"   => "with-debug"
@@ -41,7 +41,7 @@ class Petsc < Formula
   depends_on "netcdf"       => ["with-fortran", :recommended]
   depends_on "fftw"         => ["with-mpi", "with-fortran", :recommended]
 
-  # TODO: add ML, YAML dependencies when the formulae are available
+  # TODO: YAML dependencies when the formulae are available
 
   def oprefix(f)
     Formula[f].opt_prefix
@@ -58,11 +58,14 @@ class Petsc < Formula
     ENV.delete "CXX"
     ENV.delete "F77"
     ENV.delete "FC"
+    # PETSc is not threadsafe, disable pthread/openmp (see http://www.mcs.anl.gov/petsc/miscellaneous/petscthreads.html)
     args = %W[CC=#{ENV["MPICC"]}
               CXX=#{ENV["MPICXX"]}
               F77=#{ENV["MPIF77"]}
               FC=#{ENV["MPIFC"]}
               --with-shared-libraries=1
+              --with-pthread=0
+              --with-openmp=0
            ]
     args << ("--with-debugging=" + ((build.with? "debug") ? "1" : "0"))
 
@@ -106,6 +109,9 @@ class Petsc < Formula
     args_real = ["--prefix=#{prefix}/#{arch_real}",
                  "--with-scalar-type=real",
                 ]
+    # TODO: compile separately (https://bitbucket.org/petsc/pkg-ml/commits/tag/v6.2-p3)
+    # --with-ml-include=/path/to/ml/include --with-ml-lib=/path/to/ml/liblibml.a
+    args_real << "--download-ml=1" if build.with? "ml"
     args_real << "--with-hypre-dir=#{oprefix("hypre")}" if build.with? "hypre"
     args_real << "--with-sundials-dir=#{oprefix("sundials")}" if build.with? "sundials"
     args_real << "--with-hwloc-dir=#{oprefix("hwloc")}" if build.with? "hwloc"
@@ -144,6 +150,9 @@ class Petsc < Formula
     # symlink only files (don't symlink pkgconfig as it won't symlink to opt/lib)
     lib.install_symlink Dir["#{prefix}/#{petsc_arch}/lib/*.*"]
     pkgshare.install_symlink Dir["#{prefix}/#{petsc_arch}/share/*"]
+
+    # change install name to ABI in opt
+    system "install_name_tool", "-id", "#{opt_prefix}/lib/libpetsc.3.6.dylib", "#{prefix}/#{petsc_arch}/lib/libpetsc.3.6.3.dylib" if OS.mac?
   end
 
   def caveats; <<-EOS
