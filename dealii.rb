@@ -3,7 +3,7 @@ class Dealii < Formula
   homepage "http://www.dealii.org"
   url "https://github.com/dealii/dealii/releases/download/v8.3.0/dealii-8.3.0.tar.gz"
   sha256 "4ddf72632eb501e1c814e299f32fc04fd680d6fda9daff58be4209e400e41779"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -100,6 +100,61 @@ class Dealii < Formula
         system "ctest", "-j", Hardware::CPU.cores
       end
       system "make", "install"
+    end
+  end
+
+  test do
+    # take bare-bones step-3
+    ohai "running step-3:"
+    cp_r prefix/"examples/step-3", testpath
+    Dir.chdir("step-3") do
+      system "cmake", "."
+      system "make", "release"
+      system "make", "run"
+    end
+    # take step-40 which can use both PETSc and Trilinos
+    cp_r prefix/"examples/step-40", testpath
+    if (build.with? "petsc") && (build.with? "trilinos")
+      ohai "running step-40:"
+      Dir.chdir("step-40") do
+        system "cmake", "."
+        system "make", "release"
+        if build.with? "mpi"
+          system "mpirun", "-np", Hardware::CPU.cores, "step-40"
+        else
+          system "make", "run"
+        end
+        # change to Trilinos
+        inreplace "step-40.cc" do |s|
+          s.gsub! "#define USE_PETSC_LA", "//#define USE_PETSC_LA" if s.include? "#define USE_PETSC_LA"
+        end
+        system "make", "release"
+        if build.with? "mpi"
+          system "mpirun", "-np", Hardware::CPU.cores, "step-40"
+        else
+          system "make", "run"
+        end
+      end
+    end
+    # take step-36 which uses SLEPc
+    if build.with? "slepc"
+      ohai "running step-36:"
+      cp_r prefix/"examples/step-36", testpath
+      Dir.chdir("step-36") do
+        system "cmake", "."
+        system "make", "release"
+        system "make", "run"
+      end
+    end
+    # take step-54 to check opencascade
+    if build.with? "opencascade"
+      ohai "running step-54:"
+      cp_r prefix/"examples/step-54", testpath
+      Dir.chdir("step-54") do
+        system "cmake", "."
+        system "make", "release"
+        system "make", "run"
+      end
     end
   end
 end
