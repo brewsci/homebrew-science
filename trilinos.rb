@@ -1,10 +1,9 @@
 class Trilinos < Formula
   desc "Algorithms for the solution of large-scale, complex multi-physics engineering and scientific problems"
   homepage "http://trilinos.sandia.gov"
-  url "https://trilinos.org/oldsite/download/files/trilinos-12.2.1-Source.tar.bz2"
-  sha256 "4a884fd5eef885815d25fc24c5a4b95e5e67b9eefaa01d61524eef92ae9319fd"
+  url "https://trilinos.org/oldsite/download/files/trilinos-12.4.2-Source.tar.bz2"
+  sha256 "78225d650ddcfc453b40cddb99b2fbb79998ff6359f9090154727b916812a58e"
   head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
-  revision 1
 
   bottle do
     revision 1
@@ -58,7 +57,7 @@ class Trilinos < Formula
 
   # Experimental TPLs:
   depends_on "eigen"        => :recommended
-  depends_on "hypre"        => [:recommended] + mpidep + openblasdep # EpetraExt tests fail to compile
+  depends_on "hypre"        => [:recommended] + ((build.with? "mpi") ? [] : ["without-mpi"]) + openblasdep # EpetraExt tests fail to compile
   depends_on "glpk"         => :recommended
   depends_on "hdf5"         => [:recommended] + mpidep
   depends_on "tbb"          => :recommended
@@ -146,11 +145,13 @@ class Trilinos < Formula
     # Temporary disable due to compiler errors:
     # packages:
     args << "-DTrilinos_ENABLE_FEI=OFF"
+    args << "-DTrilinos_ENABLE_Pike=OFF" # 12.4.2
     args << "-DTrilinos_ENABLE_Piro=OFF"
     args << "-DTrilinos_ENABLE_SEACAS=OFF"
     args << "-DTrilinos_ENABLE_STK=OFF"
     args << "-DTrilinos_ENABLE_Stokhos=OFF"
     args << "-DTrilinos_ENABLE_Sundance=OFF" if !OS.mac? || MacOS.version < :mavericks
+    args << "-DTrilinos_ENABLE_Zoltan2=OFF" # 12.4.2
     args << "-DTrilinos_ENABLE_Amesos2=OFF" # compiler error with explicit instantiation
     # Amesos, conflicting types of double and complex SLU_D
     # see https://trilinos.org/pipermail/trilinos-users/2015-March/004731.html
@@ -212,7 +213,7 @@ class Trilinos < Formula
     if build.with? "mumps"
       args << "-DTPL_ENABLE_MUMPS:BOOL=ON"
       args << "-DMUMPS_LIBRARY_DIRS=#{Formula["mumps"].opt_lib}"
-      args << "-DMUMPS_LIBRARY_NAMES=dmumps;pord;mumps_common"
+      args << "-DMUMPS_LIBRARY_NAMES=dmumps;mumps_common;pord"
     end
 
     args << onoff("-DTPL_ENABLE_PETSC:BOOL=", false) #       (build.with? "petsc"))
@@ -279,7 +280,7 @@ class Trilinos < Formula
 
   def caveats; <<-EOS
     The following Trilinos packages were disabled due to compile errors:
-      FEI, Piro, SEACAS, STK, Stokhos
+      FEI, Pike, Piro, SEACAS, STK, Stokhos, Zoltan2, Amesos2
 
     On Linuxbrew install with:
       --with-openblas
@@ -306,189 +307,32 @@ index 963eb71..998cd02 100644
 --- a/cmake/TPLs/FindTPLUMFPACK.cmake
 +++ b/cmake/TPLs/FindTPLUMFPACK.cmake
 @@ -55,6 +55,6 @@
- 
- 
+
+
  TRIBITS_TPL_FIND_INCLUDE_DIRS_AND_LIBRARIES( UMFPACK
 -  REQUIRED_HEADERS umfpack.h amd.h UFconfig.h
 +  REQUIRED_HEADERS umfpack.h amd.h SuiteSparse_config.h
    REQUIRED_LIBS_NAMES umfpack amd
    )
-diff --git a/packages/teuchos/core/src/Teuchos_Details_Allocator.hpp b/packages/teuchos/core/src/Teuchos_Details_Allocator.hpp
-index fc4c408..d44af4c 100644
---- a/packages/teuchos/core/src/Teuchos_Details_Allocator.hpp
-+++ b/packages/teuchos/core/src/Teuchos_Details_Allocator.hpp
-@@ -282,6 +282,11 @@ public:
-   ///   the rebind struct is required.
-   template<class U>
-   struct rebind { typedef Allocator<U> other; };
-+  
-+  size_type max_size() const
-+  {
-+     return std::numeric_limits<size_type>::max();
-+  }
- 
-   /// \brief Allocate an array of n instances of value_type.
-   ///
-diff --git a/packages/pike/blackbox/src/Pike_BlackBoxModelEvaluator_SolverAdapter.cpp b/packages/pike/blackbox/src/Pike_BlackBoxModelEvaluator_SolverAdapter.cpp
-index 799ff9b..081182f 100644
---- a/packages/pike/blackbox/src/Pike_BlackBoxModelEvaluator_SolverAdapter.cpp
-+++ b/packages/pike/blackbox/src/Pike_BlackBoxModelEvaluator_SolverAdapter.cpp
-@@ -35,7 +35,7 @@ namespace pike {
- 	  // a new parameter
- 	  parameterNameToIndex_[models[m]->getParameterName(p)] = parameterNames_.size();
- 	  parameterNames_.push_back(models[m]->getParameterName(p));
--	  std::vector<std::pair<int,int>> tmp;
-+	  std::vector<std::pair<int,int> > tmp;
- 	  tmp.push_back(std::make_pair(m,p));
- 	  parameterIndexToModelIndices_.push_back(tmp);
- 	}
-@@ -120,7 +120,7 @@ namespace pike {
-     TEUCHOS_ASSERT(l >= 0);
-     TEUCHOS_ASSERT(l < static_cast<int>(parameterNames_.size()));
-     
--    const std::vector<std::pair<int,int>>& meToSet = parameterIndexToModelIndices_[l];
-+    const std::vector<std::pair<int,int> >& meToSet = parameterIndexToModelIndices_[l];
- 
-     // Not ideal.  const_cast or friend class with nonconst private
-     // accessor or put public nonconst accessor on solver base.  None
+diff --git a/packages/mesquite/CMakeLists.txt b/packages/mesquite/CMakeLists.txt
+index 7cbf084..3865e24 100644
+--- a/packages/mesquite/CMakeLists.txt
++++ b/packages/mesquite/CMakeLists.txt
+@@ -25,7 +25,7 @@ ELSE()
+   #
 
-diff --git a/packages/ifpack/src/Ifpack_Hypre.cpp b/packages/ifpack/src/Ifpack_Hypre.cpp
-index ea6ba35..1a152ad 100644
---- a/packages/ifpack/src/Ifpack_Hypre.cpp
-+++ b/packages/ifpack/src/Ifpack_Hypre.cpp
-@@ -401,35 +401,35 @@ int Ifpack_Hypre::Multiply(bool TransA, const Epetra_MultiVector& X, Epetra_Mult
- //==============================================================================
- std::ostream& Ifpack_Hypre::Print(std::ostream& os) const{
-   if (!Comm().MyPID()) {
--    os << endl;
--    os << "================================================================================" << endl;
--    os << "Ifpack_Hypre: " << Label () << endl << endl;
--    os << "Using " << Comm().NumProc() << " processors." << endl;
--    os << "Global number of rows            = " << A_->NumGlobalRows() << endl;
--    os << "Global number of nonzeros        = " << A_->NumGlobalNonzeros() << endl;
--    os << "Condition number estimate = " << Condest() << endl;
--    os << endl;
--    os << "Phase           # calls   Total Time (s)       Total MFlops     MFlops/s" << endl;
--    os << "-----           -------   --------------       ------------     --------" << endl;
-+    os << std::endl;
-+    os << "================================================================================" << std::endl;
-+    os << "Ifpack_Hypre: " << Label () << std::endl << std::endl;
-+    os << "Using " << Comm().NumProc() << " processors." << std::endl;
-+    os << "Global number of rows            = " << A_->NumGlobalRows() << std::endl;
-+    os << "Global number of nonzeros        = " << A_->NumGlobalNonzeros() << std::endl;
-+    os << "Condition number estimate = " << Condest() << std::endl;
-+    os << std::endl;
-+    os << "Phase           # calls   Total Time (s)       Total MFlops     MFlops/s" << std::endl;
-+    os << "-----           -------   --------------       ------------     --------" << std::endl;
-     os << "Initialize()    "   << std::setw(5) << NumInitialize_
-        << "  " << std::setw(15) << InitializeTime_
--       << "              0.0              0.0" << endl;
-+       << "              0.0              0.0" << std::endl;
-     os << "Compute()       "   << std::setw(5) << NumCompute_
-        << "  " << std::setw(15) << ComputeTime_
-        << "  " << std::setw(15) << 1.0e-6 * ComputeFlops_;
-     if (ComputeTime_ != 0.0)
--      os << "  " << std::setw(15) << 1.0e-6 * ComputeFlops_ / ComputeTime_ << endl;
-+      os << "  " << std::setw(15) << 1.0e-6 * ComputeFlops_ / ComputeTime_ << std::endl;
-     else
--      os << "  " << std::setw(15) << 0.0 << endl;
-+      os << "  " << std::setw(15) << 0.0 << std::endl;
-     os << "ApplyInverse()  "   << std::setw(5) << NumApplyInverse_
-        << "  " << std::setw(15) << ApplyInverseTime_
-        << "  " << std::setw(15) << 1.0e-6 * ApplyInverseFlops_;
-     if (ApplyInverseTime_ != 0.0)
--      os << "  " << std::setw(15) << 1.0e-6 * ApplyInverseFlops_ / ApplyInverseTime_ << endl;
-+      os << "  " << std::setw(15) << 1.0e-6 * ApplyInverseFlops_ / ApplyInverseTime_ << std::endl;
-     else
--      os << "  " << std::setw(15) << 0.0 << endl;
--    os << "================================================================================" << endl;
--    os << endl;
-+      os << "  " << std::setw(15) << 0.0 << std::endl;
-+    os << "================================================================================" << std::endl;
-+    os << std::endl;
-   }
-   return os;
- } //Print()
-diff --git a/packages/pike/blackbox/test/core/rxn.cpp b/packages/pike/blackbox/test/core/rxn.cpp
-index ac37aa3..17bd540 100644
---- a/packages/pike/blackbox/test/core/rxn.cpp
-+++ b/packages/pike/blackbox/test/core/rxn.cpp
-@@ -36,13 +36,13 @@ namespace pike_test {
-      This will demonstrate order of accuracy for split system.
-   */
- 
--  double evaluateOrder(const std::vector<std::pair<double,double>>& error);
-+  double evaluateOrder(const std::vector<std::pair<double,double> >& error);
- 
-   void runTransientSolve(const double& startTime,
- 			 const double& endTime,
- 			 const double& stepSize,
- 			 RxnAll& rxnME,
--			 std::vector<std::pair<double,double>>& error);
-+			 std::vector<std::pair<double,double> >& error);
- 
-   void runTransientSolveSingleME(const double& startTime,
- 				 const double& endTime,
-@@ -51,7 +51,7 @@ namespace pike_test {
- 				 pike_test::RxnSingleEq1& rxnME1,
- 				 pike_test::RxnSingleEq2& rxnME2,
- 				 pike_test::RxnSingleEq3& rxnME3,
--				 std::vector<std::pair<double,double>>& error);
-+				 std::vector<std::pair<double,double> >& error);
- 
-   TEUCHOS_UNIT_TEST(rxn, monolithic)
-   {
-@@ -69,7 +69,7 @@ namespace pike_test {
-     const double startTime = 0.0;
-     const double endTime = 0.1;
- 
--    std::vector<std::pair<double,double>> error;
-+    std::vector<std::pair<double,double> > error;
-     runTransientSolve(startTime,endTime,1e-1,*rxnME,error);
-     runTransientSolve(startTime,endTime,5e-2,*rxnME,error);
-     runTransientSolve(startTime,endTime,1e-2,*rxnME,error);
-@@ -133,7 +133,7 @@ namespace pike_test {
-     const double startTime = 0.0;
-     const double endTime = 0.1;
- 
--    std::vector<std::pair<double,double>> error;
-+    std::vector<std::pair<double,double> > error;
-     runTransientSolveSingleME(startTime,endTime,1e-1,*rxnME,*rxnME1,*rxnME2,*rxnME3,error);
-     runTransientSolveSingleME(startTime,endTime,5e-2,*rxnME,*rxnME1,*rxnME2,*rxnME3,error);
-     runTransientSolveSingleME(startTime,endTime,1e-2,*rxnME,*rxnME1,*rxnME2,*rxnME3,error);
-@@ -150,7 +150,7 @@ namespace pike_test {
-     TEST_ASSERT( std::abs(order-4.0) < 1.0e-1);
-   }
- 
--  double evaluateOrder(const std::vector<std::pair<double,double>>& error)
-+  double evaluateOrder(const std::vector<std::pair<double,double> >& error)
-   {
-     const std::size_t size = error.size();
-     std::vector<double> log_x(size);
-@@ -199,7 +199,7 @@ namespace pike_test {
- 			 const double& endTime,
- 			 const double& stepSize,
- 			 RxnAll& rxnME,
--			 std::vector<std::pair<double,double>>& error)
-+			 std::vector<std::pair<double,double> >& error)
-   {
-     int numSteps = (endTime - startTime) / stepSize;
-     TEUCHOS_ASSERT(std::fabs(numSteps*stepSize - (endTime-startTime) ) < 1.0e-10);
-@@ -219,7 +219,7 @@ namespace pike_test {
- 				 pike_test::RxnSingleEq1& rxnME1,
- 				 pike_test::RxnSingleEq2& rxnME2,
- 				 pike_test::RxnSingleEq3& rxnME3,
--				 std::vector<std::pair<double,double>>& error)
-+				 std::vector<std::pair<double,double> >& error)
-   {
-     int numSteps = (endTime - startTime) / stepSize;
-     TEUCHOS_ASSERT(std::fabs(numSteps*stepSize - (endTime-startTime) ) < 1.0e-10);
+   TRIBITS_PACKAGE(Mesquite DISABLE_STRONG_WARNINGS)
+-  SET( ${PACKAGE_NAME}_ENABLE_TESTS ${Trilinos_ENABLE_TESTS} )
++  # SET( ${PACKAGE_NAME}_ENABLE_TESTS ${Trilinos_ENABLE_TESTS} )
+
+ ENDIF()
+
 diff --git a/packages/didasko/examples/hypre/hypre_Helpers.cpp b/packages/didasko/examples/hypre/hypre_Helpers.cpp
 index 1bf1b2c..793e218 100644
 --- a/packages/didasko/examples/hypre/hypre_Helpers.cpp
 +++ b/packages/didasko/examples/hypre/hypre_Helpers.cpp
 @@ -60,7 +60,7 @@
- 
+
  using Teuchos::RCP;
  using Teuchos::rcp;
 -EpetraExt_HypreIJMatrix::EpetraExt_HypreIJMatrix* newHypreMatrix(const int N)
@@ -499,16 +343,16 @@ index 1bf1b2c..793e218 100644
 @@ -117,7 +117,7 @@ EpetraExt_HypreIJMatrix::EpetraExt_HypreIJMatrix* newHypreMatrix(const int N)
    return RetMat;
  }
- 
+
 -Epetra_CrsMatrix::Epetra_CrsMatrix* newCrsMatrix(int N){
 +Epetra_CrsMatrix* newCrsMatrix(int N){
- 
+
    Epetra_MpiComm Comm(MPI_COMM_WORLD);
- 
+
 @@ -138,7 +138,7 @@ Epetra_CrsMatrix::Epetra_CrsMatrix* newCrsMatrix(int N){
    return Matrix;
  }
- 
+
 -Epetra_CrsMatrix::Epetra_CrsMatrix* GetCrsMatrix(EpetraExt_HypreIJMatrix *Matrix)
 +Epetra_CrsMatrix* GetCrsMatrix(EpetraExt_HypreIJMatrix *Matrix)
  {
@@ -519,55 +363,16 @@ index 930719e..70ac59f 100644
 --- a/packages/didasko/examples/hypre/hypre_Helpers.hpp
 +++ b/packages/didasko/examples/hypre/hypre_Helpers.hpp
 @@ -51,11 +51,11 @@
- 
+
  #include <string>
- 
+
 -EpetraExt_HypreIJMatrix::EpetraExt_HypreIJMatrix* newHypreMatrix(int N);
 +EpetraExt_HypreIJMatrix* newHypreMatrix(int N);
- 
+
 -Epetra_CrsMatrix::Epetra_CrsMatrix* newCrsMatrix(int N);
 +Epetra_CrsMatrix* newCrsMatrix(int N);
- 
+
 -Epetra_CrsMatrix::Epetra_CrsMatrix* GetCrsMatrix(EpetraExt_HypreIJMatrix &Matrix);
 +Epetra_CrsMatrix* GetCrsMatrix(EpetraExt_HypreIJMatrix &Matrix);
- 
+
  bool EquivalentVectors(Epetra_MultiVector &X, Epetra_MultiVector &Y, double tol);
-
-diff --git a/packages/muelu/adapters/CMakeLists.txt b/packages/muelu/adapters/CMakeLists.txt
-index 0e6810b..dbd3756 100644
---- a/packages/muelu/adapters/CMakeLists.txt
-+++ b/packages/muelu/adapters/CMakeLists.txt
-@@ -125,7 +125,7 @@ TRIBITS_ADD_LIBRARY(
-   muelu-adapters
-   HEADERS ${HEADERS}
-   SOURCES ${SOURCES}
--#  DEPLIBS muelu muelu-interface
-+  DEPLIBS muelu muelu-interface
-   ADDED_LIB_TARGET_NAME_OUT MUELU_ADAPTERS_LIBNAME
-   )
- 
-diff --git a/packages/muelu/src/Interface/CMakeLists.txt b/packages/muelu/src/Interface/CMakeLists.txt
-index 5ea6083..db93429 100644
---- a/packages/muelu/src/Interface/CMakeLists.txt
-+++ b/packages/muelu/src/Interface/CMakeLists.txt
-@@ -86,6 +86,7 @@ TRIBITS_ADD_LIBRARY(
-   muelu-interface
-   HEADERS ${HEADERS}
-   SOURCES ${SOURCES}
-+  DEPLIBS muelu
-   )
- 
- # for debugging
-
-diff --git a/packages/mesquite/CMakeLists.txt b/packages/mesquite/CMakeLists.txt
-index 7cbf084..3865e24 100644
---- a/packages/mesquite/CMakeLists.txt
-+++ b/packages/mesquite/CMakeLists.txt
-@@ -25,7 +25,7 @@ ELSE()
-   #
- 
-   TRIBITS_PACKAGE(Mesquite DISABLE_STRONG_WARNINGS)
--  SET( ${PACKAGE_NAME}_ENABLE_TESTS ${Trilinos_ENABLE_TESTS} )
-+  # SET( ${PACKAGE_NAME}_ENABLE_TESTS ${Trilinos_ENABLE_TESTS} )
- 
- ENDIF() 
