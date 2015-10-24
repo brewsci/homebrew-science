@@ -1,7 +1,9 @@
 class P4est < Formula
+  desc "Dynamic management of a collection (a forest) of adaptive octrees in parallel"
   homepage "http://www.p4est.org"
   url "http://p4est.github.io/release/p4est-1.1.tar.gz"
-  sha1 "ed8737d82ef4c97b9dfa2fd6e5134226f24c9b0b"
+  sha256 "0b5327a35f0c869bf920b8cab5f20caa4eb55692eaaf1f451d5de30285b25139"
+  revision 1
 
   bottle do
     revision 1
@@ -30,7 +32,7 @@ class P4est < Formula
     ENV["CPPFLAGS"] = "-DSC_LOG_PRIORITY=SC_LP_ESSENTIAL"
 
     if build.with? "openblas"
-      blas = "BLAS_LIBS=-L#{Formula['openblas'].opt_lib} -lopenblas"
+      blas = "BLAS_LIBS=-L#{Formula["openblas"].opt_lib} -lopenblas"
     elsif OS.mac?
       blas = "BLAS_LIBS=-framework Accelerate"
     else
