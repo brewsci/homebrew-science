@@ -6,10 +6,10 @@ class P4est < Formula
   revision 1
 
   bottle do
-    revision 1
-    sha256 "c103995bfa2358b28151e9047e4c56c10eaf653b82a1afb90cf2f6952bfededb" => :yosemite
-    sha256 "c92f14f4493858e9d759a773ba5ec8c113a13e0e500ce19f264c6ba37926612c" => :mavericks
-    sha256 "585ae796954969ae2ccba1e90aebaed7385b457addbe0ec337f78b73549b350e" => :mountain_lion
+    cellar :any
+    sha256 "e94aeee5d338f8ca93b8cc810b3ff491df11c39cc40a147dab90f29fcd441721" => :el_capitan
+    sha256 "ee2eb5511d16d6a586ef53f72c54a378ec52f3dbe6af1aa4485ab032290cd57d" => :yosemite
+    sha256 "2ed7ad754a9f7950e578e3e4e443cfd4955037ad057df5ab692cd8cebae35846" => :mavericks
   end
 
   head do
