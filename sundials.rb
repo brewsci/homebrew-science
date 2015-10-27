@@ -2,17 +2,18 @@ class Sundials < Formula
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
   url "http://ftp.mcs.anl.gov/pub/petsc/externalpackages/sundials-2.5.0.tar.gz"
   sha256 "9935760931fa6539edd0741acbcf4986770426fd5ea40e50ad4ebed0fc77b0d3"
+  revision 1
 
   bottle do
-    revision 2
-    sha256 "e7ba57874cf0857e4608d57053854533fd184942bc0f65e0074f2f6132a25d00" => :yosemite
-    sha256 "6f320bc63ca42d5be05aaef4ff1aaaea43d553fb25c806d9f674aebd3b5cb2a4" => :mavericks
-    sha256 "bf22fef98adaba27225a2cd83bf416f76f102baf8cc66eba7497167d2d05885e" => :mountain_lion
+    cellar :any
+    sha256 "0a75173a16eb741b9c6135dcefd04bdab112ffb763cc030dc9ff1e53875677c7" => :el_capitan
+    sha256 "c05273d13e0c3c4dc0d3f7466f3e993117eb0f2731658d61c3b5bb1241f8d8dd" => :yosemite
+    sha256 "fd7ebbd54d691c66360ac1c92d8c07f496ba4f38ffe2380e4033b39498db4a37" => :mavericks
   end
 
   depends_on "openblas" => :optional
   depends_on :fortran => :optional
-  depends_on :mpi => [:cc, :f77, :optional]
+  depends_on :mpi => [:cc, :f77, :recommended]
 
   option "without-check", "Skip build-time checks and examples (not recommended)"
 

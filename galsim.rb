@@ -1,8 +1,8 @@
 class Galsim < Formula
   desc "The modular galaxy image simulation toolkit"
   homepage "https://github.com/GalSim-developers/GalSim"
-  url "https://github.com/GalSim-developers/GalSim/archive/v1.2.0.tar.gz"
-  sha256 "b8aee165da579074a8ca5e921b89d9aab8b17cfcf5f1d3ea3d81e897d53b2e47"
+  url "https://github.com/GalSim-developers/GalSim/archive/v1.3.0.tar.gz"
+  sha256 "4afd3284adfd12845b045ea3c8e293b63057c7da57872bc9eecd005cf0a763c0"
   head "https://github.com/GalSim-developers/GalSim.git"
 
   option "with-openmp", "Enable openmp support (gcc only)"
@@ -38,7 +38,7 @@ class Galsim < Formula
     end
     scons *args
     scons "tests"
-    scons "install", "PREFIX=#{prefix}", "PYPREFIX=#{lib}/python#{pyver}"
+    scons "install", "PREFIX=#{prefix}", "PYPREFIX=#{lib}/python#{pyver}/site-packages"
     pkgshare.install "examples"
   end
 

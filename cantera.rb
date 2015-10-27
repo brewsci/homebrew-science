@@ -3,11 +3,12 @@ class Cantera < Formula
   url "https://github.com/Cantera/cantera/releases/download/v2.2.0/cantera-2.2.0.tar.gz"
   sha256 "306c218500eaabdf1e920601348d2b3acc1fb66b02eea842d98b3fbb41ebbc78"
   head "https://github.com/cantera/cantera.git"
+  revision 1
 
   bottle do
-    sha256 "6e5847b2a338a0de5fa734a646c4deb3c48767031613ac7033e0430f7bed620a" => :yosemite
-    sha256 "e77a16a8ab7c58cf059aa02d6bcdf1cfe54ff73f9037ca408960a39a3bf30e05" => :mavericks
-    sha256 "b83be1f05c2c3b98b6a8167756bf03ef0ad7401d38d30123d1f0307bcb885ad0" => :mountain_lion
+    sha256 "9a908f9f3577ef3aca702176dec9cbaf6a48ad8c2c01761779ee2a664ac69668" => :el_capitan
+    sha256 "73c7391e0f64da7cd0dae280123f4026573e5a3e812f57621cac0ae1fc8d33ed" => :yosemite
+    sha256 "d481191156eccb211a9b5301b575fd0c5ab305d78b97f2a72a07b12d06a95858" => :mavericks
   end
 
   option "with-matlab=", "Path to Matlab root directory"
@@ -16,7 +17,7 @@ class Cantera < Formula
   depends_on "scons" => :build
   depends_on :python if OS.mac? && MacOS.version <= :snow_leopard
   depends_on "numpy" => :python
-  depends_on "sundials" => :recommended
+  depends_on "sundials" => ["without-mpi", :recommended]
   depends_on "graphviz" => :optional
   depends_on :python3 => :optional
 

@@ -4,19 +4,20 @@ class CdHit < Formula
   # doi "10.1093/bioinformatics/btl158"
   # tag "bioinformatics"
 
-  url "https://github.com/weizhongli/cdhit/releases/download/V4.6.1/cd-hit-v4.6.1-2012-08-27.tgz"
-  mirror "https://cdhit.googlecode.com/files/cd-hit-v4.6.1-2012-08-27.tgz"
-  version "4.6.1"
-  sha256 "5e26431892609511992542c39705a1427e2fd6a526241977c527dfc74f795932"
+  url "https://github.com/weizhongli/cdhit/releases/download/V4.6.4/cd-hit-v4.6.4-2015-0603.tar.gz"
+  version "4.6.4"
+  sha256 "ca0050b6b27649dd548b6d74c2873dd76cff7bfdf70fb6f8e8578d0fa128d92c"
 
   head "https://github.com/weizhongli/cdhit.git"
 
+  # error: 'omp.h' file not found
+  needs :openmp
+
   bottle do
-    cellar :any_skip_relocation
-    revision 1
-    sha256 "98e6cda7f489cb2cf0856129d6c97b7ef95f808fd97ed6c0d95ae0e27c338dbd" => :el_capitan
-    sha256 "ddf15219089f9baf1499f7ad00b8bba57fb911f1a77f77bcc49d4ba378072896" => :yosemite
-    sha256 "c056aab6d91cbd644d88bc2c1714149a3cd06c7c844c32dad06b1521156bc500" => :mavericks
+    cellar :any
+    sha256 "d39f86e1115c63cbfb0f69ac9f10112ba93cde7de8e5113b8c62ab59bd770557" => :el_capitan
+    sha256 "687cb4899593b076dad1c9b7f82134b0e348db6a27dfa53b2743ae67ada0e71b" => :yosemite
+    sha256 "c4140245c4490436da64e35f3dc92e08903df12516e3b949acd013293ecbea4f" => :mavericks
   end
 
   def install
