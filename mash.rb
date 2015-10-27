@@ -1,20 +1,20 @@
 class Mash < Formula
   desc "Fast genome distance estimation using MinHash"
   homepage "https://github.com/marbl/Mash"
+  # tag "bioinformatics"
+  # doi "10.1101/029827"
+
+  url "https://github.com/marbl/Mash/archive/v1.0.1.tar.gz"
+  sha256 "4ef85ea799e2beb27b21248864f74c617c78f075c1c2e4599bddcda4815e58d0"
+
+  head "https://github.com/marbl/Mash.git"
+
   bottle do
     cellar :any
     sha256 "0c658874e506b0259ccd52cf8932ebd2997ede7265609d2fd8d67cc1eb34da20" => :el_capitan
     sha256 "e0776514d2c979fe91dbc9c4066910a5b6d4b0bb2a3607f0f98cdfd59d9d1805" => :yosemite
     sha256 "b7ca6dfa15ed9eb9bad6d29fd5fbca5253c485527f1ca8f78a4acbece4865a8b" => :mavericks
   end
-
-  # tag "bioinformatics"
-
-  url "https://github.com/marbl/Mash.git",
-    :revision => "cf35751bd8936dba80ed5c489f823fdd3507d340"
-  version "0.001"
-
-  head "https://github.com/marbl/Mash.git"
 
   needs :cxx11
 
