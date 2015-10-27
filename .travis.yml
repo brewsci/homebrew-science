@@ -18,6 +18,8 @@ matrix:
       os: osx
       osx_image: beta-xcode6.2
       rvm: system
+  allow_failures:
+    - os: linux
 
 before_install:
   - if [ -f ".git/shallow" ]; then travis_retry git fetch --unshallow; fi
