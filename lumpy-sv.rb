@@ -1,6 +1,6 @@
 class LumpySv < Formula
   homepage "https://github.com/arq5x/lumpy-sv"
-  url "https://github.com/arq5x/lumpy-sv/releases/download/0.2.11/lumpy-sv-0.2.11.tar.gz"
+  url "https://github.com/arq5x/lumpy-sv/archive/0.2.11.tar.gz"
   sha256 "ce2d8d6353cbce1c83a0aaa25a5bd9238f0ebaa8253b873b01bd446290e54379"
   # doi "10.1186/gb-2014-15-6-r84"
   # tag "bioinformatics"
