@@ -8,10 +8,10 @@ class Readseq < Formula
   sha256 "830c79f5eba44c8862a30a03107fe65ad044b6b099b75f9638d7482e0375aab6"
 
   bottle do
-    cellar :any
-    sha256 "7994212c962f257a42b219e2e2093e99afb3c72bec99789cf1190b8cae415e66" => :yosemite
-    sha256 "2270a6f76d5dd12b4acff49385861d3c5067aba7b7728d0339caf39a1bf992b0" => :mavericks
-    sha256 "2012c2bc28373062fbad6d5b607ff395915a9af25684d689442b1d3ccb37991a" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "3049186a14314a6fb0ef7f43d5dfa95cfedded12c6070a9f13b78e5243d1a054" => :el_capitan
+    sha256 "cad85b8754b8422b12583618e4aa125c60a6cd42243cd3d59c6e0000eb087bd4" => :yosemite
+    sha256 "c3bf88928d04dd264e2987b20f2b9a66e1a7e74d9a5dad123354f1865ae57c01" => :mavericks
   end
 
   depends_on :java
