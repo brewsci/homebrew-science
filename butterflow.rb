@@ -1,9 +1,8 @@
 class Butterflow < Formula
   desc "Makes fluid slowmo and motion interpolated videos"
   homepage "https://github.com/dthpham/butterflow"
-  url "http://srv.dthpham.me/butterflow-0.1.9.tar.gz"
-  sha256 "9f62960bb1a58c7fd7b67e7260d32a51e95ef5c7ff9f0811307463c1f1f338cf"
-  revision 1
+  url "http://srv.dthpham.me/butterflow/butterflow-0.2.0.tar.gz"
+  sha256 "dc70927d78193543b4b364573e0cf2d0881a54483aa306db51cd9f57cf23781e"
 
   bottle do
     cellar :any
@@ -11,14 +10,14 @@ class Butterflow < Formula
     sha256 "0b5be6c1f6ff5df7659b213ba250784bfd53d4f1ef5c4fa03f5221c21497a80b" => :mavericks
   end
 
-  # To satisfy OpenCL 1.1 requirement
+  # To satisfy OpenCL 1.2 requirement
   depends_on :macos => :mavericks
 
-  depends_on "pkg-config" => :build
-  depends_on "ffmpeg" => ["with-libvorbis", "with-libass"]
-  depends_on "opencv" => "with-ffmpeg"
+  depends_on "ffmpeg"
+  depends_on "opencv" => ["with-ffmpeg", "with-opengl"]
 
   def install
+    ENV.prepend_path "PYTHONPATH", Formula["numpy"].opt_lib/"python2.7/site-packages"
     ENV.prepend_path "PYTHONPATH", Formula["opencv"].opt_lib/"python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)
