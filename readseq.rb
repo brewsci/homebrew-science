@@ -1,10 +1,11 @@
 class Readseq < Formula
-  homepage "https://sourceforge.net/projects/readseq/"
+  desc "Read and reformat biosequences"
+  homepage "http://iubio.bio.indiana.edu/soft/molbio/readseq/java/"
   # tag "bioinformatics"
 
-  url "https://downloads.sourceforge.net/project/readseq/readseq/2.1.19/readseq.jar"
-  sha256 "966e7d4e1c4c6add588b3ead281c993c6a0c35b991a1ded53f81230a54ac6778"
-  version "2.1.19"
+  url "http://iubio.bio.indiana.edu/soft/molbio/readseq/java/readseq.jar"
+  version "2.1.30"
+  sha256 "830c79f5eba44c8862a30a03107fe65ad044b6b099b75f9638d7482e0375aab6"
 
   bottle do
     cellar :any
