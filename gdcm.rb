@@ -1,8 +1,9 @@
 class Gdcm < Formula
-  desc "C++ library for DICOM medical files"
+  desc "Grassroots DICOM library and utilities for medical files"
   homepage "http://sourceforge.net/projects/gdcm/"
   url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.4.4/gdcm-2.4.4.tar.bz2"
   sha256 "c5cd2f43a16180f5a9ecd5211bf214971b0620e9d9e027c2e11a89c4ce7d5b1f"
+  revision 1
 
   bottle do
     revision 1
@@ -14,6 +15,7 @@ class Gdcm < Formula
   option "with-check", "Run the GDCM test suite"
   depends_on :python => :optional
   depends_on :python3 => :optional
+  depends_on "openssl" => :optional
 
   option :cxx11
   cxx11dep = (build.cxx11?) ? ["c++11"] : []
@@ -66,6 +68,7 @@ class Gdcm < Formula
       args << "-DGDCM_BUILD_SHARED_LIBS=ON"
       args << "-DGDCM_BUILD_TESTING=ON" if build.with? "check"
       args << "-DGDCM_USE_VTK=ON" if build.with? "vtk"
+      args << "-DGDCM_USE_SYSTEM_OPENSSL=ON" if build.with? "openssl"
       args << sourcedir
 
       system "cmake", *args
