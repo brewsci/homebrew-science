@@ -3,8 +3,10 @@ class Snpeff < Formula
   homepage "http://snpeff.sourceforge.net/"
   # tag "bioinformatics"
   # doi "10.4161/fly.19695"
+
   url "https://downloads.sourceforge.net/project/snpeff/snpEff_v4_1l_core.zip"
   version "4.1l"
+  revision 2
   sha256 "1d5b2831c631a175b88bac57aefddea6f79588ef2ccbac8505f66e0961e54bf5"
 
   bottle do
@@ -24,6 +26,7 @@ class Snpeff < Formula
 
     bin.install "scripts/snpEff"
     libexec.install "snpEff.jar", "SnpSift.jar"
+    bin.write_jar_script libexec/"SnpSift.jar", "SnpSift"
     pkgshare.install "snpEff.config", "scripts", "galaxy"
   end
 
@@ -36,5 +39,6 @@ class Snpeff < Formula
 
   test do
     system "#{bin}/snpEff 2>&1 |grep -q snpEff"
+    system "#{bin}/SnpSift 2>&1 |grep -q extractFields"
   end
 end
