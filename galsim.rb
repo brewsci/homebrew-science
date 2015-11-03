@@ -43,10 +43,10 @@ class Galsim < Formula
   end
 
   def caveats; <<-EOS.undent
-    The GalSim installer may warn you that #{lib}/python isn't in your python
+    The GalSim installer may warn you that #{lib}/python#{pyver} isn't in your python
     search path. You may want to add all Homebrew python packages to the
     default paths by running:
-       sudo bash -c 'echo \"/usr/local/lib/python\" >> \\\\
+       sudo bash -c 'echo \"#{lib}/python#{pyver}\" >> \\\\
          /Library/Python/#{pyver}/site-packages/homebrew.pth'
     EOS
   end
