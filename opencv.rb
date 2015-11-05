@@ -28,6 +28,7 @@ class Opencv < Formula
   deprecated_option "without-brewed-numpy" => "without-numpy"
 
   option :cxx11
+  option :universal
 
   depends_on :ant if build.with? "java"
   depends_on "cmake"      => :build
@@ -124,6 +125,11 @@ class Opencv < Formula
       args << "-DCMAKE_OSX_ARCHITECTURES=i386"
       args << "-DOPENCV_EXTRA_C_FLAGS='-arch i386 -m32'"
       args << "-DOPENCV_EXTRA_CXX_FLAGS='-arch i386 -m32'"
+    end
+
+    if build.universal?
+      ENV.universal_binary
+      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
     end
 
     if ENV.compiler == :clang && !build.bottle?
