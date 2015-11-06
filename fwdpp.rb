@@ -1,8 +1,8 @@
 class Fwdpp < Formula
   desc "C++ template library for forward-time population genetic simulations"
   homepage "https://molpopgen.github.io/fwdpp/"
-  url "https://github.com/molpopgen/fwdpp/archive/0.4.1.tar.gz"
-  sha256 "b5c57f2f484add213c52a2232933a37c31d0b51bc908c69f6a06042a54be1b70"
+  url "https://github.com/molpopgen/fwdpp/archive/0.4.2.tar.gz"
+  sha256 "6a82d52cc93cc0c232c14c39e2c59805489464b7fd3764b747819edaaa229a0e"
   head "https://github.com/molpopgen/fwdpp.git"
   # doi "10.1534/genetics.114.165019"
 
