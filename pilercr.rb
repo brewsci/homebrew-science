@@ -1,6 +1,13 @@
 class Pilercr < Formula
   desc "Finding CRISPR repeats in genome sequences"
   homepage "http://drive5.com/pilercr/"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "7a16c91e43acf94bc30d43be3fa2b34fff56ebca3e60ddc5b99d7193aa7ebf8f" => :el_capitan
+    sha256 "148af9f887886cf0b0605f83e8a8ce3f1783c6248828ebe0caaa170d8f233737" => :yosemite
+    sha256 "6dda505f38845aa031b274637985c99dbc3060e01f85ee303af2536522e505f3" => :mavericks
+  end
+
   # doi "doi:10.1186/1471-2105-8-18"
   # tag "bioinformatics"
 
