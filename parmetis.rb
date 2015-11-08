@@ -3,7 +3,7 @@ class Parmetis < Formula
   homepage "http://glaros.dtc.umn.edu/gkhome/metis/parmetis/overview"
   url "http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/parmetis-4.0.3.tar.gz"
   sha256 "f2d9a231b7cf97f1fee6e8c9663113ebf6c240d407d3c118c55b3633d6be6e5f"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -61,3 +61,17 @@ index ca945dd..1bf94e9 100644
  add_subdirectory(include)
  add_subdirectory(libparmetis)
  add_subdirectory(programs)
+
+diff --git a/libparmetis/CMakeLists.txt b/libparmetis/CMakeLists.txt
+index 9cfc8a7..dfc0125 100644
+--- a/libparmetis/CMakeLists.txt
++++ b/libparmetis/CMakeLists.txt
+@@ -5,7 +5,7 @@ file(GLOB parmetis_sources *.c)
+ # Create libparmetis
+ add_library(parmetis ${ParMETIS_LIBRARY_TYPE} ${parmetis_sources})
+ # Link with metis and MPI libraries.
+-target_link_libraries(parmetis metis ${MPI_LIBRARIES})
++target_link_libraries(parmetis metis ${MPI_LIBRARIES} "-lm")
+ set_target_properties(parmetis PROPERTIES LINK_FLAGS "${MPI_LINK_FLAGS}")
+
+ install(TARGETS parmetis
