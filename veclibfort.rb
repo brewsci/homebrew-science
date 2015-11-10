@@ -1,11 +1,10 @@
-require 'formula'
-
 class Veclibfort < Formula
-  homepage 'https://github.com/mcg1969/vecLibFort'
-  url 'https://github.com/mcg1969/vecLibFort/archive/0.4.2.tar.gz'
-  sha1 'fee75b043a05f1dc7ec6649cbab73e23a71a9471'
-  head 'https://github.com/mcg1969/vecLibFort.git'
-  revision 2
+  desc "GNU Fortran compatibility for Apple's vecLib"
+  homepage "https://github.com/mcg1969/vecLibFort"
+  url "https://github.com/mcg1969/vecLibFort/archive/0.4.2.tar.gz"
+  sha256 "c61316632bffa1c76e3c7f92b11c9def4b6f41973ecf9e124d68de6ae37fbc85"
+  head "https://github.com/mcg1969/vecLibFort.git"
+  revision 3
 
   bottle do
     cellar :any
@@ -14,24 +13,29 @@ class Veclibfort < Formula
     sha256 "7fa568f525a34092d731ebdcc181636f9e733a2716dc42b51a94d01182b359ee" => :mountain_lion
   end
 
-  option "without-check", "Skip build-time tests (not recommended)"
-
   depends_on :fortran
 
   def install
     ENV.m64 if MacOS.prefer_64_bit?
     system "make", "all"
-    system "make", "check" if build.with? "check"
     system "make", "PREFIX=#{prefix}", "install"
+    pkgshare.install "tester.f90"
   end
 
-  def caveats
-    caveats = <<-EOS.undent
+  def caveats; <<-EOS.undent
       Installs the following files:
         * libvecLibFort.a: static library; link with -framework vecLib
         * libvecLibFort.dylib: dynamic library; *replaces* -framework vecLib
         * libvecLibFortI.dylib: preload (interpose) library.
       Please see the home page for usage details.
     EOS
+  end
+
+  test do
+    ENV.fortran
+    cd testpath do
+      system ENV["FC"], "-o", "tester", "-O", pkgshare/"tester.f90", "-L#{lib}", "-lvecLibFort"
+      system "./tester"
+    end
   end
 end
