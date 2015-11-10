@@ -8,9 +8,9 @@ class Veclibfort < Formula
 
   bottle do
     cellar :any
-    sha256 "e981968fc514cbccfa297059be14bab5f75cf769a2da51a571c6c737e5a77a02" => :yosemite
-    sha256 "3260bc42e14b071a2b02b482baed8443b35835972b5edbbae9903864cb164fee" => :mavericks
-    sha256 "7fa568f525a34092d731ebdcc181636f9e733a2716dc42b51a94d01182b359ee" => :mountain_lion
+    sha256 "065dfb03b655a4d6b5db5014d98ddcbbdd692faafe8e5e3d0a3fa16eb892b7a0" => :el_capitan
+    sha256 "2f260ba95aa1d80b7fb50dcae7de87e6e662c173e0a28a8306c45ea8c716d0bd" => :yosemite
+    sha256 "34fc5eda407df36135633d678adc813890d291f77132118ff98756944edc0819" => :mavericks
   end
 
   depends_on :fortran
