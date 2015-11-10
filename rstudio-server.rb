@@ -1,7 +1,9 @@
 class RstudioServer < Formula
   homepage "http://www.rstudio.com"
+  head "https://github.com/rstudio/rstudio.git"
   url "https://github.com/rstudio/rstudio/archive/v0.99.484.tar.gz"
   sha256 "8ca4abccb9b554713077cf1057ac13abadfd7606f22ac3386b2a88a38ae8a427"
+  revision 1
 
   bottle do
     sha256 "a9e3de96b3bff4534925495c5eea36807543955542bccc1b88d198e492fc1e4a" => :el_capitan
@@ -121,6 +123,8 @@ class RstudioServer < Formula
 
     (bin/"rstudio-server").write <<-EOS.undent
       #!/usr/bin/env bash
+
+      trap 'pkill -P $$' EXIT
 
       export PATH=#{opt_prefix}/rstudio/bin:$PATH
       export PATH=#{opt_prefix}/rstudio/bin/pandoc:$PATH
