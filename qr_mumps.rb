@@ -3,7 +3,7 @@ class QrMumps < Formula
   homepage "http://buttari.perso.enseeiht.fr/qr_mumps"
   url "http://buttari.perso.enseeiht.fr/qr_mumps/releases/1.0/qr_mumps-1.0.tgz"
   sha256 "69bfcb2f5718480c5dec88cc4241c57fec15b44eac53c2e14542f4838f375049"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "998db17b2124d6a1f85c162f986def9df5c55fd97c2a98b73b7a5344bb63f9cb" => :el_capitan
@@ -56,8 +56,8 @@ class QrMumps < Formula
       make_args << "LBLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"
       make_args << "LLAPACK=-L#{Formula["openblas"].opt_lib} -lopenblas"
     else
-      libs << "-lveclibfort"
-      make_args << "LBLAS=-lveclibfort" << "LLAPACK=-lveclibfort"
+      libs << "-lvecLibFort"
+      make_args << "LBLAS=-lvecLibFort" << "LLAPACK=-lvecLibFort"
     end
 
     system "make", "sprec", "dprec", "cprec", "zprec", *(topdir + make_args)

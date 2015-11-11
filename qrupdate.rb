@@ -4,7 +4,7 @@ class Qrupdate < Formula
   homepage 'http://sourceforge.net/projects/qrupdate/'
   url 'https://downloads.sourceforge.net/qrupdate/qrupdate-1.1.2.tar.gz'
   sha1 'f7403b646ace20f4a2b080b4933a1e9152fac526'
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -25,7 +25,7 @@ class Qrupdate < Formula
       blas = "-L#{Formula['openblas'].opt_lib} -lopenblas"
       lapack = blas
     else
-      blas = (OS.mac?) ? "-L#{Formula['veclibfort'].opt_lib} -lveclibfort" : "-lblas"
+      blas = (OS.mac?) ? "-L#{Formula['veclibfort'].opt_lib} -lvecLibFort" : "-lblas"
       lapack = (OS.mac?) ? blas : "-llapack"
     end
     make_args = ["FC=#{ENV.fc}", "FFLAGS=#{ENV.fcflags}",
