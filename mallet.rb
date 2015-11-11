@@ -8,8 +8,8 @@ class Mallet < Formula
   head "https://github.com/mimno/Mallet.git"
 
   devel do
-    url "http://mallet.cs.umass.edu/dist/mallet-2.0.8RC2.tar.gz"
-    sha256 "61f327f3237d814addfae484be146476d84bcbf829d9a669a4e08c4f21a6187c"
+    url "http://mallet.cs.umass.edu/dist/mallet-2.0.8RC3.tar.gz"
+    sha256 "cced45641a671c41ef63d498ce39ddcb9cd904fb6da2f6ca0fd4488b7e4ee4fc"
   end
 
   # Creates a wrapper to set the classpath before executing
