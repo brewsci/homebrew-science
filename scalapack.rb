@@ -4,7 +4,7 @@ class Scalapack < Formula
   url "http://www.netlib.org/scalapack/scalapack-2.0.2.tgz"
   sha256 "0c74aeae690fe5ee4db7926f49c5d0bb69ce09eea75beb915e00bba07530395c"
   head "https://icl.cs.utk.edu/svn/scalapack-dev/scalapack/trunk", :using => :svn
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -30,7 +30,7 @@ class Scalapack < Formula
       blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       lapack = blas
     else
-      blas = (OS.mac?) ? "-L#{Formula["veclibfort"].opt_lib} -lveclibfort" : "-lblas"
+      blas = (OS.mac?) ? "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort" : "-lblas"
       lapack = (OS.mac?) ? blas : "-llapack"
     end
     args += ["-DBLAS_LIBRARIES=#{blas}", "-DLAPACK_LIBRARIES=#{lapack}"]
