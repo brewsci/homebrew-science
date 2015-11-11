@@ -2,7 +2,7 @@ class Abinit < Formula
   homepage "http://www.abinit.org"
   url "http://ftp.abinit.org/abinit-7.10.4.tar.gz"
   sha256 "ebd0a3abd01db4374beda092d1f16c9e00d327712b1ed389bb32e1c80f37c6ef"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "404d04486c0f452e622902749c65f0ac594ce2b79eb538d812867d9c31e36233" => :yosemite
@@ -48,10 +48,10 @@ class Abinit < Formula
 
     if build.with? "scalapack"
       args << "--with-linalg-flavor=custom+scalapack"
-      args << "--with-linalg-libs=-L#{Formula["veclibfort"].opt_lib} -lveclibfort -L#{Formula["scalapack"].opt_lib} -lscalapack"
+      args << "--with-linalg-libs=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort -L#{Formula["scalapack"].opt_lib} -lscalapack"
     else
       args << "--with-linalg-flavor=custom"
-      args << "--with-linalg-libs=-L#{Formula["veclibfort"].opt_lib} -lveclibfort"
+      args << "--with-linalg-libs=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
     end
 
     if build.with? "etsf_io"
