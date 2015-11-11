@@ -6,9 +6,9 @@ class Adam < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fd710b911bf60d3ec091531dc7c2b44d0ea4d9e814d24382ed74e82c84ffa3d2" => :yosemite
-    sha256 "d044b5c388ec3a7d583657bf84d8b9da1b42b7a7aaaf9ff437f48d0ccdf960f7" => :mavericks
-    sha256 "8d2d9899d83308a4187b3a2f015f07b73ddf67266c4424ad9b0312a034910833" => :mountain_lion
+    sha256 "8753269b3b654fe4fa830c517e66c1b9bdd5a7d0ef34a01d500e832d7f18027b" => :el_capitan
+    sha256 "9cd5a676b17b44d1b5b0445fb7fca6541032c21d42bef4410a372e5d32594e18" => :yosemite
+    sha256 "c35dd18b5c4eba31c57f2e023a10c364495b0cfc5dc01c85da564e40c30a5f7e" => :mavericks
   end
 
   depends_on "apache-spark"
