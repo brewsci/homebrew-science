@@ -1,9 +1,10 @@
 class Gmt < Formula
+  desc "Collection of tools for processing and displaying xy and xyz datasets"
   homepage "http://gmt.soest.hawaii.edu/"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.1.2-src.tar.bz2"
-  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-5.1.2-src.tar.bz2"
-  mirror "ftp://gd.tuwien.ac.at/pub/gmt/gmt-5.1.2-src.tar.bz2"
-  sha1 "aed2d79f83717c158adae1f634e6c3d8e5a09515"
+  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.2.1-src.tar.xz"
+  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-5.2.1-src.tar.xz"
+  mirror "ftp://gd.tuwien.ac.at/pub/gmt/gmt-5.2.1-src.tar.xz"
+  sha256 "01c199525bdfa78ad388959e739f34eca8effb8d82475c8786a066e04b5e19af"
 
   bottle do
     sha256 "920a2fd1af474714c5c7b6789ea9546ecb77bb40ebf4ec922611736705f01eaf" => :yosemite
@@ -23,14 +24,14 @@ class Gmt < Formula
     url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.4.tar.gz"
     mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.4.tar.gz"
     mirror "ftp://gd.tuwien.ac.at/pub/gmt/gshhg-gmt-2.3.4.tar.gz"
-    sha1 "dc989e96a88533e7d44b788d1be8e0d7620f56d4"
+    sha256 "420c6c0df9170015ac0f7c7d472c5a58f8b70a7bf89f162c59dcd70735389110"
   end
 
   resource "dcw" do
-    url "ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.1.tar.gz"
-    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/dcw-gmt-1.1.1.tar.gz"
-    mirror "ftp://gd.tuwien.ac.at/pub/gmt/dcw-gmt-1.1.1.tar.gz"
-    sha1 "deca85f21426604c8574a18d16c931a1fd9ae27b"
+    url "ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.2.tar.gz"
+    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/dcw-gmt-1.1.2.tar.gz"
+    mirror "ftp://gd.tuwien.ac.at/pub/gmt/dcw-gmt-1.1.2.tar.gz"
+    sha256 "f719054f8d657e7b10b5182d4c15bc7f38ef7483ed05cdaa9f94ab1a0008bfb6"
   end
 
   def install
