@@ -4,8 +4,8 @@ class Vsearch < Formula
   # tag "bioinformatics"
   # doi "10.5281/zenodo.31443"
 
-  url "https://github.com/torognes/vsearch/archive/v1.8.1.tar.gz"
-  sha256 "dafc592417e915a273094087b78a181b19f1e9b1296cfaf383f3b535d31357ec"
+  url "https://github.com/torognes/vsearch/archive/v1.9.1.tar.gz"
+  sha256 "418065c9b361b033d9481064e46e8a29094e3df5edcb6ca2509bcdbedd331954"
 
   head "https://github.com/torognes/vsearch.git"
 
