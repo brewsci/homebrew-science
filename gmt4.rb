@@ -2,9 +2,9 @@ require "formula"
 
 class Gmt4 < Formula
   homepage "http://gmt.soest.hawaii.edu/"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.13-src.tar.bz2"
-  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-4.5.13-src.tar.bz2"
-  sha1 "b5086d17a231b7d7bacab1df3c4d4aa83714fe34"
+  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.14-src.tar.bz2"
+  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-4.5.14-src.tar.bz2"
+  sha256 "b34ab9bcfdc6b85036546372f1c6ef6138420d12a343052fc95fed40962adfe3"
 
   bottle do
     sha1 "b6cf63cd2a789467ed7968ebb72a5c1f7124fda2" => :yosemite
@@ -20,7 +20,7 @@ class Gmt4 < Formula
   resource "gshhg" do
     url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.4.tar.gz"
     mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.4.tar.gz"
-    sha1 "dc989e96a88533e7d44b788d1be8e0d7620f56d4"
+    sha256 "420c6c0df9170015ac0f7c7d472c5a58f8b70a7bf89f162c59dcd70735389110"
   end
 
   def install
