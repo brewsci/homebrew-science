@@ -4,14 +4,13 @@ class Scalapack < Formula
   url "http://www.netlib.org/scalapack/scalapack-2.0.2.tgz"
   sha256 "0c74aeae690fe5ee4db7926f49c5d0bb69ce09eea75beb915e00bba07530395c"
   head "https://icl.cs.utk.edu/svn/scalapack-dev/scalapack/trunk", :using => :svn
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "80fd977c7637d131e186dc4a016416df1c00d4736cce881631b242c990adc4bd" => :yosemite
-    sha256 "fb9b8db4347d67cc9f3bd9277a7b7026c1f03453e1f28afbf8af96ea96e4f117" => :mavericks
-    sha256 "e0b122d96b125fa524023dc730564b9a45ddc134b1e025c464a4c8f1a7554dcd" => :mountain_lion
+    sha256 "642ac7c4537ed2b422413fc9319a7e03318663360c16289b993ae4cb6ccbc837" => :el_capitan
+    sha256 "4b902d2f32acc9f02b5c2cb781b00f538d2038a2d3891ac4c9789e55147f3bb0" => :yosemite
+    sha256 "8fb0b1f4136c13af897d35c2e1d810a57581a12f6e77863033c1ec21e342ccf0" => :mavericks
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
@@ -30,7 +29,7 @@ class Scalapack < Formula
       blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       lapack = blas
     else
-      blas = (OS.mac?) ? "-L#{Formula["veclibfort"].opt_lib} -lveclibfort" : "-lblas"
+      blas = (OS.mac?) ? "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort" : "-lblas"
       lapack = (OS.mac?) ? blas : "-llapack"
     end
     args += ["-DBLAS_LIBRARIES=#{blas}", "-DLAPACK_LIBRARIES=#{lapack}"]

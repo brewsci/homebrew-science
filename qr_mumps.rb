@@ -3,12 +3,12 @@ class QrMumps < Formula
   homepage "http://buttari.perso.enseeiht.fr/qr_mumps"
   url "http://buttari.perso.enseeiht.fr/qr_mumps/releases/1.0/qr_mumps-1.0.tgz"
   sha256 "69bfcb2f5718480c5dec88cc4241c57fec15b44eac53c2e14542f4838f375049"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "998db17b2124d6a1f85c162f986def9df5c55fd97c2a98b73b7a5344bb63f9cb" => :el_capitan
-    sha256 "048e3ebb6d8acf22566542f0c434bacb65b1a0c5f194e4f5cbb18c5478553927" => :yosemite
-    sha256 "631667284a61985d19f5550a4d1d071fd2a4670e8a9122fb73045d280be67b8a" => :mavericks
+    sha256 "c491837b0f8919fe9d9b71c080682eea64dbb40bbc637457c0056b061721c34f" => :el_capitan
+    sha256 "e3c99a8710e37d230cbc49302730a10f96a627a590b5e2676a80a2c6588b43e5" => :yosemite
+    sha256 "4fdd8cc3fa740414ef433e03fedfbc1b0ecbd9fe0433fc6b271fb3fbaaba0334" => :mavericks
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
@@ -56,8 +56,8 @@ class QrMumps < Formula
       make_args << "LBLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"
       make_args << "LLAPACK=-L#{Formula["openblas"].opt_lib} -lopenblas"
     else
-      libs << "-lveclibfort"
-      make_args << "LBLAS=-lveclibfort" << "LLAPACK=-lveclibfort"
+      libs << "-lvecLibFort"
+      make_args << "LBLAS=-lvecLibFort" << "LLAPACK=-lvecLibFort"
     end
 
     system "make", "sprec", "dprec", "cprec", "zprec", *(topdir + make_args)
