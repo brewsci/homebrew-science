@@ -8,6 +8,7 @@ class Root6 < Formula
   version version_number
   sha256 "794c22960131959d2ae904176b8e44393f05e45bef79a1fed6f15f007b98fc61"
   head "http://root.cern.ch/git/root.git"
+  revision 1
 
   bottle do
     sha256 "01cb0acf02e44d74c775924840df7c925997106eea85fb96f338ad9c507062f0" => :el_capitan
@@ -19,6 +20,7 @@ class Root6 < Formula
   depends_on "openssl" => :recommended # use homebrew's openssl
   depends_on :python => :recommended # make sure we install pyroot
   depends_on :x11 => :recommended if OS.linux?
+  depends_on "gsl" => :recommended
   # root5 obviously conflicts, simply need `brew unlink root`
   conflicts_with "root"
   # cling also takes advantage
@@ -46,6 +48,7 @@ class Root6 < Formula
       #{config_opt("python")}
       #{config_opt("ssl", "openssl")}
       #{config_opt("xrootd")}
+      #{config_opt("mathmore", "gsl")}
     ]
 
     system "./configure", "--help"
