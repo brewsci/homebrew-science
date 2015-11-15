@@ -1,10 +1,10 @@
 class GraphTool < Formula
   homepage "http://graph-tool.skewed.de/"
-  url "http://downloads.skewed.de/graph-tool/graph-tool-2.9.tar.bz2"
-  sha256 "d3df98adc8a7ea6202e270b62c05825a483fc08c51000721356971d76af1146e"
+  url "http://downloads.skewed.de/graph-tool/graph-tool-2.12.tar.bz2"
+  sha256 "ac5fdd65cdedb568302d302b453fe142b875f23e3500fe814a73c88db49993a9"
 
   head do
-    url "https://github.com/count0/graph-tool.git"
+    url "https://git.skewed.de/count0/graph-tool.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -50,6 +50,19 @@ class GraphTool < Formula
     depends_on "pygobject3" => with_pythons
   end
 
+  # We need a compiler with C++14 support.
+  fails_with :llvm
+
+  fails_with :clang do
+    build 601  # the highest build version for which compilation will fail
+    cause "graph-tool must be compiled in c++14 mode"
+  end
+
+  fails_with :gcc
+  fails_with :gcc => "4.8" do
+    cause "graph-tool must be compiled in c++14 mode"
+  end
+
   def install
     ENV.cxx11
 
@@ -58,10 +71,11 @@ class GraphTool < Formula
     config_args = %W[
       --disable-debug
       --disable-dependency-tracking
-      --disable-optimization
       --prefix=#{prefix}
     ]
 
+    # fix issue with boost + gcc with C++11/C++14
+    ENV.append "CXXFLAGS", "-fext-numeric-literals" unless ENV.compiler == :clang
     config_args << "--disable-cairo" if build.without? "cairo"
     config_args << "--disable-sparsehash" if build.without? "google-sparsehash"
 
