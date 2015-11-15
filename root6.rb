@@ -11,9 +11,9 @@ class Root6 < Formula
   revision 1
 
   bottle do
-    sha256 "01cb0acf02e44d74c775924840df7c925997106eea85fb96f338ad9c507062f0" => :el_capitan
-    sha256 "af6901615ab503d13e2f9697248aca48c67759813f164d14b8cbe17cac5f6881" => :yosemite
-    sha256 "a6596443bb2302040bc1f5d6885f8abe41507d3f3f13d8f97523866f0e5cfaf9" => :mavericks
+    sha256 "1d1e1498b6608a91936c461338257f29f764c5173dd17ec7c69ed65cc7101e78" => :el_capitan
+    sha256 "e0d6204bf4503e615fb719e52ab5e4c6fff4b11d7098caf9d2cd6ef75b50d46b" => :yosemite
+    sha256 "ef90454ed29290b737c6dfb58c8c26af829ac528dedb09af9266816b595b3eef" => :mavericks
   end
 
   depends_on "xrootd" => :optional
