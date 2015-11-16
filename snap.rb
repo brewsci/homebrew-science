@@ -1,11 +1,12 @@
 class Snap < Formula
+  desc "Gene prediction tool"
   homepage "http://korflab.ucdavis.edu/software.html"
   # doi "10.1186/1471-2105-5-59"
   # tag "bioinformatics"
 
-  version "2013-11-29"
   url "http://korflab.ucdavis.edu/Software/snap-#{version}.tar.gz"
-  sha1 "0ff0612ecb7040dfaa58b4330396d025abc0b758"
+  version "2013-11-29"
+  sha256 "e2a236392d718376356fa743aa49a987aeacd660c6979cee67121e23aeffc66a"
 
   bottle do
     cellar :any
@@ -16,14 +17,15 @@ class Snap < Formula
 
   def install
     system "make"
-    bin.install *(%w[exonpairs fathom forge hmm-info snap] + Dir["*.pl"])
-    doc.install *%w[00README LICENSE example.zff ]
-    prefix.install *%w[DNA HMM Zoe]
+    bin.install %w[exonpairs fathom forge hmm-info snap]
+    bin.install Dir["*.pl"]
+    doc.install %w[00README LICENSE example.zff]
+    prefix.install %w[DNA HMM Zoe]
   end
 
   def caveats; <<-EOS.undent
-    Set the ZOE environment variable:
-      export ZOE=#{opt_prefix}
+      Set the ZOE environment variable:
+        export ZOE=#{opt_prefix}
     EOS
   end
 
