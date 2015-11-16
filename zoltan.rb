@@ -1,7 +1,7 @@
 class Zoltan < Formula
-  url "http://www.cs.sandia.gov/~kddevin/Zoltan_Distributions/zoltan_distrib_v3.81.tar.gz"
   homepage "http://www.cs.sandia.gov/Zoltan"
-  sha1 "468c30db4b16cb16e5dde05fb951699e1e69527d"
+  url "http://www.cs.sandia.gov/~kddevin/Zoltan_Distributions/zoltan_distrib_v3.81.tar.gz"
+  sha256 "9d6f2f9e2b37456cab7fe6714d51cd6d613374e915e6cc9f7fddcd72e3f38780"
 
   bottle do
     sha1 "911518dee35a199273a11d1668d4140ea06318ad" => :yosemite
