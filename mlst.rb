@@ -1,8 +1,11 @@
 class Mlst < Formula
   desc "Multi-Locus Sequence Typing of microbial contigs"
   homepage "https://github.com/tseemann/mlst"
-  url "https://github.com/tseemann/mlst/archive/1.3.tar.gz"
-  sha256 "73f213e95413b3561d2e9cb4f432fd004c31b596a88dd80d2333005deb94b022"
+  # tag "bioinformatics"
+
+  url "https://github.com/tseemann/mlst/archive/2.0.tar.gz"
+  sha256 "21030c8ee57eeab63d06f643b3074e18f81008c05da237250035eb3c779a8448"
+
   bottle do
     cellar :any
     sha256 "4beb855b2de3850fc88323e673c4c3edc0479e66368763cf0fdde461dbea2f38" => :yosemite
@@ -10,12 +13,12 @@ class Mlst < Formula
     sha256 "fb7ea7b027fbe6f06254b5b939dda33915ebfbaf86e2b12b561e29f53837bf80" => :mountain_lion
   end
 
-  # tag "bioinformatics"
-
-  depends_on "blat"
+  depends_on "blast"
   depends_on "File::Temp" => :perl
   depends_on "File::Spec" => :perl
   depends_on "Data::Dumper" => :perl
+  depends_on "List::MoreUtils" => :perl
+  depends_on "Moo" => :perl
 
   def install
     prefix.install Dir["*"]
