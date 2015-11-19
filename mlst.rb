@@ -3,8 +3,8 @@ class Mlst < Formula
   homepage "https://github.com/tseemann/mlst"
   # tag "bioinformatics"
 
-  url "https://github.com/tseemann/mlst/archive/2.0.tar.gz"
-  sha256 "21030c8ee57eeab63d06f643b3074e18f81008c05da237250035eb3c779a8448"
+  url "https://github.com/tseemann/mlst/archive/2.1.tar.gz"
+  sha256 "7c36b7d0a685aa7830b64b5b1bc51b552f2e64d89814bdd76d8986a63d31b7a2"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,11 +14,11 @@ class Mlst < Formula
   end
 
   depends_on "blast"
+  depends_on "Moo" => :perl
   depends_on "File::Temp" => :perl
   depends_on "File::Spec" => :perl
   depends_on "Data::Dumper" => :perl
   depends_on "List::MoreUtils" => :perl
-  depends_on "Moo" => :perl
 
   def install
     prefix.install Dir["*"]
