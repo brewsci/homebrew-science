@@ -7,10 +7,10 @@ class Mlst < Formula
   sha256 "21030c8ee57eeab63d06f643b3074e18f81008c05da237250035eb3c779a8448"
 
   bottle do
-    cellar :any
-    sha256 "4beb855b2de3850fc88323e673c4c3edc0479e66368763cf0fdde461dbea2f38" => :yosemite
-    sha256 "08de6200b91384a2913834774d49bc927a6f7247eb6ab3ef1671494e0b113d42" => :mavericks
-    sha256 "fb7ea7b027fbe6f06254b5b939dda33915ebfbaf86e2b12b561e29f53837bf80" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "83ec1a322611873ab1af0ed53d742fe941b84306e10e884d47243ea4e5440504" => :el_capitan
+    sha256 "ce53a3b8878e2c5d5529eec4eef56ec3f4299529f98a976377f0b755533cc63b" => :yosemite
+    sha256 "cecf476ef1498f75d9528daed0780f64fab2ca7f0c1ad92cb9c55742fa257b9c" => :mavericks
   end
 
   depends_on "blast"
