@@ -6,10 +6,10 @@ class Dgtal < Formula
   head "https://github.com/DGtal-team/DGtal.git"
 
   bottle do
-    revision 1
-    sha256 "3a315b3392ba9c91b69cfa30b6bd7fa7d9673c6b511aae64bcd69fb521d6ff7c" => :yosemite
-    sha256 "7d7045432737c74713a2948892c9fefa2225270189db6bc50232a08de522158d" => :mavericks
-    sha256 "f64ac070e869e50ff2593d72b7f6f291c0eb25e6f7d31bdfc41d582515e708bb" => :mountain_lion
+    cellar :any
+    sha256 "eb16fd70eb85bb4d67f8fbca66829a21a3a799ce92d38ad8da06a805f7feb29e" => :el_capitan
+    sha256 "169e7ca264521b7f9083ad30b2affae9877b4e31642955b7629afde6c1a5decd" => :yosemite
+    sha256 "b2258045c6d376da7c6267deab6722da8634bdedaf17e0c65b32fa7baf5cc53b" => :mavericks
   end
 
   depends_on "cmake" => :build
