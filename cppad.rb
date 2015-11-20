@@ -9,9 +9,9 @@ class Cppad < Formula
 
   bottle do
     cellar :any
-    sha1 "319ab2e269a4af07de3fc27455e903f511ce1e58" => :yosemite
-    sha1 "82a159c76205f98760d9dd993a9648a035b7a3c8" => :mavericks
-    sha1 "8e9c6e05d8a3881fbd30bc20ed6feb4a3414b3c3" => :mountain_lion
+    sha256 "1ab8945781c80ad2ee3ab5a8de35fa27d16b81b612df382c144a4dd3a41a0dc6" => :yosemite
+    sha256 "5042f10cc11838498d3663b8375b4124c2fcc07f9a6675e69fa96ed30f4a8d63" => :mavericks
+    sha256 "17aeb9710856cb62a31f2b235a3ac78fd6bb79d96568bc9a2190292bb55da490" => :mountain_lion
   end
 
   # Only one of --with-boost, --with-eigen and --with-std should be given.

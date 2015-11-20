@@ -4,9 +4,9 @@ class Zoltan < Formula
   sha256 "9d6f2f9e2b37456cab7fe6714d51cd6d613374e915e6cc9f7fddcd72e3f38780"
 
   bottle do
-    sha1 "911518dee35a199273a11d1668d4140ea06318ad" => :yosemite
-    sha1 "2104491320085f55c4f5dd1d35d4272f79b41e0c" => :mavericks
-    sha1 "2cd96dfa01e36114ba11b2ae126fdf0a3ee30041" => :mountain_lion
+    sha256 "133207543f781aa413062f7ecbe80b89e76b96577b62fe150727fa9f499a6d3c" => :yosemite
+    sha256 "970454cab90e1c4ed9cccd2042c704d4122a4cfe59d5044d8b193bfcefe8fbe2" => :mavericks
+    sha256 "d60f28375337061ea183d9e1112018498ad6dc33acbeaf5764a461b30ad797d5" => :mountain_lion
   end
 
   option "without-check", "Skip build-time tests (not recommended)"

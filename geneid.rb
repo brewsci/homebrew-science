@@ -6,9 +6,9 @@ class Geneid < Formula
 
   bottle do
     cellar :any
-    sha1 "8f4611d292aa4ea16438c82e7959afee0ef010d4" => :yosemite
-    sha1 "337b80bafc8cdb354eb75ecb0e61bf73e82b991b" => :mavericks
-    sha1 "86baedd3f360621baa3ca71cdb62f6859f45f0f9" => :mountain_lion
+    sha256 "982ef7790b96cd276aabf6561393ef0ae0de86685dbaa42c3a09217d99ca290e" => :yosemite
+    sha256 "5d9f818ae3a90c770725ab4736e28999b799b5456d3f6ffa1372c7e35a90c0a5" => :mavericks
+    sha256 "de8f654e04181ce0764c3aeff647025e212f522c4478282de71e9d10019f8d43" => :mountain_lion
   end
 
   def install

@@ -11,9 +11,9 @@ class Atram < Formula
   sha1 "dcf0d445fe188396f1c386f9dc337e1b1b27302f"
 
   bottle do
-    sha1 "ba333a85574dded37da27765c5dfb90a20afde22" => :yosemite
-    sha1 "57bd309e3fe468a7823f95833c201464b4602af5" => :mavericks
-    sha1 "d61f21d57851c775d59724e235cacec67da77513" => :mountain_lion
+    sha256 "85c61052c018447043fb8ef1782a6350fbb753661b158095a6ade0bfcfdcab47" => :yosemite
+    sha256 "83f6244d599a0f89837709a154a186698a3020f78bcfd3a6980f196d647b9a23" => :mavericks
+    sha256 "6179c7a1ebe71914b577ebb9088e789f65a9190c0e384097d53b5d800d198e40" => :mountain_lion
   end
 
   depends_on "blast"

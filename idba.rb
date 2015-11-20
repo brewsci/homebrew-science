@@ -10,9 +10,9 @@ class Idba < Formula
 
   bottle do
     cellar :any
-    sha1 "ba49a3b357e8406997b67350f92ded9005675e25" => :yosemite
-    sha1 "0980af9b110108e391d151f8c07cd2be4986e455" => :mavericks
-    sha1 "477629a12e2f514b50e4a16873afce2fda40d8bf" => :mountain_lion
+    sha256 "9ce6a82cee5d4a891f1dfe38a9a6a9d2a409f9fe9d2193c54cce498a53897eef" => :yosemite
+    sha256 "066ff8986d811ee9190db54c6fbfb77fde054ef0c096800438fa2338a4badec6" => :mavericks
+    sha256 "10bf4be36d3797c48f58580078ee2d197227cdb297f5b2ba826590fd4ba92983" => :mountain_lion
   end
 
   fails_with :clang do

@@ -9,9 +9,9 @@ class Poa < Formula
 
   bottle do
     cellar :any
-    sha1 "643d2c97e36be8aa642a79b563002ad6d9b2cd74" => :yosemite
-    sha1 "f1f29b9d54318446a3bbbadd972c89ef8cd6b12d" => :mavericks
-    sha1 "89d25fa0a1ab728e82afdcd69d0a70fc42526893" => :mountain_lion
+    sha256 "ec70c14a392872c08ff2fd60e454dc05d76eb6edbd49ba8e8a011a6fce5c91b4" => :yosemite
+    sha256 "223fd7362babcb755d3eedd60efde918351b8a304579ee50aa43f2d5734240e5" => :mavericks
+    sha256 "fec2b793c9313bb5a373f38b7cc30906030bbc6bb7b111a659220153e874e39b" => :mountain_lion
   end
 
   def install

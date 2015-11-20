@@ -14,9 +14,9 @@ class Rampart < Formula
 
   bottle do
     cellar :any
-    sha1 "fbb04392b0a279c71e06f3077506062f8c888c57" => :yosemite
-    sha1 "84c0684ba916b0ea9858d53da512e7fcf3b6d7ff" => :mavericks
-    sha1 "dee76143f82715dfdc2108df6cbda9f51e121bf0" => :mountain_lion
+    sha256 "654066a36c0df63e9955f7a105cac906cbbe78d55bc3f3e4de46b6bec29171c3" => :yosemite
+    sha256 "b694c65ccac7ff4aed57d2e4823150d08acf9db6fbc51e24ca559b671462a21d" => :mavericks
+    sha256 "810d7b76559426a412b7ab83f270475f26eef4cf652b6b17716291e6d5b2d7ca" => :mountain_lion
   end
 
   depends_on :java => "1.7+"

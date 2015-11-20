@@ -6,9 +6,9 @@ class Reapr < Formula
   sha1 "4d2a8856a6d19d259aeec8591a024ba598003acc"
 
   bottle do
-    sha1 "f31e1933d3472e02798db71c0a556e8700fadacb" => :yosemite
-    sha1 "07fe3f9f162afa5908018ef0501c0e59aa2d545f" => :mavericks
-    sha1 "695744fc78fd1b5dde72bcad87e80c3606c853c2" => :mountain_lion
+    sha256 "13aed3f265e22d890dde4b91e7bd3965151f1724560e2548362b63d1a2597cf3" => :yosemite
+    sha256 "4d815482a30e0377c74241049375e1aa0cdfa87ecb4c20c18ba8cf4e028808bc" => :mavericks
+    sha256 "c0ac706f9a675419c5ccb7049ba373b6564c5cd5cfc24ecee93d26b002ebb7af" => :mountain_lion
   end
 
   depends_on "bamtools"

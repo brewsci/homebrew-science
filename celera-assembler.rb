@@ -9,9 +9,9 @@ class CeleraAssembler < Formula
   sha1 "be8e92dc48cdabf64992bc2e4d8b7a39b2f95ff7"
 
   bottle do
-    sha1 "2a80ee6d9d44414259b847007a3b7e3c499946f4" => :yosemite
-    sha1 "4b0bd699c4e9ff6463f4184bfe39b86dc707b3dc" => :mavericks
-    sha1 "1d667e16abea494ea04f3cf50109144e6260973f" => :mountain_lion
+    sha256 "4e9e12f42fcc8dcc8929bd10317c4eca171c01c03692142ebec7f7520a91d12d" => :yosemite
+    sha256 "e3afa1a3b48f5e2711f5b11920ed0e5b6ce913971b410a24c368150720a8e4c8" => :mavericks
+    sha256 "7645009d791cae8322451e8796d756442b71a37de851f13fcc41f5b239ab3e8c" => :mountain_lion
   end
 
   # Fails with clang: https://sourceforge.net/p/wgs-assembler/bugs/262/

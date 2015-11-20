@@ -10,9 +10,9 @@ class Fasta < Formula
 
   bottle do
     cellar :any
-    sha1 "752acd5b851cb56d4d42468a3e0257aa8771a5a3" => :yosemite
-    sha1 "ef93a8f05f798a36f04cdd5813668afab612bbff" => :mavericks
-    sha1 "00b921910231d3112263e2fb9749d7e8b4fee7fa" => :mountain_lion
+    sha256 "3fb1552fa6887d73ceaab44f6632697c5a4130bd29b3826236f34fd1aa5f4f6f" => :yosemite
+    sha256 "887a5ed9bf87b815098738f680717741b55b544b68d7fcced77653a166b61b74" => :mavericks
+    sha256 "6b237170e06c877f6ccd486104b7f8505b927b9ab8d62e7193ff778e96ace18e" => :mountain_lion
   end
 
   def install

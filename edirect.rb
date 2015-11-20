@@ -8,9 +8,9 @@ class Edirect < Formula
 
   bottle do
     cellar :any
-    sha1 "2db4443d1cf282114efd531e878d6a83c4c93b2d" => :yosemite
-    sha1 "448f84d3ea4fa58bb5cc2bbd46510cdaab06e6fb" => :mavericks
-    sha1 "a3cd5b4533dc11920729f2270e5497eddeeb66a1" => :mountain_lion
+    sha256 "2d76a8e877b4831455d52894d3854edec634928dd0559764abbe273036468d46" => :yosemite
+    sha256 "a7e1426882b5e6ab09d2b87cc8d64a56c7fd268712b662016f8a43f64c650e4e" => :mavericks
+    sha256 "c0714a55b8b9d629bee4c40717e48df563798fbda82235ba6ea3598c5380775f" => :mountain_lion
   end
 
   def install

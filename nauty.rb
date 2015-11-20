@@ -6,9 +6,9 @@ class Nauty < Formula
 
   bottle do
     cellar :any
-    sha1 "56737485de432d2eede7000386b308ebb767e14b" => :yosemite
-    sha1 "570ab91fca5c0ac09f601892796b9720c0ddddc7" => :mavericks
-    sha1 "1f103e310878f0241dbd70b67f921cfd2dede546" => :mountain_lion
+    sha256 "d144e9debed572d69471b303ce1dc8b08ca56a127e278fb51a747a6934bd0d51" => :yosemite
+    sha256 "990534538b4b736801e1fb1775216124492c184b623bdcc6803e0e25b3e8bce6" => :mavericks
+    sha256 "edeee6cb888c572c95ff3e206d1f3909fcd132f486f2d0cb86575ab9f699c2eb" => :mountain_lion
   end
 
   deprecated_option "run-tests" => "with-checks"

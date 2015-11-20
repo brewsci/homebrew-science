@@ -9,9 +9,9 @@ class Sparseassembler < Formula
 
   bottle do
     cellar :any
-    sha1 "209503883314cd020633fc0f6e859bd3a33439b7" => :yosemite
-    sha1 "1281430fd29de1d589a7b9607b636434b9a3d2ef" => :mavericks
-    sha1 "3e7d67740a382e860934191fa731b4334cc10ed6" => :mountain_lion
+    sha256 "a9ff1d429f594346583cc42817950a47253793f4c31cb39a364bf122dd3c51b6" => :yosemite
+    sha256 "9da917b95c08b35cd3371e5f73d10c8a4f094fc06a142e45931d3c7227726d61" => :mavericks
+    sha256 "5127010fd67b7d265220c90d1d26dd945db1100fcda093e00386aa49fb4a1781" => :mountain_lion
   end
 
   needs :openmp

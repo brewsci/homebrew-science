@@ -7,9 +7,9 @@ class Cgns < Formula
   revision 1
 
   bottle do
-    sha1 "04e46518aa5f34b9b948bf4e1eaf64faf7b8420d" => :yosemite
-    sha1 "4ffd47664cdfc10aee4669f3360ec7ea424732ed" => :mavericks
-    sha1 "273709639cfa759647d3001270992070f9820095" => :mountain_lion
+    sha256 "0d3c74d824b5bbe9214bd78826e23c333ec9d82bd5658cd4580ed13f0da1a176" => :yosemite
+    sha256 "101d5928e80cc9b01dddad911526ae641c7bbfe11cbd2d57e140840ed5c5eb68" => :mavericks
+    sha256 "1c8fb189c9ed85c7a4616f3de63e1d2c93082ec49dd9d4e55f1827dc13d632cc" => :mountain_lion
   end
 
   depends_on :fortran

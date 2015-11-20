@@ -9,7 +9,7 @@ class Bless < Formula
 
   bottle do
     cellar :any
-    sha1 "e5a148a6174d4958e212155c94d7333f08ee997f" => :mountain_lion
+    sha256 "84dae4d11d11a7ba746f753ef457a7b65f3ab189b478bed246281af9828403ff" => :mountain_lion
   end
 
   needs :openmp

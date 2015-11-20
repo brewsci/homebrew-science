@@ -5,9 +5,9 @@ class Rmblast < Formula
   version "2.2.28"
   bottle do
     cellar :any
-    sha1 "7bbdd22297a0c56ba26f9a0a3df04119736fd232" => :yosemite
-    sha1 "e440f190b9a9ff114011dd82b4760874540077e4" => :mavericks
-    sha1 "119dc8638ea52180b18e8c5e607bae25d59aeb1e" => :mountain_lion
+    sha256 "5d9cf1a5413fd7c28c32652b846eb8b1ddf8bf6014dcd10ccf8c29df85b36231" => :yosemite
+    sha256 "9b98e8e75a24c36c9dc2ecbd5db33953295b1b42a081faa5ae092e8b8b735356" => :mavericks
+    sha256 "02dd45f7669741ef273f314eccc57ddd17a222beee934aea6cf3778dc0101f70" => :mountain_lion
   end
 
   if OS.mac?

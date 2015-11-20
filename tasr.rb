@@ -9,9 +9,9 @@ class Tasr < Formula
 
   bottle do
     cellar :any
-    sha1 "3a0971056c247c128cdf5d9e358041ea52320f51" => :yosemite
-    sha1 "cc104749c8987de39ad6dd8f20c03f450f16f1b8" => :mavericks
-    sha1 "e5b7c109d35f4d204377f0950c5827ddf622bc2a" => :mountain_lion
+    sha256 "3e5f480a3d5b9121acb526f8b444cd4b52f47698763c02fe65e07de1df70d1b5" => :yosemite
+    sha256 "c3d1d87211da6d353c3aa88f5370baf6104474eecff571fc011d7c228d222349" => :mavericks
+    sha256 "7707c5fcdf98f4ebf64e1f828dc824bf5b839571bf7b76c248e0d8275d001e1c" => :mountain_lion
   end
 
   def install

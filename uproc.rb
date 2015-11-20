@@ -5,9 +5,9 @@ class Uproc < Formula
   head "https://github.com/gobics/uproc.git"
   bottle do
     cellar :any
-    sha1 "e85ca47439010ba2bbed0676569516018647b12d" => :yosemite
-    sha1 "a6d9496f7271755e9104ad7fa4af59476b982815" => :mavericks
-    sha1 "6216fa194d8413b905d58b94993abb2eac531b48" => :mountain_lion
+    sha256 "6e07dbb8062f34c6dbd5f550675371146f944579845ca172a54f9c6ba3c3a118" => :yosemite
+    sha256 "134344cdc203c2cf27b452e7920bdfa8ed127d206c203e5f96d809cdb5ff521f" => :mavericks
+    sha256 "e3396797b696c637784f3df6fab6435b0e5da41fa4cc002adee143092beae05a" => :mountain_lion
   end
 
   #tag "bioinformatics"

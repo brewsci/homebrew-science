@@ -6,9 +6,9 @@ class Scotch5 < Formula
 
   bottle do
     cellar :any
-    sha1 "8b2f7f1b8b53b6bd9770d7423ecff075d7d9579d" => :yosemite
-    sha1 "14080ef7007c014d96ced49d831e73842f52617d" => :mavericks
-    sha1 "11c476cb6e113efb04dbc3519494906a9aa46525" => :mountain_lion
+    sha256 "47c553dce7da037ad291ce82b8ba2a5f1bce90ccf27168b67132e0e0c7915f86" => :yosemite
+    sha256 "ab718b8c7215be2734ddb98cccf46761077b623d2b69ce9ba4eddb0857646fbe" => :mavericks
+    sha256 "565b19c1b337a74ffcc3c481d0221e1665eb7193352c32c15a7c0290babf3008" => :mountain_lion
   end
 
   depends_on :mpi => :cc

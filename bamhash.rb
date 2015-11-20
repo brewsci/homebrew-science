@@ -9,9 +9,9 @@ class Bamhash < Formula
 
   bottle do
     cellar :any
-    sha1 "7b0a924e7d19c6f24c0a3ad3a13cb1623ef2f4c8" => :yosemite
-    sha1 "e87aab324de4290409cc764eb0ca4cf35b57a7b6" => :mavericks
-    sha1 "64688eea9d72ea394f705a27aa107ef142236fef" => :mountain_lion
+    sha256 "9855449314d5564d4b3ef17b352ba5e9b73b434abc33b8630216314845a38cc3" => :yosemite
+    sha256 "a8ed1f99684cce5919fff31c4a0cad8c0e2b7b3a1063800f61b217a3b0af1689" => :mavericks
+    sha256 "5047df46a901e94da014a98802bd27143335ecb9beb2913f4586b3b428895984" => :mountain_lion
   end
 
   depends_on "openssl"

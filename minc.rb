@@ -12,9 +12,9 @@ class Minc < Formula
 
   bottle do
     cellar :any
-    sha1 "3db0b7126c24f0d21e10180bd8dd4adee8cda1b8" => :yosemite
-    sha1 "0edbcf2269249f2ab56db811e17970df0b468229" => :mavericks
-    sha1 "b449228e0c8e7eaf05931a4d1e581af595925aba" => :mountain_lion
+    sha256 "b3a94269bb68d38e1b22aa94b944dc72d6084ccf2860a8e42521b965b41b7b4f" => :yosemite
+    sha256 "ae606c8c7e993cd2b30f8977e94145b10f1fa3018313bf8e70cf7103be457226" => :mavericks
+    sha256 "4d9a4ec4642955468039272c883c03fb46e3e295b6681f65188dfb5e45d091df" => :mountain_lion
   end
 
   head 'https://github.com/BIC-MNI/minc.git'

@@ -15,9 +15,9 @@ class A5 < Formula
   bottle do
     cellar :any
     revision 1
-    sha1 "65d101be4a3a252c1637f9a718ee49f9107ae869" => :yosemite
-    sha1 "924f112b45f9f789345c7ed39b1cfc04ec0caf7d" => :mavericks
-    sha1 "3de22dfa9ca3c2e29e1a2b53e16390cc6d8e2afd" => :mountain_lion
+    sha256 "72a967a1711b870b160972d2de8d3394a3ec707deb05aee1c7508edf5d9523cb" => :yosemite
+    sha256 "e343316816ced903744afc45f6b52ada5b4ef211e87b284c6a3bc9aa22e87b3b" => :mavericks
+    sha256 "ae232e4ee149c17c8726aae461105769ae4ec405df9b0d30d45e2a4d14a06e42" => :mountain_lion
   end
 
   def install

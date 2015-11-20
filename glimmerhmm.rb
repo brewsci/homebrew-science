@@ -8,9 +8,9 @@ class Glimmerhmm < Formula
 
   bottle do
     cellar :any
-    sha1 "3a0c44274577c5c287c86ee14da88947efdf9950" => :yosemite
-    sha1 "dae57d85c6a4b06f603d711ce2bc403191d7a542" => :mavericks
-    sha1 "4aa039c9b8fdd654dcfad45f2db9a3e96a5c33b1" => :mountain_lion
+    sha256 "da6d1cb5474a93aec63ee57744ec3c6b036d8cdc762fb2d7a413c155910e7354" => :yosemite
+    sha256 "29e2af8728db02b766e7e1b71cd37d5b360b308ece7f58bb5de34b408c7ddb29" => :mavericks
+    sha256 "701387377b202acb5407c238db3cf8c0261cafac7ae441da486d36903cf1b22d" => :mountain_lion
   end
 
   def install

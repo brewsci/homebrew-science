@@ -8,8 +8,8 @@ class Quake < Formula
 
   bottle do
     cellar :any
-    sha1 "5c8f0b65e4a4a53684d9eb79a9e3f49dd2192676" => :yosemite
-    sha1 "aaab051aaf0a8d2459ef6a5c8299594cf68977d0" => :mavericks
+    sha256 "e2f419b64306ff4bdd0fca1bb861f7b80751f2c619e6a6a252e6d1885b068d99" => :yosemite
+    sha256 "9b9f35ad47303fc9714d55987d9bcd45f1f49df852e8120a5e101229cdcc30b8" => :mavericks
   end
 
   needs :openmp

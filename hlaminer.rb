@@ -9,9 +9,9 @@ class Hlaminer < Formula
 
   bottle do
     cellar :any
-    sha1 "d5a92d02d1b447cfa49292351867059408bb07d4" => :yosemite
-    sha1 "764cc41b5fbc89ab28df3bdd0f1149d125a0d168" => :mavericks
-    sha1 "1cd5b574c6baf25d6c2089a2f6985ff877916609" => :mountain_lion
+    sha256 "100293fce1617b7ea2dd05e7ac4c0f215765a3be80d109e87168e67ceae7a527" => :yosemite
+    sha256 "6eb37791b21c0c5cc1c6f446cb82561ca8f9b876be72f3bc296ca77de6ad8230" => :mavericks
+    sha256 "30f704aa898b243cc0fea2ef1c70f8602a88c41422548881703f3647f336a21d" => :mountain_lion
   end
 
   depends_on "blast"

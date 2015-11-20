@@ -6,9 +6,9 @@ class Emboss < Formula
   sha1 "93749ebd0a777efd3749974d2401c3a2a013a3fe"
 
   bottle do
-    sha1 "cd15996f4eee38f64226a8293c55bce46f02774b" => :yosemite
-    sha1 "7e2fb841a987b596f436ae3dd1354b48c7c0e425" => :mavericks
-    sha1 "286d090099f6bed5e63f29a5b69e6f3340adaeff" => :mountain_lion
+    sha256 "767f04c1b36b859e0f53300216f607db99c5bebfb678295679cca110b24d1f64" => :yosemite
+    sha256 "9de99047b806fa9c1235c49e63987c320de2ebc2c47bb1996e857edea9894fa8" => :mavericks
+    sha256 "94d3635a7f03038733a86aac846693d0975f0891adb40b42b821e20ba468d106" => :mountain_lion
   end
 
   option "with-embossupdate", "Run embossupdate after `make install`"

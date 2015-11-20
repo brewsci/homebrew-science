@@ -7,9 +7,9 @@ class Masurca < Formula
   sha1 "3598f0b9580bd7518e09db173ada700b5e241b74"
 
   bottle do
-    sha1 "a23d26fbcd3de3975da85a3c3a7efba9c16845de" => :yosemite
-    sha1 "480a1a8842f554b6e862f2073d791f3449877218" => :mavericks
-    sha1 "6f76d1e0f4896e710f52a6f632c626766d1bf244" => :mountain_lion
+    sha256 "6f9032aa22d92cd3c2f182e6362bd56a6f1abfe44bc37905d09ed6319ee1f07e" => :yosemite
+    sha256 "43e1abe110050b864613afa735bbca7870067ab91f434b7317d31063de2816c6" => :mavericks
+    sha256 "be9c9590c280d56aba63e0c63244564c261efdc67cf35c4f46ff1b0022bfd3f6" => :mountain_lion
   end
 
   fails_with :clang do

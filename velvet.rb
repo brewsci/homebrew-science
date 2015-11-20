@@ -4,9 +4,9 @@ class Velvet < Formula
   sha1 "216f0941609abf3a73adbba19ef1f364df489d18"
   bottle do
     cellar :any
-    sha1 "ecf378cb7ed8b9b566c3f0f1049083c6b83ea4af" => :yosemite
-    sha1 "ebf96b199d156ed982d4adbf8609fe664db7b9a7" => :mavericks
-    sha1 "a20d3967da762fcb77bef5530b80ad8634de4dd3" => :mountain_lion
+    sha256 "23c3dbe996eead11507bad1f51fd499c2165d21927fb71812d21da1e4f38669d" => :yosemite
+    sha256 "f37e358add021cf9b8b6f9d6eb3f59b41f95c851caa57412d2314347ae8ba7e7" => :mavericks
+    sha256 "f0b135f0ef7da58a0b0e396d90e3b96049ebd250ca76e5d081dceddcee1685c9" => :mountain_lion
   end
 
   #doi "10.1101/gr.074492.107"

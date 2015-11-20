@@ -8,9 +8,9 @@ class Minia < Formula
 
   bottle do
     cellar :any
-    sha1 "34f0ed9d3fda6e77e8599243c76b170173d278d5" => :yosemite
-    sha1 "f7b5951bed434296fe0e0b5c81860968c5ef25ce" => :mavericks
-    sha1 "0c481c6b6d53590a695c87542ad1428584d317f8" => :mountain_lion
+    sha256 "d7ad9d373defc2a515d26b1f583e936b035e724b41f1590171cdcd9e462b2a37" => :yosemite
+    sha256 "b774c469fa25cd621b0bf12109c3fee1c93473e4bd3e2ef4686b4fa73bb5e910" => :mavericks
+    sha256 "5858e2410ed92dd870e30e2d1ac8f373812ca472a7e3bd5d84ff5a05fd7249aa" => :mountain_lion
   end
 
   def install

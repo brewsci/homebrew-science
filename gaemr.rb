@@ -7,9 +7,9 @@ class Gaemr < Formula
 
   bottle do
     cellar :any
-    sha1 "f00e97db2e69268acafc58e44b8840e011ef788b" => :yosemite
-    sha1 "8a6d07f2d64bf496a851b03663f238d0ccdce379" => :mavericks
-    sha1 "3212881a78c9a4ac17c7f5d462c5c44e60323f13" => :mountain_lion
+    sha256 "95b6230d77b727f963437e3066b2c024054fea6087f145c946c8bcb47316999b" => :yosemite
+    sha256 "afb3ea09dea99f67b72f3395ad81dc3b369cb7c0b2ef29dafe9127b22585b36e" => :mavericks
+    sha256 "15139afc47141dfd4df15b9ad8f75b6801624b26fadd63be6b5bbd61b7657fda" => :mountain_lion
   end
 
   def install

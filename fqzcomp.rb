@@ -9,9 +9,9 @@ class Fqzcomp < Formula
 
   bottle do
     cellar :any
-    sha1 "aa5291bcf4d404845336542ba27471465bafb3ce" => :yosemite
-    sha1 "f9eebf34264c2d8ae4834db317c418ea05ea9e8f" => :mavericks
-    sha1 "53d2378664bc0dfceb31388d4fb4dad9093751f2" => :mountain_lion
+    sha256 "0881cb14d38d9332f38fbce082468ac1276e9d82ca5ac5d99e4473420079d8b5" => :yosemite
+    sha256 "ea9897a175a698b9bee04613af8a76f980c0b0e65ae8e755c6a40b3fd85ef0fc" => :mavericks
+    sha256 "6fbd97cc5f69d03805e703ed1f6a9b2d49f9eccf8afa8955368a5f45fd9f32f4" => :mountain_lion
   end
 
   def install

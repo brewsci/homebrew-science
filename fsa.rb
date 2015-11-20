@@ -8,9 +8,9 @@ class Fsa < Formula
 
   bottle do
     cellar :any
-    sha1 "de201cdf3bb5b3fec6e517993e977de341c54a92" => :yosemite
-    sha1 "03486aadcae599e5846fa94b13887e85c5d1ee12" => :mavericks
-    sha1 "f443a3d8b8fc5c35256cd4409df1ffc2d7a8f5c0" => :mountain_lion
+    sha256 "2c1b0de0c38480c7818db3c032c79f818e20dae1035da6ac138fdb14f1454e93" => :yosemite
+    sha256 "771dd32750e74a3e94215693b8fa2c14e79a3ed5641c7016075b3da67999a434" => :mavericks
+    sha256 "32753a10cdcfe7650670170c245ba19535946cbc617f402258ab934016b00d63" => :mountain_lion
   end
 
   depends_on "mummer" => :recommended

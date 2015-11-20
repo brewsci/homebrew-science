@@ -10,9 +10,9 @@ class Bfc < Formula
 
   bottle do
     cellar :any
-    sha1 "4c85ff047fca62de9e3646aacd39c06e693f3078" => :yosemite
-    sha1 "7e55239986b9e61182f1517e2eacc65f6e794406" => :mavericks
-    sha1 "b010673d74808cca9da124e1e0792a4e1fb19e4e" => :mountain_lion
+    sha256 "4da661a1190e514638bb6d38fb83b54970ff3995d79e868fb9392e644fdb2b1d" => :yosemite
+    sha256 "595fb5c808860401c561628103f34d2c7338884dfa9c99a232fb222936e5e8ea" => :mavericks
+    sha256 "d04cf428537c4b351c4c91e500f1b1e446d0c5359fae6e61ef2bbbbcaed2771e" => :mountain_lion
   end
 
   def install

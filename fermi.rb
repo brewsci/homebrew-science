@@ -9,8 +9,8 @@ class Fermi < Formula
 
   bottle do
     cellar :any
-    sha1 "16c506171d368f987101a2c359db1531afb3e882" => :yosemite
-    sha1 "4ba4cd1501553930efcddd24d14ce84656f34569" => :mavericks
+    sha256 "4ad67cf62a8e1a20ab3fe935ed5646d233c0e23e88d590d6f95232784709e5c5" => :yosemite
+    sha256 "a2240c62dc918a11afd442021f88486f0c95a54767474e791a7cbde6485cf827" => :mavericks
   end
 
   def install

@@ -10,9 +10,9 @@ class Augustus < Formula
 
   bottle do
     cellar :any
-    sha1 "4950105f9950e28ea862bc0c3158707ba2d41f31" => :yosemite
-    sha1 "8200186f17826e50584c67cd58ed0bd0cf5db15f" => :mavericks
-    sha1 "7a31858172f66f0f9d3ccfae8a3d76af34b620d3" => :mountain_lion
+    sha256 "de3e868755c82d7e8e51a2fc2905b6c25706f7d9b9862ef14fadd674456777a5" => :yosemite
+    sha256 "38dc89023a148892624c4e7359d424a0ce1a2f20a4ab3f960ddc05b870a32278" => :mavericks
+    sha256 "d070713a12c97bbe7d975c7cbc0260bb5c315e9e23607fd3f63070fea1050c41" => :mountain_lion
   end
 
   depends_on "boost" => :recommended # for gz support

@@ -3,9 +3,9 @@ class Express < Formula
   head "https://github.com/adarob/eXpress.git"
   bottle do
     cellar :any
-    sha1 "1ab122db4fa3af3e8e9d93e49702c1a1aa75a249" => :yosemite
-    sha1 "3e17818affce1700e88a1d0934be13d76e4241ae" => :mavericks
-    sha1 "6d648767ea1dd5fc3eb45ded0389b8c9eb4ad8b3" => :mountain_lion
+    sha256 "d30e4483050d6994866db4e3666db2d0835768ef01d606f39cd18cc776e2f6e2" => :yosemite
+    sha256 "e3936ddbf9cf14fbdb9654bf7b1fe92d0fd05452ab50b16e462a5a70c5704b47" => :mavericks
+    sha256 "139f8bd643e922f7703d032d27925a049dda3b926c715ac371989e519d047af8" => :mountain_lion
   end
 
   #doi "10.1038/nmeth.2251"

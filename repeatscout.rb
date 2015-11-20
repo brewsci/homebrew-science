@@ -8,9 +8,9 @@ class Repeatscout < Formula
 
   bottle do
     cellar :any
-    sha1 "99cab9bddcdc39c7e0e7aca2cdb4c850bf64c460" => :yosemite
-    sha1 "cef581a1b57c329eb1730dc1b669ae86005fcc7f" => :mavericks
-    sha1 "51ba7be2837631c8748bfab9d06e63f1cca3756f" => :mountain_lion
+    sha256 "3736ad2e736c526c1b485d84fd59aaf644d371d9718fdb7ccafe59efcdbd11f4" => :yosemite
+    sha256 "f77ed5e45329577b5042585d0811f6bfc42771c07c14606b5f93502967463719" => :mavericks
+    sha256 "3d2fbc43ac051ac3ffe8c699b4cb702fc8841440985bb720925595c24d99b378" => :mountain_lion
   end
 
   depends_on "trf" => :optional

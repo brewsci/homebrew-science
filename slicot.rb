@@ -9,9 +9,9 @@ class Slicot < Formula
 
   bottle do
     cellar :any
-    sha1 "e0e4a0778475c65552e3da2891df7b11b198e5e0" => :yosemite
-    sha1 "c92aff9daacbedaa31a71abbb0d38911e7fc2f2d" => :mavericks
-    sha1 "c5ff979aad3b5f0164789bf5cba02787ca8acdd5" => :mountain_lion
+    sha256 "96e0edf82f910089e19ecedd8b4c68c233cfb505e14f1f93d63d3474ccee7f81" => :yosemite
+    sha256 "850b2352c760558f54833101524127ab14ee928a3e844224e888d9893f991b68" => :mavericks
+    sha256 "af13b9a9543b1a2f6d74aa1776dd1d3b72a2a28e7112098300c93c176a92dc10" => :mountain_lion
   end
 
   option 'with-default-integer-8', 'Build with 8-byte-wide integer type'

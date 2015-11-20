@@ -10,9 +10,9 @@ class GmapGsnap < Formula
   sha1 "775e427e8747a3348adfc7caecf720bcd6c26f58"
 
   bottle do
-    sha1 "50861e3482efc2e6dbd301bc006db9ab75656e08" => :yosemite
-    sha1 "37c897f1c50bc3186d468b2e4780b93490c8c1a5" => :mavericks
-    sha1 "4e2c7e4d63d1873714c1d89a0c20ca2c82501e40" => :mountain_lion
+    sha256 "0686ca5e5ee73d8843f87639739441a7cc3114d25c192b480e8c2d30ee9f7f3e" => :yosemite
+    sha256 "7b81377c26c58fe54ab12b9e029860aeb83d5c81f906afa496b572f4ea1b68c8" => :mavericks
+    sha256 "35abe7c62b228386cf2523311c5106838b3ab8bd294317a816402347cbd07194" => :mountain_lion
   end
 
   depends_on "samtools"

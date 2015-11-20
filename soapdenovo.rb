@@ -14,9 +14,9 @@ class Soapdenovo < Formula
 
   bottle do
     cellar :any
-    sha1 "a7a895850e20c67f85cb5691902805653de54690" => :yosemite
-    sha1 "08865280b912d9faec1447a6ef3442612807ddac" => :mavericks
-    sha1 "b42f2e0414e808fff93aa8c820ae5069cb2fef57" => :mountain_lion
+    sha256 "7405aab339c273e5384daf5e4b5022d326794b613a72a82e3dd51213f57e4d51" => :yosemite
+    sha256 "5e50ec67bd196042344214132ba175648f8b4140f069245b79551a7d770565e2" => :mavericks
+    sha256 "76c9e5c7ec9fb90ba94711b478a0b26a474fb91abff549d4efcaddc5120ba931" => :mountain_lion
   end
 
   # Fix undefined reference to `call_pregraph_sparse'

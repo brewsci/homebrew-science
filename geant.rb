@@ -6,9 +6,9 @@ class Geant < Formula
   sha1 'd888b992b789a0d0e0a1a13debc9a51dae5e3743'
 
   bottle do
-    sha1 "4cbef3a10978ba3cbbd869415359291369cb4219" => :yosemite
-    sha1 "0024b1c66a2a725f051d040212549ab040535fae" => :mavericks
-    sha1 "b3f7a2bff728e0f54b6186ef92ce6837253c3d45" => :mountain_lion
+    sha256 "1bed04e6dd00d665eab93c3625584790f1ad0a4c2a7d8f5fcd226c99833ebc08" => :yosemite
+    sha256 "c9ef2ae73e124f50645740808f5174c408c903b844c4a845b551313869a70649" => :mavericks
+    sha256 "0c36ec55ff66582e12e1c3e09606d0e4336d82f5a3ee7e956c80d33123569e48" => :mountain_lion
   end
 
   option 'with-g3tog4', 'Use G3toG4 Library'

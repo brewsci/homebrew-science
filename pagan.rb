@@ -9,9 +9,9 @@ class Pagan < Formula
 
   bottle do
     cellar :any
-    sha1 "c3930ba3305619525c4214c17aca22dc9ec0bd22" => :yosemite
-    sha1 "9db9d0ac080e7e45c758518c596dd26b2b1e7046" => :mavericks
-    sha1 "cdae8f3c2540d80064133158fcbc2c49c32a7674" => :mountain_lion
+    sha256 "6bfda1f2930af90ec8dd592164b131f5dd1b9459841f41f6b653068119dbd9d9" => :yosemite
+    sha256 "1115201aea338ffe4c5b1c09fde8f9864824400a4723713e33cd8297e141e88c" => :mavericks
+    sha256 "4a3c7bdeb917885814d55e3e1d221e40eb78f1e91e94c3f99eff805181012d6b" => :mountain_lion
   end
 
   head "https://code.google.com/p/pagan-msa/", :using => :git

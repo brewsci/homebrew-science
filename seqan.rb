@@ -8,9 +8,9 @@ class Seqan < Formula
 
   bottle do
     cellar :any
-    sha1 "26f7482ddf437875f0254d75887e0a088c545c4f" => :yosemite
-    sha1 "bfcd857c0b28f56770ea87b9cbada300c944787c" => :mavericks
-    sha1 "d2df35b6b75cac64ab4b9fcb772a477d16c52c75" => :mountain_lion
+    sha256 "8a50bc2fa2e67c89d5c2c814704f220f872f982c8a9f4a7a04d87c7d5e2d2d98" => :yosemite
+    sha256 "9a9685648e15afb2b68faf5227d7891e3c5c190fe18cdfe7f3f10991e98e5a71" => :mavericks
+    sha256 "a2d63a2ba6e9eb3a541fd6714bc504a810be5e134220d6444b1c6bd1fce39c1b" => :mountain_lion
   end
 
   devel do

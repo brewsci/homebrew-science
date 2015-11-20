@@ -9,9 +9,9 @@ class SnapAligner < Formula
 
   bottle do
     cellar :any
-    sha1 "1156de4f5ae32546089cf7d7959ced5dd84d766f" => :yosemite
-    sha1 "1222129ca847bce9e868afc049a6133d099233ab" => :mavericks
-    sha1 "50834c97faf37fd27d1f3361567b86c215f0388a" => :mountain_lion
+    sha256 "bdb7de8593f0f83ace9e11423cf87636be7dd183fdcbf9e39829f444aa1c4a63" => :yosemite
+    sha256 "20aea132585381f4594d1f825eaf10daa162155d2b0f2b5c19d9623561ab8026" => :mavericks
+    sha256 "de30d5c47495d05ba11c32114adbbf21fdab5bea9a1f80ac281e43579a2a3fcf" => :mountain_lion
   end
 
   conflicts_with "snap", :because => "both install bin/snap"

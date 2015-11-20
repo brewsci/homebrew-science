@@ -6,9 +6,9 @@ class Symphony < Formula
   sha1 'be97382f63e31ea8b8d6ff428f85abbadca414c0'
 
   bottle do
-    sha1 "ce7b24cbb3101c579f7364b314ee5ca73617f859" => :yosemite
-    sha1 "4780a63b393c7943ed60a8d17f608c46b638bcc4" => :mavericks
-    sha1 "6dc67ce005937e10991ac7f0613ae70bd191970f" => :mountain_lion
+    sha256 "f04fc061bc7a9482ed88057fee10ad75de10e5ec3412b19ca6d15a40f3e8fd28" => :yosemite
+    sha256 "82ac8295c28e5a87f9ce8661ad04426971adc6ebd44f53487fab45446429af46" => :mavericks
+    sha256 "9696eb5df65c0f53cb2336949488d431e38d06e0ea2160b052b7d427e0be4f0b" => :mountain_lion
   end
 
   option "without-check", "Skip build-time tests (not recommended)"

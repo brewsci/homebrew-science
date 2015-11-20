@@ -8,9 +8,9 @@ class Pear < Formula
 
   bottle do
     cellar :any
-    sha1 "03273d7ee8328f621c153db9694cfc777d259023" => :yosemite
-    sha1 "216efd5def8ba3ad843bb0ccc290e7120a4a0605" => :mavericks
-    sha1 "27393ec465f041f174b433fcfe60d41949b0eb2c" => :mountain_lion
+    sha256 "a41b6229ea725bf74c1c6cf2383f55d21b91cd98197f441ca9c7ec6f0fa1416f" => :yosemite
+    sha256 "d23c4c17880e9eef24ce46c2ab55662e59ec0bf69da43be96fd19158c7001efc" => :mavericks
+    sha256 "426c5620df6007bfe8ea65181ebcfecf4b0f63cb657e346296af21a994e88d7e" => :mountain_lion
   end
 
   def install

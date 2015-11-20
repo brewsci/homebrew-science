@@ -9,9 +9,9 @@ class Kmc < Formula
   head "https://github.com/marekkokot/KMC.git"
 
   bottle do
-    sha1 "372e4be330575a56c2fcf97b3b687d6a52921d2f" => :yosemite
-    sha1 "7875e23b857d2517090bfef5ee7db7c454d2d0e9" => :mavericks
-    sha1 "e6c87b894020a6f386d18828c494832ca7a0b6db" => :mountain_lion
+    sha256 "8e98b0fd8cf4350644dfb0e42e7060fbb114123972cb3544c1184dd67c1ee4c1" => :yosemite
+    sha256 "5ef5c6c845fb245e816d8a64a6e1bc23d917c4e39192bea512fcbd106879049a" => :mavericks
+    sha256 "2caba540c74441882decaf5117b1b072a0e3fb927cd16eb4ab29802746088334" => :mountain_lion
   end
 
   fails_with :clang do

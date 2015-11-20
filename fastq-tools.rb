@@ -7,9 +7,9 @@ class FastqTools < Formula
 
   bottle do
     cellar :any
-    sha1 "5850c1fbf7847d0158bb7577bd0f2b587c847ba8" => :yosemite
-    sha1 "78d9148bca44a47567599e5fecfe5876d60b7242" => :mavericks
-    sha1 "6ef44b63c4fbb3b488b843211d913bc66be635fa" => :mountain_lion
+    sha256 "e86ffa61e35cbd3b14228a6183b3c472323c6752d47c2586cd41516a6f5c9d6e" => :yosemite
+    sha256 "ee21d34a811b294d11b809bdd22abbdf5cb5b0c7ed855d74592565f9c9c40c04" => :mavericks
+    sha256 "b9f6d5213d969eafadfd1d82171a296c145a67afc70f758445e919a2ea31e56a" => :mountain_lion
   end
 
   depends_on "pcre" => :build

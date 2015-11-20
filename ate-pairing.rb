@@ -8,9 +8,9 @@ class AtePairing < Formula
 
   bottle do
     cellar :any
-    sha1 "f7a8169f159ab719bdee92687fc5ccde8173ce20" => :yosemite
-    sha1 "5b7964a28e436acfb7f2f4eda408f7026cd84b66" => :mavericks
-    sha1 "61223ad0e003f5a529c4227dd7212c94109d0afe" => :mountain_lion
+    sha256 "ad541d7df1098a90e8adb0a7073b5389959981a200a47866af07d6c000484378" => :yosemite
+    sha256 "f6bc288cf0726b9364264cc973cb0307105d8f3e6bbd3c1df5c3d617d9e52049" => :mavericks
+    sha256 "922f1755e308635d75f7e3903a5191db5074a46da82bf51ecd533367f435b455" => :mountain_lion
   end
 
   depends_on "xbyak"

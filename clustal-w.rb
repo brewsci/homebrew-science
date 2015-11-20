@@ -7,9 +7,9 @@ class ClustalW < Formula
 
   bottle do
     cellar :any
-    sha1 "60bf60642a075b54773032eca33594f01cd92a4c" => :yosemite
-    sha1 "38c7402db59638e80c44384c94106266bdb427e5" => :mavericks
-    sha1 "42f9faaf5f18d12dc7ac0aa269c36b580dbdfd24" => :mountain_lion
+    sha256 "ef44d6ac0ab51dd705f7f2d2db063e8fb4f50db62d7b069df5af31be0ea05f0a" => :yosemite
+    sha256 "c8f563b09a7d8485d71a4f37305fb33cdb349b4d6a0ac581d874f4be5316f56a" => :mavericks
+    sha256 "f4d47e253c85b70a23c4c04610370e8ed038a4e7a8758a2de576ce048a4c076a" => :mountain_lion
   end
 
   fails_with :clang do

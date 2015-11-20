@@ -8,7 +8,7 @@ class Htqc < Formula
 
   bottle do
     cellar :any
-    sha1 "fde8f0db51fa002e1b32fec422a74aaa120952f3" => :mountain_lion
+    sha256 "b42757b18f72a208aeed15d40d1532045327bbc2198dfc86449c689ac30ea6a0" => :mountain_lion
   end
 
   depends_on "cmake" => :build

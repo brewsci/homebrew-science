@@ -9,9 +9,9 @@ class AbyssExplorer < Formula
 
   bottle do
     cellar :any
-    sha1 "054c74139e044f50d8bf05c7a08b2a8c8628c700" => :yosemite
-    sha1 "8f12e9d104f5c43f87690d81230cd922e1766aaf" => :mavericks
-    sha1 "d0065aca6f517ddd003f6c94b25f79ca9af7c731" => :mountain_lion
+    sha256 "137b53b687eda6799a2cd2d36c6ac71b10c430e95340a89805f0cf3b4aada01b" => :yosemite
+    sha256 "f8939d4e7d31f8f8e8c8167761760276bd4bfbc9aa3ae9885e76a977c1d19f37" => :mavericks
+    sha256 "b22ed1f840798813fb9e405cbc6047ca50d5aa3fe967da228d33c80d6bef4606" => :mountain_lion
   end
 
   def install

@@ -10,9 +10,9 @@ class Snap < Formula
 
   bottle do
     cellar :any
-    sha1 "c7973c56253ee5bd6208a563aad10004e82fe220" => :yosemite
-    sha1 "4ff738f010788c7cee6eba6a3e1a571d970239bf" => :mavericks
-    sha1 "27a4a9373fe3559494d63331bda09dc8308c89ea" => :mountain_lion
+    sha256 "c0ec159c4a9c5bddeb57fb42decf22d40cc0070f6f7c15b5be6977410a068721" => :yosemite
+    sha256 "905b52ab0dbf8f2244b8441d1c7c1996e6533eadc765ed8deab1dc36046c97d1" => :mavericks
+    sha256 "64f63ceb2d5f6423ea4499c317d6b49c3608da0b55fca35e0bce8197872a7d7c" => :mountain_lion
   end
 
   def install

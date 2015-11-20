@@ -8,8 +8,8 @@ class Jellyfish < Formula
 
   bottle do
     cellar :any
-    sha1 "53dbef087576fc418756cc39332679f5e58b8fef" => :yosemite
-    sha1 "4dc0a43a6c61044bef1822fb29481a4a6d19921e" => :mavericks
+    sha256 "75f57f9a63419534a599fcbdd10ab713f675dc7f37a756afccde8162248cb3c9" => :yosemite
+    sha256 "988ccb01c6684d250833bc7f0d9efada791675b352138e615b74eb3817bd8f14" => :mavericks
   end
 
   head do
