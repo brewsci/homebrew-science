@@ -7,9 +7,9 @@ class Parmetis < Formula
 
   bottle do
     cellar :any
-    sha256 "97d9155206582f0005bcc622d8a397fdc57f6c5e853d41cf2600e315e367a679" => :yosemite
-    sha256 "7b600352e2d137de385d6fd436d9ef1410d73c28ca069b1079377125ef414ead" => :mavericks
-    sha256 "071cf81ba1611fa0a3b2fb9383308cfe8c79c3cbacfd958f5ffc0cba3199b8d1" => :mountain_lion
+    sha256 "967a563f05aaaeb48c4e9c0765d05f0ae7bd0425fc2f6040174cf2130665db5e" => :el_capitan
+    sha256 "972766895eeaf0bbfce48c7190c9ca2972dc86272ff87620048dbfcc6bc74eb3" => :yosemite
+    sha256 "03778d7e559c0a2a8d3c54d2f23d26517218791de24f076b8154473f537bde6e" => :mavericks
   end
 
   # METIS 5.* is required. It comes bundled with ParMETIS.
