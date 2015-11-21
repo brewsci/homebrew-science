@@ -1,7 +1,9 @@
 class Ticcutils < Formula
+  desc "Tools for the TiCC Software Stack"
   homepage "http://ilk.uvt.nl/ticcutils/"
   url "http://software.ticc.uvt.nl/ticcutils-0.7.tar.gz"
   sha256 "8a72b78da8f69fb09b83f032dffffc636a985fe266c9e8aca6d2a69ba49ec4f9"
+  revision 1
 
   bottle do
     cellar :any
@@ -19,4 +21,3 @@ class Ticcutils < Formula
     system "make", "install"
   end
 end
-
