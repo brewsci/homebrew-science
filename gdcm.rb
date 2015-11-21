@@ -1,9 +1,8 @@
-require "formula"
-
 class Gdcm < Formula
+  desc "C++ library for DICOM medical files"
   homepage "http://sourceforge.net/projects/gdcm/"
   url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.4.4/gdcm-2.4.4.tar.bz2"
-  sha1 "4b77a857cf8432da72140a5e7d20f78c091ee019"
+  sha256 "c5cd2f43a16180f5a9ecd5211bf214971b0620e9d9e027c2e11a89c4ce7d5b1f"
 
   bottle do
     sha1 "e568685ac9b074e9d011572ec1c44739e222285b" => :yosemite
@@ -16,13 +15,13 @@ class Gdcm < Formula
   depends_on :python3 => :optional
 
   option :cxx11
-  cxx11dep = (build.cxx11?) ? ['c++11'] : []
+  cxx11dep = (build.cxx11?) ? ["c++11"] : []
 
   depends_on "cmake" => :build
   depends_on "vtk" => [:optional] + cxx11dep
-  depends_on "swig" => :build if build.with? "python" or build.with? "python3"
+  depends_on "swig" => :build if build.with?("python") || build.with?("python3")
 
-  if build.with? "python" and build.with? "python3"
+  if build.with?("python") && build.with?("python3")
     raise "Recipe may only be installed for one python type."
   end
 
@@ -39,13 +38,13 @@ class Gdcm < Formula
     mkdir builddir do
       args = std_cmake_args
 
-      if build.with? "python" or build.with? "python3"
+      if build.with?("python") || build.with?("python3")
         python_executable = `which python`.strip if build.with? "python"
         python_executable = `which python3`.strip if build.with? "python3"
 
-        python_prefix = %x(#{python_executable} -c 'import sys;print(sys.prefix)').chomp
-        python_include = %x(#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))').chomp
-        python_version = "python" + %x(#{python_executable} -c 'import sys;print(sys.version[:3])').chomp
+        python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
+        python_include = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp
+        python_version = "python" + `#{python_executable} -c 'import sys;print(sys.version[:3])'`.chomp
         py_site_packages = "#{lib}/#{python_version}/site-packages"
 
         args << "-DPYTHON_EXECUTABLE='#{python_executable}'"
