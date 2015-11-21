@@ -1,11 +1,13 @@
 class Bowtie2 < Formula
-  desc "A fast and sensitive gapped read aligner"
-  homepage "http://bowtie-bio.sourceforge.net/bowtie2/index.shtml"
+  desc "Fast and sensitive gapped read aligner"
+  homepage "http://bowtie-bio.sf.net/bowtie2"
   # doi "10.1038/nmeth.1923"
   # tag "bioinformatics"
-  head "https://github.com/BenLangmead/bowtie2.git"
+
   url "https://github.com/BenLangmead/bowtie2/archive/v2.2.6.tar.gz"
-  sha256 "fb4d09a96700cc929e8191659ee8509bb2f19816235322d1f012338d4a177358"
+  sha256 "06d584040d9ce457873c59e4a5889aafe1a5f74ada207793335765d7abdf4eeb"
+
+  head "https://github.com/BenLangmead/bowtie2.git"
 
   bottle do
     cellar :any
