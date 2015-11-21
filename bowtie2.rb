@@ -11,10 +11,10 @@ class Bowtie2 < Formula
 
   bottle do
     cellar :any
-    revision 2
-    sha256 "37b74fb989023ccec2344ecde15892e511d3c28d5819b439f4f6acc2dc39e458" => :yosemite
-    sha256 "46407326318fda1e49ee283b8a243b342ce446cf85052ce14630d3f59b88eced" => :mavericks
-    sha256 "5fbb47b87602baf9b14897fc0c36e57462dc60ad962963bcb6f8631c4dc823a6" => :mountain_lion
+    revision 3
+    sha256 "54cb5f64f7bb31735197f87f256831bd896fecccf160ce215ede93f729fe45c1" => :el_capitan
+    sha256 "3e7bc98fbe7b8a6987f85b8006977fa6d1a8a34b442ab3a49371e303d0798055" => :yosemite
+    sha256 "358d4b70caddb0feec272674c5f290bf082165fd785c5f7e203ef1fffa70f730" => :mavericks
   end
 
   option "without-tbb", "Build without using Intel Thread Building Blocks (TBB)"
