@@ -7,9 +7,9 @@ class Ticcutils < Formula
 
   bottle do
     cellar :any
-    sha1 "5e8c69c62810db58504dd2fd60c4d4d39929d87f" => :yosemite
-    sha1 "307d320bb730deeaf83d452619e043d0ac0bde88" => :mavericks
-    sha1 "336da8cc03521e25d220b56f722f6e7a4a8ab303" => :mountain_lion
+    sha256 "ab116db5f7cc8455f1c5d9bd0034577d6eccd9f9133ba418e4a21c6cb795242f" => :el_capitan
+    sha256 "1c71bee71cf797698a4df8f1041a02f7e8e20af3dda77efedc0c4cf6790b21c3" => :yosemite
+    sha256 "eea831350727ba0a45381dba98aaae0afea8777c56cb144f52e10c5f3ed85842" => :mavericks
   end
 
   depends_on "pkg-config" => :build
