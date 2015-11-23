@@ -10,9 +10,9 @@ class Root6 < Formula
   head "http://root.cern.ch/git/root.git"
 
   bottle do
-    sha256 "1d1e1498b6608a91936c461338257f29f764c5173dd17ec7c69ed65cc7101e78" => :el_capitan
-    sha256 "e0d6204bf4503e615fb719e52ab5e4c6fff4b11d7098caf9d2cd6ef75b50d46b" => :yosemite
-    sha256 "ef90454ed29290b737c6dfb58c8c26af829ac528dedb09af9266816b595b3eef" => :mavericks
+    sha256 "3976822023880057302d6f43b847fcb74857a63774ee1a8fee0bc85a0a9c6ca6" => :el_capitan
+    sha256 "e1b816d116df2b614588fb685f8337a3e3815bfba8c02b05c8691bfacf3a2447" => :yosemite
+    sha256 "860ec8ec1ceb41b9ba91a9e878c3530e01c6e25a4d27a059a502da7bf6eb1dc1" => :mavericks
   end
 
   depends_on "xrootd" => :optional
