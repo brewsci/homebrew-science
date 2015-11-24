@@ -1,17 +1,10 @@
 class Octave < Formula
-  desc "a high-level interpreted language for numerical computations."
+  desc "high-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
   url "http://ftpmirror.gnu.org/octave/octave-4.0.0.tar.gz"
   mirror "https://ftp.gnu.org/gnu/octave/octave-4.0.0.tar.gz"
   sha256 "4c7ee0957f5dd877e3feb9dfe07ad5f39b311f9373932f0d2a289dc97cca3280"
-  head "http://www.octave.org/hg/octave", :branch => "default", :using => :hg
-  revision 2
-
-  bottle do
-    sha256 "580ef2f37c3851f77be3dd6a27ba8f594518d5f44dde169777dc9b9684076e9d" => :el_capitan
-    sha256 "1aadadbb4b39bc6bbdb473b46d432f7653f1b51f4d076c414b8114eb2eae4457" => :yosemite
-    sha256 "54bbe026936716ab16ad62f05ffd3fa0502d41520cc69d2553c74368e818b7f1" => :mavericks
-  end
+  revision 3
 
   stable do
     # Fix compilation of classdef with the clang compiler (bug #41178)
@@ -23,6 +16,12 @@ class Octave < Formula
     end
   end
 
+  bottle do
+    sha256 "580ef2f37c3851f77be3dd6a27ba8f594518d5f44dde169777dc9b9684076e9d" => :el_capitan
+    sha256 "1aadadbb4b39bc6bbdb473b46d432f7653f1b51f4d076c414b8114eb2eae4457" => :yosemite
+    sha256 "54bbe026936716ab16ad62f05ffd3fa0502d41520cc69d2553c74368e818b7f1" => :mavericks
+  end
+
   # Fix compilation of osmesa by exchangig the order of include
   # See: http://lists.nongnu.org/archive/html/octave-maintainers/2015-08/msg00001.html
   patch do
@@ -30,7 +29,7 @@ class Octave < Formula
     sha256 "3a7f72f76329e0f40857587e06a1a9074da320423a85a6821b6fbc46bde6140d"
   end
 
-  if MacOS.clang_version < "7.0"
+  if OS.mac? && MacOS.clang_version < "7.0"
     # Fix the build error with LLVM 3.5svn (-3.6svn?) and libc++ (bug #43298)
     # See: http://savannah.gnu.org/bugs/?43298
     patch do
@@ -43,6 +42,18 @@ class Octave < Formula
       url "http://savannah.gnu.org/bugs/download.php?file_id=31400"
       sha256 "efdf91390210a64e4732da15dcac576fb1fade7b85f9bacf4010d102c1974729"
     end
+  end
+
+  # dependencies needed for head
+  # "librsvg" and ":tex" are currently not necessary
+  # since we do not build the pdf docs ("DOC_TARGETS=")
+  head do
+    url "http://www.octave.org/hg/octave", :branch => "default", :using => :hg
+    depends_on "autoconf"      => :build
+    depends_on "automake"      => :build
+    depends_on "bison"         => :build
+    depends_on "fontconfig"
+    depends_on "freetype"
   end
 
   skip_clean "share/info" # Keep the docs
@@ -72,17 +83,6 @@ class Octave < Formula
   # build dependencies
   depends_on "gnu-sed"         => :build
   depends_on "pkg-config"      => :build
-
-  # dependencies needed for head
-  # "librsvg" and ":tex" are currently not necessary
-  # since we do not build the pdf docs ("DOC_TARGETS=")
-  head do
-    depends_on "autoconf"      => :build
-    depends_on "automake"      => :build
-    depends_on "bison"         => :build
-    depends_on "fontconfig"
-    depends_on "freetype"
-  end
 
   # essential dependencies
   depends_on :fortran
@@ -128,7 +128,7 @@ class Octave < Formula
     args << "--enable-link-all-dependencies"
     args << "--enable-shared"
     args << "--disable-static"
-    args << "--with-x=no"               if OS.mac? # We don't need X11 for Mac at all
+    args << "--with-x=no" if OS.mac? # We don't need X11 for Mac at all
 
     # arguments for options enabled by default
     args << "--without-curl"             if build.without? "curl"
@@ -149,7 +149,7 @@ class Octave < Formula
     args << "--with-portaudio"   if build.without? "audio"
     args << "--with-sndfile"     if build.without? "audio"
     args << "--disable-java"     if build.without? "java"
-    args << "--enable-jit"       if build.with?    "jit"
+    args << "--enable-jit"       if build.with? "jit"
     args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas" if build.with? "openblas"
 
     # arguments if building without suite-sparse
@@ -188,10 +188,6 @@ class Octave < Formula
 
     prefix.install "make-check.log" if File.exist? "make-check.log"
     prefix.install "test/fntests.log" if File.exist? "test/fntests.log"
-  end
-
-  test do
-    system "octave", "--eval", "(22/7 - pi)/pi"
   end
 
   def caveats
@@ -238,7 +234,7 @@ class Octave < Formula
       EOS
     end
 
-    if build.without?("osmesa") || ( build.with?("osmesa") && build.with?("opengl") )
+    if build.without?("osmesa") || (build.with?("osmesa") && build.with?("opengl"))
       s += <<-EOS.undent
 
       When using the the qt or fltk toolkits then invisible figures do not work because
@@ -269,5 +265,9 @@ class Octave < Formula
 
     s += "\n" unless s.empty?
     s
+  end
+
+  test do
+    system "octave", "--eval", "(22/7 - pi)/pi"
   end
 end
