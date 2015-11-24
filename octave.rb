@@ -17,9 +17,9 @@ class Octave < Formula
   end
 
   bottle do
-    sha256 "580ef2f37c3851f77be3dd6a27ba8f594518d5f44dde169777dc9b9684076e9d" => :el_capitan
-    sha256 "1aadadbb4b39bc6bbdb473b46d432f7653f1b51f4d076c414b8114eb2eae4457" => :yosemite
-    sha256 "54bbe026936716ab16ad62f05ffd3fa0502d41520cc69d2553c74368e818b7f1" => :mavericks
+    sha256 "789bf482df632b990dfa76f2195294acac5bd737e9e21e60f1a556b343f959f2" => :el_capitan
+    sha256 "7ab5d93d324aa8ed0ee3f42b4548ae6258f19152a5d7f682c2381ff57a029ed3" => :yosemite
+    sha256 "ef73c22b30cf0f21364196ff53e52850744bc2c9cf46e360e826756ecd05ec2b" => :mavericks
   end
 
   # Fix compilation of osmesa by exchangig the order of include
