@@ -6,9 +6,9 @@ class Gromacs < Formula
   sha256 "9316fd0be320e2dd8c048f905df5be115e1b230c4ca4f3a7ef5892a1fc0bc212"
 
   bottle do
-    sha256 "a3ad3a83daed226c2ab65bd96a92d40835eba9216845aac80ba620c616423ce9" => :yosemite
-    sha256 "3be648a5e2a5b005b4425e435332545c6da278b267811240892e61e6e5c9e4fa" => :mavericks
-    sha256 "fcf55dd607545c0bf40589d63dc7f5113a31679c98793c3201b00a2d9e7d7cc9" => :mountain_lion
+    sha256 "8a7b09bbb64edff8c203b6db0240c048f209e0c44053c9d25a36a45dea3cc98a" => :el_capitan
+    sha256 "aa22e73e1eb9a00c135979a3841820e569efbb2e235ef520a9370e1cc59152da" => :yosemite
+    sha256 "2371754e9219570eddae802ecdac677777ba8d79dd8072030845a649c7c20d58" => :mavericks
   end
 
   deprecated_option "with-x" => "with-x11"
