@@ -3,6 +3,7 @@ class Libfolia < Formula
   homepage "https://proycon.github.io/folia/"
   url "http://software.ticc.uvt.nl/libfolia-0.13.tar.gz"
   sha256 "a9fc9e475bb79629dc014cf7a78af64486c0f1bb902821ba2bb36c38c77a5d24"
+  revision 1
 
   bottle do
     cellar :any
