@@ -6,6 +6,7 @@ class Vislcg3 < Formula
   url "http://beta.visl.sdu.dk/download/vislcg3/cg3-0.9.9~r10800.tar.bz2"
   sha256 "c85446c671fdb55dc01bf6092dd32ccb05ad4e057563d5c4293ee2409df610ba"
   head "http://beta.visl.sdu.dk/svn/visl/tools/vislcg3/trunk", :using => :svn
+  revision 1
 
   bottle do
     cellar :any
@@ -21,6 +22,9 @@ class Vislcg3 < Formula
   option "without-check", "Disable build-time checking (not recommended)"
 
   def install
+    # Patch submitted to tino@didriksen.cc on 2015-11-27
+    inreplace "CMakeLists.txt", "share/emacs/site-lisp", elisp if build.stable?
+
     ENV["LDFLAGS"]  = "-L#{Formula["icu4c"].opt_lib}"
     ENV["CPPFLAGS"] = "-I#{Formula["icu4c"].opt_include}"
     system "cmake", ".", *std_cmake_args
