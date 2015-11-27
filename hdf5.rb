@@ -3,6 +3,7 @@ class Hdf5 < Formula
   homepage "http://www.hdfgroup.org/HDF5"
   url "https://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.16/src/hdf5-1.8.16.tar.bz2"
   sha256 "13aaae5ba10b70749ee1718816a4b4bfead897c2fcb72c24176e759aec4598c6"
+  revision 1
 
   bottle do
     sha256 "e8002d53436a27af893f5c666cc1b50c6a707065d81de401c36c78ed981cd730" => :el_capitan
@@ -22,6 +23,7 @@ class Hdf5 < Formula
   option "with-fortran2003", "Compile Fortran 2003 bindings (requires --with-fortran)"
   option "with-mpi", "Compile with parallel support (unsupported with thread-safety)"
   option "without-cxx", "Disable the C++ interface"
+  option "with-unsupported", "Allow unsupported combinations of configure options"
   option :cxx11
 
   depends_on :fortran => :optional
@@ -40,11 +42,11 @@ class Hdf5 < Formula
       --with-szlib=#{Formula["szip"].opt_prefix}
       --enable-static=yes
       --enable-shared=yes
-      --enable-unsupported
     ]
+    args << "--enable-unsupported" if build.with? "unsupported"
     args << "--enable-threadsafe" << "--with-pthread=/usr" if build.with? "threadsafe"
 
-    if build.with? "cxx"
+    if build.with?("cxx") && build.without?("mpi")
       args << "--enable-cxx"
     else
       args << "--disable-cxx"
