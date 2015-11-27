@@ -3,6 +3,7 @@ class Ucto < Formula
   homepage "http://ilk.uvt.nl/ucto/"
   url "http://software.ticc.uvt.nl/ucto-0.8.0.tar.gz"
   sha256 "d3de9886aac95b5eaa48c45a6f8e69e3bb0c350f1d827987e802f4a2ccbcd0bc"
+  revision 1
 
   bottle do
     sha256 "b6ef7f2f3927c57be81fa609a655a66dbe4d5846655b82b219aa3597429ed85b" => :yosemite
