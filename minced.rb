@@ -2,10 +2,10 @@ class Minced < Formula
   desc "Mining CRISPRs in Environmental Datasets"
   homepage "https://github.com/ctSkennerton/minced"
   bottle do
-    cellar :any
-    sha256 "52af6d39cf5c38d4be24c04a1febec2dea60e2725eb43b4594c8de816984058b" => :yosemite
-    sha256 "e702a38fc2a6c461369d297e66f1baa74a22e2ce2e37cedeeb48f49de9c7ea42" => :mavericks
-    sha256 "3fa76116539321ca84774df87972b08c54a810a59d86d5a9a5dba56abc8f0464" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "a216985fb9de6c65592a71c336ce839bcf6369a9be4555a0144e1ea10eaa78b5" => :el_capitan
+    sha256 "b2a6011525aeaeec87cb6585076aa6eb73b082af726560204be829381c5bed90" => :yosemite
+    sha256 "0fd88dba11618543b5862298780961df12d0e9cb6f353ffdc173004e8d403839" => :mavericks
   end
 
   # tag "bioinformatics"
