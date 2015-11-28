@@ -10,9 +10,9 @@ class Vislcg3 < Formula
 
   bottle do
     cellar :any
-    sha256 "ce6ef548649d6251d3b5d00b52c07cdb45115b45a97deb3d50bd7391cc9acf1d" => :yosemite
-    sha256 "4cd4219de2c35319635a427464c2d0128425c054e3d8cf3b8c8e577571b105e8" => :mavericks
-    sha256 "e40f0caec6e68ad7f37a2423f3be0a0a83c7971470dbc70568f8b7f95b8f4f4d" => :mountain_lion
+    sha256 "cd3a5d4bfc63abe80d3fc2cc01956f59fea8d8e5b7a43f7ccbd348aae8cee5b9" => :el_capitan
+    sha256 "195d4a7400c912e6722689a877d620a2aa6f3118f0ae5a9948df87da582a9d4e" => :yosemite
+    sha256 "993e515869d8326082a9ac9df18b7931620eb3dca0758aee8aaf2e3c9b9016de" => :mavericks
   end
 
   depends_on "cmake" => :build
