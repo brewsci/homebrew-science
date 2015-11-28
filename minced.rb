@@ -10,8 +10,8 @@ class Minced < Formula
 
   # tag "bioinformatics"
 
-  url "https://github.com/ctSkennerton/minced/releases/download/0.1.6/minced.jar"
-  sha256 "acccd14078a29fbd79d7848e080e28c4a1f1f8f799376b6de41f937bb2984f43"
+  url "https://github.com/ctSkennerton/minced/releases/download/0.2.0/minced.jar"
+  sha256 "8c908302b829b7e1b787742e1ef7a602f5d15ac40b4fc7a24208368b0c147038"
 
   # head "https://github.com/ctSkennerton/minced.git"
 
