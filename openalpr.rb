@@ -19,9 +19,10 @@ class Openalpr < Formula
   end
 
   bottle do
-    sha256 "ab144e27d4d0456b938169ca16590a2ac72b477dff6de05eb02220c431f19b49" => :yosemite
-    sha256 "40878f54d0fd1eeb1c2ea07534b52b6c782a5cc3a3223add2453ed7bfc4f9bd7" => :mavericks
-    sha256 "3a311bd4c4ac6fd12ad981289f9c4299eff01b156ead0dcece4109af4e86547e" => :mountain_lion
+    cellar :any
+    sha256 "2f8b651b195094ce021dbb10d9d45b515c9eae5c216f28cbedd8443f8cf67894" => :el_capitan
+    sha256 "02fbabd458b2bc003b41ef67ce265e2f3ebc1171c7aa725b4af8be56ff1accbc" => :yosemite
+    sha256 "e2ef55298ca2a38d0104c1e683f56ce4acbdc9d51a50d252e9a8f2e9d62e328c" => :mavericks
   end
 
   def install
