@@ -1,7 +1,7 @@
 class Openalpr < Formula
-  homepage "https://www.github.com/openalpr/openalpr"
-  url "https://github.com/openalpr/openalpr/archive/v1.2.0.tar.gz"
-  sha256 "ff8d7741c84b555d2569dd3ceb524e1d70fbd0b25769c5075079e977609de18d"
+  homepage "https://github.com/openalpr/openalpr"
+  url "https://github.com/openalpr/openalpr/archive/v2.2.0.tar.gz"
+  sha256 "44258a7b64a74ad773825f37ba0a77e07ee97fdb9cd1f4a45baede624524f20f"
 
   head "https://github.com/openalpr/openalpr.git", :branch => "master"
 
@@ -18,18 +18,6 @@ class Openalpr < Formula
     depends_on "beanstalk"
   end
 
-  stable do
-    # newer versions do not depend on ossp-uuid
-    depends_on "ossp-uuid"
-
-    # A partial backport of this pull request:
-    # https://github.com/openalpr/openalpr/pull/55
-    patch :p1 do
-      url "https://gist.githubusercontent.com/twelve17/460c57fbe732fd59dc6c/raw/b910f3f47f231408499d34f9e67ccbe96c5f5449/openalpr_1.2_cmakelists.patch"
-      sha256 "2718353d0349017f2167cec32b819db4bd76c0827c9346af549dd7b5e7deee5e"
-    end
-  end
-
   bottle do
     sha256 "ab144e27d4d0456b938169ca16590a2ac72b477dff6de05eb02220c431f19b49" => :yosemite
     sha256 "40878f54d0fd1eeb1c2ea07534b52b6c782a5cc3a3223add2453ed7bfc4f9bd7" => :mavericks
@@ -40,7 +28,9 @@ class Openalpr < Formula
     mkdir "src/build" do
       args = std_cmake_args
 
-      args << "-DCMAKE_MACOSX_RPATH=true" if build.head?
+      # v2.2.0 require CMAKE_MACOSX_RPATH
+      args << "-DCMAKE_MACOSX_RPATH=true"
+      args << "-DCMAKE_INSTALL_SYSCONFDIR=/usr/local/etc"
 
       if build.without? "daemon"
         if build.head?
