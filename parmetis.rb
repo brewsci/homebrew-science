@@ -25,12 +25,12 @@ class Parmetis < Formula
   # bug fixes from PETSc developers
   patch do
     url "https://bitbucket.org/petsc/pkg-parmetis/commits/82409d68aa1d6cbc70740d0f35024aae17f7d5cb/raw/"
-    sha256 "d72c9a656a33b6715cc1601a4a1a89944da00e9911b4ab2d3908d41a32dee31b"
+    sha256 "704b84f7c7444d4372cb59cca6e1209df4ef3b033bc4ee3cf50f369bce972a9d"
   end
 
   patch do
     url "https://bitbucket.org/petsc/pkg-parmetis/commits/1c1a9fd0f408dc4d42c57f5c3ee6ace411eb222b/raw/"
-    sha256 "11b909a346f4dd8ec73b17ecb0c7215524e3793e252c749bb3199e83fa294597"
+    sha256 "4f892531eb0a807eb1b82e683a416d3e35154a455274cf9b162fb02054d11a5b"
   end
 
   def install

@@ -21,7 +21,7 @@ class SuperluDist < Formula
   # fix duplicate symbols [mc64dd_,mc64ed_,mc64fd_] when linking with superlu
   patch do
     url "https://bitbucket.org/petsc/pkg-superlu_dist/commits/2faf8669a2ba20250ffe2d8a1b63d4f8ef8c5b74/raw/"
-    sha256 "09dcd7de83ef9d2590465742df76753cb7c61bfe8e7819c02613d9bcf20ed255"
+    sha256 "67e2966e1a9b4e3471374d1e720946c2ef34403d00e796767b51718e4d50604f"
   end
 
   def install
