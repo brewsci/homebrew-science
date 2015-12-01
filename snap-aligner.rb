@@ -1,10 +1,10 @@
 class SnapAligner < Formula
   homepage "http://snap.cs.berkeley.edu"
-  #doi "arXiv:1111.5572v1"
-  #tag "bioinformatics"
+  # doi "arXiv:1111.5572v1"
+  # tag "bioinformatics"
 
   url "https://github.com/amplab/snap/archive/v0.15.tar.gz"
-  sha1 "f104f35f4209554a43ccfc8c353bd71213791a64"
+  sha256 "bea0174c8d01907023494d7ffd2a6dab9c38d248cfe4d3c26feedf9d5becce9a"
   head "https://github.com/amplab/snap.git"
 
   bottle do

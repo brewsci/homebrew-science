@@ -1,9 +1,7 @@
-require "formula"
-
 class Lobstr < Formula
   homepage "http://lobstr.teamerlich.org"
   url "http://erlichlab.wi.mit.edu/lobSTR/lobSTR-3.0.3.tar.gz"
-  sha1 "1f1578e9d1c36eb7268037c977204152f5022361"
+  sha256 "eba806e9a8703109ea856db95f452e96ee8fb8d16b0db74276dabd98fea21955"
 
   option "without-check", "Disable build-time checking (not recommended)"
 

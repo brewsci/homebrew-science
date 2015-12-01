@@ -1,8 +1,8 @@
 class Flint < Formula
   desc "C library for number theory"
   homepage "http://flintlib.org"
-  #doi "10.1007/978-3-642-15582-6_18"
-  #tag "math"
+  # doi "10.1007/978-3-642-15582-6_18"
+  # tag "math"
   url "http://flintlib.org/flint-2.5.2.tar.gz"
   sha256 "cbf1fe0034533c53c5c41761017065f85207a1b770483e98b2392315f6575e87"
   head "https://github.com/wbhart/flint2.git", :branch => "trunk"

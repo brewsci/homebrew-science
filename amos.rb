@@ -5,7 +5,7 @@ class Amos < Formula
   # tag "bioinformatics"
 
   url "https://downloads.sourceforge.net/project/amos/amos/3.1.0/amos-3.1.0.tar.gz"
-  sha1 "28e799e37713594ba7147d300ecae6574beb14a4"
+  sha256 "2d9f50e39186ad3dde3d3b28cc265e8d632430657f40fc3978ce34ab1b3db43b"
 
   depends_on "blat" => :optional # for minimus2-blat
   depends_on "boost" => :recommended # for Bambus 2

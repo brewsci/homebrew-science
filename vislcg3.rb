@@ -33,7 +33,7 @@ class Vislcg3 < Formula
     if build.with? "check"
       Open3.popen3("./test/runall.pl", :err => [:child, :out]) do |_, output|
         output.read.each_line do |line|
-          fail line if line.start_with?("T_") && !line.end_with?("Success Success.\n")
+          raise line if line.start_with?("T_") && !line.end_with?("Success Success.\n")
         end
       end
     end

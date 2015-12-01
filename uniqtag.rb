@@ -1,12 +1,10 @@
-require "formula"
-
 class Uniqtag < Formula
   homepage "https://github.com/sjackman/uniqtag"
-  #doi "10.1101/007583"
+  # doi "10.1101/007583"
 
   head "https://github.com/sjackman/uniqtag.git"
   url "https://github.com/sjackman/uniqtag/archive/1.0.tar.gz"
-  sha1 "f507a3f61bc6abb6c992bae55b827b42d45be3bd"
+  sha256 "8ff0dd850c15ff3468707ae38a171deb6518866a699964a1aeeec9c90ded7313"
 
   def install
     system "make", "install", "prefix=#{prefix}"

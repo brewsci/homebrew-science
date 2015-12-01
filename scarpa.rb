@@ -1,12 +1,10 @@
-require "formula"
-
 class Scarpa < Formula
   homepage "http://compbio.cs.toronto.edu/hapsembler/scarpa.html"
-  #doi "10.1093/bioinformatics/bts716"
-  #tag "bioinformatics"
+  # doi "10.1093/bioinformatics/bts716"
+  # tag "bioinformatics"
 
   url "http://compbio.cs.toronto.edu/hapsembler/scarpa-0.241.tar.gz"
-  sha1 "f238d8ea418951754b0f37aad7f09c9cf00fc909"
+  sha256 "a5e71d63b8c828d4bd0ee081d1c5250ce25ffa52b4b2a8759d2a75ce2863d558"
 
   bottle do
     cellar :any

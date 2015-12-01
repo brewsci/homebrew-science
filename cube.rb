@@ -1,9 +1,7 @@
-require "formula"
-
 class Cube < Formula
   homepage "http://apps.fz-juelich.de/scalasca/"
   url "http://apps.fz-juelich.de/scalasca/releases/cube/4.2/dist/cube-4.2.2.tar.gz"
-  sha1 "88597c2df082bdc4eeadd6a9dad791b5894c6daa"
+  sha256 "67a7e2b3cf4927620fc4e987d6fae76b753a74303b3c9d30ea2e0937e64ae82a"
 
   depends_on "qt" => :recommended
 

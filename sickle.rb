@@ -3,7 +3,7 @@ class Sickle < Formula
   # tag "bioinformatics
 
   url "https://github.com/najoshi/sickle/archive/v1.33.tar.gz"
-  sha1 "593274fb7e12a52c9086dff69623aedca1799a5c"
+  sha256 "eab271d25dc799e2ce67c25626128f8f8ed65e3cd68e799479bba20964624734"
   head "https://github.com/najoshi/sickle.git"
 
   bottle do

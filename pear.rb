@@ -4,7 +4,7 @@ class Pear < Formula
   # tag "bioinformatics"
 
   url "http://sco.h-its.org/exelixis/web/software/pear/files/pear-0.9.6-src.tar.gz"
-  sha1 "351bde183653facb9c6a4e0b7a4328a130c3b903"
+  sha256 "f7728371e26a5b46fa928b0f7ae1b552ed6a78815b117ba48ef1af98e96c8e2b"
 
   bottle do
     cellar :any

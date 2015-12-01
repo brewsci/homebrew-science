@@ -1,6 +1,6 @@
 class Rmblast < Formula
   homepage "http://www.repeatmasker.org/RMBlast.html"
-  #tag "bioinformatics"
+  # tag "bioinformatics"
 
   version "2.2.28"
   bottle do
@@ -12,7 +12,7 @@ class Rmblast < Formula
 
   if OS.mac?
     url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/rmblast/LATEST/ncbi-rmblastn-#{version}-universal-macosx.tar.gz"
-    sha1 "a8f74b034d88c3e2202dd9a4dd30fdb78161aa75"
+    sha256 "f94e91487b752eb24386c3571250a3394ec7a00e7a5370dd103f574c721b9c81"
   elsif OS.linux?
     url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/rmblast/LATEST/ncbi-rmblastn-#{version}-x64-linux.tar.gz"
     sha1 "02abee397973ccdf7d68e161203bd8dbe9322a6c"

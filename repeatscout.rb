@@ -1,10 +1,10 @@
 class Repeatscout < Formula
   homepage "http://bix.ucsd.edu/repeatscout/"
-  #doi "10.1093/bioinformatics/bti1018"
-  #tag "bioinformatics"
+  # doi "10.1093/bioinformatics/bti1018"
+  # tag "bioinformatics"
 
   url "http://repeatscout.bioprojects.org/RepeatScout-1.0.5.tar.gz"
-  sha1 "507fe8813de341244c5380836ddcf4257bb46c81"
+  sha256 "bda6f782382f2b7dcb6a004b7da586d5046b3c12429b158e24787be62de6199c"
 
   bottle do
     cellar :any

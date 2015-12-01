@@ -1,9 +1,9 @@
 class Gaemr < Formula
   homepage "http://www.broadinstitute.org/software/gaemr/"
-  #tag "bioinformatics"
+  # tag "bioinformatics"
 
   url "http://www.broadinstitute.org/software/gaemr/wp-content/uploads/2012/12/GAEMR-1.0.1.tar.gz"
-  sha1 "3747204b177eb32bfc2a0adc239d920320a2ff09"
+  sha256 "cab1818e33b8ce9db2b25268206d73b5883f6c40843c258a72daba79e841d70a"
 
   bottle do
     cellar :any

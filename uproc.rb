@@ -1,5 +1,3 @@
-require "formula"
-
 class Uproc < Formula
   homepage "http://uproc.gobics.de/"
   head "https://github.com/gobics/uproc.git"
@@ -10,10 +8,10 @@ class Uproc < Formula
     sha256 "e3396797b696c637784f3df6fab6435b0e5da41fa4cc002adee143092beae05a" => :mountain_lion
   end
 
-  #tag "bioinformatics"
+  # tag "bioinformatics"
 
   url "http://uproc.gobics.de/downloads/uproc/uproc-1.1.2.tar.gz"
-  sha1 "32acdf691001e93d3a00e5351fb876c6b71779a7"
+  sha256 "062898c2a9c14db39ba057a4168c0efcf2a7c651e47b9c98863d8ab6afe6b1ac"
 
   needs :openmp # => :recommended
 

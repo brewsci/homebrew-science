@@ -1,16 +1,14 @@
-require 'formula'
-
 class Bwtdisk < Formula
-  homepage 'http://people.unipmn.it/manzini/bwtdisk/'
-  url 'http://people.unipmn.it/manzini/bwtdisk/bwtdisk.0.9.0.tgz'
-  sha1 '4cdfd9fc826df7c11abb45ccd802e3f71c64901c'
+  homepage "http://people.unipmn.it/manzini/bwtdisk/"
+  url "http://people.unipmn.it/manzini/bwtdisk/bwtdisk.0.9.0.tgz"
+  sha256 "ef053144d1756d6c8b4c01fc822897fd2d99ff652a9745e418c813d7ab5f33fa"
 
   def install
-    system 'make'
-    bin.install %w'bwte text_conv text_count text_rev unbwti'
-    doc.install %w'CHANGES COPYING README doc/bwtdisk.pdf'
-    include.install 'bwtext_defs.h'
-    lib.install 'bwtext.a' => 'libbwtext.a'
+    system "make"
+    bin.install %w[bwte text_conv text_count text_rev unbwti]
+    doc.install %w[CHANGES COPYING README doc/bwtdisk.pdf]
+    include.install "bwtext_defs.h"
+    lib.install "bwtext.a" => "libbwtext.a"
   end
 
   test do

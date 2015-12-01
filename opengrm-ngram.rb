@@ -1,15 +1,13 @@
-require "formula"
-
 class OpengrmNgram < Formula
   homepage "http://www.openfst.org/twiki/bin/view/GRM/NGramLibrary"
   url "http://openfst.cs.nyu.edu/twiki/pub/GRM/NGramDownload/opengrm-ngram-1.2.1.tar.gz"
-  sha1 "827286a36b2cbac5bfeecebbf946e2cc0804c1e1"
+  sha256 "713f07dccf225cde29cb048ce955d45d3c2a5ce6be7d923b5a688012d4285453"
 
   depends_on "openfst"
 
   resource "earnest" do
     url "http://www.openfst.org/twiki/pub/GRM/NGramQuickTour/earnest.txt"
-    sha1 "122c72f34a41ecb5e21102724938756fdfe349ec"
+    sha256 "bbdde0b9b7c2150772babbcf8b16837eb7cb40a488b7390413b342009c03887f"
   end
 
   needs :cxx11
@@ -17,7 +15,7 @@ class OpengrmNgram < Formula
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install"
   end
 
   test do

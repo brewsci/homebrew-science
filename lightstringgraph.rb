@@ -1,11 +1,9 @@
-require "formula"
-
 class Lightstringgraph < Formula
   homepage "http://lsg.algolab.eu/"
   # http://arxiv.org/pdf/1405.7520.pdf
   head "https://github.com/AlgoLab/LightStringGraph.git"
   url "https://github.com/AlgoLab/LightStringGraph/archive/v0.1.0.tar.gz"
-  sha1 "b41508dad2a88ed3e6c788ecd669ce15b232a051"
+  sha256 "79385a648b2fa34759cc031197c41a709539c655a204889d0e9dddacf0058a3d"
 
   depends_on "beetl" => :recommended
 
@@ -18,7 +16,7 @@ class Lightstringgraph < Formula
     system "make"
     bin.install Dir["bin/*"]
     doc.install %w[COPYING README.md]
-    prefix.install 'script'
+    prefix.install "script"
   end
 
   test do

@@ -20,7 +20,7 @@ class Clonalframeml < Formula
       :using => NoUnzipCurlDownloadStrategy
     sha256 "01fbb108f4036e728e3e56bcdd157da344bdad3a5240910767a47fb16a564108"
   else
-    fail "Unsupported operating system"
+    raise "Unsupported operating system"
   end
 
   def install

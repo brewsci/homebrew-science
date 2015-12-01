@@ -20,8 +20,8 @@ class Openblas < Formula
     ENV["DYNAMIC_ARCH"] = "1" if build.bottle?
 
     # Must call in two steps
-    system "make", "FC=#{ENV['FC']}", "libs", "netlib", "shared"
-    system "make", "FC=#{ENV['FC']}", "tests"
+    system "make", "FC=#{ENV["FC"]}", "libs", "netlib", "shared"
+    system "make", "FC=#{ENV["FC"]}", "tests"
     system "make", "PREFIX=#{prefix}", "install"
   end
 end

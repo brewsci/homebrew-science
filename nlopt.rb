@@ -23,7 +23,7 @@ class Nlopt < Formula
     args = [
       "--prefix=#{prefix}",
       "--with-cxx",
-      "--enable-shared"
+      "--enable-shared",
     ]
     args << "--without-octave" if build.without? "octave"
     args << "--without-python" if build.without? "python"

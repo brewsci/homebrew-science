@@ -1,7 +1,7 @@
 class Pulseview < Formula
   homepage "http://sigrok.org/"
   url "http://sigrok.org/download/source/pulseview/pulseview-0.2.0.tar.gz"
-  sha1 "92be17ef8196fb98162d27b5c0fca382d92dee31"
+  sha256 "feb5d33a0a91c989bfc39fa758195755e78e87c3cf445bb135a8c8d4f86bc1dd"
   revision 1
 
   bottle do
@@ -32,10 +32,10 @@ class Pulseview < Formula
     ENV.append_path "PKG_CONFIG_PATH", HOMEBREW_PREFIX / "Frameworks/Python.framework/Versions/3.4/lib/pkgconfig"
 
     qt = Formula["qt"].opt_prefix
-    args = std_cmake_args + %W(
+    args = std_cmake_args + %W[
       -DPNG_INCLUDE_DIR=#{MacOS::X11.include}
       -DALTERNATIVE_QT_INCLUDE_DIR=#{qt}/include
-    )
+    ]
 
     system "cmake", ".", *args
     system "make", "install"

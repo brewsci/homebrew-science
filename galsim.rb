@@ -28,7 +28,7 @@ class Galsim < Formula
             "FFTW_DIR=#{Formula["fftw"].opt_prefix}",
             "TMV_DIR=#{Formula["tmv-cpp"].opt_prefix}",
             "TMV_LINK=#{Formula["tmv-cpp"].opt_share}/tmv/tmv-link",
-            "EXTRA_LIB_PATH=#{Formula["boost-python"].opt_lib}"
+            "EXTRA_LIB_PATH=#{Formula["boost-python"].opt_lib}",
            ]
     if build.with? "openmp"
       if ENV.compiler == :clang

@@ -1,5 +1,4 @@
 class RGui < Formula
-
   homepage "http://cran.r-project.org/bin/macosx/"
   desc "R.app Cocoa GUI for the R Programming Language"
   url "http://cran.r-project.org/bin/macosx/Mac-GUI-1.66.tar.gz"

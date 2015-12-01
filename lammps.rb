@@ -17,7 +17,7 @@ class Lammps < Formula
   end
 
   # user-submitted packages not considered "standard"
-  USER_PACKAGES = %w(
+  USER_PACKAGES = %w[
     user-misc
     user-awpmd
     user-cg-cmm
@@ -26,22 +26,22 @@ class Lammps < Formula
     user-molfile
     user-reaxc
     user-sph
-  )
+  ]
 
   # could not get gpu or user-cuda to install (hardware problem?)
   # kim requires openkim software, which is not currently in homebrew.
   # user-atc would not install without mpi and then would not link to blas-lapack
   # user-omp requires gcc dependency (tricky). clang does not have OMP support, yet.
-  DISABLED_PACKAGES = %w(
+  DISABLED_PACKAGES = %w[
     gpu
     kim
     user-omp
     kokkos
-  )
-  DISABLED_USER_PACKAGES = %w(
+  ]
+  DISABLED_USER_PACKAGES = %w[
     user-atc
     user-cuda
-  )
+  ]
 
   # setup user-packages as options
   USER_PACKAGES.each do |package|
@@ -54,21 +54,21 @@ class Lammps < Formula
   depends_on :mpi => [:cxx, :f90, :recommended] # dummy MPI library provided in src/STUBS
   depends_on :fortran
 
-  def build_lib(comp, lmp_lib, opts={})
-    change_compiler_var = opts[:change_compiler_var]  # a non-standard compiler name to replace
-    prefix_make_var = opts[:prefix_make_var] || ""                    # prepended to makefile variable names
+  def build_lib(comp, lmp_lib, opts = {})
+    change_compiler_var = opts[:change_compiler_var] # a non-standard compiler name to replace
+    prefix_make_var = opts[:prefix_make_var] || "" # prepended to makefile variable names
 
     cd "lib/" + lmp_lib do
       if comp == "FC"
         make_file = "Makefile.gfortran" # make file
-        compiler_var = "F90"                    # replace compiler
+        compiler_var = "F90" # replace compiler
       elsif comp == "CXX"
-        make_file = "Makefile.g++"      # make file
-        compiler_var = "CC"                     # replace compiler
+        make_file = "Makefile.g++" # make file
+        compiler_var = "CC" # replace compiler
       elsif comp == "MPICXX"
-        make_file = "Makefile.openmpi"  # make file
-        compiler_var = "CC"                     # replace compiler
-        comp = "CXX" if not ENV["MPICXX"]
+        make_file = "Makefile.openmpi" # make file
+        compiler_var = "CC" # replace compiler
+        comp = "CXX" unless ENV["MPICXX"]
       end
       compiler_var = change_compiler_var if change_compiler_var
 
@@ -100,7 +100,7 @@ class Lammps < Formula
   patch :DATA
 
   def install
-    ENV.j1      # not parallel safe (some packages have race conditions :meam:)
+    ENV.j1 # not parallel safe (some packages have race conditions :meam:)
 
     # make sure to optimize the installation
     ENV.append "CFLAGS", "-O"
@@ -116,7 +116,7 @@ class Lammps < Formula
     build_lib "FC",    "reax"
     build_lib "FC",    "meam"
     build_lib "CXX",   "poems"
-    build_lib "CXX",   "colvars", :change_compiler_var => "CXX"  if build.include? "enable-user-colvars"
+    build_lib "CXX",   "colvars", :change_compiler_var => "CXX" if build.include? "enable-user-colvars"
     if build.include? "enable-user-awpmd"
       build_lib "MPICXX", "awpmd", :prefix_make_var => "user-"
       ENV.append "LDFLAGS", "-lblas -llapack"
@@ -147,12 +147,12 @@ class Lammps < Formula
         s.change_make_var! "LINK", ENV["CXX"]
 
         # installing with FFTW and JPEG
-        s.change_make_var! "FFT_INC",  "-DFFT_FFTW3 -I#{Formula['fftw'].opt_prefix}/include"
-        s.change_make_var! "FFT_PATH", "-L#{Formula['fftw'].opt_prefix}/lib"
+        s.change_make_var! "FFT_INC",  "-DFFT_FFTW3 -I#{Formula["fftw"].opt_prefix}/include"
+        s.change_make_var! "FFT_PATH", "-L#{Formula["fftw"].opt_prefix}/lib"
         s.change_make_var! "FFT_LIB",  "-lfftw3"
 
-        s.change_make_var! "JPG_INC",  "-DLAMMPS_JPEG -I#{Formula['jpeg'].opt_prefix}/include"
-        s.change_make_var! "JPG_PATH", "-L#{Formula['jpeg'].opt_prefix}/lib"
+        s.change_make_var! "JPG_INC",  "-DLAMMPS_JPEG -I#{Formula["jpeg"].opt_prefix}/include"
+        s.change_make_var! "JPG_PATH", "-L#{Formula["jpeg"].opt_prefix}/lib"
         s.change_make_var! "JPG_LIB",  "-ljpeg"
 
         s.change_make_var! "CCFLAGS",  ENV["CFLAGS"]
@@ -202,7 +202,7 @@ class Lammps < Formula
     end
 
     # install additional materials
-    (share / "lammps").install(%w(doc potentials tools bench examples))
+    (share / "lammps").install(%w[doc potentials tools bench examples])
   end
 
   test do

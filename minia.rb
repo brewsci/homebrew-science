@@ -1,10 +1,10 @@
 class Minia < Formula
   homepage "http://minia.genouest.org/"
-  #doi "10.1186/1748-7188-8-22"
-  #tag "bioinformatics"
+  # doi "10.1186/1748-7188-8-22"
+  # tag "bioinformatics"
 
   url "http://minia.genouest.org/files/minia-1.6906.tar.gz"
-  sha1 "f54003afbd4e2f3e8b52db08e1d7fca644e751fa"
+  sha256 "74715bf28d41ca7a25b9c76fd568603a6d4814a193d44654582ca407e8b7f4b3"
 
   bottle do
     cellar :any

@@ -1,9 +1,9 @@
-require 'formula'
+require "formula"
 
 class H5utils < Formula
-  homepage 'http://ab-initio.mit.edu/wiki/index.php/H5utils'
-  url 'http://ab-initio.mit.edu/h5utils/h5utils-1.12.1.tar.gz'
-  sha1 '1bd8ef8c50221da35aafb5424de9b5f177250d2d'
+  homepage "http://ab-initio.mit.edu/wiki/index.php/H5utils"
+  url "http://ab-initio.mit.edu/h5utils/h5utils-1.12.1.tar.gz"
+  sha1 "1bd8ef8c50221da35aafb5424de9b5f177250d2d"
   revision 2
 
   bottle do
@@ -13,7 +13,7 @@ class H5utils < Formula
   end
 
   depends_on "libpng"
-  depends_on 'hdf5'
+  depends_on "hdf5"
 
   # A patch is required in order to build h5utils with libpng 1.5
   patch :p0 do

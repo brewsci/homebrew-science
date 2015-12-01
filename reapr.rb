@@ -3,7 +3,7 @@ class Reapr < Formula
   # doi "10.1186/gb-2013-14-5-r47"
   # tag "bioinformatics"
   url "ftp://ftp.sanger.ac.uk/pub/resources/software/reapr/Reapr_1.0.17.tar.gz"
-  sha1 "4d2a8856a6d19d259aeec8591a024ba598003acc"
+  sha256 "e235d846447a34fffa6765fbbea2407cc0c6a0217c007f196e5786022034b65e"
 
   bottle do
     sha256 "13aed3f265e22d890dde4b91e7bd3965151f1724560e2548362b63d1a2597cf3" => :yosemite
@@ -17,7 +17,7 @@ class Reapr < Formula
 
   resource "File::Spec::Link" do
     url "http://search.cpan.org/CPAN/authors/id/R/RM/RMBARKER/File-Copy-Link-0.140.tar.gz"
-    sha1 "515178bc42ab25eb2248bd5fb854e1c805fdf12d"
+    sha256 "2063656dcd38bade43dc7f1e2ef5f1b6a8086c2f15d37b334189bd2a28e8ffeb"
   end
 
   def install

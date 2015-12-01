@@ -1,7 +1,7 @@
 class Paraview < Formula
   homepage "http://paraview.org"
   url "http://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v4.2&type=source&os=all&downloadFile=ParaView-v4.2.0-source.tar.gz"
-  sha1 "a440ba9912549bdd23a949e22add41696715dd32"
+  sha256 "ac26cc5fe5ce82d27531727a01242353d40984826eaa580edea0791887a07b6b"
   head "git://paraview.org/ParaView.git"
 
   bottle do
@@ -56,7 +56,7 @@ class Paraview < Formula
       if build.with? "python"
         args << "-DPARAVIEW_ENABLE_PYTHON:BOOL=ON"
         # CMake picks up the system"s python dylib, even if we have a brewed one.
-        args << "-DPYTHON_LIBRARY='#{%x(python-config --prefix).chomp}/lib/libpython2.7.dylib'"
+        args << "-DPYTHON_LIBRARY='#{`python-config --prefix`.chomp}/lib/libpython2.7.dylib'"
       else
         args << "-DPARAVIEW_ENABLE_PYTHON:BOOL=OFF"
       end

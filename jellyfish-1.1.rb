@@ -1,7 +1,7 @@
 class Jellyfish11 < Formula
   homepage "http://www.cbcb.umd.edu/software/jellyfish/"
-  #doi "10.1093/bioinformatics/btr011"
-  #tag "bioinformatics"
+  # doi "10.1093/bioinformatics/btr011"
+  # tag "bioinformatics"
 
   url "http://www.cbcb.umd.edu/software/jellyfish/jellyfish-1.1.11.tar.gz"
   sha256 "496645d96b08ba35db1f856d857a159798c73cbc1eccb852ef1b253d1678c8e2"

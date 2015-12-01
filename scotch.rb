@@ -46,9 +46,9 @@ class Scotch < Formula
         make_args << "AR=libtool"
         make_args << "ARFLAGS=-dynamic -install_name #{lib}/$(notdir $@) -undefined dynamic_lookup -o "
       else
-       make_args << "LIB=.so"
-       make_args << "ARCH=ar"
-       make_args << "ARCHFLAGS=-ruv"
+        make_args << "LIB=.so"
+        make_args << "ARCH=ar"
+        make_args << "ARCHFLAGS=-ruv"
       end
 
       system "make", "scotch", "VERBOSE=ON", *make_args

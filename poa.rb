@@ -5,7 +5,7 @@ class Poa < Formula
 
   url "https://downloads.sourceforge.net/project/poamsa/poamsa/2.0/poaV2.tar.gz"
   version "2.0"
-  sha1 "57f863956736498dd76afb57967036bf92c6d599"
+  sha256 "d98d8251af558f442d909a6527694825ef6f79881b7636cad4925792559092c2"
 
   bottle do
     cellar :any

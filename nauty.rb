@@ -2,7 +2,7 @@ class Nauty < Formula
   homepage "http://cs.anu.edu.au/~bdm/nauty/"
   url "http://cs.anu.edu.au/~bdm/nauty/nauty25r9.tar.gz"
   version "25r9"
-  sha1 "a533cfd764bf56b35e117c46cb85b0142833e8b2"
+  sha256 "602d0e2e5ab1bdc84ab69f75ebc065833501bd2875cb07b1bb4274e3dd632825"
 
   bottle do
     cellar :any

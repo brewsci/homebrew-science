@@ -1,9 +1,7 @@
-require 'formula'
-
 class Seqdb < Formula
-  homepage 'https://bitbucket.org/mhowison/seqdb'
-  url 'https://bitbucket.org/mhowison/seqdb/downloads/seqdb-0.2.0.tar.gz'
-  sha1 'd0bc522dee53a0560fefefebcdad53f627bcc540'
+  homepage "https://bitbucket.org/mhowison/seqdb"
+  url "https://bitbucket.org/mhowison/seqdb/downloads/seqdb-0.2.0.tar.gz"
+  sha256 "e7bcf9ebfa584414bc93ebb37e93b1c992b0b379bc541a57c25966bfe9b6f906"
   revision 2
 
   bottle do
@@ -15,11 +13,11 @@ class Seqdb < Formula
 
   needs :openmp
 
-  depends_on 'hdf5'
+  depends_on "hdf5"
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install"
   end
 
   test do

@@ -1,10 +1,10 @@
 class Corset < Formula
   homepage "https://code.google.com/p/corset-project/"
-  #doi "10.1186/s13059-014-0410-6"
-  #tag "bioinformatics"
+  # doi "10.1186/s13059-014-0410-6"
+  # tag "bioinformatics"
 
   url "https://googledrive.com/host/0B1FwZagazjpcc0JLZWllcFlwUXc/corset-1.04.tar.gz"
-  sha1 "730322d7b8c229a01edf7b0c0ad4acc11a014959"
+  sha256 "8dff57be7aab5943e78706cd0c5106e6b776c596d3a7a6a0a8565f6fe1752cfe"
 
   bottle do
     cellar :any

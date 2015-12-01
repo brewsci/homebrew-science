@@ -23,6 +23,6 @@ class Bpipe < Formula
   end
 
   test do
-   assert_match "Found 0 currently executing commands", shell_output("#{bin}/bpipe status")
+    assert_match "Found 0 currently executing commands", shell_output("#{bin}/bpipe status")
   end
 end

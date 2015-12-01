@@ -1,15 +1,13 @@
-require 'formula'
-
 class Edena < Formula
-  homepage 'http://www.genomic.ch/edena.php'
-  url 'http://www.genomic.ch/edena/EdenaV3.131028.tar.gz'
-  sha1 'aa91991776be7682707262c70b995b447eb8d607'
+  homepage "http://www.genomic.ch/edena.php"
+  url "http://www.genomic.ch/edena/EdenaV3.131028.tar.gz"
+  sha256 "4037fce486c9725107b1690fbc67731713eef54e3fa53081865904c783533230"
 
   def install
     ENV.deparallelize
-    system 'make'
-    bin.install 'src/edena'
-    doc.install 'COPYING', 'referenceManual.pdf'
+    system "make"
+    bin.install "src/edena"
+    doc.install "COPYING", "referenceManual.pdf"
   end
 
   def caveats
@@ -20,6 +18,6 @@ class Edena < Formula
   end
 
   test do
-    system 'edena'
+    system "edena"
   end
 end

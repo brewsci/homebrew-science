@@ -1,9 +1,7 @@
-require 'formula'
-
 class Pnapi < Formula
-  homepage 'http://service-technology.org/pnapi/'
-  url 'http://download.gna.org/service-tech/pnapi/pnapi-4.03.tar.gz'
-  sha1 'd054018c4a2e580add680ffac28731461cf9e308'
+  homepage "http://service-technology.org/pnapi/"
+  url "http://download.gna.org/service-tech/pnapi/pnapi-4.03.tar.gz"
+  sha256 "2235be39b1c0615ded0197e57661a5127337681f034a8d29bed833f376c8a836"
 
   head do
     url "http://svn.gna.org/svn/service-tech/trunk/pnapi"
@@ -19,7 +17,7 @@ class Pnapi < Formula
 
   depends_on "graphviz"
   depends_on "lola"
-  depends_on 'pkg-config' => :build
+  depends_on "pkg-config" => :build
   depends_on "genet" => :optional
 
   def install
@@ -33,7 +31,7 @@ class Pnapi < Formula
     system "make", "install"
     system "make", "check" if build.with? "check"
     # for some reason config.h is not installed by the Makefile
-    (include/'pnapi').install 'src/config.h'
+    (include/"pnapi").install "src/config.h"
   end
 
   test do

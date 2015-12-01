@@ -1,10 +1,10 @@
 class Quake < Formula
   homepage "http://www.cbcb.umd.edu/software/quake/"
-  #doi "10.1186/gb-2010-11-11-r116"
-  #tag "bioinformatics"
+  # doi "10.1186/gb-2010-11-11-r116"
+  # tag "bioinformatics"
 
   url "http://www.cbcb.umd.edu/software/quake/downloads/quake-0.3.5.tar.gz"
-  sha1 "5ee22ae15415b97ef88e55f0dc786d07ed7aff7b"
+  sha256 "8ded707213117463675553bb989c4c69c5d01b122945b1e265c79d7e4e34eebd"
 
   bottle do
     cellar :any

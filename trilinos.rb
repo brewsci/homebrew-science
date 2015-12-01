@@ -107,7 +107,7 @@ class Trilinos < Formula
 
     # enable tests only when we inted to run checks.
     # that reduced the build time from 130 min to 51 min.
-    args << onoff("-DTrilinos_ENABLE_TESTS:BOOL=",  (build.with? "check"))
+    args << onoff("-DTrilinos_ENABLE_TESTS:BOOL=", (build.with? "check"))
     # some tests are needed to have binaries in the "test do" block:
     args << "-DEpetra_ENABLE_TESTS=ON"
 
@@ -129,7 +129,7 @@ class Trilinos < Formula
 
     args << "-DTrilinos_ASSERT_MISSING_PACKAGES=OFF" if build.head?
 
-    args << onoff("-DTPL_ENABLE_MPI:BOOL=",         (build.with? "mpi"))
+    args << onoff("-DTPL_ENABLE_MPI:BOOL=", (build.with? "mpi"))
     # TODO:
     # OpenMP leads deal.II to fail with compiler errors in trilinos headers even though trilinos compiles fine
     # It could be that there is a missing #include somewhere in Trilinos which becames visible when we
@@ -186,10 +186,10 @@ class Trilinos < Formula
     args << onoff("-DTPL_ENABLE_UMFPACK:BOOL=",     (build.with? "suite-sparse"))
     args << "-DUMFPACK_LIBRARY_NAMES=umfpack;amd;colamd;cholmod;suitesparseconfig" if build.with? "suite-sparse"
 
-    args << onoff("-DTPL_ENABLE_CppUnit:BOOL=",     (build.with? "cppunit"))
+    args << onoff("-DTPL_ENABLE_CppUnit:BOOL=", (build.with? "cppunit"))
     args << "-DCppUnit_LIBRARY_DIRS=#{Formula["cppunit"].opt_lib}" if build.with? "cppunit"
 
-    args << onoff("-DTPL_ENABLE_Eigen:BOOL=",       (build.with? "eigen"))
+    args << onoff("-DTPL_ENABLE_Eigen:BOOL=", (build.with? "eigen"))
     args << "-DEigen_INCLUDE_DIRS=#{Formula["eigen"].opt_include}/eigen3" if build.with? "eigen"
 
     args << onoff("-DTPL_ENABLE_GLPK:BOOL=",        (build.with? "glpk"))
@@ -216,7 +216,7 @@ class Trilinos < Formula
     end
 
     args << onoff("-DTPL_ENABLE_PETSC:BOOL=", false) #       (build.with? "petsc"))
-    args << onoff("-DTPL_ENABLE_HDF5:BOOL=",        (build.with? "hdf5"))
+    args << onoff("-DTPL_ENABLE_HDF5:BOOL=", (build.with? "hdf5"))
 
     if build.with? "parmetis"
       # Ensure CMake picks up METIS 5 and not METIS 4.
@@ -228,7 +228,7 @@ class Trilinos < Formula
       args << "-DTPL_ENABLE_ParMETIS:BOOL=OFF"
     end
 
-    args << onoff("-DTPL_ENABLE_SCALAPACK:BOOL=",   (build.with? "scalapack"))
+    args << onoff("-DTPL_ENABLE_SCALAPACK:BOOL=", (build.with? "scalapack"))
 
     args << onoff("-DTPL_ENABLE_SuperLU:BOOL=", false) #   (build.with? "superlu"))
     # args << "-DSuperLU_INCLUDE_DIRS=#{Formula["superlu"].opt_include}/superlu" if build.with? "superlu"
@@ -240,7 +240,7 @@ class Trilinos < Formula
 
     args << onoff("-DTPL_ENABLE_QD:BOOL=", false) #        (build.with? "qd"))
     args << onoff("-DTPL_ENABLE_Lemon:BOOL=", false) #     (build.with? "lemon"))
-    args << onoff("-DTPL_ENABLE_GLM:BOOL=",        (build.with? "glm"))
+    args << onoff("-DTPL_ENABLE_GLM:BOOL=", (build.with? "glm"))
     args << onoff("-DTPL_ENABLE_CASK:BOOL=", false) #      (build.with? "cask"))
     args << onoff("-DTPL_ENABLE_BinUtils:BOOL=", false) #  (build.with? "binutils"))
 

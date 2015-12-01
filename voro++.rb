@@ -1,10 +1,8 @@
-require 'formula'
-
 class Voroxx < Formula
-  homepage 'http://math.lbl.gov/voro++'
-  url 'http://math.lbl.gov/voro++/download/dir/voro++-0.4.6.tar.gz'
-  sha1 '2ae72d1783ef01f673f0825afd119d7e6f8ed674'
-  head 'https://codeforge.lbl.gov/anonscm/voro/trunk', :using => :svn
+  homepage "http://math.lbl.gov/voro++"
+  url "http://math.lbl.gov/voro++/download/dir/voro++-0.4.6.tar.gz"
+  sha256 "ef7970071ee2ce3800daa8723649ca069dc4c71cc25f0f7d22552387f3ea437e"
+  head "https://codeforge.lbl.gov/anonscm/voro/trunk", :using => :svn
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

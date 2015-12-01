@@ -70,14 +70,9 @@ class Gap < Formula
     # is being set to the (temporary) build directory, but should be set to
     # the value of `--prefix` option.
     ["bin/gap-default32.sh", "bin/gap-default64.sh"].each do |startup_script|
-      if File.exist?(startup_script)
-        # Replace `/foo/bar` in `GAP_DIR="/foo/bar"` in the startup script
-        #
-        # XXX: no lookbehind assertion is used in the regex to remain
-        #   compatible with Ruby 1.8
-        inreplace startup_script, /^GAP_DIR="[^"]*"$/,
-                                  "GAP_DIR=\"#{libexec}\""
-      end
+      next unless File.exist?(startup_script)
+      inreplace startup_script, /^GAP_DIR="[^"]*"$/,
+                                        "GAP_DIR=\"#{libexec}\""
     end
 
     system "make"

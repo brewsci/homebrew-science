@@ -67,19 +67,19 @@ class Insighttoolkit < Formula
     ENV.cxx11 if build.cxx11?
 
     mkdir "itk-build" do
-      if build.with? "python" or build.with? "python3"
+      if build.with?("python") || build.with?("python3")
 
         args << "-DITK_WRAP_PYTHON=ON"
 
         # CMake picks up the system's python dylib, even if we have a brewed one.
         if build.with? "python"
-          args << "-DPYTHON_LIBRARY='#{%x(python-config --prefix).chomp}/lib/libpython2.7.dylib'"
-          args << "-DPYTHON_INCLUDE_DIR='#{%x(python-config --prefix).chomp}/include/python2.7'"
+          args << "-DPYTHON_LIBRARY='#{`python-config --prefix`.chomp}/lib/libpython2.7.dylib'"
+          args << "-DPYTHON_INCLUDE_DIR='#{`python-config --prefix`.chomp}/include/python2.7'"
         elsif build.with? "python3"
           ENV["PYTHONPATH"] = lib/"python3.5/site-packages"
-          args << "-DPYTHON_EXECUTABLE='#{%x(python3-config --prefix).chomp}/bin/python3'"
-          args << "-DPYTHON_LIBRARY='#{%x(python3-config --prefix).chomp}/lib/libpython3.5.dylib'"
-          args << "-DPYTHON_INCLUDE_DIR='#{%x(python3-config --prefix).chomp}/include/python3.5m'"
+          args << "-DPYTHON_EXECUTABLE='#{`python3-config --prefix`.chomp}/bin/python3'"
+          args << "-DPYTHON_LIBRARY='#{`python3-config --prefix`.chomp}/lib/libpython3.5.dylib'"
+          args << "-DPYTHON_INCLUDE_DIR='#{`python3-config --prefix`.chomp}/include/python3.5m'"
         end
 
       end

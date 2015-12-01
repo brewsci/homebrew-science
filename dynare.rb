@@ -9,7 +9,7 @@ class Dynare < Formula
 
   stable do
     url "https://www.dynare.org/release/source/dynare-4.4.3.tar.xz"
-    sha1 "3c99c3a957d02e53db62cba7566fdb1399438cfc"
+    sha256 "d00f97f72bcad7486ec1d18640d44b607d91ff9f585c9b4e01d08b6a3deeae21"
     depends_on "matlab2tikz"
   end
 
@@ -43,7 +43,7 @@ class Dynare < Formula
     matlab_path = ARGV.value("with-matlab") || ""
     matlab_version = ARGV.value("with-matlab-version") || ""
     if (matlab_path.empty? || matlab_version.empty?) && build.without?("octave")
-      fail "You must build Dynare with Matlab and/or Octave support"
+      raise "You must build Dynare with Matlab and/or Octave support"
     end
 
     if matlab_path.empty? || matlab_version.empty?

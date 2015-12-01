@@ -1,10 +1,10 @@
 class Masurca < Formula
   homepage "http://www.genome.umd.edu/masurca.html"
-  #doi "10.1093/bioinformatics/btt476"
-  #tag "bioinformatics"
+  # doi "10.1093/bioinformatics/btt476"
+  # tag "bioinformatics"
 
   url "ftp://ftp.genome.umd.edu/pub/MaSuRCA/MaSuRCA-2.3.2b.tar.gz"
-  sha1 "3598f0b9580bd7518e09db173ada700b5e241b74"
+  sha256 "837cb144d3dba206a778e88a06f2af67f2cc9ca4f5e6e97dd48ad4ac783aec70"
 
   bottle do
     sha256 "6f9032aa22d92cd3c2f182e6362bd56a6f1abfe44bc37905d09ed6319ee1f07e" => :yosemite

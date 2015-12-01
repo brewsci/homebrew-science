@@ -1,11 +1,11 @@
 class Tasr < Formula
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/tasr"
-  #doi "10.1371/journal.pone.0019816"
-  #tag "bioinformatics"
+  # doi "10.1371/journal.pone.0019816"
+  # tag "bioinformatics"
 
   url "http://www.bcgsc.ca/platform/bioinfo/software/tasr/releases/1.5.1/tasr_v1-5-1.tar.gz"
   version "1.5.1"
-  sha1 "98f3b2207a5e7a1904cc858dec6614677c6b38df"
+  sha256 "2101283f6a58b1ce83d29f09ac55d52a6ac863170ebafb3b4844be33a87cbcc1"
 
   bottle do
     cellar :any

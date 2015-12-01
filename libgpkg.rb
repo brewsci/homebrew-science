@@ -1,8 +1,6 @@
-require "formula"
-
 class RubyVersion19 < Requirement
   fatal true
-  satisfy(:build_env => false) { %x(ruby -e 'print RUBY_VERSION').strip.to_f >= 1.9 }
+  satisfy(:build_env => false) { `ruby -e 'print RUBY_VERSION'`.strip.to_f >= 1.9 }
 
   def message; <<-EOS.undent
       Ruby >= 1.9 is required to run tests, which utilize Encoding class.
@@ -14,7 +12,7 @@ end
 class Libgpkg < Formula
   homepage "https://bitbucket.org/luciad/libgpkg"
   url "https://bitbucket.org/luciad/libgpkg/get/0.9.16.tar.gz"
-  sha1 "eb41b70b0c0d62f7bfd8b294c63e13125edb7a31"
+  sha256 "be43a2725f5fcecbe3b1baf95e6c45847f7a9a3d8ac20978b9e11aa765e8d980"
 
   head "https://bitbucket.org/luciad/libgpkg", :using => :hg, :branch => "default"
 
@@ -37,7 +35,7 @@ class Libgpkg < Formula
     mkdir "build" do
       system "cmake", "..", *args
       system "make"
-      IO.popen("make test") {|io| io.each {|s| print s}} if build.with? "tests"
+      IO.popen("make test") { |io| io.each { |s| print s } } if build.with? "tests"
       system "make", "install"
     end
   end

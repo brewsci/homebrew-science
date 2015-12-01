@@ -1,8 +1,6 @@
-require "formula"
-
 class Biopieces < Formula
   homepage "https://code.google.com/p/biopieces/"
-  version '2291'
+  version "2291"
   url "http://biopieces.googlecode.com/svn/trunk/", :revision => version
   head "http://biopieces.googlecode.com/svn/trunk/"
 
@@ -27,16 +25,16 @@ class Biopieces < Formula
   depends_on "version" => :perl
 
   def install
-    prefix.install Dir['*']
+    prefix.install Dir["*"]
     bin.mkdir
     cd bin do
-      bin.install_symlink Dir['../bp_bin/*']
+      bin.install_symlink Dir["../bp_bin/*"]
     end
-    rm_f bin/'00README'
+    rm_f bin/"00README"
 
     # Install the documentation.
     cd prefix do
-      system 'svn checkout http://biopieces.googlecode.com/svn/wiki bp_usage'
+      system "svn checkout http://biopieces.googlecode.com/svn/wiki bp_usage"
     end
   end
 

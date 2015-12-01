@@ -3,7 +3,7 @@ class Recon < Formula
   # doi "10.1101/gr.88502"
   # tag "bioinformatics"
   url "http://www.repeatmasker.org/RECON-1.07.tar.gz"
-  sha1 "215ef7d47d41faf657bcb4ee211019ed713e399e"
+  sha256 "98821e6a8b196d7039fa3f14e4e8f67ef0925c31dc05007f4de9248a138dcb4b"
 
   bottle do
     cellar :any

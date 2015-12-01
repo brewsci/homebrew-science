@@ -1,7 +1,7 @@
 class Therion < Formula
   homepage "http://therion.speleo.sk"
   url "http://therion.speleo.sk/downloads/therion-5.3.16.tar.gz"
-  sha1 "3e826417038df59ff45907ad9f530b10b572d3d5"
+  sha256 "73cda5225725d3e8cadd6fada9e506ab94b093d4e7a9fc90eaf23f8c7be6eb85"
 
   depends_on "freetype"
   depends_on "imagemagick"

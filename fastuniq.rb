@@ -14,7 +14,7 @@ class Fastuniq < Formula
   end
 
   def install
-    inreplace "source/fastq_uniq.c", "FSATQ", "FASTQ"  # fix typo
+    inreplace "source/fastq_uniq.c", "FSATQ", "FASTQ" # fix typo
     system "make", "-C", "source"
     bin.install "source/fastuniq"
     doc.install "README.txt"

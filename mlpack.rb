@@ -26,7 +26,7 @@ class Mlpack < Formula
 
   def install
     ENV.cxx11
-    dylib = OS.mac? ?  "dylib" : "so"
+    dylib = OS.mac? ? "dylib" : "so"
     cmake_args = std_cmake_args
     cmake_args << "-DDEBUG=" + ((build.with? "debug") ? "ON" : "OFF")
     cmake_args << "-DPROFILE=" + ((build.with? "profile") ? "ON" : "OFF")
@@ -41,7 +41,7 @@ class Mlpack < Formula
     end
 
     doc.install Dir["doc/*"]
-    (share / "mlpack").install "src/mlpack/tests"  # Includes test data.
+    (share / "mlpack").install "src/mlpack/tests" # Includes test data.
   end
 
   test do

@@ -4,7 +4,7 @@ class Samtools < Formula
   # tag "bioinformatics"
 
   url "https://github.com/samtools/samtools/archive/1.2.tar.gz"
-  sha1 "9fabb4903b9d1521aeea8a5538e64aefe8e85526"
+  sha256 "e4be60ad24fe0324b9384fe58ec2ab7359fe926fbee3115d869c447eb01a9e47"
 
   head "https://github.com/samtools/samtools.git"
 
@@ -35,11 +35,11 @@ class Samtools < Formula
     system "make", "HTSDIR=#{htslib}/include", "HTSLIB=#{htslib}/lib/libhts.a"
 
     bin.install "samtools"
-    bin.install %w{misc/maq2sam-long misc/maq2sam-short misc/md5fa misc/md5sum-lite misc/wgsim}
+    bin.install %w[misc/maq2sam-long misc/maq2sam-short misc/md5fa misc/md5sum-lite misc/wgsim]
     bin.install Dir["misc/*.pl"]
     lib.install "libbam.a"
-    man1.install %w{samtools.1}
-    (share+"samtools").install %w{examples}
+    man1.install %w[samtools.1]
+    (share+"samtools").install %w[examples]
     (include+"bam").install Dir["*.h"]
   end
 

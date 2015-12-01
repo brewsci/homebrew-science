@@ -1,10 +1,10 @@
 class Jellyfish < Formula
   homepage "http://www.genome.umd.edu/jellyfish.html"
-  #doi "10.1093/bioinformatics/btr011"
-  #tag "bioinformatics"
+  # doi "10.1093/bioinformatics/btr011"
+  # tag "bioinformatics"
 
   url "ftp://ftp.genome.umd.edu/pub/jellyfish/jellyfish-2.1.4.tar.gz"
-  sha1 "37ddd37c1eb16031716f40c732516c30fbf37544"
+  sha256 "c4e692170d33efa9e6e4f0b134d8e257fb802832af17fdc53ac468bf8f0f29a5"
 
   bottle do
     cellar :any

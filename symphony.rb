@@ -1,9 +1,7 @@
-require 'formula'
-
 class Symphony < Formula
-  homepage 'http://www.coin-or.org/projects/SYMPHONY.xml'
-  url 'http://www.coin-or.org/download/source/SYMPHONY/SYMPHONY-5.6.6.tgz'
-  sha1 'be97382f63e31ea8b8d6ff428f85abbadca414c0'
+  homepage "http://www.coin-or.org/projects/SYMPHONY.xml"
+  url "http://www.coin-or.org/download/source/SYMPHONY/SYMPHONY-5.6.6.tgz"
+  sha256 "af28afff326635b04ac47857af648244704af0b0743c9a9acd6da0b6b2b60bfb"
 
   bottle do
     sha256 "f04fc061bc7a9482ed88057fee10ad75de10e5ec3412b19ca6d15a40f3e8fd28" => :yosemite
@@ -46,11 +44,11 @@ class Symphony < Formula
       ENV.append "LDFLAGS", "-lgomp"
     end
 
-    system "./configure",  *args
+    system "./configure", *args
     system "make"
     system "make", "test" if build.with? "check"
     ENV.deparallelize
-    system "make install"
+    system "make", "install"
 
     (share / "symphony/Datasets").install "SYMPHONY/Datasets/sample.mps"
     (share / "symphony/Datasets").install "SYMPHONY/Datasets/sample.mod", "SYMPHONY/Datasets/sample.dat" if build.with? "gmpl"

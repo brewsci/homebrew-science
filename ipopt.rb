@@ -1,7 +1,7 @@
 class Ipopt < Formula
   homepage "https://projects.coin-or.org/Ipopt"
   url "http://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.1.tgz"
-  sha1 "cbb197f6a90e0e1d64e438a5159da5f33f06aa08"
+  sha256 "d6c18f7c5bf486712b493167d27ec6e940ad376c5b903b97acc5a3ade1c0a3ef"
   head "https://projects.coin-or.org/svn/Ipopt/trunk", :using => :svn
   revision 3
 
@@ -62,4 +62,3 @@ class Ipopt < Formula
     system "#{bin}/ipopt", "#{Formula["asl"].opt_share}/asl/example/examples/wb" if build.with? "asl"
   end
 end
-

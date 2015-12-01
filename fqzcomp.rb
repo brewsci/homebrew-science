@@ -1,11 +1,9 @@
-require 'formula'
-
 class Fqzcomp < Formula
-  homepage 'https://sourceforge.net/projects/fqzcomp/'
-  #doi '10.1371/journal.pone.0059190'
-  #tag 'bioinformatics'
-  url 'https://downloads.sourceforge.net/project/fqzcomp/fqzcomp-4.6.tar.gz'
-  sha1 'fa5554747f1d49d1ae2303d6302822416bc318b3'
+  homepage "https://sourceforge.net/projects/fqzcomp/"
+  # doi '10.1371/journal.pone.0059190'
+  # tag 'bioinformatics'
+  url "https://downloads.sourceforge.net/project/fqzcomp/fqzcomp-4.6.tar.gz"
+  sha256 "ff98f5a5e2c0351cdeacbd236aa25c7771ec8a4f547416c22a1b5c74a1875620"
 
   bottle do
     cellar :any
@@ -16,8 +14,8 @@ class Fqzcomp < Formula
 
   def install
     system "make"
-    bin.install 'fqz_comp'
-    doc.install 'README'
+    bin.install "fqz_comp"
+    doc.install "README"
   end
 
   test do

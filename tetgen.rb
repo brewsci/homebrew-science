@@ -1,17 +1,15 @@
-require "formula"
-
 class Tetgen < Formula
-  homepage 'http://wias-berlin.de/software/tetgen/'
-  url 'http://www.tetgen.org/1.5/src/tetgen1.5.0.tar.gz'
-  sha1 '6fcc557697982c52d274dca611ccc2192cba2bb4'
+  homepage "http://wias-berlin.de/software/tetgen/"
+  url "http://www.tetgen.org/1.5/src/tetgen1.5.0.tar.gz"
+  sha256 "4d114861d5ef2063afd06ef38885ec46822e90e7b4ea38c864f76493451f9cf3"
 
   def install
     system "make"
-    system "make tetlib"
+    system "make", "tetlib"
     bin.install "tetgen"
     lib.install "libtet.a"
     include.install "tetgen.h"
-    doc.install %w(README LICENSE example.poly)
+    doc.install %w[README LICENSE example.poly]
   end
 
   test do

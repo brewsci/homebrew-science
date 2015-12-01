@@ -1,5 +1,3 @@
-require "formula"
-
 class Sally < Formula
   homepage "http://www.mlsec.org/sally"
   url "http://www.mlsec.org/sally/files/sally-1.0.0.tar.gz"

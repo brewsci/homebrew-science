@@ -1,9 +1,9 @@
 class ClustalW < Formula
   homepage "http://www.clustal.org/clustal2/"
-  #tag "bioinformatics"
-  #doi "10.1093/nar/22.22.4673"
+  # tag "bioinformatics"
+  # doi "10.1093/nar/22.22.4673"
   url "http://www.clustal.org/download/2.1/clustalw-2.1.tar.gz"
-  sha1 "f29784f68585544baa77cbeca6392e533d4cf433"
+  sha256 "e052059b87abfd8c9e695c280bfba86a65899138c82abccd5b00478a80f49486"
 
   bottle do
     cellar :any

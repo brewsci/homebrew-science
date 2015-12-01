@@ -1,15 +1,15 @@
 class Gfan < Formula
-  homepage 'http://home.imf.au.dk/jensen/software/gfan/gfan.html'
-  url 'http://home.imf.au.dk/jensen/software/gfan/gfan0.5.tar.gz'
-  sha1 'ba4f3e4fac6bcafdfdd2244329d925e958d9ee63'
+  homepage "http://home.imf.au.dk/jensen/software/gfan/gfan.html"
+  url "http://home.imf.au.dk/jensen/software/gfan/gfan0.5.tar.gz"
+  sha256 "aaeabcf03aad9e426f1ace1f633ffa3200349600314063a7717c20a3e24db329"
 
-  depends_on 'gmp'
-  depends_on 'cddlib'
+  depends_on "gmp"
+  depends_on "cddlib"
 
   def install
     system "make"
     system "make PREFIX=#{prefix} install"
-    doc.install Dir['doc/*']
+    doc.install Dir["doc/*"]
     pkgshare.install "examples", "homepage", "testsuite"
   end
 

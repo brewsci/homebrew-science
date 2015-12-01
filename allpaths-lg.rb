@@ -9,11 +9,11 @@ end
 class AllpathsLg < Formula
   desc "Short read genome assembler"
   homepage "http://www.broadinstitute.org/software/allpaths-lg/blog/"
-  #doi "10.1073/pnas.1017351108"
-  #tag "bioinformatics"
+  # doi "10.1073/pnas.1017351108"
+  # tag "bioinformatics"
 
   url "ftp://ftp.broadinstitute.org/pub/crd/ALLPATHS/Release-LG/latest_source_code/allpathslg-50378.tar.gz"
-  sha1 "06cf7ed3ca8ed55847e895a93cf41b760a2b7021"
+  sha256 "12d5f78a67a79b2bba06e2dff25302590fede62639cfb4db08d76e103871f4b2"
 
   # Prove us wrong!
   # https://github.com/Homebrew/homebrew-science/issues/1329#issuecomment-68387020

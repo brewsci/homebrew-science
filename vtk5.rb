@@ -1,9 +1,7 @@
-require "formula"
-
 class Vtk5 < Formula
   homepage "http://www.vtk.org"
-  url "http://www.vtk.org/files/release/5.10/vtk-5.10.1.tar.gz"  # update libdir below, too!
-  sha1 "deb834f46b3f7fc3e122ddff45e2354d69d2adc3"
+  url "http://www.vtk.org/files/release/5.10/vtk-5.10.1.tar.gz" # update libdir below, too!
+  sha256 "f1a240c1f5f0d84e27b57e962f8e4a78b166b25bf4003ae16def9874947ebdbb"
   head "git://vtk.org/VTK.git", :branch => "release-5.10"
   revision 2
 
@@ -31,7 +29,7 @@ class Vtk5 < Formula
   depends_on "qt" => :optional
   depends_on :python => :recommended
   # If --with-qt and --with-python, then we automatically use PyQt, too!
-  if build.with? "qt" and build.with? "python"
+  if build.with?("qt") && build.with?("python")
     depends_on "sip"
     depends_on "pyqt"
   end
@@ -51,7 +49,7 @@ class Vtk5 < Formula
     patch do
       # apply upstream patches for C++11 mode
       url "https://gist.github.com/sxprophet/7463815/raw/165337ae10d5665bc18f0bad645eff098f939893/vtk5-cxx11-patch.diff"
-      sha1 "5511c8a48327824443f321894e3ea3ac289bf40e"
+      sha256 "b5946abb41c3d6ede33df636fa1621bbb86c4092cdae7032e3fdc63a5478f03d"
     end
   end
 
@@ -74,7 +72,7 @@ class Vtk5 < Formula
 
     args << "-DBUILD_EXAMPLES=" + ((build.with? "examples") ? "ON" : "OFF")
 
-    if build.with? "qt" or build.with? "qt-extern"
+    if build.with?("qt") || build.with?("qt-extern")
       args << "-DVTK_USE_GUISUPPORT=ON"
       args << "-DVTK_USE_QT=ON"
       args << "-DVTK_USE_QVTK=ON"
@@ -97,7 +95,6 @@ class Vtk5 < Formula
       args << "-DTK_INTERNAL_PATH:PATH=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Headers/tk-private"
     end
 
-
     args << "-DVTK_USE_BOOST=ON" if build.with? "boost"
     args << "-DVTK_USE_SYSTEM_HDF5=ON" if build.with? "hdf5"
     args << "-DVTK_USE_SYSTEM_JPEG=ON" if build.with? "jpeg"
@@ -111,12 +108,12 @@ class Vtk5 < Formula
       if build.with? "python"
         args << "-DVTK_WRAP_PYTHON=ON"
         # CMake picks up the system's python dylib, even if we have a brewed one.
-        args << "-DPYTHON_LIBRARY='#{%x(python-config --prefix).chomp}/lib/libpython2.7.dylib'"
+        args << "-DPYTHON_LIBRARY='#{`python-config --prefix`.chomp}/lib/libpython2.7.dylib'"
         # Set the prefix for the python bindings to the Cellar
         args << "-DVTK_PYTHON_SETUP_ARGS:STRING='--prefix=#{prefix} --single-version-externally-managed --record=installed.txt'"
         if build.with? "pyqt"
           args << "-DVTK_WRAP_PYTHON_SIP=ON"
-          args << "-DSIP_PYQT_DIR="#{HOMEBREW_PREFIX}/share/sip""
+          args << "-DSIP_PYQT_DIR=" # {HOMEBREW_PREFIX}/share/sip""
         end
       end
       args << ".."
@@ -148,9 +145,8 @@ class Vtk5 < Formula
 
       EOS
     end
-    return s.empty? ? nil : s
+    s.empty? ? nil : s
   end
-
 end
 
 __END__

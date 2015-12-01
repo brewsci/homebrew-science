@@ -4,7 +4,7 @@ class Pandaseq < Formula
   # tag "bioinformatics"
 
   url "https://github.com/neufeld/pandaseq/archive/v2.8.1.tar.gz"
-  sha1 "0f15dd993b8e1e73512d0dc4baccfbbd8a35b5b8"
+  sha256 "9f90fc178de605d0eb931d2493872e0f61a0e5d97b73c539f8152b331996327e"
 
   head "https://github.com/neufeld/pandaseq.git"
 

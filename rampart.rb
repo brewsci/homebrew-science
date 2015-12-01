@@ -1,8 +1,6 @@
-require "formula"
-
 class Rampart < Formula
   homepage "https://github.com/TGAC/RAMPART"
-  #tag "bioinformatics"
+  # tag "bioinformatics"
 
   head do
     url "https://github.com/TGAC/RAMPART.git", :branch => "develop"
@@ -10,7 +8,7 @@ class Rampart < Formula
   end
 
   url "https://github.com/TGAC/RAMPART/releases/download/Release-0.11.0/rampart-0.11.0.tar.gz"
-  sha1 "bfdd0271b37bfb1a308babb1f328bfcbc7cb3841"
+  sha256 "f4e87ef410793906dc42df43f60ba9246ea68dee12c6bcaf30ca5a05f5a3a3fe"
 
   bottle do
     cellar :any

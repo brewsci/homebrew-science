@@ -25,7 +25,7 @@ class Superlu43 < Formula
                  "FORTRAN=#{ENV.fc}", "FFLAGS=#{ENV.fcflags}",
                  "SuperLUroot=#{buildpath}",
                  "SUPERLULIB=$(SuperLUroot)/lib/libsuperlu.a",
-                 "NOOPTS=-fPIC",
+                 "NOOPTS=-fPIC"
                 ]
 
     make_args << ((build.with? "openblas") ? "BLASLIB=-L#{Formula["openblas"].opt_lib} -lopenblas" : "BLASLIB=-framework Accelerate")

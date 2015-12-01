@@ -36,7 +36,7 @@ class AstrometryNet < Formula
     system "make"
     system "make extra" if build.with? "extras"
     system "make py"    if build.with? "python"
-    system "make install"
+    system "make", "install"
   end
 
   test do

@@ -38,7 +38,7 @@ class SuiteSparse < Formula
     make_args = ["CFLAGS=#{cflags}",
                  "INSTALL_LIB=#{lib}",
                  "INSTALL_INCLUDE=#{include}",
-                 "RANLIB=echo"
+                 "RANLIB=echo",
                 ]
     if build.with? "openblas"
       make_args << "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"

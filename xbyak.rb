@@ -1,9 +1,7 @@
-require "formula"
-
 class Xbyak < Formula
   homepage "http://homepage1.nifty.com/herumi/soft/xbyak_e.html"
   url "https://github.com/herumi/xbyak/archive/v4.70.tar.gz"
-  sha1 "a56246e87df6c0e9f750eff0b34f8dc2d26ac5cc"
+  sha256 "158b6b43792361314226b11a27678a62b2dd3229ae34f217050501b80e422dc2"
   head "https://github.com/herumi/xbyak.git"
 
   def install

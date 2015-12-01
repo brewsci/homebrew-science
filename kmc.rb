@@ -4,7 +4,7 @@ class Kmc < Formula
   # tag "bioinformatics"
 
   url "https://github.com/marekkokot/KMC/archive/2.1.1.tar.gz"
-  sha1 "4e02620f4afc034d99b7d8bed41ba02fc71c291f"
+  sha256 "7f8dba362a3827f8c8c87b3e29abd91de0ae23a1901cfc885783ce0e1502acce"
 
   head "https://github.com/marekkokot/KMC.git"
 

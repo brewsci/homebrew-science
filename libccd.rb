@@ -1,10 +1,8 @@
-require 'formula'
-
 class Libccd < Formula
-  homepage 'http://libccd.danfis.cz'
-  url 'http://libccd.danfis.cz/files/libccd-2.0.tar.gz'
-  sha1 'f6ab9053c7f3b18a781c8be973c1844c4421936a'
-  head 'https://github.com/danfis/libccd.git'
+  homepage "http://libccd.danfis.cz"
+  url "http://libccd.danfis.cz/files/libccd-2.0.tar.gz"
+  sha256 "513e212fbb22cf720cf16ba911e8a8ccb1050c006789631ff2474ecc2f12b47a"
+  head "https://github.com/danfis/libccd.git"
 
   bottle do
     cellar :any
@@ -13,15 +11,15 @@ class Libccd < Formula
     sha256 "7a4f9d8fcdf13d2ae3bf8abb88413d5ed2cb3686d230c7fb5aa6c32689a58ba1" => :mountain_lion
   end
 
-  depends_on 'cmake' => :build
+  depends_on "cmake" => :build
 
   def install
     system "cmake", ".", *std_cmake_args
-    system "make install"
+    system "make", "install"
   end
 
   test do
-    (testpath/'test.c').write <<-EOS.undent
+    (testpath/"test.c").write <<-EOS.undent
       #include <ccd/vec3.h>
       int main() {
         ccdVec3PointSegmentDist2(

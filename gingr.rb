@@ -13,7 +13,7 @@ class Gingr < Formula
 
   if OS.mac?
     url "https://github.com/marbl/gingr/releases/download/v1.2/gingr-OSX64-v1.2.zip"
-    sha1 "c848640f5987eacf1fd3bf7ec4a59e72fc2d59e9"
+    sha256 "27ba08606ae3f743ffdbcb6d554048ab3a7560087577f10503a0f5cd0227f9d3"
   elsif OS.linux?
     url "https://github.com/marbl/gingr/releases/download/v1.2/gingr-Linux64-v1.2.tar.gz"
     sha1 "b1f3e9f31bbc3510aa2d9b286643dd465ca61e13"

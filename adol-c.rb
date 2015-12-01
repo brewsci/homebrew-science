@@ -1,7 +1,7 @@
 class AdolC < Formula
   homepage "https://projects.coin-or.org/ADOL-C"
   url "http://www.coin-or.org/download/source/ADOL-C/ADOL-C-2.5.2.tgz"
-  sha1 "6a17cb179dcbc59edc45c97b8928a2ebfa1e2c38"
+  sha256 "2fa514d9799989d6379738c2bcf75070d9834e4d227eb32a5b278840893b2af9"
 
   bottle do
     revision 1

@@ -40,12 +40,11 @@ class Simpleitk < Formula
     args << "-DWRAP_TCL=" + ((build.with? "tcl") ? "ON" : "OFF")
 
     # CMake picks up the system's python dylib, even if we have a brewed one.
-    args << "-DPYTHON_LIBRARY='#{%x(python-config --prefix).chomp}/lib/libpython2.7.dylib'"
-    args << "-DPYTHON_INCLUDE_DIR='#{%x(python-config --prefix).chomp}/include/python2.7'"
+    args << "-DPYTHON_LIBRARY='#{`python-config --prefix`.chomp}/lib/libpython2.7.dylib'"
+    args << "-DPYTHON_INCLUDE_DIR='#{`python-config --prefix`.chomp}/include/python2.7'"
 
     # Superbuild does only work in an out-of-source build, create a new folder
     mkdir "sitk-build" do
-
       # The cmake Superbuild will take care of downloading and compiling important
       # dependencies to be able to build simpleitk
       system "cmake", "../SuperBuild/", *args

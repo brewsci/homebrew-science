@@ -1,11 +1,9 @@
-require "formula"
-
 class Populations < Formula
   homepage "http://bioinformatics.org/~tryphon/populations/"
-  #tag "bioinformatics"
+  # tag "bioinformatics"
 
   url "https://launchpad.net/~olivier-langella/+archive/ppa/+files/populations_1.2.33-2.tar.gz"
-  sha1 "ff190be19352e2bb66f7decb87aed311b924529c"
+  sha256 "bea8ba96e6ed2b1e193194564475458a5bdcd23e1bb3a9d93f27c9a94797124f"
   version "1.2.33-2"
 
   bottle do

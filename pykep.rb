@@ -1,5 +1,5 @@
 class Pykep < Formula
-  homepage "http://esa.github.io/pykep/"
+  homepage "https://esa.github.io/pykep/"
   url "https://github.com/esa/pykep/archive/1.2.1.tar.gz"
   sha256 "e297ea58079fe9d766215f20749d32ec57b4edc91ec1e83cd19ca5c212301608"
   head "https://github.com/esa/pykep.git"

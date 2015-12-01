@@ -1,9 +1,7 @@
-require "formula"
-
 class Sisl < Formula
   homepage "http://www.sintef.no/Informasjons--og-kommunikasjonsteknologi-IKT/Anvendt-matematikk/Fagomrader/Geometri/Prosjekter/The-SISL-Nurbs-Library/SISL-Homepage/"
   url "https://github.com/SINTEF-Geometry/SISL/archive/SISL-4.6.0.tar.gz"
-  sha1 "d86d626408164bea53a129945b09146085c90325"
+  sha256 "b207fe6b4b20775e3064168633256fddd475ff98573408f6f5088a938c086f86"
 
   head "https://github.com/SINTEF-Geometry/SISL.git", :branch => "master"
 

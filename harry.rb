@@ -1,5 +1,3 @@
-require "formula"
-
 class Harry < Formula
   homepage "http://www.mlsec.org/harry"
   url "http://www.mlsec.org/harry/files/harry-0.4.0.tar.gz"

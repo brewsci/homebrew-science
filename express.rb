@@ -8,11 +8,11 @@ class Express < Formula
     sha256 "139f8bd643e922f7703d032d27925a049dda3b926c715ac371989e519d047af8" => :mountain_lion
   end
 
-  #doi "10.1038/nmeth.2251"
-  #tag "bioinformatics"
+  # doi "10.1038/nmeth.2251"
+  # tag "bioinformatics"
 
   url "http://bio.math.berkeley.edu/eXpress/downloads/express-1.5.1/express-1.5.1-src.tgz"
-  sha1 "173f5b340f69d50096271a0199716d0acbbaf446"
+  sha256 "0c5840a42da830fd8701dda8eef13f4792248bab4e56d665a0e2ca075aff2c0f"
 
   depends_on "bamtools"
   depends_on "boost"

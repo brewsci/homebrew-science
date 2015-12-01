@@ -1,11 +1,11 @@
 class Ssake < Formula
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/ssake"
-  #doi "10.1093/bioinformatics/btl629"
-  #tag "bioinformatics"
+  # doi "10.1093/bioinformatics/btl629"
+  # tag "bioinformatics"
 
   url "http://www.bcgsc.ca/platform/bioinfo/software/ssake/releases/3.8.2/ssake_v3-8-2.tar.gz"
   version "3.8.2"
-  sha1 "a06300a7715578774914c14e7e025c2d9174c39d"
+  sha256 "254740c04ce2dc3afd8a4c3615be56baebb8b98a5e22bad6c3dd166a4dfdcb10"
 
   bottle do
     cellar :any

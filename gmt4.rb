@@ -1,5 +1,3 @@
-require "formula"
-
 class Gmt4 < Formula
   homepage "http://gmt.soest.hawaii.edu/"
   url "ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.14-src.tar.bz2"

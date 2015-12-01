@@ -1,48 +1,46 @@
-require 'formula'
-
 class Maker < Formula
-  homepage 'http://www.yandell-lab.org/software/maker.html'
-  #doi '10.1101/gr.6743907' => 'MAKER', '10.1186/1471-2105-12-491' => 'MAKER2', '10.1104/pp.113.230144' => 'MAKER-P'
-  #tag "bioinformatics"
+  homepage "http://www.yandell-lab.org/software/maker.html"
+  # doi '10.1101/gr.6743907' => 'MAKER', '10.1186/1471-2105-12-491' => 'MAKER2', '10.1104/pp.113.230144' => 'MAKER-P'
+  # tag "bioinformatics"
 
   url "http://yandell.topaz.genetics.utah.edu/maker_downloads/static/maker-2.31.8.tgz"
-  sha1 "056d4b5c2d9ca9397ea236899bedc0b8ca9c1ca5"
+  sha256 "a99c7e433638979808ea3f4bcd2b6b69f4474bd898807aba4520debd58717420"
 
-  depends_on 'augustus' => :optional
-  depends_on 'blast' => :recommended
-  depends_on 'exonerate' => :recommended
-  depends_on 'infernal' => :optional
-  depends_on 'mir-prefer' => :optional
+  depends_on "augustus" => :optional
+  depends_on "blast" => :recommended
+  depends_on "exonerate" => :recommended
+  depends_on "infernal" => :optional
+  depends_on "mir-prefer" => :optional
   depends_on :mpi => :optional
-  depends_on 'postgresql' => :optional
-  depends_on 'repeatmasker' => :recommended
-  depends_on 'snap' => :recommended
-  depends_on 'snoscan' => :optional
-  depends_on 'trnascan' => :optional
+  depends_on "postgresql" => :optional
+  depends_on "repeatmasker" => :recommended
+  depends_on "snap" => :recommended
+  depends_on "snoscan" => :optional
+  depends_on "trnascan" => :optional
   # No formula: depends_on 'genemark-es' => :optional
   # No formula: depends_on 'genemarks' => :optional
 
-  depends_on 'Bio::Perl' => :perl
-  depends_on 'Bit::Vector' => :perl
-  depends_on 'DBD::SQLite' => :perl
-  depends_on 'DBI' => :perl
-  depends_on 'File::Which' => :perl
-  depends_on 'IO::All' => :perl
-  depends_on 'IO::Prompt' => :perl
+  depends_on "Bio::Perl" => :perl
+  depends_on "Bit::Vector" => :perl
+  depends_on "DBD::SQLite" => :perl
+  depends_on "DBI" => :perl
+  depends_on "File::Which" => :perl
+  depends_on "IO::All" => :perl
+  depends_on "IO::Prompt" => :perl
   depends_on "Inline::C" => [:perl, "Inline"]
   depends_on "DBD::Pg" => :perl if build.with? "postgresql"
-  depends_on 'Perl::Unsafe::Signals' => :perl
-  depends_on 'PerlIO::gzip' => :perl
-  depends_on 'forks' => :perl
-  depends_on 'forks::shared' => :perl
+  depends_on "Perl::Unsafe::Signals" => :perl
+  depends_on "PerlIO::gzip" => :perl
+  depends_on "forks" => :perl
+  depends_on "forks::shared" => :perl
 
   def install
-    cd 'src' do
+    cd "src" do
       mpi = if build.with?("mpi") then "yes" else "no" end
       system "(echo #{mpi}; yes '') |perl Build.PL"
       system *%w[./Build install]
     end
-    libexec.install Dir['*']
+    libexec.install Dir["*"]
     bin.install_symlink %w[
       ../libexec/bin/gff3_merge
       ../libexec/bin/maker]
@@ -64,6 +62,6 @@ class Maker < Formula
   end
 
   test do
-    system 'maker --version'
+    system "maker --version"
   end
 end

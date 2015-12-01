@@ -1,7 +1,7 @@
 class Propack < Formula
   homepage "http://soi.stanford.edu/~rmunk/PROPACK"
   url "http://soi.stanford.edu/~rmunk/PROPACK/PROPACK77_v2.1.tar.gz"
-  sha1 "21afeafd23d3e3a5b4de2474be3a896d48a952ce"
+  sha256 "8ff42d1392cc31b19f2fda6d3ef436dd98c10daaede51cf9023e41dd2c478389"
 
   bottle do
     sha256 "c22dd4d0bb7402b7c7c544125713b020faac53777786e1637dbd56d259afc888" => :yosemite

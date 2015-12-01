@@ -1,8 +1,8 @@
 class Garli < Formula
   homepage "https://code.google.com/p/garli/"
-  #tag "bioinformatics"
+  # tag "bioinformatics"
   url "https://garli.googlecode.com/files/garli-2.01.tar.gz"
-  sha1 "d0b21b3412cc8260dd1c82bf6044df14ccff5f03"
+  sha256 "e7fd4c115f9112fd9a019dcb6314e3a9d989f56daa0f833a28dc8249e50988ef"
 
   depends_on :mpi => :recommended
   depends_on "ncl"

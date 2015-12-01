@@ -1,17 +1,15 @@
-require 'formula'
-
 class Velvetoptimiser < Formula
-  homepage 'http://bioinformatics.net.au/software.velvetoptimiser.shtml'
-  url 'http://www.vicbioinformatics.com/VelvetOptimiser-2.2.5.tar.gz'
-  sha1 '53015ecd9ca7669d35cc2fe47a2506354a017613'
-  head 'https://github.com/Victorian-Bioinformatics-Consortium/VelvetOptimiser.git'
+  homepage "http://bioinformatics.net.au/software.velvetoptimiser.shtml"
+  url "http://www.vicbioinformatics.com/VelvetOptimiser-2.2.5.tar.gz"
+  sha256 "a7c2f213dff80f8448081a15a487a55cb5e3432f836763bcb5c38abc800af503"
+  head "https://github.com/Victorian-Bioinformatics-Consortium/VelvetOptimiser.git"
 
-  depends_on 'velvet'
-  depends_on 'Bio::Perl' => :perl
+  depends_on "velvet"
+  depends_on "Bio::Perl" => :perl
 
   def install
-    bin.install 'VelvetOptimiser.pl'
-    (lib / 'perl').install 'VelvetOpt'
+    bin.install "VelvetOptimiser.pl"
+    (lib / "perl").install "VelvetOpt"
   end
 
   # Fix shebang to use the perl found in PATH.
@@ -19,7 +17,7 @@ class Velvetoptimiser < Formula
   patch :DATA
 
   test do
-    system 'VelvetOptimiser.pl --version'
+    system "VelvetOptimiser.pl --version"
   end
 end
 

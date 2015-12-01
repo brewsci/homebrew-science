@@ -1,7 +1,7 @@
 class P4est < Formula
   desc "Dynamic management of a collection (a forest) of adaptive octrees in parallel"
   homepage "http://www.p4est.org"
-  url "http://p4est.github.io/release/p4est-1.1.tar.gz"
+  url "https://p4est.github.io/release/p4est-1.1.tar.gz"
   sha256 "0b5327a35f0c869bf920b8cab5f20caa4eb55692eaaf1f451d5de30285b25139"
   revision 1
 

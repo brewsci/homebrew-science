@@ -12,7 +12,7 @@ class Fastml < Formula
     sha256 "9b6fef363a5cf10cea598b57a9d77ae80c773c5b0f6e39d4187895616121557b" => :mavericks
   end
 
-  depends_on :macos => :mavericks   # won't build on [Mountain] Lion
+  depends_on :macos => :mavericks # won't build on [Mountain] Lion
 
   def install
     mkdir "bin"

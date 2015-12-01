@@ -1,12 +1,10 @@
-require "formula"
-
 class Biocgal < Formula
   # The name CGAL conflicts with
   # Computational Geometry Algorithms Library
 
   homepage "http://bio.math.berkeley.edu/cgal/"
   url "http://bio.math.berkeley.edu/cgal/cgal-0.9.6-beta.tar"
-  sha1 "154f70d4673b7b0621cb93e16eb604710ccb4ed8"
+  sha256 "052e2f2c01fc3a5a7e1a0582a17a51668930cde1f73a8a9e5564a65ddb41c47e"
 
   def install
     system "make"

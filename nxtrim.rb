@@ -1,12 +1,12 @@
 class Nxtrim < Formula
   homepage "https://github.com/sequencing/NxTrim"
   head "https://github.com/sequencing/NxTrim.git"
-  #doi "10.1101/007666"
-  #tag "bioinformatics"
+  # doi "10.1101/007666"
+  # tag "bioinformatics"
 
   url "https://github.com/sequencing/NxTrim/archive/v0.3.0-alpha.tar.gz"
   version "0.3.0"
-  sha1 "6502be8546b8d0ebc0120cc2791aefd26471e8a4"
+  sha256 "b3822d792255545caf9b88341a58503f6438085534d4239faae153065c6c2bc8"
 
   bottle do
     sha256 "0d38dfae7d61a540813ecf3c689e34ba33cee3e02b330f36b4d8886e69e7d14a" => :yosemite

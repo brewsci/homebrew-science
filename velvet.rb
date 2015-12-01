@@ -1,7 +1,7 @@
 class Velvet < Formula
   homepage "http://www.ebi.ac.uk/~zerbino/velvet/"
   url "http://www.ebi.ac.uk/~zerbino/velvet/velvet_1.2.10.tgz"
-  sha1 "216f0941609abf3a73adbba19ef1f364df489d18"
+  sha256 "884dd488c2d12f1f89cdc530a266af5d3106965f21ab9149e8cb5c633c977640"
   bottle do
     cellar :any
     sha256 "23c3dbe996eead11507bad1f51fd499c2165d21927fb71812d21da1e4f38669d" => :yosemite
@@ -9,8 +9,8 @@ class Velvet < Formula
     sha256 "f0b135f0ef7da58a0b0e396d90e3b96049ebd250ca76e5d081dceddcee1685c9" => :mountain_lion
   end
 
-  #doi "10.1101/gr.074492.107"
-  #tag "bioinformatics"
+  # doi "10.1101/gr.074492.107"
+  # tag "bioinformatics"
   head "https://github.com/dzerbino/velvet.git"
 
   option "with-maxkmerlength=", "Specify maximum k-mer length, any positive odd integer (default: 31)"

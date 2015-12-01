@@ -1,7 +1,7 @@
 class Geneid < Formula
   homepage "http://genome.crg.es/software/geneid/"
   url "ftp://genome.crg.es/pub/software/geneid/geneid_v1.4.4.Jan_13_2011.tar.gz"
-  sha1 "9cbed32d0bfb530252f97b83807da2284967379b"
+  sha256 "8c172eb783a7c2c11a0508bafd60cd63e6698a3961db1478a231acb65d855a2d"
   version "1.4.4"
 
   bottle do

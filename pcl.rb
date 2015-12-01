@@ -37,12 +37,12 @@ class Pcl < Formula
   stable do
     patch do
       url "https://gist.githubusercontent.com/fran6co/a6e1e44b1b43b2d150cd/raw/0c4aeb301ed523c81cd57c63b0a9804d49af9848/boost.patch"
-      sha1 "af223b0d312a0404d5c9281de62f0cedd9e3651a"
+      sha256 "5409b0899f65d918248a8fdfb820478cc0b191c50339e16692a911fab76c3f43"
     end
     # Fixes PCL for VTK 6.2.0
     patch do
       url "https://patch-diff.githubusercontent.com/raw/PointCloudLibrary/pcl/pull/1205.patch"
-      sha1 "27770e8945cc53bac0bb0a1215d658cdb62120d3"
+      sha256 "5b7051bb1e9f6f23364fe64221cf96980750a300695b5787860013786438e88c"
     end
   end
 

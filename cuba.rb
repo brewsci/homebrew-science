@@ -1,9 +1,7 @@
-require "formula"
-
 class Cuba < Formula
   homepage "http://www.feynarts.de/cuba"
   url "http://www.feynarts.de/cuba/Cuba-4.1.tar.gz"
-  sha1 "2415fb0d29e06a9b86eadb7750fe79bc77dd44c0"
+  sha256 "0928fb2911b77a72a9d01c75f5ed9962f46f5f7e2d913baf7b302395ac851f5f"
 
   bottle do
     cellar :any

@@ -1,5 +1,3 @@
-require "formula"
-
 class Openfst < Formula
   homepage "http://www.openfst.org/"
   url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.5.0.tar.gz"
@@ -27,7 +25,7 @@ class Openfst < Formula
                           "--enable-mpdt",
                           "--enable-ngram-fsts",
                           "--enable-pdt"
-    system "make install"
+    system "make", "install"
   end
 
   test do

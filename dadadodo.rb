@@ -1,9 +1,7 @@
-require 'formula'
-
 class Dadadodo < Formula
-  homepage 'http://www.jwz.org/dadadodo/'
-  url 'http://www.jwz.org/dadadodo/dadadodo-1.04.tar.gz'
-  sha1 '20b3c802db70c8c4fddf751e668aa6218c085643'
+  homepage "http://www.jwz.org/dadadodo/"
+  url "http://www.jwz.org/dadadodo/dadadodo-1.04.tar.gz"
+  sha256 "2e0ebb90951c46ff8823dfeca0c9402ce4576b31dd8bc4b2740a951aebb8fcdf"
 
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LDFLAGS=#{ENV.ldflags}"

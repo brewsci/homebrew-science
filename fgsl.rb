@@ -1,7 +1,7 @@
 class Fgsl < Formula
   homepage "http://www.lrz.de/services/software/mathematik/gsl/fortran/"
   url "http://www.lrz.de/services/software/mathematik/gsl/fortran/fgsl-1.0.0.tar.gz"
-  sha1 "f39362bd4d0c2daf8382d8ec818bb166ae5a7dea"
+  sha256 "2841f6deb2ce05e153fc1d89fe5e46aba74c60a2595c857cef9ca771a0cf6290"
   revision 1
 
   bottle do

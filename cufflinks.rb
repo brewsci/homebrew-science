@@ -1,6 +1,6 @@
 class Cufflinks < Formula
   homepage "http://cufflinks.cbcb.umd.edu/"
-  url "http://cole-trapnell-lab.github.io/cufflinks/assets/downloads/cufflinks-2.2.1.tar.gz"
+  url "https://cole-trapnell-lab.github.io/cufflinks/assets/downloads/cufflinks-2.2.1.tar.gz"
   sha256 "e8316b66177914f14b3a0c317e436d386a46c4c212ca1b2326f89f8a2e08d5ae"
 
   bottle do

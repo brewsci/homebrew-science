@@ -1,12 +1,10 @@
-require "formula"
-
 class Pbsuite < Formula
   homepage "http://sourceforge.net/projects/pb-jelly/"
-  #doi "10.1371/journal.pone.0047768" => "PBJelly", "10.1186/1471-2105-15-180" => "PBHoney"
-  #tag "bioinformatics"
+  # doi "10.1371/journal.pone.0047768" => "PBJelly", "10.1186/1471-2105-15-180" => "PBHoney"
+  # tag "bioinformatics"
 
   url "https://downloads.sourceforge.net/project/pb-jelly/PBSuite_14.7.14.tgz"
-  sha1 "1a6530f24af6a54af26285bae5d7a8e58e94a2a2"
+  sha256 "98dcda7598f0ecf1a4223ba249f699add4438c60f01ae67b07fdca01142cf145"
 
   conflicts_with "bedtools", :because => "Both install bin/bamToFastq"
 

@@ -4,7 +4,7 @@ class Fermi < Formula
   # tag "bioinformatics"
 
   url "https://github.com/lh3/fermi/archive/1.1.tar.gz"
-  sha1 "95d9a78df345def9ac781be0485b5c7680e0ad04"
+  sha256 "0597d82376ddcc76ad6e3a2552300bdc5315a172e8b22d3ada9e68e8bfeb1bc8"
   head "https://github.com/lh3/fermi.git"
 
   bottle do

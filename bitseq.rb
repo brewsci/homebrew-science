@@ -1,7 +1,7 @@
 class Bitseq < Formula
   homepage "https://code.google.com/p/bitseq/"
   url "https://bitseq.googlecode.com/files/BitSeq-0.4.3.tar.gz"
-  sha1 "603feb5fccdd95d496c27fe78e7f1f81e46bc1ed"
+  sha256 "72ebc757ea42060c3ad7fb49f76e3af3934da6058909a193c167f97223c9a8cc"
 
   needs :openmp
 

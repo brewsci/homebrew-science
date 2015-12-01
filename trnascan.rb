@@ -1,11 +1,9 @@
-require 'formula'
-
 class Trnascan < Formula
-  homepage 'http://selab.janelia.org/tRNAscan-SE/'
-  #doi '10.1093/nar/25.5.0955'
-  url 'http://selab.janelia.org/software/tRNAscan-SE/tRNAscan-SE.tar.Z'
-  sha1 'fd2db5b1bb059dfdcf0fced1c865909da601d71f'
-  version '1.23'
+  homepage "http://selab.janelia.org/tRNAscan-SE/"
+  # doi '10.1093/nar/25.5.0955'
+  url "http://selab.janelia.org/software/tRNAscan-SE/tRNAscan-SE.tar.Z"
+  sha256 "843caf3e258a6293300513ddca7eb7dbbd2225e5baae1e5a7bcafd509f6dd550"
+  version "1.23"
 
   def install
     make_args = ["CFLAGS=-D_POSIX_C_SOURCE=1", "LIBDIR=#{libexec}", "BINDIR=#{bin}"]
@@ -28,7 +26,7 @@ class Trnascan < Formula
   test do
     system "tRNAscan-SE -d -y -o test.out #{share}/#{name}/F22B7.fa"
     if FileTest.exists? "test.out"
-      %x(diff test.out #{share}/#{name}/testrun.ref).empty? ? true : false
+      `diff test.out #{share}/#{name}/testrun.ref`.empty? ? true : false
     else
       false
     end

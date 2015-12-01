@@ -2,7 +2,7 @@ class Jmol < Formula
   homepage "http://www.jmol.org"
   url "https://downloads.sourceforge.net/jmol/Jmol/Version%2014.2/Version%2014.2.12/Jmol-14.2.12_2015.02.11-binary.zip"
   version "14.2.12"
-  sha1 "f2f6f39b1c89d59ce624b3078ad19a0eef1f7d0f"
+  sha256 "eab643aece151f195baae6aba2cf0d285a7ebbc448590f2bd20a1a057894d2f0"
 
   head do
     url "https://jmol.svn.sourceforge.net/svnroot/jmol/trunk/Jmol"

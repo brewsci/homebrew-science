@@ -1,9 +1,7 @@
-require 'formula'
-
 class Vigra < Formula
   homepage 'http://hci.iwr.uni-heidelberg.de/vigra/'
   url 'https://github.com/ukoethe/vigra/releases/download/Version-1-10-0/vigra-1.10.0-src-with-docu.tar.gz'
-  sha1 '0a882bc09f5a6ec1f8381ff571020259eb88ee67'
+  sha256 "42d4a361b0bb52fbfdae7e76000698be04dabba77be3f4248d369139fe96a099"
   head 'https://github.com/ukoethe/vigra.git'
   revision 1
 
@@ -50,7 +48,7 @@ class Vigra < Formula
     s = ""
     libtiff = Formula["libtiff"]
     libtiff_cxx11 = Tab.for_formula(libtiff).cxx11?
-    if (build.cxx11? and not libtiff_cxx11) or (libtiff_cxx11 and not build.cxx11?)
+    if (build.cxx11? and !libtiff_cxx11) || (libtiff_cxx11 and !build.cxx11?)
       s += <<-EOS.undent
       The Homebrew warning about libtiff not being built with the C++11
       standard may be safely ignored as Vigra only relies on C API of libtiff.

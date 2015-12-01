@@ -1,7 +1,7 @@
 class Colpack < Formula
   homepage "http://www.cscapes.org/coloringpage/software.htm"
   url "http://cscapes.cs.purdue.edu/download/ColPack/ColPack-1.0.9.tar.gz"
-  sha1 "c963424c3e97a7bc3756d3feb742418e89721e48"
+  sha256 "06c5d3e61ab873b27d7962a9f09e90cbc52ccd9f480e88f1ecb50e6bced11932"
 
   bottle do
     cellar :any

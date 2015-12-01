@@ -1,21 +1,19 @@
-require 'formula'
-
 class Fann < Formula
-  homepage 'http://leenissen.dk/fann/wp/'
-  url 'https://downloads.sourceforge.net/project/fann/fann/2.2.0/FANN-2.2.0-Source.tar.gz'
-  sha1 'ff8341e4104bdbc0f3ab7ad39aef33285f8512d4'
+  homepage "http://leenissen.dk/fann/wp/"
+  url "https://downloads.sourceforge.net/project/fann/fann/2.2.0/FANN-2.2.0-Source.tar.gz"
+  sha256 "3d6ee056dab91f3b34a3f233de6a15331737848a4cbdb4e0552123d95eed4485"
 
-  depends_on 'cmake' => :build
+  depends_on "cmake" => :build
   option :universal
 
   def install
     ENV.universal_binary if build.universal?
     system "cmake", ".", *std_cmake_args
-    system "make install"
+    system "make", "install"
   end
 
   test do
-    (testpath/'xor.data').write <<-EOS.undent
+    (testpath/"xor.data").write <<-EOS.undent
       4 2 1
       -1 -1
       -1
@@ -27,7 +25,7 @@ class Fann < Formula
       -1
     EOS
 
-    (testpath/'test.c').write <<-EOS.undent
+    (testpath/"test.c").write <<-EOS.undent
     #include "fann.h"
     int main()
     {

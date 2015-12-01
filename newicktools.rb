@@ -1,9 +1,9 @@
 class Newicktools < Formula
   homepage "https://github.com/lindenb/newicktools"
-  #tag "bioinformatics"
+  # tag "bioinformatics"
 
   url "https://github.com/lindenb/newicktools/archive/v0.1.tar.gz"
-  sha1 "debdb6a8182ff3716fd991e8cf3a5d7dfbee5262"
+  sha256 "3484d71ceaf9f8514de8d8c3d3b550c46cbb23514dcbd02f6e61ed151e8ebe90"
   head "https://github.com/lindenb/newicktools.git"
 
   bottle do

@@ -5,7 +5,7 @@ class Bfc < Formula
 
   url "https://github.com/lh3/bfc/archive/submitted-v1.tar.gz"
   version "175"
-  sha1 "50fdbf2751c1fb94e6ef660774f93be1d3a13ae3"
+  sha256 "0fad5807a417f8cc033b5deea04c0fa763947e55415372f89bd2914df48154b7"
   head "https://github.com/lh3/bfc.git"
 
   bottle do

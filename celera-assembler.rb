@@ -6,7 +6,7 @@ class CeleraAssembler < Formula
   # tag "bioinformatics"
 
   url "https://downloads.sourceforge.net/project/wgs-assembler/wgs-assembler/wgs-8.3/wgs-8.3rc1.tar.bz2"
-  sha1 "be8e92dc48cdabf64992bc2e4d8b7a39b2f95ff7"
+  sha256 "2e000d04273df2cc3ce2514beb812d5772b7127d469d088bb9293e522ae32096"
 
   bottle do
     sha256 "4e9e12f42fcc8dcc8929bd10317c4eca171c01c03692142ebec7f7520a91d12d" => :yosemite

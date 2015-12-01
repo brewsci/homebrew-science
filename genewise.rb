@@ -18,10 +18,10 @@ class Genewise < Formula
   def install
     # Use pkg-config glib-2.0 rather than glib-config
     inreplace %w[src/makefile src/corba/makefile
-        src/dnaindex/assembly/makefile src/dnaindex/makefile
-        src/dynlibsrc/makefile src/models/makefile
-        src/network/makefile src/other_programs/makefile
-        src/snp/makefile],
+                 src/dnaindex/assembly/makefile src/dnaindex/makefile
+                 src/dynlibsrc/makefile src/models/makefile
+                 src/network/makefile src/other_programs/makefile
+                 src/snp/makefile],
       "glib-config", "pkg-config glib-2.0"
 
     # getline conflicts with stdio

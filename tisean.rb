@@ -1,9 +1,7 @@
-require "formula"
-
 class Tisean < Formula
   homepage "http://www.mpipks-dresden.mpg.de/~tisean/"
   url "http://www.mpipks-dresden.mpg.de/~tisean/TISEAN_3.0.1.tar.gz"
-  sha1 "7fe71899b063abe1b3d9aae88f153988495d623b"
+  sha256 "cd6662505a2e411218f5d34ccb8bf206a6148b6c79b1cc8e4fa4dc11dfd00534"
   revision 2
 
   bottle do

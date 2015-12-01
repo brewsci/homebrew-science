@@ -1,7 +1,7 @@
 class Pastix < Formula
   homepage "http://pastix.gforge.inria.fr"
   url "https://gforge.inria.fr/frs/download.php/file/34392/pastix_5.2.2.20.tar.bz2"
-  sha1 "d55acf287ed0b6a59fc12606a21e42e3d38507c5"
+  sha256 "758de4f109c852a6f13f0aea248838a3a8fefdc0f9c1da887bc37061fbe2e00a"
   head "git://scm.gforge.inria.fr/ricar/ricar.git"
   revision 3
 
@@ -85,8 +85,8 @@ class Pastix < Formula
       system "make", "install"
       system "make", "examples"
       system "./example/bin/simple", "-lap", "100"
-      prefix.install "config.in"    # For the record.
-      pkgshare.install "example"       # Contains all test programs.
+      prefix.install "config.in" # For the record.
+      pkgshare.install "example" # Contains all test programs.
       ohai "Simple test result is in ~/Library/Logs/Homebrew/pastix. Please check."
     end
   end
@@ -94,7 +94,7 @@ class Pastix < Formula
   test do
     Dir.foreach("#{pkgshare}/example/bin") do |example|
       next if example =~ /^\./ || example =~ /plot_memory_usage/ || example =~ /mem_trace.o/ || example =~ /murge_sequence/
-      next if example == "reentrant"  # May fail due to thread handling. See http://goo.gl/SKDGPV
+      next if example == "reentrant" # May fail due to thread handling. See http://goo.gl/SKDGPV
       if example == "murge-product"
         system "#{pkgshare}/example/bin/#{example}", "100", "10", "1"
       elsif example =~ /murge/

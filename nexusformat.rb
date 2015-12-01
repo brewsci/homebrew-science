@@ -1,9 +1,7 @@
-require "formula"
-
 class Nexusformat < Formula
   homepage "http://www.nexusformat.org"
   url "https://github.com/nexusformat/code/archive/4.3.3.tar.gz"
-  sha1 "89f1e7ec5706868f9a488a44aeb2305587ab5180"
+  sha256 "fef979ded3b2b4a455514671eac4483d431aeb7c8b25428bbb666bc7d50cace3"
 
   option :cxx11
 

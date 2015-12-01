@@ -4,7 +4,7 @@ class Blat < Formula
   # tag "bioinformatics"
 
   url "http://users.soe.ucsc.edu/~kent/src/blatSrc35.zip"
-  sha1 "a2cae7407e512166bf7b1ed300db9be6649693bd"
+  sha256 "06d9bcf114ec4a4b21fef0540a0532556b6602322a5a2b33f159dc939ae53620"
 
   bottle do
     cellar :any

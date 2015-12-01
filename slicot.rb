@@ -1,10 +1,8 @@
-require 'formula'
-
 class Slicot < Formula
-  homepage 'http://www.slicot.org'
-  url 'http://ftp.de.debian.org/debian/pool/main/s/slicot/slicot_5.0+20101122.orig.tar.gz'
-  version '5.0+20101122'
-  sha1 'ec240abbf6d3d60da3a7dc21d22104abdfd86bd8'
+  homepage "http://www.slicot.org"
+  url "http://ftp.de.debian.org/debian/pool/main/s/slicot/slicot_5.0+20101122.orig.tar.gz"
+  version "5.0+20101122"
+  sha256 "fa80f7c75dab6bfaca93c3b374c774fd87876f34fba969af9133eeaea5f39a3d"
   revision 1
 
   bottle do
@@ -14,7 +12,7 @@ class Slicot < Formula
     sha256 "af13b9a9543b1a2f6d74aa1776dd1d3b72a2a28e7112098300c93c176a92dc10" => :mountain_lion
   end
 
-  option 'with-default-integer-8', 'Build with 8-byte-wide integer type'
+  option "with-default-integer-8", "Build with 8-byte-wide integer type"
 
   depends_on :fortran
 

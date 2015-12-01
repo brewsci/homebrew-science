@@ -1,10 +1,8 @@
-require "formula"
-
 class Snoscan < Formula
   homepage "http://lowelab.ucsc.edu/snoscan/"
-  #doi "10.1126/science.283.5405.1168"
+  # doi "10.1126/science.283.5405.1168"
   url "http://lowelab.ucsc.edu/software/snoscan.tar.gz"
-  sha1 "a70fee3d72f83f548807f7da5c01ba3a692dd699"
+  sha256 "a73707f93bc52c3212fd2e7e339ca04d8b74aaa863fa417e26b4b935a6008756"
   version "0.9b"
 
   def install

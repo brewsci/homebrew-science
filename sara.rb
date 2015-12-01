@@ -1,9 +1,7 @@
-require 'formula'
-
 class Sara < Formula
-  homepage 'http://service-technology.org/sara'
-  url 'http://download.gna.org/service-tech/sara/sara-1.13.tar.gz'
-  sha1 'a4f03cc3ffc73613610ecce4c6b6a60b1a94171d'
+  homepage "http://service-technology.org/sara"
+  url "http://download.gna.org/service-tech/sara/sara-1.13.tar.gz"
+  sha256 "2e1a616b6398bfc898b6a53aab16ef556ad59263b3ab71620592f83c43cd28ca"
 
   head do
     url "http://svn.gna.org/svn/service-tech/trunk/sara"

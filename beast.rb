@@ -5,7 +5,7 @@ class Beast < Formula
 
   url "http://tree.bio.ed.ac.uk/download.php?id=92&num=3"
   version "1.8.2"
-  sha1 "47a5aca20fecf6cb61a301f8b03d1e750858721a"
+  sha256 "233ca5e06d98c5e7f8fb6a68fe5dd5448bb36d7d801117f7f6f11ac9f6b6ecc9"
 
   bottle do
     cellar :any

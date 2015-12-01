@@ -1,10 +1,8 @@
-require "formula"
-
 class Openbr < Formula
   homepage "http://www.openbiometrics.org/"
   url "https://github.com/biometrics/openbr/releases/download/v0.4.1/openbr0.4.1_withModels.tar.gz"
   version "0.4.1"
-  sha1 "1cf3b9b6fad1c717d8b0256b3a22d138510572e9"
+  sha256 "130433a17625b81b83cefef839dc968d204fc44d2854d9c285999cd0b6c86fdc"
 
   depends_on "cmake" => :build
   depends_on "qt5"

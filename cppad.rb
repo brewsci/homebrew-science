@@ -1,10 +1,8 @@
-require "formula"
-
 class Cppad < Formula
   homepage "http://www.coin-or.org/CppAD"
   url "http://www.coin-or.org/download/source/CppAD/cppad-20150000.2.epl.tgz"
   version "20150000"
-  sha1 "1542da5283dbba6bcc7d8ba513fcb2f5d5a7675e"
+  sha256 "972498b307aff88173c4616e8e57bd2d1360d929a5faf49e3611910a182376f7"
   head "https://github.com/coin-or/CppAD.git"
 
   bottle do
@@ -37,7 +35,7 @@ class Cppad < Formula
   end
 
   def install
-    ENV.cxx11 if build.with? "adol-c" or build.with? "ipopt"
+    ENV.cxx11 if build.with?("adol-c") || build.with?("ipopt")
 
     if ENV.compiler == :clang
       opoo "OpenMP support will not be enabled. Use --cc=gcc-x.y if you require OpenMP."
@@ -51,8 +49,8 @@ class Cppad < Formula
       cppad_testvector = "boost"
     elsif build.with? "eigen"
       cppad_testvector = "eigen"
-      cmake_args << "-Deigen_prefix=#{Formula['eigen'].opt_prefix}"
-      cmake_args << "-Dcppad_cxx_flags=-I#{Formula['eigen'].opt_include}/eigen3"
+      cmake_args << "-Deigen_prefix=#{Formula["eigen"].opt_prefix}"
+      cmake_args << "-Dcppad_cxx_flags=-I#{Formula["eigen"].opt_include}/eigen3"
     elsif build.with? "std"
       cppad_testvector = "std"
     end
@@ -60,13 +58,13 @@ class Cppad < Formula
 
     if build.with? "adol-c"
       adolc_opts = Tab.for_name("adol-c").used_options
-      cmake_args << "-Dadolc_prefix=#{Formula['adol-c'].opt_prefix}"
-      cmake_args << "-Dcolpack_prefix=#{Formula['colpack'].opt_prefix}" unless adolc_opts.include? "without-colpack"
+      cmake_args << "-Dadolc_prefix=#{Formula["adol-c"].opt_prefix}"
+      cmake_args << "-Dcolpack_prefix=#{Formula["colpack"].opt_prefix}" unless adolc_opts.include? "without-colpack"
     end
 
     if build.with? "ipopt"
-      cmake_args << "-Dipopt_prefix=#{Formula['ipopt'].opt_prefix}" if build.with? "ipopt"
-      cmake_args << "-DCMAKE_EXE_LINKER_FLAGS=#{ENV.ldflags}" + ((ipopt_options.include? "with-openblas") ? "-L#{Formula['openblas']}.lib -lopenblas" : "-lblas")
+      cmake_args << "-Dipopt_prefix=#{Formula["ipopt"].opt_prefix}" if build.with? "ipopt"
+      cmake_args << "-DCMAKE_EXE_LINKER_FLAGS=#{ENV.ldflags}" + ((ipopt_options.include? "with-openblas") ? "-L#{Formula["openblas"]}.lib -lopenblas" : "-lblas")
       # For some reason, ENV.cxx11 isn"t sufficient when building with gcc.
       cmake_args << "-Dcppad_cxx_flags=-std=c++11" if ENV.compiler != :clang
     end
@@ -74,7 +72,7 @@ class Cppad < Formula
     mkdir "build" do
       system "cmake", "..", *cmake_args
       system "make check" if build.with? "check"
-      system "make install"
+      system "make", "install"
     end
   end
 end

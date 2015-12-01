@@ -1,13 +1,11 @@
-require "formula"
-
 class SspaceLongread < Formula
   homepage "http://www.baseclear.com/lab-products/bioinformatics-tools/sspace-longread/"
-  #doi "10.1186/1471-2105-15-211"
-  #tag "bioinformatics"
+  # doi "10.1186/1471-2105-15-211"
+  # tag "bioinformatics"
 
   version "1-1"
   url "http://www.baseclear.com/download.php?file_id=1786"
-  sha1 "7fa220ecea3120777ac4f6623e69c8e3404a1a36"
+  sha256 "15db83ed199ec2a7023c3453e0d22d3eecbb99587d3d62729224504563ddda8f"
 
   depends_on "blasr"
 

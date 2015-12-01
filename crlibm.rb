@@ -1,9 +1,7 @@
-require "formula"
-
 class Crlibm < Formula
   homepage "http://lipforge.ens-lyon.fr/www/crlibm/"
   url "http://lipforge.ens-lyon.fr/frs/download.php/162/crlibm-1.0beta4.tar.gz"
-  sha1 "7362162bcfceeda0ed885ce1bd8d4cd678f31d0f"
+  sha256 "6836b4299f9421c99da2bdcd5e04a8d35577db4eb61161a401aa93751a96375d"
   version "1.0beta4"
 
   depends_on "autoconf" => :build
@@ -15,7 +13,7 @@ class Crlibm < Formula
   end
 
   test do
-    (testpath/'test.c').write <<-EOS.undent
+    (testpath/"test.c").write <<-EOS.undent
       #include <stdio.h>
       #include <math.h>
       #include <crlibm.h>

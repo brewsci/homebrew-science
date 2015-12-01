@@ -1,11 +1,11 @@
 class AbyssExplorer < Formula
   desc "Visualize genome sequence assemblies"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss-explorer"
-  #doi "10.1109/TVCG.2009.116"
-  #tag "bioinformatics"
+  # doi "10.1109/TVCG.2009.116"
+  # tag "bioinformatics"
 
   url "http://www.bcgsc.ca/downloads/abyss-explorer/abyss-explorer-1.3.4/abyss-explorer-1.3.4.zip"
-  sha1 "f9b41c5c9d458cf46399571de9c6070b04a2e8b5"
+  sha256 "fa4197c985ae9e66a01b4d3db4e6211f4e84444bc31deaf4c1aa352431ae6491"
 
   bottle do
     cellar :any

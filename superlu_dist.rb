@@ -56,7 +56,7 @@ class SuperluDist < Formula
     cd "EXAMPLE" do
       system "make"
     end
-    prefix.install "make.inc"  # Record make.inc used
+    prefix.install "make.inc" # Record make.inc used
     lib.install Dir["lib/*"]
     (include / "superlu_dist").install Dir["SRC/*.h"]
     doc.install Dir["Doc/*"]

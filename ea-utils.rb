@@ -21,7 +21,7 @@ class EaUtils < Formula
   patch :DATA
 
   def install
-    system "make",  "install", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do

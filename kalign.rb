@@ -1,9 +1,7 @@
-require 'formula'
-
 class Kalign < Formula
-  homepage 'http://msa.sbc.su.se/'
-  url 'http://msa.sbc.su.se/downloads/kalign/kalign-2.04.tar.gz'
-  sha1 '8bf4c1afe90e8d529840c0906c7b740299fe4041'
+  homepage "http://msa.sbc.su.se/"
+  url "http://msa.sbc.su.se/downloads/kalign/kalign-2.04.tar.gz"
+  sha256 "8cf20ac4e1807dc642e7ffba8f42a117313beccaee4f87c5555d53a2eeac4cbb"
 
   def install
     # Hard coded prefix:
@@ -13,7 +11,7 @@ class Kalign < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
-    system "make install"
+    system "make", "install"
   end
 
   test do

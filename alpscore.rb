@@ -74,7 +74,7 @@ class Alpscore < Formula
     EOS
     args_compile = ["test.cpp",
                     "-lalps-accumulators", "-lalps-hdf5", "-lalps-utilities", "-lalps-params",
-                    "-lboost_filesystem-mt", "-lboost_system-mt", "-lboost_program_options-mt",
+                    "-lboost_filesystem-mt", "-lboost_system-mt", "-lboost_program_options-mt"
                    ]
     args_compile << "-lboost_mpi-mt" if build.with? "mpi"
     args_compile << "-o" << "test"

@@ -1,22 +1,20 @@
-require 'formula'
-
 class Mathomatic < Formula
-  homepage 'http://www.mathomatic.org/'
-  url 'http://mathomatic.orgserve.de/mathomatic-16.0.5.tar.bz2'
-  sha1 'aaaf4df4aa3dc9ea748211278e657c2195858c24'
+  homepage "http://www.mathomatic.org/"
+  url "http://mathomatic.orgserve.de/mathomatic-16.0.5.tar.bz2"
+  sha256 "976e6fed1014586bcd584e417c074fa86e4ca6a0fcc2950254da2efde99084ca"
 
   head do
-    url 'http://mathomatic.orgserve.de/am.tar.bz2'
-    sha1 '6fc3c6c265d1f0314fb622b57c8202d1ab4c46f9'
+    url "http://mathomatic.orgserve.de/am.tar.bz2"
+    sha256 "82b17e6fa26d8a88f4836c51dfe9438a95fe2c7ff29ded58a27246c72cf1bafe"
   end
 
   def install
-    ENV['prefix'] = prefix
+    ENV["prefix"] = prefix
     system "make READLINE=1"
     system "make m4install"
-    cd 'primes' do
-      system 'make'
-      system 'make install'
+    cd "primes" do
+      system "make"
+      system "make", "install"
     end
   end
 end

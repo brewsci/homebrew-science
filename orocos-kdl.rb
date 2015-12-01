@@ -1,7 +1,7 @@
 class OrocosKdl < Formula
   homepage "http://www.orocos.org/kdl"
   url "https://github.com/orocos/orocos_kinematics_dynamics/archive/v1.3.0.tar.gz"
-  sha1 "9f59b44d683fcdf290affd71f8a0179bded0bf1d"
+  sha256 "7be2dd5e4f4c1ceac2cdf1f4fae3d94d4ffd9fc1af8d483c05f04e80ef84b3f9"
   head "https://github.com/orocos/orocos_kinematics_dynamics.git"
 
   bottle do

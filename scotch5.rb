@@ -2,7 +2,7 @@ class Scotch5 < Formula
   homepage "https://gforge.inria.fr/projects/scotch"
   url "https://gforge.inria.fr/frs/download.php/28978"
   version "5.1.12b"
-  sha1 "3866deea3199bc364d31ec46c63adcb799a8cf48"
+  sha256 "82654e63398529cd3bcc8eefdd51d3b3161c0429bb11770e31f8eb0c3790db6e"
 
   bottle do
     cellar :any

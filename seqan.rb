@@ -4,7 +4,7 @@ class Seqan < Formula
   # tag "bioinformatics"
 
   url "http://packages.seqan.de/seqan-library/seqan-library-1.4.2.tar.bz2"
-  sha1 "2413d558c2665ae813bb0a2ab3aa57e07cc00675"
+  sha256 "77fb437c6f17d41ec41ce0a3bcc3533f91a3482ca63a3a55400e14cb73e64317"
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class Seqan < Formula
 
   devel do
     url "http://packages.seqan.de/seqan-library/seqan-library-2.0.0.tar.bz2"
-    sha1 "872335665632ca63d115ac3042b4f1d28ab0d872"
+    sha256 "c9827a5617b35d8b5f5d10701f3ff064f2e89535ebbe3318758a2db99d15e8b8"
   end
 
   head "http://svn.seqan.de/seqan/trunk/core"

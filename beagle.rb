@@ -53,7 +53,7 @@ class Beagle < Formula
   def install
     system "./autogen.sh"
 
-    args = [ "--prefix=#{prefix}" ]
+    args = ["--prefix=#{prefix}"]
     args << "--enable-osx-leopard" if MacOS.version <= :leopard
     args << "--with-cuda=#{Pathname(which "nvcc").dirname}" if build.with? "cuda"
     args << "--enable-opencl" if build.with? "opencl"

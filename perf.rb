@@ -1,10 +1,8 @@
-require 'formula'
-
 class Perf < Formula
-  homepage 'http://osmot.cs.cornell.edu/kddcup/software.html'
-  url 'http://osmot.cs.cornell.edu/kddcup/perf/perf.src.tar.gz'
-  sha1 '7fc1c8c94d05bbee06bc4dd6e00f1108d6334551'
-  version '5.11'
+  homepage "http://osmot.cs.cornell.edu/kddcup/software.html"
+  url "http://osmot.cs.cornell.edu/kddcup/perf/perf.src.tar.gz"
+  sha256 "61b8d7adecc069e46c4fe9882350c69a0007c2f706be469458a9b41de0f65942"
+  version "5.11"
 
   def install
     system "rm perf"
@@ -13,7 +11,7 @@ class Perf < Formula
   end
 
   test do
-    (testpath/'test.data').write <<-EOS.undent
+    (testpath/"test.data").write <<-EOS.undent
       1 0.80962
       0 0.48458
       1 0.65812

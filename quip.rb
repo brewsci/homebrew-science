@@ -1,17 +1,15 @@
-require 'formula'
-
 class Quip < Formula
-  homepage 'http://homes.cs.washington.edu/~dcjones/quip/'
-  url 'http://homes.cs.washington.edu/~dcjones/quip/quip-1.1.8.tar.gz'
-  sha1 '686af763dce1ae29a59bcff8ddab4dc2d6c7c33f'
+  homepage "http://homes.cs.washington.edu/~dcjones/quip/"
+  url "http://homes.cs.washington.edu/~dcjones/quip/quip-1.1.8.tar.gz"
+  sha256 "525c697cc239a2f44ea493a3f17dda61ba40f83d7c583003673af9de44775a64"
 
   def install
-    system './configure', '--disable-debug', '--disable-dependency-tracking',
+    system "./configure", "--disable-debug", "--disable-dependency-tracking",
       "--prefix=#{prefix}"
-    system 'make', 'install'
+    system "make", "install"
   end
 
   test do
-    system 'quip --version'
+    system "quip --version"
   end
 end

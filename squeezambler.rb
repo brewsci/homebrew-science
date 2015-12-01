@@ -5,7 +5,7 @@ class Squeezambler < Formula
 
   url "https://downloads.sourceforge.net/project/hyda/squeezambler-2.0.3-hyda-1.3.1.tar.gz"
   version "2.0.3"
-  sha1 "6e3e37acb37b6088a40d2849ba42d4a2841d1c2f"
+  sha256 "a10893a57a4b651037455b25c2c6856a1dad6122ff7efb223cf556aa97e04e46"
 
   # Fix error: 'omp.h' file not found
   needs :openmp

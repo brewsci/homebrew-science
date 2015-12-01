@@ -1,14 +1,12 @@
-require "formula"
-
 class Atram < Formula
   homepage "https://github.com/juliema/aTRAM"
-  #doi "10.5281/zenodo.10431"
-  #tag "bioinformatics"
+  # doi "10.5281/zenodo.10431"
+  # tag "bioinformatics"
 
   head "https://github.com/juliema/aTRAM.git"
 
   url "https://github.com/juliema/aTRAM/archive/v1.04.tar.gz"
-  sha1 "dcf0d445fe188396f1c386f9dc337e1b1b27302f"
+  sha256 "ee05363885d1096e628582eebda4958c6316e7668da448af7ffe1b3f67286bea"
 
   bottle do
     sha256 "85c61052c018447043fb8ef1782a6350fbb753661b158095a6ade0bfcfdcab47" => :yosemite

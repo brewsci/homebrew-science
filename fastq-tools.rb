@@ -1,9 +1,9 @@
 class FastqTools < Formula
   homepage "http://homes.cs.washington.edu/~dcjones/fastq-tools/"
-  #tag "bioinformatics"
+  # tag "bioinformatics"
 
   url "https://homes.cs.washington.edu/~dcjones/fastq-tools/fastq-tools-0.7.tar.gz"
-  sha1 "75540e322543041c9005f248b2b9bcdba5be728a"
+  sha256 "4088a47123b4f8d8eadd042cd04e459646789f4de8c9e3992e9236aa8ecbaefe"
 
   bottle do
     cellar :any

@@ -1,10 +1,10 @@
 class Fsa < Formula
   homepage "http://fsa.sourceforge.net/"
-  #doi "10.1371/journal.pcbi.1000392"
-  #tag "bioinformatics"
+  # doi "10.1371/journal.pcbi.1000392"
+  # tag "bioinformatics"
 
   url "https://downloads.sourceforge.net/project/fsa/fsa-1.15.9.tar.gz"
-  sha1 "457aee5baca17357e52041eac7e3ecbc226bea75"
+  sha256 "6ee6e238e168ccba0d51648ba64d518cdf68fa875061e0d954edfb2500b50b30"
 
   bottle do
     cellar :any

@@ -2,7 +2,7 @@ class EnsemblTools < Formula
   homepage "http://www.ensembl.org/info/docs/tools/index.html"
   # tag "bioinformatics"
   url "https://github.com/Ensembl/ensembl-tools/archive/release/78.tar.gz"
-  sha1 "ee51cf0ae8a414ee0f013e54c8f306d67e4047f1"
+  sha256 "4c2995f5cb169f07490166c78a1155260ba9651e30b872202a0362f6eed78e48"
   head "https://github.com/Ensembl/ensembl-tools.git"
 
   def install

@@ -2,7 +2,7 @@ require "formula"
 
 class Smrtanalysis < Formula
   homepage "http://www.pacb.com/devnet/"
-  #doi "10.1038/nmeth.2474"
+  # doi "10.1038/nmeth.2474"
   url "https://s3.amazonaws.com/files.pacb.com/software/smrtanalysis/2.2.0/smrtanalysis-2.2.0.133377.run"
   sha1 "b64cdeb68f84f021ccaeffaa62ec5977029451af"
 

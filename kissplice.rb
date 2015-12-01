@@ -1,5 +1,3 @@
-require "formula"
-
 class KisspliceDownloadStrategy < CurlDownloadStrategy
   def curl(*args)
     args << "--disable-epsv"
@@ -11,7 +9,7 @@ class Kissplice < Formula
   homepage "http://kissplice.prabi.fr"
   url "ftp://pbil.univ-lyon1.fr/pub/logiciel/kissplice/download/kissplice-2.2.1.tar.gz",
     :using => KisspliceDownloadStrategy
-  sha1 "92b5a3280407de3c363699e10595c1117f1e1e36"
+  sha256 "229b92d66d96f81f1f7800a7db6317c461e068784e9e48378863479a5634ec47"
 
   depends_on "cmake" => :build
 

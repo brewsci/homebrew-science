@@ -2,7 +2,7 @@ class XmiMsim < Formula
   homepage "https://github.com/tschoonj/xmimsim"
   url "http://lvserver.ugent.be/xmi-msim/xmimsim-5.0.tar.gz"
   mirror "https://xmi-msim.s3.amazonaws.com/xmimsim-5.0.tar.gz"
-  sha1 "cb8f83fe594f8808079d64dfd7e592c710891efc"
+  sha256 "3503b56bb36ec555dc941b958308fde9f4e550ba3de4af3b6913bc29c2c0c9f1"
   revision 2
 
   bottle do
@@ -25,11 +25,11 @@ class XmiMsim < Formula
 
   patch do
     url "https://github.com/tschoonj/xmimsim/commit/682ff5b413fc326c1cc8e9931d34bce3e920c798.diff"
-    sha1 "8881ee02307b85a0032373191de1a07104a37d8c"
+    sha256 "bf59bcf0091a8f5b4680ab99e3bd0609bcd6558d79c1b71e0473ecb1ec4d0123"
   end
 
   def install
-    ENV.deparallelize  # fortran modules don't like parallel builds
+    ENV.deparallelize # fortran modules don't like parallel builds
 
     system "autoreconf", "-i"
     system "./configure", "--disable-dependency-tracking",

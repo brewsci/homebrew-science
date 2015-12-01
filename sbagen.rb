@@ -1,9 +1,7 @@
-require "formula"
-
 class Sbagen < Formula
   homepage "http://uazu.net/sbagen/"
   url "http://uazu.net/sbagen/sbagen-1.4.5.tgz"
-  sha1 "83fee62bd74fa19ccd46eebd2ad5de7744a78610"
+  sha256 "02b05d0f89f1baa6e6b282f4a5db279b4c59ee6fc400a5a9686aa11287f220e4"
 
   patch :DATA
 
@@ -11,7 +9,7 @@ class Sbagen < Formula
 
   resource "river" do
     url "http://uazu.net/sbagen/sbagen-river-1.4.1.tgz"
-    sha1 "7f9d497780798762ced2f6e89e2f52d06da26423"
+    sha256 "81545ec71461421f938dc2febd9379dc36886a84df30deee20cd43eae81a5765"
   end
 
   def install

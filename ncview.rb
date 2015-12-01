@@ -1,10 +1,8 @@
-require 'formula'
-
 class Ncview < Formula
-  homepage 'http://meteora.ucsd.edu/~pierce/ncview_home_page.html'
-  url 'ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.5.tar.gz'
-  mirror 'https://fossies.org/linux/misc/ncview-2.1.5.tar.gz'
-  sha1 '31685d068f158ea235654cbee118980f3f038eab'
+  homepage "http://meteora.ucsd.edu/~pierce/ncview_home_page.html"
+  url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.5.tar.gz"
+  mirror "https://fossies.org/linux/misc/ncview-2.1.5.tar.gz"
+  sha256 "a0ca340aa097dc9235ba23affe4a9d9f8548f1e668ee3a83224c7c8c45e7c6fd"
 
   bottle do
     sha256 "564f53319cf2c8c7f1c1d1bec558ca77da0668212c32b4e5843dd8db12ba678b" => :yosemite
@@ -23,7 +21,7 @@ class Ncview < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install"
   end
 end
 

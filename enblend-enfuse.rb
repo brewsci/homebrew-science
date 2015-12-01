@@ -1,35 +1,33 @@
-require 'formula'
-
 class EnblendEnfuse < Formula
-  homepage 'http://enblend.sourceforge.net/'
-  url 'https://downloads.sourceforge.net/project/enblend/enblend-enfuse/enblend-enfuse-4.1/enblend-enfuse-4.1.1.tar.gz'
-  sha1 'bc18fca3033b031d603b22678b2e680a0ffae1b6'
+  homepage "http://enblend.sourceforge.net/"
+  url "https://downloads.sourceforge.net/project/enblend/enblend-enfuse/enblend-enfuse-4.1/enblend-enfuse-4.1.1.tar.gz"
+  sha256 "9d0947633ebaa0dc1211331b31009408de6fe2108751ad4190760e3a9f181bc9"
 
-  option 'with-gpu', 'Build with GPU support'
+  option "with-gpu", "Build with GPU support"
 
   depends_on "libpng"
   depends_on :x11 => :optional
-  depends_on 'boost'
-  depends_on 'gsl'
-  depends_on 'jpeg'
-  depends_on 'little-cms2'
-  depends_on 'libtiff'
-  depends_on 'vigra'
-  depends_on 'openexr' => :optional
+  depends_on "boost"
+  depends_on "gsl"
+  depends_on "jpeg"
+  depends_on "little-cms2"
+  depends_on "libtiff"
+  depends_on "vigra"
+  depends_on "openexr" => :optional
 
   # builds against the multithreaded boost system library
   patch :DATA
 
   def install
-    args = [ "--disable-debug",
-             "--disable-dependency-tracking",
-             "--prefix=#{prefix}" ]
+    args = ["--disable-debug",
+            "--disable-dependency-tracking",
+            "--prefix=#{prefix}"]
 
-    args << "--without-x" if build.without? 'x11'
+    args << "--without-x" if build.without? "x11"
     args << "--enable-gpu-support=" + ((build.with? "gpu") ? "yes" : "no")
 
     system "./configure", *args
-    system "make install"
+    system "make", "install"
   end
 
   test do
@@ -41,7 +39,6 @@ class EnblendEnfuse < Formula
       "/System/Library/Frameworks/SecurityInterface.framework/Versions/A/Resources/Key_Large.png", \
       "/System/Library/Frameworks/SecurityInterface.framework/Versions/A/Resources/Key_Large.png"
   end
-
 end
 
 __END__

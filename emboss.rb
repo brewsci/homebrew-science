@@ -3,7 +3,7 @@ class Emboss < Formula
   url "ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz"
   mirror "http://mirrors.mit.edu/gentoo-distfiles/distfiles/EMBOSS-6.6.0.tar.gz"
   mirror "http://science-annex.org/pub/emboss/EMBOSS-6.6.0.tar.gz"
-  sha1 "93749ebd0a777efd3749974d2401c3a2a013a3fe"
+  sha256 "7184a763d39ad96bb598bfd531628a34aa53e474db9e7cac4416c2a40ab10c6e"
 
   bottle do
     sha256 "767f04c1b36b859e0f53300216f607db99c5bebfb678295679cca110b24d1f64" => :yosemite

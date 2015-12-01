@@ -1,9 +1,7 @@
-require "formula"
-
 class SpatialiteGis < Formula
   homepage "https://www.gaia-gis.it/fossil/spatialite_gis/index"
   url "http://www.gaia-gis.it/gaia-sins/spatialite_gis-1.0.0c.tar.gz"
-  sha1 "45508b27fbdc7166ef874ce3f79216d6c01f3c4f"
+  sha256 "cdc8c6143eeedb4cae2663e2f0b3163452c5f941bd9b02b9b5159e319b7d21fb"
 
   depends_on "pkg-config" => :build
   depends_on "freexl"
@@ -18,7 +16,7 @@ class SpatialiteGis < Formula
     # Upstream fix for bad test of string equality. Remove on next release.
     # https://www.gaia-gis.it/fossil/spatialite_gis/tktview?name=f0658b3ead
     url "https://www.gaia-gis.it/fossil/spatialite_gis/vpatch?from=0506d89e65c692d7&to=0783daf1178ee1dc"
-    sha1 "a82f5f6aef40ec1177fb8a28164c7ad9ea600b18"
+    sha256 "b2b053526f7bb22d42bf33c5e2eadb9cac5b08051e79297312dd2ca02b30085f"
   end
 
   # Allow `spatialite_gis` to run without being packaged as an .app bundle.

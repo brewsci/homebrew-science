@@ -1,12 +1,12 @@
 class A5 < Formula
   desc "Pipeline for de novo assembly of microbial genomes"
   homepage "https://sourceforge.net/projects/ngopt/"
-  #doi "10.1371/journal.pone.0042304", "arXiv:1401.5130"
-  #tag "bioinformatics"
+  # doi "10.1371/journal.pone.0042304", "arXiv:1401.5130"
+  # tag "bioinformatics"
 
   if OS.mac?
     url "https://downloads.sourceforge.net/project/ngopt/a5_miseq_macOS_20141120.tar.gz"
-    sha1 "720728be842202345892dd76a74784c4f2eddbaa"
+    sha256 "6bd08c22b1cfc55a29501a069cedb439e556a6e98ed8fb07753f3299b2db88f8"
   elsif OS.linux?
     url "https://downloads.sourceforge.net/project/ngopt/a5_miseq_linux_20141120.tar.gz"
     sha1 "3a9bfdecb519064db98065cb3cb525705c641207"

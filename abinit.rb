@@ -55,7 +55,7 @@ class Abinit < Formula
     end
 
     if build.with? "etsf_io"
-      fail "Building with etsf_io support requires netcdf" if build.without? "netcdf"
+      raise "Building with etsf_io support requires netcdf" if build.without? "netcdf"
       trio_flavor = "netcdf+etsf_io"
       args << "--with-etsf-io-incs=-I#{Formula["etsf_io"].opt_include}"
       args << "--with-etsf-io-libs=-L#{Formula["etsf_io"].opt_lib} -letsf_io_low_level -letsf_io_utils -letsf_io"

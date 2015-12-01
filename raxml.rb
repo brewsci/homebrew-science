@@ -1,7 +1,7 @@
 class Raxml < Formula
   homepage "http://sco.h-its.org/exelixis/web/software/raxml/index.html"
   url "https://github.com/stamatak/standard-RAxML/archive/v8.1.15.tar.gz"
-  sha1 "6bc3ba99788d59be197ffb949daf85ba0f1b2860"
+  sha256 "f0388f6c5577006dc13e2dc8c35a2e5046394f61009ec5b04fb09254f8ec25b2"
   head "https://github.com/stamatak/standard-RAxML.git"
 
   def install

@@ -1,5 +1,3 @@
-require "formula"
-
 class Galfit < Formula
   homepage "http://users.obs.carnegiescience.edu/peng/work/galfit/galfit.html"
   version "3.0.5"
@@ -11,12 +9,12 @@ class Galfit < Formula
     sha1 "2cf6fad043efd509b71596712e4f0605ba5622db"
   else
     url "http://users.obs.carnegiescience.edu/peng/work/galfit/galfit3-leopard+.tar.gz"
-    sha1 "9a79a80c18540dfe3aa31461487133f84814191a"
+    sha256 "97dae1d6500d42fa9cb27faca15286350b69e703eaecfdb6bf89c33f85a03d5d"
   end
 
   resource "example" do
     url "http://users.obs.carnegiescience.edu/peng/work/galfit/galfit-ex.tar.gz"
-    sha1 "e81a292b56c92c6591df4ad053157acd12e0185a"
+    sha256 "3761cf4247b076a4aa2842c4c8d1f4d99871ec4ef31f39145c28102aaadc0d9a"
   end
 
   def install

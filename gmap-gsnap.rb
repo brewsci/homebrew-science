@@ -1,13 +1,11 @@
-require "formula"
-
 class GmapGsnap < Formula
   homepage "http://research-pub.gene.com/gmap/"
-  #doi "10.1093/bioinformatics/btq057"
-  #tag "bioinformatics"
+  # doi "10.1093/bioinformatics/btq057"
+  # tag "bioinformatics"
 
   version "2014-05-15"
   url "http://research-pub.gene.com/gmap/src/gmap-gsnap-#{version}.tar.gz"
-  sha1 "775e427e8747a3348adfc7caecf720bcd6c26f58"
+  sha256 "5efd3416b02234c0bb043d5e51b0852ad8d23745e966f3a53ad1847802be64d2"
 
   bottle do
     sha256 "0686ca5e5ee73d8843f87639739441a7cc3114d25c192b480e8c2d30ee9f7f3e" => :yosemite

@@ -1,9 +1,7 @@
-require "formula"
-
 class Ccfits < Formula
   homepage "http://heasarc.gsfc.nasa.gov/fitsio/CCfits/"
   url "http://heasarc.gsfc.nasa.gov/fitsio/CCfits/CCfits-2.4.tar.gz"
-  sha1 "3de2a6379bc1024300befae95cfdf33645a7b64a"
+  sha256 "ba6c5012b260adf7633f92581279ea582e331343d8c973981aa7de07242bd7f8"
 
   depends_on "cfitsio"
 

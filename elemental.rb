@@ -39,7 +39,7 @@ class Elemental < Formula
 
   def install
     ENV.cxx11
-    args = ["-DCMAKE_INSTALL_PREFIX=#{libexec}",  # Lots of junk ends up in bin.
+    args = ["-DCMAKE_INSTALL_PREFIX=#{libexec}", # Lots of junk ends up in bin.
             "-DCMAKE_FIND_FRAMEWORK=LAST",
             "-DCMAKE_VERBOSE_MAKEFILE=ON",
             "-DCMAKE_C_COMPILER=#{ENV["CC"]}",

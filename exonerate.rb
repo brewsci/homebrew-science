@@ -1,7 +1,7 @@
 class Exonerate < Formula
   homepage "http://www.ebi.ac.uk/about/vertebrate-genomics/software/exonerate"
-  #doi "10.1186/1471-2105-6-31"
-  #tag "bioinformatics"
+  # doi "10.1186/1471-2105-6-31"
+  # tag "bioinformatics"
   url "http://ftp.ebi.ac.uk/pub/software/vertebrategenomics/exonerate/exonerate-2.2.0.tar.gz"
   sha256 "0ea2720b1388fa329f889522f43029b416ae311f57b229129a65e779616fe5ff"
 

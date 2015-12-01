@@ -1,9 +1,7 @@
-require 'formula'
-
 class Ann < Formula
-  homepage 'http://www.cs.umd.edu/~mount/ANN/'
-  url 'http://www.cs.umd.edu/~mount/ANN/Files/1.1.2/ann_1.1.2.zip'
-  sha1 '622be90314a603ef9b2abadcf62379f73f28f46c'
+  homepage "http://www.cs.umd.edu/~mount/ANN/"
+  url "http://www.cs.umd.edu/~mount/ANN/Files/1.1.2/ann_1.1.2.zip"
+  sha256 "1b54b58ae697202a09d793de51ee9200fe1d5c39def78d9e8f5c0d08e48afaf5"
 
   bottle do
     cellar :any
@@ -14,7 +12,7 @@ class Ann < Formula
 
   def install
     # Fix for Mountain Lion / Mavericks make error
-    inreplace 'ann2fig/ann2fig.cpp', 'main', 'int main' if MacOS.version >= :mountain_lion
+    inreplace "ann2fig/ann2fig.cpp", "main", "int main" if MacOS.version >= :mountain_lion
 
     system "make", "macosx-g++"
     prefix.install "bin", "lib", "sample", "doc", "include"

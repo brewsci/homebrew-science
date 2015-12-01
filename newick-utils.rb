@@ -1,10 +1,10 @@
 class NewickUtils < Formula
   homepage "http://cegg.unige.ch/newick_utils"
-  #doi "10.1093/bioinformatics/btq243"
-  #tag "bioinformatics"
+  # doi "10.1093/bioinformatics/btq243"
+  # tag "bioinformatics"
 
   url "http://cegg.unige.ch/pub/newick-utils-1.6.tar.gz"
-  sha1 "a9779054dcbf957618458ebfed07991fabeb3e19"
+  sha256 "2c142a2806f6e1598585c8be5afba6d448c572ad21c142e70d6fd61877fee798"
 
   head "https://github.com/tjunier/newick_utils.git"
 

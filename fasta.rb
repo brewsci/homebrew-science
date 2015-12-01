@@ -1,12 +1,10 @@
-require "formula"
-
 class Fasta < Formula
   homepage "http://faculty.virginia.edu/wrpearson/fasta/"
-  #doi "10.1016/0076-6879(90)83007-V"
-  #tag "bioinformatics"
+  # doi "10.1016/0076-6879(90)83007-V"
+  # tag "bioinformatics"
 
   url "http://faculty.virginia.edu/wrpearson/fasta/fasta36/fasta-36.3.7.tar.gz"
-  sha1 "184acbac526ebdb3cad0009d87bd2a68b4756a03"
+  sha256 "95fe27b6055e6a4a5f16bb4f52b3d8f188c8e3447fc16c58ddab8e7548b1cac2"
 
   bottle do
     cellar :any
