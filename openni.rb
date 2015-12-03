@@ -1,6 +1,8 @@
 class Openni < Formula
   homepage "http://www.openni.org/"
 
+  head "https://github.com/OpenNI/OpenNI.git"
+
   stable do
     url "https://github.com/OpenNI/OpenNI/archive/Stable-1.5.7.10.tar.gz"
     sha256 "34b0bbf68633bb213dcb15408f979d5384bdceb04e151fa519e107a12e225852"
@@ -19,11 +21,9 @@ class Openni < Formula
     # Fix for Mavericks
     patch do
       url "https://github.com/OpenNI/OpenNI/pull/95.diff"
-      sha1 "4df773d4143bf2f1d6a3243cbea889b36984d3fa"
+      sha256 "722fb0a6e6e99a5cc7c7e862ac802dfd3d03785c27af1d20d7f48314ff5154dd"
     end
   end
-
-  head "https://github.com/OpenNI/OpenNI.git"
 
   option :universal
 
@@ -70,8 +70,8 @@ class Openni < Formula
 
   def post_install
     mkpath "#{var}/lib/ni"
-    system "#{bin}/niReg #{lib}/libnimMockNodes.dylib"
-    system "#{bin}/niReg #{lib}/libnimCodecs.dylib"
-    system "#{bin}/niReg #{lib}/libnimRecorder.dylib"
+    system "#{bin}/niReg", "#{lib}/libnimMockNodes.dylib"
+    system "#{bin}/niReg", "#{lib}/libnimCodecs.dylib"
+    system "#{bin}/niReg", "#{lib}/libnimRecorder.dylib"
   end
 end
