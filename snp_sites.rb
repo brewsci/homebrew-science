@@ -1,8 +1,8 @@
 class SnpSites < Formula
   desc "Find SNP sites in a multi FASTA alignment file"
   homepage "https://github.com/sanger-pathogens/snp_sites"
-  url "https://github.com/sanger-pathogens/snp_sites/archive/2.0.2.tar.gz"
-  sha256 "90f3af114ea1b6b93de840d5f2f1a96a842f17bebaab2c148fa3f91ed24f1cb7"
+  url "https://github.com/sanger-pathogens/snp_sites/archive/2.1.0.tar.gz"
+  sha256 "775b5383365e3a33959b744115dad6eb966d45fe8232f3997a7ecccc748e9d59"
   head "https://github.com/sanger-pathogens/snp_sites.git"
 
   bottle do
@@ -17,8 +17,6 @@ class SnpSites < Formula
   depends_on "libtool" => :build
 
   def install
-    inreplace "src/Makefile.am", "-lrt", "" if OS.mac? # no librt for osx
-
     system "autoreconf", "-i"
     system "./configure",
            "--disable-debug",
