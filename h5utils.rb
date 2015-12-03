@@ -3,8 +3,8 @@ require "formula"
 class H5utils < Formula
   homepage "http://ab-initio.mit.edu/wiki/index.php/H5utils"
   url "http://ab-initio.mit.edu/h5utils/h5utils-1.12.1.tar.gz"
-  sha1 "1bd8ef8c50221da35aafb5424de9b5f177250d2d"
-  revision 2
+  sha256 "7290290ca5d5d4451d757a70c86baaa70d23a28edb09c951b6b77c22b924a38d"
+  revision 3
 
   bottle do
     sha256 "b77085fa8a924749a6d9dee2b8319a00d39d5a9d097d1e25c6aad6ade800ed1c" => :el_capitan
