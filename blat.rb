@@ -3,8 +3,8 @@ class Blat < Formula
   # doi "10.1101/gr.229202"
   # tag "bioinformatics"
 
-  url "http://users.soe.ucsc.edu/~kent/src/blatSrc35.zip"
-  sha256 "06d9bcf114ec4a4b21fef0540a0532556b6602322a5a2b33f159dc939ae53620"
+  url "http://hgwdev.cse.ucsc.edu/~kent/src/blatSrc36.zip"
+  sha256 "4b0fff006c86dceb7428922bfb4f8625d78fd362d205df68e4ebba04742d2c71"
 
   bottle do
     cellar :any
@@ -15,6 +15,8 @@ class Blat < Formula
   end
 
   depends_on "libpng" => :build
+  depends_on :mysql => :build
+  depends_on "openssl"
 
   def install
     ENV.append_to_cflags "-I#{Formula["libpng"].opt_include}"
