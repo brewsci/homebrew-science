@@ -6,9 +6,9 @@ class Yeppp < Formula
 
   bottle do
     cellar :any
-    sha256 "cfd2d005fb6bc917410e086137f7b08a80a68704b0dc053b7f287bf834b21988" => :yosemite
-    sha256 "c0c5f3b268347af7b6b8a67465dd8be2839f28ca0b8a20c6f7d9be0bef28e154" => :mavericks
-    sha256 "0304849b6b53aef237d18c6c21dfa31632e5d7a2c1a7bbe2f0feda653233315a" => :mountain_lion
+    sha256 "dd36939c6d8c50aec543b70084f7dfda3ba9d82d538424af20ad537e5c785936" => :el_capitan
+    sha256 "a859cb1831f8a7d105d21c288a74b86941833a6da3fec54b09b3304a8138080f" => :yosemite
+    sha256 "ed279698e594303995a64fbc84569e8aa377f881272bbdb5c938c203d90ba6fe" => :mavericks
   end
 
   def install
