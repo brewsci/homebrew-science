@@ -1,8 +1,8 @@
 class Alpscore < Formula
   desc "Applications and Libraries for Physics Simulations"
   homepage "http://alpscore.org"
-  url "https://github.com/ALPSCore/ALPSCore/archive/v0.5.tar.gz"
-  sha256 "05fa4bc65eba8f2e09ef89907ed5763aa775289654ea324a25d403836a1cbb28"
+  url "https://github.com/ALPSCore/ALPSCore/archive/v0.5.1.tar.gz"
+  sha256 "a99b34cf7b5c2d48ea7d888e229b296908adea7ed5118bf1b28888f42295f385"
   head "https://github.com/ALPSCore/ALPSCore.git"
 
   bottle do
