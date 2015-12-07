@@ -1,12 +1,12 @@
 class Root6 < Formula
   # in order to update, simply change version number and update sha256
-  version_number = "6.04.10"
+  version_number = "6.04.12"
   desc "Object oriented framework for large scale data analysis"
   homepage "http://root.cern.ch"
   url "https://root.cern.ch/download/root_v#{version_number}.source.tar.gz"
   mirror "https://fossies.org/linux/misc/root_v#{version_number}.source.tar.gz"
   version version_number
-  sha256 "6684d9589d56e2dcfb7fa444a68ba5808708d9dc1a3f1d762308755df800777b"
+  sha256 "e02cc3297deaf5a5623ab15fbefdd992413cd41c37e39a6a5cbc9a5d0c885132"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
