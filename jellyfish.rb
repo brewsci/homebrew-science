@@ -1,10 +1,11 @@
 class Jellyfish < Formula
+  desc "Fast, memory-efficient counting of DNA k-mers"
   homepage "http://www.genome.umd.edu/jellyfish.html"
   # doi "10.1093/bioinformatics/btr011"
   # tag "bioinformatics"
 
-  url "ftp://ftp.genome.umd.edu/pub/jellyfish/jellyfish-2.1.4.tar.gz"
-  sha256 "c4e692170d33efa9e6e4f0b134d8e257fb802832af17fdc53ac468bf8f0f29a5"
+  url "https://github.com/gmarcais/Jellyfish/releases/download/v2.2.4/jellyfish-2.2.4.tar.gz"
+  sha256 "d31a71477c638caaeeacbede644870a7be26aa786919f4dd722b0a8fadb7dd28"
 
   bottle do
     cellar :any
