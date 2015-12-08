@@ -4,9 +4,10 @@ class Augustus < Formula
   # doi "10.1093/nar/gkh379"
   # tag "bioinformatics"
 
-  url "http://bioinf.uni-greifswald.de/augustus/binaries/old/augustus.3.0.1.tar.gz"
-  mirror "https://science-annex.org/pub/augustus/augustus.3.0.1.tar.gz"
-  sha256 "cf402fc1758715f6acf2823083c4ea41edaa9476371ae82d01900bad74064e7a"
+  url "http://bioinf.uni-greifswald.de/augustus/binaries/augustus-3.2.1.tar.gz"
+  mirror "http://bioinf.uni-greifswald.de/augustus/binaries/old/augustus-3.2.1.tar.gz"
+  mirror "https://fossies.org/linux/misc/augustus-3.2.1.tar.gz"
+  sha256 "9afac038a92e8cf9e794ca48fb5464e868bece792e0e31f28931f9e6227c4b68"
 
   bottle do
     cellar :any
@@ -15,16 +16,27 @@ class Augustus < Formula
     sha256 "d070713a12c97bbe7d975c7cbc0260bb5c315e9e23607fd3f63070fea1050c41" => :mountain_lion
   end
 
-  depends_on "boost" => :recommended # for gz support
+  option "with-cgp",  "Enable comparative gene prediction"
+  option "with-zlib", "Enable gzip compressed input"
 
-  fails_with :clang do
-    build 600
-    cause "error: invalid operands to binary expression"
+  depends_on "bamtools"
+  depends_on "boost" if build.with? "zlib"
+
+  if build.with? "cgp"
+    depends_on "gsl"
+    depends_on "lp_solve"
+    depends_on "suite-sparse"
   end
 
   def install
-    system "make"
-    rm_r %w[include mysql++ src]
+    args = []
+    args << "ZIPINPUT=true" if build.with? "zlib"
+    args << "COMPGENEPRED=true" if build.with? "cgp"
+
+    system "make", "-C", "auxprogs/filterBam/src", "BAMTOOLS=#{Formula["bamtools"].opt_include}/bamtools", *args
+    system "make", "INCLUDES=#{Formula["bamtools"].opt_include}/bamtools", *args
+
+    rm_r %w[include src]
     libexec.install Dir["*"]
     bin.install_symlink "../libexec/bin/augustus"
   end
