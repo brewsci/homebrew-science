@@ -1,8 +1,8 @@
 class Superlu < Formula
   desc "Solve large, sparse nonsymmetric systems of equations"
   homepage "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
-  url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_5.0.tar.gz"
-  sha256 "4856fa42b623e7047c1b0532ed0fc35f5dc283a74246a7f25ef8aa5155084ecc"
+  url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_5.1.tar.gz"
+  sha256 "63df543e5b014b7f314039f5d6a72454853b3e4f209888edda0394179c902b08"
 
   bottle do
     cellar :any
