@@ -13,11 +13,10 @@ class A5 < Formula
   end
 
   bottle do
-    cellar :any
-    revision 1
-    sha256 "72a967a1711b870b160972d2de8d3394a3ec707deb05aee1c7508edf5d9523cb" => :yosemite
-    sha256 "e343316816ced903744afc45f6b52ada5b4ef211e87b284c6a3bc9aa22e87b3b" => :mavericks
-    sha256 "ae232e4ee149c17c8726aae461105769ae4ec405df9b0d30d45e2a4d14a06e42" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "712a52ae946e36d3410f6ea98425605aceffebaa738a397e6721100de6474e12" => :el_capitan
+    sha256 "589bb490b43853bd8bbb0817018141efd3e65794844fbcfaf950d6ea55d4d7bb" => :yosemite
+    sha256 "c6ae86aad65c91dbcf2b647acdbd25ac5672f8c04f34e7aa9fb991992d9e8fbd" => :mavericks
   end
 
   def install
