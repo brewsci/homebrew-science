@@ -5,10 +5,10 @@ class Superlu < Formula
   sha256 "63df543e5b014b7f314039f5d6a72454853b3e4f209888edda0394179c902b08"
 
   bottle do
-    cellar :any
-    sha256 "0ced0c80441e802e7d5db68b4c4e7822c9cfcdb6f5e621925fcd1662b71a545d" => :yosemite
-    sha256 "6943337b46db21f20a975b37cf068644fe8e2e29df5caae5d51d7cf7333854d1" => :mavericks
-    sha256 "3362dce78fcecccc3bfb99840a6f94b3b99b393e5b1cec88007897d2230875b3" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "1b82baefe35d4d67c4218eac1545fb9c62a98e54c7e396d7d71a657219c7ff6a" => :el_capitan
+    sha256 "282d90aac51a642ab0191a57498a72685cbaebd0cc4ab1558f72cb1a29aa6c21" => :yosemite
+    sha256 "30f20a55944c3712ddf7522fe9c40f42024849630324c52bfc5d1a1184d862cb" => :mavericks
   end
 
   option "without-check", "skip build-time tests (not recommended)"
