@@ -36,7 +36,7 @@ class LpSolve < Formula
   end
 
   # Prefer OS X's fast BLAS implementation (patch stolen from fink-project)
-  patch :DATA
+  patch :DATA if OS.mac?
 
   def install
     # Thanks to superenv, we don't have to care if the ccc.osx build script
@@ -50,14 +50,25 @@ class LpSolve < Formula
     end
 
     cd "lpsolve55" do
-      system "sh ccc.osx # lpsolve55 library"
-      lib.install Dir["./bin/osx64/*.a"]
-      lib.install Dir["./bin/osx64/*.dylib"]
+      if OS.mac?
+        system "sh ccc.osx # lpsolve55 library"
+        lib.install Dir["./bin/osx64/*.a"]
+        lib.install Dir["./bin/osx64/*.dylib"]
+      else
+        system "sh ccc # lpsolve55 library"
+        lib.install Dir["./bin/ux64/*.a"]
+        lib.install Dir["./bin/ux64/*.so"]
+      end
     end
 
     cd "lp_solve" do
-      system "sh ccc.osx # lp_solve executable"
-      bin.install "./bin/osx64/lp_solve"
+      if OS.mac?
+        system "sh ccc.osx # lp_solve executable"
+        bin.install "./bin/osx64/lp_solve"
+      else
+        system "sh ccc # lp_solve executable"
+        bin.install "./bin/ux64/lp_solve"
+      end
     end
 
     # Note, the demo does not build with lpsolve55. Upstream issue.
