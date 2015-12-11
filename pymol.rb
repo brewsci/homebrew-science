@@ -3,6 +3,7 @@ class Pymol < Formula
   url "https://downloads.sourceforge.net/project/pymol/pymol/1.7/pymol-v1.7.6.0.tar.bz2"
   sha256 "cf142732b5206ea65ebcc0cc162f9d3c88ecacc701ac41d1a5e9b38972700395"
   head "https://svn.code.sf.net/p/pymol/code/trunk/pymol"
+  revision 1
 
   bottle do
     cellar :any
