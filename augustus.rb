@@ -10,10 +10,9 @@ class Augustus < Formula
   sha256 "9afac038a92e8cf9e794ca48fb5464e868bece792e0e31f28931f9e6227c4b68"
 
   bottle do
-    cellar :any
-    sha256 "de3e868755c82d7e8e51a2fc2905b6c25706f7d9b9862ef14fadd674456777a5" => :yosemite
-    sha256 "38dc89023a148892624c4e7359d424a0ce1a2f20a4ab3f960ddc05b870a32278" => :mavericks
-    sha256 "d070713a12c97bbe7d975c7cbc0260bb5c315e9e23607fd3f63070fea1050c41" => :mountain_lion
+    sha256 "0eb60809dd6fc0294210b4eaae29363d9034be074d972bd76b32fa9183a18494" => :el_capitan
+    sha256 "91143f0a59709e16e435ba220909c7878cbcbd5d3ef41fded2fc1784626eb5ce" => :yosemite
+    sha256 "df27039f7d44a9431f38c21816431190220d54a8fd89506c367a35b600c0befb" => :mavericks
   end
 
   option "with-cgp",  "Enable comparative gene prediction"
