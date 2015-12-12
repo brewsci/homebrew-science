@@ -12,14 +12,13 @@ class ClustalW < Formula
     sha256 "f4d47e253c85b70a23c4c04610370e8ed038a4e7a8758a2de576ce048a4c076a" => :mountain_lion
   end
 
-  fails_with :clang do
-    build 600
-    cause "error: implicit instantiation of undefined template"
-  end
-
-  fails_with :gcc => "4.2"
-
   def install
+    # header is missing #include <string>
+    # reported to clustalw@ucd.ie Dec 11 2015
+    inreplace "src/general/VectorOutOfRange.h",
+      "#include <exception>",
+      "#include <exception>\n#include<string>"
+
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
