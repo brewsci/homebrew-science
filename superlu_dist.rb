@@ -1,8 +1,8 @@
 class SuperluDist < Formula
   desc "A general purpose library for the direct solution of large, sparse, nonsymmetric systems of linear equations on high performance machines."
   homepage "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
-  url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_dist_4.1.tar.gz"
-  sha256 "8afb48036e9b3020d268d49d5a3711aaed2f65105747aa6a111ff8f64dcde93e"
+  url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_dist_4.2.tar.gz"
+  sha256 "9ef541cac5c2ad635ec2965e6a9a3e616efea583e8a953c12bfe11c2f15eec54"
 
   bottle do
     cellar :any
