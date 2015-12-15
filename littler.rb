@@ -8,9 +8,9 @@ class Littler < Formula
   revision 2
 
   bottle do
-    sha256 "1e5af583921af3996ad8af8605306a1dcd1f0e6d34d4e3b1b24e034e24bb12e1" => :yosemite
-    sha256 "9082a86dadb7abb648c00c8f6ce811662de8b3ab0863c67e8be8e9e2fe354a8a" => :mavericks
-    sha256 "6b22b34a9b733ce90ee62f90191ccc17566000d9bfe2e80161bc227aa1e63b66" => :mountain_lion
+    sha256 "69f96066fee705ad427275c85a58d3f4b276e42ef3b61ac3ae37278845a6ee3a" => :el_capitan
+    sha256 "a90f023824afef1ea158e66bb8dffa71d3e117fbf0a7792286e9517da3e0f042" => :yosemite
+    sha256 "0c488078624189b3f013b7d4ac30b0d2ba6f697b2c283ba28c5ed4c632d78d26" => :mavericks
   end
 
   depends_on "r"
