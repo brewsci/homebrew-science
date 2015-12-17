@@ -5,6 +5,13 @@ class CalculixCcx < Formula
   version "2.9"
   sha256 "755e173cfb712c83cefef22cfa43f06caf495e5dffbecf8df3d47f3cf6e6d44d"
 
+  bottle do
+    cellar :any
+    sha256 "14234c148db24b572e196bb9fc0cd5dfc0ca6b45aa447f4fec8b008ce81870e4" => :el_capitan
+    sha256 "2daea483bcf55bee8893686fadd3b5028aeccaf9708c4f5feeefa4c8d46321b0" => :yosemite
+    sha256 "37463517923beb6a33083c333bff5845ec8901f5cf33220ede9523551e7fef58" => :mavericks
+  end
+
   depends_on :fortran
   depends_on "arpack"
   depends_on "pkg-config" => :build
