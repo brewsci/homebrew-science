@@ -10,6 +10,7 @@ class Getdp < Formula
   url "http://www.geuz.org/getdp/src/getdp-2.6.1-source.tgz"
   sha256 "b3722dcde0478b1fba34c3c36820f64b0184cdbe0ef7535e23fb87e1da36e96a"
   head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
+  revision 1
 
   bottle do
     sha256 "ea70a4a9b01642d281648a85cc9726d80f93f4c7d4e9c6db1597efb571f759fa" => :el_capitan
