@@ -13,9 +13,9 @@ class Getdp < Formula
   revision 1
 
   bottle do
-    sha256 "ea70a4a9b01642d281648a85cc9726d80f93f4c7d4e9c6db1597efb571f759fa" => :el_capitan
-    sha256 "43317398bf78feb9122c5cb631b6993286b49f04b8660a7338dbedbbdd584fea" => :yosemite
-    sha256 "34775daaf746679410256c0890a6bfc0563005a8003689a70abd578339ff9a20" => :mavericks
+    sha256 "67d38ed32663fb45a57c80e9c422fb719041fe4ad31bd33859ae55fe7ca5815c" => :el_capitan
+    sha256 "f45e08b8489cc68dca44834dafb77abe4cc4c6bdc998eb64204c878bad87b777" => :yosemite
+    sha256 "c88612e7531998d3ec499ee1c189d1f862c14ea8f5c7a9b523abaef5482454f5" => :mavericks
   end
 
   option "without-check", "skip build-time tests (not recommended)"
