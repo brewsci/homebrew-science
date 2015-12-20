@@ -1,10 +1,11 @@
 class Kmc < Formula
+  desc "Fast and frugal disk based k-mer counter"
   homepage "http://sun.aei.polsl.pl/kmc/"
   # doi "10.1093/bioinformatics/btv022"
   # tag "bioinformatics"
 
-  url "https://github.com/marekkokot/KMC/archive/2.1.1.tar.gz"
-  sha256 "7f8dba362a3827f8c8c87b3e29abd91de0ae23a1901cfc885783ce0e1502acce"
+  url "https://github.com/marekkokot/KMC/archive/2.3.tar.gz"
+  sha256 "829fd983db883f09c07e533292e0452d79256a76b5dc9ca2be2392368358eafe"
 
   head "https://github.com/marekkokot/KMC.git"
 
