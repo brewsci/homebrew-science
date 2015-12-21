@@ -4,7 +4,7 @@ class Octave < Formula
   url "http://ftpmirror.gnu.org/octave/octave-4.0.0.tar.gz"
   mirror "https://ftp.gnu.org/gnu/octave/octave-4.0.0.tar.gz"
   sha256 "4c7ee0957f5dd877e3feb9dfe07ad5f39b311f9373932f0d2a289dc97cca3280"
-  revision 4
+  revision 5
 
   stable do
     # Fix compilation of classdef with the clang compiler (bug #41178)
