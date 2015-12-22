@@ -3,12 +3,12 @@ class Opencv3 < Formula
   homepage "http://opencv.org/"
 
   stable do
-    url "https://github.com/Itseez/opencv/archive/3.0.0.tar.gz"
-    sha256 "da51a4e459b0bcbe14fb847c4f168415f421765fb91996f42b9e1ce0575f05d5"
+    url "https://github.com/Itseez/opencv/archive/3.1.0.tar.gz"
+    sha256 "f00b3c4f42acda07d89031a2ebb5ebe390764a133502c03a511f67b78bbd4fbf"
 
     resource "contrib" do
-      url "https://github.com/Itseez/opencv_contrib/archive/3.0.0.tar.gz"
-      sha256 "8fa18564447a821318e890c7814a262506dd72aaf7721c5afcf733e413d2e12b"
+      url "https://github.com/Itseez/opencv_contrib/archive/3.1.0.tar.gz"
+      sha256 "ef2084bcd4c3812eb53c21fa81477d800e8ce8075b68d9dedec90fef395156e5"
     end
   end
 
