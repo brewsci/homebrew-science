@@ -21,10 +21,9 @@ class Opencv3 < Formula
   end
 
   bottle do
-    revision 1
-    sha256 "e152b2de3676f031ca5bb2e51174280cb0610d93aeef7b44be3ce0d45b05e70b" => :yosemite
-    sha256 "c9b2d992266754ac4e15a5c974e42524f9b6daa11c8cfec25dcd446a989a653e" => :mavericks
-    sha256 "f4d8d0ce0ce159563649e148b5e7ddbc31bd892bb7e4c438c698bb5953709196" => :mountain_lion
+    sha256 "840f388460571b309492b61d202151c036a5c311a5479798c132cc445755e3ba" => :el_capitan
+    sha256 "cb1daf4b85a1f769f9c830fecb67c72517eed50d3f3fc2df330d604f50f2c630" => :yosemite
+    sha256 "ababd9593749028be86a7aa6296a88418f5156ffc189c75f3b1bf9645dfa83d7" => :mavericks
   end
 
   keg_only "opencv3 and opencv install many of the same files."
