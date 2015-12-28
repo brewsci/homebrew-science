@@ -6,9 +6,9 @@ class Igraph < Formula
 
   bottle do
     cellar :any
-    sha256 "a0e438be157ccc4ad4658a40a5c28f468ffc865a8f4d7cde4869df655799d481" => :yosemite
-    sha256 "020801feed2868e70736ce34946f00934d324774ed9de4dc28dcaa994b2ec0df" => :mavericks
-    sha256 "b9110e6a58fe00a5aae8648d04d530fba303c3a9fc7daecac8b817bd6c18e799" => :mountain_lion
+    sha256 "e36613f01dce5ead7ef1347ca99b5aab2958ac8bbb5376298c74cc3f3efd2c2b" => :el_capitan
+    sha256 "da720a5bbecc2b3ab4079351f211ecbd21009683a86de57112b0eb997befdb13" => :yosemite
+    sha256 "f8a0fe717b92ad929d63a2e273b45bbb3f9762d24cdcf4e724511c3c086342d5" => :mavericks
   end
 
   option :universal
