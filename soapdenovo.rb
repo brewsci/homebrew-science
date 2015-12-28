@@ -8,7 +8,7 @@ class Soapdenovo < Formula
     sha256 "db7fbde57ddab0255d966f875f1d41e61a5cf8ad79e8d1c5411c79fc2cd062ce"
   else
     url "https://downloads.sourceforge.net/project/soapdenovo2/SOAPdenovo2/src/r240/SOAPdenovo2-src-r240.tgz"
-    sha1 "ca146c042b170b6a78f909dd9b3f1b1f051a08dc"
+    sha256 "b58fdb9b14766a122992d23dba5e91bd733c86e0062b432181aa5c1e7f052bb7"
   end
   version "2.04.r240"
 
@@ -23,7 +23,7 @@ class Soapdenovo < Formula
   # This patch is already applied upstream to the Mac tarball.
   patch do
     url "https://github.com/aquaskyline/SOAPdenovo2/pull/2.diff"
-    sha1 "d76eb26f9fbcb6333152a5cee6c060ebf91e42f3"
+    sha256 "bce08407df9d28f972c9abe43c86d443dbb39164f27875fa535dc345b7fe5b18"
   end unless OS.mac?
 
   def install
