@@ -16,7 +16,7 @@ class Gingr < Formula
     sha256 "27ba08606ae3f743ffdbcb6d554048ab3a7560087577f10503a0f5cd0227f9d3"
   elsif OS.linux?
     url "https://github.com/marbl/gingr/releases/download/v1.2/gingr-Linux64-v1.2.tar.gz"
-    sha1 "b1f3e9f31bbc3510aa2d9b286643dd465ca61e13"
+    sha256 "21ffb3c6fe0b70b8a872c638325e8b4d1ad18514f9888c1c1ac9e81c09d90503"
   else
     raise "Unsupported operating system"
   end
