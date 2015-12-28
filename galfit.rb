@@ -6,7 +6,7 @@ class Galfit < Formula
 
   if MacOS.version == :mavericks
     url "http://users.obs.carnegiescience.edu/peng/work/galfit/galfit3-mavericks.tar.gz"
-    sha1 "2cf6fad043efd509b71596712e4f0605ba5622db"
+    sha256 "8829cafd3c0d34a6697c389fcf50f5eff267dc81c450f1e60865d456bff93f7f"
   else
     url "http://users.obs.carnegiescience.edu/peng/work/galfit/galfit3-leopard+.tar.gz"
     sha256 "97dae1d6500d42fa9cb27faca15286350b69e703eaecfdb6bf89c33f85a03d5d"
