@@ -5,7 +5,7 @@ class Pcap < Formula
     sha256 "dcf4d59ba1226ebac0ac604af0eb9cee246742bbd7bce2fd36e115ed0335c014"
   elsif OS.linux?
     url "http://seq.cs.iastate.edu/PCAP/pcap.rep.linux.xeon64.tar"
-    sha1 "fcc60a0f7f09926a278af1f0090aceae27c06fac"
+    sha256 "568ead31c0a957ec6a7d3b83fa3f18d5b9516ff5b785f1028b63d24de1d940e1"
   end
   version "2005-06-07"
 
