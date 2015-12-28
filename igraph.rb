@@ -2,6 +2,7 @@ class Igraph < Formula
   homepage "http://igraph.org"
   url "http://igraph.org/nightly/get/c/igraph-0.7.1.tar.gz"
   sha256 "d978030e27369bf698f3816ab70aa9141e9baf81c56cc4f55efbe5489b46b0df"
+  revision 1
 
   bottle do
     cellar :any
