@@ -7,9 +7,9 @@ class Dealii < Formula
 
   bottle do
     cellar :any
-    sha256 "2b194b50ae1648f1c869a639cca60ff6e1976f7e734efd0580afb0967cabaf10" => :el_capitan
-    sha256 "32907efdf770f4aaf4d519bb8682c9e0e25379edb6b9e735f8f5e4de6866a0f6" => :yosemite
-    sha256 "4de1c4e2db3bd4fe4195851f6e3f52e2f8959c52d5832e4633c896ff0d47dd51" => :mavericks
+    sha256 "1381bbf265273b5babd7b1a278bfb4aaee293d1ddc5b7ccb9a1d0efc8b48fd4a" => :el_capitan
+    sha256 "10153f9e19db7d3da01ea39f55605055f1ce4d60c7b8714c08fdb5dd498f8542" => :yosemite
+    sha256 "53d96a5b0bffeefee058b437bea2b3d25914bfc2b72b6aa3bca32a55b08af6d7" => :mavericks
   end
 
   head do
