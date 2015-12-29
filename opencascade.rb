@@ -3,7 +3,7 @@ class Opencascade < Formula
   homepage "http://www.opencascade.org/"
   url "http://files.opencascade.com/OCCT/OCC_6.9.0_release/opencascade-6.9.0.tgz"
   sha256 "e9da098b304f6b65c3958947c3c687f00128ce020b67d97554a3e3be9cf3d090"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -29,7 +29,9 @@ class Opencascade < Formula
   def install
     # be conservative since 6.9 has problems with clang if -O2
     # see http://tracker.dev.opencascade.org/print_bug_page.php?bug_id=26042
-    ENV.append_to_cflags "-O1"
+    ENV.append_to_cflags "-g"
+    ENV.remove_from_cflags(/O./)
+    ENV["HOMEBREW_OPTIMIZATION_LEVEL"] = "g"
 
     # recent xcode stores it's sdk in the application folder
     sdk_path = Pathname.new `xcrun --show-sdk-path`.strip
@@ -38,6 +40,8 @@ class Opencascade < Formula
     inreplace "env.sh", "export DYLD_LIBRARY_PATH", "export OCCT_DYLD_LIBRARY_PATH" if OS.mac?
 
     cmake_args = std_cmake_args
+    cmake_args = cmake_args.map { |s| s.gsub(/RELEASE/, "DEBUG") }.map { |s| s.gsub(/Release/, "Debug") }
+    cmake_args << "-DBUILD_CONFIGURATION=Debug"
     cmake_args << "-DCMAKE_PREFIX_PATH:PATH=#{HOMEBREW_PREFIX}"
     cmake_args << "-DCMAKE_INCLUDE_PATH:PATH=#{HOMEBREW_PREFIX}/lib"
     cmake_args << "-DCMAKE_FRAMEWORK_PATH:PATH=#{HOMEBREW_PREFIX}/Frameworks" if OS.mac?
@@ -81,8 +85,8 @@ class Opencascade < Formula
     # add symlinks to be able to compile against OpenCascade
     loc = OS.mac? ? "#{prefix}/mac64/clang" : "#{prefix}/lin64/gcc"
     include.install_symlink Dir["#{prefix}/inc/*"]
-    bin.install_symlink Dir["#{loc}/bin/*"]
-    lib.install_symlink Dir["#{loc}/lib/*"]
+    bin.install_symlink Dir["#{loc}/bind/*"]
+    lib.install_symlink Dir["#{loc}/libd/*"]
   end
 
   def caveats; <<-EOF.undent
