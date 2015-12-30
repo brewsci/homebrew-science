@@ -59,7 +59,7 @@ class Dealii < Formula
     args << "-DDEAL_II_COMPONENT_DOCUMENTATION=ON" if build.with? "doxygen"
 
     if build.with? "openblas"
-      ext = OS.mac? ? "dyld" : "so"
+      ext = OS.mac? ? "dylib" : "so"
       args << "-DLAPACK_FOUND=true"
       args << "-DLAPACK_INCLUDE_DIRS=#{Formula["openblas"].opt_include}"
       args << "-DLAPACK_LIBRARIES=#{Formula["openblas"].opt_lib}/libopenblas.#{ext}"
