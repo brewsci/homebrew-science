@@ -5,12 +5,11 @@ class GetdpSvnStrategy < SubversionDownloadStrategy
 end
 
 class Getdp < Formula
-  desc "GetDP is an open source finite element solver using mixed elements."
+  desc "Open source finite element solver using mixed elements."
   homepage "http://www.geuz.org/getdp/"
-  url "http://www.geuz.org/getdp/src/getdp-2.6.1-source.tgz"
-  sha256 "b3722dcde0478b1fba34c3c36820f64b0184cdbe0ef7535e23fb87e1da36e96a"
+  url "http://www.geuz.org/getdp/src/getdp-2.7.0-source.tgz"
+  sha256 "122830b700e4535be3ccba025bad5c7702324639a937b5e79fee6a1e92bd34b2"
   head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
-  revision 1
 
   bottle do
     sha256 "67d38ed32663fb45a57c80e9c422fb719041fe4ad31bd33859ae55fe7ca5815c" => :el_capitan
