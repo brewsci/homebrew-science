@@ -5,10 +5,10 @@ class GmshSvnStrategy < SubversionDownloadStrategy
 end
 
 class Gmsh < Formula
-  desc "Gmsh is a 3D grid generator with a build-in CAD engine."
+  desc "3D finite element grid generator with a build-in CAD engine and post-processor"
   homepage "http://geuz.org/gmsh"
-  url "http://geuz.org/gmsh/src/gmsh-2.10.1-source.tgz"
-  sha256 "a47f15541db038c9cb00f004d13c5648a46c3d8ebd6e0bf3b56f9274e13f505d"
+  url "http://geuz.org/gmsh/src/gmsh-2.11.0-source.tgz"
+  sha256 "2b6d810cc3817ac2c7f5fdd09b9f4b1ed7b93365f6e6574052c73db957a497c6"
 
   head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
 
@@ -19,6 +19,9 @@ class Gmsh < Formula
     sha256 "8faf0079b79a7b1690154aa6df8ba8c25bf007a7ddb26bbb09b34a069814c2ee" => :mavericks
   end
 
+  option "with-oce",               "Build with oce support (conflicts with opencascade)"
+  option "without-opencascade",    "Build without opencascade support"
+
   depends_on :fortran
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
   depends_on "cmake" => :build
@@ -26,9 +29,6 @@ class Gmsh < Formula
   depends_on "slepc" => :optional
   depends_on "fltk" => :optional
   depends_on "cairo" if build.with? "fltk"
-
-  option "with-oce",               "Build with oce support (conflicts with opencascade)"
-  option "without-opencascade",    "Build without opencascade support"
 
   if build.with?("opencascade") && build.with?("oce")
     odie "gmsh: --without-opencascade must be specified when using --with-oce"
