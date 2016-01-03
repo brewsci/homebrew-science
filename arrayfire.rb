@@ -1,8 +1,14 @@
 class Arrayfire < Formula
-  desc "a general purpose GPU library"
+  desc "General purpose GPU library"
   homepage "http://arrayfire.com"
-  url "http://arrayfire.com/arrayfire_source/arrayfire-full-3.0.2.tar.bz2"
-  sha256 "0253da88d5823b365dcf2627885150a8cea848311791fb5b7a9d6ce91075d8db"
+
+  stable do
+    url "https://github.com/arrayfire/arrayfire.git",
+      :tag => "v3.2.2",
+      :revision => "7507b61b3f89c99d23900ce4b66d3f8aeef4e609"
+    mirror "http://arrayfire.com/arrayfire_source/arrayfire-full-3.2.2.tar.bz2"
+    sha256 "7bcc13ff29bdfb647813ee0e9830ce8387217953427abe0d9904de671e600831"
+  end
 
   bottle do
     sha256 "2df7a97b0ecf66b090bc3ecca712b15312f122ccc946123aee48f2e57ed7e998" => :yosemite
@@ -29,14 +35,14 @@ class Arrayfire < Formula
 
   # build forge separately so we can tell it to use the system freetype
   resource "forge" do
-    url "https://github.com/arrayfire/forge/archive/af3.0.1.tar.gz"
-    sha256 "f77f2722c063e2186c9a951ca102c9405c05b63535ee754601e3a41eabf13e0f"
+    url "https://github.com/arrayfire/forge/archive/af3.2.2.tar.gz"
+    sha256 "c81210185e9a17e085640169f562dcc3654f9a6d9e8c8389469ce1a4a31cb514"
   end
 
   def install
     ENV.cxx11
     resource("forge").stage do
-      system "cmake", "-DUSE_SYSTEM_FREETYPE:BOOL=ON", ".", *std_cmake_args
+      system "cmake", "-DUSE_LOCAL_FREETYPE:BOOL=OFF", ".", *std_cmake_args
       system "make", "install"
     end
 
@@ -63,10 +69,12 @@ class Arrayfire < Formula
         af::info();
         af::array A = af::randu(5,3, f32);
         af_print(A);
+        af::array B = af::fft(A);
+        af_print(B);
         return 0;
       }
     EOS
-    system ENV.cxx, "-o", "test_cpu", "-I#{include}", "-L#{lib}", "-lafcpu", testpath/"test.cpp"
+    system ENV.cxx, "-o", "test_cpu", "-I#{opt_include}", "-L#{opt_lib}", "-lafcpu", testpath/"test.cpp"
     system "./test_cpu"
   end
 end
