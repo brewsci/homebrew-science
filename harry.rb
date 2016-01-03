@@ -1,7 +1,7 @@
 class Harry < Formula
   homepage "http://www.mlsec.org/harry"
-  url "http://www.mlsec.org/harry/files/harry-0.4.0.tar.gz"
-  sha256 "cb3526efbf119cae1de0c65745a40788fb1c483f95dab568ce75e5e222abff78"
+  url "http://www.mlsec.org/harry/files/harry-0.4.1.tar.gz"
+  sha256 "7e4d0cd7c7b4d91cc54fcf313862b5d8fc04cda115f5d3b36ee4a96918724cda"
 
   bottle do
     sha256 "e0f2d99b448f428648729f54751ba9ea4feceadad8a2f18446d3368224f2622e" => :yosemite
