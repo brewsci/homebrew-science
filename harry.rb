@@ -4,9 +4,9 @@ class Harry < Formula
   sha256 "7e4d0cd7c7b4d91cc54fcf313862b5d8fc04cda115f5d3b36ee4a96918724cda"
 
   bottle do
-    sha256 "e0f2d99b448f428648729f54751ba9ea4feceadad8a2f18446d3368224f2622e" => :yosemite
-    sha256 "32365253f04311bf130fcefb66a44232ce56eb757c8640ff47622ffa5f7d984a" => :mavericks
-    sha256 "f7c5a8377a8d5ed71ea5e8b54ff8e8199e8475dd8ded5b09df55ea796e4dc5e4" => :mountain_lion
+    sha256 "37072d961f3c6e9dcdd206457501372b8423ce23d9fb1b40a48cf7123631c7f5" => :el_capitan
+    sha256 "ceca346556b3618874bb46713d72a0cb6ce546d0d1429fd30788d742c39883ad" => :yosemite
+    sha256 "fd67734b1d24a09f23c427c045abd2422ff374fe59b60a9611bba8ca8b129d63" => :mavericks
   end
 
   depends_on "pkg-config" => :build
