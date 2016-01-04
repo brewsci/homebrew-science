@@ -8,10 +8,9 @@ class Visp < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "092bb8d4bb1b74ee69ca402ffe66d73677cf5e1b61fb9d6931299b2cd0827880" => :yosemite
-    sha256 "b961e8a9d5b95312159989fccfea007cd931095cc977d0c855cc8177dcfbfb7e" => :mavericks
-    sha256 "c3aa7137649ad12c5960fbde9b863d09b8dcc2e1fa28ec339f6a24b9134d0db6" => :mountain_lion
+    sha256 "afa2cfb18faae45fc4c42c288cd1d6767aa0a6a798bbb04eab2aa54c7eb5e672" => :el_capitan
+    sha256 "aa1a4fb6a6b8c1de94c28c0c1f818ec93484345d316361d7f4737286b3aa1aff" => :yosemite
+    sha256 "bca755251329e6872c83c50aca4056a3940dbec342f1c3622324773d4faa2e62" => :mavericks
   end
 
   option :cxx11
