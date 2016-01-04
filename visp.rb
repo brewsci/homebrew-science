@@ -1,10 +1,10 @@
 class Visp < Formula
-  homepage "https://www.irisa.fr/lagadic/visp/visp.html"
-  head "svn://scm.gforge.inria.fr/svn/visp/trunk/ViSP ViSP-code"
+  desc "Visual Servoing Platform library, version 3"
+  homepage "https://visp.inria.fr"
 
   stable do
-    url "https://gforge.inria.fr/frs/download.php/latestfile/475/ViSP-2.10.0.tar.gz"
-    sha256 "1c8a37cadd0012526be9ceaa182eb21fb0d45aac622a1f0f2d255225e85797aa"
+    url "http://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.0.0.tar.gz"
+    sha256 "f9fa6f16f5c06d4eaa91ed374ecd7416ad49639d9f3a1865b21933af368e720f"
   end
 
   bottle do
@@ -14,19 +14,16 @@ class Visp < Formula
     sha256 "c3aa7137649ad12c5960fbde9b863d09b8dcc2e1fa28ec339f6a24b9134d0db6" => :mountain_lion
   end
 
-  depends_on "cmake"    => :build
-  depends_on "opencv"   => :recommended
-  depends_on "jpeg"     => :recommended
-  depends_on "libpng"   => :recommended
-  depends_on "zbar"     => :recommended
-  depends_on "ffmpeg"   => :optional
-
   option :cxx11
 
-  option "with-demos", "Build with demos"
-  option "with-examples", "Build with examples"
-  option "without-tests", "Build without tests"
-  option "with-tutorials", "Build with tutorials"
+  depends_on "cmake"     => :build
+  depends_on "opencv3"   => :recommended
+  depends_on "libdc1394" => :recommended
+  depends_on "libxml2"   => :recommended
+  depends_on "gsl"       => :recommended
+  depends_on "zbar"      => :recommended
+  depends_on :x11        => :recommended
+  option :cxx11
 
   def arg_switch(opt)
     (build.with? opt) ? "ON" : "OFF"
@@ -37,17 +34,20 @@ class Visp < Formula
 
     args = std_cmake_args + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
-      -DUSE_X11=OFF
+      -DBUILD_DEMOS=OFF
+      -DBUILD_EXAMPLES=OFF
+      -DBUILD_TESTS=OFF
+      -DBUILD_TUTORIALS=OFF
     ]
 
-    args << "-DUSE_FFMPEG="       + arg_switch("ffmpeg")
-    args << "-DUSE_LIBJPEG="      + arg_switch("jpeg")
-    args << "-DUSE_LIBPNG="       + arg_switch("libpng")
-    args << "-DUSE_OPENCV="       + arg_switch("opencv")
-    args << "-DUSE_ZBAR="         + arg_switch("zbar")
+    args << "-DUSE_CPP11=ON" if build.cxx11?
 
-    args << "-DBUILD_DEMOS="      + arg_switch("demos")
-    args << "-DBUILD_EXAMPLES="   + arg_switch("examples")
+    args << "-DUSE_X11="          + arg_switch("x11")
+    args << "-DUSE_OPENCV="       + arg_switch("opencv3")
+    args << "-DUSE_DC1394="       + arg_switch("libdc1394")
+    args << "-DUSE_XML2="         + arg_switch("libxml2")
+    args << "-DUSE_GSL="          + arg_switch("gsl")
+    args << "-DUSE_ZBAR="         + arg_switch("zbar")
 
     mkdir "macbuild" do
       system "cmake", "..", *args
@@ -58,7 +58,7 @@ class Visp < Formula
 
   test do
     (testpath/"test.cpp").write <<-EOS.undent
-      #include <visp/vpConfig.h>
+      #include <visp3/core/vpConfig.h>
       #include <iostream>
       int main()
       {
