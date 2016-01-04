@@ -1,8 +1,8 @@
 class Nccmp < Formula
   desc "Compare two NetCDF files bitwise, semantically or with a tolerance."
   homepage "http://nccmp.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/nccmp/nccmp-1.7.5.0.tar.gz"
-  sha256 "0430262c623ccdc0809c34620d853ae7f59c078d40e64c3c179f9f427f51937e"
+  url "https://downloads.sourceforge.net/project/nccmp/nccmp-1.8.0.0.tar.gz"
+  sha256 "dd64bb0d66a1c3f358308b0d10e2881605b3391df285e3322cca0e578c8e2129"
 
   bottle do
     sha256 "df6a1535cb263beb12ef7f5294676f91d3ae4ab11fdbb463be4935f161abf058" => :el_capitan
