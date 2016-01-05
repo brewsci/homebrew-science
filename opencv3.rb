@@ -1,6 +1,7 @@
 class Opencv3 < Formula
   desc "Open source computer vision library, version 3"
   homepage "http://opencv.org/"
+  revision 1
 
   stable do
     url "https://github.com/Itseez/opencv/archive/3.1.0.tar.gz"
@@ -67,6 +68,7 @@ class Opencv3 < Formula
   depends_on "qt" => :optional
   depends_on "qt5" => :optional
   depends_on "tbb" => :optional
+  depends_on "vtk" => :optional
 
   with_python = build.with?("python") || build.with?("python3")
   pythons = build.with?("python3") ? ["with-python3"] : []
@@ -121,6 +123,7 @@ class Opencv3 < Formula
     args << "-DWITH_QUICKTIME=" + arg_switch("quicktime")
     args << "-DWITH_QT=" + (with_qt ? "ON" : "OFF")
     args << "-DWITH_TBB=" + arg_switch("tbb")
+    args << "-DWITH_VTK=" + arg_switch("vtk")
 
     if build.include? "32-bit"
       args << "-DCMAKE_OSX_ARCHITECTURES=i386"
