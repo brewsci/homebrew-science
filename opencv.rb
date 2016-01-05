@@ -4,6 +4,7 @@ class Opencv < Formula
   url "https://github.com/Itseez/opencv/archive/2.4.12.tar.gz"
   sha256 "8989f946a66fa3fc2764d637b1c866caf28d074ece187f86baba66544054eefc"
   head "https://github.com/Itseez/opencv.git", :branch => "2.4"
+  revision 2
 
   bottle do
     revision 1
@@ -46,6 +47,7 @@ class Opencv < Formula
   depends_on "pkg-config" => :build
   depends_on "qt"         => :optional
   depends_on "tbb"        => :optional
+  depends_on "vtk"        => :optional
 
   depends_on :python => :recommended unless OS.mac? && MacOS.version > :snow_leopard
   depends_on "homebrew/python/numpy" => :recommended if build.with? "python"
@@ -89,6 +91,7 @@ class Opencv < Formula
     args << "-DWITH_QT="        + arg_switch("qt")
     args << "-DWITH_GSTREAMER=" + arg_switch("gstreamer")
     args << "-DWITH_XIMEA="     + arg_switch("ximea")
+    args << "-DWITH_VTK="       + arg_switch("vtk")
 
     if build.with? "python"
       py_prefix = `python-config --prefix`.chomp
