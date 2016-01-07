@@ -3,6 +3,7 @@ class Butterflow < Formula
   homepage "https://github.com/dthpham/butterflow"
   url "http://srv.dthpham.me/butterflow/butterflow-0.2.0.tar.gz"
   sha256 "dc70927d78193543b4b364573e0cf2d0881a54483aa306db51cd9f57cf23781e"
+  revision 1
 
   bottle do
     cellar :any
