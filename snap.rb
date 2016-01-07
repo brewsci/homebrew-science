@@ -9,10 +9,11 @@ class Snap < Formula
   sha256 "e2a236392d718376356fa743aa49a987aeacd660c6979cee67121e23aeffc66a"
 
   bottle do
-    cellar :any
-    sha256 "c0ec159c4a9c5bddeb57fb42decf22d40cc0070f6f7c15b5be6977410a068721" => :yosemite
-    sha256 "905b52ab0dbf8f2244b8441d1c7c1996e6533eadc765ed8deab1dc36046c97d1" => :mavericks
-    sha256 "64f63ceb2d5f6423ea4499c317d6b49c3608da0b55fca35e0bce8197872a7d7c" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "71cb5dea75c27f6e4794e27b8e07af673465f6285b6a9b02ff01d9a51108c9bc" => :el_capitan
+    sha256 "6c6690240b7363db44f12dcb42bd8e71b00c4d6f4c543bc1dd6d8197e9a2b161" => :yosemite
+    sha256 "8844eab0a698e205b665ffe48fb5eaa18c30f83e1e7ed052232791a003ffc373" => :mavericks
   end
 
   def install
