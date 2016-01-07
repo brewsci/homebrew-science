@@ -20,7 +20,6 @@ class Rampart < Formula
   depends_on :java => "1.7+"
 
   # Dataset improvement
-  depends_on "musket" => :optional
   depends_on "sickle" => :optional
   # quake (see below)
 
@@ -30,7 +29,6 @@ class Rampart < Formula
   # Assemblers
   depends_on "abyss" => :recommended
   depends_on "allpaths-lg" => :optional
-  depends_on "platanus" => :optional
   depends_on "soapdenovo" => :optional
   depends_on "velvet" => :recommended
   depends_on "spades" => :optional
