@@ -7,9 +7,9 @@ class Insighttoolkit < Formula
   revision 1
 
   bottle do
-    sha256 "ef74a82fd974bea4b347493dc377716a11b1c0e9888e1977e5dd7a0e451c23a5" => :el_capitan
-    sha256 "6bdd195c9b14fc970a42e7043c0ad1d65f039349f6bf3eecf9d62f6660e22e60" => :yosemite
-    sha256 "b283d65f09eccfb9bee87729403c7eeba95ce050ba22279cd2b366104341650d" => :mavericks
+    sha256 "753004df98cde4ee7706d826491214b605e7957bd994ed6876285a3d92304311" => :el_capitan
+    sha256 "deea79ac34044ccbcbd304bcc741a9f4f515e45bb8299dc50908102e3c88ce23" => :yosemite
+    sha256 "543417219a280ebe94429ef8eef6d96a6fa1fd967be06baab776aab44929caf5" => :mavericks
   end
 
   option :cxx11
