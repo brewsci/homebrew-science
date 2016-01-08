@@ -7,10 +7,9 @@ class Opencv < Formula
   revision 2
 
   bottle do
-    revision 1
-    sha256 "692723f2512022cdf5828fa768b2f66c228936bbc57b498cf6777f0f443ea78d" => :yosemite
-    sha256 "ea1b5f3560afc5e282ee3c1ba7f6f2d042440da1e9257645c7506850e80162f1" => :mavericks
-    sha256 "212216516f3f2b47c310dc9ab7bd856469615ce71de9dfa09706eb9c7d4ea302" => :mountain_lion
+    sha256 "3e584f97f377b8ac0f7e55efa494bdb0fb108930212f5fb8a03cecc18f9b1d43" => :el_capitan
+    sha256 "c60dc79ecf71499e91945726f4e0fd3f7abaf2dac92e4a8d081c4be48d39dcac" => :yosemite
+    sha256 "f4e3fdf22515e9847f70fcd71ef96eef06e68077f054e0178417fe073594fd83" => :mavericks
   end
 
   option "32-bit"
