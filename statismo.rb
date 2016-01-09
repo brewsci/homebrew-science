@@ -3,6 +3,7 @@ class Statismo < Formula
   url "https://github.com/statismo/statismo/archive/v0.11.0.tar.gz"
   sha256 "f9b7109996d9e42e48b07923ea6edacca57b8ac7c573de1c905dbba921385c4c"
   head "https://github.com/statismo/statismo.git"
+  revision 1
 
   bottle do
     sha256 "97cd9accdb47d8187b9da59ff50df6ce9be04b0079429fd836f5eedc9264077f" => :yosemite
