@@ -1,8 +1,8 @@
 class Nip2 < Formula
   desc "A GUI for the VIPS image processing system"
   homepage "http://www.vips.ecs.soton.ac.uk/"
-  url "http://www.vips.ecs.soton.ac.uk/supported/7.42/nip2-7.42.1.tar.gz"
-  sha256 "541e95a4a8bb3f8ee850035c6beb8a67fe7e174df6c58032fa99ebaf80f58e92"
+  url "http://www.vips.ecs.soton.ac.uk/supported/8.2/nip2-8.2.tar.gz"
+  sha256 "18151e2185eb9db60196d98354ef751eb55ea9d3b55ef090f4a039125d465fca"
 
   bottle do
     cellar :any
