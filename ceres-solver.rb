@@ -4,6 +4,7 @@ class CeresSolver < Formula
   url "http://ceres-solver.org/ceres-solver-1.11.0.tar.gz"
   sha256 "4d666cc33296b4c5cd77bad18ffc487b3223d4bbb7d1dfb342ed9a87dc9af844"
   head "https://ceres-solver.googlesource.com/ceres-solver.git"
+  revision 1
 
   bottle do
     sha256 "f11c49891b9e084fc4d82aac72c85c04595435502e7f92014c3b5910e56211cd" => :el_capitan
