@@ -11,7 +11,6 @@ class Prooftree < Formula
     sha256 "c9abab545ce0acd7092f38cbef4df8fd9c6711dd2abc15d33f3d503cad2b0581" => :mavericks
   end
 
-  depends_on :x11
   depends_on "lablgtk"
   depends_on "ocaml" => :build
 
