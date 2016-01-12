@@ -4,6 +4,12 @@ class Gmtk < Formula
   url "http://melodi.ee.washington.edu/downloads/gmtk/gmtk-1.4.4.tar.gz"
   sha256 "c6243f1b5c68910a4a0ea60a1b2285ede5ba771cfec3fa5ffa3699ecef6e87e0"
 
+  bottle do
+    sha256 "b618d6d790f57a3a6da52ae37c0dda4ceb236623e2c087494b22e7472614fbfb" => :el_capitan
+    sha256 "b792af744035e2cacb0838ee99077c5f38065888e0dd307873a684b9273f441a" => :yosemite
+    sha256 "c35b0c6484fe1d5f06dbdec19c0826ef2eb1bec34c725741b167164bd2fe8202" => :mavericks
+  end
+
   depends_on "homebrew/science/hdf5" => :optional
   depends_on "wxmac" => :recommended
 
