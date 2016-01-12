@@ -87,7 +87,7 @@ class Pastix < Formula
       system "./example/bin/simple", "-lap", "100"
       prefix.install "config.in" # For the record.
       pkgshare.install "example" # Contains all test programs.
-      ohai "Simple test result is in ~/Library/Logs/Homebrew/pastix. Please check."
+      ohai "Simple test result is in #{HOMEBREW_LOGS}/pastix. Please check."
     end
   end
 
@@ -103,6 +103,6 @@ class Pastix < Formula
         system "#{pkgshare}/example/bin/#{example}", "-lap", "100"
       end
     end
-    ohai "All test output is in ~/Library/Logs/Homebrew/pastix. Please check."
+    ohai "All test output is in #{HOMEBREW_LOGS}/pastix. Please check."
   end
 end
