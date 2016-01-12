@@ -83,7 +83,12 @@ class Pastix < Formula
       end
       system "make"
       system "make", "install"
-      system "make", "examples"
+
+      # Build examples against just installed libraries, so they continue to
+      # work once the temporary directory is gone, e.g., for `brew test`.
+      system "make", "examples", "PASTIX_BIN=#{bin}",
+                                 "PASTIX_LIB=#{lib}",
+                                 "PASTIX_INC=#{include}"
       system "./example/bin/simple", "-lap", "100"
       prefix.install "config.in" # For the record.
       pkgshare.install "example" # Contains all test programs.
