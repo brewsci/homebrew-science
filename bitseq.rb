@@ -1,12 +1,17 @@
 class Bitseq < Formula
-  homepage "https://code.google.com/p/bitseq/"
-  url "https://bitseq.googlecode.com/files/BitSeq-0.4.3.tar.gz"
-  sha256 "72ebc757ea42060c3ad7fb49f76e3af3934da6058909a193c167f97223c9a8cc"
+  desc "Transcript isoform level expression and differential expression estimation for RNA-seq"
+  homepage "https://bitseq.github.io/"
+  url "https://github.com/BitSeq/BitSeq/archive/v0.7.5.tar.gz"
+  sha256 "017eb516041de923ecdb5f7122bc2f4f1f99bbc08962028891a6bc845319ac2d"
+
+  head "https://github.com/BitSeq/BitSeq.git"
 
   needs :openmp
+  needs :cxx11
 
   def install
-    system "make"
+    ENV.cxx11
+    system "make", "LDFLAGS=-Wl,-dead_strip"
     bin.install "convertSamples",
                 "estimateDE",
                 "estimateExpression",
