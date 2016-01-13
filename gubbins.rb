@@ -1,19 +1,18 @@
 class Gubbins < Formula
   desc "Detect recombinations in Bacteria"
   homepage "https://github.com/sanger-pathogens/gubbins"
-  url "https://github.com/sanger-pathogens/gubbins/archive/v1.4.1.tar.gz"
-  sha256 "dcc98f70fb91357d4cb2cd0d8d37a03c77b3d2287a61e40ea21e0aee85d4d8ca"
+  url "https://github.com/sanger-pathogens/gubbins/archive/v1.4.5.tar.gz"
+  sha256 "89249278750a15223133a76517c73de34270600c31d3e7847a37095d489cb62b"
   head "https://github.com/sanger-pathogens/gubbins.git"
   revision 1
+  # tag "bioinformatics"
+  # doi "10.1093/nar/gku1196"
 
   bottle do
     cellar :any
     sha256 "f7dc6a0cc78a477340d522ddb43b41cbf18203e657b5d990b7177b7f5054244f" => :yosemite
     sha256 "12fe0fc7e28520bc79adf5568f69b7a75598478e00e51f7bebcd9f0685ed44fb" => :mavericks
   end
-
-  # tag "bioinformatics"
-  # doi "10.1093/nar/gku1196"
 
   depends_on "autoconf"  => :build
   depends_on "automake"  => :build
@@ -28,13 +27,13 @@ class Gubbins < Formula
   depends_on "fastml"   => :recommended
 
   resource "biopython" do
-    url "https://pypi.python.org/packages/source/b/biopython/biopython-1.65.tar.gz"
-    sha256 "6d591523ba4d07a505978f6e1d7fac57e335d6d62fb5b0bcb8c40bdde5c8998e"
+    url "https://pypi.python.org/packages/source/b/biopython/biopython-1.66.tar.gz"
+    sha256 "171ad726f50528b514f9777e6ea54138f6e35792c5b128c4ab91ce918a48bbbd"
   end
 
   resource "dendropy" do
-    url "https://pypi.python.org/packages/source/D/DendroPy/DendroPy-4.0.2.tar.gz"
-    sha256 "b118c9e3e9408f2727e374032f6743a630e8a9239d84f898ed08cd5e68c5238d"
+    url "https://pypi.python.org/packages/source/D/DendroPy/DendroPy-4.0.3.tar.gz"
+    sha256 "a2c074eb91e2866120521c076587983900c5b312879832c3559effb730bd4465"
   end
 
   resource "nose" do
