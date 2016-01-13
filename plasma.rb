@@ -4,6 +4,13 @@ class Plasma < Formula
   url "http://icl.cs.utk.edu/projectsfiles/plasma/pubs/plasma_2.8.0.tar.gz"
   sha256 "e8758a71ddd02ad1fb57373cfd62fb1b32cebea62ba517484f1adf9f0afb1ddb"
 
+  bottle do
+    cellar :any
+    sha256 "7b204b1f80e95c466924bd2f1f3dafea3afbf041c844cf22196405f5eb8272d0" => :el_capitan
+    sha256 "4d209daaa8ebbd622381e48665f3e63dd1909fb737b02c77c09fd9416e28524d" => :yosemite
+    sha256 "2dbb4bafd1ab74730ad81e44e2493d201b683396c5e3695bf443578e28b8bf48" => :mavericks
+  end
+
   depends_on "hwloc"
   depends_on :fortran
 
