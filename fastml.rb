@@ -9,9 +9,10 @@ class Fastml < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "522293e9f76d618eef20ed52e8b161fe00c1c59d7152bd643ad07811e0e99750" => :yosemite
-    sha256 "9b6fef363a5cf10cea598b57a9d77ae80c773c5b0f6e39d4187895616121557b" => :mavericks
+    cellar :any_skip_relocation
+    sha256 "39ad42b65eef737cbc91fe10dd50db050302d2ea100126d89e0cc2dcd720f11c" => :el_capitan
+    sha256 "45a87496b60c6812361ed76713250730302232cd2c0a0640699401f980777a77" => :yosemite
+    sha256 "14a84be3f80228146106798f9265f7edc494cf1ad7b69baa41c1598f1034c35f" => :mavericks
   end
 
   depends_on :macos => :mavericks # won't build on [Mountain] Lion
