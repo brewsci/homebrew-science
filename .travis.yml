@@ -21,14 +21,16 @@ matrix:
     - os: linux
 
 before_install:
-  - if [ -f ".git/shallow" ]; then travis_retry git fetch --unshallow; fi
+  - if [ -f ".git/shallow" ]; then
+      travis_retry git fetch --unshallow;
+    fi
   - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then
-      sudo chown -R $USER $(brew --repo);
-      git -C $(brew --repo) reset --hard origin/master;
-      git -C $(brew --repo) clean -qxdff;
+      sudo chown -R "$USER" "$(brew --repo)";
+      git -C "$(brew --repo)" reset --hard origin/master;
+      git -C "$(brew --repo)" clean -qxdff;
       brew update || brew update;
-      ln -s $PWD $(brew --repo)/Library/Taps/homebrew/homebrew-science;
-      cd $(brew --repo)/Library/Taps/homebrew/homebrew-science;
+      ln -s "$TRAVIS_BUILD_DIR" "$(brew --repo)/Library/Taps/homebrew/homebrew-science";
+      cd "$(brew --repo)/Library/Taps/homebrew/homebrew-science";
       export TRAVIS_BUILD_DIR="$(brew --repo)/Library/Taps/homebrew/homebrew-science";
     fi
   - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
