@@ -43,6 +43,10 @@ before_install:
     fi
   - env | grep TRAVIS | tee /tmp/travis.env
 
+install:
+  - export HOMEBREW_DEVELOPER="1"
+  - ulimit -n 1024
+
 script:
   - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then
       brew test-bot;
