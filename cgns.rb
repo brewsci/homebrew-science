@@ -2,7 +2,7 @@ class Cgns < Formula
   homepage "http://cgns.sourceforge.net"
   url "https://downloads.sourceforge.net/project/cgns/cgnslib_3.2/cgnslib_3.2.1.tar.gz"
   sha256 "34306316f04dbf6484343a4bc611b3bf912ac7dbc3c13b581defdaebbf6c1fc3"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "0d3c74d824b5bbe9214bd78826e23c333ec9d82bd5658cd4580ed13f0da1a176" => :yosemite
