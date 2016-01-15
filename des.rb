@@ -5,6 +5,13 @@ class Des < Formula
   version "3.12"
   sha256 "1cba61cfbe0d64e4ccf425691b650a352e43047bef4622262acd66b8eb3d62d5"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ecbf0202586dbf24012a34cf4da6df7bd987455aa5dd135fe44b2d3224a09ae8" => :el_capitan
+    sha256 "d0c76090f91fd4c41c37cd56eb5be64ebe9fdbd0b7896e65ad66c7adfe3cfafc" => :yosemite
+    sha256 "0770a2500591ac894e6bc300acfa2ff60d7e7dd27f94a4f46d1c2b6bfe227752" => :mavericks
+  end
+
   depends_on :java => "1.6+"
   depends_on "homebrew/x11/swi-prolog"
 
