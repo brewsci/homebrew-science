@@ -3,7 +3,7 @@ class Superlu < Formula
   homepage "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
   url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_5.1.tar.gz"
   sha256 "307ef10edef4cebc6c7f672cd931ae6682db4c4f5f93a44c78e9544a520e2db1"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -13,6 +13,9 @@ class Superlu < Formula
   end
 
   deprecated_option "without-check" => "without-test"
+
+  option "with-matlab", "Build MEX files for use with Matlab"
+  option "with-matlab-path=", "Directory that contains MATLAB bin and extern subdirectories"
 
   option "without-test", "skip build-time tests (not recommended)"
   option "with-openmp", "Enable OpenMP multithreading"
@@ -64,19 +67,39 @@ class Superlu < Formula
       system "make", *make_args
     end
 
+    if build.with? "matlab"
+      matlab = ARGV.value("with-matlab-path") || HOMEBREW_PREFIX
+      cd "MATLAB" do
+        system "make", "MATLAB=#{matlab}", *make_args
+      end
+    end
+
     prefix.install "make.inc"
-    File.open(prefix / "make_args.txt", "w") do |f|
+    File.open(prefix/"make_args.txt", "w") do |f|
       f.puts(make_args.join(" ")) # Record options passed to make.
     end
     lib.install Dir["lib/*"]
-    (include / "superlu").install Dir["SRC/*.h"]
+    (include/"superlu").install Dir["SRC/*.h"]
     doc.install Dir["Doc/*"]
-    (share / "superlu").install Dir["EXAMPLE/*[^.o]"]
+    (pkgshare/"examples").install Dir["EXAMPLE/*[^.o]"]
+    (pkgshare/"matlab").install Dir["MATLAB/*"] if build.with? "matlab"
+  end
+
+  def caveats
+    s = ""
+    if build.with? "matlab"
+      s += <<-EOS.undent
+        Matlab interfaces are located in
+
+          #{opt_pkgshare}/matlab
+      EOS
+    end
+    s
   end
 
   test do
     ENV.fortran
-    cp_r pkgshare, testpath
+    cp_r pkgshare/"examples", testpath
     cp prefix/"make.inc", testpath
     make_args = ["CC=#{ENV.cc}",
                  "CFLAGS=-fPIC #{ENV.cflags}",
@@ -96,7 +119,7 @@ class Superlu < Formula
     make_args << "BLASLIB=#{blas}"
     make_args << ("LOADOPTS=" + ((build.with? "openmp") ? "-fopenmp" : ""))
 
-    cd "superlu" do
+    cd "examples" do
       system "make", *make_args
 
       system "./superlu"
@@ -221,3 +244,23 @@ index 7d098fb..2ee355c 100644
 	}
 	printf("iteration: %d\nresidual: %.1e\nGMRES time: %.2f seconds.\n",
 		iter, resid, t);
+diff --git a/MATLAB/mexsuperlu.c b/MATLAB/mexsuperlu.c
+index 08fe3fd..d9e3a7b 100644
+--- a/MATLAB/mexsuperlu.c
++++ b/MATLAB/mexsuperlu.c
+@@ -45,6 +45,7 @@ void mexFunction(
+     SuperMatrix A;
+     SuperMatrix Ac;        /* Matrix postmultiplied by Pc */
+     SuperMatrix L, U;
++    GlobalLU_t  Glu;
+     int	   	m, n, nnz;
+     double      *val;
+     int       	*rowind;
+@@ -124,7 +125,7 @@ void mexFunction(
+     }
+
+     dgstrf(&options, &Ac, relax, panel_size, etree,
+-	   NULL, 0, perm_c, perm_r, &L, &U, &stat, &info);
++	   NULL, 0, perm_c, perm_r, &L, &U, &Glu, &stat, &info);
+
+     if ( verbose ) mexPrintf("INFO from dgstrf %d\n", info);
