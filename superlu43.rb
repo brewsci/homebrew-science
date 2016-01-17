@@ -6,10 +6,10 @@ class Superlu43 < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "25490b508eb9f313805f03ed73e030651eab581e87cad6012ee22d247025f51f" => :el_capitan
-    sha256 "2ae96704469e8fb478650dbfb6e6391e60feadf8ca1ace3dcba9876300941b8e" => :yosemite
-    sha256 "fd459dc04c762fea5ca96615152cc8cf3cd405775782d1b032e422e6451597ff" => :mavericks
+    cellar :any
+    sha256 "4b99c09b1f09394d4a3fe6cf8a768a2b25ae97de5652eeefa26855886cb8ed7b" => :el_capitan
+    sha256 "5172668ed872337bf5ce2650f35d518593cc32488c450505b708a513989a0e54" => :yosemite
+    sha256 "b1d997c0ebed6661e2937af2bb15937a3b8fa0a03ae853c63acae4cd5ff772ec" => :mavericks
   end
 
   keg_only "Conflicts with superlu"
