@@ -8,9 +8,9 @@ class Spades < Formula
 
   bottle do
     cellar :any
-    sha256 "9d69a98a442701f818df56325beeb1ddc8457da5932da172706becf18f6d3fed" => :yosemite
-    sha256 "89ff010f4542bb2f63144c642a125fdedee8367a14410bfd3b30c6b27caeb1c9" => :mavericks
-    sha256 "834d20f5a8b812cdb8c1e2b9c36a8baf35b5f6e5d7f3af910350713a3357ae5e" => :mountain_lion
+    sha256 "c5c231cda3e42b5d163333c4dc85fb658dc601291b15dc14c4ae6499d65c8b0f" => :el_capitan
+    sha256 "4c212477b615fb38507600b8b7ce539474fb115dc90155c6de312c37846b46a5" => :yosemite
+    sha256 "81c4defa79e18fff8dad67052d69b0c08ede1fc3e4257c9f39a67c1c9dfa6a5a" => :mavericks
   end
 
   depends_on "cmake" => :build
