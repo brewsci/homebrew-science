@@ -4,7 +4,7 @@ class Poretools < Formula
   url "https://github.com/arq5x/poretools/archive/v0.5.1.tar.gz"
   sha256 "7cd55a8f30290992dcf8d7792401e7f21efadfde02b3f4604d6680d2f8300479"
   head "https://github.com/arq5x/poretools.git"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -74,7 +74,7 @@ class Poretools < Formula
   end
 
   resource "ggplot2" do
-    url "http://cran.r-project.org/src/contrib/ggplot2_1.0.1.tar.gz"
+    url "https://cran.r-project.org/src/contrib/Archive/ggplot2/ggplot2_1.0.1.tar.gz"
     sha256 "40248e6b31307787e44e45d806e7a33095844a9bbe864cc7583dd311b19c241d"
   end
 
