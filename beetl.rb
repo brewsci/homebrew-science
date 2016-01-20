@@ -1,4 +1,5 @@
 class Beetl < Formula
+  desc "Burrows-Wheeler Extended Tool Library"
   homepage "https://github.com/BEETL/BEETL"
   url "https://github.com/BEETL/BEETL/archive/BEETL-0.9.0.tar.gz"
   sha256 "d310ee76809fd99fe4a1e82a65a90ebbbdbca005f1e763bc9119929a6f06b290"
