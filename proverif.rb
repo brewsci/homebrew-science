@@ -1,8 +1,8 @@
 class Proverif < Formula
   desc "Proverif, cryptographic protocol verifier in the formal model"
   homepage "http://prosecco.gforge.inria.fr/personal/bblanche/proverif"
-  url "http://prosecco.gforge.inria.fr/personal/bblanche/proverif/proverif1.91.tar.gz"
-  sha256 "ea2310199f2814da294572adc58a27edc7e1342a178859badd3cab01ce804ad2"
+  url "http://prosecco.gforge.inria.fr/personal/bblanche/proverif/proverif1.92.tar.gz"
+  sha256 "8c7a83dbe36ed0b5fbecf477d35769a31f8c349950aa40495e69761306048da5"
 
   bottle do
     cellar :any_skip_relocation
