@@ -4,6 +4,13 @@ class Beetl < Formula
   url "https://github.com/BEETL/BEETL/archive/BEETL-0.9.0.tar.gz"
   sha256 "d310ee76809fd99fe4a1e82a65a90ebbbdbca005f1e763bc9119929a6f06b290"
 
+  bottle do
+    cellar :any
+    sha256 "80c5e95fbdb851bd1d5f7b31361c1552eb690feae4131fd422f5482b2145ec57" => :el_capitan
+    sha256 "0068755c3faa9344cbf71e0df4c88674a7260dc18e459d8dcf5e04503ff17201" => :yosemite
+    sha256 "a220aff6131e9b0d70a75d365671107cbc167b28892458fb60d0d1700064d0ee" => :mavericks
+  end
+
   depends_on "boost" => :optional
   depends_on "seqan" => :optional
 
