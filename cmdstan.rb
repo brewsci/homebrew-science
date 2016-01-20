@@ -6,10 +6,10 @@ class Cmdstan < Formula
   sha256 "a9f2858caa5b55576da85ef31b4eae632c97837aa042514242a9aad7ada97121"
 
   bottle do
-    cellar :any
-    sha256 "a6c23277dcc15ce6c70f3b50b7e3cdc749d0b83139fb7de270e36564a70a6460" => :yosemite
-    sha256 "0fac67e14fb25191104c09df25ca437d891104925f56aa307b0e650dc7d07b96" => :mavericks
-    sha256 "336473380148fd20886c8fcb68538a4cbc77daa52c1a515d5bcb3f4793cfe1db" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "3ee64fee0948484120ae2ff14576f976b4e233fd2d414e97fa69570492bd27da" => :el_capitan
+    sha256 "d1df4ea1a14a468d5c2b55af236aab17bfccc082ea42819a5ca3f3dd88b8bbf1" => :yosemite
+    sha256 "c8ab9271b2dc61c569f7a169dc6e70e0d71bee0d36eceed87469075a7e5acc41" => :mavericks
   end
 
   depends_on "boost"
