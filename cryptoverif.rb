@@ -1,8 +1,8 @@
 class Cryptoverif < Formula
   desc "Cryptographic protocol verifier (computational)"
   homepage "http://cryptoverif.inria.fr"
-  url "http://prosecco.gforge.inria.fr/personal/bblanche/cryptoverif/cryptoverif1.21.tar.gz"
-  sha256 "c20077f0753af1a3e9c5d4231f3e7f6ae885451c2432eadc13faaf28351b8143"
+  url "http://prosecco.gforge.inria.fr/personal/bblanche/cryptoverif/cryptoverif1.22.tar.gz"
+  sha256 "016730f3171076ffd8a8cb0b84eb9423e5bc7f8434025534b4ee4dadc0aecb9d"
 
   bottle do
     sha256 "d95da63effd59ea2faae1376907e089468dcd4a132fb86a7f042501c4e0d6348" => :el_capitan
