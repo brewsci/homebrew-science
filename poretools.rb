@@ -8,9 +8,9 @@ class Poretools < Formula
 
   bottle do
     cellar :any
-    sha256 "b3bd0f93eb0a4e8cb97307626d58a8ac3412f2f9edf12ac8874bff48907c5158" => :el_capitan
-    sha256 "abb9a0be597ae17424c58e08fe01d37f706d164b182c9c9548d3764c3686509b" => :yosemite
-    sha256 "c56405fb12c2004387f364235d3b1dcbb3b429a9387990fafedbbbd8d4600c48" => :mavericks
+    sha256 "a0e632afa59f9be087ea5d35832b8bbdbcb35e13ede286326e78282e9e399c3e" => :el_capitan
+    sha256 "347d5a4eed5444abedb9988321d772f801b810b9bb13c4e61fffb3850b538547" => :yosemite
+    sha256 "791c1099beb63cec062399e8fb8f384688c018a3a7224d33d302220568b26d18" => :mavericks
   end
 
   depends_on "hdf5"
