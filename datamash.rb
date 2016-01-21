@@ -5,10 +5,10 @@ class Datamash < Formula
   sha256 "a9e5acc86af4dd64c7ac7f6554718b40271aa67f7ff6e9819bdd919a25904bb0"
 
   bottle do
-    cellar :any
-    sha256 "31f58c1a0413c3caded21dc1f8dc990ea5902c556bc07c968ce1ce1c6c6effcd" => :yosemite
-    sha256 "35ec93c7848276b993f558f18ebad3c278eb14936913a33c07777b2652f9e7ec" => :mavericks
-    sha256 "89170423888b0250b2d53c18b128440dda6e18bdf21a49603426d2cb0fc8867e" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "f822b6691ac95a86f46a0fcc4c0d283d69b6915cbef26b580df5ef5850642670" => :el_capitan
+    sha256 "13ab517271aa7c33e37b70f69121f76d59a5a40cf1e4696d590ef7fd4924869d" => :yosemite
+    sha256 "d019e9ca0090d450f98fdc5c4c1c0a114543392dceb155b15620ba903757662e" => :mavericks
   end
 
   head do
