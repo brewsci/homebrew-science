@@ -5,9 +5,9 @@ class Cryptoverif < Formula
   sha256 "016730f3171076ffd8a8cb0b84eb9423e5bc7f8434025534b4ee4dadc0aecb9d"
 
   bottle do
-    sha256 "d95da63effd59ea2faae1376907e089468dcd4a132fb86a7f042501c4e0d6348" => :el_capitan
-    sha256 "991b6f79e5bc6f78d46141c82449d3fe9dd51fd0c581bb3cb3428fc915985526" => :yosemite
-    sha256 "d65f87242e90e1ecb9b2635a563d32f31fd8e355b74ce6b8bedef5210af2cec2" => :mavericks
+    sha256 "70a19b5a89a92cb0459de738446037549d0066a7ff03332c5d528093d3286db4" => :el_capitan
+    sha256 "076d41cf705165e30f4595f6d89f4f37cc8ff363c608b14f4ddfd356629f8186" => :yosemite
+    sha256 "ce5eee122723cc4a72b7b817db586a8622453b3fc8c57333193059c30d80c9be" => :mavericks
   end
 
   depends_on "ocaml"
