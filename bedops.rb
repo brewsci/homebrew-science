@@ -9,10 +9,10 @@ class Bedops < Formula
   head "https://github.com/bedops/bedops.git"
 
   bottle do
-    cellar :any
-    sha256 "ac1a745078141fc3c14950ba1bd27b15cc886ac5290942f03572d8f76b127a8a" => :yosemite
-    sha256 "24f16e72a7f1401a67e50c851bcc02ea1d694fc08092331ebc611010acc24085" => :mavericks
-    sha256 "c4c3d988b952f794b2bd41c7d9be8ec13ea27549c26d60a50611ed97ad0825bb" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "4c5a2dfda0ea2658bc505ef5bdf47a199b810fe36f20a8fffe275395afc1cc80" => :el_capitan
+    sha256 "5faad7689e3ced8019f9f9833f629f581237922753fa8ff3785f8e23c5f48eab" => :yosemite
+    sha256 "18f3d8dbcd1bb202eb913c7238e5249dcf0ea98996306ecedbe090d2d56e5e91" => :mavericks
   end
 
   env :std
