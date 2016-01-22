@@ -3,8 +3,8 @@ class Bedops < Formula
   # doi "10.1093/bioinformatics/bts277"
   # tag "bioinformatics"
 
-  url "https://github.com/bedops/bedops/archive/v2.4.14.tar.gz"
-  sha256 "1b04f8b0551c5f682aabd68ee6f49533be598f4d7e7a1690aad8f3430a530bcf"
+  url "https://github.com/bedops/bedops/archive/v2.4.15.tar.gz"
+  sha256 "8364b319831936951835369ef582ac7ddbd15c29682ae0e45a80c4e6a8f36245"
 
   head "https://github.com/bedops/bedops.git"
 
