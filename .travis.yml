@@ -29,6 +29,7 @@ before_install:
       git -C "$(brew --repo)" reset --hard origin/master;
       git -C "$(brew --repo)" clean -qxdff;
       brew update || brew update;
+      mkdir -p "$(brew --repo)/Library/Taps/homebrew";
       ln -s "$TRAVIS_BUILD_DIR" "$(brew --repo)/Library/Taps/homebrew/homebrew-science";
       cd "$(brew --repo)/Library/Taps/homebrew/homebrew-science";
       export TRAVIS_BUILD_DIR="$(brew --repo)/Library/Taps/homebrew/homebrew-science";
