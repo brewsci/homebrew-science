@@ -1,10 +1,9 @@
 class Dgtal < Formula
   desc "Digital Geometry Tools and Algorithms Library (DGtal) is a toolkit to perform topology and geometry processing on (grid-based) digital data."
   homepage "http://dgtal.org"
-  url "http://liris.cnrs.fr/dgtal/releases/DGtal-0.9-Source.tar.gz"
-  sha256 "32190585e4b1bfaf275efa9c7007ed836676a06cf746f67b7f5f70f13f7e9b59"
+  url "http://liris.cnrs.fr/dgtal/releases/DGtal-0.9.1-Source.tar.gz"
+  sha256 "9969eee23f0542d94f1a3f39b55665010baada65496223d671998f2c3eefb007"
   head "https://github.com/DGtal-team/DGtal.git"
-  revision 1
 
   bottle do
     cellar :any
