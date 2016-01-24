@@ -7,9 +7,9 @@ class Dgtal < Formula
 
   bottle do
     cellar :any
-    sha256 "16a75bbf9ff568dd0b0674ca30e80a2943575856b240da7a1d334d5e88b86555" => :el_capitan
-    sha256 "8f723dcb858f5476c9a37c7e68e8873005cf77a850fda0723f12da690eb17885" => :yosemite
-    sha256 "05b257da2d9393b7a5a3d80f853007acd355e368edbd7977a692f262911b48be" => :mavericks
+    sha256 "7fa1daca7de12c2734d4774d39a140b15afb890346172d8c5c01afe294de516b" => :el_capitan
+    sha256 "da11c4acc1575ef5da06bd2f29e54902e4ba7bf6c70f099215651eb16935e792" => :yosemite
+    sha256 "8f925cd6f43885f2035e06279a092f744ae6728172381363bdb22f63f6b29f57" => :mavericks
   end
 
   depends_on "cmake" => :build
