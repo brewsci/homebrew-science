@@ -7,10 +7,10 @@ class Edirect < Formula
   version "3.60"
 
   bottle do
-    cellar :any
-    sha256 "2d76a8e877b4831455d52894d3854edec634928dd0559764abbe273036468d46" => :yosemite
-    sha256 "a7e1426882b5e6ab09d2b87cc8d64a56c7fd268712b662016f8a43f64c650e4e" => :mavericks
-    sha256 "c0714a55b8b9d629bee4c40717e48df563798fbda82235ba6ea3598c5380775f" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "2ce62b8ffb5735b8155c701080c8e8436783b37f284544020bb28430cf4c2f55" => :el_capitan
+    sha256 "ecb86895b52fa5d77aca9868a3c1a303bd86a37d701cb01cb283417ba1fb3217" => :yosemite
+    sha256 "205623c6f64a0c761a10c825249a9a0db6627d5bd6f8c6b7cfc2f822bfa8c81a" => :mavericks
   end
 
   def install
