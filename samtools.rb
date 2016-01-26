@@ -11,9 +11,9 @@ class Samtools < Formula
 
   bottle do
     cellar :any
-    sha256 "204cb532a9612dc2e060a6d3842eaa4275d8410275cb0944dce81d7a37efff7d" => :yosemite
-    sha256 "661eb8b54e8c7856a53b34b8e3af9b23de7de0395c8f400fd940b9798bb2593f" => :mavericks
-    sha256 "da29464e9605bf34349802f16a8237fc9f700f28c98432bb014c166d698e89b2" => :mountain_lion
+    sha256 "c6bb8308c4ffb995ca46ac6be8e7087c22e7e2dd6bdb801690802b2d4f089a52" => :el_capitan
+    sha256 "97447111d3ab5dce204761395afd600060ba36c8b47045a65a33b8efd10c4bb6" => :yosemite
+    sha256 "c6baa6fc3f29cdb96a9fdf59f832455f4dd2c6ed25801d4a09f6e8cb9c810b98" => :mavericks
   end
 
   option "with-dwgsim", "Build with Whole Genome Simulation"
