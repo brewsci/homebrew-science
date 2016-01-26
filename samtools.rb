@@ -1,10 +1,11 @@
 class Samtools < Formula
+  desc "Tools (written in C using htslib) for manipulating next-generation sequencing data"
   homepage "http://www.htslib.org/"
   # doi "10.1093/bioinformatics/btp352"
   # tag "bioinformatics"
 
-  url "https://github.com/samtools/samtools/archive/1.2.tar.gz"
-  sha256 "e4be60ad24fe0324b9384fe58ec2ab7359fe926fbee3115d869c447eb01a9e47"
+  url "https://github.com/samtools/samtools/releases/download/1.3/samtools-1.3.tar.bz2"
+  sha256 "beea4003c795a0a25224656815b4036f6864b8753053ed30c590bb052b70b60e"
 
   head "https://github.com/samtools/samtools.git"
 
@@ -22,17 +23,15 @@ class Samtools < Formula
   depends_on "dwgsim" => :optional
 
   def install
+    htslib = Formula["htslib"].opt_prefix
     if build.without? "curses"
       ohai "Building without curses"
-      inreplace "Makefile" do |s|
-        s.gsub! "-D_CURSES_LIB=1", "-D_CURSES_LIB=0"
-        s.gsub! "-lcurses", "# -lcurses"
-      end
+      system "./configure", "--with-htslib=#{htslib}", "--without-curses"
+    else
+      system "./configure", "--with-htslib=#{htslib}"
     end
 
-    inreplace "Makefile", "include $(HTSDIR)/htslib.mk", ""
-    htslib = Formula["htslib"].opt_prefix
-    system "make", "HTSDIR=#{htslib}/include", "HTSLIB=#{htslib}/lib/libhts.a"
+    system "make"
 
     bin.install "samtools"
     bin.install %w[misc/maq2sam-long misc/maq2sam-short misc/md5fa misc/md5sum-lite misc/wgsim]
