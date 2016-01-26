@@ -4,12 +4,10 @@ class Nanopolish < Formula
   # doi "10.1038/nmeth.3444"
   # tag "bioinformatics"
 
-  # Does not include htslib nor fast5.
-  # url "https://github.com/jts/nanopolish/archive/v0.3.0.tar.gz"
   url "https://github.com/jts/nanopolish.git",
-    :tag => "v0.3.0", :revision => "832b678d88e26379887c1f123a4e92fb1b074470"
+    :tag => "v0.4.0",
+    :revision => "28bcaa3ea9de8394441c0ceac5b96cf409015a10"
   head "https://github.com/jts/nanopolish.git"
-  revision 1
 
   bottle do
     cellar :any
@@ -22,21 +20,16 @@ class Nanopolish < Formula
   needs :openmp
 
   depends_on "hdf5"
-  depends_on "htslib"
 
   def install
-    # Fix error: ld: library not found for -lrt
-    inreplace "Makefile", "-lrt", "" if OS.mac?
+    system "make", "HDF5=#{Formula["hdf5"].opt_prefix}"
 
-    system "make", "-C", "htslib"
-    system "make"
-
-    prefix.install "consensus.make", "nanopolish", Dir["*.pl"], Dir["*.py"]
+    prefix.install "scripts", "nanopolish"
     bin.install_symlink "../nanopolish"
     doc.install "LICENSE", "README.md"
   end
 
   test do
-    system "#{bin}/nanopolish", "--help"
+    `#{bin}/nanopolish consensus --version`.include?(version.to_s)
   end
 end
