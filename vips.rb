@@ -1,8 +1,7 @@
 class Vips < Formula
   homepage "http://www.vips.ecs.soton.ac.uk/"
-  url "http://www.vips.ecs.soton.ac.uk/supported/8.2/vips-8.2.1.tar.gz"
-  sha256 "bcedee8cd654b26591e08c7085758764358c12fdf1a2141cd5e539a046365928"
-  revision 1
+  url "http://www.vips.ecs.soton.ac.uk/supported/8.2/vips-8.2.2.tar.gz"
+  sha256 "0f688a34e99714ff0901cba8cdf93ec9878447e33dea122f4b226416550a6389"
 
   bottle do
     sha256 "72c8c3137ab75a2942145f2c9fdb3c23cc497dd70433b6f1062efed051dd1fa9" => :el_capitan
@@ -41,10 +40,6 @@ class Vips < Formula
   depends_on "mozjpeg" => :optional
   depends_on "jpeg-turbo" => :optional
 
-  # Bugfix from commit 4512400 for bilinear interpolation rounding error.
-  # Remove when 8.2.2 is released.
-  patch :DATA
-
   def install
     args = %W[
       --disable-dependency-tracking
@@ -66,18 +61,3 @@ class Vips < Formula
     system "#{bin}/vipsheader", test_fixtures("test.png")
   end
 end
-
-__END__
-diff --git a/libvips/resample/interpolate.c b/libvips/resample/interpolate.c
-index 52d24dc..354c8a9 100644
---- a/libvips/resample/interpolate.c
-+++ b/libvips/resample/interpolate.c
-@@ -430,7 +430,8 @@ G_DEFINE_TYPE( VipsInterpolateBilinear, vips_interpolate_bilinear,
-
- #define BILINEAR_INT_INNER { \
-	tq[z] = (sc1 * tp1[z] + sc2 * tp2[z] + \
--		 sc3 * tp3[z] + sc4 * tp4[z]) >> VIPS_INTERPOLATE_SHIFT; \
-+		 sc3 * tp3[z] + sc4 * tp4[z] + \
-+		 (1 << VIPS_INTERPOLATE_SHIFT) / 2) >> VIPS_INTERPOLATE_SHIFT; \
-	z += 1; \
- }
