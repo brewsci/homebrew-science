@@ -9,10 +9,9 @@ class Htslib < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "427abec04673b9e5ecad88fd4b4af7cc1a835926e7f05bc37f6b564cae59a7da" => :yosemite
-    sha256 "857bf49037bc3caccaf295278e9d895e1b8a5cadf9aeaf1e841211d7d574b681" => :mavericks
-    sha256 "4db40af2120ce5f02cf7377ec43e345659b26f1d735e906cac23f26b83ae67d3" => :mountain_lion
+    sha256 "f4da5a770d365c81bd991baa1853115cc7b50ecf80a860edc17f7d00a0172169" => :el_capitan
+    sha256 "103cb4591cd062d49d81ae1793fb4ff51a134fa1f12300b2465dffadeea6c765" => :yosemite
+    sha256 "6a626435fe905e10d812c3aad2e2efea477279e46b4083714695d624f41ea18b" => :mavericks
   end
 
   conflicts_with "tabix", :because => "both htslib and tabix install bin/tabix"
