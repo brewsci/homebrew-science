@@ -39,11 +39,27 @@ class Cantera < Formula
                   "f90_interface=n"]
 
     matlab_path = ARGV.value("with-matlab")
-    build_args << "matlab_path=" + matlab_path if matlab_path
+    if matlab_path
+      build_args << "matlab_path=" + matlab_path
+      # Matlab doesn't play nice with system Sundials installation
+      if build.head?
+        build_args << "system_sundials=n" # Cantera 2.3+
+      else
+        build_args << "use_sundials=n" # Cantera 2.2.x
+      end
+    end
+
     build_args << "python3_package=" + (build.with?("python3") ? "y" : "n")
 
     scons "build", *build_args
-    scons "test" if build.with? "check"
+    if build.with? "check"
+      if not matlab_path
+        scons "test"
+      else
+        # Matlab test stalls when run through Homebrew, so run other sub-tests explicitly
+        scons "test-general", "test-thermo", "test-kinetics", "test-transport", "test-python2"
+      end
+    end
     scons "install"
   end
 
