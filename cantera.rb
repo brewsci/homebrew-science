@@ -1,9 +1,8 @@
 class Cantera < Formula
   homepage "https://github.com/Cantera/cantera"
-  url "https://github.com/Cantera/cantera/releases/download/v2.2.0/cantera-2.2.0.tar.gz"
-  sha256 "306c218500eaabdf1e920601348d2b3acc1fb66b02eea842d98b3fbb41ebbc78"
+  url "https://github.com/Cantera/cantera/archive/v2.2.1.tar.gz"
+  sha256 "c7bca241848f541466f56e479402521c618410168e8983e2b54ae48888480e1e"
   head "https://github.com/cantera/cantera.git"
-  revision 1
 
   bottle do
     sha256 "9a908f9f3577ef3aca702176dec9cbaf6a48ad8c2c01761779ee2a664ac69668" => :el_capitan
@@ -29,7 +28,7 @@ class Cantera < Formula
   def install
     ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python2.7/site-packages"
     resource("Cython").stage do
-      system "python", *Language::Python.setup_install_args(buildpath/"cython")
+      system "python", *Language::Python.setup_install_args(buildpath/"cython") << "--no-cython-compile"
     end
 
     build_args = ["prefix=#{prefix}",
