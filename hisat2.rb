@@ -3,8 +3,8 @@ class Hisat2 < Formula
   homepage "http://ccb.jhu.edu/software/hisat2/"
   # tag "bioinformatics"
 
-  url "https://ccb.jhu.edu/software/hisat2/downloads/hisat2-2.0.0-beta-source.zip"
-  sha256 "12ce17a34d3c3e5f546e6204a49aeb65c860c42fce7ac2a77c6c0b690d934fbf"
+  url "ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/downloads/hisat2-2.0.1-beta-source.zip"
+  sha256 "0203f84abef4a3af92b53e070bee2da2d1ebab7570dedab432dcc0a11c051824"
 
   bottle do
     cellar :any_skip_relocation
