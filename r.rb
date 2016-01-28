@@ -161,6 +161,7 @@ class R < Formula
   end
 
   def post_install
+    return if build.with?("librmath-only")
     cellar_site_library = r_home/"site-library"
     site_library.mkpath
     cellar_site_library.unlink if cellar_site_library.exist? || cellar_site_library.symlink?
