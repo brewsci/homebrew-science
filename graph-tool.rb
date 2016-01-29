@@ -2,6 +2,26 @@ class GraphTool < Formula
   homepage "http://graph-tool.skewed.de/"
   url "http://downloads.skewed.de/graph-tool/graph-tool-2.12.tar.bz2"
   sha256 "ac5fdd65cdedb568302d302b453fe142b875f23e3500fe814a73c88db49993a9"
+  revision 1
+
+  stable do
+    # Commits to subgraph_isomorphism which are required for the last patch
+    patch do
+      url "https://git.skewed.de/count0/graph-tool/commit/ca2b8d110353e7ba4e105ca7afff4229f7dd61a1.diff"
+      sha256 "6c5a27fe386f0424cad553bc2b6dcbe1ccb2d4e9f8c759702799ab901eb8dc36"
+    end
+
+    patch do
+      url "https://git.skewed.de/count0/graph-tool/commit/24a16870bb9b4be1408416b1fa04b9ed013a4871.diff"
+      sha256 "456247297df4a7db7ffa696bbd6cee3ab3a6ffa7e20dbd1a2058336efa33a782"
+    end
+
+    # Fixes build with boost 1.60
+    patch do
+      url "https://git.skewed.de/count0/graph-tool/commit/248b086187808d0bbda27bde8a1efe12a15bddaa.diff"
+      sha256 "cd706ba200441243f8ae6301403dbdf23d3b1e29ac327288b47d65001952250e"
+    end
+  end
 
   head do
     url "https://git.skewed.de/count0/graph-tool.git"
@@ -64,8 +84,6 @@ class GraphTool < Formula
   end
 
   def install
-    ENV.cxx11
-
     system "./autogen.sh" if build.head?
 
     config_args = %W[
