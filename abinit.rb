@@ -1,8 +1,8 @@
 class Abinit < Formula
+  desc "Atomic-scale first-principles simulation software"
   homepage "http://www.abinit.org"
-  url "http://ftp.abinit.org/abinit-7.10.4.tar.gz"
-  sha256 "ebd0a3abd01db4374beda092d1f16c9e00d327712b1ed389bb32e1c80f37c6ef"
-  revision 2
+  url "http://ftp.abinit.org/abinit-7.10.5.tar.gz"
+  sha256 "e9376a3e34790bce90992f28e5fa8554b51ba467bf5709c7fd25d300e7c4f56a"
 
   bottle do
     cellar :any
@@ -13,8 +13,6 @@ class Abinit < Formula
 
   option "without-check", "Skip build-time tests (not recommended)"
   option "with-testsuite", "Run full test suite (time consuming)"
-
-  depends_on "cmake" => :build
 
   depends_on :mpi => [:cc, :cxx, :f77, :f90]
   depends_on :fortran
@@ -100,7 +98,7 @@ class Abinit < Formula
     if build.with? "check"
       cd "tests"
       if build.with? "testsuite"
-        system "./runtests.py -n 3 2>&1 | tee make-check.log"
+        system "./runtests.py 2>&1 | tee make-check.log"
       else
         system "./runtests.py built-in fast 2>&1 | tee make-check.log"
       end
