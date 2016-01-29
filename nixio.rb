@@ -6,6 +6,13 @@ class Nixio < Formula
 
   head "https://github.com/G-Node/nix.git"
 
+  bottle do
+    cellar :any
+    sha256 "9cb0f5f3b4d25e4e53bee32223b97ded9bfe4ee5763954b2a4415655f968a678" => :el_capitan
+    sha256 "642a99210080298f004546242334f1d43caedaba0b5c1aeee79c697b28f6317b" => :yosemite
+    sha256 "34b92b846c587d96b58a2dbcbf52c77d01955e0d27c921c62bd019371a2010a8" => :mavericks
+  end
+
   depends_on "cmake" => :build
   depends_on "hdf5"
   depends_on "cppunit"
