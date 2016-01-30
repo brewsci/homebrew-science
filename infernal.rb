@@ -3,7 +3,7 @@ class Infernal < Formula
   # doi "10.1093/bioinformatics/btp157"
   # tag "bioinformatics"
 
-  url "http://selab.janelia.org/software/infernal/infernal-1.1.1.tar.gz"
+  url "http://eddylab.org/software/infernal/infernal-1.1.1.tar.gz"
   sha256 "9f18ed3ce5ba738db268521c2ac9781449855687016dd50cfcb7fb479a5e319a"
 
   bottle do
