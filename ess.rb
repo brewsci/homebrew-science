@@ -15,17 +15,7 @@ class Ess < Formula
   depends_on :emacs => "23"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "EMACS=#{ENV["EMACS"]}",
-           "LISPDIR=#{elisp}"
-  end
-
-  def caveats; <<-EOS.undent
-      To load the package, add
-
-        (require 'ess-site)
-
-      to your '~/.emacs' file.
-    EOS
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
@@ -37,9 +27,13 @@ class Ess < Formula
       foo(a,
       b)
     EOS
-    system "emacs", "-l", testpath/".emacs", "--batch", "test.r",
-           "--eval", "(ess-indent-exp)",
-           "-f", "save-buffer"
-    assert_equal "    b)", File.read("test.r").lines.last.chomp
+    system "emacs", "-Q", "--batch", "-l", testpath/".emacs",
+           "test.r", "--eval", "(ess-indent-exp)", "-f", "save-buffer"
+
+    expected = <<-EOS.undent
+      foo(a,
+          b)
+    EOS
+    assert_equal expected, (testpath/"test.r").read
   end
 end
