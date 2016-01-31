@@ -5,9 +5,9 @@ class Cantera < Formula
   head "https://github.com/cantera/cantera.git"
 
   bottle do
-    sha256 "9a908f9f3577ef3aca702176dec9cbaf6a48ad8c2c01761779ee2a664ac69668" => :el_capitan
-    sha256 "73c7391e0f64da7cd0dae280123f4026573e5a3e812f57621cac0ae1fc8d33ed" => :yosemite
-    sha256 "d481191156eccb211a9b5301b575fd0c5ab305d78b97f2a72a07b12d06a95858" => :mavericks
+    sha256 "2e43b966e86bab0e4bbcb58a72323c046a72af46f29ca9d8c376b66c69218eb4" => :el_capitan
+    sha256 "5ab550aedfd10848b05be5630376068f5b7c1a17356a61ae2de3e119b8998653" => :yosemite
+    sha256 "ad8cc8553f0879cd6b63ce9ebc2183e25b8033be88d86b0c81069895d477bcb9" => :mavericks
   end
 
   option "with-matlab=", "Path to Matlab root directory"
