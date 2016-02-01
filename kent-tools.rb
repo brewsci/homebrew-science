@@ -22,7 +22,7 @@ class KentTools < Formula
 
     args = ["userApps", "BINDIR=#{bin}", "SCRIPTS=#{bin}"]
     args << "MACHTYPE=#{`uname -m`.chomp}"
-    args << "PNGLIB=-L#{libpng.opt_lib} -lpng"
+    args << "PNGLIB=-L#{libpng.opt_lib} -lpng -lz"
     args << "PNGINCL=-I#{libpng.opt_include}"
 
     # On Linux, depends_on :mysql looks at system MySQL so check if Homebrew
