@@ -29,6 +29,7 @@ class Hdf5 < Formula
   depends_on :fortran => :optional
   depends_on "szip"
   depends_on :mpi => [:optional, :cc, :cxx, :f90]
+  depends_on "zlib" unless OS.mac?
 
   def install
     ENV.universal_binary if build.universal?
@@ -38,7 +39,7 @@ class Hdf5 < Formula
       --enable-production
       --enable-debug=no
       --disable-dependency-tracking
-      --with-zlib=/usr
+      --with-zlib=#{OS.mac? ? "/usr" : Formula["zlib"].opt_prefix}
       --with-szlib=#{Formula["szip"].opt_prefix}
       --enable-static=yes
       --enable-shared=yes
