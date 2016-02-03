@@ -1,7 +1,7 @@
 class Geant < Formula
   homepage "http://geant4.cern.ch"
-  url "http://geant4.cern.ch/support/source/geant4.10.01.tar.gz"
-  sha256 "d37400e96423fedfbf8dbe1f49e2ef0367317c3893ad99f28eed06bf97e1feb7"
+  url "http://geant4.cern.ch/support/source/geant4.10.02.tar.gz"
+  sha256 "633ca2df88b03ba818c7eb09ba21d0667a94e342f7d6d6ff3c695d83583b8aa3"
 
   bottle do
     sha256 "1bed04e6dd00d665eab93c3625584790f1ad0a4c2a7d8f5fcd226c99833ebc08" => :yosemite
@@ -12,10 +12,11 @@ class Geant < Formula
   option "with-g3tog4", "Use G3toG4 Library"
   option "with-gdml", "Use GDML"
   option "with-notimeout", "Set notimeout in installing data"
+  option "with-usolids", "Use USolids (experimental)"
+  option "with-multithreaded", "Build with multithreading enabled"
 
   depends_on "cmake" => :build
   depends_on :x11
-  depends_on "clhep"
   depends_on "qt" => :optional
   depends_on "xerces-c" if build.with? "gdml"
 
@@ -27,13 +28,14 @@ class Geant < Formula
         -DGEANT4_USE_OPENGL_X11=ON
         -DGEANT4_USE_RAYTRACER_X11=ON
         -DGEANT4_BUILD_EXAMPLE=ON
-        -DGEANT4_USE_SYSTEM_CLHEP=ON
       ]
 
       args << "-DGEANT4_INSTALL_DATA_TIMEOUT=86400" if build.with? "notimeout"
       args << "-DGEANT4_USE_QT=ON" if build.with? "qt"
       args << "-DGEANT4_USE_G3TOG4=ON" if build.with? "g3tog4"
       args << "-DGEANT4_USE_GDML=ON" if build.with? "gdml"
+      args << "-DGEANT4_USE_USOLIDS=ON" if build.with? "usolids"
+      args << "-DGEANT4_BUILD_MULTITHREADED=ON" if build.with? "multithreaded"
       args.concat(std_cmake_args)
       system "cmake", *args
       system "make", "install"
