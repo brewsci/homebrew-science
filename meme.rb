@@ -7,6 +7,7 @@ class Meme < Formula
   url "http://meme-suite.org/meme-software/4.10.1/meme_4.10.1_3.tar.gz"
   sha256 "9ccc0cfdb7d1467d5b021328fcf1407685d63fb6e65fa34b5b5929b493a35d66"
   version "4.10.1"
+  revision 1
 
   bottle do
     revision 1
