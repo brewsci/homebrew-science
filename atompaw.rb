@@ -4,6 +4,12 @@ class Atompaw < Formula
   url "http://users.wfu.edu/natalie/papers/pwpaw/atompaw-4.0.0.12.tar.gz"
   sha256 "693826cc5211cef965a619446a031d2207db45c3a570f470b685cb8ad538c2d5"
 
+  bottle do
+    sha256 "10eaa994320f807abc8873c34ae66d491e765ccd0e21f682e58e01decc4da49c" => :el_capitan
+    sha256 "c0bc72d3ddaeb659b6490a9b0b826d8e536903290d410b378a28984b72bbd4b2" => :yosemite
+    sha256 "68416236492e5af70fb55df215edf44c24307e91257a2e62994cbd77762d593f" => :mavericks
+  end
+
   depends_on :fortran
   depends_on "veclibfort"
   depends_on "libxc" => :recommended
