@@ -1,10 +1,9 @@
 class Insighttoolkit < Formula
   desc "ITK is a toolkit for performing registration and segmentation"
   homepage "http://www.itk.org"
-  url "https://downloads.sourceforge.net/project/itk/itk/4.8/InsightToolkit-4.8.2.tar.gz"
-  sha256 "d8d5e3aea700588c60b01418c440b2d95b517ea18dd4c834c5164354e53596af"
+  url "https://downloads.sourceforge.net/project/itk/itk/4.9/InsightToolkit-4.9.0.tar.gz"
+  sha256 "4aa26e3cd3503b08e92a16e812d2be474275b218d015143a9e890063eb0f4f5b"
   head "git://itk.org/ITK.git"
-  revision 1
 
   bottle do
     sha256 "753004df98cde4ee7706d826491214b605e7957bd994ed6876285a3d92304311" => :el_capitan
@@ -16,7 +15,6 @@ class Insighttoolkit < Formula
   cxx11dep = (build.cxx11?) ? ["c++11"] : []
 
   depends_on "cmake" => :build
-  depends_on "vtk" => [:build] + cxx11dep
   depends_on "opencv" => [:optional] + cxx11dep
   depends_on :python => :optional
   depends_on :python3 => :optional
@@ -26,6 +24,14 @@ class Insighttoolkit < Formula
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "gdcm" => [:optional] + cxx11dep
+
+  if build.with? "python3"
+    depends_on "vtk" => [:build, "with-python3", "without-python"] + cxx11dep
+  elsif build.with? "python"
+    depends_on "vtk" => [:build, "with-python"] + cxx11dep
+  else
+    depends_on "vtk" => [:build] + cxx11dep
+  end
 
   deprecated_option "examples" => "with-examples"
   deprecated_option "remove-legacy" => "with-remove-legacy"
@@ -58,11 +64,9 @@ class Insighttoolkit < Formula
     args << "-DITK_USE_SYSTEM_TIFF=ON" if build.with? "libtiff"
     args << "-DITK_USE_SYSTEM_GDCM=ON" if build.with? "gdcm"
     args << "-DITK_LEGACY_REMOVE=ON" if build.include? "remove-legacy"
-
-    # These 3 modules are not supported with python3. Set them to OFF in this case.
-    args << "-DModule_ITKLevelSetsv4Visualization=" + ((build.with? "python3") ? "OFF" : "ON")
-    args << "-DModule_ITKReview=" + ((build.with? "python3") ? "OFF" : "ON")
-    args << "-DModule_ITKVtkGlue=" + ((build.with? "python3") ? "OFF" : "ON")
+    args << "-DModule_ITKLevelSetsv4Visualization=ON"
+    args << "-DModule_ITKReview=ON"
+    args << "-DModule_ITKVtkGlue=ON"
 
     args << "-DVCL_INCLUDE_CXX_0X=ON" if build.cxx11?
     ENV.cxx11 if build.cxx11?
