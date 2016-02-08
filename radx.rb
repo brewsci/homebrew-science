@@ -1,10 +1,10 @@
 class Radx < Formula
   desc "Software package for radial radar data"
   homepage "https://www.ral.ucar.edu/projects/titan/docs/radial_formats/radx.html"
-  url "ftp://ftp.rap.ucar.edu/pub/titan/radx/radx-20150826.src.tgz"
-  mirror "ftp://ftp.rap.ucar.edu/pub/titan/radx/previous_releases/radx-20150826.src.tgz"
-  version "20150826"
-  sha256 "d379b956bf19ff903dcfa6a5ca134d5241be3085e6d97acca70dd7ec42da8ce3"
+  url "ftp://ftp.rap.ucar.edu/pub/titan/radx/radx-20160128.src.tgz"
+  mirror "ftp://ftp.rap.ucar.edu/pub/titan/radx/previous_releases/radx-20160128.src.tgz"
+  version "20160128"
+  sha256 "3fb2aeb1927fb95c1a1b74edc71d29f231d9c5301334a816e035d5aaaef25271"
 
   bottle do
     cellar :any
