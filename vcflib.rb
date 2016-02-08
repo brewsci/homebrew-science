@@ -9,10 +9,10 @@ class Vcflib < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "d9453aa105682ac17539efd11983b2d7018327cf58a6c19807613a8f0b2d959b" => :yosemite
-    sha256 "aaebf992cb9fe3a63e4551126f99d2a44ff17e3321a787fdac5de5cc8d5db41f" => :mavericks
-    sha256 "1ab06e308fd9787b81408193b389fb63e9f53a838750f89eeeae3efbad6244a3" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "f7f3700673941a4db264a125a0b3e49dec3ec669039a0973fc93cd55954f9e24" => :el_capitan
+    sha256 "92ade1c0f98fe701075ea9841cf74b7baef020e0a41f65b1bc063066104c2ffd" => :yosemite
+    sha256 "52c6168b3a1ad58652ef6fd20af6fd9f8e07376226fa3bcd126fc4e8922ab7b7" => :mavericks
   end
 
   def install
