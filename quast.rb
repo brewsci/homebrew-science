@@ -4,8 +4,8 @@ class Quast < Formula
   # doi "10.1093/bioinformatics/btt086"
   # tag "bioinformatics"
 
-  url "https://downloads.sourceforge.net/project/quast/quast-3.0.tar.gz"
-  sha256 "d8f65808007ca989dfb740935dc3a28909ceb2d9d77ac456bfbc54287fdd9ee7"
+  url "https://downloads.sourceforge.net/project/quast/quast-3.2.tar.gz"
+  sha256 "e1534824fc185679f0fa9c03846fbcf34b6a20466a6ec0110cf74f14c6380c02"
 
   bottle do
     cellar :any
@@ -28,10 +28,6 @@ class Quast < Formula
   end
 
   test do
-    system "#{bin}/quast"
-    cd prefix do
-      system "#{bin}/quast", "--test"
-      rm_rf "quast_test_output"
-    end
+    system "#{bin}/quast", "--test"
   end
 end
