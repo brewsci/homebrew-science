@@ -1,8 +1,9 @@
 class Ncview < Formula
+  desc "Visual browser for netCDF format files"
   homepage "http://meteora.ucsd.edu/~pierce/ncview_home_page.html"
-  url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.5.tar.gz"
-  mirror "https://fossies.org/linux/misc/ncview-2.1.5.tar.gz"
-  sha256 "a0ca340aa097dc9235ba23affe4a9d9f8548f1e668ee3a83224c7c8c45e7c6fd"
+  url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.6.tar.gz"
+  mirror "https://fossies.org/linux/misc/ncview-2.1.6.tar.gz"
+  sha256 "461738db29f9eb942a07e1ba4b57422aa3390d358f853bfd17c42a8c06f13543"
 
   bottle do
     sha256 "564f53319cf2c8c7f1c1d1bec558ca77da0668212c32b4e5843dd8db12ba678b" => :yosemite
@@ -22,6 +23,10 @@ class Ncview < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    assert_match /Ncview #{version} /, shell_output("#{bin}/ncview -c 2>&1")
   end
 end
 
