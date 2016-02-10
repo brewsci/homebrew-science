@@ -5,9 +5,9 @@ class Ggobi < Formula
   sha256 "2c4ddc3ab71877ba184523e47b0637526e6f3701bd9afb6472e6dfc25646aed7"
 
   bottle do
-    sha256 "e63b0d69aae19e59652a7661f568505164c192168e3ddf1db16ffd33cf75ffb4" => :yosemite
-    sha256 "9af14eb802acb8bd7b063ad778fe5d9d44d93ee031a39bdc12737a2a84017c2a" => :mavericks
-    sha256 "d22248e9494659675b6a7d41019b5a7f75d6f369658d577226eba80fa53f9cb4" => :mountain_lion
+    sha256 "b5c0ecade5536fff6c9309f5ced8ab76839b8d87f644ae18a11d13bbfd6fe231" => :el_capitan
+    sha256 "a62158696190196fddc92ad497b4b13096dbfddc26a30b5b029d4741354bf594" => :yosemite
+    sha256 "26209f33759bd90a90c260e78ffaa8c6ea78acccb7ca9bc000a66ffdf45db2d6" => :mavericks
   end
 
   depends_on "pkg-config" => :build
