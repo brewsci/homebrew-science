@@ -6,9 +6,9 @@ class Prooftree < Formula
 
   bottle do
     cellar :any
-    sha256 "ee96affa121c39fde28f30477e8807cf65796dabaf27b80a94b16b9453de4765" => :el_capitan
-    sha256 "cbfc1f0b9e9ed01dbcc8e9e086a5a12fb443f3a4286f308692e6f60428ba3b9e" => :yosemite
-    sha256 "c9abab545ce0acd7092f38cbef4df8fd9c6711dd2abc15d33f3d503cad2b0581" => :mavericks
+    sha256 "564387d65bcff022dfc76581bfecc91bc63a7a85a342bf71b8b580980040676d" => :el_capitan
+    sha256 "0a48e2ac01ca8fcad293a36928a2a7cd2111aa767ba30f49ea8e41ad786fed16" => :yosemite
+    sha256 "b9d31069363c481c3fb5c3bbf885ecb92e39b71e8ee288b96c28e8ed3d36f832" => :mavericks
   end
 
   depends_on "lablgtk"
