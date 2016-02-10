@@ -7,9 +7,9 @@ class Pcb < Formula
   revision 1
 
   bottle do
-    sha256 "0953f1af259dd756520288d7a961d767769f75e835d3f1e039d9b3bac893d737" => :yosemite
-    sha256 "2cca7e51f52c188d862d5b90fdd3ccf189cfd743d535c028a826486bc58be420" => :mavericks
-    sha256 "41cc4c897447b24f0840501456cce0b9b5a57be1d0a9dce14de2686b98528a42" => :mountain_lion
+    sha256 "735e1c53187a6a15c0ac54f2b4ab2e2b0e326effe115201921f99ca49b1ef22a" => :el_capitan
+    sha256 "14f56b7e3e0f5e08be638d368561da9399f6a7c083dd5181c2b1b13d0e0bce86" => :yosemite
+    sha256 "3491a900ef332ffde5c087d0cc8c3c56d6e23fe15dfad093640b56d9f186ddb1" => :mavericks
   end
 
   option "with-doc", "Build the documentation (requires LaTeX)."
