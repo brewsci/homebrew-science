@@ -1,9 +1,8 @@
 class RstudioServer < Formula
   homepage "http://www.rstudio.com"
   head "https://github.com/rstudio/rstudio.git"
-  url "https://github.com/rstudio/rstudio/archive/v0.99.484.tar.gz"
-  sha256 "8ca4abccb9b554713077cf1057ac13abadfd7606f22ac3386b2a88a38ae8a427"
-  revision 1
+  url "https://github.com/rstudio/rstudio/archive/v0.99.878.tar.gz"
+  sha256 "e02b7423c62820c2ab35a5889711c7ff08102b292e664502c977e431ad15c7b5"
 
   bottle do
     sha256 "de1d21783adbc2c091fa463966d9667310aa3208e6677041d46d3aff8cbe1945" => :el_capitan
@@ -58,8 +57,8 @@ class RstudioServer < Formula
   end
 
   resource "pandoc" do
-    url "https://s3.amazonaws.com/rstudio-buildtools/pandoc-1.13.1.zip"
-    sha256 "7aedb183913f46cc7e5fd35098e5ed275c5436da0a0f82d5d56c057fd27caf5f"
+    url "https://s3.amazonaws.com/rstudio-buildtools/pandoc-1.15.2.zip"
+    sha256 "ebd94d50a95fb9e141d0fa37e51ee89ebbba5d0d0b03365b1541750092399201"
   end
 
   resource "libclang" do
@@ -73,14 +72,10 @@ class RstudioServer < Formula
   end
 
   resource "rsconnect" do
-    url "https://github.com/rstudio/rsconnect.git", :branch => "v0.99"
+    url "https://github.com/rstudio/rsconnect.git", :branch => "master"
   end
 
   def install
-    # installation path of boost is hard coded, it has to be changed manually.
-    inreplace "src/cpp/CMakeLists.txt",
-      "/opt/rstudio-tools/boost/boost_1_50_0",
-      "#{Formula["boost150"].opt_prefix}"
 
     gwt_lib = buildpath/"src/gwt/lib/"
     (gwt_lib/"gin/1.5").install resource("gin")
@@ -96,8 +91,8 @@ class RstudioServer < Formula
     (common_dir/"mathjax-23").install resource("mathjax")
 
     resource("pandoc").stage do
-      (common_dir/"pandoc/1.13.1/").install "mac/pandoc"
-      (common_dir/"pandoc/1.13.1/").install "mac/pandoc-citeproc"
+      (common_dir/"pandoc/1.15.2/").install "mac/pandoc"
+      (common_dir/"pandoc/1.15.2/").install "mac/pandoc-citeproc"
     end
 
     resource("libclang").stage do
@@ -121,17 +116,39 @@ class RstudioServer < Formula
       system "make", "install"
     end
 
-    (bin/"rstudio-server").write <<-EOS.undent
-      #!/usr/bin/env bash
+    bin.install_symlink prefix/"rstudio/bin/rserver" => "rstudio-server"
 
-      trap 'pkill -P $$' EXIT
+    (prefix/"etc/org.rstudio.launchd.rserver.plist").write <<-EOS.undent
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+              "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+              <key>Label</key>
+              <string>com.rstudio.launchd.rstudio</string>
+              <key>ProgramArguments</key>
+              <array>
+                      <string>#{opt_prefix}/rstudio/bin/rserver</string>
+              </array>
+              <key>RunAtLoad</key>
+              <true/>
+      </dict>
+      </plist>
+    EOS
+  end
 
-      export PATH=#{opt_prefix}/rstudio/bin:$PATH
-      export PATH=#{opt_prefix}/rstudio/bin/pandoc:$PATH
-      export PATH=#{opt_prefix}/rstudio/bin/postback:$PATH
-      export PATH=#{opt_prefix}/rstudio/bin/rsclang:$PATH
+  def caveats
+    <<-EOS.undent
+      If you get \"Invalid username/password\" error,
+      install rstudio PAM by
 
-      #{opt_prefix}/rstudio/bin/rserver "$@"
+        sudo cp /etc/pam.d/ftpd /etc/pam.d/rstudio
+
+      To configure the server to start at boot
+
+        sudo cp #{opt_prefix}/etc/org.rstudio.launchd.rserver.plist /Library/LaunchDaemons/org.rstudio.launchd.rserver.plist
+        sudo defaults write /Library/LaunchDaemons/org.rstudio.launchd.rserver.plist Disabled -bool false
+        sudo launchctl load /Library/LaunchDaemons/org.rstudio.launchd.rserver.plist
     EOS
   end
 
