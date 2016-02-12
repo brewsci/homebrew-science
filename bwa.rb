@@ -26,8 +26,9 @@ class Bwa < Formula
   end
 
   test do
-    (testpath/"test.fasta").write ">0\nMEEPQSDPSV\n"
+    (testpath/"test.fasta").write ">0\nAGATGTGCTG\n"
     system "#{bin}/bwa", "index", "test.fasta"
     assert File.exist?("test.fasta.bwt")
+    assert_match "AGATGTGCTG", shell_output("#{bin}/bwa mem test.fasta test.fasta")
   end
 end
