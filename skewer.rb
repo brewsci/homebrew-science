@@ -1,11 +1,12 @@
 class Skewer < Formula
+  desc "Fast and accurate NGS adapter trimmer"
   homepage "http://sourceforge.net/projects/skewer/"
   # tag "bioinformatics"
   # doi "10.1186/1471-2105-15-182"
 
   url "https://github.com/relipmoc/skewer.git",
-    :revision => "c61bb90eeb558d9bbad862e1b3b1ad6a6b42c8e3"
-  version "0.1.124"
+    :revision => "e8e05fc506e94f964d671c7f0349585baf8d286c"
+  version "0.1.126"
 
   bottle do
     cellar :any
