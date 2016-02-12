@@ -9,10 +9,10 @@ class Skewer < Formula
   version "0.1.126"
 
   bottle do
-    cellar :any
-    sha256 "eb3863b75964499df80d3033bcaa8f97808f127d1282698ead72ce255d82302f" => :yosemite
-    sha256 "6b1184f8166e7f554624e32451fc3ce5bdfdd605abfe0a8b127199b48a088f7b" => :mavericks
-    sha256 "f6f77ea2c2aa17c9d3e32c9762fae6734f91c3ed368b91207499f1abbbfbd70b" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "8d7c6e923b77aa9afb8c1334fa531dc34ecb77a00ebd5a0b7c0a5f499c1ddaf2" => :el_capitan
+    sha256 "a1396d4d7a617f8abd23b08e1d8ac0d9a995fa1872a556a6dff184513020a4dc" => :yosemite
+    sha256 "4f7f544bb0ec00a4ab303a4022cfa1c454034bc5b2be7f5613e3cc553e69d596" => :mavericks
   end
 
   def install
