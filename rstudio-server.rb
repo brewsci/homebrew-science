@@ -5,9 +5,9 @@ class RstudioServer < Formula
   sha256 "e02b7423c62820c2ab35a5889711c7ff08102b292e664502c977e431ad15c7b5"
 
   bottle do
-    sha256 "de1d21783adbc2c091fa463966d9667310aa3208e6677041d46d3aff8cbe1945" => :el_capitan
-    sha256 "d19c47da684e4f9cb85c18319cdcd5d16bba84a20df7fdf7ec9e12573f9d6a12" => :yosemite
-    sha256 "a8e0d7dc2e2cfb544c643e5d1aa2a489ed13dee7a9116968f93fe83b4f2c6c84" => :mavericks
+    sha256 "bdf39888ff9fe2568ac20ac7f638efa7edf3ca3e1e4820667bba2f3cbe00e746" => :el_capitan
+    sha256 "08612f69787b4ed2fcb84314971a4f2a19b2e1e0cedac4ae2d45163f21a745ed" => :yosemite
+    sha256 "089b275891bb4714ef994085bd82201f237442d80635800ac3bbfc6c9fb4894f" => :mavericks
   end
 
   depends_on "ant" => :build
