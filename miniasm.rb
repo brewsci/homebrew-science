@@ -1,6 +1,13 @@
 class Miniasm < Formula
   desc "Ultrafast de novo assembly for long noisy reads"
   homepage "https://github.com/lh3/miniasm"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "68b11d329ba971d1afac15f3bdf47c9021da0bec9c21b0d1f2dd5ec8618f9e14" => :el_capitan
+    sha256 "911b8b5a12ce00126d6a6d44b09871ff7f3d85a5f8da363a4b6c6511fe0f0a4e" => :yosemite
+    sha256 "84365136802af859acbd979866e9786cfa5c1064c2e223cf77ee9cd693187e56" => :mavericks
+  end
+
   # tag "bioinformatics"
 
   url "https://github.com/lh3/miniasm/archive/v0.2.tar.gz"
