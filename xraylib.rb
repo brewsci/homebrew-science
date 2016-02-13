@@ -14,7 +14,6 @@ class Xraylib < Formula
 
   option "with-perl", "Build with perl support"
   option "with-ruby", "Build with ruby support"
-  option "without-check", "Disable build-time checking (not recommended)"
 
   depends_on :python => :recommended
   depends_on :python3 => :optional
@@ -45,13 +44,11 @@ class Xraylib < Formula
       args << "PYTHON=python3"
       system "./configure", *args
       system "make"
-      system "make", "check" if build.with? "check"
       system "make", "install"
     elsif build.with?("python") && build.without?("python3")
       args << "--enable-python"
       system "./configure", *args
       system "make"
-      system "make", "check" if build.with? "check"
       system "make", "install"
     elsif build.with?("python3")
       # build for both python2 and python3 bindings
@@ -77,7 +74,6 @@ class Xraylib < Formula
       end
       # build without python first
       system "make"
-      system "make", "check" if build.with? "check"
       # move the configured python directories to the main build dir
       mv "../xraylib-#{version}-python2/python", "python2"
       mv "../xraylib-#{version}-python3/python", "python3"
@@ -104,7 +100,6 @@ class Xraylib < Formula
       args << "--disable-python"
       system "./configure", *args
       system "make"
-      system "make", "check" if build.with? "check"
       system "make", "install"
     end
   end
