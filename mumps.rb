@@ -21,7 +21,9 @@ class Mumps < Formula
   depends_on "parmetis" => :optional if build.with? "mpi"
   depends_on "scotch5"  => :optional
   depends_on "scotch"   => :optional
+
   depends_on "openblas" => :optional
+  depends_on "veclibfort" if build.without?("openblas") && OS.mac?
 
   depends_on :fortran
 
@@ -106,6 +108,8 @@ class Mumps < Formula
 
     if build.with? "openblas"
       make_args << "LIBBLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"
+    elsif build.with? "veclibfort"
+      make_args << "LIBBLAS=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
     else
       make_args << "LIBBLAS=-lblas -llapack"
     end
