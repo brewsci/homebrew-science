@@ -139,7 +139,7 @@ class Mumps < Formula
     end
 
     doc.install Dir["doc/*.pdf"]
-    (pkgshare + "examples").install Dir["examples/*[^.o]"]
+    pkgshare.install "examples"
 
     prefix.install "Makefile.inc"  # For the record.
     File.open(prefix / "make_args.txt", "w") do |f|
@@ -179,12 +179,38 @@ class Mumps < Formula
   end
 
   test do
-    cmd = build.without?("mpi") ? "" : "mpirun -np 2"
-    system "#{cmd} #{pkgshare}/examples/ssimpletest < #{pkgshare}/examples/input_simpletest_real"
-    system "#{cmd} #{pkgshare}/examples/dsimpletest < #{pkgshare}/examples/input_simpletest_real"
-    system "#{cmd} #{pkgshare}/examples/csimpletest < #{pkgshare}/examples/input_simpletest_cmplx"
-    system "#{cmd} #{pkgshare}/examples/zsimpletest < #{pkgshare}/examples/input_simpletest_cmplx"
-    system "#{cmd} #{pkgshare}/examples/c_example"
-    ohai "Test results are in ~/Library/Logs/Homebrew/mumps"
+    ENV.fortran
+    cp_r pkgshare/"examples", testpath
+    opts = ["-I#{opt_include}", "-L#{opt_lib}", "-lmumps_common"]
+    if Tab.for_name("mumps").with? "openblas"
+      opts << "-L#{Formula["openblas"].opt_lib}" << "-lopenblas"
+    elsif OS.mac?
+      opts << "-L#{Formula["veclibfort"].opt_lib}" << "-lvecLibFort"
+    else
+      opts << "-lblas" << "-llapack"
+    end
+    if Tab.for_name("mumps").with?("mpi")
+      f90 = "mpif90"
+      cc = "mpicc"
+      mpirun = "mpirun -np #{Hardware::CPU.cores}"
+    else
+      f90 = ENV["FC"]
+      cc = ENV["CC"]
+      mpirun = ""
+    end
+
+    cd testpath/"examples" do
+      system f90, "-o", "ssimpletest", "ssimpletest.F", "-lsmumps", *opts
+      system "#{mpirun} ./ssimpletest < input_simpletest_real"
+      system f90, "-o", "dsimpletest", "dsimpletest.F", "-ldmumps", *opts
+      system "#{mpirun} ./dsimpletest < input_simpletest_real"
+      system f90, "-o", "csimpletest", "csimpletest.F", "-lcmumps", *opts
+      system "#{mpirun} ./csimpletest < input_simpletest_cmplx"
+      system f90, "-o", "zsimpletest", "zsimpletest.F", "-lzmumps", *opts
+      system "#{mpirun} ./zsimpletest < input_simpletest_cmplx"
+      system cc, "-c", "c_example.c", "-I#{opt_include}"
+      system f90, "-o", "c_example", "c_example.o", "-ldmumps", *opts
+      system "#{mpirun} ./c_example"
+    end
   end
 end
