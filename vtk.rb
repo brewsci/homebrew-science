@@ -3,8 +3,8 @@ class Vtk < Formula
   url "http://www.vtk.org/files/release/6.3/VTK-6.3.0.tar.gz"
   mirror "https://fossies.org/linux/misc/VTK-6.3.0.tar.gz"
   sha256 "92a493354c5fa66bea73b5fc014154af5d9f3f6cee8d20a826f4cd5d4b0e8a5e"
-
   head "https://github.com/Kitware/VTK.git"
+  revision 1
 
   bottle do
     revision 1
@@ -24,19 +24,22 @@ class Vtk < Formula
   option "with-tcl",        "Enable Tcl wrapping of VTK classes"
   option "with-matplotlib", "Enable matplotlib support"
   option "without-legacy",  "Disable legacy APIs"
+  option "without-python",  "Build without python2 support"
 
   depends_on "cmake" => :build
   depends_on :x11 => :optional
   depends_on "qt" => :optional
   depends_on "qt5" => :optional
-  depends_on :python => :recommended
+
+  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+
   depends_on "boost" => :recommended
   depends_on "fontconfig" => :recommended
   depends_on "hdf5" => :recommended
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
-  depends_on "matplotlib" => :python if build.with? "matplotlib"
+  depends_on "matplotlib" => :python if build.with?("matplotlib") && build.with?("python")
 
   # If --with-qt and --with-python, then we automatically use PyQt, too!
   if build.with? "python"
