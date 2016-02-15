@@ -4,7 +4,7 @@ class Mumps < Formula
   url "http://mumps.enseeiht.fr/MUMPS_5.0.1.tar.gz"
   mirror "http://graal.ens-lyon.fr/MUMPS/MUMPS_5.0.1.tar.gz"
   sha256 "50355b2e67873e2239b4998a46f2bbf83f70cdad6517730ab287ae3aae9340a0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -33,13 +33,14 @@ class Mumps < Formula
   end
 
   def install
+    make_args = ["RANLIB=echo"]
     if OS.mac?
       # Building dylibs with mpif90 causes segfaults on 10.8 and 10.10. Use gfortran.
-      make_args = ["LIBEXT=.dylib",
-                   "AR=#{ENV["FC"]} -dynamiclib -Wl,-install_name -Wl,#{lib}/$(notdir $@) -undefined dynamic_lookup -o ",
-                   "RANLIB=echo"]
+      shlibs_args = ["LIBEXT=.dylib",
+                     "AR=#{ENV["FC"]} -dynamiclib -Wl,-install_name -Wl,#{lib}/$(notdir $@) -undefined dynamic_lookup -o "]
     else
-      make_args = ["LIBEXT=.so", "AR=$(FL) -shared -Wl,-soname -Wl,$(notdir $@) -o ", "RANLIB=echo"]
+      shlibs_args = ["LIBEXT=.so",
+                     "AR=$(FL) -shared -Wl,-soname -Wl,$(notdir $@) -o "]
     end
     make_args += ["OPTF=-O", "CDEFS=-DAdd_"]
     orderingsf = "-Dpord"
@@ -116,33 +117,31 @@ class Mumps < Formula
 
     ENV.deparallelize # Build fails in parallel on Mavericks.
 
-    # First build libs, install them, and then link example programs.
-    system "make", "alllib", *make_args
+    system "make", "alllib", *(shlibs_args + make_args)
 
     lib.install Dir["lib/*"]
     lib.install ("libseq/libmpiseq" + ((OS.mac?) ? ".dylib" : ".so")) if build.without? "mpi"
+
+    # Build static libraries (e.g., for Dolfin)
+    system "make", "alllib", *make_args
+    (libexec/"lib").install Dir["lib/*.a"]
+    (libexec/"lib").install "libseq/libmpiseq.a" if build.without? "mpi"
 
     inreplace "examples/Makefile" do |s|
       s.change_make_var! "libdir", lib
     end
 
-    system "make", "all", *make_args # Build examples.
-
-    if build.with? "mpi"
-      include.install Dir["include/*"]
-    else
-      libexec.install "include"
-      include.install_symlink Dir[libexec / "include/*"]
-      # The following .h files may conflict with others related to MPI
-      # in /usr/local/include. Do not symlink them.
-      (libexec / "include").install Dir["libseq/*.h"]
-    end
+    libexec.install "include"
+    include.install_symlink Dir[libexec/"include/*"]
+    # The following .h files may conflict with others related to MPI
+    # in /usr/local/include. Do not symlink them.
+    (libexec/"include").install Dir["libseq/*.h"] if build.without? "mpi"
 
     doc.install Dir["doc/*.pdf"]
     pkgshare.install "examples"
 
     prefix.install "Makefile.inc"  # For the record.
-    File.open(prefix / "make_args.txt", "w") do |f|
+    File.open(prefix/"make_args.txt", "w") do |f|
       f.puts(make_args.join(" "))  # Record options passed to make.
     end
 
@@ -167,7 +166,11 @@ class Mumps < Formula
   end
 
   def caveats
-    s = ""
+    s = <<-EOS.undent
+      MUMPS was built with shared libraries. If required,
+      static libraries are available in
+        #{opt_libexec}/lib
+    EOS
     if build.without? "mpi"
       s += <<-EOS.undent
       You built a sequential MUMPS library.
