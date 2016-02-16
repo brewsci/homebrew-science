@@ -4,6 +4,7 @@ class Petsc < Formula
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.6.3.tar.gz"
   sha256 "2458956c876496f3c8160591324459be7c11f2e1ce09ad98347394c67a46d858"
   head "https://bitbucket.org/petsc/petsc", :using => :git
+  revision 1
 
   bottle do
     sha256 "06188eddb5ac9af258ea53f71fc9c32a0bad71d8623f9927b3f536a8e17e8d89" => :el_capitan
@@ -91,7 +92,7 @@ class Petsc < Formula
     args << "--with-metis-dir=#{oprefix("metis")}" if build.with? "metis"
     args << "--with-parmetis-dir=#{oprefix("parmetis")}" if build.with? "parmetis"
     args << "--with-scalapack-dir=#{oprefix("scalapack")}" if build.with? "scalapack"
-    args << "--with-mumps-dir=#{oprefix("mumps")}" if build.with? "mumps"
+    args << "--with-mumps-dir=#{oprefix("mumps")}/libexec" if build.with? "mumps"
     args << "--with-x=0" if build.without? "x11"
 
     # if build with openblas, need to provide lapack as well.
