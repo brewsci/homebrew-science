@@ -7,9 +7,9 @@ class Petsc < Formula
   revision 1
 
   bottle do
-    sha256 "06188eddb5ac9af258ea53f71fc9c32a0bad71d8623f9927b3f536a8e17e8d89" => :el_capitan
-    sha256 "80073a95f6cc90cbaa6c6119eb4729f25fb8108e4720f65dea29cf4b60e4c1d5" => :yosemite
-    sha256 "20250b96b6e86c51058a12f8ccd345aaa120e7345f3042fd370ddba4779e854e" => :mavericks
+    sha256 "3fc90f320c7172c4d99e8b99da350eb365d939442d417c3ce0a0100ad771f591" => :el_capitan
+    sha256 "78b926857c70d2af4ac440b5ef1f40730024184c1298fea2f59359e12d2527e4" => :yosemite
+    sha256 "e734f6f8c76a93228061f1ac400376e3443e34eec2eff31c7ed8d19586713180" => :mavericks
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
