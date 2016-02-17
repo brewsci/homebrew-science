@@ -7,6 +7,12 @@ class Canu < Formula
   # doi "10.1038/nbt.3238"
   # tag "bioinformatics"
 
+  bottle do
+    sha256 "8615ae209f5f64e6048322a60112818635c5b772b4e0e1bb57103bcd94bc027c" => :el_capitan
+    sha256 "597617cd2f9575afd87972130e2ddfe33239c683fa7927758eec4ee06eed7d7f" => :yosemite
+    sha256 "2cc1b13d28a308f83b85656d1fbeb4ec14108accb256d365500e2ea2f4796eab" => :mavericks
+  end
+
   # Fix fatal error: 'omp.h' file not found
   needs :openmp
 
