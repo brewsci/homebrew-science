@@ -1,8 +1,8 @@
 class Alpscore < Formula
   desc "Applications and Libraries for Physics Simulations"
   homepage "http://alpscore.org"
-  url "https://github.com/ALPSCore/ALPSCore/archive/v0.5.1.tar.gz"
-  sha256 "a99b34cf7b5c2d48ea7d888e229b296908adea7ed5118bf1b28888f42295f385"
+  url "https://github.com/ALPSCore/ALPSCore/archive/v0.5.3.tar.gz"
+  sha256 "87841b96e13d93f863b92daeeba06a562329b80f9e651694901dcf061327d538"
   head "https://github.com/ALPSCore/ALPSCore.git"
 
   bottle do
@@ -21,7 +21,6 @@ class Alpscore < Formula
   depends_on :mpi => [:cc, :cxx, :recommended]
 
   boost_options = []
-  boost_options += ["with-mpi", "without-single"] if build.with? "mpi"
   boost_options << "c++11" if build.cxx11?
   depends_on "boost" => boost_options
 
@@ -76,7 +75,6 @@ class Alpscore < Formula
                     "-lalps-accumulators", "-lalps-hdf5", "-lalps-utilities", "-lalps-params",
                     "-lboost_filesystem-mt", "-lboost_system-mt", "-lboost_program_options-mt"
                    ]
-    args_compile << "-lboost_mpi-mt" if build.with? "mpi"
     args_compile << "-o" << "test"
     system ((build.with? "mpi") ? "mpicxx" : ENV.cxx), *args_compile
     system "./test"
