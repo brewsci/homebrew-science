@@ -3,8 +3,8 @@ class Bcftools < Formula
   homepage "http://www.htslib.org/"
   # tag "bioinformatics"
 
-  url "https://github.com/samtools/bcftools/archive/1.2.tar.gz"
-  sha256 "90ccd7dccfb0b2848b71f32fff073c420260e857b7feeb89c1fb4bfaba49bfba"
+  url "https://github.com/samtools/bcftools/releases/download/1.3/bcftools-1.3.tar.bz2"
+  sha256 "fc5332e49546d55120551b0d5fb690f79e4f2216b8492c7b53033cdaa4256a3d"
   head "https://github.com/samtools/bcftools.git"
 
   bottle do
@@ -24,7 +24,7 @@ class Bcftools < Formula
   def install
     inreplace "Makefile", "include $(HTSDIR)/htslib.mk", ""
     htslib = Formula["htslib"].opt_prefix
-    args = %W[make install prefix=#{prefix} HTSDIR=#{htslib}/include HTSLIB=#{htslib}/lib/libhts.a]
+    args = %W[make all install prefix=#{prefix} HTSDIR=#{htslib}/include HTSLIB=#{htslib}/lib/libhts.a]
 
     if build.with? "polysomy"
       args << "USE_GPL=1"
