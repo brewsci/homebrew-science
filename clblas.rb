@@ -6,9 +6,9 @@ class Clblas < Formula
 
   bottle do
     cellar :any
-    sha256 "95e08bbfde36c49f8f4fae3f420980d329c67215f7198475f34a0bae22a05f4f" => :yosemite
-    sha256 "0315da2f6b54edfff65315709f2d16cc9c9514adafa2ea7400b6a759f16001c1" => :mavericks
-    sha256 "665bd59d4dc12933722003a7092eea19104ef5722aacfdc27e423c988df0f5ca" => :mountain_lion
+    sha256 "c2390d3ccd264c755b529dda21016583fa60dd8f8c1f30502ec22d73d55ef4ff" => :el_capitan
+    sha256 "fcaafc49c3123705e90b836902133e481859dd40140636317088326e8c22da98" => :yosemite
+    sha256 "bc59a237799fa5a1d880f39f5caa96abed14bf407bd4db222a87109c1947e7bd" => :mavericks
   end
 
   depends_on "cmake" => :build
