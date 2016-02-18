@@ -5,6 +5,13 @@ class Blis < Formula
   sha256 "b649a13ccdf0040e44bdbd5cf39e7c9a24cc0ac41ded1ad10681fe9bcce4cc89"
   head "https://github.com/flame/blis.git"
 
+  bottle do
+    cellar :any
+    sha256 "9a172421f66db44f87d010c06a1bb9b892cd537e4dee53a6626a43fbc30edc8c" => :el_capitan
+    sha256 "48e1a717c837523b9bb8ce7cbf0a570adeffe5d1e97364ebc1dfcd2fb4313221" => :yosemite
+    sha256 "97d8f1705db1212ac45c3feb6c9aba7e43af45299930f7955562d02ee1f6186c" => :mavericks
+  end
+
   deprecated_option "without-check" => "without-test"
 
   option "with-configuration=",
