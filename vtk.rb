@@ -65,10 +65,7 @@ class Vtk < Formula
   def install
     args = std_cmake_args + %W[
       -DVTK_REQUIRED_OBJCXX_FLAGS=''
-      -DVTK_USE_CARBON=OFF
-      -DVTK_USE_TK=OFF
       -DBUILD_SHARED_LIBS=ON
-      -DIOKit:FILEPATH=#{MacOS.sdk_path}/System/Library/Frameworks/IOKit.framework
       -DCMAKE_INSTALL_RPATH:STRING=#{lib}
       -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
       -DVTK_USE_SYSTEM_EXPAT=ON
@@ -124,12 +121,6 @@ class Vtk < Formula
         args << "-DPYTHON_LIBRARY='#{`python-config --prefix`.chomp}/lib/libpython2.7.dylib'"
         # Set the prefix for the python bindings to the Cellar
         args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{lib}/python2.7/site-packages'"
-
-        if build.with?("qt") || build.with?("qt5")
-          args << "-DVTK_WRAP_PYTHON_SIP=ON"
-          args << "-DSIP_PYQT_DIR='#{Formula["pyqt"].opt_share}/sip'" if build.with? "qt"
-          args << "-DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'" if build.with? "qt5"
-        end
       elsif build.without?("python") && build.with?("python3")
         args << "-DVTK_WRAP_PYTHON=ON"
         args << "-DPYTHON_EXECUTABLE=/usr/local/bin/python3"
@@ -138,16 +129,17 @@ class Vtk < Formula
         args << "-DPYTHON_LIBRARY='#{`python3-config --prefix`.chomp}/lib/libpython3.5.dylib'"
         # Set the prefix for the python bindings to the Cellar
         args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{lib}/python3.5/site-packages'"
-
-        if build.with?("qt") || build.with?("qt5")
-          args << "-DVTK_WRAP_PYTHON_SIP=ON"
-          args << "-DSIP_PYQT_DIR='#{Formula["pyqt"].opt_share}/sip'" if build.with? "qt"
-          args << "-DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'" if build.with? "qt5"
-        end
       elsif build.with?("python3") && build.with?("python")
         # Does not currenly support building both python 2 and 3 versions
          odie "VTK: Does not currently support building both python 2 and 3 wrappers"
       end
+
+      if build.with?("qt") || build.with?("qt5")
+        args << "-DVTK_WRAP_PYTHON_SIP=ON"
+        args << "-DSIP_PYQT_DIR='#{Formula["pyqt"].opt_share}/sip'" if build.with? "qt"
+        args << "-DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'" if build.with? "qt5"
+      end
+
       args << ".."
       system "cmake", *args
       system "make"
