@@ -4,7 +4,7 @@ class Petsc < Formula
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.6.3.tar.gz"
   sha256 "2458956c876496f3c8160591324459be7c11f2e1ce09ad98347394c67a46d858"
   head "https://bitbucket.org/petsc/petsc", :using => :git
-  revision 1
+  revision 2
 
   bottle do
     sha256 "3fc90f320c7172c4d99e8b99da350eb365d939442d417c3ce0a0100ad771f591" => :el_capitan
