@@ -9,10 +9,10 @@ class Seqtk < Formula
   head "https://github.com/lh3/seqtk.git"
 
   bottle do
-    cellar :any
-    sha256 "a0a7413764b47a974bed1dd7421aae2955a20be5472ca8eb50115e851abed8ba" => :yosemite
-    sha256 "df87383935ec546aff0f7d4583994f0cf17f308eaf238f3c4ac3fa6d76ca824f" => :mavericks
-    sha256 "4b1189e67b37d36feaf8e58cc6002012db347cd594895be0bcb84b99cfd322be" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "80347faabb214b4a035f9c435be6a4ccbc70142d4a5b593f5c37115f9217ea9b" => :el_capitan
+    sha256 "a08757a2d6b5de72f5ab0f08e48457006d621fdcd57b4ce7976e2ed88fc6432e" => :yosemite
+    sha256 "6146557f07f725bbe985fb308b7be5b9839bf513db3b4ca63c9a90f37da2e48a" => :mavericks
   end
 
   def install
