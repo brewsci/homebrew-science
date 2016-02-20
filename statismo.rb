@@ -3,7 +3,7 @@ class Statismo < Formula
   url "https://github.com/statismo/statismo/archive/v0.11.0.tar.gz"
   sha256 "f9b7109996d9e42e48b07923ea6edacca57b8ac7c573de1c905dbba921385c4c"
   head "https://github.com/statismo/statismo.git"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
