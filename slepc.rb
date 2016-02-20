@@ -6,9 +6,9 @@ class Slepc < Formula
   revision 1
 
   bottle do
-    sha256 "33de659b0fa2c3fb8d82e8a6d263c98f03c9dfa1f83dc6c6b08da9cac37028c0" => :el_capitan
-    sha256 "3fcbb597f9a2065b4984b17684e9f96d7ee9c7084a21278c525235e2c7577953" => :yosemite
-    sha256 "91b42c002c71169ec2bf8fe38dab922afaaee962d8d30bedcb62e3159126ee09" => :mavericks
+    sha256 "5bbfd1cd8a413034fe886dfed19dce44256901a04b0dbd3b47db41ecd48cad1f" => :el_capitan
+    sha256 "45b5afc871d067c3698a29ff00cf5bfc70c07972518a1b69360061d17b7fd6bb" => :yosemite
+    sha256 "bdf41be13f92176f17d1aff1235b1211d3250c8d5ee7bf194503f4b668e3e465" => :mavericks
   end
 
   deprecated_option "complex" => "with-complex"
