@@ -4,6 +4,13 @@ class Einspline < Formula
   url "https://downloads.sourceforge.net/project/einspline/einspline-0.9.2.tar.gz"
   sha256 "fc9ec0475f7711ef711c8b6ea28d3dd11a173adaa381df80c2df4c5cc22d4afe"
 
+  bottle do
+    cellar :any
+    sha256 "fad8655f84f09ef51e13e84477ac732adb884587a0263e1615cf2caf97937a0c" => :el_capitan
+    sha256 "b3bfe945c57f07325e914f22b5e204b4a48b40490255ee61eaaf34fab61d403d" => :yosemite
+    sha256 "04e436b59788262cf10c18c73067b0a47a3110156f68b77e1fe9b57fcbe07699" => :mavericks
+  end
+
   option "with-cuda", "Enable CUDA"
   option "without-openmp", "Disable OpenMP"
 
