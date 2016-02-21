@@ -7,9 +7,9 @@ class Libccd < Formula
 
   bottle do
     cellar :any
-    sha256 "7999af74157e062e80303402040c478a3d3079eff2bbec84e8571e5dd8b173b5" => :yosemite
-    sha256 "7e298d160eb7dfdeb5cc4d551773c46313b05bc9abf33117b984b4eda23a1441" => :mavericks
-    sha256 "7a4f9d8fcdf13d2ae3bf8abb88413d5ed2cb3686d230c7fb5aa6c32689a58ba1" => :mountain_lion
+    sha256 "d23aeb24c111b74c1fa0bd0baddecdae3cf47e8e1a4c90e84373f7d5f2ef5ffe" => :el_capitan
+    sha256 "336624be19dfcd178a5ca2aaaeaf2ac959c50cb3acd2e5239a00d204a232b553" => :yosemite
+    sha256 "9ad6f74a1906d1bbfbc9730a48736f453d016464c977432d0101ae4bc357bc93" => :mavericks
   end
 
   depends_on "cmake" => :build
