@@ -1,8 +1,9 @@
 class Libccd < Formula
   homepage "http://libccd.danfis.cz"
-  url "http://libccd.danfis.cz/files/libccd-2.0.tar.gz"
-  sha256 "513e212fbb22cf720cf16ba911e8a8ccb1050c006789631ff2474ecc2f12b47a"
+  url "https://github.com/danfis/libccd/archive/v2.0.tar.gz"
+  sha256 "1b4997e361c79262cf1fe5e1a3bf0789c9447d60b8ae2c1f945693ad574f9471"
   head "https://github.com/danfis/libccd.git"
+  revision 1
 
   bottle do
     cellar :any
