@@ -3,8 +3,8 @@ class Trimmomatic < Formula
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btu170"
 
-  url "http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.33.zip"
-  sha256 "6968583a6c5854a44fff7d427e7ccdcb8dc17f4616082dd390a0633f87a09e3d"
+  url "http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.35.zip"
+  sha256 "43b993ffa91c039b529db8334bc6aa4b0d601e69c79aaa9a1457ecd1c2c3cc69"
 
   bottle do
     cellar :any
@@ -17,7 +17,7 @@ class Trimmomatic < Formula
 
   def install
     cmd = "trimmomatic"
-    jar = "#{cmd}-0.33.jar"
+    jar = "#{cmd}-0.35.jar"
     java = share/"java"
     java.install jar
     bin.write_jar_script java/jar, cmd
