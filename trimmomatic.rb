@@ -7,10 +7,10 @@ class Trimmomatic < Formula
   sha256 "43b993ffa91c039b529db8334bc6aa4b0d601e69c79aaa9a1457ecd1c2c3cc69"
 
   bottle do
-    cellar :any
-    sha256 "167c3b4bd6b20ea9ecd5d90c8dc03ef1b40e049b99c3b8121ea35f8549eaabf8" => :yosemite
-    sha256 "a3b3a456599ab75b9ad0ef8c11cabdc35152c3c47b67f66d060599e56606b4e3" => :mavericks
-    sha256 "964615ac7f4507223de6e81c1b84f8d8f73abb103f019b16b4295b940fddbcea" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "53d19260547f5d00f87422d097804c5930699c02127dbb5dfccae938024bd5f5" => :el_capitan
+    sha256 "fffbb3c9f603e40f9e298e7d2325be7189c9fa47f16e7ee61e5240a95df6fa8f" => :yosemite
+    sha256 "d96df900066f157486314c08386f1a4d61e944476b0488abd38e40c6df2064ca" => :mavericks
   end
 
   depends_on :java
