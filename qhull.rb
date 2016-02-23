@@ -7,9 +7,9 @@ class Qhull < Formula
 
   bottle do
     cellar :any
-    sha256 "b90892309114ec2ec862842e46a7b8e81f023121010d00b9366b8aa07ebf065d" => :el_capitan
-    sha256 "4b27e6cfb5bc6eeab81b2dbf52ecf24bbead164e8072635edd5ce53666b7ed46" => :yosemite
-    sha256 "0cf09cd18d6d6f1c3d0f81fa91ccd4c5660c43e9c0364d517c173ec64e573202" => :mavericks
+    sha256 "0d2b4fad052a8b7d0200771c63066cbccaf9b0223972e52037944923ef1121d2" => :el_capitan
+    sha256 "ac762982b59d0cf4e76ad68c9aec65c8d6f52dc18c0cac8b128c1292fded4b33" => :yosemite
+    sha256 "65af0f0db6e96fb60705d384c155807d9bde4defa7aec6fe1b82e7c0faacbf40" => :mavericks
   end
 
   depends_on "cmake" => :build
