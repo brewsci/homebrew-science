@@ -1,7 +1,7 @@
 class OpengrmNgram < Formula
   homepage "http://www.openfst.org/twiki/bin/view/GRM/NGramLibrary"
-  url "http://openfst.cs.nyu.edu/twiki/pub/GRM/NGramDownload/opengrm-ngram-1.2.1.tar.gz"
-  sha256 "713f07dccf225cde29cb048ce955d45d3c2a5ce6be7d923b5a688012d4285453"
+  url "http://openfst.cs.nyu.edu/twiki/pub/GRM/NGramDownload/opengrm-ngram-1.2.2.tar.gz"
+  sha256 "12bba4c1345f3933e161859cc9cb5d21b772d2b46173b4511fc778c67ada233b"
 
   depends_on "openfst"
 
@@ -24,7 +24,9 @@ class OpengrmNgram < Formula
       # tests using normalized The Importance of Being Earnest, based on
       # examples from the OpenGRM "NGram quick tour" page...
       system bin/"ngramsymbols", fname, "e.syms"
-      system bin/"farcompilestrings", "-symbols=e.syms",
+
+      # NB: farcompilestrings is distributed as part of OpenFST
+      system "farcompilestrings", "-symbols=e.syms",
                                       "-keep_symbols=1",
                                       fname, "e.far"
       system bin/"ngramcount", "-order=5", "e.far", "e.cnts"
