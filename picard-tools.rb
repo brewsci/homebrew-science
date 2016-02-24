@@ -6,10 +6,10 @@ class PicardTools < Formula
   sha256 "637464a5cb234d85cfc770a7ba65b4e358e0cc08786019b67567923bc3c574db"
 
   bottle do
-    cellar :any
-    sha256 "4a28bac04c90b6da227cf132a20fe176f1ba42948764720dc820fb53252b18b6" => :yosemite
-    sha256 "de79e09f3c2c3522369e5f281f12f9e304fe60cb8bd69d7837a0c4bdc17cdc2d" => :mavericks
-    sha256 "5eac46b16faa9517cb8872e5a3804d8250e42d5aa7bc95cac3c3085beff64ea3" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "900f7c9862a456de3b34ade51f4f657d8a209b9e9b15cb2db72458f4916c5be3" => :el_capitan
+    sha256 "1d3e17a8122d0369882e2b660fe8b3066b2084358423bca34c4a1e5b1731fdd7" => :yosemite
+    sha256 "6a8c1e8e09b4a5881cfad8bd996286c6fc2b3d087163124bd4b5e7f2df48bb3e" => :mavericks
   end
 
   # head "https://github.com/broadinstitute/picard.git"
