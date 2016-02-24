@@ -2,8 +2,8 @@ class PicardTools < Formula
   homepage "https://broadinstitute.github.io/picard/"
   # tag "bioinformatics"
 
-  url "https://github.com/broadinstitute/picard/releases/download/1.128/picard-tools-1.128.zip"
-  sha256 "f7df2327d1a108d8dcbf781770e759b7c308aa43bedd240f5e861466e3328a22"
+  url "https://github.com/broadinstitute/picard/releases/download/2.1.0/picard-tools-2.1.0.zip"
+  sha256 "637464a5cb234d85cfc770a7ba65b4e358e0cc08786019b67567923bc3c574db"
 
   bottle do
     cellar :any
