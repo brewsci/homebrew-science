@@ -3,8 +3,8 @@ class Spades < Formula
   homepage "http://bioinf.spbau.ru/spades/"
   # tag "bioinformatics"
   # doi "10.1089/cmb.2012.0021"
-  url "http://spades.bioinf.spbau.ru/release3.6.2/SPAdes-3.6.2.tar.gz"
-  sha256 "20897e2707623ee1033d3c88fefc42771fa4bbaafaf0f95642991d83b361eb5f"
+  url "http://spades.bioinf.spbau.ru/release3.7.0/SPAdes-3.7.0.tar.gz"
+  sha256 "f07377f148d13060e01747405eef90ee8dc8749ca4a772ec0828c4c654fbcbf7"
 
   bottle do
     cellar :any
