@@ -1,10 +1,9 @@
 class QrMumps < Formula
   desc "Parallel sparse QR factorization"
   homepage "http://buttari.perso.enseeiht.fr/qr_mumps"
-  url "http://buttari.perso.enseeiht.fr/qr_mumps/releases/1.0/qr_mumps-1.0.tgz"
-  sha256 "69bfcb2f5718480c5dec88cc4241c57fec15b44eac53c2e14542f4838f375049"
-  head "https://wwwsecu.irit.fr/svn/qr_mumps/tags/1.1", :using => :svn
-  revision 3
+  url "http://buttari.perso.enseeiht.fr/qr_mumps/releases/1.2/qr_mumps-1.2.tgz"
+  sha256 "6aacdab63c4d4160998f47ac736d4665f0dd5deb6002eeb2aa59de6eb274c337"
+  head "https://wwwsecu.irit.fr/svn/qr_mumps/tags/1.2", :using => :svn
 
   bottle do
     sha256 "c491837b0f8919fe9d9b71c080682eea64dbb40bbc637457c0056b061721c34f" => :el_capitan
@@ -12,7 +11,7 @@ class QrMumps < Formula
     sha256 "4fdd8cc3fa740414ef433e03fedfbc1b0ecbd9fe0433fc6b271fb3fbaaba0334" => :mavericks
   end
 
-  option "without-check", "Skip build-time tests (not recommended)"
+  option "without-test", "Skip build-time tests (not recommended)"
 
   depends_on :fortran
 
@@ -62,7 +61,7 @@ class QrMumps < Formula
     end
 
     system "make", "sprec", "dprec", "cprec", "zprec", *(topdir + make_args)
-    if build.with? "check"
+    if build.with? "test"
       system "make", "stest", "dtest", "ctest", "ztest", *(topdir + make_args)
       cd "test" do
         ["./sqrm_coverage", "./dqrm_coverage", "./cqrm_coverage", "./zqrm_coverage"].each do |cmd|
