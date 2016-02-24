@@ -8,8 +8,10 @@ class Stacks < Formula
   sha256 "26e1d0fa3daba36004387d1b6dcb918be5bd57d8de09335c578ea952ce29d05d"
 
   bottle do
-    sha256 "57915a5d94db9e595426938c4378dd9d491cd8f062eda3b546db6c94783d139e" => :yosemite
-    sha256 "08838646eec18d586f3d504b25e4980b5fb14ddbc568ad30498f8d51b6c704b4" => :mavericks
+    cellar :any_skip_relocation
+    sha256 "2bbae5b0bfd0bb6401335ef96b428fd289e88f3ecc9aee914aff4663a5ad67c1" => :el_capitan
+    sha256 "ecca3422bd1fe4b591dbdc356507a7fae4a240ee7d82ec7b624d1c179c247470" => :yosemite
+    sha256 "644cb0b2ed7052f4853bdbb9bba435911f27cb41b254b15d0fadf328557a3391" => :mavericks
   end
 
   depends_on "htslib"
