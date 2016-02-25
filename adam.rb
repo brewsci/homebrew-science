@@ -1,8 +1,8 @@
 class Adam < Formula
   desc "Genomics analysis platform with specialized file formats built using Apache Avro, Apache Spark and Parquet"
   homepage "https://github.com/bigdatagenomics/adam"
-  url "https://repo1.maven.org/maven2/org/bdgenomics/adam/adam-distribution_2.10/0.18.2/adam-distribution_2.10-0.18.2-bin.tar.gz"
-  sha256 "539e7ff4d99c74331191ebddce48f0926eec8a0f9ca2109bce41fa56994ff846"
+  url "https://repo1.maven.org/maven2/org/bdgenomics/adam/adam-distribution_2.10/0.19.0/adam-distribution_2.10-0.19.0-bin.tar.gz"
+  sha256 "9010b198e8fc38de24030a2d00ae86351a6a3af2a3f62b3d21251648e3d60524"
 
   bottle do
     cellar :any_skip_relocation
@@ -33,6 +33,6 @@ class Adam < Formula
   end
 
   test do
-    system "#{bin}/adam-submit", "buildinfo"
+    system "#{bin}/adam-submit", "--version"
   end
 end
