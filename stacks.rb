@@ -5,7 +5,7 @@ class Stacks < Formula
   # tag "bioinformatics
 
   url "http://creskolab.uoregon.edu/stacks/source/stacks-1.37.tar.gz"
-  sha256 "26e1d0fa3daba36004387d1b6dcb918be5bd57d8de09335c578ea952ce29d05d"
+  sha256 "11be4417504e4f14d64d0c022e1a9c7ced822ce529f251defbd1b83b34fc288d"
 
   bottle do
     cellar :any_skip_relocation
