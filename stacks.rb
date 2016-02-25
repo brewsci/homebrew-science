@@ -9,9 +9,10 @@ class Stacks < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2bbae5b0bfd0bb6401335ef96b428fd289e88f3ecc9aee914aff4663a5ad67c1" => :el_capitan
-    sha256 "ecca3422bd1fe4b591dbdc356507a7fae4a240ee7d82ec7b624d1c179c247470" => :yosemite
-    sha256 "644cb0b2ed7052f4853bdbb9bba435911f27cb41b254b15d0fadf328557a3391" => :mavericks
+    revision 1
+    sha256 "d091ee248b6b9c6c7b1373af824c1a2cf16830c64960463bfaaf8052b2b7b37a" => :el_capitan
+    sha256 "b266a452669b9913a95c1df9663fbd850a62199f5a0e275d6caa6f59d82e7fb4" => :yosemite
+    sha256 "2529637a4469483d6799290cde83d7415859db21a0f9a487b1ddc5d8c18cb4c8" => :mavericks
   end
 
   depends_on "htslib"
