@@ -4,7 +4,7 @@ class Petsc < Formula
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.6.3.tar.gz"
   sha256 "2458956c876496f3c8160591324459be7c11f2e1ce09ad98347394c67a46d858"
   head "https://bitbucket.org/petsc/petsc", :using => :git
-  revision 2
+  revision 3
 
   bottle do
     sha256 "616b0693f4637313f290e0b4e4f0b35d1354c2a54f54f6ccccec1947d43320cb" => :el_capitan
@@ -147,7 +147,6 @@ class Petsc < Formula
     include.install_symlink Dir["#{prefix}/#{petsc_arch}/include/*h"],
                                 "#{prefix}/#{petsc_arch}/include/finclude",
                                 "#{prefix}/#{petsc_arch}/include/petsc-private"
-    prefix.install_symlink "#{prefix}/#{petsc_arch}/conf"
     # symlink only files (don't symlink pkgconfig as it won't symlink to opt/lib)
     lib.install_symlink Dir["#{prefix}/#{petsc_arch}/lib/*.*"]
     pkgshare.install_symlink Dir["#{prefix}/#{petsc_arch}/share/*"]
