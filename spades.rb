@@ -4,7 +4,7 @@ class Spades < Formula
   # tag "bioinformatics"
   # doi "10.1089/cmb.2012.0021"
   url "http://spades.bioinf.spbau.ru/release3.7.0/SPAdes-3.7.0.tar.gz"
-  sha256 "f07377f148d13060e01747405eef90ee8dc8749ca4a772ec0828c4c654fbcbf7"
+  sha256 "4d9b114150c4d37084967a5a3264d36a480394996197949fb72402f2d65b42a3"
 
   bottle do
     cellar :any
