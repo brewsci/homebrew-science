@@ -1,10 +1,10 @@
 class Pcb < Formula
-  desc "An interactive printed circuit board editor"
+  desc "Interactive printed circuit board editor"
   homepage "http://pcb.geda-project.org/"
   url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-20140316/pcb-20140316.tar.gz"
   sha256 "82c4f39438ee4e278196a3b67ef021145dcfbb00519508ccf51aa7832121c950"
+  revision 2
   head "git://git.geda-project.org/pcb.git"
-  revision 1
 
   bottle do
     sha256 "735e1c53187a6a15c0ac54f2b4ab2e2b0e326effe115201921f99ca49b1ef22a" => :el_capitan
@@ -13,6 +13,7 @@ class Pcb < Formula
   end
 
   option "with-doc", "Build the documentation (requires LaTeX)."
+  option "without-opengl", "Configure pcb without OpenGL, may fix garbled screen."
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -37,6 +38,7 @@ class Pcb < Formula
             "--disable-update-desktop-database",
             "--disable-update-mime-database"]
     args << "--disable-doc" if build.without? "doc"
+    args << "--disable-gl" if build.without? "opengl"
 
     system "./configure", *args
     system "make"
