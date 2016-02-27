@@ -18,7 +18,7 @@ class Dealii < Formula
 
   option "with-testsuite", "Run full test suite (7000+ tests). Takes a lot of time."
 
-  depends_on "cmake"        => :build
+  depends_on "cmake"        => :run
   depends_on :mpi           => [:cc, :cxx, :f90, :recommended]
   depends_on "openblas"     => :optional
 
@@ -107,7 +107,7 @@ class Dealii < Formula
     # take bare-bones step-3
     ohai "running step-3:"
     cp_r prefix/"examples/step-3", testpath
-    Dir.chdir("step-3") do
+    cd "step-3" do
       system "cmake", "."
       system "make", "release"
       system "make", "run"
@@ -116,7 +116,7 @@ class Dealii < Formula
     cp_r prefix/"examples/step-40", testpath
     if (build.with? "petsc") && (build.with? "trilinos")
       ohai "running step-40:"
-      Dir.chdir("step-40") do
+      cd "step-40" do
         system "cmake", "."
         system "make", "release"
         if build.with? "mpi"
@@ -125,9 +125,7 @@ class Dealii < Formula
           system "make", "run"
         end
         # change to Trilinos
-        inreplace "step-40.cc" do |s|
-          s.gsub! "#define USE_PETSC_LA", "//#define USE_PETSC_LA" if s.include? "#define USE_PETSC_LA"
-        end
+        inreplace "step-40.cc", "#define USE_PETSC_LA", "//#define USE_PETSC_LA"
         system "make", "release"
         if build.with? "mpi"
           system "mpirun", "-np", Hardware::CPU.cores, "step-40"
@@ -140,7 +138,7 @@ class Dealii < Formula
     if build.with? "slepc"
       ohai "running step-36:"
       cp_r prefix/"examples/step-36", testpath
-      Dir.chdir("step-36") do
+      cd "step-36" do
         system "cmake", "."
         system "make", "release"
         system "make", "run"
@@ -150,7 +148,7 @@ class Dealii < Formula
     if build.with? "opencascade"
       ohai "running step-54:"
       cp_r prefix/"examples/step-54", testpath
-      Dir.chdir("step-54") do
+      cd "step-54" do
         system "cmake", "."
         system "make", "release"
         system "make", "run"
