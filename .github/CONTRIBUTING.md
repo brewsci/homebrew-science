@@ -68,13 +68,13 @@ Avoid refering to `HOMEBREW_PREFIX` in a formula. If you need to refer to depend
 
 #### OpenMP
 
-The current version of clang, Homebrew's default C/C++ compiler, does not support OpenMP, but GCC does. Here's an example of alerting the user that OpenMP will not be enabled if using clang:
+The current version of clang, Homebrew's default C/C++ compiler, does not support OpenMP, but GCC does.
 
-    opoo "clang does not support OpenMP. Compile with gcc if this is not acceptable." if ENV.compiler == :clang
-
-This snippet will not abort compilation but output a warning message.
-
-If OpenMP support is obligatory, `needs :cxx11` may be used to avoid building with clang/LLVM altogether.
+If OpenMP support is obligatory, `needs :openmp` may be used to avoid building with clang/LLVM altogether. If it is optional, one may use
+```
+options "with-openmp", "Build with OpenMP support"
+needs :openmp if build.with? "openmp"
+```
 
 #### MPI
 
@@ -82,7 +82,7 @@ Depending on `:mpi` is more flexible than depending directly on `mpich2` or `ope
 
 #### Checking What Options Were Used to Build a Dependency
 
-    nprocs = Tab.for_formula("foo").without?("mpi") ? 1 : 2
+    nprocs = Tab.for_formula("foo").without?("mpi") ? 1 : Hardware::CPU.cores
 
 ## Suggestions
 
