@@ -2,6 +2,7 @@ class Scamp < Formula
   homepage "http://www.astromatic.net/software/scamp"
   url "http://www.astromatic.net/download/scamp/scamp-2.0.4.tar.gz"
   sha256 "cbcd57f5042feefa081dc0c5ff07f7f50114a7ef41e79c060ed163caae119d41"
+  revision 1
 
   bottle do
     sha256 "4741e1c8913f2ae595feb6b7f1bf1893db735ebfbc894b7103be8d558ab9a174" => :yosemite
