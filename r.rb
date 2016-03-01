@@ -141,7 +141,8 @@ class R < Formula
       # make Homebrew packages discoverable for R CMD INSTALL
       inreplace r_home/"etc/Makeconf" do |s|
         s.gsub! /CPPFLAGS =.*/, "\\0 -I#{HOMEBREW_PREFIX}/include"
-        s.gsub! /LDFLAGS =.*/, "\\0 -L#{HOMEBREW_PREFIX}/lib"
+        s.gsub! /^LDFLAGS =.*/, "\\0 -L#{HOMEBREW_PREFIX}/lib"
+        s.gsub! /.LDFLAGS =.*/, "\\0 $(LDFLAGS)"
       end
 
       bash_completion.install resource("completion")
