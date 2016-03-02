@@ -10,6 +10,7 @@ class R < Formula
   url "http://cran.rstudio.com/src/base/R-3/R-3.2.3.tar.gz"
   mirror "http://cran.r-project.org/src/base/R-3/R-3.2.3.tar.gz"
   sha256 "b93b7d878138279234160f007cb9b7f81b8a72c012a15566e9ec5395cfd9b6c1"
+  revision 1
 
   bottle do
     revision 1
@@ -140,7 +141,7 @@ class R < Formula
 
       # make Homebrew packages discoverable for R CMD INSTALL
       inreplace r_home/"etc/Makeconf" do |s|
-        s.gsub! /CPPFLAGS =.*/, "\\0 -I#{HOMEBREW_PREFIX}/include"
+        s.gsub! /^CPPFLAGS =.*/, "\\0 -I#{HOMEBREW_PREFIX}/include"
         s.gsub! /^LDFLAGS =.*/, "\\0 -L#{HOMEBREW_PREFIX}/lib"
         s.gsub! /.LDFLAGS =.*/, "\\0 $(LDFLAGS)"
       end
