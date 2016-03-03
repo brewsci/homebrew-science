@@ -6,7 +6,7 @@ class Seqan < Formula
 
   url "https://github.com/seqan/seqan/releases/download/seqan-v2.1.0/seqan-library-2.1.0.tar.xz"
   mirror "http://packages.seqan.de/seqan-library/seqan-library-2.1.0.tar.xz"
-  sha256 "97bbeffcb059d650e4bdf6ffcd3d585910a382525a1a5054941eb080df0c88d2"
+  sha256 "986a55d028fb08e0befc538af927cbcfb880e7d4402f9b008d09f76abe63f86e"
 
   head "https://github.com/seqan/seqan.git"
 
