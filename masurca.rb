@@ -1,4 +1,5 @@
 class Masurca < Formula
+  desc "MaSuRCA: Maryland Super-Read Celera Assembler"
   homepage "http://www.genome.umd.edu/masurca.html"
   # doi "10.1093/bioinformatics/btt476"
   # tag "bioinformatics"
@@ -34,6 +35,9 @@ class Masurca < Formula
 
       # Fix cp: CA/Linux-amd64/bin/*: No such file or directory
       inreplace "install.sh", "Linux-amd64", "Darwin-amd64"
+    elsif OS.linux?
+      # Fix libstdc++.so: undefined reference to `clock_gettime@GLIBC_2.17'
+      inreplace "CA/src/c_make.as", %r{ARCH_LIB *= /usr/lib64 /usr/X11R6/lib64}, ""
     end
 
     ENV.deparallelize
