@@ -3,8 +3,8 @@ class Salmon < Formula
   homepage "https://github.com/COMBINE-lab/salmon"
   # tag "bioinformatics"
 
-  url "https://github.com/COMBINE-lab/salmon/archive/v0.5.1.tar.gz"
-  sha256 "8d20f62a4e3ddf7135f89356bbcf5c78674ce085997041461e516f9ed32ffe5d"
+  url "https://github.com/COMBINE-lab/salmon/archive/v0.6.0.tar.gz"
+  sha256 "2a015c0f95b745fbed575d8610aea7e09cb1af55ca2c68e10ab15826fba263b1"
 
   head "https://github.com/COMBINE-lab/salmon.git"
 
@@ -22,6 +22,7 @@ class Salmon < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "tbb"
+  depends_on "xz"
 
   def install
     # Fix error: Unable to find the requested Boost libraries.
