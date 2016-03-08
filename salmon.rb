@@ -23,6 +23,7 @@ class Salmon < Formula
   depends_on "boost"
   depends_on "tbb"
   depends_on "xz"
+  depends_on "zlib" unless OS.mac?
 
   def install
     # Fix error: Unable to find the requested Boost libraries.
