@@ -5,9 +5,9 @@ class Nccmp < Formula
   sha256 "7f5dad4e8670568a71f79d2bcebb08d95b875506d3d5faefafe1a8b3afa14f18"
 
   bottle do
-    sha256 "f5b81ff204e0538b3c1f8e37c9fa9cd41e6b2a56a39149221298f5e33f45be0e" => :el_capitan
-    sha256 "46db69eb61b228b39c2e6e12d89f981dd97ad61af03a5ba1cc54d23c9f25262d" => :yosemite
-    sha256 "199f6357684f35cf277a835c5963c3579ae300e07555603ebe32ff580c3e3894" => :mavericks
+    sha256 "1528f282673ba7ce6d7f6466b2f26252fb93c31eb8ed608e434ccbc78cd54557" => :el_capitan
+    sha256 "0b21b5c2c55d8ca6781dc83044f6878342bb354e99014cd77c5666a61a940d46" => :yosemite
+    sha256 "867dc0ab6af3c2a2b9be6174aee021aefc2a4d0fe7dd1a73cf08734083facea1" => :mavericks
   end
 
   depends_on "netcdf"
