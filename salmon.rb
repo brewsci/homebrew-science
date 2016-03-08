@@ -9,9 +9,9 @@ class Salmon < Formula
   head "https://github.com/COMBINE-lab/salmon.git"
 
   bottle do
-    sha256 "bfc831441f36fa387f574c15053a01fb240bfb774b060dbe62cbc4c4292e4473" => :el_capitan
-    sha256 "67ed11bf84b284d2a2edb8f0bf366d73ad6f2fc415207a29e07b5e8e4ea8f2c3" => :yosemite
-    sha256 "9780035febafb6db5af9163a7dc25180ee2cf1f6005f5dc21ca8a06a004e5b58" => :mavericks
+    sha256 "d8e67d2d7c1347c48008c1c34ce0155bd4abb693e90c5e4c7f88110dde882754" => :el_capitan
+    sha256 "71e0bbea9e3293cbc1906f32d1346e45da05b08628262fd1fc7ffe5584c7b347" => :yosemite
+    sha256 "6064db33c7bf432fe9f982fa84e03dff155dc3b93e4c592d968898fd8912cce0" => :mavericks
   end
 
   # See https://github.com/kingsfordgroup/sailfish/issues/74
