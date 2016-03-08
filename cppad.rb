@@ -9,10 +9,10 @@ class Cppad < Formula
   head "https://github.com/coin-or/CppAD.git"
 
   bottle do
-    cellar :any
-    sha256 "1ab8945781c80ad2ee3ab5a8de35fa27d16b81b612df382c144a4dd3a41a0dc6" => :yosemite
-    sha256 "5042f10cc11838498d3663b8375b4124c2fcc07f9a6675e69fa96ed30f4a8d63" => :mavericks
-    sha256 "17aeb9710856cb62a31f2b235a3ac78fd6bb79d96568bc9a2190292bb55da490" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "2b90c1f1709158d93485537a9f5b0b73ce8062da77023d75e57b636a04263c93" => :el_capitan
+    sha256 "b843ac6f64006d4e792b439cbe0d3c038187d58824d1f6c651db9eb5aba6a07a" => :yosemite
+    sha256 "b739ab58539af282bee36a95d4520e37259d4a7b8439efea90c816c8e32d12d8" => :mavericks
   end
 
   deprecated_option "with-check" => "with-test"
