@@ -1,8 +1,8 @@
 class Atompaw < Formula
   desc "PAW dataset generator for 1st-principle simulations"
   homepage "http://users.wfu.edu/natalie/papers/pwpaw/man.html"
-  url "http://users.wfu.edu/natalie/papers/pwpaw/atompaw-4.0.0.12.tar.gz"
-  sha256 "693826cc5211cef965a619446a031d2207db45c3a570f470b685cb8ad538c2d5"
+  url "http://users.wfu.edu/natalie/papers/pwpaw/atompaw-4.0.0.13.tar.gz"
+  sha256 "cbd73f11f3e9cc3ff2e5f3ec87498aeaf439555903d0b95a72f3b0a021902020"
 
   bottle do
     sha256 "10eaa994320f807abc8873c34ae66d491e765ccd0e21f682e58e01decc4da49c" => :el_capitan
