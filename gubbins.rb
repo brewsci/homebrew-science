@@ -1,10 +1,9 @@
 class Gubbins < Formula
   desc "Detect recombinations in Bacteria"
   homepage "https://github.com/sanger-pathogens/gubbins"
-  url "https://github.com/sanger-pathogens/gubbins/archive/v1.4.5.tar.gz"
-  sha256 "89249278750a15223133a76517c73de34270600c31d3e7847a37095d489cb62b"
+  url "https://github.com/sanger-pathogens/gubbins/archive/v1.4.7.tar.gz"
+  sha256 "6fdc2798a271114f8126d16e09bf6a1da2a616c7decdaeb436633629859fbfce"
   head "https://github.com/sanger-pathogens/gubbins.git"
-  revision 1
   # tag "bioinformatics"
   # doi "10.1093/nar/gku1196"
 
@@ -52,6 +51,7 @@ class Gubbins < Formula
     version = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{version}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{version}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", "#{HOMEBREW_PREFIX}/lib/python#{version}/site-packages"
 
     %w[nose biopython dendropy reportlab].each do |r|
       resource(r).stage do
