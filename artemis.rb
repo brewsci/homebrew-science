@@ -1,5 +1,5 @@
 class Artemis < Formula
-  homepage "http://www.sanger.ac.uk/resources/software/artemis"
+  homepage "http://www.sanger.ac.uk/science/tools/artemis"
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btr703"
   # head "https://github.com/sanger-pathogens/Artemis"
