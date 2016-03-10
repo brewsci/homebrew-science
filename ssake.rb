@@ -8,11 +8,10 @@ class Ssake < Formula
   sha256 "55fad26faa2b33841c58c7e52ed85c98bac2f65ffd48a40d09ba5e274ccb5d87"
 
   bottle do
-    cellar :any
-    ###These need to be updated
-    sha256 "855dbecf9e0d6e3446f13554554dd00e45a97d17169396a19ab944a6a290f871" => :yosemite
-    sha256 "777fe71291d557f325b3c52263a2da67d0ff10e6409f3d98b2ee252b05237bc7" => :mavericks
-    sha256 "7c24da4cb25ced6056f8932266a159b2223f5b2425e0adedef54128dac36fb8a" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "c51b0294aace8714001b1d3d08af9239262b751636bf1eb61a8c6dfb65e6bd92" => :el_capitan
+    sha256 "8332def65e6f706db2371ef9fd7025ebb48ffcb2f3d5520ca4a8c784f8098f34" => :yosemite
+    sha256 "f6744c3239aea0f6b4ef1cd3ded7d1669b387281b9343752a5684533a6cc4da4" => :mavericks
   end
 
   def install
