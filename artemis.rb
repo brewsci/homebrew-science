@@ -1,4 +1,5 @@
 class Artemis < Formula
+  desc "Genome browser and annotation tool"
   homepage "http://www.sanger.ac.uk/science/tools/artemis"
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btr703"
@@ -35,5 +36,7 @@ class Artemis < Formula
     inreplace bin/"dnaplotter", '"$@"', 'uk.ac.sanger.artemis.circular.DNADraw "$@"'
   end
 
-  # No test block because these tools are GUI only
+  test do
+    # No test block because these tools are GUI only
+  end
 end
