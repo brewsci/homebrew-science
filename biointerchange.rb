@@ -1,6 +1,6 @@
 class Biointerchange < Formula
   desc "Scaling and integrating genomics data."
-  homepage "https://www.codamono.com"
+  homepage "https://www.codamono.com/biointerchange/"
   # tag "bioinformatics"
 
   if OS.mac?
