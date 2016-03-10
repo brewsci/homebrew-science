@@ -1,7 +1,8 @@
 class Cdo < Formula
+  desc "Collection of command line Operators to manipulate and analyse Climate and NWP model Data. "
   homepage "https://code.zmaw.de/projects/cdo"
-  url "https://code.zmaw.de/attachments/download/11392/cdo-1.7.0.tar.gz"
-  sha256 "2a9712fe315d4f09e0c9c8f2f31d6035bf78f51946af9a8fba87f21b4033eb15"
+  url "https://code.zmaw.de/attachments/download/12070/cdo-1.7.1.tar.gz"
+  sha256 "5c24a5cb74dcf6e8b5140c67033868a5a0b641341e3adad3cb4035d5ad6e70a6"
 
   bottle do
     cellar :any
