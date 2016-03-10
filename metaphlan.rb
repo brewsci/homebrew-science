@@ -6,7 +6,7 @@ class Metaphlan < Formula
 
   url "https://bitbucket.org/nsegata/metaphlan/get/default.tar.bz2"
   version "1.7.8"
-  sha256 "077fa62a8a365c4b55ed3c3357f576704359f559b07eb1a179b3bd0feb8168da"
+  sha256 "7113e00d2fe3aa1a8dcfce954a0b7ffd6ca9d726f5b3636b9f1d66a9c9254108"
 
   bottle do
     cellar :any_skip_relocation
