@@ -17,7 +17,7 @@ class Scarpa < Formula
 
   def install
     rm Dir["liblpsolve55.*"]
-    inreplace "Makefile", "liblpsolve55.a", "-llpsolve55"
+    inreplace "makefile", "liblpsolve55.a", "-llpsolve55"
     system "make"
     bin.install "bin/scarpa"
     doc.install "SCARPA.README"
