@@ -4,7 +4,7 @@ class Hmmer2 < Formula
   # doi "10.1142/9781848165632_0019", "10.1186/1471-2105-11-431", "10.1371/journal.pcbi.1002195"
   # tag "bioinformatics"
 
-  url "http://selab.janelia.org/software/hmmer/2.3.2/hmmer-2.3.2.tar.gz"
+  url "http://eddylab.org/software/hmmer/2.3.2/hmmer-2.3.2.tar.gz"
   sha256 "d20e1779fcdff34ab4e986ea74a6c4ac5c5f01da2993b14e92c94d2f076828b4"
 
   bottle do
