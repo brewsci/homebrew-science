@@ -17,7 +17,7 @@ class Graphlan < Formula
   end
 
   test do
-    dir = pkgshare/"/examples/simple"
+    dir = pkgshare/"examples/simple"
     xml = "out.xml"
     png = "out.png"
     system "graphlan_annotate", "#{dir}/core_genes.txt", xml, "--annot", "#{dir}/annot.txt"
