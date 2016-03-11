@@ -1,7 +1,8 @@
 class Kmerstream < Formula
+  desc "Streaming algorithms for k-mer abundance estimation"
   homepage "https://github.com/pmelsted/KmerStream"
+  # doi "10.1093/bioinformatics/btu713"
   # tag "bioinformatics"
-  # doi "10.1101/003962"
   url "https://github.com/pmelsted/KmerStream/archive/v1.0.tar.gz"
   sha256 "65372515dc19fb30c89f912c4a8c302ee3b266e931bbb2983e232e1c9ea62efe"
   head "https://github.com/pmelsted/KmerStream.git"
