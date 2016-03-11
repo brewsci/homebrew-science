@@ -1,9 +1,9 @@
 class SnpSites < Formula
   desc "Find SNP sites in a multi FASTA alignment file"
-  homepage "https://github.com/sanger-pathogens/snp_sites"
-  url "https://github.com/sanger-pathogens/snp_sites/archive/2.1.0.tar.gz"
-  sha256 "775b5383365e3a33959b744115dad6eb966d45fe8232f3997a7ecccc748e9d59"
-  head "https://github.com/sanger-pathogens/snp_sites.git"
+  homepage "https://github.com/sanger-pathogens/snp-sites"
+  url "https://github.com/sanger-pathogens/snp-sites/archive/2.2.0.tar.gz"
+  sha256 "6ee85a175871218d40ba25677814b1ec7959bfa16435f497f8167c06bce2a6c6"
+  head "https://github.com/sanger-pathogens/snp-sites.git"
 
   bottle do
     cellar :any
@@ -15,6 +15,8 @@ class SnpSites < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "check" => :build
 
   def install
     system "autoreconf", "-i"
@@ -30,6 +32,6 @@ class SnpSites < Formula
   end
 
   test do
-    system "snp_sites"
+    system "snp-sites"
   end
 end
