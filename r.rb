@@ -12,9 +12,9 @@ class R < Formula
   sha256 "bafd405fe9c2fe3bbe47a8a7730ad120f03b7df9fb0f61674fca19cf061dd350"
 
   bottle do
-    sha256 "7a6ac7211c6013a1ae560345223645d6da7fc336ebda9383bc61f2ebd18f8b1a" => :el_capitan
-    sha256 "c3b6fa268209cccc998aa3efa1eb84877a8f01ba3b6cea5710fd7796db6e8281" => :yosemite
-    sha256 "99ca6e1ae3ff1420eae02d53403ec863fcd2eab002b8d0e17c4cb1d024a2c82a" => :mavericks
+    sha256 "0484b5452091bf6d102e5abdf6f464b8a6892dddc56d9fe048cadc673f9dec76" => :el_capitan
+    sha256 "4b4f4cb062c27940486a3e413524328de2e9e7ae01cb7f94ca8703f09f102ecf" => :yosemite
+    sha256 "222979bfa47125453dc17f7428308a2364ae8901ee1a2ac162dc7e5d036cc310" => :mavericks
   end
 
   head do
