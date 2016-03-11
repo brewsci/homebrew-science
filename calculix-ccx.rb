@@ -1,9 +1,9 @@
 class CalculixCcx < Formula
   desc "Three-Dimensional Finite Element Solver"
   homepage "http://www.calculix.de/"
-  url "http://www.dhondt.de/ccx_2.9.src.tar.bz2"
-  version "2.9"
-  sha256 "755e173cfb712c83cefef22cfa43f06caf495e5dffbecf8df3d47f3cf6e6d44d"
+  url "http://www.dhondt.de/ccx_2.10.src.tar.bz2"
+  version "2.10"
+  sha256 "693497d19d8dd2a5376e64e038d5c248d87f0e2df46d409a83bf976596b319f5"
 
   bottle do
     cellar :any
@@ -17,15 +17,15 @@ class CalculixCcx < Formula
   depends_on "pkg-config" => :build
 
   resource "test" do
-    url "http://www.dhondt.de/ccx_2.9.test.tar.bz2"
-    version "2.9"
-    sha256 "6a2d864c970189c8b350f28826e9d3b624e2b3c1bad9f7f0ed45ccb2343c12e3"
+    url "http://www.dhondt.de/ccx_2.10.test.tar.bz2"
+    version "2.10"
+    sha256 "a5e00abc7f9b2a5a5f1a4f7b414617dc65cd0be9b2a66c93e20b5a25c1392a75"
   end
 
   resource "doc" do
-    url "http://www.dhondt.de/ccx_2.9.htm.tar.bz2"
-    version "2.9"
-    sha256 "2313229b854e2558524d521ff586df05947416f0ee31a6b15edc59334e65178d"
+    url "http://www.dhondt.de/ccx_2.10.htm.tar.bz2"
+    version "2.10"
+    sha256 "28f09511d791016dadb9f9cce382789fc250dfa5a60b105cfc4c9c2008e437c2"
   end
 
   resource "spooles" do
@@ -61,28 +61,28 @@ class CalculixCcx < Formula
       "FFLAGS=-O2 -fopenmp",
       "DIR=../../spooles",
     ]
-    target = Pathname.new("ccx_2.9/src/ccx_2.9")
+    target = Pathname.new("ccx_2.10/src/ccx_2.10")
     system "make", "-C", target.dirname, target.basename, *args
     bin.install target
 
     (buildpath/"test").install resource("test")
-    pkgshare.install Dir["test/ccx_2.9/test/*"]
+    pkgshare.install Dir["test/ccx_2.10/test/*"]
 
     (buildpath/"doc").install resource("doc")
-    doc.install Dir["doc/ccx_2.9/doc/ccx/*"]
+    doc.install Dir["doc/ccx_2.10/doc/ccx/*"]
   end
 
   test do
     cp "#{pkgshare}/spring1.inp", testpath
-    system "ccx_2.9", "spring1"
+    system "ccx_2.10", "spring1"
   end
 end
 
 __END__
-diff --git a/ccx_2.9/src/CalculiX.h b/ccx_2.9/src/CalculiX.h
-index fc1d1a5..7dcc1de 100755
---- a/ccx_2.9/src/CalculiX.h
-+++ b/ccx_2.9/src/CalculiX.h
+diff --git a/ccx_2.10/src/CalculiX.h b/ccx_2.10/src/CalculiX.h
+index ee81ca8..d957130 100644
+--- a/ccx_2.10/src/CalculiX.h
++++ b/ccx_2.10/src/CalculiX.h
 @@ -15,6 +15,7 @@
  /*     along with this program; if not, write to the Free Software       */
  /*     Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.         */
@@ -91,11 +91,11 @@ index fc1d1a5..7dcc1de 100755
  #define Linux 1
  #define IRIX 2
  #define IRIX64 3
-diff --git a/ccx_2.9/src/Makefile b/ccx_2.9/src/Makefile
-index a76759b..4363d45 100755
---- a/ccx_2.9/src/Makefile
-+++ b/ccx_2.9/src/Makefile
-@@ -23,11 +23,12 @@ DIR=../../../SPOOLES.2.2
+diff --git a/ccx_2.10/src/Makefile b/ccx_2.10/src/Makefile
+index 9335028..a587fdd 100755
+--- a/ccx_2.10/src/Makefile
++++ b/ccx_2.10/src/Makefile
+@@ -22,11 +22,12 @@ DIR=../../../SPOOLES.2.2
 
  LIBS = \
         $(DIR)/spooles.a \
@@ -103,19 +103,19 @@ index a76759b..4363d45 100755
 -       -lpthread -lm -lc
 +       $(shell pkg-config --libs arpack)
 
--ccx_2.9: $(OCCXMAIN) ccx_2.9.a  $(LIBS)
--	./date.pl; $(CC) $(CFLAGS) -c ccx_2.9.c; $(FC) -fopenmp -Wall -O3 -o $@ $(OCCXMAIN) ccx_2.9.a $(LIBS)
-+ccx_2.9: $(OCCXMAIN) ccx_2.9.a
+-ccx_2.10: $(OCCXMAIN) ccx_2.10.a  $(LIBS)
+-	./date.pl; $(CC) $(CFLAGS) -c ccx_2.10.c; $(FC) -fopenmp -Wall -O3 -o $@ $(OCCXMAIN) ccx_2.10.a $(LIBS)
++ccx_2.10: $(OCCXMAIN) ccx_2.10.a
 +	./date.pl
-+	$(CC) $(CFLAGS) -c ccx_2.9.c
-+	$(FC) $(FFLAGS) -o $@ $(OCCXMAIN) ccx_2.9.a $(LIBS)
++	$(CC) $(CFLAGS) -c ccx_2.10.c
++	$(FC) $(FFLAGS) -o $@ $(OCCXMAIN) ccx_2.10.a $(LIBS)
 
- ccx_2.9.a: $(OCCXF) $(OCCXC)
+ ccx_2.10.a: $(OCCXF) $(OCCXC)
 	ar vr $@ $?
-diff --git a/ccx_2.9/src/u_free.c b/ccx_2.9/src/u_free.c
+diff --git a/ccx_2.10/src/u_free.c b/ccx_2.10/src/u_free.c
 index acccf3b..da517de 100644
---- a/ccx_2.9/src/u_free.c
-+++ b/ccx_2.9/src/u_free.c
+--- a/ccx_2.10/src/u_free.c
++++ b/ccx_2.10/src/u_free.c
 @@ -41,5 +41,5 @@ void *u_free(void* ptr,const char *file,const int line, const char* ptr_name){
    if(log_realloc==1) {
        printf("FREEING of variable %s, file %s, line=%d: oldaddress= %ld\n",ptr_name,file,line,(long int)ptr);
