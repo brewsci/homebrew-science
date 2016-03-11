@@ -10,9 +10,10 @@ class Metaphlan < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "811b8f8f9678f84f3ca0bd635ee4eaaa959fcaea47fd1333432e19f259b3bd7f" => :el_capitan
-    sha256 "a66d438096573c59c87762428adcbb389f5050f3502448f2b96a675785530deb" => :yosemite
-    sha256 "4cfbdf81498a748abb78769726b9de8140a984a79f41fc4d9cbcdb120d72663b" => :mavericks
+    revision 1
+    sha256 "367be56e6f11c499f71d7909b505ab354a613becef234ecdb742cbafac71dc01" => :el_capitan
+    sha256 "9e94fee8cdfdca6f792c619bde1862dc9be1110b4de23a4b48c050754b244c81" => :yosemite
+    sha256 "61700d72a0a55c28e1471580eb2f12640fdc6b7f6c39454355dc9d0201d793f7" => :mavericks
   end
 
   depends_on :python if MacOS.version <= :snow_leopard
