@@ -7,10 +7,9 @@ end
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "http://www.r-project.org/"
-  url "http://cran.rstudio.com/src/base/R-3/R-3.2.3.tar.gz"
-  mirror "http://cran.r-project.org/src/base/R-3/R-3.2.3.tar.gz"
-  sha256 "b93b7d878138279234160f007cb9b7f81b8a72c012a15566e9ec5395cfd9b6c1"
-  revision 1
+  url "http://cran.rstudio.com/src/base/R-3/R-3.2.4.tar.gz"
+  mirror "http://cran.r-project.org/src/base/R-3/R-3.2.4.tar.gz"
+  sha256 "bafd405fe9c2fe3bbe47a8a7730ad120f03b7df9fb0f61674fca19cf061dd350"
 
   bottle do
     sha256 "7a6ac7211c6013a1ae560345223645d6da7fc336ebda9383bc61f2ebd18f8b1a" => :el_capitan
