@@ -18,7 +18,9 @@ class Flint < Formula
   depends_on "mpfr"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-gmp=#{Formula["gmp"].opt_prefix}",
+                          "--with-mpfr=#{Formula["mpfr"].opt_prefix}"
     system "make"
     system "make", "install"
   end
