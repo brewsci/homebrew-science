@@ -21,6 +21,7 @@ class Littler < Formula
       "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--prefix=#{prefix}"
+    inreplace "Makefile", Formula["r"].prefix, Formula["r"].opt_prefix
     system "make"
 
     bin.install "r" => "littler"
