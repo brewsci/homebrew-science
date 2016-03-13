@@ -1,8 +1,8 @@
 class RGui < Formula
-  homepage "http://cran.r-project.org/bin/macosx/"
   desc "R.app Cocoa GUI for the R Programming Language"
-  url "http://cran.r-project.org/bin/macosx/Mac-GUI-1.66.tar.gz"
-  sha256 "dc90e0ebb44d7ffa04fb804a145a477518e38b2e45ddbd64a2bcbd8a5067cc4a"
+  homepage "http://cran.r-project.org/bin/macosx/"
+  url "http://cran.r-project.org/bin/macosx/Mac-GUI-1.67.tar.gz"
+  sha256 "8a565c0268b0194c69ba1c19b4919e802fc63c420a0eb80fa8943e10f053e898"
 
   head "https://svn.r-project.org/R-packages/trunk/Mac-GUI"
 
