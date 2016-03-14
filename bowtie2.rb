@@ -4,8 +4,8 @@ class Bowtie2 < Formula
   # doi "10.1038/nmeth.1923"
   # tag "bioinformatics"
 
-  url "https://github.com/BenLangmead/bowtie2/archive/v2.2.7.tar.gz"
-  sha256 "54a66a1ce0d1afa75198cc10e9e4e7436cc86cd7d6d93ae41c079462a1c19916"
+  url "https://github.com/BenLangmead/bowtie2/archive/v2.2.8.tar.gz"
+  sha256 "e4795f5779dfdefffcc9c341239c1fb6f7d78e15528c6094d9c580a5c0e87ac1"
 
   head "https://github.com/BenLangmead/bowtie2.git"
 
