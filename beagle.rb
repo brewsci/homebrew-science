@@ -29,11 +29,14 @@ class CudaRequirement < Requirement
 end
 
 class Beagle < Formula
+  desc "Evaluate the likelihood of sequence evolution on trees"
   homepage "https://github.com/beagle-dev/beagle-lib"
   url "https://github.com/beagle-dev/beagle-lib/archive/beagle_release_2_1_2.tar.gz"
   sha256 "82ff13f4e7d7bffab6352e4551dfa13afabf82bff54ea5761d1fc1e78341d7de"
 
   head "https://github.com/beagle-dev/beagle-lib.git"
+  # doi "10.1093/sysbio/syr100"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any
@@ -55,7 +58,7 @@ class Beagle < Formula
 
     args = ["--prefix=#{prefix}"]
     args << "--enable-osx-leopard" if MacOS.version <= :leopard
-    args << "--with-cuda=#{Pathname(which "nvcc").dirname}" if build.with? "cuda"
+    args << "--with-cuda=#{Pathname(which("nvcc")).dirname}" if build.with? "cuda"
     args << "--enable-opencl" if build.with? "opencl"
 
     system "./configure", *args
