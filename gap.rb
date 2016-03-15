@@ -1,9 +1,9 @@
 class Gap < Formula
   desc "A system for computational discrete algebra"
   homepage "http://www.gap-system.org/"
-  url "ftp://ftp.gap-system.org/pub/gap/gap47/tar.bz2/gap4r7p9_2015_11_29-20_35.tar.bz2"
-  version "4.7.9"
-  sha256 "0673b98f2f9246e9e10ef63ea8b3b359026a9219a5912dccde8d24bf6bec373c"
+  url "http://www.gap-system.org/pub/gap/gap48/tar.bz2/gap4r8p2_2016_02_20-18_51.tar.bz2"
+  version "4.8.2"
+  sha256 "8104f6936b6e6f7f8cf399b87da2ba968b5938f309e0ff94dbe6e02f50496ee5"
 
   bottle do
     cellar :any
@@ -31,7 +31,7 @@ class Gap < Formula
 
   resource "script_that_builds_included_packages" do
     url INST_PACKAGES_SCRIPT_URL
-    sha256 "2749cc6736bde594f3dc35bbbb644511efc18c83991d07fbac15f86b7d986505"
+    sha256 "8910cde7f5ab5ab46ea238a7712aa34d035cff3267704b6eadf307389294ecb2"
   end
 
   def install
