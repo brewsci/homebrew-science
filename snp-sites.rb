@@ -4,6 +4,8 @@ class SnpSites < Formula
   url "https://github.com/sanger-pathogens/snp-sites/archive/2.2.0.tar.gz"
   sha256 "6ee85a175871218d40ba25677814b1ec7959bfa16435f497f8167c06bce2a6c6"
   head "https://github.com/sanger-pathogens/snp-sites.git"
+  # doi "10.1101/038190"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any
