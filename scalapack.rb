@@ -37,8 +37,8 @@ class Scalapack < Formula
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "all"
-      system "make", "test" if build.with? "check"
       system "make", "install"
+      system "make", "test" if build.with? "check"
     end
   end
 end
