@@ -1,4 +1,5 @@
 class Beast < Formula
+  desc "Bayesian Evolutionary Analysis Sampling Trees"
   homepage "http://beast.bio.ed.ac.uk/"
   # doi "10.1093/molbev/mss075"
   # tag "bioinformatics"
@@ -31,13 +32,13 @@ class Beast < Formula
     prefix.install Dir[build.head? ? "release/Linux/BEASTv*/*" : "*"]
   end
 
-  test do
-    system "#{bin}/beast", "-help"
-  end
-
   def caveats; <<-EOS.undent
     Examples are installed in:
       #{opt_prefix}/examples/
     EOS
+  end
+
+  test do
+    system "#{bin}/beast", "-help"
   end
 end
