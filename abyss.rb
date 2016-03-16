@@ -1,6 +1,6 @@
 class Abyss < Formula
-  homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss"
   desc "ABySS: genome sequence assembler for short reads"
+  homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss"
   # doi "10.1101/gr.089532.108"
   # tag "bioinformatics"
 
@@ -23,6 +23,7 @@ class Abyss < Formula
     depends_on "multimarkdown" => :build
   end
 
+  option :cxx11
   option "enable-maxk=", "Set the maximum k-mer length to N [default is 96]"
   option "without-check", "Skip build-time tests (not recommended)"
   option "with-openmp", "Enable OpenMP multithreading"
@@ -39,6 +40,7 @@ class Abyss < Formula
   skip_clean "bin"
 
   def install
+    ENV.cxx11 if build.cxx11?
     system "./autogen.sh" if build.head?
 
     args = [
