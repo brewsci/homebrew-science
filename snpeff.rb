@@ -4,10 +4,9 @@ class Snpeff < Formula
   # tag "bioinformatics"
   # doi "10.4161/fly.19695"
 
-  url "https://downloads.sourceforge.net/project/snpeff/snpEff_v4_1l_core.zip"
-  version "4.1l"
-  revision 2
-  sha256 "1d5b2831c631a175b88bac57aefddea6f79588ef2ccbac8505f66e0961e54bf5"
+  url "https://downloads.sourceforge.net/project/snpeff/snpEff_v4_2_core.zip"
+  version "4.2"
+  sha256 "4fc6d9fce23dc50f264b70a72b5f824fad859c1e443c69917057e263b6ad2c04"
 
   bottle do
     cellar :any_skip_relocation
@@ -33,7 +32,7 @@ class Snpeff < Formula
 
   def caveats; <<-EOS.undent
       Download the human database using the command
-          snpEff download -v GRCh38.76
+          snpEff download -v GRCh38.82
       The databases will be installed in #{pkgshare}/data
     EOS
   end
