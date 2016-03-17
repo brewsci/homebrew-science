@@ -1,7 +1,7 @@
 class Opencv3 < Formula
   desc "Open source computer vision library, version 3"
   homepage "http://opencv.org/"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/Itseez/opencv/archive/3.1.0.tar.gz"
@@ -11,6 +11,10 @@ class Opencv3 < Formula
       url "https://github.com/Itseez/opencv_contrib/archive/3.1.0.tar.gz"
       sha256 "ef2084bcd4c3812eb53c21fa81477d800e8ce8075b68d9dedec90fef395156e5"
     end
+    # patch fixing crash after 100s when using capturing device https://github.com/Itseez/opencv/issues/5874
+    # fixed in https://github.com/Itseez/opencv/commit/a2bda999211e8be9fbc5d40038fdfc9399de31fc
+    # this can be removed when a new version is released
+    patch :DATA
   end
 
   head do
@@ -214,3 +218,31 @@ class Opencv3 < Formula
     assert_match version.to_s, shell_output("python -c 'import cv2; print(cv2.__version__)'")
   end
 end
+
+__END__
+
+patch :DATA
+
+diff --git a/modules/videoio/src/cap_qtkit.mm b/modules/videoio/src/cap_qtkit.mm
+index bdbbd2d..ad6037b 100644
+--- a/modules/videoio/src/cap_qtkit.mm
++++ b/modules/videoio/src/cap_qtkit.mm
+@@ -93,6 +93,8 @@ didDropVideoFrameWithSampleBuffer:(QTSampleBuffer *)sampleBuffer
+ - (int)updateImage;
+ - (IplImage*)getOutput;
+
++- (void)doFireTimer:(NSTimer *)timer;
++
+ @end
+
+ /*****************************************************************************
+@@ -622,6 +624,11 @@ didDropVideoFrameWithSampleBuffer:(QTSampleBuffer *)sampleBuffer
+     return 1;
+ }
+
++- (void)doFireTimer:(NSTimer *)timer {
++    (void)timer;
++    // dummy
++}
++
+ @end
