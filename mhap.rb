@@ -4,8 +4,8 @@ class Mhap < Formula
   # doi "10.1038/nbt.3238"
   # tag "bioinformatics"
 
-  url "https://github.com/marbl/MHAP/releases/download/1.6/mhap-1.6.tar.gz"
-  sha256 "890c13b9166895d7ff0c83b1318d07a409d95171c51241b1f81fdc1afbc2aefa"
+  url "https://github.com/marbl/MHAP/releases/download/v2.0/mhap-2.0.tar.gz"
+  sha256 "0c94d0a3a2cbc9151d99a83e813865e5cc443d23dc33ea5622ca876ca46ec6c7"
 
   head "https://github.com/marbl/MHAP.git"
 
@@ -17,7 +17,7 @@ class Mhap < Formula
   end
 
   def install
-    prefix.install "mhap-#{version}.jar", Dir["lib/*"]
+    prefix.install "mhap-#{version}.jar"
     bin.write_jar_script prefix/"mhap-#{version}.jar", "mhap"
   end
 
