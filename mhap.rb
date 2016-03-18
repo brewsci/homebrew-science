@@ -1,10 +1,11 @@
 class Mhap < Formula
+  desc "MinHash Alignment Process"
   homepage "https://github.com/marbl/MHAP"
-  # doi "10.1101/008003"
+  # doi "10.1038/nbt.3238"
   # tag "bioinformatics"
 
-  url "https://github.com/marbl/MHAP/releases/download/v1.5b1/mhap-1.5b1.tar.gz"
-  sha256 "fa3a7fbf370d61deedb1866cf141ddf6b7538b05009be1fd8f2cbd55ff28ca99"
+  url "https://github.com/marbl/MHAP/releases/download/1.6/mhap-1.6.tar.gz"
+  sha256 "890c13b9166895d7ff0c83b1318d07a409d95171c51241b1f81fdc1afbc2aefa"
 
   head "https://github.com/marbl/MHAP.git"
 
