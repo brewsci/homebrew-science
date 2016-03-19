@@ -7,9 +7,9 @@ class CalculixCcx < Formula
 
   bottle do
     cellar :any
-    sha256 "14234c148db24b572e196bb9fc0cd5dfc0ca6b45aa447f4fec8b008ce81870e4" => :el_capitan
-    sha256 "2daea483bcf55bee8893686fadd3b5028aeccaf9708c4f5feeefa4c8d46321b0" => :yosemite
-    sha256 "37463517923beb6a33083c333bff5845ec8901f5cf33220ede9523551e7fef58" => :mavericks
+    sha256 "14f29dd416a4d8ad14d55598b5d53d5bbb74681dec38bd6f1760c781b9a0671b" => :el_capitan
+    sha256 "490e79f5f3ad45f456b58a4959436735cf4225ff5e2c56c54ee5ab932bccced5" => :yosemite
+    sha256 "6ebcb57fd3af53068e3955a17b85fe9016bb6a03393bdb778fa280bbd24bca32" => :mavericks
   end
 
   depends_on :fortran
