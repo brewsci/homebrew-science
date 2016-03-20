@@ -5,6 +5,12 @@ class Plr < Formula
   sha256 "57e2384f7b51328c9e6d92a40039cae7ac3e187ece03a1d33985b751f24bfe18"
   head "https://github.com/jconway/plr.git"
 
+  bottle do
+    sha256 "b6f5282a588ba7135b312956ad2d8b54add69b8acbfbe680afa8273b6a580b7d" => :el_capitan
+    sha256 "aa4371217ab3dedf99f8809c8bfb96f54b50e50861a8dfd74e5af00f86b96a34" => :yosemite
+    sha256 "008223fc252868df8435fc23fe69bbd55a0dc5a90c926fb156a7fc5f38bc300f" => :mavericks
+  end
+
   depends_on "pkg-config" => :build
   depends_on "postgresql"
   depends_on "r"
