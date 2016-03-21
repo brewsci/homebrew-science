@@ -6,9 +6,9 @@ class Pspp < Formula
   sha256 "e7efd2ffa58882e97f719cb403d84683751c913cc2ca133b49b1c5e9bd110331"
 
   bottle do
-    sha256 "de81367499dae0031cbab3a3421dc2817f884a1e7ba92a69aa6707e00ef9d63e" => :yosemite
-    sha256 "78e70c08f4f537fafd7c0f297926bb17776c89acc3b1318125b94e9398090db4" => :mavericks
-    sha256 "a66ac66e4dbf4426ef2ecb849b9f02462db0f0715a5726dae0111adb01303c31" => :mountain_lion
+    sha256 "bc080b73c3eec57444db490c9bed2a78378d282818716de6f9379e5b0744ff14" => :el_capitan
+    sha256 "e3f0e23ec13b11c61b46e88946c99737f9da99a5c59776816edbd076cbb91b19" => :yosemite
+    sha256 "4ea5e8f5ed67e4b8ff74168385be5efe8b1c83fc51d07ac439a3be58bab5a9bf" => :mavericks
   end
 
   option "without-test", "Skip running the PSPP test suite"
