@@ -1,9 +1,9 @@
 class Pspp < Formula
+  desc "Statistical analysis of sampled data (FOSS SPSS clone)"
   homepage "https://www.gnu.org/software/pspp/"
-  url "https://ftpmirror.gnu.org/pspp/pspp-0.8.4.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/pspp/pspp-0.8.4.tar.gz"
-  sha256 "bfcc3b0e98a5e2d44b4f3383e52c1a26b7eacf5bf419786f49fa16d00bc1c52c"
-  revision 1
+  url "http://ftpmirror.gnu.org/pspp/pspp-0.8.5.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/pspp/pspp-0.8.5.tar.gz"
+  sha256 "e7efd2ffa58882e97f719cb403d84683751c913cc2ca133b49b1c5e9bd110331"
 
   bottle do
     sha256 "de81367499dae0031cbab3a3421dc2817f884a1e7ba92a69aa6707e00ef9d63e" => :yosemite
@@ -11,10 +11,13 @@ class Pspp < Formula
     sha256 "a66ac66e4dbf4426ef2ecb849b9f02462db0f0715a5726dae0111adb01303c31" => :mountain_lion
   end
 
-  option "without-check", "Skip running the PSPP test suite"
-  option "without-gui", "Build without gui support"
+  option "without-test", "Skip running the PSPP test suite"
+  option "without-gui", "Build without GUI support"
+
+  deprecated_option "without-check" => "without-test"
 
   depends_on "pkg-config" => :build
+  depends_on "texinfo" => :build
 
   depends_on "gsl"
   depends_on "glib"
@@ -33,16 +36,15 @@ class Pspp < Formula
     depends_on "fontconfig"
   end
 
-  patch :DATA
-
   def install
     args = ["--disable-rpath"]
     args << "--without-libpq" if build.without? "postgresql"
     args << "--without-gui" if build.without? "gui"
+    args << "--without-perl-module" # not built by default but tests run for it
 
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
-    system "make", "check" if build.with? "check"
+    system "make", "check" if build.with? "test"
     system "make", "install"
   end
 
@@ -50,31 +52,3 @@ class Pspp < Formula
     system "#{bin}/pspp", "--version"
   end
 end
-
-__END__
-diff --git a/tests/language/stats/frequencies.at b/tests/language/stats/frequencies.at
-index d321e57..90d54f5 100644
---- a/tests/language/stats/frequencies.at
-+++ b/tests/language/stats/frequencies.at
-@@ -180,7 +180,7 @@ frequencies /x
- ])
- # Cannot use the CSV driver for this because it does not output charts
- # at all.
--AT_CHECK([pspp -O format=pdf frequencies.sps], [0], [ignore])
-+AT_CHECK([pspp -O format=pdf frequencies.sps], [0], [ignore], [ignore])
- AT_CLEANUP
- 
- # Tests for a bug which crashed PSPP when the median and a histogram
-diff --git a/tests/language/data-io/get-data-psql.at b/tests/language/data-io/get-data-psql.at
-index 692de09..ea9b222 100644
---- a/tests/language/data-io/get-data-psql.at
-+++ b/tests/language/data-io/get-data-psql.at
-@@ -12,7 +12,7 @@ m4_define([INIT_PSQL],
-    PGHOST="$socket_dir"
-    export PGHOST
-    AT_CHECK([initdb -A trust], [0], [ignore])
--   AT_CHECK([pg_ctl start -w -o "-k $socket_dir -h ''"], [0], [ignore])
-+   AT_CHECK([pg_ctl start -w -o "-k $socket_dir -h 'example.com'"], [0], [ignore])
-    trap 'CLEANUP_PSQL' 0
-    AT_CHECK([createdb -h "$socket_dir" -p $PG_PORT $PG_DBASE],
-       [0], [ignore], [ignore])
