@@ -1,7 +1,8 @@
 class Vips < Formula
+  desc "Image processing library"
   homepage "http://www.vips.ecs.soton.ac.uk/"
-  url "http://www.vips.ecs.soton.ac.uk/supported/8.2/vips-8.2.2.tar.gz"
-  sha256 "0f688a34e99714ff0901cba8cdf93ec9878447e33dea122f4b226416550a6389"
+  url "http://www.vips.ecs.soton.ac.uk/supported/8.2/vips-8.2.3.tar.gz"
+  sha256 "4bc986d496a0fe5e50e3c78e86b8f8dc445590a13b155be0f4b1d9432a51bfa2"
 
   bottle do
     sha256 "27f3767c5faec611d09350fd94ab645dbd08e5023b2fa99cf6452eb207271392" => :el_capitan
@@ -9,7 +10,8 @@ class Vips < Formula
     sha256 "b61fa5e4217cd376ae064d6c73b9255aa607ab180d43c74309c2f53b2a69d8d6" => :mavericks
   end
 
-  option "without-check", "Disable build time checks (not recommended)"
+  option "without-test", "Disable build time checks (not recommended)"
+  deprecated_option "without-check" => "without-test"
 
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
