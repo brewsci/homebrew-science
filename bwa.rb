@@ -10,12 +10,10 @@ class Bwa < Formula
   head "https://github.com/lh3/bwa.git"
 
   bottle do
-    cellar :any
-    revision 1
-    sha256 "787af05be50a58ac1e3a39bdde57f939f76628b34651898ba8cbac19005149ca" => :yosemite
-    sha256 "af7d34365a5d3a13cedc74f5d26e5640a3638717c8bfc20395bb24de1108aa7f" => :mavericks
-    sha256 "4195e81b4ab9758f1e9c4b05c06c504ea8ec240d8ce18436727236f1957a6907" => :mountain_lion
-    sha256 "f60955dd3c1980ab4cb3ba65c8db24dba461306389357a5e18c3be74067d0f71" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "4d285efa2136c1345ff08dc8b2dbc83e8703fe8f3ee7b163d2b10744012ab9cf" => :el_capitan
+    sha256 "97358a24e7bdc93005ecff8a54145553592ddded04f354ed2451b1d82e59122f" => :yosemite
+    sha256 "ce2ae47bdf1d5995bb6365e4caed2a8b98b5ffa816b7aeff232ed58b86a25fc8" => :mavericks
   end
 
   def install
