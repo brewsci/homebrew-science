@@ -7,8 +7,8 @@ end
 class Getdp < Formula
   desc "Open source finite element solver using mixed elements."
   homepage "http://www.geuz.org/getdp/"
-  url "http://www.geuz.org/getdp/src/getdp-2.7.0-source.tgz"
-  sha256 "122830b700e4535be3ccba025bad5c7702324639a937b5e79fee6a1e92bd34b2"
+  url "http://www.geuz.org/getdp/src/getdp-2.8.0-source.tgz"
+  sha256 "7941809d01b3b045f70382b719dc1bcfeea9d794ac075771a1e82be0960748dd"
   head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
 
   bottle do
@@ -17,7 +17,8 @@ class Getdp < Formula
     sha256 "add45ad67c6dfb619c140f01ce7f856d9645102840f86f345ecd63e149c277c4" => :mavericks
   end
 
-  option "without-check", "skip build-time tests (not recommended)"
+  option "without-test", "skip build-time tests (not recommended)"
+  deprecated_option "without-check" => "without-test"
 
   depends_on :fortran
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
