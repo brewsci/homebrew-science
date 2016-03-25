@@ -5,10 +5,10 @@ class GmshSvnStrategy < SubversionDownloadStrategy
 end
 
 class Gmsh < Formula
-  desc "3D finite element grid generator with a build-in CAD engine and post-processor"
+  desc "3D finite element grid generator with CAD engine"
   homepage "http://geuz.org/gmsh"
-  url "http://geuz.org/gmsh/src/gmsh-2.11.0-source.tgz"
-  sha256 "2b6d810cc3817ac2c7f5fdd09b9f4b1ed7b93365f6e6574052c73db957a497c6"
+  url "http://geuz.org/gmsh/src/gmsh-2.12.0-source.tgz"
+  sha256 "7fbd2ec8071e79725266e72744d21e902d4fe6fa9e7c52340ad5f4be5c159d09"
 
   head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
 
@@ -44,7 +44,7 @@ class Gmsh < Formula
     args = std_cmake_args + ["-DENABLE_OS_SPECIFIC_INSTALL=0",
                              "-DGMSH_BIN=#{bin}",
                              "-DGMSH_LIB=#{lib}",
-                             "-DGMSH_DOC=#{share}/gmsh",
+                             "-DGMSH_DOC=#{pkgshare}/gmsh",
                              "-DGMSH_MAN=#{man}"]
 
     if build.with? "oce"
