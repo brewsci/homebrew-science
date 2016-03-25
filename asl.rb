@@ -1,8 +1,8 @@
 class Asl < Formula
   desc "The AMPL modeling language solver library"
   homepage "http://www.ampl.com"
-  url "https://github.com/ampl/mp/archive/2.0.3.tar.gz"
-  sha256 "4ae38da883cfdf077d57c488b03756d9068b1d5b8552db983f6690246edc71a8"
+  url "https://github.com/ampl/mp/archive/2.1.0.tar.gz"
+  sha256 "57d17db3e70e4a643c1b2141766a000b36057c2eeebd51964f30e2f8a56ee4d6"
 
   bottle do
     sha256 "a62f6f85ed76a2150d887b99c4090b748919becfa4f8a1fbf5f74a20baaba6ae" => :yosemite
@@ -15,12 +15,6 @@ class Asl < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :optional
-
-  # https://github.com/ampl/mp/pull/60
-  patch :p1 do
-    url "https://gist.githubusercontent.com/dpo/dde4bf8030209fcf0569/raw/ed93e2653b51b5da754aabc89e08704421860009/a.diff"
-    sha256 "7a6eb262d48e9c9e869ae72e8dbc64adf2ed819f5b3f6e298cd5fae3784d0e8d"
-  end
 
   resource "miniampl" do
     url "https://github.com/dpo/miniampl/archive/v1.0.tar.gz"
