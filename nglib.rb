@@ -4,6 +4,13 @@ class Nglib < Formula
   url "https://downloads.sourceforge.net/project/netgen-mesher/netgen-mesher/5.3/netgen-5.3.1.tar.gz"
   sha256 "cb97f79d8f4d55c00506ab334867285cde10873c8a8dc783522b47d2bc128bf9"
 
+  bottle do
+    cellar :any
+    sha256 "fe54bd5f08cb2ad3f48a686d82fdea739fe751011eeffd5605c2d6acb4b1cf45" => :el_capitan
+    sha256 "197bc93b51a6281fd6f2c71e39d2342c64b73234e2201e2e0a12200bcf657140" => :yosemite
+    sha256 "57f3823e470984861eb3778687afcf947a54eaf597db9788d4791747ea1d9379" => :mavericks
+  end
+
   # These two conflict with each other, so we'll have at most one.
   depends_on "opencascade" => :optional
   depends_on "oce" => :optional
