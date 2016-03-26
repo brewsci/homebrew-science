@@ -1,7 +1,8 @@
 class Mbsystem < Formula
+  desc "MB-System seafloor mapping software"
   homepage "http://www.mbari.org/data/mbsystem/mb-cookbook/index.html"
-  url "ftp://ftp.ldeo.columbia.edu/pub/mbsystem/mbsystem-5.5.2252.tar.gz"
-  sha256 "ad27595c93562e34ff4d973259e0379edcfbf74bc5ef5a5103a2f75d96809f7d"
+  url "ftp://ftp.ldeo.columbia.edu/pub/mbsystem/mbsystem-5.5.2270.tar.gz"
+  sha256 "42ccd82b81d7d67d32cdc25adcd5e0135e544d6b510e7bbad0b1e892edc78039"
 
   bottle do
     sha256 "a7b29a93c1f6fdcf03aa220fbbfb4ae2371718dc4744553ef5584be4289d16a6" => :yosemite
@@ -9,6 +10,8 @@ class Mbsystem < Formula
     sha256 "5c47f7b604b7bb91cc37ef61f05f1526a878214d2962e41ad0a51cd39f9e9403" => :mountain_lion
   end
 
+  option "without-levitus", "Don't install Levitus database (no mblevitus)"
+  option "without-test", "Disable build time checks (not recommended)"
   depends_on :x11
   depends_on "gmt"
   depends_on "netcdf"
@@ -16,9 +19,6 @@ class Mbsystem < Formula
   depends_on "fftw"
   depends_on "homebrew/x11/gv"
   depends_on "homebrew/x11/openmotif"
-
-  option "without-levitus", "Don't install Levitus database (no mblevitus)"
-  option "without-check", "Disable build time checks (not recommended)"
 
   resource "levitus" do
     url "ftp://ftp.ldeo.columbia.edu/pub/MB-System/annual.gz"
@@ -28,8 +28,8 @@ class Mbsystem < Formula
   def install
     if build.with? "levitus"
       resource("levitus").stage do
-        mkdir_p "#{share}/mbsystem"
-        ln_s "annual", "#{share}/mbsystem/LevitusAnnual82.dat"
+        mkdir_p "#{pkgshare}/mbsystem"
+        ln_s "annual", "#{pkgshare}/mbsystem/LevitusAnnual82.dat"
       end
     end
 
