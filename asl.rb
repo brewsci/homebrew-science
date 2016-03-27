@@ -6,9 +6,10 @@ class Asl < Formula
   revision 1
 
   bottle do
-    sha256 "891e25345513c6bfc26a998c8fc078b17a6ec97d73f5a40a48a849ce5027140b" => :el_capitan
-    sha256 "7f7a37860ec8e8d26f38e484f28645892d4f61bf8560efdfd210a01368f7d3e5" => :yosemite
-    sha256 "ecab9c2a626e3d1674466ba0e4f23ee77cd72fc725976991af0413ac8c016684" => :mavericks
+    cellar :any
+    sha256 "4e643066006b30247875f22cc7e641f8620106d410e6bdfa3af723a5b6fae14e" => :el_capitan
+    sha256 "f153b0c487c7936f551bbc41578813b0bc58aef6d25d232da27125429339b77b" => :yosemite
+    sha256 "86268b10c60ee52ce092f0349f6f3b59806254581c8e8142c46c42ad2ed36de8" => :mavericks
   end
 
   option "with-matlab", "Build MEX files for use with Matlab"
