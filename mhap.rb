@@ -10,10 +10,10 @@ class Mhap < Formula
   head "https://github.com/marbl/MHAP.git"
 
   bottle do
-    cellar :any
-    sha256 "04759dd37c8096f22e57b8ce8022292efe112013e9d59c51269469e641945161" => :yosemite
-    sha256 "69455089478902596629aa009ac76f98e7779fc29dbf7b069ca2f6060092ae47" => :mavericks
-    sha256 "adbf98a0bf965072416d2c0aaeaec677b921f9455904c62589536ed2d22c83b5" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "97058154bb3f888ff70eaba8afe64e0203a8392c5e4258a99f7594cb8b406eca" => :el_capitan
+    sha256 "503271d1150b1958eb4db52a966ecb1ac22f6fbcf3969fc8e7bac8b66fe9cfb7" => :yosemite
+    sha256 "a3d94e79ebacf136241f972d916938d742b7c605c76b5ea9c255adb998d8d651" => :mavericks
   end
 
   def install
