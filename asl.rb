@@ -3,6 +3,7 @@ class Asl < Formula
   homepage "http://www.ampl.com"
   url "https://github.com/ampl/mp/archive/2.1.0.tar.gz"
   sha256 "57d17db3e70e4a643c1b2141766a000b36057c2eeebd51964f30e2f8a56ee4d6"
+  revision 1
 
   bottle do
     sha256 "891e25345513c6bfc26a998c8fc078b17a6ec97d73f5a40a48a849ce5027140b" => :el_capitan
@@ -12,6 +13,7 @@ class Asl < Formula
 
   option "with-matlab", "Build MEX files for use with Matlab"
   option "with-mex-path=", "Path to MEX executable, e.g., /path/to/MATLAB.app/bin/mex (default: mex)"
+  option "without-test", "Skip build-time tests (not recommended)"
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :optional
@@ -22,26 +24,21 @@ class Asl < Formula
   end
 
   def install
-    cmake_args = ["-DCMAKE_INSTALL_PREFIX=#{libexec}", "-DCMAKE_BUILD_TYPE=None",
+    cmake_args = ["-DCMAKE_INSTALL_PREFIX=#{prefix}", "-DCMAKE_BUILD_TYPE=None",
                   "-DCMAKE_FIND_FRAMEWORK=LAST", "-DCMAKE_VERBOSE_MAKEFILE=ON", "-Wno-dev",
                   "-DBUILD_SHARED_LIBS=True"]
     cmake_args << ("-DMATLAB_MEX=" + (ARGV.value("with-mex-path") || "mex")) if build.with? "matlab"
 
     system "cmake", ".", *cmake_args
     system "make", "all"
-    system "make", "test"
+    system "make", "test" if build.with? "test"
     system "make", "install"
-
-    lib.mkdir
-    ln_sf Dir["#{libexec}/lib/*.a"], lib
-    ln_sf Dir["#{libexec}/lib/*.dylib"], lib
-
-    include.mkdir
-    ln_sf Dir["#{libexec}/include/*"], include
+    mkdir libexec
+    mv bin, libexec/"bin"
 
     if build.with? "matlab"
       mkdir_p (pkgshare/"matlab")
-      ln_sf Dir["#{libexec}/bin/*.mexmaci64"], (pkgshare/"matlab")
+      mv Dir["#{libexec}/bin/*.mexmaci64"], (pkgshare/"matlab")
     end
 
     resource("miniampl").stage do
