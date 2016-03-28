@@ -1,9 +1,10 @@
 class PicardTools < Formula
+  desc "Tools for manipulating HTS data and formats"
   homepage "https://broadinstitute.github.io/picard/"
   # tag "bioinformatics"
 
-  url "https://github.com/broadinstitute/picard/releases/download/2.1.0/picard-tools-2.1.0.zip"
-  sha256 "637464a5cb234d85cfc770a7ba65b4e358e0cc08786019b67567923bc3c574db"
+  url "https://github.com/broadinstitute/picard/releases/download/2.1.1/picard-tools-2.1.1.zip"
+  sha256 "8862a27aaedf6a4d2405efaf005d3d0a760eff4046c569275c163a9d3011a576"
 
   bottle do
     cellar :any_skip_relocation
