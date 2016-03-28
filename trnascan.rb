@@ -1,6 +1,12 @@
 class Trnascan < Formula
   desc "tRNA detection in large-scale genome sequence"
   homepage "http://eddylab.org/software.html"
+  bottle do
+    sha256 "e303b3f3feb2f76b0bb5d9f432b7c154c6263b5f8e93fc8bdbba68e7c6cf7fb6" => :el_capitan
+    sha256 "dd6e041701336e91373497ad75d0b078fdc5a5875374b4b6c9646c9150bc863c" => :yosemite
+    sha256 "2a88b16a0eb5d75885a7c687bb20dd157792c068484ac5a6c8e54c115754a072" => :mavericks
+  end
+
   # doi "10.1093/nar/25.5.0955"
   # tag "bioinformatics"
 
