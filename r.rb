@@ -12,6 +12,10 @@ class R < Formula
   sha256 "d484844d519951b68e4462dd902cba1d25a27d89a7d8bcfb4652635f1c1ab43f"
   revision 1
 
+  # Do not remove executable permission from these scripts.
+  # See https://github.com/Linuxbrew/linuxbrew/issues/614
+  skip_clean "lib/R/bin" unless OS.mac?
+
   bottle do
     sha256 "2b60715e80ce6a9208741391d0ea8c35382a8e468d0a5d1656120d0be9651ad8" => :el_capitan
     sha256 "904456a3c2c93d200bca10ee387920a9e626a89a13586ebd2e066c19cc911993" => :yosemite
