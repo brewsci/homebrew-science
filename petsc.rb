@@ -1,10 +1,10 @@
 class Petsc < Formula
-  desc "Scalable (parallel) solution of scientific applications modeled by partial differential equations"
+  desc "Scalable solution of models that use partial differential equations"
   homepage "http://www.mcs.anl.gov/petsc/index.html"
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.6.3.tar.gz"
   sha256 "2458956c876496f3c8160591324459be7c11f2e1ce09ad98347394c67a46d858"
+  revision 4
   head "https://bitbucket.org/petsc/petsc", :using => :git
-  revision 3
 
   bottle do
     sha256 "2f00d5c898acd34e98b8b359a1aa797a98666ae040994413f5425c244727f401" => :el_capitan
@@ -12,11 +12,12 @@ class Petsc < Formula
     sha256 "461d7e0e38818002777c9b505edcdda21de06e81db14d6bd4eca99b6e764395d" => :mavericks
   end
 
-  option "without-check", "Skip build-time tests (not recommended)"
+  option "without-test", "Skip build-time tests (not recommended)"
   option "with-complex", "Link complex version of PETSc by default."
   option "with-debug", "Build debug version"
   option "with-ml", "Download and build ML (will not symlink if Trilinos is installed)"
 
+  deprecated_option "without-check" => "without-test"
   deprecated_option "complex" => "with-complex"
   deprecated_option "debug"   => "with-debug"
 
@@ -54,7 +55,7 @@ class Petsc < Formula
     arch_real="real"
     arch_complex="complex"
 
-    # Environment variables CC, CXX, etc. will be ignored by PETSc.
+    # Environment variables CC, CXX, etc. will be ignored by PETSc
     ENV.delete "CC"
     ENV.delete "CXX"
     ENV.delete "F77"
@@ -70,7 +71,7 @@ class Petsc < Formula
            ]
     args << ("--with-debugging=" + ((build.with? "debug") ? "1" : "0"))
 
-    # We don't dowload anything, don't need to build against openssl
+    # We don't download anything, so no need to build against openssl
     args << "--with-ssl=0"
 
     if build.with? "superlu_dist"
@@ -95,7 +96,7 @@ class Petsc < Formula
     args << "--with-mumps-dir=#{oprefix("mumps")}/libexec" if build.with? "mumps"
     args << "--with-x=0" if build.without? "x11"
 
-    # if build with openblas, need to provide lapack as well.
+    # If building with openblas, need to provide lapack as well
     if build.with? "openblas"
       exten = (OS.mac?) ? "dylib" : "so"
       args << ("--with-blas-lib=#{Formula["openblas"].opt_lib}/libopenblas.#{exten}")
@@ -141,17 +142,17 @@ class Petsc < Formula
     end
     system "make", "install"
 
-    # Link only what we want.
+    # Link only what we want
     petsc_arch = ((build.with? "complex") ? arch_complex : arch_real)
 
     include.install_symlink Dir["#{prefix}/#{petsc_arch}/include/*h"],
                                 "#{prefix}/#{petsc_arch}/include/finclude",
                                 "#{prefix}/#{petsc_arch}/include/petsc-private"
-    # symlink only files (don't symlink pkgconfig as it won't symlink to opt/lib)
+    # Symlink only files (don't symlink pkgconfig as it won't symlink to opt/lib)
     lib.install_symlink Dir["#{prefix}/#{petsc_arch}/lib/*.*"]
     pkgshare.install_symlink Dir["#{prefix}/#{petsc_arch}/share/*"]
 
-    # change install name to ABI in opt
+    # Change install name to ABI in opt
     system "install_name_tool", "-id", "#{opt_prefix}/lib/libpetsc.3.6.dylib", "#{prefix}/#{petsc_arch}/lib/libpetsc.3.6.3.dylib" if OS.mac?
   end
 
