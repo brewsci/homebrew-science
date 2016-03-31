@@ -1,10 +1,10 @@
 class CeresSolver < Formula
-  desc "C++ library for modeling and solving large, complicated optimization problems."
+  desc "C++ library for large-scale optimization"
   homepage "http://ceres-solver.org/"
   url "http://ceres-solver.org/ceres-solver-1.11.0.tar.gz"
   sha256 "4d666cc33296b4c5cd77bad18ffc487b3223d4bbb7d1dfb342ed9a87dc9af844"
+  revision 2
   head "https://ceres-solver.googlesource.com/ceres-solver.git"
-  revision 1
 
   bottle do
     cellar :any
@@ -13,9 +13,10 @@ class CeresSolver < Formula
     sha256 "8da9db5929b1d0883f249f6fcfaddf42cb858296cb0777203c9928d5dfacdfef" => :mavericks
   end
 
-  option "without-tests", "Do not build and run the tests (not recommended)."
+  option "without-test", "Do not build and run the tests (not recommended)."
+  deprecated_option "without-tests" => "without-test"
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => :run
   depends_on "glog"
   depends_on "gflags"
   depends_on "eigen"
@@ -31,7 +32,26 @@ class CeresSolver < Formula
     cmake_args << "-DEIGEN_INCLUDE_DIR=#{Formula["eigen"].opt_include}/eigen3"
     system "cmake", ".", *cmake_args
     system "make"
-    system "make test" if build.with? "tests"
+    system "make", "test" if build.with? "test"
     system "make", "install"
+    pkgshare.install "examples"
+    pkgshare.install "data"
+    doc.install "docs/html"
+  end
+
+  test do
+    cp pkgshare/"examples/helloworld.cc", testpath
+    (testpath/"CMakeLists.txt").write <<-EOS.undent
+      cmake_minimum_required(VERSION 2.8)
+      project(helloworld)
+      find_package(Ceres REQUIRED)
+      include_directories(${CERES_INCLUDE_DIRS})
+      add_executable(helloworld helloworld.cc)
+      target_link_libraries(helloworld ${CERES_LIBRARIES})
+    EOS
+
+    system "cmake", "-DCeres_DIR=#{share}/Ceres", "."
+    system "make"
+    assert_match "CONVERGENCE", shell_output("./helloworld", 0)
   end
 end
