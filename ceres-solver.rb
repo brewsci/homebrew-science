@@ -8,9 +8,9 @@ class CeresSolver < Formula
 
   bottle do
     cellar :any
-    sha256 "6f304a4431d100b7f0431ac6ac9716ab73975f761cc910c5373e4d6dfa79ad36" => :el_capitan
-    sha256 "9af505a2bc76ba2a3ba8528edc3261c13a3e16b98c2f6b9aaf93884f98004eda" => :yosemite
-    sha256 "8da9db5929b1d0883f249f6fcfaddf42cb858296cb0777203c9928d5dfacdfef" => :mavericks
+    sha256 "4fe9ddd81522798852b916d25c24c0f066f52d21f20090057fb15b26ae6c6ca0" => :el_capitan
+    sha256 "26c3ad20a2cadd0b133e8bb5709a5ffc3fc50d2386806d2e9d7ccc562e215ba1" => :yosemite
+    sha256 "b0221e81a11ff93976ba27ad6373c5d8aab8f9ca991f540eb1a0dde90ebf24c4" => :mavericks
   end
 
   option "without-test", "Do not build and run the tests (not recommended)."
