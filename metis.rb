@@ -1,4 +1,5 @@
 class Metis < Formula
+  desc "Serial programs that partition graphs and order matrices"
   homepage "http://glaros.dtc.umn.edu/gkhome/views/metis"
   url "http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.1.0.tar.gz"
   sha256 "76faebe03f6c963127dbb73c13eab58c9a3faeae48779f049066a21c087c5db2"
@@ -16,6 +17,13 @@ class Metis < Formula
 
   def install
     ENV.universal_binary if build.universal?
+
+    # Make clang 7.3 happy. Check if still needed when Xcode > 7.3 is released.
+    # Prevents "ld: section __DATA/__thread_bss extends beyond end of file"
+    # See upstream LLVM issue https://llvm.org/bugs/show_bug.cgi?id=27059
+    # Issue and patch reported to karypis@cs.umn.edu (31st Mar 2016)
+    inreplace "GKlib/error.c", "#define MAX_JBUFS 128", "#define MAX_JBUFS 24"
+
     make_args = ["shared=1", "prefix=#{prefix}"]
     make_args << "openmp=" + ((ENV.compiler == :clang) ? "0" : "1")
     system "make", "config", *make_args
@@ -27,11 +35,13 @@ class Metis < Formula
 
   test do
     ["4elt", "copter2", "mdual"].each do |g|
-      system "#{bin}/graphchk", "#{share}/metis/graphs/#{g}.graph"
-      system "#{bin}/gpmetis", "#{share}/metis/graphs/#{g}.graph", "2"
-      system "#{bin}/ndmetis", "#{share}/metis/graphs/#{g}.graph"
+      cp pkgshare/"graphs/#{g}.graph", testpath
+      system "#{bin}/graphchk", "#{g}.graph"
+      system "#{bin}/gpmetis", "#{g}.graph", "2"
+      system "#{bin}/ndmetis", "#{g}.graph"
     end
-    system "#{bin}/gpmetis", "#{share}/metis/graphs/test.mgraph", "2"
-    system "#{bin}/mpmetis", "#{share}/metis/graphs/metis.mesh", "2"
+    cp [pkgshare/"graphs/test.mgraph", pkgshare/"graphs/metis.mesh"], testpath
+    system "#{bin}/gpmetis", "test.mgraph", "2"
+    system "#{bin}/mpmetis", "metis.mesh", "2"
   end
 end
