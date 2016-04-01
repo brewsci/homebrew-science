@@ -6,9 +6,10 @@ class Ipopt < Formula
   head "https://projects.coin-or.org/svn/Ipopt/trunk", :using => :svn
 
   bottle do
-    sha256 "129d9e418612d9771f509d1c3c7c349fc23e6ca9955ee2af6a38456660a4690d" => :yosemite
-    sha256 "afa33eb1ac04988d72eb0a01874df8aaf4c0b394efee678457b672bab69910c1" => :mavericks
-    sha256 "f705d7a6a0f743a1618baa28754d4edd44bba3ddd76d675f8f3118745157cdc9" => :mountain_lion
+    cellar :any
+    sha256 "a3003d876c82faf1284bb090f906ea60f278884298de304bc40a9adb44744d6c" => :el_capitan
+    sha256 "298df60fe14c17f46a3c9c6cdd8be05e579ae0d734f40c1b31525724d89c8bad" => :yosemite
+    sha256 "238fcb1f9c7b9a29e9777778b82b8d7aa6332be53335e5d4a8597adf220d7d5f" => :mavericks
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
