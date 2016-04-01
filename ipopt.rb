@@ -1,9 +1,9 @@
 class Ipopt < Formula
+  desc "Large-scale nonlinear optimization package"
   homepage "https://projects.coin-or.org/Ipopt"
-  url "http://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.1.tgz"
-  sha256 "d6c18f7c5bf486712b493167d27ec6e940ad376c5b903b97acc5a3ade1c0a3ef"
+  url "http://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.4.tgz"
+  sha256 "292afd952c25ec9fe6225041683dcbd3cb76e15a128764671927dbaf881c2e89"
   head "https://projects.coin-or.org/svn/Ipopt/trunk", :using => :svn
-  revision 3
 
   bottle do
     sha256 "129d9e418612d9771f509d1c3c7c349fc23e6ca9955ee2af6a38456660a4690d" => :yosemite
@@ -11,7 +11,8 @@ class Ipopt < Formula
     sha256 "f705d7a6a0f743a1618baa28754d4edd44bba3ddd76d675f8f3118745157cdc9" => :mountain_lion
   end
 
-  option "without-check", "Skip build-time tests (not recommended)"
+  option "without-test", "Skip build-time tests (not recommended)"
+  deprecated_option "without-check" => "without-test"
 
   depends_on "asl" => :recommended
   depends_on "openblas" => :optional
@@ -53,7 +54,7 @@ class Ipopt < Formula
     system "./configure", *args
     system "make"
     ENV.deparallelize # Needs a serialized install
-    system "make", "test" if build.with? "check"
+    system "make", "test" if build.with? "test"
     system "make", "install"
   end
 
