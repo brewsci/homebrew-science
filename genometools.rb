@@ -3,8 +3,8 @@ class Genometools < Formula
   homepage "http://genometools.org/"
   # doi "10.1109/TCBB.2013.68"
   # tag "bioinformatics"
-  url "http://genometools.org/pub/genometools-1.5.6.tar.gz"
-  sha256 "f0dce0ba75fe7c74c278651c52ec716485bb2dd1cbb197ec38e13f239aace61c"
+  url "http://genometools.org/pub/genometools-1.5.8.tar.gz"
+  sha256 "c1864ce7df3bac9699a50a46b005995f96ddd287f9469d8448815aba900706eb"
   head "https://github.com/genometools/genometools.git"
 
   bottle do
