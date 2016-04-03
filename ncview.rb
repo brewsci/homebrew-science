@@ -6,9 +6,9 @@ class Ncview < Formula
   sha256 "a14c2dddac0fc78dad9e4e7e35e2119562589738f4ded55ff6e0eca04d682c82"
 
   bottle do
-    sha256 "ccda1abb486e34f024c7efeb98e13523f0687c207c04bb76203e859ac57a9014" => :el_capitan
-    sha256 "a118ed4638dc2ca0ddab8391d16354335ba95f1f9bbbcbfca545552895d65ca6" => :yosemite
-    sha256 "20642b877a84345f987ecd0cc62921e43ed2475f09db2d5c9cb604ca0399f1e3" => :mavericks
+    sha256 "8b3584cf81b5af815ac5b356c3ae1c8f46b7bffbfa0a4fb3507cb82249194bd3" => :el_capitan
+    sha256 "acf3fa15854393999dd3b00a2253d1940957c32fff842cc619cefb172e844311" => :yosemite
+    sha256 "2ad7d9a022a639febceb28b23476b7b1cec993f22987e425e178b0e450de19e5" => :mavericks
   end
 
   depends_on :x11
