@@ -1,10 +1,10 @@
 class Seqtk < Formula
+  desc "Toolkit for processing sequences in FASTA/Q formats"
   homepage "https://github.com/lh3/seqtk"
   # tag "bioinformatics"
 
-  url "https://github.com/lh3/seqtk/archive/5e1e8dbd506ea1ff8c77d468a1f27b8e8f73eac0.tar.gz"
-  version "82"
-  sha256 "dd4b54a3ba57279659153204aa59aa1d5efe4d307549ac7b8e93b67eb9d3248f"
+  url "https://github.com/lh3/seqtk/archive/v1.1.tar.gz"
+  sha256 "f01b9f9af6e443673a0105a7536a01957a4fc371826385a1f3dd1e417aa91d52"
 
   head "https://github.com/lh3/seqtk.git"
 
