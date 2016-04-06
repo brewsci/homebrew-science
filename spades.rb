@@ -3,8 +3,8 @@ class Spades < Formula
   homepage "http://bioinf.spbau.ru/spades/"
   # tag "bioinformatics"
   # doi "10.1089/cmb.2012.0021"
-  url "http://spades.bioinf.spbau.ru/release3.7.0/SPAdes-3.7.0.tar.gz"
-  sha256 "4d9b114150c4d37084967a5a3264d36a480394996197949fb72402f2d65b42a3"
+  url "http://spades.bioinf.spbau.ru/release3.7.1/SPAdes-3.7.1.tar.gz"
+  sha256 "e904f57b08c5790c64406763b29650ffba872da47ec5a3e659396fcfcbc9b35a"
 
   bottle do
     cellar :any
@@ -28,7 +28,7 @@ class Spades < Formula
       system "make", "install"
     end
 
-    # Fix the audit error "Non-executables were installed to bin"
+    # Fix audit error "Non-executables were installed to bin"
     inreplace bin/"spades_init.py" do |s|
       s.sub! /^/, "#!/usr/bin/env python\n"
     end
