@@ -3,8 +3,8 @@ class Sailfish < Formula
   homepage "http://www.cs.cmu.edu/~ckingsf/software/sailfish"
   # doi "10.1038/nbt.2862"
   # tag "bioinformatics"
-  url "https://github.com/kingsfordgroup/sailfish/archive/v0.9.1.tar.gz"
-  sha256 "c3e74bb95501618ba34883395ac84f07504e038200936b5c03cab269ab60f1de"
+  url "https://github.com/kingsfordgroup/sailfish/archive/v0.9.2.tar.gz"
+  sha256 "4872c5241864ae12a3aa5e519cf6d2d38d0e510bfcfd420c8d05249f7ee83f82"
 
   bottle do
     sha256 "1aa9d7ffa390bdb706a23564d39e288fde5adaf2120505553422719ac22cced9" => :el_capitan
