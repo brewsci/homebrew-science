@@ -1,6 +1,7 @@
 class Kallisto < Formula
-  desc "kallisto: quantify abundances of transcripts from RNA-Seq data"
+  desc "Quantify abundances of transcripts from RNA-Seq data"
   homepage "https://pachterlab.github.io/kallisto/"
+  # doi "10.1038/nbt.3519"
   # tag "bioinformatics"
   url "https://github.com/pachterlab/kallisto/archive/v0.42.4.tar.gz"
   sha256 "a3939faabdd6efa172d848d04d8eddaadf452416f7d4f75b0c54e9399b92d08a"
