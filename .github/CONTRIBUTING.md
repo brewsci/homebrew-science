@@ -90,13 +90,13 @@ Improvements to this guide are appreciated via issues or pull requests. If you'r
 
 [Homebrew Science]: https://github.com/Homebrew/homebrew-science
 [open pull requests]: https://github.com/Homebrew/homebrew-science/pulls
-[How To Open a Homebrew Pull Request (and get it merged)]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/How-To-Open-a-Homebrew-Pull-Request-(and-get-it-merged).md
-[Interesting Taps & Branches]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Interesting-Taps-%26-Branches.md#interesting-taps--branches
-[Formula revision]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Formula-Cookbook.md#formulae-revisions
-[Bottles]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Bottles.md
-[Brew Test Bot]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Brew-Test-Bot.md#brew-test-bot
+[How To Open a Homebrew Pull Request (and get it merged)]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/How-To-Open-a-Homebrew-Pull-Request-(and-get-it-merged).md
+[Interesting Taps & Branches]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Interesting-Taps-%26-Branches.md#interesting-taps--branches
+[Formula revision]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Formula-Cookbook.md#formulae-revisions
+[Bottles]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Bottles.md
+[Brew Test Bot]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Brew-Test-Bot.md#brew-test-bot
 [GitHub Ruby Styleguide]: https://github.com/styleguide/ruby
-[Formula Cookbook]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Formula-Cookbook.md
-[Acceptable Formulae]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Acceptable-Formulae.md
-[Python for Formula Authors]: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/Python-for-Formula-Authors.md
+[Formula Cookbook]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Formula-Cookbook.md
+[Acceptable Formulae]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Acceptable-Formulae.md
+[Python for Formula Authors]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Python-for-Formula-Authors.md
 [Gist]: https://gist.github.com/
