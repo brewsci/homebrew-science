@@ -10,9 +10,9 @@ class Seqtk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "80347faabb214b4a035f9c435be6a4ccbc70142d4a5b593f5c37115f9217ea9b" => :el_capitan
-    sha256 "a08757a2d6b5de72f5ab0f08e48457006d621fdcd57b4ce7976e2ed88fc6432e" => :yosemite
-    sha256 "6146557f07f725bbe985fb308b7be5b9839bf513db3b4ca63c9a90f37da2e48a" => :mavericks
+    sha256 "3f9f294d0dc6e875928753bda692c5f0a13290bd2f16f06642921640d9539600" => :el_capitan
+    sha256 "3ba2a3a19f2b128a9b41130d023254bb16688cd2c1945b237ca20aba89023968" => :yosemite
+    sha256 "5e32f0a3a7dfdf836c1ed54377136459772011bb1829fc7a8695064b8c4badb3" => :mavericks
   end
 
   def install
