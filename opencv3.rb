@@ -53,6 +53,7 @@ class Opencv3 < Formula
   option "with-quicktime", "Use QuickTime for Video I/O instead of QTKit"
   option "with-qt", "Build the Qt4 backend to HighGUI"
   option "with-qt5", "Build the Qt5 backend to HighGUI"
+  option "with-static", "Build static libraries"
   option "with-tbb", "Enable parallel code in OpenCV using Intel TBB"
   option "without-numpy", "Use a numpy you've installed yourself instead of a Homebrew-packaged numpy"
   option "without-opencl", "Disable GPU code in OpenCV using OpenCL"
@@ -167,7 +168,7 @@ class Opencv3 < Formula
       # Set proper path for Homebrew's openni
       inreplace "cmake/OpenCVFindOpenNI.cmake" do |s|
         s.gsub! "/usr/include/ni", "#{Formula["openni"].opt_include}/ni"
-        s.gsub! "/usr/lib", "#{Formula["openni"].opt_lib}"
+        s.gsub! "/usr/lib", Formula["openni"].opt_lib
       end
     end
 
@@ -192,6 +193,8 @@ class Opencv3 < Formula
       args << "-DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.#{dylib}"
       args << "-DPYTHON3_INCLUDE_DIR=#{py3_include}"
     end
+
+    args << "-DBUILD_SHARED_LIBS=OFF" if build.with?("static")
 
     if ENV.compiler == :clang && !build.bottle?
       args << "-DENABLE_SSSE3=ON" if Hardware::CPU.ssse3?
