@@ -5,10 +5,10 @@ class Cdsclient < Formula
   sha256 "0c348b5bfb5b5853de77604d082bee1a592718f83e021fa151582a1ddfa2cfaf"
 
   bottle do
-    cellar :any
-    sha256 "f721d5d4ff9c37c90db6e70fcb7c6d4fd69d526162d7a9dbaf9f0dff05bb3476" => :yosemite
-    sha256 "3cf5e5544824dddfa2e5aa2eb25ab71ba7762c1f5f905411bbfadbe680fc0d3e" => :mavericks
-    sha256 "d7f9c281d6053801733d7e127cfefc2c65c2885590a50049a341fa66574dbe39" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "42c127f775025c68692ffff3e3b77b56902c8213ece14fd11b490d6ad51e37ee" => :el_capitan
+    sha256 "e3f68d0387bf312ec05e2a7bda8a228a6a1392777cb97550cf2196b2b452b2f8" => :yosemite
+    sha256 "6a2eb43b162d4d787bf9aa1f0d2de8fd3781f0757203d4664dee9d5cc7b37d56" => :mavericks
   end
 
   def install
