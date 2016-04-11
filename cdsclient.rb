@@ -1,8 +1,8 @@
 class Cdsclient < Formula
   desc "Tools for querying CDS databases"
   homepage "http://cdsarc.u-strasbg.fr/doc/cdsclient.html"
-  url "http://cdsarc.u-strasbg.fr/ftp/pub/sw/cdsclient-3.80.tar.gz"
-  sha256 "ed399b80e158c75730b61862c3ec467f061598f28e9649cb2c109562df489360"
+  url "http://cdsarc.u-strasbg.fr/ftp/pub/sw/cdsclient-3.83.tar.gz"
+  sha256 "0c348b5bfb5b5853de77604d082bee1a592718f83e021fa151582a1ddfa2cfaf"
 
   bottle do
     cellar :any
