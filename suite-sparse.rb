@@ -5,10 +5,10 @@ class SuiteSparse < Formula
   sha256 "ac4524b9f69c4f8c2652d720b146c92a414c1943f86d46df49b4ff8377ae8752"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2ab3b2ecad9e5c871a0b3e0e70f3bab4e7ee3aab06eb9ace8de2be155dfb11e8" => :el_capitan
-    sha256 "ac375ecab7b93e9da612b14dcdd4fa920248dce10794f9131d8d2774967fefdd" => :yosemite
-    sha256 "828dbaf089f5e98c31a9434748ab3d913aa018d473797b2b3e2d3c90ea52b0fb" => :mavericks
+    cellar :any
+    sha256 "93778c77d8469b36ad662a4641372a8217292a84c1b1b88bc3ef608da91c2fc6" => :el_capitan
+    sha256 "c2ee49f3e0407a783317b9357d10d3f26e6037b8a3b75b3b945c87119e4045e5" => :yosemite
+    sha256 "29b928946c42998bb59292044c4c29498998e424ef8edd046f0e004bff13a813" => :mavericks
   end
 
   option "with-matlab", "Install Matlab interfaces and tools"
