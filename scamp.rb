@@ -5,9 +5,9 @@ class Scamp < Formula
   revision 1
 
   bottle do
-    sha256 "4741e1c8913f2ae595feb6b7f1bf1893db735ebfbc894b7103be8d558ab9a174" => :yosemite
-    sha256 "cdeb2f05a331c8e054ecec9871c331c62085100306fbf2a3153cd84042ad5c9e" => :mavericks
-    sha256 "3f97a48db06832ac3d1ce8a367d0b37cb4dd2728cc053d7f98a38d7cc5e9f08a" => :mountain_lion
+    sha256 "9e275906387075695bda5173a0464052db905f9ace8173a7fe4760e9109b5f37" => :el_capitan
+    sha256 "20060cd25e872112b131e3fa1839e5c8f87173812f738428b4c0829fdde9996b" => :yosemite
+    sha256 "32fa1439fad65d97d82fd8c5a23d64ddff5b3dec04e530800ff680444c803bf2" => :mavericks
   end
 
   depends_on "fftw"
