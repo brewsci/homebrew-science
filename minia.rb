@@ -16,7 +16,8 @@ class Minia < Formula
   option "with-docs", "Install documentation. Requires LaTeX"
 
   depends_on "cmake" => :build
-  depends_on "imagemagic" => :build if build.with? "docs"
+  depends_on "imagemagick" => :build if build.with? "docs"
+  depends_on :tex => :build if build.with? "docs"
 
   def install
     mkdir "build" do
