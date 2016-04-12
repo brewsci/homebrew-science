@@ -1,4 +1,5 @@
 class Flash < Formula
+  desc "Merge mates from overlapping fragments"
   homepage "http://ccb.jhu.edu/software/FLASH/"
   # doi "10.1093/bioinformatics/btr507"
   # tag "bioinformatics"
