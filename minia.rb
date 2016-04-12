@@ -4,8 +4,8 @@ class Minia < Formula
   # doi "10.1186/1748-7188-8-22"
   # tag "bioinformatics"
 
-  url "http://gatb-tools.gforge.inria.fr/versions/src/minia-2.0.2-Source.tar.gz"
-  sha256 "0e34f9f0ca92f2bdea8a2d2e62b7db05fb3d38bb906a34aca530cca67108554f"
+  url "http://gatb-tools.gforge.inria.fr/versions/src/minia-2.0.3-Source.tar.gz"
+  sha256 "494ffec613c3652b5ce941cac7e08a44914fa331750a53f70d17d545372c1997"
 
   bottle do
     cellar :any
