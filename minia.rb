@@ -8,10 +8,9 @@ class Minia < Formula
   sha256 "494ffec613c3652b5ce941cac7e08a44914fa331750a53f70d17d545372c1997"
 
   bottle do
-    cellar :any
-    sha256 "d7ad9d373defc2a515d26b1f583e936b035e724b41f1590171cdcd9e462b2a37" => :yosemite
-    sha256 "b774c469fa25cd621b0bf12109c3fee1c93473e4bd3e2ef4686b4fa73bb5e910" => :mavericks
-    sha256 "5858e2410ed92dd870e30e2d1ac8f373812ca472a7e3bd5d84ff5a05fd7249aa" => :mountain_lion
+    sha256 "434cf1e9e71f20651bb324403754d6618648b9e707cb29250322f19ac550118b" => :el_capitan
+    sha256 "c652ff072aba5cb9cfae040183bc1ecaeaf60ac872be3b73a16caa8fc9b9176e" => :yosemite
+    sha256 "a2ec64fb3fc86c5fb1c76c46d79e37e85e96bcd5c3795cd772fe799693b9cc88" => :mavericks
   end
 
   option "with-docs", "Install documentation. Requires LaTeX"
