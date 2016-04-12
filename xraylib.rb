@@ -1,9 +1,9 @@
 class Xraylib < Formula
+  desc "Library for interactions of X-rays with matter"
   homepage "https://github.com/tschoonj/xraylib"
-  desc "A library for X-ray-matter interaction fundamental parameters"
-  url "http://lvserver.ugent.be/xraylib/xraylib-3.1.0.tar.gz"
-  mirror "https://xraylib.s3.amazonaws.com/xraylib-3.1.0.tar.gz"
-  sha256 "61a7c7fd0a911562151422bc6ca77df8beba37ec4e337765cf60dfbe1e04a1e3"
+  url "http://lvserver.ugent.be/xraylib/xraylib-3.2.0.tar.gz"
+  mirror "https://xraylib.s3.amazonaws.com/xraylib-3.2.0.tar.gz"
+  sha256 "a734a0ea7b8224918f4e2105a4cf6c63664f257c1940a4c633beedf470d1576b"
 
   bottle do
     revision 3
@@ -19,7 +19,7 @@ class Xraylib < Formula
   depends_on :python3 => :optional
   depends_on :fortran => :optional
   depends_on "lua" => :optional
-  depends_on :java  => :optional
+  depends_on "fpc" => :optional
 
   depends_on "swig" => :build
 
@@ -31,13 +31,14 @@ class Xraylib < Formula
       --disable-idl
       --disable-python-numpy
       --disable-php
+      --disable-java
     ]
 
     args << ((build.with? "fortran") ? "--enable-fortran2003" : "--disable-fortran2003")
     args << ((build.with? "perl") ? "--enable-perl" : "--disable-perl")
     args << ((build.with? "lua") ? "--enable-lua" : "--disable-lua")
     args << ((build.with? "ruby") ? "--enable-ruby" : "--disable-ruby")
-    args << ((build.with? "java") ? "--enable-java" : "--disable-java")
+    args << ((build.with? "pascal") ? "--enable-pascal" : "--disable-pascal")
 
     if build.without?("python") && build.with?("python3")
       args << "--enable-python"
