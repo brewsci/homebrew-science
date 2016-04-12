@@ -13,11 +13,9 @@ class Minia < Formula
     sha256 "a2ec64fb3fc86c5fb1c76c46d79e37e85e96bcd5c3795cd772fe799693b9cc88" => :mavericks
   end
 
-  option "with-docs", "Install documentation. Requires LaTeX"
-
   depends_on "cmake" => :build
-  depends_on "imagemagick" => :build if build.with? "docs"
-  depends_on :tex => :build if build.with? "docs"
+  depends_on "imagemagick" => :build if build.with? "tex"
+  depends_on :tex => [:build, :optional]
 
   def install
     mkdir "build" do
