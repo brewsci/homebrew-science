@@ -1,10 +1,12 @@
 class Trinity < Formula
+  desc "RNA-Seq de novo assembler"
   homepage "https://trinityrnaseq.github.io"
   # doi "10.1038/nbt.1883"
   # tag "bioinformatics"
 
   url "https://github.com/trinityrnaseq/trinityrnaseq/archive/v2.0.6.tar.gz"
   sha256 "e0c3ec885fdcfe3422ea492372518ddf5d1aed3daa187c69c4254516b0845de1"
+  revision 1
   head "https://github.com/trinityrnaseq/trinityrnaseq.git"
 
   bottle do
@@ -17,10 +19,19 @@ class Trinity < Formula
   depends_on "express" => :recommended
   depends_on "samtools"
 
+  depends_on :java => "1.7+" unless OS.linux?
+
   needs :openmp
 
   fails_with :llvm do
     cause 'error: unrecognized command line option "-std=c++0x"'
+  end
+
+  fails_with :gcc => "5" do
+    cause <<-EOS.undent
+      error: no match for 'operator==' (operand types are
+      'std::ifstream {aka std::basic_ifstream<char>}' and 'int')
+    EOS
   end
 
   def install
