@@ -10,10 +10,10 @@ class Bowtie < Formula
   head "https://github.com/BenLangmead/bowtie.git"
 
   bottle do
-    cellar :any
-    sha256 "5a6d33f6249513718c44a77c2cba1ce6b94eb6fffc897b988c6c2944e0c5726b" => :yosemite
-    sha256 "6ad165cc8526e5c601de52f75706f1dbc9f028b004751df1de2a49165d221db7" => :mavericks
-    sha256 "04b8e3cb0a30b88f9771546b41b76a926a04c4be02bab0392ea62b41361c3817" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "3ca85697662a314603274a984ae8b407216f89de01c0b6b95103ab8ba923c904" => :el_capitan
+    sha256 "3a0c43fe5cd607245ebee54771d404c0ca61b3145ba3c658e4644ed752bd585f" => :yosemite
+    sha256 "d631a95fc614fcddf0c3b6ed940e773e19038156cce4d886f60349c20f980b31" => :mavericks
   end
 
   # Upstream PR that fixes stdout when building with clang on OS X. gcc
