@@ -90,7 +90,7 @@ Improvements to this guide are appreciated via issues or pull requests. If you'r
 
 [Homebrew Science]: https://github.com/Homebrew/homebrew-science
 [open pull requests]: https://github.com/Homebrew/homebrew-science/pulls
-[How To Open a Homebrew Pull Request (and get it merged)]: https://github.com/Home/brew/blob/master/share/doc/homebrew/How-To-Open-a-Homebrew-Pull-Request-(and-get-it-merged).md
+[How To Open a Homebrew Pull Request (and get it merged)]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/How-To-Open-a-Homebrew-Pull-Request-(and-get-it-merged).md
 [Interesting Taps & Branches]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Interesting-Taps-%26-Branches.md#interesting-taps--branches
 [Formula revision]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Formula-Cookbook.md#formulae-revisions
 [Bottles]: https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Bottles.md
