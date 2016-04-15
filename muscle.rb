@@ -10,11 +10,10 @@ class Muscle < Formula
   revision 1
 
   bottle do
-    cellar :any
-    revision 1
-    sha256 "0a990ee3f64ded25220d31a433c042bcdba901a73dbece2ec9ada87922f63223" => :yosemite
-    sha256 "8d13788647466efb841666a9c063cc464abf41fdb430b4b2cb20936bec74b4f3" => :mavericks
-    sha256 "00f1fff48e1003d2e31a3868bd7360a4c2d2736bce3e398e6149dbce87bcf1de" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "095e948e36fbdcea5dce3aa55aa7a5aa76101d41e86306b15aa15f827c70eac3" => :el_capitan
+    sha256 "2b4484979ad18f9cfaff6905925424666cdbb46972000cbd87155c24b27accd7" => :yosemite
+    sha256 "c020974f146e0b5f35c16e79aa64c00b2cd06ea3ecd16d5f39e26c11318a2e45" => :mavericks
   end
 
   def install
