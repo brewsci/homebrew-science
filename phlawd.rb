@@ -3,11 +3,13 @@ class Phlawd < Formula
   homepage "http://www.phlawd.net/"
   # doi "10.1186/1471-2148-9-37"
 
-  # the most up to date version of phlawd is the chinchliff fork, which contains a variety of bug fixes and new features.
-  # this fork and the (original) blackrim fork will eventually be merged.
+  # The most up to date version of phlawd is the chinchliff fork, which contains
+  # a variety of bug fixes and new features. This fork and the (original)
+  # blackrim fork will eventually be merged.
+  url "https://github.com/chinchliff/phlawd/releases/download/3.4a/phlawd_3.4a_src_with_sqlitewrapped_1.3.1.tar.gz"
   version "3.4a"
-  url "https://github.com/chinchliff/phlawd/releases/download/#{version}/phlawd_#{version}_src_with_sqlitewrapped_1.3.1.tar.gz"
   sha256 "0ec8e45359af6e932ea4a042fe4f42ddf05b04689a25df937b2d85db41038253"
+  revision 1
   head "https://github.com/chinchliff/phlawd.git"
 
   bottle do
@@ -40,18 +42,17 @@ class Phlawd < Formula
   depends_on "sqlite"
 
   def install
-    # compile sqlitewrapped: a dependency included here since it uncommon and unmaintained
+    # compile sqlitewrapped: a dependency included here since it's uncommon and unmaintained
     system "make", "-C", "sqlitewrapped-1.3.1"
 
     # compile and install phlawd
     system "make", "-C", "src", "-f", "Makefile.MAC"
-    prefix.install "src/PHLAWD"
-    bin.install_symlink "../PHLAWD"
+    bin.install "src/PHLAWD"
   end
 
   test do
-    # currently developing tests, they will be included in next release
-    system "#{bin}/PHLAWD"
+    # currently developing better tests for the next release
+    assert_match version.to_s, shell_output("#{bin}/PHLAWD")
   end
 end
 
