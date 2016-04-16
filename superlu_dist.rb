@@ -17,10 +17,13 @@ class SuperluDist < Formula
   depends_on "parmetis"
   depends_on "openblas" => :optional
 
-  # fix duplicate symbols [mc64dd_,mc64ed_,mc64fd_] when linking with superlu
+  # Fix duplicate symbols [mc64dd_,mc64ed_,mc64fd_] when linking with superlu.
+  # Mirrored because the SHA-256s get invalidated every time Bitbucket updates
+  # the Git version they use.
   patch do
-    url "https://bitbucket.org/petsc/pkg-superlu_dist/commits/2faf8669a2ba20250ffe2d8a1b63d4f8ef8c5b74/raw/"
-    sha256 "67e2966e1a9b4e3471374d1e720946c2ef34403d00e796767b51718e4d50604f"
+    # From: https://bitbucket.org/petsc/pkg-superlu_dist/commits/2faf8669a2ba20250ffe2d8a1b63d4f8ef8c5b74/raw/
+    url "https://raw.githubusercontent.com/Homebrew/patches/676ae971270129c126d449f9003c41ac77d09434/superlu_dist/commit-2faf8669.patch"
+    sha256 "6594950e4ab9dabfcd8a2a76e0da8a7388655a96a2cd2654c1eb5084effb7185"
   end
 
   def install
