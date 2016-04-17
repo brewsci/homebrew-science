@@ -1,9 +1,8 @@
 class Shogun < Formula
   desc "Large scale machine learning toolbox"
   homepage "http://www.shogun-toolbox.org"
-  url "http://shogun-toolbox.org/archives/shogun/releases/4.0/sources/shogun-4.0.0.tar.bz2"
-  sha256 "ab39d3cc27fc1ddf6128f6e3fc60217e73a843b51c20f5d3ceb69e6565a43695"
-  revision 2
+  url "http://shogun-toolbox.org/archives/shogun/releases/4.1/sources/shogun-4.1.0.tar.bz2"
+  sha256 "0eb313a95606edee046768a4577d63f32f7ccce340bed7bf0ff0d69225567185"
 
   bottle do
     sha256 "84a8cdfb9d9ce2487e8ba87505ac24b5663f9195dbf046d1cd315715c948ee4b" => :el_capitan
