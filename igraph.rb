@@ -1,8 +1,9 @@
 class Igraph < Formula
+  desc "Network analysis package"
   homepage "http://igraph.org"
   url "http://igraph.org/nightly/get/c/igraph-0.7.1.tar.gz"
   sha256 "d978030e27369bf698f3816ab70aa9141e9baf81c56cc4f55efbe5489b46b0df"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -31,6 +32,12 @@ class Igraph < Formula
     extra_opts << ((build.with? "glpk") ? "--with-external-glpk" : "--disable-glpk")
     extra_opts << "--disable-gmp" if build.without? "gmp"
     extra_opts += ["--with-external-arpack", "--disable-tls"] if build.with? "arpack"
+
+    # Make llvm happy. Check if still needed when Xcode > 7.3 is released.
+    # Prevents "ld: section __DATA/__thread_bss extends beyond end of file"
+    # See upstream LLVM issue https://llvm.org/bugs/show_bug.cgi?id=27059
+    # Issue reported to igraph (17th Apr 2016): https://github.com/igraph/igraph/issues/938
+    extra_opts << "--enable-tls=no" if ENV.compiler == :clang && MacOS.clang_build_version >= 703
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
