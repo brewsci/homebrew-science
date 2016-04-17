@@ -6,9 +6,9 @@ class Shogun < Formula
   revision 2
 
   bottle do
-    sha256 "6461a6713a96489af53058a979380afb251dad96c8255642b42e7062040217aa" => :yosemite
-    sha256 "750fe0d9f604e80cfaa0b55f8e2e9f063af32a5ef0fc5ffcdbc61daa10c3454e" => :mavericks
-    sha256 "53bcba5b939225b7d852bfe9e5663fed71f9609b9700417e2e01b0c218e42f31" => :mountain_lion
+    sha256 "84a8cdfb9d9ce2487e8ba87505ac24b5663f9195dbf046d1cd315715c948ee4b" => :el_capitan
+    sha256 "bfedd8db43645548b56295171909d0cbe09a8f832c4580cbb67d8da228aff704" => :yosemite
+    sha256 "2a6783119ef18d1799b49125468f4adc351c638f1b28f0d70be80f73e82448f5" => :mavericks
   end
 
   depends_on "pkg-config" => :build
