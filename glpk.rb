@@ -1,9 +1,9 @@
 class Glpk < Formula
   desc "Library for Linear (LP) and Mixed-Integer Programming (MIP)"
   homepage "https://www.gnu.org/software/glpk/"
-  url "http://ftpmirror.gnu.org/glpk/glpk-4.57.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/glpk/glpk-4.57.tar.gz"
-  sha256 "7323b2a7cc1f13e45fc845f0fdca74f4daea2af716f5ad2d4d55b41e8394275c"
+  url "http://ftpmirror.gnu.org/glpk/glpk-4.60.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/glpk/glpk-4.60.tar.gz"
+  sha256 "1356620cb0a0d33ac3411dd49d9fd40d53ece73eaec8f6b8d19a77887ff5e297"
 
   bottle do
     cellar :any
@@ -35,6 +35,6 @@ class Glpk < Formula
     }
     EOF
     system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lglpk", "-o", "test"
-    assert_equal `./test`, version.to_s
+    assert_match version.to_s, shell_output("./test")
   end
 end
