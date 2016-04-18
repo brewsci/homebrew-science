@@ -45,6 +45,12 @@ class Vips < Formula
   depends_on "mozjpeg" => :optional
   depends_on "jpeg-turbo" => :optional
 
+  # Fix build --with-graphicsmagick, see jcupitt/libvips#423
+  patch do
+    url "https://gist.githubusercontent.com/felixbuenemann/6862526323514cb7684b81cb88593d0d/raw/5d3d258f4c8c316f7c897eb5b91da771704665d2/vips-8.3.0-graphicsmagick-fix.diff"
+    sha256 "8a7a43e9faebb38ecc8cfe4f8f1fc20ca53bc758f289b62693700818a5eb1b34"
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking
@@ -53,11 +59,7 @@ class Vips < Formula
     args.concat %w[--with-magick --with-magickpackage=GraphicsMagick] if build.with? "graphicsmagick"
 
     system "./configure", *args
-    if build.with? "check"
-      # Test scripts fail with non-english decimal separator, see jcupitt/libvips#367
-      ENV["LC_NUMERIC"] = "C"
-      system "make", "check"
-    end
+    system "make", "check" if build.with? "check"
     system "make", "install"
   end
 
