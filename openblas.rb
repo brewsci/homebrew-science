@@ -24,6 +24,9 @@ class Openblas < Formula
     system "make", "FC=#{ENV["FC"]}", "libs", "netlib", "shared"
     system "make", "FC=#{ENV["FC"]}", "tests"
     system "make", "PREFIX=#{prefix}", "install"
+    so = OS.mac? ? "dylib" : "so"
+    ln_s lib/"libopenblas.#{so}", lib/"libblas.#{so}"
+    ln_s lib/"libopenblas.#{so}", lib/"liblapack.#{so}"
   end
 
   test do
