@@ -3,6 +3,7 @@ class SuiteSparse < Formula
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
   url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.5.1.tar.gz"
   sha256 "ac4524b9f69c4f8c2652d720b146c92a414c1943f86d46df49b4ff8377ae8752"
+  revision 1
 
   bottle do
     cellar :any
@@ -26,6 +27,9 @@ class SuiteSparse < Formula
 
   depends_on :fortran if build.with? "matlab"
   needs :openmp if build.with? "openmp"
+
+  # libtbb isn't linked in.
+  patch DATA
 
   def install
     cflags = [ENV.cflags.to_s]
@@ -131,3 +135,18 @@ class SuiteSparse < Formula
     end
   end
 end
+
+__END__
+diff --git a/SPQR/Lib/Makefile b/SPQR/Lib/Makefile
+index d6d56f5..e530e23 100644
+--- a/SPQR/Lib/Makefile
++++ b/SPQR/Lib/Makefile
+@@ -13,7 +13,7 @@ ccode: all
+ include ../../SuiteSparse_config/SuiteSparse_config.mk
+
+ # SPQR depends on CHOLMOD, AMD, COLAMD, LAPACK, the BLAS and SuiteSparse_config
+-LDLIBS += -lamd -lcolamd -lcholmod -lsuitesparseconfig $(LAPACK) $(BLAS)
++LDLIBS += -lamd -lcolamd -lcholmod -lsuitesparseconfig $(TBB) $(LAPACK) $(BLAS)
+
+ # compile and install in SuiteSparse/lib
+ library:
