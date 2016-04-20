@@ -75,8 +75,7 @@ class SuiteSparse < Formula
     end
 
     prefix.install "include"
-    so = OS.mac? ? "dylib" : "so"
-    lib.install Dir["lib/*.#{so}"]
+    lib.install Dir[OS.mac? ? "lib/*.dylib" : "lib/*.so*"]
 
     # Install docs and demos
     %w[AMD CAMD CCOLAMD CHOLMOD COLAMD CXSparse KLU LDL SPQR UMFPACK].each do |m|
@@ -150,3 +149,12 @@ index d6d56f5..e530e23 100644
 
  # compile and install in SuiteSparse/lib
  library:
+@@ -246,7 +246,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJ)
+	@mkdir -p $(INSTALL_LIB)
+	@mkdir -p $(INSTALL_INCLUDE)
+	@mkdir -p $(INSTALL_DOC)
+-	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
++	$(CXX) $(SO_OPTS) $^ -o $@ $(LDLIBS)
+	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
+	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
+	$(CP) ../Include/SuiteSparseQR.hpp $(INSTALL_INCLUDE)
