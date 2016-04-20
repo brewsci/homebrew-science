@@ -1,7 +1,8 @@
 class Harry < Formula
+  desc "A Tool for Measuring String Similarity"
   homepage "http://www.mlsec.org/harry"
-  url "http://www.mlsec.org/harry/files/harry-0.4.1.tar.gz"
-  sha256 "7e4d0cd7c7b4d91cc54fcf313862b5d8fc04cda115f5d3b36ee4a96918724cda"
+  url "http://www.mlsec.org/harry/files/harry-0.4.2.tar.gz"
+  sha256 "43315f616057cc1640dd87fc3d81453b97ce111683514ad99909d0033bcb578a"
 
   bottle do
     sha256 "37072d961f3c6e9dcdd206457501372b8423ce23d9fb1b40a48cf7123631c7f5" => :el_capitan
