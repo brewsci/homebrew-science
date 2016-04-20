@@ -19,7 +19,7 @@ class SuiteSparse < Formula
   option "without-test", "Do not perform build-time tests (not recommended)"
 
   depends_on "tbb" => :recommended
-  depends_on "openblas" => :optional
+  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
 
   # SuiteSparse must be compiled with metis 5 and ships with metis-5.1.0.
   # We prefer to use Homebrew metis.
