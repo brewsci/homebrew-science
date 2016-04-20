@@ -4,7 +4,7 @@ class Cppad < Formula
   url "http://www.coin-or.org/download/source/CppAD/cppad-20150000.2.epl.tgz"
   version "20150000"
   sha256 "972498b307aff88173c4616e8e57bd2d1360d929a5faf49e3611910a182376f7"
-  revision 1
+  revision 2
 
   head "https://github.com/coin-or/CppAD.git"
 
@@ -45,7 +45,7 @@ class Cppad < Formula
 
   def install
     cmake_args = ["-Dcmake_install_prefix=#{prefix}",
-                  "-Dcmake_install_docdir=#{doc}"]
+                  "-Dcmake_install_docdir=share/doc"]
 
     cppad_testvector = "cppad"
     if build.with? "boost"
