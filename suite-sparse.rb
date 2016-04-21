@@ -76,6 +76,10 @@ class SuiteSparse < Formula
 
     prefix.install "include"
     lib.install Dir[OS.mac? ? "lib/*.dylib" : "lib/*.so*"]
+    %w[AMD BTF CAMD CCOLAMD CHOLMOD COLAMD CSparse CXSparse KLU LDL RBio SPQR UMFPACK].each do |m|
+      lib.install Dir["#{m}/Lib/*.a"]
+    end
+    lib.install "SuiteSparse_config/libsuitesparseconfig.a"
 
     # Install docs and demos
     %w[AMD CAMD CCOLAMD CHOLMOD COLAMD CXSparse KLU LDL SPQR UMFPACK].each do |m|
