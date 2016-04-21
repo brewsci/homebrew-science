@@ -4,8 +4,8 @@ class Quast < Formula
   # doi "10.1093/bioinformatics/btt086"
   # tag "bioinformatics"
 
-  url "https://downloads.sourceforge.net/project/quast/quast-3.2.tar.gz"
-  sha256 "e1534824fc185679f0fa9c03846fbcf34b6a20466a6ec0110cf74f14c6380c02"
+  url "https://downloads.sourceforge.net/project/quast/quast-4.0.tar.gz"
+  sha256 "f8e3b631131a6f133c9973c57e2d615be9b7f8e8ae05f76560b7c2a01ee97ed5"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,6 +25,8 @@ class Quast < Formula
     prefix.install Dir["*"]
     bin.install_symlink "../quast.py", "../metaquast.py",
       "quast.py" => "quast", "metaquast.py" => "metaquast"
+    # Compile MUMmer, so that `brew test quast` does not fail.
+    system "#{bin}/quast", "--test"
   end
 
   test do
