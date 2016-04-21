@@ -50,13 +50,13 @@ class SuiteSparse < Formula
     make_args += ["SPQR_CONFIG=-DHAVE_TBB",
                   "TBB=-L#{Formula["tbb"].opt_lib} -ltbb"] if build.with? "tbb"
 
-    # SuiteSparse is shipped with metis-5.1.0 but it can use Homebrew's version by
-    # setting MY_METIS_LIB and MY_METIS_INC variables.
+    # SuiteSparse ships with metis5 but we use the Homebrew version
     make_args += ["MY_METIS_LIB=-L#{Formula["metis"].opt_lib} -lmetis",
                   "MY_METIS_INC=#{Formula["metis"].opt_include}"]
 
     # Only building libraries
     system "make", "library", *make_args
+    system "make", "install", "INSTALL=#{prefix}", *make_args
 
     if build.with? "matlab"
       matlab = ARGV.value("with-matlab-path") || "matlab"
@@ -71,22 +71,19 @@ class SuiteSparse < Formula
 
       (pkgshare/"matlab").install "MATLAB_Tools"
       (pkgshare/"matlab").install "RBio/RBio"
-      (doc/"matlab").install Dir["MATLAB_Tools/Factorize/Doc/*"]
     end
 
-    prefix.install "include"
-    lib.install Dir[OS.mac? ? "lib/*.dylib" : "lib/*.so*"]
+    # Install static libs.
     %w[AMD BTF CAMD CCOLAMD CHOLMOD COLAMD CSparse CXSparse KLU LDL RBio SPQR UMFPACK].each do |m|
       lib.install Dir["#{m}/Lib/*.a"]
     end
     lib.install "SuiteSparse_config/libsuitesparseconfig.a"
 
-    # Install docs and demos
+    # Install demos
     %w[AMD CAMD CCOLAMD CHOLMOD COLAMD CXSparse KLU LDL SPQR UMFPACK].each do |m|
       (pkgshare/"demo/#{m}").install Dir["#{m}/Demo/*"]
     end
     (pkgshare/"demo/CXSparse").install "CXSparse/Matrix"
-    doc.install Dir["share/doc/suitesparse-*/*"]
   end
 
   def caveats
