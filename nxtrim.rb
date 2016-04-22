@@ -4,9 +4,8 @@ class Nxtrim < Formula
   # doi "10.1101/007666"
   # tag "bioinformatics"
 
-  url "https://github.com/sequencing/NxTrim/archive/v0.3.2-alpha.tar.gz"
-  version "0.3.2"
-  sha256 "c6c66ae15ccfbab035b0b8049b1a7869fa0fc4be233c00ed7d75884cbc196102"
+  url "https://github.com/sequencing/NxTrim/archive/v0.4.0.tar.gz"
+  sha256 "aaa2dafefa1c0cca5966d8290eef758cfcca87426a2ba019506c4f38309161ea"
   head "https://github.com/sequencing/NxTrim.git"
 
   bottle do
@@ -20,10 +19,10 @@ class Nxtrim < Formula
   def install
     system "make", "BOOST_ROOT=#{Formula["boost"].prefix}"
     bin.install "nxtrim", "mergeReads"
-    doc.install "Changes", "LICENSE.txt", "README.md"
+    doc.install "Changelog", "LICENSE.txt", "README.md"
   end
 
   test do
-    assert_match "NxTrim", shell_output("#{bin}/nxtrim -h", 1)
+    assert_match "Usage", shell_output("#{bin}/nxtrim 2>&1")
   end
 end
