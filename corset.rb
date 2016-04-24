@@ -1,10 +1,11 @@
 class Corset < Formula
-  homepage "https://code.google.com/p/corset-project/"
+  desc "Clusters de novo assembled transcripts and counts overlapping reads"
+  homepage "https://github.com/Oshlack/Corset/wiki"
   # doi "10.1186/s13059-014-0410-6"
   # tag "bioinformatics"
 
-  url "https://googledrive.com/host/0B1FwZagazjpcc0JLZWllcFlwUXc/corset-1.04.tar.gz"
-  sha256 "8dff57be7aab5943e78706cd0c5106e6b776c596d3a7a6a0a8565f6fe1752cfe"
+  url "https://github.com/Oshlack/Corset/archive/version-1.05.tar.gz"
+  sha256 "a4902035ad58e9a5896fe1951de83c3d6b64759919589ecc27cf714c6acfc487"
 
   bottle do
     cellar :any
