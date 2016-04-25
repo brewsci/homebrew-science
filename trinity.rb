@@ -4,30 +4,23 @@ class Trinity < Formula
   # doi "10.1038/nbt.1883"
   # tag "bioinformatics"
 
-  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/v2.0.6.tar.gz"
-  sha256 "e0c3ec885fdcfe3422ea492372518ddf5d1aed3daa187c69c4254516b0845de1"
-  revision 1
+  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/v2.2.0.tar.gz"
+  sha256 "f34603e56ac76a81447dd230b31248d5890ecffee8ef264104d4f1fa7fe46c9e"
   head "https://github.com/trinityrnaseq/trinityrnaseq.git"
 
-  bottle :disable, "Cannot currently build with GCC-5 or Clang"
-
-  depends_on "bowtie"
   depends_on "express" => :recommended
-  depends_on "samtools"
+  depends_on "bowtie" => :run
+  depends_on "jellyfish" => :run
+  depends_on "trimmomatic" => :run
+  depends_on "samtools" => :run
+  depends_on "htslib"
 
-  depends_on :java => "1.7+" unless OS.linux?
+  depends_on :java => "1.7+"
 
   needs :openmp
 
   fails_with :llvm do
     cause 'error: unrecognized command line option "-std=c++0x"'
-  end
-
-  fails_with :gcc => "5" do
-    cause <<-EOS.undent
-      error: no match for 'operator==' (operand types are
-      'std::ifstream {aka std::basic_ifstream<char>}' and 'int')
-    EOS
   end
 
   def install
@@ -39,8 +32,24 @@ class Trinity < Formula
     inreplace "Makefile",
       "cd Chrysalis && $(MAKE)", "cd Chrysalis && $(MAKE) CC=#{ENV.cc} CXX=#{ENV.cxx}"
 
-    inreplace "trinity-plugins/Makefile",
-      "CC=gcc CXX=g++", "CC=#{ENV.cc} CXX=#{ENV.cxx}"
+    inreplace "trinity-plugins/Makefile" do |s|
+      s.gsub! "CC=gcc CXX=g++", "CC=#{ENV.cc} CXX=#{ENV.cxx}"
+      s.gsub! /(trinity_essentials.*) jellyfish/, "\\1"
+      s.gsub! /(trinity_essentials.*) trimmomatic_target/, "\\1"
+      s.gsub! /(trinity_essentials.*) samtools/, "\\1"
+      s.gsub! "scaffold_iworm_contigs_target: htslib_target", "scaffold_iworm_contigs_target:"
+    end
+
+    inreplace "Trinity" do |s|
+      s.gsub! "$ROOTDIR/trinity-plugins/jellyfish", Formula["jellyfish"].opt_prefix
+      s.gsub! "$ROOTDIR/trinity-plugins/Trimmomatic/trimmomatic.jar", Formula["trimmomatic"].opt_share/"java/trimmomatic-#{Formula["trimmomatic"].version}.jar"
+      s.gsub! "$ROOTDIR/trinity-plugins/Trimmomatic", Formula["trimmomatic"].opt_prefix
+    end
+
+    inreplace "util/support_scripts/trinity_install_tests.sh" do |s|
+      s.gsub! "trinity-plugins/jellyfish/jellyfish", Formula["jellyfish"].prefix
+      s.gsub! "trinity-plugins/BIN/samtools", Formula["samtools"].prefix
+    end
 
     system "make", "all"
     system "make", "plugins"
@@ -54,9 +63,9 @@ class Trinity < Formula
   end
 
   def caveats; <<-EOS.undent
-    Trinity only officially supports Java 1.7. To skip this check pass
-    the option --bypass_java_version_check to Trinity. A specific Java version
-    may also be set via environment variable:
+    Trinity only officially supports Java 1.7. To skip this check pass the
+    option --bypass_java_version_check to Trinity. A specific Java version may
+    also be set via environment variable:
       JAVA_HOME=`/usr/libexec/java_home -v 1.7`
     EOS
   end
