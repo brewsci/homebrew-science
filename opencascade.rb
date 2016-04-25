@@ -1,9 +1,8 @@
 class Opencascade < Formula
-  desc "Environment for 3D modeling and development of numerical simulation software including CAD/CAM/CAE"
+  desc "3D modeling and numerical simulation software for CAD/CAM/CAE"
   homepage "http://www.opencascade.org/"
-  url "http://files.opencascade.com/OCCT/OCC_6.9.0_release/opencascade-6.9.0.tgz"
-  sha256 "e9da098b304f6b65c3958947c3c687f00128ce020b67d97554a3e3be9cf3d090"
-  revision 3
+  url "https://sources.archlinux.org/other/community/opencascade/opencascade-7.0.0.tgz"
+  sha256 "073445b37b62d005a64744ba601f36ec118a25913dee4e6419f30dc9594a90dc"
 
   bottle do
     cellar :any
@@ -16,7 +15,8 @@ class Opencascade < Formula
 
   option "without-opencl", "Build without OpenCL support" if OS.mac?
   option "without-extras", "Don't install documentation (~725MB) or samples (~40MB)"
-  option "with-tests", "Install tests (~55MB)"
+  option "with-test", "Install tests (~55MB)"
+  deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
   depends_on "freetype"
@@ -27,12 +27,6 @@ class Opencascade < Formula
   depends_on :macos => :snow_leopard
 
   def install
-    # be conservative since 6.9 has problems with clang if -O2
-    # see http://tracker.dev.opencascade.org/print_bug_page.php?bug_id=26042
-    ENV.append_to_cflags "-g"
-    ENV.remove_from_cflags(/O./)
-    ENV["HOMEBREW_OPTIMIZATION_LEVEL"] = "g"
-
     # recent xcode stores it's sdk in the application folder
     sdk_path = Pathname.new `xcrun --show-sdk-path`.strip
 
@@ -40,8 +34,6 @@ class Opencascade < Formula
     inreplace "env.sh", "export DYLD_LIBRARY_PATH", "export OCCT_DYLD_LIBRARY_PATH" if OS.mac?
 
     cmake_args = std_cmake_args
-    cmake_args = cmake_args.map { |s| s.gsub(/RELEASE/, "DEBUG") }.map { |s| s.gsub(/Release/, "Debug") }
-    cmake_args << "-DBUILD_CONFIGURATION=Debug"
     cmake_args << "-DCMAKE_PREFIX_PATH:PATH=#{HOMEBREW_PREFIX}"
     cmake_args << "-DCMAKE_INCLUDE_PATH:PATH=#{HOMEBREW_PREFIX}/lib"
     cmake_args << "-DCMAKE_FRAMEWORK_PATH:PATH=#{HOMEBREW_PREFIX}/Frameworks" if OS.mac?
@@ -52,6 +44,7 @@ class Opencascade < Formula
     cmake_args << "-D3RDPARTY_TK_INCLUDE_DIR:PATH=#{sdk_path}/usr/include/"
     cmake_args << "-DINSTALL_TESTS:BOOL=ON" if build.with? "tests"
     cmake_args << "-D3RDPARTY_TBB_DIR:PATH=#{HOMEBREW_PREFIX}" if build.with? "tbb"
+    cmake_args << "-DINSTALL_SAMPLES=ON" if build.with? "extras"
 
     # must specify, otherwise finds old ft2config.h in /usr/X11R6
     cmake_args << "-D3RDPARTY_FREETYPE_INCLUDE_DIR:PATH=#{HOMEBREW_PREFIX}/include/freetype2" if OS.mac?
@@ -76,17 +69,13 @@ class Opencascade < Formula
     system "make", "install"
 
     if build.with? "extras"
-      # 6.7.1 now installs samples/tcl by default, must move back before moving all
-      mv prefix/"samples/tcl", "samples/tcl"
-      rmdir prefix/"samples"
-      prefix.install "doc", "samples"
+      prefix.install "doc", "samples", "src"
     end
 
     # add symlinks to be able to compile against OpenCascade
     loc = OS.mac? ? "#{prefix}/mac64/clang" : "#{prefix}/lin64/gcc"
-    include.install_symlink Dir["#{prefix}/inc/*"]
-    bin.install_symlink Dir["#{loc}/bind/*"]
-    lib.install_symlink Dir["#{loc}/libd/*"]
+    bin.install_symlink Dir["#{loc}/bin/*"]
+    lib.install_symlink Dir["#{loc}/lib/*"]
   end
 
   def caveats; <<-EOF.undent
