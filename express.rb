@@ -7,9 +7,9 @@ class Express < Formula
   head "https://github.com/adarob/eXpress.git"
   bottle do
     cellar :any
-    sha256 "d30e4483050d6994866db4e3666db2d0835768ef01d606f39cd18cc776e2f6e2" => :yosemite
-    sha256 "e3936ddbf9cf14fbdb9654bf7b1fe92d0fd05452ab50b16e462a5a70c5704b47" => :mavericks
-    sha256 "139f8bd643e922f7703d032d27925a049dda3b926c715ac371989e519d047af8" => :mountain_lion
+    sha256 "1df5c671148e3ed22449a072021d1b8712b659915f484d21c49ed9636130a356" => :el_capitan
+    sha256 "f7b5b99f8574cbacf4a939d4fd97f1f4368d6fbef6202eec702aaa8351e729ac" => :yosemite
+    sha256 "accc81bedabfad4cd4c770272d770908711fd8c7099c2fd005daeaafd224af9b" => :mavericks
   end
 
   # doi "10.1038/nmeth.2251"
