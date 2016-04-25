@@ -3,7 +3,7 @@ class Igraph < Formula
   homepage "http://igraph.org"
   url "http://igraph.org/nightly/get/c/igraph-0.7.1.tar.gz"
   sha256 "d978030e27369bf698f3816ab70aa9141e9baf81c56cc4f55efbe5489b46b0df"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -36,8 +36,11 @@ class Igraph < Formula
     # Make llvm happy. Check if still needed when Xcode > 7.3 is released.
     # Prevents "ld: section __DATA/__thread_bss extends beyond end of file"
     # See upstream LLVM issue https://llvm.org/bugs/show_bug.cgi?id=27059
-    # Issue reported to igraph (17th Apr 2016): https://github.com/igraph/igraph/issues/938
-    extra_opts << "--enable-tls=no" if ENV.compiler == :clang && MacOS.clang_build_version >= 703
+    # igraph has decided to lower BN_MAXSIZE to 128 as a workaround:
+    # https://github.com/igraph/igraph/issues/938
+    # https://github.com/igraph/igraph/commit/0387a58419552aa69be2ac6aaa2f77ad8d6e9add
+    # https://github.com/igraph/igraph/commit/01a547188b651c318d6a058079ad51c2908b5782
+    inreplace "src/bignum.h", "BN_MAXSIZE 512", "BN_MAXSIZE 128"
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
