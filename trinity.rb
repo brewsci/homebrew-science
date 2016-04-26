@@ -21,6 +21,7 @@ class Trinity < Formula
   depends_on "trimmomatic" => :run
   depends_on "samtools" => :run
   depends_on "htslib"
+  depends_on "gcc"
 
   depends_on :java => "1.7+"
 
