@@ -3,8 +3,8 @@ class Htslib < Formula
   homepage "http://www.htslib.org/"
   # tag "bioinformatics"
 
-  url "https://github.com/samtools/htslib/archive/1.3.tar.gz"
-  sha256 "291a54090df3bc367b509890e1cfa34d53b1ee9be42c5fa6c2b1e2ec8f8b13af"
+  url "https://github.com/samtools/htslib/archive/1.3.1.tar.gz"
+  sha256 "3bbd04f9a0c4c301abd5d19a81920894ac2ee5e86e8aa977e8c2035e01d93ea7"
   head "https://github.com/samtools/htslib.git"
 
   bottle do
@@ -22,7 +22,7 @@ class Htslib < Formula
   end
 
   test do
-    sam = share/"htslib/test/ce#1.sam"
+    sam = pkgshare/"test/ce#1.sam"
     assert_match "SAM", shell_output("htsfile #{sam}")
     system "bgzip -c #{sam} > sam.gz"
     assert File.exist?("sam.gz")
