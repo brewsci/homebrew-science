@@ -3,9 +3,10 @@ class Trinity < Formula
   homepage "https://trinityrnaseq.github.io"
   bottle do
     cellar :any
-    sha256 "054c1b8b6317e004ea626b67461e5b3c543c58127323408f5124b4b9fedc3800" => :el_capitan
-    sha256 "f8562fcc0741cc4200b34f3ce5869b6449ad76d50fae17c48e4e766ea5e8e90e" => :yosemite
-    sha256 "e57281b61af11330a6c0d9ea7a2ded5b38eba86b5279377ad709222541b30161" => :mavericks
+    revision 1
+    sha256 "e4aaf5e0b7b4d39f48028bbc79c506fd6a6ade669fbae675c35e8d8ba10ca637" => :el_capitan
+    sha256 "de5074c29c65908e175ff20bce4ea8f09c6f4daa4a611cf05a34c4db48a06c4f" => :yosemite
+    sha256 "fcb67f469057ccdca350a0e41e602391417620af9c237c0cd3e2222d7bf569b7" => :mavericks
   end
 
   # doi "10.1038/nbt.1883"
