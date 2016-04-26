@@ -48,6 +48,6 @@ class Delly < Formula
 
   test do
     system "delly", "--outfile=#{testpath}/test.vcf", pkgshare/"test/DEL.bam"
-    File.exist? testpath/"test.vcf"
+    assert File.exist? testpath/"test.vcf"
   end
 end
