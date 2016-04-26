@@ -7,10 +7,10 @@ class Delly < Formula
   head "https://github.com/tobiasrausch/delly.git"
 
   bottle do
-    revision 1
-    sha256 "8f1b94f5e9b536a78db5caa6862d2f969d8d97f4fdbadd7a9f21d447db3cc3ab" => :yosemite
-    sha256 "f33a6f364585c71c7d73878b232fa34b1d30261414925b9c38cf6a0174fc59f9" => :mavericks
-    sha256 "0053d1b53baa99f555cdf463144f41f3c45bc0605581bc46afcd810a7b13e8c7" => :mountain_lion
+    revision 2
+    sha256 "d2a48e7fdbc7b882229ae93a5b88b97d205e80f0d58267447046e77222b46e05" => :el_capitan
+    sha256 "9bf3951e12708387e40dbe9ef69e17a5bcedfd9db07316d1547f9e7dedcf5477" => :yosemite
+    sha256 "727334bbad58f8d5f4344a6567d0ce411ef86aad681dff75b2ece00951125948" => :mavericks
   end
 
   option "with-binary", "Install a statically linked binary for 64-bit Linux" if OS.linux?
