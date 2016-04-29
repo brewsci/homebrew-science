@@ -1,8 +1,10 @@
 class Geneid < Formula
+  desc "Predict genes in anonymous genomic sequences"
   homepage "http://genome.crg.es/software/geneid/"
   url "ftp://genome.crg.es/pub/software/geneid/geneid_v1.4.4.Jan_13_2011.tar.gz"
   sha256 "8c172eb783a7c2c11a0508bafd60cd63e6698a3961db1478a231acb65d855a2d"
   version "1.4.4"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any
