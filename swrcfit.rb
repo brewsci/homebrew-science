@@ -18,8 +18,8 @@ class Swrcfit < Formula
   depends_on "wget"
 
   def install
-    (share / "swrcfit/example").install "swrc.txt"
-    system "./Install.sh", bin
+    system "./configure", "--prefix=#{prefix}"
+    system "make", "install"
   end
 
   test do
