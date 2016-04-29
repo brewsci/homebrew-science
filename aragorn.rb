@@ -1,6 +1,8 @@
 class Aragorn < Formula
+  desc "tRNA and tmRNA detection"
   homepage "http://mbio-serv2.mbioekol.lu.se/ARAGORN/"
   # doi "10.1093/nar/gkh152"
+  # tag "bioinformatics
 
   url "http://mbio-serv2.mbioekol.lu.se/ARAGORN/Downloads/aragorn1.2.36.tgz"
   sha256 "ab06032589e45aa002f8616333568e9ab11034b3a675f922421e5f1c3e95e7b5"
