@@ -1,8 +1,8 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "http://www.openblas.net/"
-  url "https://github.com/xianyi/OpenBLAS/archive/v0.2.15.tar.gz"
-  sha256 "73c40ace5978282224e5e122a41c8388c5a19e65a6f2329c2b7c0b61bacc9044"
+  url "https://github.com/xianyi/OpenBLAS/archive/v0.2.18.tar.gz"
+  sha256 "7d9f8d4ea4a65ab68088f3bb557f03a7ac9cb5036ef2ba30546c3a28774a4112"
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
@@ -16,10 +16,14 @@ class Openblas < Formula
   # OS X provides the Accelerate.framework, which is a BLAS/LAPACK impl.
   keg_only :provided_by_osx
 
+  option "with-openmp", "Do parallel computation with OpenMP"
+  needs :openmp if build.with? "openmp"
+
   depends_on :fortran
 
   def install
     ENV["DYNAMIC_ARCH"] = "1" if build.bottle?
+    ENV["USE_OPENMP"] = "1" if build.with? "openmp"
 
     # Must call in two steps
     system "make", "FC=#{ENV["FC"]}", "libs", "netlib", "shared"
