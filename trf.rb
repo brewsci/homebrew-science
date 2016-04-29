@@ -1,6 +1,8 @@
 class Trf < Formula
+  desc "Tandem repeats finder"
   homepage "http://tandem.bu.edu/trf/trf.html"
   # doi '10.1093/nar/27.2.573'
+  # tag "bioinformatics"
   version "4.07b"
 
   if OS.mac?
@@ -18,6 +20,6 @@ class Trf < Formula
   end
 
   test do
-    assert_match "trf", shell_output("#{bin}/trf 2>&1")
+    assert_match "Tandem Repeats Finder", shell_output("#{bin}/trf 2>&1", 255)
   end
 end
