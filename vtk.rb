@@ -1,8 +1,10 @@
 class Vtk < Formula
+  desc "Toolkit for 3D computer graphics, image processing, and visualization."
   homepage "http://www.vtk.org"
   url "http://www.vtk.org/files/release/7.0/VTK-7.0.0.tar.gz"
   mirror "https://fossies.org/linux/misc/VTK-7.0.0.tar.gz"
   sha256 "78a990a15ead79cdc752e86b83cfab7dbf5b7ef51ba409db02570dbdd9ec32c3"
+  revision 1
 
   head "https://github.com/Kitware/VTK.git"
 
@@ -56,7 +58,7 @@ class Vtk < Formula
   if build.with? "python3"
     if build.with? "qt"
       depends_on "sip" => ["with-python3", "without-python"]
-      depends_on "pyqt" => ["with-python3", "without-python" ]
+      depends_on "pyqt" => ["with-python3", "without-python"]
     elsif build.with? "qt5"
       depends_on "sip"   => ["with-python3", "without-python"]
       depends_on "pyqt5"
@@ -132,7 +134,7 @@ class Vtk < Formula
         args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{lib}/python3.5/site-packages'"
       elsif build.with?("python3") && build.with?("python")
         # Does not currenly support building both python 2 and 3 versions
-         odie "VTK: Does not currently support building both python 2 and 3 wrappers"
+        odie "VTK: Does not currently support building both python 2 and 3 wrappers"
       end
 
       if build.with?("qt") || build.with?("qt5")
@@ -168,5 +170,29 @@ class Vtk < Formula
       EOS
     end
     s.empty? ? nil : s
+  end
+
+  test do
+    (testpath/"Version.cpp").write <<-EOS
+        #include <vtkVersion.h>
+        #include <assert.h>
+        int main(int, char *[])
+        {
+          assert (vtkVersion::GetVTKMajorVersion()==7);
+          assert (vtkVersion::GetVTKMinorVersion()==1);
+          return EXIT_SUCCESS;
+        }
+      EOS
+
+    (testpath/"CMakeLists.txt").write <<-EOS
+      cmake_minimum_required(VERSION 2.8)
+      PROJECT(Version)
+      find_package(VTK REQUIRED)
+      include(${VTK_USE_FILE})
+      add_executable( Version Version.cpp )
+      target_link_libraries(Version ${VTK_LIBRARIES})
+      EOS
+    system "cmake", "."
+    system "make && ./Version"
   end
 end
