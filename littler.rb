@@ -5,7 +5,7 @@ class Littler < Formula
   head "https://github.com/eddelbuettel/littler.git"
   url "http://dirk.eddelbuettel.com/code/littler/littler-0.2.3.tar.gz"
   sha256 "98cd741c68a5c8f65b06c96d2f56d3b44979b3990335e7869b002c005ef80ba7"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "10de450cc3035e2e5e45a4fa230501dbe14be881b2da8895315003420010f65b" => :el_capitan
@@ -22,6 +22,8 @@ class Littler < Formula
       "--disable-silent-rules",
       "--prefix=#{prefix}"
     inreplace "Makefile", Formula["r"].prefix, Formula["r"].opt_prefix
+    system "make", "littler.h"
+    inreplace "littler.h", Formula["r"].prefix, Formula["r"].opt_prefix
     system "make"
 
     bin.install "r" => "littler"
