@@ -16,9 +16,9 @@ class R < Formula
   skip_clean "lib/R/bin" unless OS.mac?
 
   bottle do
-    sha256 "2b60715e80ce6a9208741391d0ea8c35382a8e468d0a5d1656120d0be9651ad8" => :el_capitan
-    sha256 "904456a3c2c93d200bca10ee387920a9e626a89a13586ebd2e066c19cc911993" => :yosemite
-    sha256 "7f41a9c5a105f3126323cadfe3efe7e6eb422dee39a0614a37323a9dfbd3c86c" => :mavericks
+    sha256 "3a6c10598d99a6be0565e938d230ffd3b1acc5f56e85e13b82fbda6cfcc6cba9" => :el_capitan
+    sha256 "b38dfeae6629196a31320372521604d5e8a7a99ad0d451d55c9a30a09f1c38b4" => :yosemite
+    sha256 "6a352a54dab8d0cb25d154fd463e8caf380fc2b837ee658a186052fd6aad77af" => :mavericks
   end
 
   head do
