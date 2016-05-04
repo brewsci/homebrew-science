@@ -8,9 +8,9 @@ class PicardTools < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ba34b255599802feca4996b7cfe7c619b4c5a0b99368f974dd6d2aaa3db8630e" => :el_capitan
-    sha256 "b4b3412c243acae498394393c0a61897d0440dc32b4b1240c784dfc68427d897" => :yosemite
-    sha256 "0065ca96c0051d196a5313d891ed2b2ffce6fe618c881a1c732d4a5b4790b0ac" => :mavericks
+    sha256 "42fe6b9ed31756fa0c14b5a0a2c52f3ebcf01179ff3a2bea38a50d8907eb1787" => :el_capitan
+    sha256 "0c920b6fcca5b84305c52fe8fc5147c5d4979b3b408f71e27eeb998cff21a0ba" => :yosemite
+    sha256 "38075522e8f8315d79747032e45b2485d5dc082252f6e7b1924813c1856f5e9e" => :mavericks
   end
 
   # head "https://github.com/broadinstitute/picard.git"
