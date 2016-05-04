@@ -1,8 +1,11 @@
 class Paml < Formula
+  desc "phylogenetic analysis by maximum likelihood"
   homepage "http://abacus.gene.ucl.ac.uk/software/paml.html"
-  url "http://abacus.gene.ucl.ac.uk/software/paml4.8a.tgz"
-  sha256 "e45f37e1cfc1c24de276266a7bc2926fc12eac9602c56c1c025bc8f6dfb737f3"
-  version "4.8a"
+  url "http://abacus.gene.ucl.ac.uk/software/paml4.9a.tgz"
+  version "4.9a"
+  sha256 "1400b6a48aa7ba2dee637352430a1f64594674168cf7a749ac79093da9a39ef4"
+  # doi "10.1093/molbev/msm088"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any
