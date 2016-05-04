@@ -1,8 +1,11 @@
 class Nauty < Formula
+  desc "automorphism groups of graphs and digraphs"
   homepage "http://cs.anu.edu.au/~bdm/nauty/"
-  url "http://cs.anu.edu.au/~bdm/nauty/nauty25r9.tar.gz"
-  version "25r9"
-  sha256 "602d0e2e5ab1bdc84ab69f75ebc065833501bd2875cb07b1bb4274e3dd632825"
+  url "http://users.cecs.anu.edu.au/~bdm/nauty/nauty26r5.tar.gz"
+  version "26r5"
+  sha256 "5043e7d8157c36bf0e7f5ccdc43136f610108d2d755bf1a30508b4cb074302eb"
+  # doi "10.1016/j.jsc.2013.09.003"
+  # tag "math"
 
   bottle do
     cellar :any
@@ -11,29 +14,37 @@ class Nauty < Formula
     sha256 "edeee6cb888c572c95ff3e206d1f3909fcd132f486f2d0cb86575ab9f699c2eb" => :mountain_lion
   end
 
-  deprecated_option "run-tests" => "with-checks"
-
-  option "without-checks", "Skip building the included test programs"
+  option "without-test", "Skip building the included test programs"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "all"
-    system "make", "checks" if build.with? "checks"
+    system "make", "checks" if build.with? "test"
 
     bin.install %w[
-      NRswitchg addedgeg amtog biplabg catg complg copyg countg
-      deledgeg directg dreadnaut dretog genbg geng genrang gentourng labelg
-      linegraphg listg multig newedgeg pickg planarg ranlabg shortg showg subdivideg
-      watercluster2
+      NRswitchg addedgeg amtog biplabg catg complg converseg copyg countg
+      cubhamg deledgeg delptg directg dreadnaut dretodot dretog genbg genbgL
+      geng genquarticg genrang genspecialg gentourng gentreeg hamheuristic
+      labelg linegraphg listg multig newedgeg pickg planarg ranlabg shortg
+      showg subdivideg twohamg vcolg watercluster2
     ]
 
-    prefix.install "nug25.pdf"
+    doc.install "nug26.pdf"
   end
 
   def caveats; <<-EOS.undent
     User guide was saved locally to:
-      #{opt_prefix}/nug25.pdf
+      #{doc}/nug26.pdf
     EOS
+  end
+
+  test do
+    # from ./runalltests
+    out1 = shell_output("#{bin}/geng -ud1D7t 11 2>&1")
+    out2 = shell_output("#{bin}/genrang -r3 114 100 | #{bin}/countg --nedDr -q")
+
+    assert_match /92779 graphs generated/, out1
+    assert_match /100 graphs : n=114; e=171; mindeg=3; maxdeg=3; regular/, out2
   end
 end
