@@ -7,6 +7,13 @@ class Raxml < Formula
   # doi "10.1093/bioinformatics/btu033"
   # tag "bioinformatics"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "d0d39ab71339020bc78efffb9b9c75fdebcd8ffdfeeafa9826647ff52015d46f" => :el_capitan
+    sha256 "c8a40920c9c849ba89affda772bcddbe6736bd12e03efd75b1430d760ecb4871" => :yosemite
+    sha256 "bc4002fd54bea1592e7e2554c5d94dccb506612b4455e25332c0b26c806b7b0d" => :mavericks
+  end
+
   # Won't build on OS X - relies on Linux-specific threading APIs
   depends_on :mpi => [:cc, :optional] if OS.linux?
   needs :openmp if build.with? "mpi"
