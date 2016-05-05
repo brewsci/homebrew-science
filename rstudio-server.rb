@@ -3,6 +3,7 @@ class RstudioServer < Formula
   head "https://github.com/rstudio/rstudio.git"
   url "https://github.com/rstudio/rstudio/archive/v0.99.878.tar.gz"
   sha256 "e02b7423c62820c2ab35a5889711c7ff08102b292e664502c977e431ad15c7b5"
+  revision 1
 
   bottle do
     sha256 "bdf39888ff9fe2568ac20ac7f638efa7edf3ca3e1e4820667bba2f3cbe00e746" => :el_capitan
