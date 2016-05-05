@@ -6,6 +6,7 @@ class Kmergenie < Formula
 
   url "http://kmergenie.bx.psu.edu/kmergenie-1.6976.tar.gz"
   sha256 "319db3dab3837347d710088ec203673e14b6751fa10d193f9ecf3afbc06e9d1e"
+  revision 1
 
   bottle do
     cellar :any
