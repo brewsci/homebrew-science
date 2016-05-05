@@ -5,6 +5,7 @@ class RGui < Formula
   sha256 "8a565c0268b0194c69ba1c19b4919e802fc63c420a0eb80fa8943e10f053e898"
 
   head "https://svn.r-project.org/R-packages/trunk/Mac-GUI"
+  revision 1
 
   bottle do
     cellar :any
