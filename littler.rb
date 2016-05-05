@@ -5,7 +5,7 @@ class Littler < Formula
   head "https://github.com/eddelbuettel/littler.git"
   url "http://dirk.eddelbuettel.com/code/littler/littler-0.2.3.tar.gz"
   sha256 "98cd741c68a5c8f65b06c96d2f56d3b44979b3990335e7869b002c005ef80ba7"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "a6a55c810b672d581f348da88a68e956edaacaa12e6f4a7bc4e9c1e21f9f4a10" => :el_capitan
