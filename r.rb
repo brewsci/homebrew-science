@@ -6,10 +6,10 @@ end
 
 class R < Formula
   desc "Software environment for statistical computing"
-  homepage "http://www.r-project.org/"
-  url "http://cran.rstudio.com/src/base/R-3/R-3.2.5.tar.gz"
-  mirror "http://cran.r-project.org/src/base/R-3/R-3.2.5.tar.gz"
-  sha256 "60745672dce5ddc201806fa59f6d4e0ba6554d8ed78d0f9f0d79a629978f80b5"
+  homepage "https://www.r-project.org/"
+  url "https://cran.rstudio.com/src/base/R-3/R-3.3.0.tar.gz"
+  mirror "https://cran.r-project.org/src/base/R-3/R-3.3.0.tar.gz"
+  sha256 "9256b154b1a5993d844bee7b1955cd49c99ad72cef03cce3cd1bdca1310311e4"
 
   # Do not remove executable permission from these scripts.
   # See https://github.com/Linuxbrew/linuxbrew/issues/614
@@ -27,9 +27,11 @@ class R < Formula
   end
 
   option "without-accelerate", "Build without the Accelerate framework (use Rblas)"
-  option "without-check", "Skip build-time tests (not recommended)"
+  option "without-test", "Skip build-time tests (not recommended)"
   option "without-tcltk", "Build without Tcl/Tk"
   option "with-librmath-only", "Only build standalone libRmath library"
+
+  deprecated_option "without-check" => "without-test"
 
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
