@@ -8,10 +8,10 @@ class Nauty < Formula
   # tag "math"
 
   bottle do
-    cellar :any
-    sha256 "d144e9debed572d69471b303ce1dc8b08ca56a127e278fb51a747a6934bd0d51" => :yosemite
-    sha256 "990534538b4b736801e1fb1775216124492c184b623bdcc6803e0e25b3e8bce6" => :mavericks
-    sha256 "edeee6cb888c572c95ff3e206d1f3909fcd132f486f2d0cb86575ab9f699c2eb" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "f37f9e97552f2663377c71f7149277e6c9573fe91c07d425a65a42c40dea1c6c" => :el_capitan
+    sha256 "c6f11644f03d80e12cb00298f97800da9e446ca50a3c735539d229b2e57731d0" => :yosemite
+    sha256 "1f91481f5a64f6a7698af50549756ff81a3ec0691a55d14e74b120a5f234901a" => :mavericks
   end
 
   option "without-test", "Skip building the included test programs"
