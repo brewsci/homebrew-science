@@ -5,6 +5,13 @@ class Mfem < Formula
   version "3.1"
   sha256 "841ea5cf58de6fae4de0f553b0e01ebaab9cd9c67fa821e8a715666ecf18fc57"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "2febc72f32cd5d4ebe933d61a9d485c9a9754bc339d15458ad25fed24b4d02d4" => :el_capitan
+    sha256 "1cbabf97c2ec405d101a37de690ac4e2651f3735c1d8bccf02eda84b71578c7f" => :yosemite
+    sha256 "711d04ccd613bc6754c6cb45d4074e0740a0c6f89c1f1d630a1c177243abcc73" => :mavericks
+  end
+
   option "with-mpi", "Build with mpi support (implies --with-hypre --with-metis)"
   option "with-suite-sparse", "Build with suite-sparse support (implies --with-metis)"
 
