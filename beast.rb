@@ -4,9 +4,9 @@ class Beast < Formula
   # doi "10.1093/molbev/mss075"
   # tag "bioinformatics"
 
-  url "http://tree.bio.ed.ac.uk/download.php?id=92&num=3"
-  version "1.8.2"
-  sha256 "233ca5e06d98c5e7f8fb6a68fe5dd5448bb36d7d801117f7f6f11ac9f6b6ecc9"
+  url "https://github.com/beast-dev/beast-mcmc/archive/v1.8.3.tar.gz"
+  sha256 "1b03318e77064f8d556a0859aadd3c81036b41e56e323364fb278a56a00aff44"
+  head "https://github.com/beast-dev/beast-mcmc.git"
 
   bottle do
     cellar :any
@@ -15,21 +15,19 @@ class Beast < Formula
     sha256 "c3974c08c01dfa26db9407b070b4302a109043725fef586b4d82290603f2dfee" => :mountain_lion
   end
 
-  head do
-    url "https://github.com/beast-dev/beast-mcmc.git"
-    depends_on :ant
-  end
+  depends_on :ant => :build
 
   def install
-    system "ant", "linux" if build.head?
+    system "ant", "linux"
+    prefix.install Dir["release/Linux/BEASTv*/*"]
 
-    # Move jars to libexec
-    inreplace Dir["bin/*"] do |s|
+    # Move installed JARs to libexec
+    mv lib, libexec
+
+    # Point wrapper scripts to libexec
+    inreplace Dir[bin/"*"] do |s|
       s["$BEAST/lib"] = "$BEAST/libexec"
     end
-
-    mv "lib", "libexec"
-    prefix.install Dir[build.head? ? "release/Linux/BEASTv*/*" : "*"]
   end
 
   def caveats; <<-EOS.undent
@@ -39,6 +37,17 @@ class Beast < Formula
   end
 
   test do
-    system "#{bin}/beast", "-help"
+    cp (opt_prefix/"examples"/"clockModels"/"testUCRelaxedClockLogNormal.xml"), testpath
+
+    # Run fewer generations to speed up tests
+    inreplace "testUCRelaxedClockLogNormal.xml" do |s|
+      s['chainLength="10000000"'] = 'chainLength="500000"'
+    end
+
+    system "#{bin}/beast", "-beagle_off", "testUCRelaxedClockLogNormal.xml"
+
+    %W[ops log trees].each do |ext|
+      assert File.exist? "testUCRelaxedClockLogNormal." + ext
+    end
   end
 end
