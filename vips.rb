@@ -5,10 +5,9 @@ class Vips < Formula
   sha256 "09cb7f8d5640c7693bae07080202de0cead60c668e086f2739248bacd40a1006"
 
   bottle do
-    revision 1
-    sha256 "2f6e73d5534da822a325c2beefeb1209af71530e5365ce9222aeaeab9291759a" => :el_capitan
-    sha256 "8540d070468252f607eb19c9aa8d48dd3dd8db547e3cfeee0d2e8dfcde8ce4aa" => :yosemite
-    sha256 "5a9399a528ab844818c90618fc41740900fc28291bfe68d9e951a755f8fc1ae7" => :mavericks
+    sha256 "7f7f80c38e844389d45aea55d354ebbbf5ef5efdefa64b5a00c5afe782215d7d" => :el_capitan
+    sha256 "2829062d07d8ed719e11fd37f7af7fa93f934de720d1e123006cba8644afe643" => :yosemite
+    sha256 "5f176b75622b919f4af58403983f76e1a638ced19d41db6ee05fb6afbe5108ed" => :mavericks
   end
 
   option "without-test", "Disable build time checks (not recommended)"
