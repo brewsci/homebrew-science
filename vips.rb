@@ -1,8 +1,8 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "http://www.vips.ecs.soton.ac.uk/"
-  url "http://www.vips.ecs.soton.ac.uk/supported/8.3/vips-8.3.0.tar.gz"
-  sha256 "d6ca79b1c5d78f33ebb6d7d3d6948a3bd7ade1c0e09fd162707b1023e17243ec"
+  url "http://www.vips.ecs.soton.ac.uk/supported/8.3/vips-8.3.1.tar.gz"
+  sha256 "09cb7f8d5640c7693bae07080202de0cead60c668e086f2739248bacd40a1006"
 
   bottle do
     revision 1
@@ -45,12 +45,6 @@ class Vips < Formula
   depends_on "libmatio" => :optional
   depends_on "mozjpeg" => :optional
   depends_on "jpeg-turbo" => :optional
-
-  # Fix build --with-graphicsmagick, see jcupitt/libvips#423
-  patch do
-    url "https://gist.githubusercontent.com/felixbuenemann/6862526323514cb7684b81cb88593d0d/raw/5d3d258f4c8c316f7c897eb5b91da771704665d2/vips-8.3.0-graphicsmagick-fix.diff"
-    sha256 "8a7a43e9faebb38ecc8cfe4f8f1fc20ca53bc758f289b62693700818a5eb1b34"
-  end
 
   def install
     args = %W[
