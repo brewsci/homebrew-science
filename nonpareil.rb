@@ -3,10 +3,9 @@ class Nonpareil < Formula
   homepage "http://enve-omics.ce.gatech.edu/nonpareil"
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "22978031100c62cc41ebd3e2a57f2846ac1bf264e02a5807a8f0c36f93efbfa9" => :el_capitan
-    sha256 "592de312bebb22663176aea7bbaafff616df1af4e69ece38be96fb1abd83a983" => :yosemite
-    sha256 "5bed7734473ccaae4aafc316f667ac7679968691ec4ad137df6e1f5bb23763cc" => :mavericks
+    sha256 "0bd41c4db6e54923722528c9bef95c1c5e6384b1a26cb3438860380415136ad4" => :el_capitan
+    sha256 "5a4d9f0cb3ad0c168fc2497bc6a27899c4a20e756cbffe083f6839333a1eca25" => :yosemite
+    sha256 "1e74c7ca447adc503f9bccc3f123b18f9b7dd6c9400c33d2fa8504ee31a8d2da" => :mavericks
   end
 
   # doi "10.1093/bioinformatics/btt584"
