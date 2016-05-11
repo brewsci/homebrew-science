@@ -1,6 +1,14 @@
 class Nonpareil < Formula
   desc "Estimates coverage in metagenomic datasets."
   homepage "http://enve-omics.ce.gatech.edu/nonpareil"
+  bottle do
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "22978031100c62cc41ebd3e2a57f2846ac1bf264e02a5807a8f0c36f93efbfa9" => :el_capitan
+    sha256 "592de312bebb22663176aea7bbaafff616df1af4e69ece38be96fb1abd83a983" => :yosemite
+    sha256 "5bed7734473ccaae4aafc316f667ac7679968691ec4ad137df6e1f5bb23763cc" => :mavericks
+  end
+
   # doi "10.1093/bioinformatics/btt584"
   # tag "bioinformatics"
   url "https://github.com/lmrodriguezr/nonpareil/archive/v2.4.01.tar.gz"
