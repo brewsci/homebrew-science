@@ -7,10 +7,8 @@ class Poretools < Formula
   revision 4
 
   bottle do
-    cellar :any
-    sha256 "a0e632afa59f9be087ea5d35832b8bbdbcb35e13ede286326e78282e9e399c3e" => :el_capitan
-    sha256 "347d5a4eed5444abedb9988321d772f801b810b9bb13c4e61fffb3850b538547" => :yosemite
-    sha256 "791c1099beb63cec062399e8fb8f384688c018a3a7224d33d302220568b26d18" => :mavericks
+    sha256 "13d37f2ca149f6b6460052a431d1913ac91efae1d95a02f51b7fcf7b8538cecf" => :el_capitan
+    sha256 "04d5158bf0764d51d671ae3cd2c62ba4c6299f7c47ad645ab8c9b41c8351b344" => :mavericks
   end
 
   depends_on "pkg-config" => :build  # for h5py
