@@ -11,10 +11,17 @@ class Nonpareil < Formula
   depends_on :mpi => [:cxx, :optional]
 
   def install
+    r_library = lib/"R"/r_major_minor
+    r_library.mkpath
+    inreplace "Makefile", "CMD INSTALL", "CMD INSTALL --library=#{r_library}"
     system "make", "nonpareil"
     system "make", "mpicpp=#{ENV["MPICXX"]}", "nonpareil-mpi" if build.with? :mpi
     system "make", "prefix=#{prefix}", "mandir=#{man1}", "install"
     libexec.install "test/test.fasta"
+  end
+
+  def r_major_minor
+    `#{Formula["r"].bin}/Rscript -e 'cat(as.character(getRversion()[1,1:2]))'`.strip
   end
 
   test do
