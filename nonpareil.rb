@@ -25,6 +25,7 @@ class Nonpareil < Formula
   end
 
   test do
-    system "nonpareil", "-s", "#{libexec}/test.fasta", "-b", "#{libexec}/test"
+    cp libexec/"test.fasta", testpath
+    system "nonpareil", "-s", "#{testpath}/test.fasta", "-b", "#{testpath}/test"
   end
 end
