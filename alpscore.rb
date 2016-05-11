@@ -1,8 +1,8 @@
 class Alpscore < Formula
   desc "Applications and Libraries for Physics Simulations"
   homepage "http://alpscore.org"
-  url "https://github.com/ALPSCore/ALPSCore/archive/v0.5.3.tar.gz"
-  sha256 "87841b96e13d93f863b92daeeba06a562329b80f9e651694901dcf061327d538"
+  url "https://github.com/ALPSCore/ALPSCore/archive/v0.5.4.tar.gz"
+  sha256 "909e6a06673e7fa0d6c985f46ecf0090ca7a5ff682002fe63b0270c578ca3b82"
   head "https://github.com/ALPSCore/ALPSCore.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Alpscore < Formula
   end
 
   option :cxx11
-  option "with-check",  "Build and run shipped tests"
+  option "with-test",   "Build and run shipped tests"
   option "with-doc",    "Build documentation"
   option "with-static", "Build static instead of shared libraries"
 
@@ -33,22 +33,22 @@ class Alpscore < Formula
     args << "-DCMAKE_BUILD_TYPE=Release"
 
     if build.with? "static"
-      args << "-DBuildStatic=ON"
-      args << "-DBuildShared=OFF"
+      args << "-DALPS_BUILD_STATIC=ON"
+      args << "-DALPS_BUILD_SHARED=OFF"
     else
-      args << "-DBuildStatic=OFF"
-      args << "-DBuildShared=ON"
+      args << "-DALPS_BUILD_STATIC=OFF"
+      args << "-DALPS_BUILD_SHARED=ON"
     end
 
     args << ("-DENABLE_MPI=" + ((build.with? "mpi") ? "ON" : "OFF"))
     args << ("-DDocumentation=" + ((build.with? "doc") ? "ON" : "OFF"))
-    args << ("-DTesting=" + ((build.with? "check") ? "ON" : "OFF"))
+    args << ("-DTesting=" + ((build.with? "test") ? "ON" : "OFF"))
 
     mkdir "tmp" do
       args << ".."
       system "cmake", *args
       system "make"
-      system "make", "test" if build.with? "check"
+      system "make", "test" if build.with? "test"
       system "make", "install"
     end
   end
