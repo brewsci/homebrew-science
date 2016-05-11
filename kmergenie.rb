@@ -9,11 +9,10 @@ class Kmergenie < Formula
   revision 1
 
   bottle do
-    cellar :any
-    revision 1
-    sha256 "f473e4557bb61ed1080ff14bd01e98e9ff0efe018b284d44fb0e25ca8b72a3dd" => :yosemite
-    sha256 "08cbf904855f35de632712a0adcdd1a197c5d31226520c2399e7da061e5b496b" => :mavericks
-    sha256 "1f811c455d9ed0bc98517c2a238d8cfdc38a24d06fcfd5d5e7fa1c308d417ea1" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "740048e294ca177c2ed1ad74d83a760057c64b7f9d0bb5cbd23f7ee8b2339090" => :el_capitan
+    sha256 "a1df7810b31ab2d720722ecd4a570129ffe06eed4dcba6859bea952780081555" => :yosemite
+    sha256 "1e3b96f7fa34fcaa59a6cdd0f4c12c16fa2462b0aec304c4ed06f3c04a2b1662" => :mavericks
   end
 
   option "with-maxkmer=", "Specify maximum supported k-mer length (default: 121)"
