@@ -8,9 +8,9 @@ class Glpk448 < Formula
 
   bottle do
     cellar :any
-    sha256 "a778e6900d40062d8681d19e31308ad59dff480b74c6e6bba4e646dd8a07a5b8" => :el_capitan
-    sha256 "c19068caffac7c64aa807965e5568521cb38ab81236dd6c39293a47d5d409472" => :yosemite
-    sha256 "3b636818a037ba1f089fcf5162af9787f4036aeafc2b91d2eb9bd0847c734f4e" => :mavericks
+    sha256 "5390c3e30f24443713cd18c8e0c7b4e2b26550c211ede583e0011be5a4b37bbc" => :el_capitan
+    sha256 "1b2b0fd04fa9c96f62af988af076e40366dfea5ed332b6436d440adf745dc407" => :yosemite
+    sha256 "24427a5e8d671ea3e305e1e26814957b03481f9e8850be8e0226ba47a8bcc35b" => :mavericks
   end
 
   keg_only "This formula installs an older version of the GLPK libraries"
