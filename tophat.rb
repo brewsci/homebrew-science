@@ -1,7 +1,8 @@
 class Tophat < Formula
+  desc "Spliced read mapper for RNA-Seq"
   homepage "http://ccb.jhu.edu/software/tophat"
-  url "http://ccb.jhu.edu/software/tophat/downloads/tophat-2.0.14.tar.gz"
-  sha256 "547c5c9d127cbf7d61bc73c4251ff98a07d57e59b3718666a18b58acfb8fcfbf"
+  url "http://ccb.jhu.edu/software/tophat/downloads/tophat-2.1.1.tar.gz"
+  sha256 "37840b96f3219630082b15642c47f5ef95d14f6ee99c06a369b08b3d05684da5"
 
   bottle do
     cellar :any
@@ -36,7 +37,7 @@ class Tophat < Formula
     system bin/"tophat", "-r", "20",
       share/"test_data/test_ref",
       share/"test_data/reads_1.fq", share/"test_data/reads_2.fq"
-    assert File.read("tophat_out/align_summary.txt").include?("71.0%")
+    assert_match "71.0%", File.read("tophat_out/align_summary.txt")
   end
 end
 __END__
