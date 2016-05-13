@@ -17,7 +17,7 @@ class Glpk448 < Formula
 
   depends_on "gmp" => :recommended
 
-  patch DATA
+  patch :DATA
 
   def install
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
