@@ -8,9 +8,9 @@ class Cytoscape < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7fdcaec1aaee9caf8c0b4104f2c2379b94abc2f3efe888678de68c8f78cad16e" => :el_capitan
-    sha256 "ff2d644cb0de7032fb164c4bd657137f92a0c6d6dfdf7755b61c551a7751aed5" => :yosemite
-    sha256 "aadafb17f1aef90e532d288294558d9c1ba2ea3194ea49776f45128550849213" => :mavericks
+    sha256 "f4f0f0ebf76fe4f58ef1b518d94424164bc9ed232584d3746eb9716687631890" => :el_capitan
+    sha256 "5ea6565946d7ac7f947dbcda8a31852914d43d28caf180c103a76de75f1503d2" => :yosemite
+    sha256 "f81ef71f76b8525d661b3e151ed0eca1dd813de12cb88854caabd060adca3dae" => :mavericks
   end
 
   depends_on :java => "1.8"
