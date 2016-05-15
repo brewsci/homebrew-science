@@ -5,9 +5,9 @@ class Gdcm < Formula
   sha256 "7882e880b8b60efc66a492ae3c1c161799340ad62a90d690823b76eb400c0a8f"
 
   bottle do
-    sha256 "5e480698f28f6a3d7e16eeec541feb9b6e0ec24edfe4f3c5c35c11f80895d28d" => :el_capitan
-    sha256 "1d046333077cc1f5325247a9f23260cabc1fe6152c75ddd0333e1ad14bcbdf46" => :yosemite
-    sha256 "be5cf5f2ffd1d68322a01d22de4f119366fb26cecb9484c801819ec988d804bf" => :mavericks
+    sha256 "ebba08f6b464cfd20b05c8ae70d73234ab2d0ba0e3f2600dbe3d6825fe33282b" => :el_capitan
+    sha256 "2470f21f02a28496a5224104e2bb0b6a8f5e83119fbb17cacc5ec7033a3167f2" => :yosemite
+    sha256 "4bfef048a07fc034def0228fda50f7b906ad34fec4afed0cac346baf4054a140" => :mavericks
   end
 
   patch do
