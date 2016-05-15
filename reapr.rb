@@ -9,9 +9,9 @@ class Reapr < Formula
 
   bottle do
     cellar :any
-    sha256 "c2b05bab93220b81d44f8a6b61b4c59f9eba5eed183a4ad0f28fe1f46ff9f14a" => :el_capitan
-    sha256 "aa1812958b54fd5974f18f1ed7e084a6441b7111639574995b62762700c009e9" => :yosemite
-    sha256 "6d390b5a36e6cc7b56a6fd86b28e443f4dbf073f714bddc866d3781a024a46f6" => :mavericks
+    sha256 "1c56e753c6137a2a2a186dd2d140a3876d88524f0d01ed0176cd6b02369030ed" => :el_capitan
+    sha256 "3d6cc58c001f85572baf6688421b7d99059ba8c66e52680ee89e12f612195be0" => :yosemite
+    sha256 "c92a98055d782d190eb77cc9521316ac446a0d860d434ee28ee4d4ff117aaf40" => :mavericks
   end
 
   depends_on "bamtools"
