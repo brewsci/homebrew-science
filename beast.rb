@@ -9,10 +9,10 @@ class Beast < Formula
   head "https://github.com/beast-dev/beast-mcmc.git"
 
   bottle do
-    cellar :any
-    sha256 "e1357fad70b3a51ce734a705667f2e9d16bdddf480bf340559cdad0bbcaacb65" => :yosemite
-    sha256 "c411831dc26441e4b5bd92dc1926fbd8171d5c8d26d17239f2ce1e9604f67f8b" => :mavericks
-    sha256 "c3974c08c01dfa26db9407b070b4302a109043725fef586b4d82290603f2dfee" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "82fa3516a312aaee005f9dbc92999a2d2eeef1ba1b50eac35e0f889a1bc76dce" => :el_capitan
+    sha256 "52c9e1b8d502d97239fa94b86e3a64ad91fdcb741513710b3fb85b6dc405e2a1" => :yosemite
+    sha256 "10340f6d4d33d941f5c0064933919d5072064120a434eb5d8fa1c29cde194f7f" => :mavericks
   end
 
   depends_on :ant => :build
