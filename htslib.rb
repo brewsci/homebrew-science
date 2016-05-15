@@ -14,8 +14,6 @@ class Htslib < Formula
     sha256 "4dd02f91988651c213b1f84b79d938e06cea297b35e11baefe2e12e016c5b171" => :mavericks
   end
 
-  conflicts_with "tabix", :because => "both htslib and tabix install bin/tabix"
-
   def install
     system "make", "install", "prefix=#{prefix}"
     pkgshare.install "test"
