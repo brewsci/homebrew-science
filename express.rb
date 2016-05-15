@@ -3,8 +3,9 @@ class Express < Formula
   homepage "http://bio.math.berkeley.edu/eXpress/"
   url "http://bio.math.berkeley.edu/eXpress/downloads/express-1.5.1/express-1.5.1-src.tgz"
   sha256 "0c5840a42da830fd8701dda8eef13f4792248bab4e56d665a0e2ca075aff2c0f"
-  revision 1
+  revision 2
   head "https://github.com/adarob/eXpress.git"
+
   bottle do
     cellar :any
     sha256 "1df5c671148e3ed22449a072021d1b8712b659915f484d21c49ed9636130a356" => :el_capitan
@@ -19,7 +20,7 @@ class Express < Formula
   depends_on "boost"
   depends_on "cmake" => :build
   depends_on "protobuf" => :recommended
-  depends_on "gperftools" => :optional
+  depends_on "gperftools" => :recommended
 
   def install
     inreplace "CMakeLists.txt", "set(Boost_USE_STATIC_LIBS ON)", ""
