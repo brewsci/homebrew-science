@@ -6,6 +6,12 @@ class Nest < Formula
 
   head "https://github.com/nest/nest-simulator.git"
 
+  bottle do
+    sha256 "ad44e8f56407a055bb78174df407b6941b2152c1286e6ba68594a0908919baff" => :el_capitan
+    sha256 "37edaf1a7296d0f925fcf4f6f2bc989d3b2bae9355aec64b8da5b21a458bef78" => :yosemite
+    sha256 "4109d97bacd320b3c40ba738122af044a305a4703200e89b2e2005dbcc5a629b" => :mavericks
+  end
+
   option "with-python", "Build Python bindings (PyNEST)."
   option "without-openmp", "Build without OpenMP support."
   needs :openmp if build.with? "openmp"
