@@ -3,9 +3,9 @@ class Pathvisio < Formula
   homepage "http://www.pathvisio.org/"
   # tag "bioinformatics"
   # doi "10.1371/journal.pcbi.1004085"
-  url "http://www.pathvisio.org/data/releases/current/pathvisio_bin-3.2.1-r4025.zip"
-  version "3.2.1"
-  sha256 "e0891d309ce4cd73ca5e22da2a041a921fed86eaa16bdb9318b52a363daee1d2"
+  url "http://www.pathvisio.org/data/releases/current/pathvisio_bin-3.2.2-r4047.zip"
+  version "3.2.2"
+  sha256 "040b83694baa87e99cbe091cbc7d2e54c91fcfb4f80a3e57f20d32a7c64080e1"
 
   depends_on :java => "1.7"
 
