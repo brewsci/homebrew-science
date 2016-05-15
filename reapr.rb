@@ -5,6 +5,7 @@ class Reapr < Formula
   # tag "bioinformatics"
   url "ftp://ftp.sanger.ac.uk/pub/resources/software/reapr/Reapr_1.0.18.tar.gz"
   sha256 "6d691b5b49c58aef332e771d339e32097a7696e9c68bd8f16808b46d648b6660"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,7 +17,6 @@ class Reapr < Formula
   depends_on "bamtools"
   depends_on "htslib"
   depends_on "r" => [:recommended, :run] # only needed for the test
-  depends_on "samtools-0.1"
   depends_on "smalt"
 
   resource "manual" do
@@ -49,8 +49,12 @@ class Reapr < Formula
         "using namespace std ;\n#define ulong u_long"
     end
 
+    # use the vendored samtools-0.1 to avoid CI conflicts
+    system "make", "-C", "third_party/samtools"
+    system "make", "-C", "third_party/samtools", "razip"
     system "make", "-C", "third_party/tabix"
     system "make", "-C", "third_party/snpomatic"
+
     system "make", "-C", "src",
       "CFLAGS=-I#{Formula["bamtools"].opt_include}/bamtools"
     doc.install %w[README changelog.txt licence.txt]
@@ -68,10 +72,25 @@ class Reapr < Formula
       ]
     end
 
-    bin.install_symlink libexec+"reapr.pl" => "reapr"
+    bin.install_symlink libexec/"reapr.pl" => "reapr"
     libexec.install_symlink Formula["htslib"].opt_bin => "tabix"
     libexec.install_symlink Formula["smalt"].opt_bin/"smalt" => "smalt"
-    libexec.install_symlink Formula["samtools-0.1"].opt_bin/"samtools" => "samtools"
+    cd "third_party/samtools" do
+      libexec.install %w[samtools razip]
+      (libexec/"share/man/man1").install "samtools.1"
+    end
+    cd "third_party/samtools/bcftools"  do
+      libexec.install %w[bcftools vcfutils.pl]
+      (libexec/"share/doc/bcftools").install "bcf.tex"
+    end
+    cd "third_party/samtools/misc" do
+      (libexec/"samtools-misc").install Dir["*.java"]
+      (libexec/"samtools-misc").install Dir["*.pl"]
+      (libexec/"samtools-misc").install Dir["*.py"]
+      (libexec/"samtools-misc").install %w[
+        maq2sam-long maq2sam-short md5sum-lite seqtk wgsim
+      ]
+    end
     libexec.install "third_party/snpomatic/findknownsnps"
     bin.env_script_all_files(libexec, :PERL5LIB => ENV["PERL5LIB"])
     ln_s bin/"reapr", prefix/"reapr"
