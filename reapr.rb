@@ -1,9 +1,10 @@
 class Reapr < Formula
-  homepage "https://www.sanger.ac.uk/resources/software/reapr/"
+  desc "Evaluates accuracy of a genome assembly using mapped paired end reads"
+  homepage "http://www.sanger.ac.uk/science/tools/reapr"
   # doi "10.1186/gb-2013-14-5-r47"
   # tag "bioinformatics"
-  url "ftp://ftp.sanger.ac.uk/pub/resources/software/reapr/Reapr_1.0.17.tar.gz"
-  sha256 "e235d846447a34fffa6765fbbea2407cc0c6a0217c007f196e5786022034b65e"
+  url "ftp://ftp.sanger.ac.uk/pub/resources/software/reapr/Reapr_1.0.18.tar.gz"
+  sha256 "6d691b5b49c58aef332e771d339e32097a7696e9c68bd8f16808b46d648b6660"
 
   bottle do
     sha256 "13aed3f265e22d890dde4b91e7bd3965151f1724560e2548362b63d1a2597cf3" => :yosemite
@@ -12,8 +13,20 @@ class Reapr < Formula
   end
 
   depends_on "bamtools"
+  depends_on "htslib"
+  depends_on "r" => [:recommended, :run] # only needed for the test
   depends_on "samtools-0.1"
-  depends_on "tabix"
+  depends_on "smalt"
+
+  resource "manual" do
+    url "ftp://ftp.sanger.ac.uk/pub/resources/software/reapr/Reapr_1.0.18.manual.pdf"
+    sha256 "304b7b7b725abc285791d8be3b2aaf6f4afeb38852ce91fa5635dc0a9913a517"
+  end
+
+  resource "test_data" do
+    url "ftp://ftp.sanger.ac.uk/pub/resources/software/reapr/Reapr_1.0.18.test_data.tar.gz"
+    sha256 "6ef426e56c4854cdbb22d7012aca29d22b072de5e63f505be11229df76b12840"
+  end
 
   resource "File::Spec::Link" do
     url "http://search.cpan.org/CPAN/authors/id/R/RM/RMBARKER/File-Copy-Link-0.140.tar.gz"
@@ -29,10 +42,19 @@ class Reapr < Formula
       system "make", "install"
     end
 
-    system "make", "-C", "src/tabix"
+    if OS.mac?
+      inreplace "third_party/snpomatic/src/snpomatic.h",
+        "using namespace std ;",
+        "using namespace std ;\n#define ulong u_long"
+    end
+
+    system "make", "-C", "third_party/tabix"
+    system "make", "-C", "third_party/snpomatic"
     system "make", "-C", "src",
-           "CFLAGS=-I#{Formula["bamtools"].opt_include}/bamtools"
+      "CFLAGS=-I#{Formula["bamtools"].opt_include}/bamtools"
     doc.install %w[README changelog.txt licence.txt]
+    doc.install resource("manual")
+    (pkgshare/"test").install resource("test_data")
 
     cd "src" do
       libexec.install %w[
@@ -40,15 +62,22 @@ class Reapr < Formula
         bam2perfect fa2gaps fa2gc make_plots n50 scaff2contig
         task_break task_fcdrate task_gapresize task_score task_stats
         task_facheck.pl task_perfectfrombam.pl task_perfectmap.pl
-        task_plots.pl task_preprocess.pl task_smaltmap.pl
+        task_pipeline.pl task_plots.pl task_preprocess.pl task_smaltmap.pl
         task_summary.pl reapr.pl
       ]
     end
+
     bin.install_symlink libexec+"reapr.pl" => "reapr"
+    libexec.install_symlink Formula["htslib"].opt_bin => "tabix"
+    libexec.install_symlink Formula["smalt"].opt_bin/"smalt" => "smalt"
+    libexec.install_symlink Formula["samtools-0.1"].opt_bin/"samtools" => "samtools"
+    libexec.install "third_party/snpomatic/findknownsnps"
     bin.env_script_all_files(libexec, :PERL5LIB => ENV["PERL5LIB"])
+    ln_s bin/"reapr", prefix/"reapr"
   end
 
   test do
-    system "#{bin}/reapr 2>&1 |grep -q reapr"
+    cp_r Dir[pkgshare/"test/*"], testpath
+    system "./test.sh"
   end
 end
