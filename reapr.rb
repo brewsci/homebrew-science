@@ -7,9 +7,10 @@ class Reapr < Formula
   sha256 "6d691b5b49c58aef332e771d339e32097a7696e9c68bd8f16808b46d648b6660"
 
   bottle do
-    sha256 "13aed3f265e22d890dde4b91e7bd3965151f1724560e2548362b63d1a2597cf3" => :yosemite
-    sha256 "4d815482a30e0377c74241049375e1aa0cdfa87ecb4c20c18ba8cf4e028808bc" => :mavericks
-    sha256 "c0ac706f9a675419c5ccb7049ba373b6564c5cd5cfc24ecee93d26b002ebb7af" => :mountain_lion
+    cellar :any
+    sha256 "c2b05bab93220b81d44f8a6b61b4c59f9eba5eed183a4ad0f28fe1f46ff9f14a" => :el_capitan
+    sha256 "aa1812958b54fd5974f18f1ed7e084a6441b7111639574995b62762700c009e9" => :yosemite
+    sha256 "6d390b5a36e6cc7b56a6fd86b28e443f4dbf073f714bddc866d3781a024a46f6" => :mavericks
   end
 
   depends_on "bamtools"
