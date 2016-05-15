@@ -12,9 +12,9 @@ class Bamtools < Formula
 
   bottle do
     cellar :any
-    sha256 "c4bf302ba07235cef55ddbb72125186132f312c14837d0852530922f8c68d336" => :yosemite
-    sha256 "f16f1cc37d517e51d9cfc2ff39fd1c0b3346b35bc2e8ec9c4fc180a3a95ed9e8" => :mavericks
-    sha256 "e3db9f89e38261baed32a4d46eddc96a5e3eb976591145aa2892a4b047bba58d" => :mountain_lion
+    sha256 "578acc620d8f87c7e862a00bed9d79c2d1905bdc76a7e48d13723b89b241da5a" => :el_capitan
+    sha256 "6da59ede4461d0a5e34efa4b607f2ce9f59d97ad93f619d7b5ff2c1c48e352be" => :yosemite
+    sha256 "f267576a2f0c7b067f88c31dbc440ff05adf78a44500481e4282f12ef478aab4" => :mavericks
   end
 
   depends_on "cmake" => :build
