@@ -1,11 +1,12 @@
 class Bamtools < Formula
-  desc "BamTools: API and command-line toolkit for BAM data"
+  desc "C++ API and command-line toolkit for BAM data"
   homepage "https://github.com/pezmaster31/bamtools"
   # doi "10.1093/bioinformatics/btr174"
   # tag "bioinformatics"
 
   url "https://github.com/pezmaster31/bamtools/archive/v2.4.0.tar.gz"
   sha256 "f1fe82b8871719e0fb9ed7be73885f5d0815dd5c7277ee33bd8f67ace961e13e"
+  revision 1
 
   head "https://github.com/pezmaster31/bamtools.git"
 
@@ -19,10 +20,9 @@ class Bamtools < Formula
   depends_on "cmake" => :build
 
   patch do
-    # Install libbamtools in /usr/local/lib.
-    # https://github.com/pezmaster31/bamtools/pull/82
-    url "https://github.com/sjackman/bamtools/commit/3b6b89d.diff"
-    sha256 "de9438e932884a3f941a683984bed32b2eaca5c5483642c5a2253074f4a559ff"
+    # Install libbamtools in /usr/local/lib; reported 29 July 2013
+    url "https://github.com/pezmaster31/bamtools/pull/82.patch"
+    sha256 "960032af95dcd6554329e6707c048c2a59808ea22800b270a268a92f8e67006b"
   end
 
   def install
