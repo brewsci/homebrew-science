@@ -8,10 +8,10 @@ class Smalt < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "0a511ce20674ff1df84ad75dfb3a0bbbe90f1f0265a4dc4f8d25d33eda866bd3" => :yosemite
-    sha256 "68b45d6f971868d1552ef732f7cf049a101b747d735d1e157fdee884c34bd381" => :mavericks
-    sha256 "7d2a0d443996d67ef94bbb1a318f108f2ea8a714a9942892c40b94392bd0a8e4" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "e3116e41fa4f33637c9dcf5305cf94e3f3e236d5d5636fd3b76dab1b29bdd914" => :el_capitan
+    sha256 "78168b0c7f00afbabbdfc782308e80a6396cdec58a648b98d9a1bb236ca509a3" => :yosemite
+    sha256 "2f89e72d483b039dd6096a801e86e999062999541a0fe3a0e0f6c42744ee657f" => :mavericks
   end
 
   resource "manual" do
