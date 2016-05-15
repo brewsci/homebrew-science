@@ -8,9 +8,9 @@ class Express < Formula
 
   bottle do
     cellar :any
-    sha256 "1df5c671148e3ed22449a072021d1b8712b659915f484d21c49ed9636130a356" => :el_capitan
-    sha256 "f7b5b99f8574cbacf4a939d4fd97f1f4368d6fbef6202eec702aaa8351e729ac" => :yosemite
-    sha256 "accc81bedabfad4cd4c770272d770908711fd8c7099c2fd005daeaafd224af9b" => :mavericks
+    sha256 "ecba8b9a720149f90e8113871f82f2d99ac1688d5a28c9e97b4c2b79df0dd5f6" => :el_capitan
+    sha256 "eebcf8cdd0b5253aab314be0373728d1946b8436cf4760c1188d6abf95233ca5" => :yosemite
+    sha256 "35d07bd4df9794a852220592c16a795aa667ab5a9c5f822d52a0e338d1125a87" => :mavericks
   end
 
   # doi "10.1038/nmeth.2251"
