@@ -1,9 +1,8 @@
 class SuiteSparse < Formula
   desc "Suite of Sparse Matrix Software"
   homepage "http://faculty.cse.tamu.edu/davis/suitesparse.html"
-  url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.5.1.tar.gz"
-  sha256 "ac4524b9f69c4f8c2652d720b146c92a414c1943f86d46df49b4ff8377ae8752"
-  revision 1
+  url "http://faculty.cse.tamu.edu/davis/SuiteSparse/SuiteSparse-4.5.3.tar.gz"
+  sha256 "6199a3a35fbce82b155fd2349cf81d2b7cddaf0dac218c08cb172f9bc143f37a"
 
   bottle do
     cellar :any
@@ -138,7 +137,7 @@ end
 
 __END__
 diff --git a/SPQR/Lib/Makefile b/SPQR/Lib/Makefile
-index d6d56f5..e530e23 100644
+index eaade58..d0de852 100644
 --- a/SPQR/Lib/Makefile
 +++ b/SPQR/Lib/Makefile
 @@ -13,7 +13,7 @@ ccode: all
@@ -150,12 +149,3 @@ index d6d56f5..e530e23 100644
 
  # compile and install in SuiteSparse/lib
  library:
-@@ -246,7 +246,7 @@ $(INSTALL_LIB)/$(SO_TARGET): $(OBJ)
-	@mkdir -p $(INSTALL_LIB)
-	@mkdir -p $(INSTALL_INCLUDE)
-	@mkdir -p $(INSTALL_DOC)
--	$(CC) $(SO_OPTS) $^ -o $@ $(LDLIBS)
-+	$(CXX) $(SO_OPTS) $^ -o $@ $(LDLIBS)
-	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_PLAIN) )
-	( cd $(INSTALL_LIB) ; ln -sf $(SO_TARGET) $(SO_MAIN) )
-	$(CP) ../Include/SuiteSparseQR.hpp $(INSTALL_INCLUDE)
