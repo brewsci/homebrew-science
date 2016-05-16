@@ -10,9 +10,9 @@ class Bpipe < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "36a96e3b9ea1e381cca6962345a205ceaa36eb0fe97b3acb03d6836826ce8451" => :yosemite
-    sha256 "5ecc8d67f38a5a4ef08fdbbed7136b4f10b98aba0b8bfefaf50dc7f29622e528" => :mavericks
-    sha256 "be4b953b7de193274c88824f075c240d14d9eb4a5cb05615a61ddbd5271df19e" => :mountain_lion
+    sha256 "4b7bc1bf58deba168b0c3224e5f359a3b69abaac69484d14c780adc988ad06ed" => :el_capitan
+    sha256 "4f1072819acc24c91e9127038853b0458ac6b714992cbe9e9cd08e33366763a1" => :yosemite
+    sha256 "4ebf31154059aad19922532b4e15ce2c3c0e899ec28edae7e196b25ae0ed8e7a" => :mavericks
   end
 
   depends_on :java
