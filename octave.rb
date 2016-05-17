@@ -1,6 +1,7 @@
 class Octave < Formula
   desc "high-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
+  revision 2
 
   stable do
     url "http://ftpmirror.gnu.org/octave/octave-4.0.2.tar.gz"
@@ -94,6 +95,7 @@ class Octave < Formula
   depends_on "ghostscript"    => :recommended  # ps/pdf image output
   depends_on "gl2ps"          => :recommended
   depends_on "graphicsmagick" => :recommended  # imread/imwrite
+  depends_on "transfig"       => :recommended
 
   # conditional dependecies (explicit options)
   depends_on "curl"            if build.with?("curl") && MacOS.version == :leopard
