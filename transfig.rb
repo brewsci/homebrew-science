@@ -5,6 +5,12 @@ class Transfig < Formula
   version "3.2.5e"
   sha256 "8ec5a8f13254dd155622ed3ee0fda1382b1e2b5882d83b9aca1871f12a3e7744"
 
+  bottle do
+    sha256 "65b15336fc45ec16c6aa697e88e872a5d45b1966d5948b959077dbf4ea952e62" => :el_capitan
+    sha256 "cd8d755071272db1c46a162bb391d436bc4b2d0fc005087d519cb6c406b723c5" => :yosemite
+    sha256 "750896783b0be73449bff7216c2732d05ea9c4e39c7170727da2cbbf80e2e47b" => :mavericks
+  end
+
   depends_on "homebrew/x11/imake" => :build
   depends_on "jpeg"
   depends_on "ghostscript"
