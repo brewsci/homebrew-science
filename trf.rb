@@ -15,6 +15,13 @@ class Trf < Formula
     raise "Unknown operating system"
   end
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "83f9ac163d4d16194dbcfaf9d7167a7ddac4175f2d30b07d442bbf1133b3ae2c" => :el_capitan
+    sha256 "5b0f7c05afa414b25f10a0780cad5a8f088a1b6d75b256344201c1776627396b" => :yosemite
+    sha256 "e418c532b280de9321bef4b8fec4561c6a6425050a8b9114d7a42eebbd348e7e" => :mavericks
+  end
+
   def install
     bin.install "trf.download.pl" => "trf"
   end
