@@ -23,10 +23,12 @@ class Nest < Formula
   depends_on "scipy" => :python if build.with? "python"
   depends_on "matplotlib" => :python if build.with? "python"
   depends_on "cython" => :python if build.with? "python"
+  depends_on "nose" => :python if build.with? "python"
   depends_on "libtool" => :run
   depends_on "readline" => :run
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "autoconf" => :build unless build.head?
+  depends_on "automake" => :build unless build.head?
+  depends_on "cmake" => :build if build.head?
 
   fails_with :clang do
     cause <<-EOS.undent
@@ -34,7 +36,29 @@ class Nest < Formula
     EOS
   end
 
+  env :std
+
   def install
+    ENV.delete("CFLAGS")
+    ENV.delete("CXXFLAGS")
+
+    if build.head?
+      args = ["-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}"]
+
+      args << "-Dwith-mpi=ON" if build.with? "mpi"
+      args << "-Dwith-openmp=OFF" if build.without? "openmp"
+      args << "-Dwith-gsl=OFF" if build.without? "gsl"
+      args << "-Dwith-python=OFF" if build.without? "python"
+
+      # "out of source" build
+      mkdir "build" do
+        system "cmake", "..", *args
+        system "make"
+        system "make", "install"
+      end
+      return
+    end
+
     args = ["--disable-debug",
             "--disable-dependency-tracking",
             "--prefix=#{prefix}",
@@ -82,8 +106,14 @@ class Nest < Formula
 
     # necessary for the python tests
     ENV["exec_prefix"] = prefix
-    # necessary for one regression on the sources
-    ENV["NEST_SOURCE"] = pkgshare/"sources"
+    # if build.head? does not seem to work
+    if !File.directory?(pkgshare/"sources")
+      # Skip tests for correct copyright headers
+      ENV["NEST_SOURCE"] = "SKIP"
+    else
+      # necessary for one regression on the sources
+      ENV["NEST_SOURCE"] = pkgshare/"sources"
+    end
 
     if build.with? "mpi"
       # we need the command /mpirun defined for the mpi tests
