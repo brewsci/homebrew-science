@@ -1,10 +1,12 @@
 class Cegma < Formula
+  desc "Core eukaryotic genes mapping approach"
   homepage "http://korflab.ucdavis.edu/datasets/cegma/"
   # doi "10.1093/bioinformatics/btm071"
   # tag "bioinformatics"
 
   url "http://korflab.ucdavis.edu/datasets/cegma/cegma_v2.4.010312.tar.gz"
   sha256 "86bef227a6782dfcbbf8a3cfe354b358e2245096b41491604c47569b83862469"
+  revision 1
 
   bottle do
     cellar :any
