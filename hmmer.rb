@@ -9,11 +9,10 @@ class Hmmer < Formula
   revision 1
 
   bottle do
-    cellar :any
-    revision 2
-    sha256 "763b5182ac642be5cf45334e801d35540c4d7db7bf8767791b652dcaed669c6b" => :yosemite
-    sha256 "a3f95b4293f5dac713c558e40a6b0ebcad140234b8f03d2144c4b3625fd17271" => :mavericks
-    sha256 "96ddaa4a6cedbb776bf94aeff38c102d5c5fd619e89056ba6d6fa645c946259f" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "1bc2f9fb97eb3995a1f163f34d12e6450c4773ec6990ed10efefd79efeb6500f" => :el_capitan
+    sha256 "223520bf7a648673730632698d93c28d652c32ac3134bb1f2cec3eb11cc16e16" => :yosemite
+    sha256 "3b68fd88069ef6fc40fa58eb4b0bc230d442b936417a0ca841569675ab219372" => :mavericks
   end
 
   head do
