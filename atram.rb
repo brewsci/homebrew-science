@@ -6,10 +6,8 @@ class Atram < Formula
 
   url "https://github.com/juliema/aTRAM/archive/v1.04.tar.gz"
   sha256 "ee05363885d1096e628582eebda4958c6316e7668da448af7ffe1b3f67286bea"
-  revision 1
+  revision 2
   head "https://github.com/juliema/aTRAM.git"
-
-  bottle :disable, "Cannot currently build dependency Trinity with GCC-5 or Clang"
 
   depends_on "blast"
   depends_on "mafft"
@@ -19,9 +17,8 @@ class Atram < Formula
 
   def install
     prefix.install Dir["*"]
-    cd prefix do
-      system "perl", prefix/"configure.pl", "-no"
-    end
+    cd prefix
+    system "perl", prefix/"configure.pl", "-no"
   end
 
   test do
