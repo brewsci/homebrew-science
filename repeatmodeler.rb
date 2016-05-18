@@ -1,10 +1,12 @@
 class Repeatmodeler < Formula
+  desc "De-novo repeat family identification and modeling package"
   homepage "http://www.repeatmasker.org/RepeatModeler.html"
   # tag "bioinformatics"
 
-  version "1.0.8"
   url "http://www.repeatmasker.org/RepeatModeler-open-1-0-8.tar.gz"
+  version "1.0.8"
   sha256 "3ac87af3fd3da0c9a2ca8e7b8885496abdf3383e413575548c1d234c15f27ecc"
+  revision 1
 
   bottle do
     sha256 "a9554c56b1727320b1b5048ff89884941af6ee6a64a2afc7f3c621172264d522" => :yosemite
@@ -65,6 +67,6 @@ class Repeatmodeler < Formula
   end
 
   test do
-    system "#{bin}/RepeatModeler"
+    assert_match version.to_s, shell_output("/usr/bin/perl #{bin}/RepeatModeler -v")
   end
 end
