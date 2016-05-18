@@ -1,4 +1,5 @@
 class Tasr < Formula
+  desc "Targeted assembler of short sequence reads"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/tasr"
   # doi "10.1371/journal.pone.0019816"
   # tag "bioinformatics"
@@ -6,6 +7,7 @@ class Tasr < Formula
   url "http://www.bcgsc.ca/platform/bioinfo/software/tasr/releases/1.5.1/tasr_v1-5-1.tar.gz"
   version "1.5.1"
   sha256 "2101283f6a58b1ce83d29f09ac55d52a6ac863170ebafb3b4844be33a87cbcc1"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,10 +19,10 @@ class Tasr < Formula
   def install
     bin.install "TASR"
     doc.install "TASR.readme"
-    prefix.install "test", "tools"
+    pkgshare.install %W[test tools]
   end
 
   test do
-    system "#{bin}/tasr |grep tasr"
+    assert_match version.to_s, shell_output("#{bin}/TASR", 255)
   end
 end
