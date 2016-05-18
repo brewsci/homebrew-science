@@ -1,12 +1,6 @@
 class Atram < Formula
   desc "Automated target restricted assembly method"
   homepage "https://github.com/juliema/aTRAM"
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "1f676dc882d3ca11f24dd1f97968985db717bcdecbcb4b4cb8c10ef2894ea85e" => :el_capitan
-    sha256 "d0912c55cf87b536371d178312c17a35904cff15a30f5402086ec8cf3c982c80" => :yosemite
-    sha256 "ff50f781b9940d5fca761d2894cc36f11f2a8928a1ae600254e0882fb4de9505" => :mavericks
-  end
 
   # doi "10.5281/zenodo.10431"
   # tag "bioinformatics"
@@ -15,6 +9,13 @@ class Atram < Formula
   sha256 "ee05363885d1096e628582eebda4958c6316e7668da448af7ffe1b3f67286bea"
   revision 2
   head "https://github.com/juliema/aTRAM.git"
+
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "1f676dc882d3ca11f24dd1f97968985db717bcdecbcb4b4cb8c10ef2894ea85e" => :el_capitan
+    sha256 "d0912c55cf87b536371d178312c17a35904cff15a30f5402086ec8cf3c982c80" => :yosemite
+    sha256 "ff50f781b9940d5fca761d2894cc36f11f2a8928a1ae600254e0882fb4de9505" => :mavericks
+  end
 
   depends_on "blast"
   depends_on "mafft"
