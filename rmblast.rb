@@ -16,10 +16,10 @@ class Rmblast < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "5d9cf1a5413fd7c28c32652b846eb8b1ddf8bf6014dcd10ccf8c29df85b36231" => :yosemite
-    sha256 "9b98e8e75a24c36c9dc2ecbd5db33953295b1b42a081faa5ae092e8b8b735356" => :mavericks
-    sha256 "02dd45f7669741ef273f314eccc57ddd17a222beee934aea6cf3778dc0101f70" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "77cefb50133d6e723a03b857a1502d8d63d82d139abe4c13654c3c26b1820a67" => :el_capitan
+    sha256 "3c0f9d4c368e14576cb9ce390ff118360c10f52370051b2668189e37801efb5d" => :yosemite
+    sha256 "090810c69bfa5c2ce0153cf18aa4e553cb470d14428d960708323015c33bc227" => :mavericks
   end
 
   depends_on "blast" => :recommended
