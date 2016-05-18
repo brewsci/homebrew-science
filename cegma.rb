@@ -9,10 +9,10 @@ class Cegma < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "0c1431e39f96a6a1f4cd087ba7b26a23abbbf0555012fb76315203d9b49ed848" => :yosemite
-    sha256 "b7d51836f95651b7a4a03a64783380fa0270fb0f6bdf031f42c0d5079ef42077" => :mavericks
-    sha256 "6d0645051b1c7fa543c324bb948ee4cbff3d5300c42d35db16945dc49cfcafde" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "c240c355f7a289c0753ce19753f14e55f4661904b4c765f5ecc5423f42829810" => :el_capitan
+    sha256 "f37f428ab4602f5cdcc503773e5b428dea5c6a4cfebe83998e4567841c937554" => :yosemite
+    sha256 "9d1e40881e4f02ee71b7f43e1473efab22a4fc6cb7d150543daa192b30d0cc1b" => :mavericks
   end
 
   depends_on "blast"
