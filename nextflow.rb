@@ -4,9 +4,9 @@ class Nextflow < Formula
   # doi "10.6084/m9.figshare.1254958"
   # tag "bioinformatics"
 
-  url "http://www.nextflow.io/releases/v0.18.2/nextflow"
-  version "0.18.2"
-  sha256 "1e372c25217f7fad759ae499225302fc43c68dbfe1103dac2e5520d363de3227"
+  url "http://www.nextflow.io/releases/v0.19.1/nextflow"
+  version "0.19.1"
+  sha256 "139ab98592b8e5dd434a31672505f55442633eecb933f1fef28c89aa9132a57e"
 
   head "https://github.com/nextflow-io/nextflow.git"
 
