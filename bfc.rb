@@ -10,10 +10,10 @@ class Bfc < Formula
   head "https://github.com/lh3/bfc.git"
 
   bottle do
-    cellar :any
-    sha256 "4da661a1190e514638bb6d38fb83b54970ff3995d79e868fb9392e644fdb2b1d" => :yosemite
-    sha256 "595fb5c808860401c561628103f34d2c7338884dfa9c99a232fb222936e5e8ea" => :mavericks
-    sha256 "d04cf428537c4b351c4c91e500f1b1e446d0c5359fae6e61ef2bbbbcaed2771e" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "d5605112db4ca0171ea78216c6d1c6c31b4b564d2c92fb5710b4a6f6636b0c4d" => :el_capitan
+    sha256 "2c8ecab3ec5599d307e85155f56b3cdcb7b10ad1e3d29c38e40cb67744eb71d8" => :yosemite
+    sha256 "c00cf990eb917d21968e472e3f6231308462e1858dbac7725439d230907067d3" => :mavericks
   end
 
   def install
