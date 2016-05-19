@@ -4,9 +4,8 @@ class Cegma < Formula
   # doi "10.1093/bioinformatics/btm071"
   # tag "bioinformatics"
 
-  url "http://korflab.ucdavis.edu/datasets/cegma/cegma_v2.4.010312.tar.gz"
-  sha256 "86bef227a6782dfcbbf8a3cfe354b358e2245096b41491604c47569b83862469"
-  revision 1
+  url "http://korflab.ucdavis.edu/datasets/cegma/CEGMA_v2.5.tar.gz"
+  sha256 "dd7381c0402622645404ea009c66e54f7c915d8b80a16e02b8e17ccdc1859e76"
 
   bottle do
     cellar :any_skip_relocation
@@ -26,8 +25,8 @@ class Cegma < Formula
     system "make", "install", "INSTALLDIR=#{libexec/"bin"}"
     (lib/"perl5/site_perl").install Dir["lib/*.pm"]
     libexec.install "data"
-    doc.install "README"
     bin.install_symlink "../libexec/bin/cegma"
+    prefix.install "release_notes.md"
   end
 
   def caveats; <<-EOS.undent
@@ -38,6 +37,7 @@ class Cegma < Formula
   end
 
   test do
-    system "#{bin}/cegma --help 2>&1 |grep -q cegma"
+    ENV.prepend_path "PERL5LIB", lib/"perl5/site_perl"
+    assert_match version.to_s, shell_output("#{bin}/cegma --help", 1)
   end
 end
