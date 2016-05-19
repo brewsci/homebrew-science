@@ -7,9 +7,10 @@ class Nest < Formula
   head "https://github.com/nest/nest-simulator.git"
 
   bottle do
-    sha256 "ad44e8f56407a055bb78174df407b6941b2152c1286e6ba68594a0908919baff" => :el_capitan
-    sha256 "37edaf1a7296d0f925fcf4f6f2bc989d3b2bae9355aec64b8da5b21a458bef78" => :yosemite
-    sha256 "4109d97bacd320b3c40ba738122af044a305a4703200e89b2e2005dbcc5a629b" => :mavericks
+    revision 1
+    sha256 "5fbbaae56cc28ad78710caf7466823c1740d4476b1ac48e908ab2926fbe8239c" => :el_capitan
+    sha256 "dc48e004857285debafd4b1e87ad3cdf24a78c22d4e3c33147736005b298fc78" => :yosemite
+    sha256 "7145a085a494492c9f6a5bf496209b8003e6082ed6f4a5e7f549d3fb99f73f1d" => :mavericks
   end
 
   option "with-python", "Build Python bindings (PyNEST)."
