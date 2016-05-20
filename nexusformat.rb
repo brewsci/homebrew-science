@@ -4,6 +4,12 @@ class Nexusformat < Formula
   url "https://github.com/nexusformat/code/archive/4.3.3.tar.gz"
   sha256 "fef979ded3b2b4a455514671eac4483d431aeb7c8b25428bbb666bc7d50cace3"
 
+  bottle do
+    sha256 "bf653a6a446ffdd8a160bfd1e0c41ec8a8baf5e8e49721d02746c960990edf3d" => :el_capitan
+    sha256 "73844d522f3d373188810b7efba696e6f53bc09e927675e8cf9467e9742e6d04" => :yosemite
+    sha256 "b48d8e0e87d6823537bccaf31f293e16cae79d42537634b1061ff5683905a480" => :mavericks
+  end
+
   option :cxx11
 
   depends_on "autoconf" => :build
