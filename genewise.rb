@@ -1,9 +1,11 @@
 class Genewise < Formula
+  desc "Aligns proteins or protein HMMs to DNA"
   homepage "http://www.ebi.ac.uk/~birney/wise2/"
   # doi "10.1101/gr.1865504"
   # tag "bioinformatics"
   url "http://www.ebi.ac.uk/~birney/wise2/wise2.4.1.tar.gz"
   sha256 "240e2b12d6cd899040e2efbcb85b0d3c10245c255f3d07c1db45d0af5a4d5fa1"
+  revision 1
 
   bottle do
     cellar :any
@@ -32,12 +34,11 @@ class Genewise < Formula
     # patch suggested in http://korflab.ucdavis.edu/datasets/cegma/ubuntu_instructions_1.txt
     inreplace "src/models/phasemodel.c", "isnumber", "isdigit"
 
-    system *%w[make -C src all]
+    cd("src") { system "make", "all" }
     bin.install Dir["src/bin/*"]
     doc.install %w[INSTALL LICENSE README], *Dir["docs/*"]
-    share_genewise = share/"genewise"
-    share_genewise.install Dir["wisecfg/*"]
-    bin.env_script_all_files libexec, "WISECONFIGDIR" => share_genewise
+    pkgshare.install Dir["wisecfg/*"]
+    bin.env_script_all_files libexec, "WISECONFIGDIR" => pkgshare
   end
 
   test do
