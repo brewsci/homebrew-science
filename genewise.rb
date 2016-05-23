@@ -9,9 +9,9 @@ class Genewise < Formula
 
   bottle do
     cellar :any
-    sha256 "72bb8ed394cc810e66f2b2084ffbe90675a0e543cf1cf87cb1e2e3f40fb07aed" => :yosemite
-    sha256 "e60789a737289730fc125edc53d04fa3e5829b9f199a3f59db9903601e2dce98" => :mavericks
-    sha256 "03a26e3341062439ce638ace8ce908bd0683dffdd3c5c374a8dab32651f82bde" => :mountain_lion
+    sha256 "31c4c2cb325cfe706eb76fbfcf3c53b57fcfd9b8518696fb800792ff9f921f31" => :el_capitan
+    sha256 "9c5aac77e7234681824d9e7f809282ceb48329ac281539173221b916e01c4700" => :yosemite
+    sha256 "cc4083e3eeb3ce76dabd68c695f119f2dfa18035211c8bf1a1707c8acebe32d2" => :mavericks
   end
 
   depends_on "pkg-config" => :build
