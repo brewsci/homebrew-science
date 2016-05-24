@@ -1,8 +1,8 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "http://openimageio.org"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-1.6.11.tar.gz"
-  sha256 "80ab6109bb2a9fe2a98339a55dfd34ff0919ed2201995f184d0ad33486639efd"
+  url "https://github.com/OpenImageIO/oiio/archive/Release-1.6.13.tar.gz"
+  sha256 "b2989df4133d84c9b24e2b67ae8780528a49b6c088ce945e15ecefc31235a39b"
 
   head "https://github.com/OpenImageIO/oiio.git"
 
@@ -141,12 +141,12 @@ class Openimageio < Formula
     system "make", *args
     system "make", "test" if build.with? "test"
     cd "dist/macosx" do
-      (lib/"python#{pyver}").install "lib/python/site-packages"
-      (lib/"python#{py3ver}").install "lib/python3/site-packages" if build.with? :python3
+      (lib/"python#{pyver}").install "python"
+      (lib/"python#{py3ver}").install "python3" if build.with? :python3
       prefix.install %w[bin include]
       lib.install Dir["lib/lib*"]
-      doc.install "share/doc/openimageio/openimageio.pdf"
-      prefix.install Dir["share/doc/openimageio/*"]
+      doc.install "doc/openimageio.pdf"
+      prefix.install Dir["doc/*"]
     end
   end
 
