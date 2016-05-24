@@ -1,11 +1,11 @@
 class Kmerstream < Formula
   desc "Streaming algorithms for k-mer abundance estimation"
   homepage "https://github.com/pmelsted/KmerStream"
+  url "https://github.com/pmelsted/KmerStream/archive/v1.1.tar.gz"
+  sha256 "cf5de6224a0dd40e30af4ccc464bb749d20d393a7d4d3fceafab5f3d75589617"
+  head "https://github.com/pmelsted/KmerStream.git"
   # doi "10.1093/bioinformatics/btu713"
   # tag "bioinformatics"
-  url "https://github.com/pmelsted/KmerStream/archive/v1.0.tar.gz"
-  sha256 "65372515dc19fb30c89f912c4a8c302ee3b266e931bbb2983e232e1c9ea62efe"
-  head "https://github.com/pmelsted/KmerStream.git"
 
   bottle do
     cellar :any
@@ -19,10 +19,13 @@ class Kmerstream < Formula
 
   def install
     system "make"
-    bin.install "KmerStream"
+    bin.install "KmerStream", "KmerStreamJoin", "KmerStreamEstimate.py"
+    doc.install "README.md"
   end
 
   test do
-    system "#{bin}/KmerStream 2>&1 |grep KmerStream"
+    assert_match "Usage", shell_output("#{bin}/KmerStream 2>&1", 1)
+    assert_match "Usage", shell_output("#{bin}/KmerStreamJoin 2>&1", 1)
+    assert_match "Usage", shell_output("#{bin}/KmerStreamEstimate.py 2>&1", 1)
   end
 end
