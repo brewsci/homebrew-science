@@ -188,6 +188,7 @@ class R < Formula
   def installed_short_version
     old_rhome = ENV.delete "R_HOME" # Rscript prints garbage if R_HOME is set
     `#{bin}/Rscript -e 'cat(as.character(getRversion()[1,1:2]))'`.strip
+  ensure
     ENV["R_HOME"] = old_rhome
   end
 
