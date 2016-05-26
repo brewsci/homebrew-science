@@ -9,9 +9,9 @@ class Cegma < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c240c355f7a289c0753ce19753f14e55f4661904b4c765f5ecc5423f42829810" => :el_capitan
-    sha256 "f37f428ab4602f5cdcc503773e5b428dea5c6a4cfebe83998e4567841c937554" => :yosemite
-    sha256 "9d1e40881e4f02ee71b7f43e1473efab22a4fc6cb7d150543daa192b30d0cc1b" => :mavericks
+    sha256 "c0953276f654ad3f2696fd7ddb3c33fa6a61d6765b4b6ac4aae694618fb9a32b" => :el_capitan
+    sha256 "48c10c321a8868e69dd06bef16e48c41d5db331fd2ea460866d3a04770a56259" => :yosemite
+    sha256 "2a827211542d44535a0b1525474e3cee46b950bc12c5f82932e4b84b0384e58f" => :mavericks
   end
 
   depends_on "blast"
