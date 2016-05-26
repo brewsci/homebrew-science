@@ -1,8 +1,8 @@
 class Insighttoolkit < Formula
   desc "ITK is a toolkit for performing registration and segmentation"
   homepage "http://www.itk.org"
-  url "https://downloads.sourceforge.net/project/itk/itk/4.9/InsightToolkit-4.9.0.tar.gz"
-  sha256 "4aa26e3cd3503b08e92a16e812d2be474275b218d015143a9e890063eb0f4f5b"
+  url "https://downloads.sourceforge.net/project/itk/itk/4.10/InsightToolkit-4.10.0.tar.gz"
+  sha256 "2ede59a95c4864885c863365f9df9371c39d2b31a545e3da6bda800249840168"
   head "git://itk.org/ITK.git"
 
   bottle do
@@ -12,7 +12,7 @@ class Insighttoolkit < Formula
   end
 
   option :cxx11
-  cxx11dep = (build.cxx11?) ? ["c++11"] : []
+  cxx11dep = build.cxx11? ? ["c++11"] : []
 
   depends_on "cmake" => :build
   depends_on "opencv" => [:optional] + cxx11dep
