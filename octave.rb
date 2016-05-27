@@ -1,7 +1,7 @@
 class Octave < Formula
   desc "high-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  revision 2
+  revision 3
 
   stable do
     url "http://ftpmirror.gnu.org/octave/octave-4.0.2.tar.gz"
@@ -149,7 +149,6 @@ class Octave < Formula
     args << "--with-fltk-prefix=#{Formula["fltk"].opt_prefix}" if build.with? "fltk"
     args << "--without-glpk"             if build.without? "glpk"
     args << "--disable-gui"              if build.without? "gui"
-    args << "--without-hdf5"             if build.without? "hdf5"
     args << "--without-opengl"           if build.without? "opengl"
     args << "--without-framework-opengl" if build.without? "opengl"
     args << "--without-OSMesa"           if build.without? "osmesa"
@@ -163,6 +162,14 @@ class Octave < Formula
     args << "--with-sndfile"             if build.without? "audio"
     args << "--disable-java"             if build.without? "java"
     args << "--enable-jit"               if build.with? "jit"
+
+    # ensure that the right hdf5 library is used
+    if build.with? "hdf5"
+      args << "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}"
+      args << "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}"
+    else
+      args << "--without-hdf5"
+    end
 
     # arguments if building without suite-sparse
     if build.without? "suite-sparse"
