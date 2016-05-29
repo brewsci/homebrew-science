@@ -1,8 +1,8 @@
 class Abinit < Formula
   desc "Atomic-scale first-principles simulation software"
   homepage "http://www.abinit.org"
-  url "http://ftp.abinit.org/abinit-7.10.5.tar.gz"
-  sha256 "e9376a3e34790bce90992f28e5fa8554b51ba467bf5709c7fd25d300e7c4f56a"
+  url "http://ftp.abinit.org/abinit-8.0.6.tar.gz"
+  sha256 "ad98fe3bc494b15d53e661866ae7118e56a6d8c9ae3655da6aff1ecee19743d8"
 
   bottle do
     cellar :any
@@ -11,7 +11,7 @@ class Abinit < Formula
     sha256 "1dca7b47daa3f5a8420fe44059bbd6e745d4db710047ebca3d31b89f3709b178" => :mavericks
   end
 
-  option "without-check", "Skip build-time tests (not recommended)"
+  option "without-test", "Skip build-time tests (not recommended)"
   option "with-testsuite", "Run full test suite (time consuming)"
 
   depends_on :mpi => [:cc, :cxx, :f77, :f90]
@@ -76,10 +76,6 @@ class Abinit < Formula
       dft_flavor = "libxc"
       args << "--with-libxc-incs=-I#{Formula["libxc"].opt_include}"
       args << "--with-libxc-libs=-L#{Formula["libxc"].opt_lib} -lxc -lxcf90"
-      # Patch to make libXC 2.2+ supported by Abinit 7.10;
-      # libXC 2.2 will be supported in Abinit 8.0
-      inreplace "configure", "(major != 2) || (minor < 0) || (minor > 1)",
-                             "(major != 2) || (minor < 2) || (minor > 3)"
     end
 
     # need to link against single precision as well, see https://trac.macports.org/ticket/45617 and http://forum.abinit.org/viewtopic.php?f=3&t=2631
@@ -95,7 +91,7 @@ class Abinit < Formula
     system "./configure", *args
     system "make"
 
-    if build.with? "check"
+    if build.with? "test"
       cd "tests"
       if build.with? "testsuite"
         system "./runtests.py 2>&1 | tee make-check.log"
