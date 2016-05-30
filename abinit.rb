@@ -6,9 +6,9 @@ class Abinit < Formula
 
   bottle do
     cellar :any
-    sha256 "1b8837dc6dd908ad27e3225a849887e28cd9d8ed4464363dc24a7830d53c4a25" => :el_capitan
-    sha256 "241aeffb5599e19d5492c450d3393dd12f6f233c291838d8d80941bb57becf59" => :yosemite
-    sha256 "1dca7b47daa3f5a8420fe44059bbd6e745d4db710047ebca3d31b89f3709b178" => :mavericks
+    sha256 "3d36508bf1725c75ddafc34462948cf8fef0d471d9e668c7683328e52badab14" => :el_capitan
+    sha256 "717837703b49a1f72603c11cf0e6d1a75e9149cd8cdf3999a330638f3611a54d" => :yosemite
+    sha256 "3f36c826dbd95d9a6da256dc2fd802d7e04b12c3b4299a70c438c8016564eb35" => :mavericks
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
