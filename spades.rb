@@ -1,10 +1,10 @@
 class Spades < Formula
   desc "SPAdes: de novo genome assembly"
   homepage "http://bioinf.spbau.ru/spades/"
+  url "http://spades.bioinf.spbau.ru/release3.8.0/SPAdes-3.8.0.tar.gz"
+  sha256 "36e698546d3cfbbd26d8ddec13907c48025ccb2ca94803143398572dbfc90681"
   # tag "bioinformatics"
   # doi "10.1089/cmb.2012.0021"
-  url "http://spades.bioinf.spbau.ru/release3.7.1/SPAdes-3.7.1.tar.gz"
-  sha256 "e904f57b08c5790c64406763b29650ffba872da47ec5a3e659396fcfcbc9b35a"
 
   bottle do
     cellar :any
