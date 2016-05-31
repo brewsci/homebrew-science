@@ -1,9 +1,8 @@
 class Asl < Formula
   desc "The AMPL modeling language solver library"
   homepage "http://www.ampl.com"
-  url "https://github.com/ampl/mp/archive/2.1.0.tar.gz"
-  sha256 "57d17db3e70e4a643c1b2141766a000b36057c2eeebd51964f30e2f8a56ee4d6"
-  revision 1
+  url "https://github.com/ampl/mp/archive/3.1.0.tar.gz"
+  sha256 "587c1a88f4c8f57bef95b58a8586956145417c8039f59b1758365ccc5a309ae9"
 
   bottle do
     cellar :any
