@@ -22,6 +22,8 @@ class Spades < Formula
   end
 
   def install
+    inreplace "ext/src/cityhash/city.cc", "#ifdef __SSE4_2__", "#if 0"
+
     mkdir "src/build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
