@@ -5,6 +5,13 @@ class Scrm < Formula
   version "1.7.2"
   sha256 "9897536696429959163aaee7dbb05ae17964a04a3f8b4dbb1f3af27c842516c3"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "efa9671e2aa0d2bca94b6505d5a1a3a0a7ef060baf74cd993a7f2be3398ec6c1" => :el_capitan
+    sha256 "e310107e1c849fe48f62aee22587e933a466b8966fcb12e244066640c0bfa9b2" => :yosemite
+    sha256 "6c10eb18ffd42087d567d06f15f94edf1082da57ee903435e5532b618cb92f41" => :mavericks
+  end
+
   option "without-test", "Disable build-time testing (not recommended)"
 
   depends_on "cppunit" if build.with? "test"
