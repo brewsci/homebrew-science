@@ -1,0 +1,31 @@
+class Scrm < Formula
+  desc "Coalescent simulator for biological sequences."
+  homepage "https://scrm.github.io/"
+  url "https://github.com/scrm/scrm/releases/download/v1.7.2/scrm-src.tar.gz"
+  version "1.7.2"
+  sha256 "9897536696429959163aaee7dbb05ae17964a04a3f8b4dbb1f3af27c842516c3"
+
+  option "without-test", "Disable build-time testing (not recommended)"
+
+  depends_on "cppunit" if build.with? "test"
+
+  def install
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
+    system "make"
+    system "make", "test" if build.with? "test"
+    system "make", "install"
+  end
+
+  test do
+    assert_equal shell_output("#{bin}/scrm 10 1 -seed 1 2 3 -T"), <<-EOS.undent
+      scrm 10 1 -seed 1 2 3 -T
+      4199328558
+
+      //
+      ((6:0.0435293,(1:0.00419747,2:0.00419747):0.0393318):0.774018,((10:0.0734249,7:0.0734249):0.60889,(9:0.62083,(8:0.173813,(4:0.149547,(5:0.00360041,3:0.00360041):0.145947):0.0242657):0.447016):0.0614849):0.135233);
+    EOS
+  end
+end
