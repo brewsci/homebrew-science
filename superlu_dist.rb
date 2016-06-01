@@ -5,10 +5,9 @@ class SuperluDist < Formula
   sha256 "30ac554a992441e6041c6fb07772da4fa2fa6b30714279de03573c2cad6e4b60"
 
   bottle do
-    cellar :any
-    sha256 "ddf3997eb8bc2c6ad1b219044a288483ec58458ccc61dd1f5251f07c850c657d" => :el_capitan
-    sha256 "76c2527083fa6faa4279aa4d8a0b81fc439d45db6849655840c640e6cf9519dd" => :yosemite
-    sha256 "d9cdc445ebe4654d35d9834a6996a2ccf80dbb8894b589e2adcda17249549ebc" => :mavericks
+    sha256 "2e330af1603d2d39df45d00dc5f3b25dcff5f2b34737634d104751abd939742f" => :el_capitan
+    sha256 "684e8d324e5b3d3452835ddbe47cb15921e9feddc0eac927a960396f08a215d3" => :yosemite
+    sha256 "2ed2f6063464dd9585246fba5ce2fabdb9bb7197ed9676d0fbadc90ef87d2b01" => :mavericks
   end
 
   option "without-test", "skip build-time tests (not recommended)"
