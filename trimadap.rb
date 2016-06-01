@@ -1,4 +1,5 @@
 class Trimadap < Formula
+  desc "Fast but inaccurate adapter trimmer for Illumina reads"
   homepage "https://github.com/lh3/trimadap"
   # tag "bioinformatics"
 
