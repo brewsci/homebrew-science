@@ -1,10 +1,10 @@
 class Trimmomatic < Formula
+  desc "Flexible read trimming tool for Illumina data"
   homepage "http://www.usadellab.org/cms/?page=trimmomatic"
-  # tag "bioinformatics"
-  # doi "10.1093/bioinformatics/btu170"
-
   url "http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.35.zip"
   sha256 "43b993ffa91c039b529db8334bc6aa4b0d601e69c79aaa9a1457ecd1c2c3cc69"
+  # tag "bioinformatics"
+  # doi "10.1093/bioinformatics/btu170"
 
   bottle do
     cellar :any_skip_relocation
