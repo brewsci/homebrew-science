@@ -42,7 +42,7 @@ install:
 
 script:
   - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then
-      brew test-bot;
+      brew test-bot --tap=homebrew/science;
     else
       docker run
         -w /home/linuxbrew/.linuxbrew/Library/Taps/homebrew/homebrew-science
