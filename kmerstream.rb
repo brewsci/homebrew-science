@@ -12,6 +12,7 @@ class Kmerstream < Formula
     sha256 "22e8ce50d637f586ba2fcfed72377f8c7d7ffdce801fe0f90d701fdc6b6ad705" => :yosemite
     sha256 "2c5bffccb04d1defd9b49e5568e4aec4c1e265674b5bf6f2f33bf89d02e464bc" => :mavericks
     sha256 "166d431cace37bbb1c96c7dd6d9d47cfefefc0ee0fbcc9bb61289364834050e8" => :mountain_lion
+    sha256 "44db59085ab672c7aa2cdbc40b373fffef1c8e71ca9dbb8dbed2afa9c0914f9c" => :x86_64_linux
   end
 
   needs :openmp
