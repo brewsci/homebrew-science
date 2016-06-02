@@ -13,6 +13,7 @@ class Htslib < Formula
     sha256 "b6841595738c705309e0252b48aac1f718fba2e5b98dedc2a3b98a4e87b1c546" => :el_capitan
     sha256 "be89111d41c0d0a8e446165526d32d96f87fc522d9107e81d0cd326a0e4dd617" => :yosemite
     sha256 "34cfda10522418051ffee9124b352725b230de9764d4278c377c729ba685053f" => :mavericks
+    sha256 "65a8c4e9e3284ff1ad157ce9c4a2c432ef7579a5c145bf23350965244de9bb57" => :x86_64_linux
   end
 
   def install
