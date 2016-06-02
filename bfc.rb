@@ -14,6 +14,7 @@ class Bfc < Formula
     sha256 "d5605112db4ca0171ea78216c6d1c6c31b4b564d2c92fb5710b4a6f6636b0c4d" => :el_capitan
     sha256 "2c8ecab3ec5599d307e85155f56b3cdcb7b10ad1e3d29c38e40cb67744eb71d8" => :yosemite
     sha256 "c00cf990eb917d21968e472e3f6231308462e1858dbac7725439d230907067d3" => :mavericks
+    sha256 "129025d0d4638d5104f9ed1f806875e24e53d8a1c64b5b8a6bdd8dda2e917b1c" => :x86_64_linux
   end
 
   def install
