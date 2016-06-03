@@ -11,6 +11,7 @@ class Fermi < Formula
     cellar :any
     sha256 "4ad67cf62a8e1a20ab3fe935ed5646d233c0e23e88d590d6f95232784709e5c5" => :yosemite
     sha256 "a2240c62dc918a11afd442021f88486f0c95a54767474e791a7cbde6485cf827" => :mavericks
+    sha256 "ea9409a0e5dca458b0f9f93bb6bbe35179b75341799331222941b76ee436ed65" => :x86_64_linux
   end
 
   def install
