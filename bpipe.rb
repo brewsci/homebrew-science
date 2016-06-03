@@ -13,6 +13,7 @@ class Bpipe < Formula
     sha256 "4b7bc1bf58deba168b0c3224e5f359a3b69abaac69484d14c780adc988ad06ed" => :el_capitan
     sha256 "4f1072819acc24c91e9127038853b0458ac6b714992cbe9e9cd08e33366763a1" => :yosemite
     sha256 "4ebf31154059aad19922532b4e15ce2c3c0e899ec28edae7e196b25ae0ed8e7a" => :mavericks
+    sha256 "fc4fbddefa999ecc2c3f2ac57a1c1296b11f50ed5cb168403f22a44194875072" => :x86_64_linux
   end
 
   depends_on :java
