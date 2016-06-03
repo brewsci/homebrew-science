@@ -11,6 +11,7 @@ class LumpySv < Formula
     sha256 "1f571d7d8757b2daadb579f6de1c450b55ccded198ff839eb3cb666706c93113" => :el_capitan
     sha256 "47909b1938634e7649094958d04ca3e9253d62ec75d75cdb4ed02a54d9777d6f" => :yosemite
     sha256 "2c7698685d3a58d1c594bc1b318b18f864af2c7d5969440c5a03978107761d04" => :mavericks
+    sha256 "eb106f5abe0c4940959cf6746e55ccad69c138d61dcf31aef933776cb09a2b4b" => :x86_64_linux
   end
 
   depends_on "samblaster" => :optional
