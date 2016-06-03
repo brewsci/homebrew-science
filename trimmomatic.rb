@@ -11,6 +11,7 @@ class Trimmomatic < Formula
     sha256 "53d19260547f5d00f87422d097804c5930699c02127dbb5dfccae938024bd5f5" => :el_capitan
     sha256 "fffbb3c9f603e40f9e298e7d2325be7189c9fa47f16e7ee61e5240a95df6fa8f" => :yosemite
     sha256 "d96df900066f157486314c08386f1a4d61e944476b0488abd38e40c6df2064ca" => :mavericks
+    sha256 "0be0324f215ebd848840fc25200629457d2e360510ffda4a2b4ac9e63bc6e50d" => :x86_64_linux
   end
 
   depends_on :java
