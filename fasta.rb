@@ -11,6 +11,7 @@ class Fasta < Formula
     sha256 "3fb1552fa6887d73ceaab44f6632697c5a4130bd29b3826236f34fd1aa5f4f6f" => :yosemite
     sha256 "887a5ed9bf87b815098738f680717741b55b544b68d7fcced77653a166b61b74" => :mavericks
     sha256 "6b237170e06c877f6ccd486104b7f8505b927b9ab8d62e7193ff778e96ace18e" => :mountain_lion
+    sha256 "cbf9e27307f4a0f88f5f7557b326039495c20b3e692c7a3ee4d605ea77f78f52" => :x86_64_linux
   end
 
   def install
