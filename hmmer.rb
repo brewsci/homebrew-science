@@ -13,6 +13,7 @@ class Hmmer < Formula
     sha256 "1bc2f9fb97eb3995a1f163f34d12e6450c4773ec6990ed10efefd79efeb6500f" => :el_capitan
     sha256 "223520bf7a648673730632698d93c28d652c32ac3134bb1f2cec3eb11cc16e16" => :yosemite
     sha256 "3b68fd88069ef6fc40fa58eb4b0bc230d442b936417a0ca841569675ab219372" => :mavericks
+    sha256 "5585bed9532d2840056749e5ea353a57952ac75909681c0dc041518e3dfc17e3" => :x86_64_linux
   end
 
   head do
