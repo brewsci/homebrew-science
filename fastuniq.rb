@@ -11,6 +11,7 @@ class Fastuniq < Formula
     sha256 "19465fcbe38c09187aed0df6a5ff2aeb640cabee976220b9a6eefb51d632de5e" => :yosemite
     sha256 "07890a374729fe11b214426e5ab17f5b57b80b735bd5f84611dd37f71de2259f" => :mavericks
     sha256 "f662ad9cce7dc9251ec813b170c3f3178e7f7998bcecd8399900742b1604d807" => :mountain_lion
+    sha256 "707131d1bb1cb57f8e14edf496c6cefecb77ac917bc0b3bb4c894c8ef77dc9ac" => :x86_64_linux
   end
 
   def install
