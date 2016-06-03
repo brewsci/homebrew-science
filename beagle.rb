@@ -43,6 +43,7 @@ class Beagle < Formula
     sha256 "05f6d54c9d2f3485848ac0dd66352c5966537115c542200ff78085160e8a70a4" => :yosemite
     sha256 "896db76f702251e8a61f34af9d9b8265faf2a607d9090914c0344f5e9cdef17b" => :mavericks
     sha256 "b9d7a9be41827bbf8134c3a6ae484424993b34a20bc0f776fc5c5c5f4600efc2" => :mountain_lion
+    sha256 "f97ee10fcf7b053d697bd9b806aaba90fda335d8f99daa62c7342e8ad50854f0" => :x86_64_linux
   end
 
   option "with-opencl", "Build with OpenCL GPU/CPU acceleration"
