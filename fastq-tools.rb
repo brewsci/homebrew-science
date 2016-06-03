@@ -13,7 +13,7 @@ class FastqTools < Formula
     sha256 "1674cbecb09313439c129349cbd0920a77c12aa36934b47a5709c91e3f457041" => :x86_64_linux
   end
 
-  depends_on "pcre" => :build
+  depends_on "pcre"
 
   def install
     system "./configure",
