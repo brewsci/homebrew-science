@@ -12,6 +12,7 @@ class Smalt < Formula
     sha256 "e3116e41fa4f33637c9dcf5305cf94e3f3e236d5d5636fd3b76dab1b29bdd914" => :el_capitan
     sha256 "78168b0c7f00afbabbdfc782308e80a6396cdec58a648b98d9a1bb236ca509a3" => :yosemite
     sha256 "2f89e72d483b039dd6096a801e86e999062999541a0fe3a0e0f6c42744ee657f" => :mavericks
+    sha256 "cf4d6fafd3e3e06bf8348abed79e1ba424bf892e2c1f4ba398a14b44b037ca1a" => :x86_64_linux
   end
 
   resource "manual" do
