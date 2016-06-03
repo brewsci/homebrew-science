@@ -11,6 +11,7 @@ class Exonerate < Formula
     sha256 "0da7d050c4bc1f2c57a9eabbd72bd35701df4e24cc0284c5ef1f22488657873e" => :el_capitan
     sha256 "3980be24502af233551019f9aa7f96921042a9fc7077bc2b7cefd815edfc871c" => :yosemite
     sha256 "a1d6bdf2b7a5bb246e61a6c8c5e8ff288b061b2d183c451660f3fd8d4c497ba0" => :mavericks
+    sha256 "1d1c62fd7e440ad60d6456f1ed472840d4274d25fb561a849d6e3f224146c615" => :x86_64_linux
   end
 
   devel do
