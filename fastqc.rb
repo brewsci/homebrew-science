@@ -9,6 +9,7 @@ class Fastqc < Formula
     sha256 "2a26ea4c25aa06444d2c311ebe03fcf3246b34a681e4b2183125993cc0854125" => :yosemite
     sha256 "f291937b9522f7bc6451edbf744567fdf4ec7bd97f010fc8fbc413e01e7ab566" => :mavericks
     sha256 "2599dd06f32828921f8607b9f46afcc25ca9f7dc16d72e858216fc24940cf952" => :mountain_lion
+    sha256 "8107477a8c9cf46121f2f3a887da99a754b9666afee298ba60bc52c8a9d78efe" => :x86_64_linux
   end
 
   depends_on :java
