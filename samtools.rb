@@ -19,6 +19,7 @@ class Samtools < Formula
   option "with-dwgsim", "Build with Whole Genome Simulation"
   option "without-curses", "Skip use of libcurses, for platforms without it, or different curses naming"
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
   depends_on "htslib"
   depends_on "dwgsim" => :optional
 
