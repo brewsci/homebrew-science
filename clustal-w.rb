@@ -11,6 +11,7 @@ class ClustalW < Formula
     sha256 "476d0596f089217ba1b23c12f69e34ac5127405cf757033cdcede523ce79608c" => :el_capitan
     sha256 "14c64492275401c1a62d54edb1e75e6e8367fd854706e8776e175aa055f9bf08" => :yosemite
     sha256 "15abc50c36d8f6edf502e7656cdec0dff2765c811baeb1dc3a8a149e6e3e9837" => :mavericks
+    sha256 "a394f0dbadf2cb08f0cae76c475c3aaaf11edac6e4c3c0b41e1fb6d7ff999251" => :x86_64_linux
   end
 
   def install
