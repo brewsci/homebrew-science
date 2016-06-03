@@ -11,6 +11,7 @@ class Infernal < Formula
     sha256 "b0ae6239bf56e3f11ccdb8c1534c733adfbf1708b4e7ab563664caacab5e492a" => :yosemite
     sha256 "1795cdba9ce8f61ad3b46f748015e9a9a2a124be9e681dcef407f3fd310c0a09" => :mavericks
     sha256 "d132b98769966008d8c320a6d80d50636b95b3f4d6d05bd51986f22e2f5f0e94" => :mountain_lion
+    sha256 "55b4128aeb4c49f274e1d969a41e6e44d16861a1d9ca9116ee87c26ae809fa13" => :x86_64_linux
   end
 
   deprecated_option "check" => "with-check"
