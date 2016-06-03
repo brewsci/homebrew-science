@@ -14,6 +14,7 @@ class Daligner < Formula
     sha256 "5be3c4c9da4b1e05921ced5fe07882012835dc83acf8dfc31f102985c17344f5" => :yosemite
     sha256 "3483a17210caff7a027dcf2fdb0b5610514a41285c4fe32cc2411f101856758b" => :mavericks
     sha256 "2599b9b12ddb85dded8c32f04b452bc1cd68313ae23527644cb9de25b4c6ecb9" => :mountain_lion
+    sha256 "88c32023a74576cda100f29cbdeef83b64734b913b9f12729f099b2693b0011f" => :x86_64_linux
   end
 
   def install
