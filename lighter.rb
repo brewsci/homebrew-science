@@ -13,6 +13,7 @@ class Lighter < Formula
     sha256 "0cfd10552918cbea28e5e3bf2a8c9d87b220da3eda6c0c7cbcf9764f7494b49c" => :yosemite
     sha256 "65dc90163a1ad643d49d88f2769cfa65c176b19d5485081819cb2b8c52130996" => :mavericks
     sha256 "72a4d55edc5b4504d6c72201b5fcf5388c49f2ff3d97ae9c2d9f5e301af252f5" => :mountain_lion
+    sha256 "87fb66adc4b92ef4c68a35ba9a92c4279a98e68f8025adde7c93c2f173e0f73c" => :x86_64_linux
   end
 
   def install
