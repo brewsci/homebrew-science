@@ -11,6 +11,7 @@ class Hisat2 < Formula
     sha256 "a1ec8f813add57678fd30638d5f06e9b6c23d6bb1d46f7d040f4c893ca0b1c84" => :el_capitan
     sha256 "fdb6a45ba3f6ef5902ab1c340277c448b70279d9ddf485a1e3a51cc310edfd4e" => :yosemite
     sha256 "853345f116daf23c4b6ea5dae1bab4a3559d8c32e763c49f929ed1e4a0f4a7db" => :mavericks
+    sha256 "ebdfe7bee0d774749fe726c3da2061f052bd13c9e6ae0a5fc9ac20cb6046dd3c" => :x86_64_linux
   end
 
   def install
