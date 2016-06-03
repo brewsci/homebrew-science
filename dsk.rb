@@ -12,6 +12,7 @@ class Dsk < Formula
     sha256 "8ef63372b487dbae9e2028accb615c1c491e6b0ec392d5b994b30eb205bf7a0e" => :el_capitan
     sha256 "baa4fad7e5e2f475addc21c3963cd2829842c2d379aa65875ec61eb97f05ba0b" => :yosemite
     sha256 "06f53b2c001942c3c174d88280159b3acba0efe270aab6cae286d67f53ee47df" => :mavericks
+    sha256 "d167d344def7e36febf1388b9fbba6ea303966e0597f33694c353233c075e03f" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
