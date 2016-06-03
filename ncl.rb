@@ -12,6 +12,7 @@ class Ncl < Formula
     sha256 "ae9815430b8e5f3f13f15aa7a7721cded1418983207f19f6e42d39ee0fa732e3" => :yosemite
     sha256 "ce0281513cf22d3c6dd7e419ced8f672fd649bb32ca57ed6de5872b292c8ddea" => :mavericks
     sha256 "f800df10f205f1fe880877e18bcd7dee1c383b9e7b071f62484ea3c14404fb69" => :mountain_lion
+    sha256 "8f7d6a553123a642483c967fa5d18e929037a2f0c5167276dc2dc6a03c03f766" => :x86_64_linux
   end
 
   def install
