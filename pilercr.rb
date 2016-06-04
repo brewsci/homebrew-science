@@ -6,6 +6,7 @@ class Pilercr < Formula
     sha256 "7a16c91e43acf94bc30d43be3fa2b34fff56ebca3e60ddc5b99d7193aa7ebf8f" => :el_capitan
     sha256 "148af9f887886cf0b0605f83e8a8ce3f1783c6248828ebe0caaa170d8f233737" => :yosemite
     sha256 "6dda505f38845aa031b274637985c99dbc3060e01f85ee303af2536522e505f3" => :mavericks
+    sha256 "cba523fc568944de3a6b7408af159d0b11483a433781b57a26f7e102e484185a" => :x86_64_linux
   end
 
   # doi "doi:10.1186/1471-2105-8-18"
