@@ -6,9 +6,10 @@ class Opencv < Formula
   head "https://github.com/Itseez/opencv.git", :branch => "2.4"
 
   bottle do
-    sha256 "18a1605f0c900420be4f486d2414d2ebbcaa21b3053564c590573339d92b297a" => :el_capitan
-    sha256 "bb27790a4c4337bf42ba2acb95563f315592591d9ebd0cba1b0653d88df82987" => :yosemite
-    sha256 "fde1234912c797c3e26d85c55bcda07bee42b4a0b1f534ab7985c800c2ff8690" => :mavericks
+    revision 1
+    sha256 "e44fdca642ac9def5caad1d93e9a5b552ab98003bffd3944f6e2f48a7cc9520e" => :el_capitan
+    sha256 "cd353325cd8ba64a59cb8eede6d8b9b7172c1fff4c61e3b9a544ad00dfb74f70" => :yosemite
+    sha256 "28151a791da776784c98352ae447944a6f3cb4098f8a887ade3878852f012a1a" => :mavericks
   end
 
   option "32-bit"
