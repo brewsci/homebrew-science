@@ -12,6 +12,7 @@ class Pandaseq < Formula
     sha256 "b8074161853044a591afc97ee5a99110c2a1208fd6bb93ddc561319bdf7a7598" => :yosemite
     sha256 "c515d863dc15f1ef89c6fdd4a861fa0314a062cb092881deedff33250db1aec7" => :mavericks
     sha256 "1c6d0cc30417723362c8b8a0a40f3710f7de64cac04ee8a8026561a8282b12a6" => :mountain_lion
+    sha256 "41d6205243f70ea83d77c93beea2e573364346e72fdd3bd638cdb28fe6eb1ddc" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
