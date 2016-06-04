@@ -1,10 +1,18 @@
 class Openalpr < Formula
+  desc "Automatic License Plate Recognition library"
   homepage "https://github.com/openalpr/openalpr"
   url "https://github.com/openalpr/openalpr/archive/v2.2.0.tar.gz"
   sha256 "44258a7b64a74ad773825f37ba0a77e07ee97fdb9cd1f4a45baede624524f20f"
   revision 1
 
   head "https://github.com/openalpr/openalpr.git", :branch => "master"
+
+  bottle do
+    cellar :any
+    sha256 "2f8b651b195094ce021dbb10d9d45b515c9eae5c216f28cbedd8443f8cf67894" => :el_capitan
+    sha256 "02fbabd458b2bc003b41ef67ce265e2f3ebc1171c7aa725b4af8be56ff1accbc" => :yosemite
+    sha256 "e2ef55298ca2a38d0104c1e683f56ce4acbdc9d51a50d252e9a8f2e9d62e328c" => :mavericks
+  end
 
   option "without-daemon", "Do not include the alpr daemon (alprd)"
 
@@ -17,14 +25,7 @@ class Openalpr < Formula
 
   if build.with? "daemon"
     depends_on "log4cplus"
-    depends_on "beanstalk"
-  end
-
-  bottle do
-    cellar :any
-    sha256 "2f8b651b195094ce021dbb10d9d45b515c9eae5c216f28cbedd8443f8cf67894" => :el_capitan
-    sha256 "02fbabd458b2bc003b41ef67ce265e2f3ebc1171c7aa725b4af8be56ff1accbc" => :yosemite
-    sha256 "e2ef55298ca2a38d0104c1e683f56ce4acbdc9d51a50d252e9a8f2e9d62e328c" => :mavericks
+    depends_on "beanstalkd"
   end
 
   def install
