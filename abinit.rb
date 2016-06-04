@@ -1,8 +1,8 @@
 class Abinit < Formula
   desc "Atomic-scale first-principles simulation software"
   homepage "http://www.abinit.org"
-  url "http://ftp.abinit.org/abinit-8.0.6.tar.gz"
-  sha256 "ad98fe3bc494b15d53e661866ae7118e56a6d8c9ae3655da6aff1ecee19743d8"
+  url "http://ftp.abinit.org/abinit-8.0.7.tar.gz"
+  sha256 "9df2fe572af39cef937a4134d569321b99c6670f187edbac9b355ff2defd5afc"
 
   bottle do
     cellar :any
