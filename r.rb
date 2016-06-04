@@ -43,6 +43,7 @@ class R < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "xz"
+  depends_on "curl" unless OS.mac?
 
   depends_on "openblas" => :optional
   depends_on "pango" => :optional
