@@ -10,6 +10,7 @@ class Openalpr < Formula
 
   depends_on "cmake" => :build
   depends_on "jpeg"
+  depends_on "leptonica"
   depends_on "libtiff"
   depends_on "tesseract"
   depends_on "opencv"
