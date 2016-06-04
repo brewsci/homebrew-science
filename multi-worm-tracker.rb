@@ -12,6 +12,7 @@ class MultiWormTracker < Formula
     sha256 "7a085b8be54b5a51e2a8971fb4f095a6d26dfd7d2c5dad753ec6c6d68abb19ab" => :yosemite
     sha256 "a6294aad75e06433796ec033bf811de62c9509f697aa50446bbcaf89a9e2181b" => :mavericks
     sha256 "98d60693f2466afcfb92c50c7f537f17bfa13484bc1f257907306c54c999ca93" => :mountain_lion
+    sha256 "74dc7a28cf58321c0431548434378d4fc8285bea3dac45477c2749226698227f" => :x86_64_linux
   end
 
   depends_on :java
