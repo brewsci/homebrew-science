@@ -12,6 +12,7 @@ class Poa < Formula
     sha256 "ec70c14a392872c08ff2fd60e454dc05d76eb6edbd49ba8e8a011a6fce5c91b4" => :yosemite
     sha256 "223fd7362babcb755d3eedd60efde918351b8a304579ee50aa43f2d5734240e5" => :mavericks
     sha256 "fec2b793c9313bb5a373f38b7cc30906030bbc6bb7b111a659220153e874e39b" => :mountain_lion
+    sha256 "5196342069489bf53bb7eb983b98f17e3d425084cfe859d9a4e7c42abe73b0f2" => :x86_64_linux
   end
 
   def install
