@@ -2,6 +2,7 @@ class Openalpr < Formula
   homepage "https://github.com/openalpr/openalpr"
   url "https://github.com/openalpr/openalpr/archive/v2.2.0.tar.gz"
   sha256 "44258a7b64a74ad773825f37ba0a77e07ee97fdb9cd1f4a45baede624524f20f"
+  revision 1
 
   head "https://github.com/openalpr/openalpr.git", :branch => "master"
 
