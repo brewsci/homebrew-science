@@ -76,7 +76,7 @@ class Opencv < Formula
       -DJPEG_INCLUDE_DIR=#{jpeg.opt_include}
       -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.#{dylib}
     ]
-    args << "-DBUILD_TESTS=OFF" << "-DBUILD_PERF_TESTS=OFF" if build.without? "tests"
+    args << "-DBUILD_TESTS=OFF" << "-DBUILD_PERF_TESTS=OFF" if build.without? "test"
     args << "-DBUILD_opencv_python=" + arg_switch("python")
     args << "-DBUILD_opencv_java=" + arg_switch("java")
     args << "-DWITH_OPENEXR="   + arg_switch("openexr")
@@ -118,7 +118,7 @@ class Opencv < Formula
       args << "-DWITH_OPENNI=ON"
       # Set proper path for Homebrew's openni
       inreplace "cmake/OpenCVFindOpenNI.cmake" do |s|
-        s.gsub! "/usr/include/ni", "#{Formula["openni"].opt_include}/ni"
+        s.gsub! "/usr/include/ni", Formula["openni"].opt_include/"ni"
         s.gsub! "/usr/lib", Formula["openni"].opt_lib
       end
     end
