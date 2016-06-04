@@ -15,6 +15,7 @@ class Nextflow < Formula
     sha256 "1b26e487dae12e141b47caf2bca6f8e8a99b3f08cbc8651de8914b09093a8c12" => :el_capitan
     sha256 "96dff497bafcca6a6e9b430daba591b8df3f91536895bd6fd0315fe5533aec18" => :yosemite
     sha256 "870b45582224db0bdbb93386b7b3a63d4251877dd7b770ded3de87730320b6da" => :mavericks
+    sha256 "afdce8fdaa64fbedd0af5fcc78ab3fa96dbb74591283cc37226af13049b7dfcc" => :x86_64_linux
   end
 
   depends_on :java => "1.7+"
