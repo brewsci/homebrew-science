@@ -10,6 +10,7 @@ class Igraph < Formula
     sha256 "d5aa04fb769a88612b34f290a3023136150dc4a8ec4e6f379f716505ea254cb6" => :el_capitan
     sha256 "149b2be62efcee21ff30db00796d2742758ba21cccb3f0d0b834e1635b961061" => :yosemite
     sha256 "1ce6615a2d2cbbc2fd509caa8ecc805755c81a70a237b4c485ba75da9b7997e0" => :mavericks
+    sha256 "a34161eba244911b357d823be94dee50f3e594c09e92c5d2bade26590a1e8e09" => :x86_64_linux
   end
 
   option :universal
