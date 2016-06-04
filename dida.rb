@@ -12,6 +12,7 @@ class Dida < Formula
     sha256 "ed1693e77dd976f0949bb554a3bc226881dcbccb20cd1b6fb696ab3892e26248" => :el_capitan
     sha256 "65df860ef7d86f41538d7ab1ebce3978a578a6b552ae09fd28f058b0d869c413" => :yosemite
     sha256 "2fbf1a21752ea89ddf730f260143df9cdd5b6d7f9909a9ed156b5863c77aa4af" => :mavericks
+    sha256 "d6ad8834fb82223b18282eb70997eded987eba7c34c004a4d2f7932000f57fce" => :x86_64_linux
   end
 
   # Fix error: DIDA must be compiled with a C++ compiler that supports OpenMP threading.

@@ -14,6 +14,7 @@ class Hlaminer < Formula
     sha256 "724c4478e180fc6f630cf234360801c04d0a0f7804a7001ec1eb2a39ef9bb4d6" => :el_capitan
     sha256 "cc1cbaff172fc42207a12641c04d25d2e24e958b6b33452d67baafe889e58df0" => :yosemite
     sha256 "2f8c2b6f80d300c2d9987712a55b2d1c8d8f83af01715a74f6cc81b53997c1df" => :mavericks
+    sha256 "a14c112b3a1577bf53f5be1aed2450fcee76acd856b5bdb6813c895a4c6af4bf" => :x86_64_linux
   end
 
   depends_on "blast"

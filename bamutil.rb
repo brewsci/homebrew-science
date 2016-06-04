@@ -11,6 +11,7 @@ class Bamutil < Formula
     sha256 "fe2cef19aab52f2edf598ce2fae36d72b8d4c506e3ca3740a30c085c1f801618" => :yosemite
     sha256 "3446b278dabe53013db787888815423b9b52afb11f92243b12299f4ee0dfe39f" => :mavericks
     sha256 "2ac9a6a23b1af9afe1c03eab6630a92cfabd0c3127155c8c3bc7865cde8c3eb4" => :mountain_lion
+    sha256 "c9e090d4767a73db7dd4907c85faff1cb84cb25fa39decb93cfb21cb64e1354c" => :x86_64_linux
   end
 
   def install

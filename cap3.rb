@@ -18,6 +18,7 @@ class Cap3 < Formula
     sha256 "61329ff5526879a0320d501ffb4af26c59e49c1566d591367bb64f242a28893d" => :yosemite
     sha256 "9080e7cf4f6b244361b01add77a5498d297c186ca1012b17455a2cdb71d568a8" => :mavericks
     sha256 "c0e10492341a197b49ccd92cdf5eb401f29455e03c6aecda4a8db4f1e95ffeee" => :mountain_lion
+    sha256 "e12918e92ecc14cca721c5e1758e6d5b2dd24661555b62905cc5b9cd8266d563" => :x86_64_linux
   end
 
   def install

@@ -13,6 +13,7 @@ class Nxtrim < Formula
     sha256 "4ff85893ca6b912579bd0ca1cec049590ced304b4d64bac45c2fe16213f8e52d" => :el_capitan
     sha256 "ba16dd96bc704c65fa99bc19a00f124aca51f9cee8fb8ba3aff049c6fb70d265" => :yosemite
     sha256 "957d5b0449da272e80c329171f426ff3836dfae55144d76f6f3cf843b3174e72" => :mavericks
+    sha256 "4459d054326725307855294e3932b4e12f34f49e939a59b7c6fe6116cc213e65" => :x86_64_linux
   end
 
   depends_on "boost"

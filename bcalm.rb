@@ -14,6 +14,7 @@ class Bcalm < Formula
     sha256 "275e8b52ba361c7b709bea9ad8d321cd72c3771d76fabe86054cea9c7dfbf9a9" => :el_capitan
     sha256 "6850356f860b9e9a52f97303b64fa8d63c32d9448df7961ccce17decbd383c8a" => :yosemite
     sha256 "35e0e2996bb345741d4c74165664df68e10507d9b007afd41e5a886a08f845ce" => :mavericks
+    sha256 "d7dcaebe036421cac51f91f5962d13b442b5b9afb52605c4e48ff2212fe2bdbd" => :x86_64_linux
   end
 
   def install

@@ -13,6 +13,7 @@ class Hmmer2 < Formula
     sha256 "fea2319bdad10e37f6f0d52fcbd6706328c49f6ec28168463828e04a8deb3f7d" => :yosemite
     sha256 "0eba7cfb9ea8d0f8822dfbcc444931b40cb0339daef714cc7bd920dff8cbbdb1" => :mavericks
     sha256 "286f8cb2634e5a68c8836348665ba76af14cf76084fdb0f2084735d53a679467" => :mountain_lion
+    sha256 "a9a224ff18ecbcbeb28721f03eb806f3300017d180f1fb8e17bca7f9d2ace277" => :x86_64_linux
   end
 
   keg_only "hmmer2 conflicts with hmmer version 3"

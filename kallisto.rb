@@ -11,6 +11,7 @@ class Kallisto < Formula
     sha256 "8de3e89efbb2ae6792ac9482046978a5c1f73b4095b7dddf03820ee0fce786a2" => :el_capitan
     sha256 "f5dbd2e0bfce5260c0bf697163a7c9c38c5df6f00cfa3dc2d0282fe4ca890045" => :yosemite
     sha256 "116b814beb9756392a7ff18471fb6c79440be81f55c1500a01855a299580f1f5" => :mavericks
+    sha256 "de86a7b7e6178ee74f0d3f03d12332a72364afd3f0b33ec5ffce7aff0eb71162" => :x86_64_linux
   end
 
   needs :cxx11

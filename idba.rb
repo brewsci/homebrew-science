@@ -11,6 +11,7 @@ class Idba < Formula
     sha256 "9ce6a82cee5d4a891f1dfe38a9a6a9d2a409f9fe9d2193c54cce498a53897eef" => :yosemite
     sha256 "066ff8986d811ee9190db54c6fbfb77fde054ef0c096800438fa2338a4badec6" => :mavericks
     sha256 "10bf4be36d3797c48f58580078ee2d197227cdb297f5b2ba826590fd4ba92983" => :mountain_lion
+    sha256 "b388e1426c8c92637246a8dd21487ff0b4d31c4f15073892211be12e65a3c9eb" => :x86_64_linux
   end
 
   fails_with :clang do

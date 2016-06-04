@@ -14,11 +14,13 @@ class Samtools < Formula
     sha256 "c6bb8308c4ffb995ca46ac6be8e7087c22e7e2dd6bdb801690802b2d4f089a52" => :el_capitan
     sha256 "97447111d3ab5dce204761395afd600060ba36c8b47045a65a33b8efd10c4bb6" => :yosemite
     sha256 "c6baa6fc3f29cdb96a9fdf59f832455f4dd2c6ed25801d4a09f6e8cb9c810b98" => :mavericks
+    sha256 "d0e3e6f7ffba8ed4005ff14155727292b939a645c8c2376191aae0f24cf20eb3" => :x86_64_linux
   end
 
   option "with-dwgsim", "Build with Whole Genome Simulation"
   option "without-curses", "Skip use of libcurses, for platforms without it, or different curses naming"
 
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
   depends_on "htslib"
   depends_on "dwgsim" => :optional
 

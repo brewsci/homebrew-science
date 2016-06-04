@@ -14,6 +14,7 @@ class Bowtie < Formula
     sha256 "3ca85697662a314603274a984ae8b407216f89de01c0b6b95103ab8ba923c904" => :el_capitan
     sha256 "3a0c43fe5cd607245ebee54771d404c0ca61b3145ba3c658e4644ed752bd585f" => :yosemite
     sha256 "d631a95fc614fcddf0c3b6ed940e773e19038156cce4d886f60349c20f980b31" => :mavericks
+    sha256 "daa8a6c051d309add874342e2358c3427db7c21915eb9b7e204a829a08f9d527" => :x86_64_linux
   end
 
   # Upstream PR that fixes stdout when building with clang on OS X. gcc

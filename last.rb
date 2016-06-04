@@ -12,6 +12,7 @@ class Last < Formula
     sha256 "9cd5e65821807e813ca092e74c829d0603b5af3ada0a61358a00bb268aabfa7f" => :yosemite
     sha256 "d35f171412e0b6a91f2107a10241a6fd06d2426a24c6d3f18184cd7b3650cef5" => :mavericks
     sha256 "a1e551765c684464924b862620f0cfc72854c11a14d2a17f614f8e3dd00af1ba" => :mountain_lion
+    sha256 "73453a2c736714854ad40075bbdd26cc0549682137dcbfa407fe4f4ca62fc4d5" => :x86_64_linux
   end
 
   head "http://last.cbrc.jp/last", :using => :hg

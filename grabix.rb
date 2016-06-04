@@ -12,6 +12,7 @@ class Grabix < Formula
     sha256 "25b161ba3f364c3d92d5b6ffa116e4ea6ee11bff9a6778394ae00b6e33b26b46" => :yosemite
     sha256 "ba46405a755b4bca6d0819315c674b6b955f7f968a9e9ef64b2b8cacb24d537a" => :mavericks
     sha256 "c64ddc603685144a212d5a9034f5e012035e9e133191a5b5fda4443fd36ade58" => :mountain_lion
+    sha256 "3b66be2f5fec289232cd4fdd7beef197c1d67f8e48b9cf4cf1d4fd5adaadfd40" => :x86_64_linux
   end
 
   def install

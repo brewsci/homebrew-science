@@ -14,6 +14,7 @@ class Snap < Formula
     sha256 "71cb5dea75c27f6e4794e27b8e07af673465f6285b6a9b02ff01d9a51108c9bc" => :el_capitan
     sha256 "6c6690240b7363db44f12dcb42bd8e71b00c4d6f4c543bc1dd6d8197e9a2b161" => :yosemite
     sha256 "8844eab0a698e205b665ffe48fb5eaa18c30f83e1e7ed052232791a003ffc373" => :mavericks
+    sha256 "346c45e5bfe70992e75da928dace257ee6a37acb083e717bb7b2a96b8210d4db" => :x86_64_linux
   end
 
   def install

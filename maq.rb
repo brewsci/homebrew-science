@@ -11,6 +11,7 @@ class Maq < Formula
     sha256 "8ad73094199d8b664142722acc65ef2e1eb3c7e5ed636ed49ed0e71cc4061ebf" => :yosemite
     sha256 "a8d55037495dbd7c0329a3650cb37720e7dcef324d85fbba123cdb0440f9cbc9" => :mavericks
     sha256 "fc0b293027d0b9c0836fd2768362d3a8419f444a1154e65a393064d63f7e492b" => :mountain_lion
+    sha256 "c10de77c9e5a9ee205eaacd1ccce8f86df2f14bfe0ad2b2f106bcff75d6d8bfe" => :x86_64_linux
   end
 
   depends_on "Getopt::Std" => :perl
