@@ -11,6 +11,7 @@ class Viennarna < Formula
     sha256 "d904e8069d9f78c88509effdcd557b7aabdd3ea98cd545bfe877cedf241b6d6e" => :yosemite
     sha256 "25087b1886e24201b585f09fd7e5acb0291369d5f42ff2bd09bd5e3f39d6fff9" => :mavericks
     sha256 "ca8239c8abe3e8e47ab143e4e49e0ceb435f8316eb8bd0999ee8249dc4cc9aef" => :mountain_lion
+    sha256 "36c76d0d280fca64bae4a5424d499830ab46c5362482bb91048a11f0d4c28702" => :x86_64_linux
   end
 
   option "with-perl", "Build and install Perl interface"
