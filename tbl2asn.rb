@@ -16,6 +16,7 @@ class Tbl2asn < Formula
     sha256 "46ee9b013b621f4853dc3c07f5d5289b083eb500e9609ab87ce0ef204973d8ed" => :el_capitan
     sha256 "fe9d754a97c7e313fee8e0ac0883dd635645dd9eea44f4da3dac4047669b2b6c" => :yosemite
     sha256 "4c12f59c562e6153ef2f34cead09a5331b15296be16423347ae9d4a9c1d826f9" => :mavericks
+    sha256 "de337431a34cf93ed60a47b4327022452202c9ba648584b07edfdfaa8786c284" => :x86_64_linux
   end
 
   resource "doc" do
