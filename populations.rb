@@ -11,6 +11,7 @@ class Populations < Formula
     sha256 "d2f69b0c356ac9361bb3750a6f76417ed730db2c3b7f18b496fcee72f7a98dbd" => :yosemite
     sha256 "0c2fae734364600434ebc4f059776372e19b16c2e176876e74b3de0c83e3caaf" => :mavericks
     sha256 "dd0f5bbb215bf76eb1f3593e7c4ffb885af8fbfddcf71467232941e637be69c5" => :mountain_lion
+    sha256 "97d5ea179a80f8b435efaf00a37f2faa727890232c57237ce411da4af2087853" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
