@@ -32,8 +32,6 @@ class Qgis < Formula
   depends_on "proj"
   depends_on "spatialindex"
   depends_on "bison"
-  depends_on "grass" => :optional
-  depends_on "gettext" if build.with? "grass"
   depends_on "postgis" => :optional
 
   def install
@@ -49,11 +47,6 @@ class Qgis < Formula
       -DQGIS_MACAPP_INSTALL_DEV=YES
       -DPYTHON_LIBRARY='#{`python-config --prefix`.chomp}/lib/libpython2.7.dylib'
     ]
-
-    args << "-DGRASS_PREFIX='#{Formula["grass"].opt_prefix}'" if build.with? "grass"
-
-    # So that `libintl.h` can be found
-    ENV.append "CXXFLAGS", "-I'#{Formula["gettext"].opt_prefix}/include'" if build.with? "grass"
 
     # Avoid ld: framework not found QtSql (https://github.com/Homebrew/homebrew-science/issues/23)
     ENV.append "CXXFLAGS", "-F#{Formula["qt"].opt_prefix}/lib"
