@@ -11,6 +11,7 @@ class Spades < Formula
     sha256 "cd62c5f0d7e4b1448cc6add95c57d93ef804b82b29667836553dfb5f7684e978" => :el_capitan
     sha256 "8b57ca106ce3c9e46151efbf10bc1befdf0a666e9ad7d920234502609dbbd005" => :yosemite
     sha256 "7d644a773b9c4ecabecb711f8e10933e978bc542cc155a0a6c9d851d72c57780" => :mavericks
+    sha256 "f91c599804c5553fdf41ee37b72207e667f32f8f395cfc9c9b29492210401401" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
