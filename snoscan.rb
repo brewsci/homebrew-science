@@ -1,9 +1,11 @@
 class Snoscan < Formula
+  desc "Search for C/D box methylation guide snoRNA genes in a genomic sequence"
   homepage "http://lowelab.ucsc.edu/snoscan/"
-  # doi "10.1126/science.283.5405.1168"
-  url "http://lowelab.ucsc.edu/software/snoscan.tar.gz"
-  sha256 "a73707f93bc52c3212fd2e7e339ca04d8b74aaa863fa417e26b4b935a6008756"
+  url "http://lowelab.ucsc.edu/software/snoscan-0.9.tar.gz"
   version "0.9b"
+  sha256 "a73707f93bc52c3212fd2e7e339ca04d8b74aaa863fa417e26b4b935a6008756"
+  # doi "10.1126/science.283.5405.1168"
+  # tag "bioinformatics"
 
   def install
     inreplace "sort-snos" do |s|
@@ -22,7 +24,7 @@ class Snoscan < Formula
   end
 
   test do
-    system "#{bin}/snoscan -h"
-    system "#{bin}/sort-snos 2>&1 |grep sort-snos"
+    assert_match "Usage", shell_output("#{bin}/snoscan -h")
+    assert_match "Usage", shell_output("#{bin}/sort-snos 2>&1", 255)
   end
 end
