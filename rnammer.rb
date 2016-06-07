@@ -15,6 +15,7 @@ class Rnammer < Formula
     sha256 "b078fa5dc6bf519898c8581e8ea732b50697d89c730129b3468cf2987a583aec" => :yosemite
     sha256 "fef2fe67c4fb223f68c9b570a190e9d354c36d50f8d89d44f4d2dfe10a874b97" => :mavericks
     sha256 "01e971ea063602f93c0b1b139c0da10e4501a4f9b775348d455a7035433a6001" => :mountain_lion
+    sha256 "f4af0bc58be8e4ba1d9c75d2eefaf6e04d6501273aee67e8d43445b2061638e8" => :x86_64_linux
   end
 
   depends_on "hmmer2"
