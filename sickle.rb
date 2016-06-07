@@ -11,6 +11,7 @@ class Sickle < Formula
     sha256 "eb4555ff573507d200d64bb30ad6942fd3dfb868ef264d19f13620cf0fc7c8b7" => :yosemite
     sha256 "d0bb7a585523d2421837ee81feb7ee38833a642f8b10e1ff3587a156fcc41105" => :mavericks
     sha256 "d3a236d00a622e1130865ac83807281b32e1e2ae18747e5de533a8c8c5b5cb70" => :mountain_lion
+    sha256 "b5669cea983c07e356339307cf030f000968868a7936790c388bfb779cdcf0a6" => :x86_64_linux
   end
 
   def install
