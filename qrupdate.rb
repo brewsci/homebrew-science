@@ -2,7 +2,7 @@ class Qrupdate < Formula
   homepage "http://sourceforge.net/projects/qrupdate/"
   url "https://downloads.sourceforge.net/qrupdate/qrupdate-1.1.2.tar.gz"
   sha256 "e2a1c711dc8ebc418e21195833814cb2f84b878b90a2774365f0166402308e08"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -23,14 +23,12 @@ class Qrupdate < Formula
       blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       lapack = blas
     else
-      blas = (OS.mac?) ? "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort" : "-lblas"
-      lapack = (OS.mac?) ? blas : "-llapack"
+      blas = OS.mac? ? "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort" : "-lblas"
+      lapack = OS.mac? ? blas : "-llapack"
     end
     make_args = ["FC=#{ENV.fc}", "FFLAGS=#{ENV.fcflags}",
                  "BLAS=#{blas}", "LAPACK=#{lapack}"]
-    inreplace "src/Makefile" do |s|
-      s.gsub! "install -D", "install"
-    end
+    inreplace "src/Makefile", "install -D", "install"
     lib.mkpath
     system "make", "lib", "solib", *make_args
     system "make", "test", *make_args if build.with? "check"
