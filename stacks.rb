@@ -13,6 +13,7 @@ class Stacks < Formula
     sha256 "d091ee248b6b9c6c7b1373af824c1a2cf16830c64960463bfaaf8052b2b7b37a" => :el_capitan
     sha256 "b266a452669b9913a95c1df9663fbd850a62199f5a0e275d6caa6f59d82e7fb4" => :yosemite
     sha256 "2529637a4469483d6799290cde83d7415859db21a0f9a487b1ddc5d8c18cb4c8" => :mavericks
+    sha256 "b6bba95f5d975d17490bef25e88d52f709bdff5278b92401354025cef1cf4e86" => :x86_64_linux
   end
 
   depends_on "htslib"
