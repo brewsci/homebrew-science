@@ -12,6 +12,7 @@ class Transdecoder < Formula
     sha256 "559044bf89f298ede284e3a9f72ef0fc7bd6c912e2b5ee753ceade016370d704" => :yosemite
     sha256 "fae619c6f41eec60f5bf1bd76af2b110253be8fee275c7610c3bf7ac80873b02" => :mavericks
     sha256 "549db77a17285d8a616d64e1e6b9baf21e3beb9e424d6427dfce9af43737c30a" => :mountain_lion
+    sha256 "36447454b2c6504477ef1335989cad531efaa4c2032646e6d8356b440625cbaf" => :x86_64_linux
   end
 
   depends_on "cd-hit"
