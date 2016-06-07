@@ -20,6 +20,7 @@ class Rmblast < Formula
     sha256 "77cefb50133d6e723a03b857a1502d8d63d82d139abe4c13654c3c26b1820a67" => :el_capitan
     sha256 "3c0f9d4c368e14576cb9ce390ff118360c10f52370051b2668189e37801efb5d" => :yosemite
     sha256 "090810c69bfa5c2ce0153cf18aa4e553cb470d14428d960708323015c33bc227" => :mavericks
+    sha256 "15961c069a31a5c8a65474722bbc2fa1b44202379822aa0dc915a75ca4d43bfd" => :x86_64_linux
   end
 
   depends_on "blast" => :recommended
