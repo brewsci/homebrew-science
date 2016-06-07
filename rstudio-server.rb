@@ -1,9 +1,9 @@
 class RstudioServer < Formula
+  desc "Integrated development environment (IDE) for R"
   homepage "http://www.rstudio.com"
+  url "https://github.com/rstudio/rstudio/archive/v0.99.902.tar.gz"
+  sha256 "703a3ebedbb4bb44d2cacffed2615b4f65156fcd4115029931eb5fd99950c689"
   head "https://github.com/rstudio/rstudio.git"
-  url "https://github.com/rstudio/rstudio/archive/v0.99.878.tar.gz"
-  sha256 "e02b7423c62820c2ab35a5889711c7ff08102b292e664502c977e431ad15c7b5"
-  revision 1
 
   bottle do
     sha256 "bf71ddb962cdba1d6f2b6626ac6b8437bfb5e7eb9e4f517221e427057f021694" => :el_capitan
@@ -13,7 +13,7 @@ class RstudioServer < Formula
 
   depends_on "ant" => :build
   depends_on "cmake" => :build
-  depends_on "homebrew/versions/boost150"
+  depends_on "boost"
   depends_on "r"
   depends_on "openssl"
 
@@ -76,8 +76,23 @@ class RstudioServer < Formula
     url "https://github.com/rstudio/rsconnect.git", :branch => "master"
   end
 
-  def install
+  resource "admin-script" do
+    url "https://raw.githubusercontent.com/rstudio/rstudio/cd6433df6af3f79a77f727eed9efc64e57994c86/src/cpp/server/extras/admin/rstudio-server.mac.in"
+    sha256 "4cd2efd33c080324cda6cd2689545bd243a093e12ac327783261948557eecfd3"
+  end
 
+  resource "launchd-plist" do
+    url "https://raw.githubusercontent.com/rstudio/rstudio/cd6433df6af3f79a77f727eed9efc64e57994c86/src/cpp/server/extras/launchd/com.rstudio.launchd.rserver.plist.in"
+    sha256 "6c03b5225a8628d6a75cb4fe330ee685e3acf1e55de6e94e4c56d2f26dc13c6e"
+  end
+
+  # RStudio assumes that boost is linked against libstdc++,
+  # however homebrew/boost is linked against libc++
+  # https://support.rstudio.com/hc/en-us/community/posts/211702327-Build-RStudio-against-libc-
+  # https://github.com/rstudio/rstudio/commit/a07274ed4ef1b9eae3bfe672f3de1ff25b5b0856
+  patch :DATA
+
+  def install
     gwt_lib = buildpath/"src/gwt/lib/"
     (gwt_lib/"gin/1.5").install resource("gin")
     (gwt_lib/"gwt/2.7.0").install resource("gwt")
@@ -105,55 +120,114 @@ class RstudioServer < Formula
     (common_dir/"rsconnect").install resource("rsconnect")
     chdir("dependencies/common") { system "R", "CMD", "build", "rsconnect" }
 
+    # ah-hoc way to install admin script and launchd plist
+    # should not be needed in future stable release of RStudio Server
+    resource("admin-script").stage do
+      (prefix/"rstudio-server/bin").install "rstudio-server.mac.in" => "rstudio-server"
+    end
+    inreplace "#{prefix}/rstudio-server/bin/rstudio-server", "${CMAKE_INSTALL_PREFIX}", "#{opt_prefix}/rstudio-server"
+    inreplace "#{prefix}/rstudio-server/bin/rstudio-server", "${CPACK_PACKAGE_VERSION}", version.to_s
+    chmod 0755, "#{prefix}/rstudio-server/bin/rstudio-server"
+
+    resource("launchd-plist").stage do
+      (prefix/"rstudio-server/extras/launchd").install "com.rstudio.launchd.rserver.plist.in" => "com.rstudio.launchd.rserver.plist"
+    end
+    inreplace "#{prefix}/rstudio-server/extras/launchd/com.rstudio.launchd.rserver.plist",
+        "${CMAKE_INSTALL_PREFIX}", "#{opt_prefix}/rstudio-server"
+
     mkdir "build" do
       system "cmake", "..",
         "-DRSTUDIO_TARGET=Server",
         "-DCMAKE_BUILD_TYPE=Release",
-        "-DBOOST_ROOT=#{Formula["boost150"].opt_prefix}",
-        "-DBoost_INCLUDE_DIR=#{Formula["boost150"].opt_prefix}/include",
-        "-DCMAKE_INSTALL_PREFIX=#{prefix}/rstudio",
-        "-DCMAKE_EXE_LINKER_FLAGS=-L#{Formula["openssl"].opt_prefix}/lib",
-        "-DCMAKE_CXX_FLAGS=-I#{Formula["openssl"].opt_prefix}/include"
+        "-DBOOST_ROOT=#{Formula["boost"].opt_prefix}",
+        "-DBOOST_INCLUDEDIR=#{Formula["boost"].opt_include}",
+        "-DCMAKE_INSTALL_PREFIX=#{prefix}/rstudio-server",
+        "-DCMAKE_EXE_LINKER_FLAGS=-L#{Formula["openssl"].opt_lib} -L#{Formula["boost"].opt_lib}",
+        "-DCMAKE_CXX_FLAGS=-I#{Formula["openssl"].opt_include}"
       system "make", "install"
     end
 
-    bin.install_symlink prefix/"rstudio/bin/rserver" => "rstudio-server"
-
-    (prefix/"etc/org.rstudio.launchd.rserver.plist").write <<-EOS.undent
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-              "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-              <key>Label</key>
-              <string>com.rstudio.launchd.rstudio</string>
-              <key>ProgramArguments</key>
-              <array>
-                      <string>#{opt_prefix}/rstudio/bin/rserver</string>
-              </array>
-              <key>RunAtLoad</key>
-              <true/>
-      </dict>
-      </plist>
+    (bin/"rserver").write <<-EOS.undent
+        #!/usr/bin/env bash -l
+        export LANG=${LANG:-en_US.UTF-8}
+        exec #{opt_prefix}/rstudio-server/bin/rserver "$@"
     EOS
+
+    bin.install_symlink prefix/"rstudio-server/bin/rstudio-server"
+    share.install_symlink prefix/"rstudio-server/extras/launchd/com.rstudio.launchd.rserver.plist"
+    # patch path to rserver
+    inreplace "#{bin}/rstudio-server", "/rstudio-server/bin/rserver", "/bin/rserver"
+    inreplace "#{share}/com.rstudio.launchd.rserver.plist", "/rstudio-server/bin/rserver", "/bin/rserver"
   end
 
   def caveats
     <<-EOS.undent
-      If you get \"Invalid username/password\" error,
-      install rstudio PAM by
+      - To test run RStudio Server,
 
-        sudo cp /etc/pam.d/ftpd /etc/pam.d/rstudio
+        sudo #{opt_bin}/rserver --server-daemonize=0
 
-      To configure the server to start at boot
+      - To install the launching daemon of RStudio Server,
 
-        sudo cp #{opt_prefix}/etc/org.rstudio.launchd.rserver.plist /Library/LaunchDaemons/org.rstudio.launchd.rserver.plist
-        sudo defaults write /Library/LaunchDaemons/org.rstudio.launchd.rserver.plist Disabled -bool false
-        sudo launchctl load /Library/LaunchDaemons/org.rstudio.launchd.rserver.plist
+          sudo cp #{opt_share}/com.rstudio.launchd.rserver.plist \\
+                /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
+          sudo launchctl load -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
+
+        If you have ever installed the daemon, you should reload the service
+
+          sudo launchctl unload -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
+          sudo launchctl load -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
+
+      - To start/stop the launching daemon,
+
+          sudo rstudio-server start
+          sudo rstudio-server stop
+
+      - To launch RStudio Server at boot, you could edit the plist file
+        `/Library/LaunchDaemons/com.rstudio.launchd.rserver.plist`
+        and change the value of `RunAtLoad` to `<true/>`.
+
+      - To remove the launching daemon,
+
+          sudo launchctl unload -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
+          sudo rm /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
+
+      - If \"Invalid username/password\" error occurs, try installing rstudio PAM by
+
+          sudo cp /etc/pam.d/ftpd /etc/pam.d/rstudio
+
+      - In default, only users with id >1000 are allowed to login. You could relax this
+        requirement by modifiying the `ProgramArguments` section of the file
+        `/Library/LaunchDaemons/com.rstudio.launchd.rserver.plist`
+
+          <key>ProgramArguments</key>
+          <array>
+                  <string>#{opt_bin}/rserver</string>
+                  <string>--server-daemonize=0</string>
+                  <string>--auth-minimum-user-id=500</string>
+          </array>
+
+        and then reload the service
+
+          sudo launchctl unload -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
+          sudo launchctl load -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
     EOS
   end
 
   test do
-    system "rstudio-server", "--help"
+    system "rstudio-server", "version"
   end
 end
+
+__END__
+diff --git a/src/cpp/CMakeLists.txt b/src/cpp/CMakeLists.txt
+index 94fd99c..6f68f7e 100644
+--- a/src/cpp/CMakeLists.txt
++++ b/src/cpp/CMakeLists.txt
+@@ -69,8 +69,6 @@ if(UNIX)
+       EXECUTE_PROCESS(COMMAND /usr/bin/sw_vers -productVersion OUTPUT_VARIABLE MACOSX_VERSION OUTPUT_STRIP_TRAILING_WHITESPACE)
+       message(STATUS "Mac OS X version: ${MACOSX_VERSION}")
+       if(NOT(${MACOSX_VERSION} VERSION_LESS "10.9"))
+-         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libstdc++")
+-         set(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} -stdlib=libstdc++")
+       endif()
+    endif()
