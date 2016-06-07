@@ -1,7 +1,7 @@
 class Octave < Formula
   desc "high-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  revision 3
+  revision 4
 
   stable do
     url "http://ftpmirror.gnu.org/octave/octave-4.0.2.tar.gz"
