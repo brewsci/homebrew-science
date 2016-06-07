@@ -12,6 +12,7 @@ class Readseq < Formula
     sha256 "3049186a14314a6fb0ef7f43d5dfa95cfedded12c6070a9f13b78e5243d1a054" => :el_capitan
     sha256 "cad85b8754b8422b12583618e4aa125c60a6cd42243cd3d59c6e0000eb087bd4" => :yosemite
     sha256 "c3bf88928d04dd264e2987b20f2b9a66e1a7e74d9a5dad123354f1865ae57c01" => :mavericks
+    sha256 "488c00596fc31eb169b6ffc6e6a5d0796445135b04828ae167ac6c33e265066f" => :x86_64_linux
   end
 
   depends_on :java
