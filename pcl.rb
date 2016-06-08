@@ -31,18 +31,29 @@ end
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "http://www.pointclouds.org/"
-  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.7.2.tar.gz"
-  sha256 "479f84f2c658a6319b78271111251b4c2d6cf07643421b66bbc351d9bed0ae93"
+  revision 1
 
   stable do
+    url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.7.2.tar.gz"
+    sha256 "479f84f2c658a6319b78271111251b4c2d6cf07643421b66bbc351d9bed0ae93"
     patch do
       url "https://gist.githubusercontent.com/fran6co/a6e1e44b1b43b2d150cd/raw/0c4aeb301ed523c81cd57c63b0a9804d49af9848/boost.patch"
       sha256 "5409b0899f65d918248a8fdfb820478cc0b191c50339e16692a911fab76c3f43"
     end
     # Fixes PCL for VTK 6.2.0
     patch do
-      url "https://patch-diff.githubusercontent.com/raw/PointCloudLibrary/pcl/pull/1205.patch"
+      url "https://github.com/PointCloudLibrary/pcl/pull/1205.patch"
       sha256 "5b7051bb1e9f6f23364fe64221cf96980750a300695b5787860013786438e88c"
+    end
+    # Fixes PCL for VTK 7.0.0
+    patch do
+      url "https://github.com/PointCloudLibrary/pcl/pull/1500.patch"
+      sha256 "509fa9074517d399f3fe2c8465b7a03bb4dae1ae7f7d55a17e23d7555190e1bd"
+    end
+    # Port of https://github.com/PointCloudLibrary/pcl/pull/1534 for 1.7.2
+    patch do
+      url "https://gist.githubusercontent.com/fran6co/4b2cd200f5bec33f5ec1c84be0dd6a83/raw/ecbab3d21f8551cb2429969c09d609a2085a3437/vtk7.patch"
+      sha256 "6eec64c55c282a0e81c462da92bb07d5e945080ddc1ac3a9d2039dc402caa4be"
     end
   end
 
@@ -72,13 +83,12 @@ class Pcl < Formula
   depends_on "qhull"
   depends_on "libusb"
 
+  depends_on "qt" => :optional
+
   if build.head?
     depends_on "glew"
     depends_on CudaRequirement => :optional
-    depends_on "qt" => :optional
     depends_on "qt5" => :optional
-  else
-    depends_on "qt" => :recommended
   end
 
   if build.with? "qt"
@@ -137,10 +147,14 @@ class Pcl < Formula
         -DBUILD_apps_3d_rec_framework=AUTO_OFF
         -DBUILD_apps_cloud_composer=AUTO_OFF
         -DBUILD_apps_in_hand_scanner=AUTO_OFF
-        -DBUILD_apps_modeler=AUTO_OFF
         -DBUILD_apps_optronic_viewer=AUTO_OFF
         -DBUILD_apps_point_cloud_editor=AUTO_OFF
       ]
+      if !build.head? && build.without?("qt") && build.without?("qt5")
+        args << "-DBUILD_apps_modeler:BOOL=OFF"
+      else
+        args << "-DBUILD_apps_modeler=AUTO_OFF"
+      end
     else
       args << "-DBUILD_apps:BOOL=OFF"
     end
