@@ -58,10 +58,9 @@ class Pcl < Formula
   end
 
   bottle do
-    revision 2
-    sha256 "a230eba811e4a97b10fdabac6335156a57991aa1ae2c6c1e76836a15af1a9e52" => :el_capitan
-    sha256 "7a3a3c83aa71a9a66db30d337a1d6e8388ee5ad2bbfebaca0638ad858bd122a9" => :yosemite
-    sha256 "bbd411756ebeac0c48f0b148503255444e6520fdb8ecacc92bf4ccdadd8f21eb" => :mavericks
+    sha256 "14342057a9125ae005f7b54a5863c3043ce68accd5967cee6f520707d8862bd2" => :el_capitan
+    sha256 "a7b98799063432d87031cb40df82c8bd9797d64fa14becc0f047b678f955ffa3" => :yosemite
+    sha256 "8f116eafa5db19551f4ac6a56e525879fc2efc8fe0b3788585f9367b2ce40786" => :mavericks
   end
 
   head do
