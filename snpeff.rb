@@ -14,6 +14,7 @@ class Snpeff < Formula
     sha256 "cfb7757c173a7565a0c7f0c6331fb6a6c9385b4a8e46a8f12f057e45a9dab844" => :el_capitan
     sha256 "ad019bfc66c455a4e596d9f454e3fd21dd91f38fd52e79a4d7fe474da18cb6a4" => :yosemite
     sha256 "2b3f6e9d9befd1312ea04883c9c845fbdd4990ae56b4d531a3311bfb23fd6e1e" => :mavericks
+    sha256 "c62e8741077a8c5044aa3653d269e01c70d66a1d6d217eda1bd47fbb2995ebf8" => :x86_64_linux
   end
 
   depends_on :java => "1.7+"
