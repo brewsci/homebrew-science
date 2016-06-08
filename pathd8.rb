@@ -9,6 +9,7 @@ class Pathd8 < Formula
     sha256 "7c528b0dc0e519835fdfff2747d1c7286754836775d520dc2192ce13bba61b39" => :yosemite
     sha256 "6adf43717f2e2044cb5e7f14a8449e4ff3edcaa6753198f0fdfc1422bcc1b0d9" => :mavericks
     sha256 "16a7b4f5c4c4997988ca2f8cf9f4930419d769ff2b69e82f4745ebef78ab31e7" => :mountain_lion
+    sha256 "835d60e92ce65c8bf00a33bc9ed79bfb959b22081d7dc8a041e4e07f64c846ac" => :x86_64_linux
   end
 
   # doi "10.1080/10635150701613783"

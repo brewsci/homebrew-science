@@ -6,6 +6,7 @@ class Proteinortho < Formula
     cellar :any
     sha256 "ecfd27b026b742c4b48d64e5b727b8f3dcb6207e905d27406a8d58205bfed3a6" => :yosemite
     sha256 "c90ddf8615f5781064c2b7886ad442d4524009a4c92a65d2c35f8a573b01f3e2" => :mountain_lion
+    sha256 "c0158b7c561ce1a175443ac084a261c71f5164d775a8eb12e180e140274c0740" => :x86_64_linux
   end
 
   # tag "bioinformatics"

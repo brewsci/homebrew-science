@@ -11,6 +11,7 @@ class Bcftools < Formula
     sha256 "7abcf9981eefd124b830f6e20615e63c94d618f8d63a2cfe7d432963abce8081" => :el_capitan
     sha256 "eebbc40d36b3a3dda96396dcdddaa50ac52675252ae8bce8c5d0ff031db59e33" => :yosemite
     sha256 "0b1800347a3219efad6955347fd3652bac5769c32b0b4dfbf16c9577d262d5b5" => :mavericks
+    sha256 "37c6b14a2e7dfe37dde17035968ce8def99cc5e860c68b84c0e2a56bc7a0bb47" => :x86_64_linux
   end
 
   option "with-polysomy", "Enable polysomy command. Makes licence GPL3 not MIT/Expat."

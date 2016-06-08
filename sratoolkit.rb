@@ -13,6 +13,7 @@ class Sratoolkit < Formula
     sha256 "49fbb91d1bce33ef4a42bf006218760d33cd65b26aefefc7dcc67fee74c9804d" => :el_capitan
     sha256 "8bfa04632f1c2a019da2103e023fd98d8f6353c89c7cab479c9b0be6865297df" => :yosemite
     sha256 "145df2974d65f27f2d7b6c8b7cc1ad91c971cced0bf1c581530fba265a375d12" => :mavericks
+    sha256 "8e8a2a905b7685d41cf6606db7321c88233430a94b417100f68f6e99bba4a7a1" => :x86_64_linux
   end
 
   resource "ngs-sdk" do

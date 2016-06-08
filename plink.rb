@@ -10,6 +10,7 @@ class Plink < Formula
     sha256 "e9aae1de18b36eb1b9fa200a9ec4527af50e14df9b1ae245bd983eb592920250" => :yosemite
     sha256 "b123ad9ffbc9825aece2080ce51ca6814c8a5821dcee5b865b328b24917332f7" => :mavericks
     sha256 "e0b9b89dff5335544012f7592cfa72cfddc44ee33b6809c9a16c02343df7fa4e" => :mountain_lion
+    sha256 "248422187c63e69e516f0cdd06a108512841b0a0c38f2b60b330c30b462916ae" => :x86_64_linux
   end
 
   # allows plink to build with clang and new versions of gcc

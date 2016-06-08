@@ -13,6 +13,7 @@ class Vcflib < Formula
     sha256 "f7f3700673941a4db264a125a0b3e49dec3ec669039a0973fc93cd55954f9e24" => :el_capitan
     sha256 "92ade1c0f98fe701075ea9841cf74b7baef020e0a41f65b1bc063066104c2ffd" => :yosemite
     sha256 "52c6168b3a1ad58652ef6fd20af6fd9f8e07376226fa3bcd126fc4e8922ab7b7" => :mavericks
+    sha256 "551fde77c9fa2a8cf60ccab767edf48893bfe353313446ff819609a777a3eed4" => :x86_64_linux
   end
 
   def install

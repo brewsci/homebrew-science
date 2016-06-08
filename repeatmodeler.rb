@@ -13,6 +13,7 @@ class Repeatmodeler < Formula
     sha256 "d3856db1196dd29a84120ac14461d64c5c3a9d10432830dcb6be94ecd2478ba1" => :el_capitan
     sha256 "e3be3d6078936510c6b79ed62c155ac876e61f7de9d5ed6ac1409ecbbc562f19" => :yosemite
     sha256 "ef4c93df7fbcca97851ad7e3de571c0c6a1b94843384eaea32a53c27cfde11ab" => :mavericks
+    sha256 "0495628e44f390035e2b0ad596016e156e22b2be448cae26fdca317bdad88cc5" => :x86_64_linux
   end
 
   option "without-configure", "Do not run configure"

@@ -6,6 +6,7 @@ class Vsearch < Formula
     sha256 "c2e3b55f92f61cf9f9adc4daa1c2aa718b37b77d66d098b1a888705049664b16" => :el_capitan
     sha256 "cbd33e469676ce6bd1a82252423421ab8369fbc3024804c739390b908957fae9" => :yosemite
     sha256 "edadfd2741c8f3c4add51c4104052fa425754292d90d66db3a824f21c1610d37" => :mavericks
+    sha256 "720032f69cd5ec2153200dc3d30a196026b35ee0bc3008fb80a836f4ac976029" => :x86_64_linux
   end
 
   # tag "bioinformatics"

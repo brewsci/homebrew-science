@@ -13,6 +13,7 @@ class NewickUtils < Formula
     sha256 "a1c00e6e80e01e69488e0e196b92b705fe681333f883277840dac6e9b66575b9" => :yosemite
     sha256 "e35ac43b26d9092805d47eff1ca9a3bf7273c591b4f3baba8ce13627a7c16da3" => :mavericks
     sha256 "217a0404d3254b8285ec7dba16e77a6b614f60eb7f7cdc602b6f05dd666c6270" => :mountain_lion
+    sha256 "f3bb48411ea8b82b0c851a78d834f32c214d1662d8387c79cd462aeb99e6683a" => :x86_64_linux
   end
 
   # Don't bother testing nw_gen, it's known to fail on MacOSX.

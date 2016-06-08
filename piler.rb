@@ -6,6 +6,7 @@ class Piler < Formula
     sha256 "dcb0a2bc15dd739eee21b80db14660b600308a612d0091bfe9cd3161dc3f009d" => :el_capitan
     sha256 "62f3c8a1acf4a28f266937011da857c63608d26c10c2f2a690ce05c9223de17f" => :yosemite
     sha256 "0efdbf451eb1d240ed255ae1dfe2b907c417fb020a99c3496988b94ca721b225" => :mavericks
+    sha256 "ca33e46d6173d1b7008a3c6488cbe9c650cabb3383547acce611963d88da12a1" => :x86_64_linux
   end
 
   # doi "10.1093/bioinformatics/bti1003"
