@@ -12,6 +12,7 @@ class GmapGsnap < Formula
     sha256 "95b512e5a55f7c1f911a82c8954a0e0e02c76f96783c04f8f0de38b808896927" => :el_capitan
     sha256 "fec1f896a363ecc185f3977f7fb75a903d7f15176c784690464d870156bb6255" => :yosemite
     sha256 "a149666b5f7b162da16dcdddf18d08603306ad65f7a3ab74402d59c49392e883" => :mavericks
+    sha256 "ec9e4f302f91d53f446ee6b261425ad5d638eb67351e9a227aac47f7afdb8066" => :x86_64_linux
   end
 
   depends_on "samtools"
