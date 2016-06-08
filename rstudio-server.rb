@@ -77,8 +77,8 @@ class RstudioServer < Formula
   end
 
   resource "admin-script" do
-    url "https://raw.githubusercontent.com/rstudio/rstudio/cd6433df6af3f79a77f727eed9efc64e57994c86/src/cpp/server/extras/admin/rstudio-server.mac.in"
-    sha256 "4cd2efd33c080324cda6cd2689545bd243a093e12ac327783261948557eecfd3"
+    url "https://raw.githubusercontent.com/rstudio/rstudio/7c5c91be6e3edb2984264168bc162f0c0bf392dc/src/cpp/server/extras/admin/rstudio-server.mac.in"
+    sha256 "afbc23c88d53feb5f5e1a298b1fe6ead440e825ef4b88413b5d2a7c6b70e0509"
   end
 
   resource "launchd-plist" do
