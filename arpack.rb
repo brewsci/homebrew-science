@@ -1,8 +1,9 @@
 class Arpack < Formula
-  desc "ARPACK is a collection of Fortran77 subroutines designed to solve large scale eigenvalue problems."
+  desc "Routines to solve large scale eigenvalue problems"
   homepage "https://github.com/opencollab/arpack-ng"
   url "https://github.com/opencollab/arpack-ng/archive/3.2.0.tar.gz"
   sha256 "ce6de85d8de6ae3a741fb9d6169c194ff1b2ffdab289f7af8e41d71bb7818cbb"
+  revision 1
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
@@ -50,7 +51,7 @@ class Arpack < Formula
     if build.with? "mpi"
       cd libexec/"bin" do
         ["pcndrv1", "pdndrv1", "pdndrv3", "pdsdrv1", "psndrv3", "pssdrv1", "pzndrv1"].each do |slv|
-          system "mpirun -np 4 #{slv}" if build.with? "mpi"
+          system "mpirun", "-np", "4", slv if build.with? "mpi"
         end
       end
     end
