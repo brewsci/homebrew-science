@@ -4,6 +4,7 @@ class CalculixCcx < Formula
   url "http://www.dhondt.de/ccx_2.10.src.tar.bz2"
   version "2.10"
   sha256 "693497d19d8dd2a5376e64e038d5c248d87f0e2df46d409a83bf976596b319f5"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,6 +12,9 @@ class CalculixCcx < Formula
     sha256 "490e79f5f3ad45f456b58a4959436735cf4225ff5e2c56c54ee5ab932bccced5" => :yosemite
     sha256 "6ebcb57fd3af53068e3955a17b85fe9016bb6a03393bdb778fa280bbd24bca32" => :mavericks
   end
+
+  option "with-openmp", "build with OpenMP support"
+  needs :openmp if build.with? "openmp"
 
   depends_on :fortran
   depends_on "arpack"
@@ -36,7 +40,6 @@ class CalculixCcx < Formula
   end
 
   # Add <pthread.h> to Calculix.h
-  # Read arpack link options from pkg-config
   # u_free must return a void pointer
   patch :DATA
 
@@ -46,6 +49,7 @@ class CalculixCcx < Formula
     # Patch spooles library
     inreplace "spooles/Make.inc", "/usr/lang-4.0/bin/cc", ENV.cc
     inreplace "spooles/Tree/src/makeGlobalLib", "drawTree.c", "tree.c"
+    inreplace "ccx_2.10/src/Makefile", "-fopenmp", "" if build.without? "openmp"
 
     # Build serial spooles library
     system "make", "-C", "spooles", "lib"
@@ -53,14 +57,17 @@ class CalculixCcx < Formula
     # Extend library with multi-threading (MT) subroutines
     system "make", "-C", "spooles/MT/src", "makeLib"
 
-    # Build Calculix ccx
-    args = [
-      "CC=#{ENV.cc}",
-      "FC=#{ENV.fc}",
-      "CFLAGS=-O2 -I../../spooles -DARCH=Linux -DSPOOLES -DARPACK -DMATRIXSTORAGE -DUSE_MT=1",
-      "FFLAGS=-O2 -fopenmp",
-      "DIR=../../spooles",
-    ]
+    # Buid Calculix ccx
+    fflags= %w[-O2]
+    fflags << "-fopenmp" if build.with? "openmp"
+    cflags = %w[-O2 -I../../spooles -DARCH=Linux -DSPOOLES -DARPACK -DMATRIXSTORAGE]
+    cflags << "-DUSE_MT=1" if build.with? "openmp"
+    args = ["CC=#{ENV.cc}",
+            "FC=#{ENV.fc}",
+            "CFLAGS=#{cflags.join(" ")}",
+            "FFLAGS=#{fflags.join(" ")}",
+            "DIR=../../spooles",
+            "LIBS=$(DIR)/spooles.a $(shell pkg-config --libs arpack)"]
     target = Pathname.new("ccx_2.10/src/ccx_2.10")
     system "make", "-C", target.dirname, target.basename, *args
     bin.install target
@@ -92,26 +99,18 @@ index ee81ca8..d957130 100644
  #define IRIX 2
  #define IRIX64 3
 diff --git a/ccx_2.10/src/Makefile b/ccx_2.10/src/Makefile
-index 9335028..a587fdd 100755
+index 9335028..d7791f1 100755
 --- a/ccx_2.10/src/Makefile
 +++ b/ccx_2.10/src/Makefile
-@@ -22,11 +22,12 @@ DIR=../../../SPOOLES.2.2
-
- LIBS = \
-        $(DIR)/spooles.a \
--	../../../ARPACK/libarpack_INTEL.a \
--       -lpthread -lm -lc
-+       $(shell pkg-config --libs arpack)
+@@ -25,7 +25,7 @@ LIBS = \
+	../../../ARPACK/libarpack_INTEL.a \
+        -lpthread -lm -lc
 
 -ccx_2.10: $(OCCXMAIN) ccx_2.10.a  $(LIBS)
--	./date.pl; $(CC) $(CFLAGS) -c ccx_2.10.c; $(FC) -fopenmp -Wall -O3 -o $@ $(OCCXMAIN) ccx_2.10.a $(LIBS)
 +ccx_2.10: $(OCCXMAIN) ccx_2.10.a
-+	./date.pl
-+	$(CC) $(CFLAGS) -c ccx_2.10.c
-+	$(FC) $(FFLAGS) -o $@ $(OCCXMAIN) ccx_2.10.a $(LIBS)
+	./date.pl; $(CC) $(CFLAGS) -c ccx_2.10.c; $(FC) -fopenmp -Wall -O3 -o $@ $(OCCXMAIN) ccx_2.10.a $(LIBS)
 
  ccx_2.10.a: $(OCCXF) $(OCCXC)
-	ar vr $@ $?
 diff --git a/ccx_2.10/src/u_free.c b/ccx_2.10/src/u_free.c
 index acccf3b..da517de 100644
 --- a/ccx_2.10/src/u_free.c
