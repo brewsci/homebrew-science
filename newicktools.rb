@@ -1,4 +1,5 @@
 class Newicktools < Formula
+  desc "Tools for the Newick tree format"
   homepage "https://github.com/lindenb/newicktools"
   # tag "bioinformatics"
 
@@ -13,6 +14,7 @@ class Newicktools < Formula
     sha256 "be6886dfb589ee2f9c72580ef4c5e150aebc38daf7f3ca7c5d17c73e40aa901d" => :mountain_lion
   end
 
+  depends_on "flex" unless OS.mac?
   depends_on "graphviz" => :optional
 
   def install
