@@ -1,8 +1,9 @@
 class Nlopt < Formula
-  desc "A free/open-source library for nonlinear optimization"
+  desc "Free/open-source library for nonlinear optimization"
   homepage "http://ab-initio.mit.edu/nlopt"
   url "http://ab-initio.mit.edu/nlopt/nlopt-2.4.2.tar.gz"
   sha256 "8099633de9d71cbc06cd435da993eb424bbcdbded8f803cdaa9fb8c6e09c8e89"
+  revision 1
   head "https://github.com/stevengj/nlopt.git"
 
   bottle do
@@ -29,8 +30,8 @@ class Nlopt < Formula
     args << "--without-python" if build.without? "python"
 
     if build.with? "octave"
-      ENV["OCT_INSTALL_DIR"] = share/"nlopt/oct"
-      ENV["M_INSTALL_DIR"] = share/"nlopt/m"
+      ENV["OCT_INSTALL_DIR"] = pkgshare/"oct"
+      ENV["M_INSTALL_DIR"] = pkgshare/"m"
       ENV["MKOCTFILE"] = "#{Formula["octave"].opt_bin}/mkoctfile"
     end
 
@@ -49,9 +50,9 @@ class Nlopt < Formula
     if build.with? "octave"
       s += <<-EOS.undent
       Please add
-        #{share}/nlopt/oct
+        #{pkgshare}/oct
       and
-        #{share}/nlopt/m
+        #{pkgshare}/m
       to the Octave path.
       EOS
     end
