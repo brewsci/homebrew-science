@@ -4,7 +4,7 @@ class Mumps < Formula
   url "http://mumps.enseeiht.fr/MUMPS_5.0.1.tar.gz"
   mirror "http://graal.ens-lyon.fr/MUMPS/MUMPS_5.0.1.tar.gz"
   sha256 "50355b2e67873e2239b4998a46f2bbf83f70cdad6517730ab287ae3aae9340a0"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -120,7 +120,7 @@ class Mumps < Formula
     system "make", "alllib", *(shlibs_args + make_args)
 
     lib.install Dir["lib/*"]
-    lib.install ("libseq/libmpiseq" + ((OS.mac?) ? ".dylib" : ".so")) if build.without? "mpi"
+    lib.install ("libseq/libmpiseq" + (OS.mac? ? ".dylib" : ".so")) if build.without? "mpi"
 
     # Build static libraries (e.g., for Dolfin)
     system "make", "alllib", *make_args
@@ -159,7 +159,7 @@ class Mumps < Formula
         simple_args += ["blas_libdir=#{Formula["openblas"].opt_lib}",
                         "blas_libs=-L$(blas_libdir) -lopenblas"] if build.with? "openblas"
         system "make", "SHELL=/bin/bash", *simple_args
-        lib.install ("libmumps_simple." + ((OS.mac?) ? "dylib" : "so"))
+        lib.install ("libmumps_simple." + (OS.mac? ? "dylib" : "so"))
         include.install "mumps_simple.h"
       end
     end
