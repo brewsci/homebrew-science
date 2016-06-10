@@ -7,6 +7,7 @@ class Amos < Formula
   url "https://downloads.sourceforge.net/project/amos/amos/3.1.0/amos-3.1.0.tar.gz"
   sha256 "2d9f50e39186ad3dde3d3b28cc265e8d632430657f40fc3978ce34ab1b3db43b"
 
+  depends_on "expat" unless OS.mac?
   depends_on "blat" => :optional # for minimus2-blat
   depends_on "boost" => :recommended # for Bambus 2
   depends_on "mummer" => :recommended # for minimus2
