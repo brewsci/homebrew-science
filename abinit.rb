@@ -3,6 +3,7 @@ class Abinit < Formula
   homepage "http://www.abinit.org"
   url "http://ftp.abinit.org/abinit-8.0.7.tar.gz"
   sha256 "9df2fe572af39cef937a4134d569321b99c6670f187edbac9b355ff2defd5afc"
+  revision 1
 
   bottle do
     cellar :any
@@ -39,8 +40,7 @@ class Abinit < Formula
               --with-mpi-prefix=#{HOMEBREW_PREFIX}
               --enable-optim=safe
               --enable-openmp=no
-              --enable-gw-dpc
-           ]
+              --enable-gw-dpc]
 
     dft_flavor = "none"
     trio_flavor = "none"
