@@ -6,6 +6,13 @@ class Bbtools < Formula
   url "https://downloads.sourceforge.net/project/bbmap/BBMap_35.85.tar.gz"
   sha256 "037b3f7793e428ba016e79b01eab378da8ca885ebac660df295d65f34dba38bc"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "dc6caa710db30124f9f3bc829b90e961fead12e514c6c85cf5eb02155d39e289" => :el_capitan
+    sha256 "cefdee5a7bff7cbc25583a423aeed79bd78871093d8dc796513b324c95d0b142" => :yosemite
+    sha256 "64937d61419187c1ee007a6d96deec813984ecbeec67d6088f9f34d1f5459d7b" => :mavericks
+  end
+
   depends_on :java
   depends_on "pigz" => :optional
 
