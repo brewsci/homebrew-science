@@ -9,9 +9,10 @@ class Openalpr < Formula
 
   bottle do
     cellar :any
-    sha256 "2f1efd5e26f992939b6faaba2c7591febdd32fc0973211833801990f28817c20" => :el_capitan
-    sha256 "737402a2754107aa569656f48d53669b8063240d1481018f0002512f8de67d73" => :yosemite
-    sha256 "ecb2aa8c6607074a736c21bd55990041860e59b2ed0f1c040484cf6a813807a2" => :mavericks
+    revision 1
+    sha256 "5e0af8c162176b5d4fe2ce344f4b7189f574089668085683c11c698fc9c16994" => :el_capitan
+    sha256 "bd18915d4c6bf5c24b38628694887b93a56040d6ccb5bdb71070f0e4229feb91" => :yosemite
+    sha256 "9546d90b5d3aaf22541651f521b3cabd8a4abe428de117c50135b2b248b4e7c3" => :mavericks
   end
 
   option "without-daemon", "Do not include the alpr daemon (alprd)"
