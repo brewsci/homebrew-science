@@ -9,10 +9,9 @@ class Augustus < Formula
   sha256 "bb36fcaaaab32920908e794d04e6cb57a0c61d689bfbd31b9b6315233ea3559e"
 
   bottle do
-    sha256 "0eb60809dd6fc0294210b4eaae29363d9034be074d972bd76b32fa9183a18494" => :el_capitan
-    sha256 "91143f0a59709e16e435ba220909c7878cbcbd5d3ef41fded2fc1784626eb5ce" => :yosemite
-    sha256 "df27039f7d44a9431f38c21816431190220d54a8fd89506c367a35b600c0befb" => :mavericks
-    sha256 "1386ac0dbf5c2d54ff0d09760e1b723901f8aa89f99423aca1c155f178b23093" => :x86_64_linux
+    sha256 "f4b7001d5e3c215996686a3db9dad4cbe00244bd160d2d88c78295a9ffbad04c" => :el_capitan
+    sha256 "a71a1833f5cffa81ecc2241b880cd18619ebf34b011d1c9223aed25dc3eff219" => :yosemite
+    sha256 "8c3db1a79fc05a63af6f137aef3e2b7b00e5205a069d2fa679763496f323bd48" => :mavericks
   end
 
   option "with-cgp",  "Enable comparative gene prediction"
