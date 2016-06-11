@@ -5,6 +5,13 @@ class Moose < Formula
   version "3.0.2"
   sha256 "ad8e7b50874b35190aa5cfdbf0bccaacba241ff19f4d12708f115816cc391b35"
 
+  bottle do
+    cellar :any
+    sha256 "ce480a1c0d53faa57fe8175784b8c2c10fae4b2fd09f68f376f3ff7d28c9415a" => :el_capitan
+    sha256 "58fa41109b47d9c0d9c807105facf8bb3c8fa15f520372e6a8f546b306245da3" => :yosemite
+    sha256 "ac9e155cf13f857df151e4004cba0ee3f9ea27a8a4250f5003f34b179b6a41e8" => :mavericks
+  end
+
   option "with-gui", "Enable gui support"
   option "with-sbml", "Enable sbml support"
 
