@@ -8,9 +8,9 @@ class CalculixCcx < Formula
 
   bottle do
     cellar :any
-    sha256 "14f29dd416a4d8ad14d55598b5d53d5bbb74681dec38bd6f1760c781b9a0671b" => :el_capitan
-    sha256 "490e79f5f3ad45f456b58a4959436735cf4225ff5e2c56c54ee5ab932bccced5" => :yosemite
-    sha256 "6ebcb57fd3af53068e3955a17b85fe9016bb6a03393bdb778fa280bbd24bca32" => :mavericks
+    sha256 "9558961bf378b16f68a3804d028440936193d85d1694118af16254e90de5df1d" => :el_capitan
+    sha256 "beb43aa0b402111699d19049f9c3055ac25a629556fefdbc4b25ecef25c960ea" => :yosemite
+    sha256 "9c252f0fc1345d542be35efc656017e0c852f8da9f76d9fa9382b29da6f08616" => :mavericks
   end
 
   option "with-openmp", "build with OpenMP support"
