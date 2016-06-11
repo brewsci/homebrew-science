@@ -5,6 +5,13 @@ class G2o < Formula
   version "2016-04-24"
   sha256 "31abd5f4acf8407c18318b04f3ffc867c8ea7de89f18d51f9e92eb734d523b24"
 
+  bottle do
+    cellar :any
+    sha256 "215196968627add9914a78f8783b284639b6616d438631bb8fa6a03fa859736a" => :el_capitan
+    sha256 "d5ec14194a7d06428dad81e08f2cc60f82302447328f170cea89397c56de12c1" => :yosemite
+    sha256 "86807d958811da65df96019c55f7be548d704992babdf9e706a0d88b9613c951" => :mavericks
+  end
+
   depends_on "cmake" => :build
   depends_on "eigen"
   depends_on "suite-sparse" => :recommended
