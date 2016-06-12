@@ -25,6 +25,13 @@ class Opencv3 < Formula
       url "https://github.com/Itseez/opencv/commit/c7bdbef5042dadfe032dfb5d80f9b90bec830371.diff"
       sha256 "106785f8478451575026e9bf3033e418d8509ffb93e62722701fa017dc043d91"
     end
+
+    patch do
+      # patch fixes build error when including example sources
+      # can be removed with next release
+      url "https://github.com/Itseez/opencv/commit/cdb9c60dcb65e04e7c0bd6bef9b86841191c785a.diff"
+      sha256 "a14499a8c16545cf1bb206cfe0ed8a65697100dca9b2ae5274516d1213a1a32b"
+    end
   end
 
   bottle do
@@ -49,6 +56,7 @@ class Opencv3 < Formula
   option "32-bit"
   option "with-contrib", 'Build "extra" contributed modules'
   option "with-cuda", "Build with CUDA v7.0+ support"
+  option "with-examples", "Install C and python examples (sources)"
   option "with-java", "Build with Java support"
   option "with-opengl", "Build with OpenGL support (must use --with-qt5)"
   option "with-quicktime", "Use QuickTime for Video I/O instead of QTKit"
@@ -159,6 +167,11 @@ class Opencv3 < Formula
     if build.with? "contrib"
       resource("contrib").stage buildpath/"opencv_contrib"
       args << "-DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules"
+    end
+
+    if build.with? "examples"
+      args << "-DINSTALL_C_EXAMPLES=ON"
+      args << "-DINSTALL_PYTHON_EXAMPLES=ON"
     end
 
     # OpenCL 1.1 is required, but Snow Leopard and older come with 1.0
