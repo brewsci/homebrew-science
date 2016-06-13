@@ -11,6 +11,7 @@ class Bbtools < Formula
     sha256 "dc6caa710db30124f9f3bc829b90e961fead12e514c6c85cf5eb02155d39e289" => :el_capitan
     sha256 "cefdee5a7bff7cbc25583a423aeed79bd78871093d8dc796513b324c95d0b142" => :yosemite
     sha256 "64937d61419187c1ee007a6d96deec813984ecbeec67d6088f9f34d1f5459d7b" => :mavericks
+    sha256 "c248889cd98f335fe7e251635ce86763e9b9fa77644f5c67e482fb36208f9bf0" => :x86_64_linux
   end
 
   depends_on :java
