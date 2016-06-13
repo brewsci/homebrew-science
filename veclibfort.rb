@@ -16,6 +16,7 @@ class Veclibfort < Formula
   depends_on :fortran
 
   def install
+    odie "Use openblas instead of veclibfort on Linux" if OS.linux?
     ENV.m64 if MacOS.prefer_64_bit?
     system "make", "all"
     system "make", "PREFIX=#{prefix}", "install"
