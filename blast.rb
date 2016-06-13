@@ -4,10 +4,10 @@ class Blast < Formula
   # doi "10.1016/S0022-2836(05)80360-2"
   # tag "bioinformatics"
 
-  url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.3.0/ncbi-blast-2.3.0+-src.tar.gz"
-  mirror "http://mirrors.vbi.vt.edu/mirrors/ftp.ncbi.nih.gov/blast/executables/blast+/2.3.0/ncbi-blast-2.3.0%2b-src.tar.gz"
-  version "2.3.0"
-  sha256 "7ce8dc62f58141b6cdcd56b55ea3c17bea7a672e6256dfd725e6ef94825e94e9"
+  url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.4.0/ncbi-blast-2.4.0+-src.tar.gz"
+  mirror "ftp://ftp.hgc.jp/pub/mirror/ncbi/blast/executables/blast+/2.4.0/ncbi-blast-2.4.0+-src.tar.gz"
+  version "2.4.0"
+  sha256 "ab9a35086389a6b67c777ee9f535b0eedf203b814cad5347933cc26d6694c992"
 
   bottle do
     sha256 "7e6af104bc9d79796c7f2443661f1514a4190dcb19434c9d545b08a2ade99999" => :el_capitan
