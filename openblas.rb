@@ -27,8 +27,8 @@ class Openblas < Formula
     ENV["USE_OPENMP"] = "1" if build.with? "openmp"
 
     # Must call in two steps
-    system "make", "FC=#{ENV["FC"]}", "libs", "netlib", "shared"
-    system "make", "FC=#{ENV["FC"]}", "tests"
+    system "make", "CC=#{ENV["CC"]}", "FC=#{ENV["FC"]}", "libs", "netlib", "shared"
+    system "make", "CC=#{ENV["CC"]}", "FC=#{ENV["FC"]}", "tests"
     system "make", "PREFIX=#{prefix}", "install"
     so = OS.mac? ? "dylib" : "so"
     lib.install_symlink "libopenblas.#{so}" => "libblas.#{so}"
