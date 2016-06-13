@@ -12,6 +12,7 @@ class Augustus < Formula
     sha256 "f4b7001d5e3c215996686a3db9dad4cbe00244bd160d2d88c78295a9ffbad04c" => :el_capitan
     sha256 "a71a1833f5cffa81ecc2241b880cd18619ebf34b011d1c9223aed25dc3eff219" => :yosemite
     sha256 "8c3db1a79fc05a63af6f137aef3e2b7b00e5205a069d2fa679763496f323bd48" => :mavericks
+    sha256 "c02c14202175281098ecb92304d6385755dbdb2b3dc9bd7b14920bcbaf367833" => :x86_64_linux
   end
 
   option "with-cgp",  "Enable comparative gene prediction"
