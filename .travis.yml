@@ -27,10 +27,10 @@ before_install:
       export TRAVIS_BUILD_DIR="$(brew --repo)/Library/Taps/homebrew/homebrew-science";
     fi
   - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
-      docker pull sjackman/linuxbrew-standalone;
+      docker pull linuxbrew/linuxbrew;
       docker run
         -v $(pwd):/home/linuxbrew/homebrew-science
-        sjackman/linuxbrew-standalone
+        linuxbrew/linuxbrew
         /bin/sh -c 'brew tap homebrew/python && brew update && cp -rf ~/homebrew-science $(brew --repo)/Library/Taps/homebrew/homebrew-science';
       docker commit $(docker ps -l -q) linuxbrew;
     fi
