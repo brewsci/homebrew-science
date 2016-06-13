@@ -6,6 +6,8 @@ class Phyutility < Formula
   # doi "10.1093/bioinformatics/btm619"
   # tag "bioinformatics'
 
+  bottle :unneeded
+
   def install
     libexec.install "phyutility.jar"
     bin.write_jar_script libexec/"phyutility.jar", "phyutility"
