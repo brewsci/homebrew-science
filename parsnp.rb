@@ -1,4 +1,5 @@
 class Parsnp < Formula
+  desc "Microbial core genome alignment and SNP detection"
   homepage "https://github.com/marbl/parsnp"
   # tag "bioinformatics"
   # doi "10.1186/s13059-014-0524-x"
@@ -12,12 +13,14 @@ class Parsnp < Formula
     sha256 "ec60bab2306005baca374cc84b4d4dd20dd124e7ea0eee88ec59d9e5a95ce548"
   end
 
+  bottle :unneeded
+
   def install
     bin.install "parsnp"
     doc.install "README"
   end
 
   test do
-    assert_match "recombination", shell_output("parsnp 2>&1", 2)
+    assert_match "recombination", shell_output("#{bin}/parsnp 2>&1", 2)
   end
 end
