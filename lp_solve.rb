@@ -25,6 +25,11 @@ class LpSolve < Formula
   version "5.5.2.0" # automatic version parser spits out "solve" as version
   sha256 "5827a30b143105283f398a09419ea608719a2d7699ecea165a66d521803bcc9c"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "40e0fb01f795a4e7583802dadd04c8c08fdbe4fe776ea5602a78997fc2575065" => :x86_64_linux
+  end
+
   depends_on :python => :optional
   depends_on NumpyHasHeaders.new if build.with? "python"
 
