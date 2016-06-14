@@ -13,6 +13,11 @@ class Art < Formula
   end
   version "031915"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "cfc9ac48fd2054b3ebbd654f11ff0919e0f08c175e9d1b9bf3a5926d1675974a" => :x86_64_linux
+  end
+
   depends_on "gsl"
 
   def install
