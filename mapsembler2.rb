@@ -6,6 +6,11 @@ class Mapsembler2 < Formula
   # doi "10.1186/1471-2105-13-48"
   # tag "bioinformatics"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "cb2d5170bb6a8cd1180816a650114812a5a1f46d7b2679f8626a3e8ca5b998f8" => :x86_64_linux
+  end
+
   fails_with :clang do
     build 703
     cause "error: no member named 'malloc' in namespace 'std'"
