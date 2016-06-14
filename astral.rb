@@ -12,7 +12,7 @@ class Astral < Formula
   bottle :unneeded
 
   depends_on :java
-  depends_on "homebrew/dupes/unzip" unless OS.mac?
+  depends_on "homebrew/dupes/unzip" => :build unless OS.mac?
 
   def install
     safe_system "unzip", "Astral.#{version}.zip"
@@ -22,6 +22,6 @@ class Astral < Formula
   end
 
   test do
-    system "astral", "-i", pkgshare/"main/test_data/simulated_14taxon.gene.tre"
+    system bin/"astral", "-i", pkgshare/"main/test_data/simulated_14taxon.gene.tre"
   end
 end
