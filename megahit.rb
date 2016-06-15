@@ -13,6 +13,7 @@ class Megahit < Formula
     sha256 "f0c6ad32a8ce2b8699843e122a11603ecf038d8cd1994ecfa53d84a298b9fbff" => :el_capitan
     sha256 "73807f684e62e5720227c81d4c9f85a1df9935b23f637f7a9d710e59adb01462" => :yosemite
     sha256 "020cb2ec6ec0c4f5c8aac9431aa71ca1b86b474500b87434a147fb89bbfd4b16" => :mavericks
+    sha256 "83b0355a318e06e493e655d3cbd2b5ae3aed2764ac24322c66b24cba1eff7eb4" => :x86_64_linux
   end
 
   fails_with :llvm do
