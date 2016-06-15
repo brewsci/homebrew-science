@@ -7,6 +7,8 @@ class LinksScaffolder < Formula
   version "1.5.1"
   sha256 "3f4dbcdd0fc6735ae316d7c379b038a3fada16233a120b2d6f2220d51a24a908"
 
+  bottle :unneeded
+
   depends_on "Bloom::Faster" => :perl
 
   def install
