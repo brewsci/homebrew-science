@@ -1,32 +1,4 @@
-class CudaRequirement < Requirement
-  build true
-  fatal true
-
-  satisfy { which "nvcc" }
-
-  env do
-    # Nvidia CUDA installs (externally) into this dir (hard-coded):
-    ENV.append "CFLAGS", "-F/Library/Frameworks"
-    # # because nvcc has to be used
-    ENV.append "PATH", which("nvcc").dirname, ":"
-  end
-
-  def message
-    <<-EOS.undent
-      To use this formula with NVIDIA graphics cards you will need to
-      download and install the CUDA drivers and tools from nvidia.com.
-
-          https://developer.nvidia.com/cuda-downloads
-
-      Select "Mac OS" as the Operating System and then select the
-      "Developer Drivers for MacOS" package.
-      You will also need to download and install the "CUDA Toolkit" package.
-
-      The `nvcc` has to be in your PATH then (which is normally the case).
-
-  EOS
-  end
-end
+require File.expand_path("../Requirements/cuda_requirement", __FILE__)
 
 class Beagle < Formula
   desc "Evaluate the likelihood of sequence evolution on trees"

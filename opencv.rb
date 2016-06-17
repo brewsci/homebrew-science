@@ -1,3 +1,5 @@
+require File.expand_path("../Requirements/cuda_requirement", __FILE__)
+
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "http://opencv.org/"
@@ -18,7 +20,6 @@ class Opencv < Formula
   option "with-tbb", "Enable parallel code in OpenCV using Intel TBB"
   option "without-test", "Build without accuracy & performance tests"
   option "without-opencl", "Disable GPU code in OpenCV using OpenCL"
-  option "with-cuda", "Build with CUDA support"
   option "with-quicktime", "Use QuickTime for Video I/O instead of QTKit"
   option "with-opengl", "Build with OpenGL support"
   option "with-ximea", "Build with XIMEA support"
@@ -33,6 +34,7 @@ class Opencv < Formula
 
   depends_on :ant if build.with? "java"
   depends_on "cmake"      => :build
+  depends_on CudaRequirement => :optional
   depends_on "eigen"      => :recommended
   depends_on "gstreamer"  => :optional
   depends_on "gst-plugins-good" if build.with? "gstreamer"

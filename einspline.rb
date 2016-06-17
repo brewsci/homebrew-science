@@ -1,3 +1,5 @@
+require File.expand_path("../Requirements/cuda_requirement", __FILE__)
+
 class Einspline < Formula
   desc "C library for cubic B-splines in 1, 2 and 3D"
   homepage "http://einspline.sourceforge.net"
@@ -11,12 +13,12 @@ class Einspline < Formula
     sha256 "04e436b59788262cf10c18c73067b0a47a3110156f68b77e1fe9b57fcbe07699" => :mavericks
   end
 
-  option "with-cuda", "Enable CUDA"
   option "without-openmp", "Disable OpenMP"
 
   depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on :fortran
+  depends_on CudaRequirement => :optional
 
   needs :openmp if build.with? "openmp"
 

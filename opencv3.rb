@@ -1,3 +1,5 @@
+require File.expand_path("../Requirements/cuda_requirement", __FILE__)
+
 class Opencv3 < Formula
   desc "Open source computer vision library, version 3"
   homepage "http://opencv.org/"
@@ -73,6 +75,7 @@ class Opencv3 < Formula
 
   depends_on :ant => :build if build.with? "java"
   depends_on "cmake" => :build
+  depends_on CudaRequirement => :optional
   depends_on "pkg-config" => :build
 
   depends_on "eigen" => :recommended
