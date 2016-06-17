@@ -1,8 +1,8 @@
 class Spades < Formula
   desc "SPAdes: de novo genome assembly"
   homepage "http://bioinf.spbau.ru/spades/"
-  url "http://spades.bioinf.spbau.ru/release3.8.0/SPAdes-3.8.0.tar.gz"
-  sha256 "36e698546d3cfbbd26d8ddec13907c48025ccb2ca94803143398572dbfc90681"
+  url "http://spades.bioinf.spbau.ru/release3.8.1/SPAdes-3.8.1.tar.gz"
+  sha256 "8867c5d1fd1ae7eda015a58a0ca518cebe3968ea8a2eb9d85d397243afc6b3b0"
   # tag "bioinformatics"
   # doi "10.1089/cmb.2012.0021"
 
@@ -23,8 +23,6 @@ class Spades < Formula
   end
 
   def install
-    inreplace "ext/src/cityhash/city.cc", "#ifdef __SSE4_2__", "#if 0"
-
     mkdir "src/build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
