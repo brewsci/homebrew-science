@@ -28,7 +28,7 @@ class SuiteSparse < Formula
   needs :openmp if build.with? "openmp"
 
   # libtbb isn't linked in.
-  patch DATA
+  patch :DATA
 
   def install
     cflags = [ENV.cflags.to_s]
