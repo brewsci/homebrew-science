@@ -31,6 +31,13 @@ class Tophat < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+
+    # clean up Python libraries from bin
+    (libexec/"python").install bin/"intervaltree", bin/"sortedcontainers"
+    (libexec/"bin").install bin/"tophat-fusion-post"
+    (bin/"tophat-fusion-post").write_env_script(
+      libexec/"bin/tophat-fusion-post",
+      :PYTHONPATH => libexec/"python")
   end
 
   test do
@@ -38,6 +45,7 @@ class Tophat < Formula
       share/"test_data/test_ref",
       share/"test_data/reads_1.fq", share/"test_data/reads_2.fq"
     assert_match "71.0%", File.read("tophat_out/align_summary.txt")
+    system bin/"tophat-fusion-post", "--version"
   end
 end
 __END__
@@ -52,4 +60,3 @@ __END__
  	{																	\
  		type_t *i, *j, swap_tmp;										\
  		for (i = s + 1; i < t; ++i)										\
-
