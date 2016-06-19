@@ -6,9 +6,9 @@ class Tophat < Formula
 
   bottle do
     cellar :any
-    sha256 "73296a1c7563a896cd80448424bd2406df4c28961d0ca4911b455602bfbfa829" => :yosemite
-    sha256 "262b03db609f12566948e21ad2cf38c7b9c272650d707b49b1630577cf815979" => :mavericks
-    sha256 "3735a997a3ff8e64534a1febb43b353b42e49c92414db86218f77626ce82c7da" => :mountain_lion
+    sha256 "186e8686503284e7ac3e0187388e5babaf1d5f07df07d6dbc27d91091becc505" => :el_capitan
+    sha256 "f43d751a37fbe897315e450219392161becf97f445729d0dc007b8048687c3c7" => :yosemite
+    sha256 "4f78eba798dbf5d23f237e87abdd5486b2fc874f6771fb0e1f8b6b1030cf37c1" => :mavericks
   end
 
   depends_on "boost"
