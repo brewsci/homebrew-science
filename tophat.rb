@@ -11,7 +11,7 @@ class Tophat < Formula
     sha256 "3735a997a3ff8e64534a1febb43b353b42e49c92414db86218f77626ce82c7da" => :mountain_lion
   end
 
-  depends_on "boost" => :build
+  depends_on "boost"
   depends_on "bowtie2"
   depends_on "bowtie" => :optional
 
