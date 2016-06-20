@@ -1,6 +1,7 @@
 class Fgsl < Formula
+  desc "Fortran bindings for the GNU Scientific Library"
   homepage "http://www.lrz.de/services/software/mathematik/gsl/fortran/"
-  url "http://www.lrz.de/services/software/mathematik/gsl/fortran/fgsl-1.0.0.tar.gz"
+  url "http://www.lrz.de/services/software/mathematik/gsl/fortran/download/fgsl-1.0.0.tar.gz"
   sha256 "2841f6deb2ce05e153fc1d89fe5e46aba74c60a2595c857cef9ca771a0cf6290"
   revision 1
 
@@ -10,10 +11,9 @@ class Fgsl < Formula
     sha256 "c17e3285cf8099aec32622baa70dcbb66e27c840641738cd8b0d0f7a134c1603" => :mountain_lion
   end
 
+  depends_on "pkg-config" => :build
   depends_on :fortran
   depends_on "gsl"
-  depends_on "pkg-config" => :build
-  option "without-check", "Disable build-time checking (not recommended)"
 
   def install
     ENV.deparallelize
@@ -22,7 +22,7 @@ class Fgsl < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make"
-    system "make", "check" if build.with? "check"
+    system "make", "check"
     system "make", "install"
   end
 
