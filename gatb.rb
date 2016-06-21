@@ -12,6 +12,7 @@ class Gatb < Formula
     sha256 "9140d235a079f1159f693405494ea29bea39bd2d5ec039933da375899e49a825" => :el_capitan
     sha256 "8381c85fa3d43831ee3991ab509211e7297b43c8f4f4df28166d71ef8d313730" => :yosemite
     sha256 "6d8e8013b68a2bda35f0044c5272d94c99c85bae0199478690a3e13363997029" => :mavericks
+    sha256 "fd2fac2613ee332def1e987c5a104c730e062afac99929aab4aa43d58f59228e" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
