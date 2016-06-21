@@ -9,9 +9,9 @@ class Gatb < Formula
   sha256 "d75fe178c97d85f11e3cf51bfb8ae4a6b9f864587f3762a7ca608abe48ed4a03"
 
   bottle do
-    sha256 "2d34597f4d793a15bad4d280df11cec2a9a818cf87d20f600107e00cb6ce573f" => :yosemite
-    sha256 "a9a8ae6f10923cc1ff228dfa8b12b16ae854a77a0433c0bb5421f749d25a6db8" => :mavericks
-    sha256 "04c59f4e814f1348a768189079f18021b246857a8e9cc5d9da316c15a3874f2e" => :x86_64_linux
+    sha256 "9140d235a079f1159f693405494ea29bea39bd2d5ec039933da375899e49a825" => :el_capitan
+    sha256 "8381c85fa3d43831ee3991ab509211e7297b43c8f4f4df28166d71ef8d313730" => :yosemite
+    sha256 "6d8e8013b68a2bda35f0044c5272d94c99c85bae0199478690a3e13363997029" => :mavericks
   end
 
   depends_on "cmake" => :build
