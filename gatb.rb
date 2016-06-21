@@ -3,9 +3,9 @@ class Gatb < Formula
   # doi "10.1093/bioinformatics/btu406"
   # tag "bioinformatics"
 
-  url "http://gatb-core.gforge.inria.fr/versions/src/gatb-core-1.0.7-Source.tar.gz"
-  version "1.0.7"
-  sha256 "790803a7a2819566bc89ee24598f9e8c4e114d7d65dc5f87d1d5b8c319f78876"
+  url "http://gatb-core.gforge.inria.fr/versions/src/gatb-core-1.0.8-Source.tar.gz"
+  version "1.0.8"
+  sha256 "eea0f66989706b4393e964e2d3d8fcc7b0e35b4f38ff73d58bd9b1f3a9ada152"
 
   bottle do
     sha256 "2d34597f4d793a15bad4d280df11cec2a9a818cf87d20f600107e00cb6ce573f" => :yosemite
