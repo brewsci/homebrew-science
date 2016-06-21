@@ -1,10 +1,9 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "http://root.cern.ch"
-  version "5.34.34"
+  version "5.34.36"
   url "https://root.cern.ch/download/root_v#{version}.source.tar.gz"
-  sha256 "8c1faf893ed3b279f3500368b3dcd2087352020a69d3055c4d36726e7f6acd58"
-  revision 1
+  sha256 "fc868e5f4905544c3f392cc9e895ef5571a08e48682e7fe173bd44c0ba0c7dcd"
   head "https://github.com/root-mirror/root.git", :branch => "v5-34-00-patches"
 
   bottle do
@@ -21,7 +20,7 @@ class Root < Formula
   depends_on "fftw" => :optional
   depends_on "qt" => [:optional, "with-qt3support"]
   depends_on :x11 => :optional
-  depends_on :python
+  depends_on :python if MacOS.version <= :snow_leopard
 
   def install
     # brew audit doesn't like non-executables in bin
@@ -42,6 +41,7 @@ class Root < Formula
       --all
       --enable-builtin-glew
       --enable-builtin-freetype
+      --disable-ruby
       --prefix=#{prefix}
       --etcdir=#{prefix}/etc/root
       --mandir=#{man}
