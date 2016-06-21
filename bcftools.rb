@@ -3,8 +3,8 @@ class Bcftools < Formula
   homepage "http://www.htslib.org/"
   # tag "bioinformatics"
 
-  url "https://github.com/samtools/bcftools/releases/download/1.3/bcftools-1.3.tar.bz2"
-  sha256 "fc5332e49546d55120551b0d5fb690f79e4f2216b8492c7b53033cdaa4256a3d"
+  url "https://github.com/samtools/bcftools/releases/download/1.3.1/bcftools-1.3.1.tar.bz2"
+  sha256 "12c37a4054cbf1980223e2b3a80a7fdb3fd850324a4ba6832e38fdba91f1b924"
   head "https://github.com/samtools/bcftools.git"
 
   bottle do
@@ -38,6 +38,6 @@ class Bcftools < Formula
   end
 
   test do
-    assert_match "number of SNPs:\t3", shell_output("bcftools stats #{share}/bcftools/test/query.vcf")
+    assert_match "number of SNPs:\t3", shell_output("bcftools stats #{pkgshare}/test/query.vcf")
   end
 end
