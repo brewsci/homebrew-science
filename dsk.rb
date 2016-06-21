@@ -4,8 +4,8 @@ class Dsk < Formula
   # doi "10.1093/bioinformatics/btt020"
   # tag "bioinformatics"
 
-  url "http://gatb-tools.gforge.inria.fr/versions/src/dsk-2.0.7-Source.tar.gz"
-  sha256 "109f1c6e460fcc1d3a880fc0a50fc585a1dd6b4bca614d5c494582a573e5de7b"
+  url "http://gatb-tools.gforge.inria.fr/versions/src/dsk-2.1.0-Source.tar.gz"
+  sha256 "08b35e5aff5d17eb35a61b06ba7f440ae8a5a4197b72fb0a465b5ea4dd7becd0"
 
   bottle do
     cellar :any_skip_relocation
