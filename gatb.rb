@@ -1,11 +1,12 @@
 class Gatb < Formula
+  desc "Genome Analysis Toolbox for de Bruijn graphs"
   homepage "https://gatb.inria.fr/"
   # doi "10.1093/bioinformatics/btu406"
   # tag "bioinformatics"
 
-  url "http://gatb-core.gforge.inria.fr/versions/src/gatb-core-1.0.8-Source.tar.gz"
-  version "1.0.8"
-  sha256 "eea0f66989706b4393e964e2d3d8fcc7b0e35b4f38ff73d58bd9b1f3a9ada152"
+  url "http://gatb-core.gforge.inria.fr/versions/src/gatb-core-1.1.0-Source.tar.gz"
+  version "1.1.0"
+  sha256 "d75fe178c97d85f11e3cf51bfb8ae4a6b9f864587f3762a7ca608abe48ed4a03"
 
   bottle do
     sha256 "2d34597f4d793a15bad4d280df11cec2a9a818cf87d20f600107e00cb6ce573f" => :yosemite
