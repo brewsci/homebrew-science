@@ -8,10 +8,9 @@ class Bcftools < Formula
   head "https://github.com/samtools/bcftools.git"
 
   bottle do
-    sha256 "7abcf9981eefd124b830f6e20615e63c94d618f8d63a2cfe7d432963abce8081" => :el_capitan
-    sha256 "eebbc40d36b3a3dda96396dcdddaa50ac52675252ae8bce8c5d0ff031db59e33" => :yosemite
-    sha256 "0b1800347a3219efad6955347fd3652bac5769c32b0b4dfbf16c9577d262d5b5" => :mavericks
-    sha256 "37c6b14a2e7dfe37dde17035968ce8def99cc5e860c68b84c0e2a56bc7a0bb47" => :x86_64_linux
+    sha256 "aa497ce3f323c1d84ab6f9fd52bad51764ac647503c31c2cd031aef3b3d6c98e" => :el_capitan
+    sha256 "2bbbe29afa371c40aaee36cc332eae394cca899ca02d34acdbae1e5adf047773" => :yosemite
+    sha256 "3e3bc6bec1399dd5c5baf0a4486dde24c1f8f4aad1b273232b2745b1784bd03d" => :mavericks
   end
 
   option "with-polysomy", "Enable polysomy command. Makes licence GPL3 not MIT/Expat."
