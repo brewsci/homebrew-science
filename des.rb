@@ -1,9 +1,9 @@
 class Des < Formula
   desc "Datalog Educational System"
   homepage "http://des.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/des/des/des3.12/DES3.12ACIDE0.17UnixesSWI.zip"
-  version "3.12"
-  sha256 "1cba61cfbe0d64e4ccf425691b650a352e43047bef4622262acd66b8eb3d62d5"
+  url "https://downloads.sourceforge.net/project/des/des/des4.1/DES4.1ACIDE0.17UnixesSWI.zip"
+  version "4.1"
+  sha256 "dbc128a9b1b6a5e443a86bbdfb6ec6c8c748e888f574d22061098279f235aeea"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +13,7 @@ class Des < Formula
   end
 
   depends_on :java => "1.6+"
-  depends_on "homebrew/x11/swi-prolog"
+  depends_on "swi-prolog"
 
   def shim_script; <<-EOS.undent
       #!/usr/bin/env bash
