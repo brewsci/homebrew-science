@@ -7,9 +7,9 @@ class Des < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ecbf0202586dbf24012a34cf4da6df7bd987455aa5dd135fe44b2d3224a09ae8" => :el_capitan
-    sha256 "d0c76090f91fd4c41c37cd56eb5be64ebe9fdbd0b7896e65ad66c7adfe3cfafc" => :yosemite
-    sha256 "0770a2500591ac894e6bc300acfa2ff60d7e7dd27f94a4f46d1c2b6bfe227752" => :mavericks
+    sha256 "616212bc16b7d7b6e25f0695f97a87983e2d80f73ca11c7eba3a684ff8158f37" => :el_capitan
+    sha256 "b58b1c2038549cbbe9853286f74052b8aa2f18ba502494219f1e79d3b39821f1" => :yosemite
+    sha256 "6ee91cbfaa49703ce65b3599f45b1b5a7b8d16cd47d67fb80652cd12cddb32db" => :mavericks
   end
 
   depends_on :java => "1.6+"
