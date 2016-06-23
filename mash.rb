@@ -11,9 +11,9 @@ class Mash < Formula
 
   bottle do
     cellar :any
-    sha256 "fc91a72acfaefca83116979a98fba390b691605083af11912119fcb26525f45a" => :el_capitan
-    sha256 "efad6350d15d14a8f12f15ca639116aa89cb462e7901c1939e15fe1c845408c1" => :yosemite
-    sha256 "6a5d522da7d690dd230a55dff793d1a60c305f20bc6a277e72141f97a4377181" => :mavericks
+    sha256 "4a2f551a2ef6e9e3d1b000e6aff11f50577f0aca0059df0a6156ac7d7f866d6f" => :el_capitan
+    sha256 "4f3aa78846e4ca05e350a3e1b1922c9ec2cac83e6604979ed0149d6fc06a002f" => :yosemite
+    sha256 "d8a1d9928e64b59cc38e1674cc8564f96a262f8b2d43fef00351cc19fa8b7768" => :mavericks
   end
 
   needs :cxx11
