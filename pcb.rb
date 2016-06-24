@@ -3,7 +3,8 @@ class Pcb < Formula
   homepage "http://pcb.geda-project.org/"
   url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-20140316/pcb-20140316.tar.gz"
   sha256 "82c4f39438ee4e278196a3b67ef021145dcfbb00519508ccf51aa7832121c950"
-  revision 2
+  revision 3
+
   head "git://git.geda-project.org/pcb.git"
 
   bottle do
@@ -20,7 +21,7 @@ class Pcb < Formula
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gettext"
-  depends_on "d-bus"
+  depends_on "dbus"
   depends_on "gtk+"
   depends_on "gd"
   depends_on "glib"
@@ -33,10 +34,14 @@ class Pcb < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    args = ["--disable-debug", "--disable-dependency-tracking",
-            "--prefix=#{prefix}",
-            "--disable-update-desktop-database",
-            "--disable-update-mime-database"]
+
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --disable-update-desktop-database
+      --disable-update-mime-database
+    ]
     args << "--disable-doc" if build.without? "doc"
     args << "--disable-gl" if build.without? "opengl"
 
@@ -46,7 +51,7 @@ class Pcb < Formula
   end
 
   test do
-    system "#{bin}/pcb", "--version"
+    assert_match version.to_s, shell_output("#{bin}/pcb --version")
   end
 end
 
