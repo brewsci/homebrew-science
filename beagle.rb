@@ -18,6 +18,7 @@ class Beagle < Formula
     sha256 "f97ee10fcf7b053d697bd9b806aaba90fda335d8f99daa62c7342e8ad50854f0" => :x86_64_linux
   end
 
+  option "with-test", "Run build-time tests"
   option "with-opencl", "Build with OpenCL GPU/CPU acceleration"
 
   depends_on "autoconf" => :build
@@ -32,6 +33,7 @@ class Beagle < Formula
     args = ["--prefix=#{prefix}"]
     args << "--enable-osx-leopard" if MacOS.version <= :leopard
     args << "--with-cuda=#{Pathname(which("nvcc")).dirname}" if build.with? "cuda"
+    args << "--without-cuda" if build.without? "cuda"
     args << "--enable-opencl" if build.with? "opencl"
 
     system "./configure", *args
@@ -43,7 +45,7 @@ class Beagle < Formula
 
     system "make"
     system "make", "install"
-    system "make", "check"
+    system "make", "check" if build.with? "test"
   end
 
   test do
