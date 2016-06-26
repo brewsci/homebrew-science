@@ -3,7 +3,7 @@ class Dealii < Formula
   homepage "http://www.dealii.org"
   url "https://github.com/dealii/dealii/releases/download/v8.3.0/dealii-8.3.0.tar.gz"
   sha256 "4ddf72632eb501e1c814e299f32fc04fd680d6fda9daff58be4209e400e41779"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -45,6 +45,14 @@ class Dealii < Formula
   needs :cxx11
   def install
     ENV.cxx11
+
+    # PETSc 3.7.x added a parameter to PetscOptionsSetValue()
+    # https://bitbucket.org/petsc/petsc/src/5d547b27bccc01eacb9fc0eef6ae71e85dce2b0c/src/sys/objects/options.c?at=master&fileviewer=file-view-default#options.c-1078
+    # See upstream PR: https://github.com/dealii/dealii/pull/2327
+    inreplace "source/lac/petsc_precondition.cc",
+      "PetscOptionsSetValue(\"",
+      "PetscOptionsSetValue(NULL,\""
+
     args = %W[
       -DCMAKE_BUILD_TYPE=DebugRelease
       -DCMAKE_INSTALL_PREFIX=#{prefix}
@@ -94,7 +102,7 @@ class Dealii < Formula
       log_name = "make-test.log"
       system "make test 2>&1 | tee #{log_name}"
       ohai `grep "tests passed" "#{log_name}"`.chomp
-      prefix.install "#{log_name}"
+      prefix.install log_name
       # run full test suite if really needed
       if build.with? "testsuite"
         system "make", "setup_tests"
