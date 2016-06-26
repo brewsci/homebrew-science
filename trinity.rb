@@ -1,6 +1,15 @@
 class Trinity < Formula
   desc "RNA-Seq de novo assembler"
   homepage "https://trinityrnaseq.github.io"
+  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/v2.2.0.tar.gz"
+  sha256 "f34603e56ac76a81447dd230b31248d5890ecffee8ef264104d4f1fa7fe46c9e"
+  revision 1
+
+  head "https://github.com/trinityrnaseq/trinityrnaseq.git"
+
+  # doi "10.1038/nbt.1883"
+  # tag "bioinformatics"
+
   bottle do
     cellar :any
     revision 1
@@ -8,13 +17,6 @@ class Trinity < Formula
     sha256 "de5074c29c65908e175ff20bce4ea8f09c6f4daa4a611cf05a34c4db48a06c4f" => :yosemite
     sha256 "fcb67f469057ccdca350a0e41e602391417620af9c237c0cd3e2222d7bf569b7" => :mavericks
   end
-
-  # doi "10.1038/nbt.1883"
-  # tag "bioinformatics"
-
-  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/v2.2.0.tar.gz"
-  sha256 "f34603e56ac76a81447dd230b31248d5890ecffee8ef264104d4f1fa7fe46c9e"
-  head "https://github.com/trinityrnaseq/trinityrnaseq.git"
 
   depends_on "express" => :recommended
   depends_on "bowtie" => :run
@@ -30,6 +32,13 @@ class Trinity < Formula
 
   fails_with :llvm do
     cause 'error: unrecognized command line option "-std=c++0x"'
+  end
+
+  # Teach Chrysalis's Makefile that GCC 6 exists otherwise it can't find headers
+  # Reported 26 Jun 2016: https://github.com/trinityrnaseq/trinityrnaseq/pull/154
+  patch do
+    url "https://github.com/trinityrnaseq/trinityrnaseq/pull/154.patch"
+    sha256 "8166ffebdff65ec344eda08f9104f3303616b02b2db677f0a34774ab2d022850"
   end
 
   def install
