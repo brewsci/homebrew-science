@@ -4,7 +4,7 @@ class Octave < Formula
   revision 4
 
   stable do
-    url "http://ftpmirror.gnu.org/octave/octave-4.0.2.tar.gz"
+    url "https://ftpmirror.gnu.org/octave/octave-4.0.2.tar.gz"
     sha256 "39cd8fd36c218fc00adace28d74a6c7c9c6faab7113a5ba3c4372324c755bdc1"
 
     # Fix alignment of dock widget titles for OSX (bug #46592)
@@ -104,7 +104,7 @@ class Octave < Formula
   depends_on "glpk"            if build.with? "glpk"
   depends_on "gnuplot"         if build.with? "gnuplot"
   depends_on "hdf5"            if build.with? "hdf5"
-  depends_on :java => "1.6"    if build.with? "java"
+  depends_on :java => "1.6+"   if build.with? "java"
   depends_on "llvm"            if build.with? "jit"
   depends_on "pstoedit"        if build.with? "ghostscript"
   depends_on "qhull"           if build.with? "qhull"
