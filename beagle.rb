@@ -12,10 +12,10 @@ class Beagle < Formula
 
   bottle do
     cellar :any
-    sha256 "05f6d54c9d2f3485848ac0dd66352c5966537115c542200ff78085160e8a70a4" => :yosemite
-    sha256 "896db76f702251e8a61f34af9d9b8265faf2a607d9090914c0344f5e9cdef17b" => :mavericks
-    sha256 "b9d7a9be41827bbf8134c3a6ae484424993b34a20bc0f776fc5c5c5f4600efc2" => :mountain_lion
-    sha256 "f97ee10fcf7b053d697bd9b806aaba90fda335d8f99daa62c7342e8ad50854f0" => :x86_64_linux
+    revision 1
+    sha256 "8733c60372d50b85751797333a6ab514ecc317f099a1e0d0f8cc441030b349f2" => :el_capitan
+    sha256 "042480e4bf775ca2589450bfa15ae881fd581014edc811d467bc79f73f28f9bf" => :yosemite
+    sha256 "f1e1620257b47fee4b487e36cb9e3ae50a3c279f50c7ea25181fd4dd0bee2d6f" => :mavericks
   end
 
   option "with-test", "Run build-time tests"
