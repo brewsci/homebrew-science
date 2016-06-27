@@ -8,10 +8,9 @@ class Nest < Formula
   head "https://github.com/nest/nest-simulator.git"
 
   bottle do
-    revision 1
-    sha256 "5fbbaae56cc28ad78710caf7466823c1740d4476b1ac48e908ab2926fbe8239c" => :el_capitan
-    sha256 "dc48e004857285debafd4b1e87ad3cdf24a78c22d4e3c33147736005b298fc78" => :yosemite
-    sha256 "7145a085a494492c9f6a5bf496209b8003e6082ed6f4a5e7f549d3fb99f73f1d" => :mavericks
+    sha256 "aab28ad618894c1bd1618dd4ce806e55b6c56c777f8399f59b631ff646244749" => :el_capitan
+    sha256 "2b9288b48b8dfb616471f27f4587e530a8c3e941d7ad499f554ec2f80809bd95" => :yosemite
+    sha256 "ca0351b27d1d9ef0a7d194d391da61d8b4127c22634e8cb104958dae70401a3a" => :mavericks
   end
 
   stable do
