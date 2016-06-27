@@ -3,6 +3,7 @@ class Nest < Formula
   homepage "http://www.nest-simulator.org/"
   url "https://github.com/nest/nest-simulator/releases/download/v2.10.0/nest-2.10.0.tar.gz"
   sha256 "2b6fc562cd6362e812d94bb742562a5a685fb1c7e08403765dbe123d59b0996c"
+  revision 1
 
   head "https://github.com/nest/nest-simulator.git"
 
@@ -11,6 +12,12 @@ class Nest < Formula
     sha256 "5fbbaae56cc28ad78710caf7466823c1740d4476b1ac48e908ab2926fbe8239c" => :el_capitan
     sha256 "dc48e004857285debafd4b1e87ad3cdf24a78c22d4e3c33147736005b298fc78" => :yosemite
     sha256 "7145a085a494492c9f6a5bf496209b8003e6082ed6f4a5e7f549d3fb99f73f1d" => :mavericks
+  end
+
+  stable do
+    # Fix stable build with GCC 6
+    # https://github.com/nest/nest-simulator/pull/389
+    patch :DATA
   end
 
   option "with-python", "Build Python bindings (PyNEST)."
@@ -138,3 +145,27 @@ class Nest < Formula
     system pkgshare/"extras/do_tests.sh", *args
   end
 end
+__END__
+diff --git a/sli/slistartup.cc b/sli/slistartup.cc
+index f485c5c..28174ef 100644
+--- a/sli/slistartup.cc
++++ b/sli/slistartup.cc
+@@ -65,14 +65,17 @@ SLIStartup::checkpath( std::string const& path, std::string& result ) const
+   const std::string fullname = fullpath + "/" + startupfilename;
+
+   std::ifstream in( fullname.c_str() );
+-  if ( in )
++
++  if ( in.good() )
+   {
+     result = fullname;
++    return true;
+   }
+   else
++  {
+     result.erase();
+-
+-  return ( in );
++    return false;
++  }
+ }
