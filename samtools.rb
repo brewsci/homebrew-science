@@ -1,12 +1,11 @@
 class Samtools < Formula
-  desc "Tools (written in C using htslib) for manipulating next-generation sequencing data"
+  desc "Tools for manipulating next-generation sequencing data"
   homepage "http://www.htslib.org/"
   # doi "10.1093/bioinformatics/btp352"
   # tag "bioinformatics"
 
-  url "https://github.com/samtools/samtools/releases/download/1.3/samtools-1.3.tar.bz2"
-  sha256 "beea4003c795a0a25224656815b4036f6864b8753053ed30c590bb052b70b60e"
-
+  url "https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2"
+  sha256 "6c3d74355e9cf2d9b2e1460273285d154107659efa36a155704b1e4358b7d67e"
   head "https://github.com/samtools/samtools.git"
 
   bottle do
@@ -17,34 +16,21 @@ class Samtools < Formula
     sha256 "d0e3e6f7ffba8ed4005ff14155727292b939a645c8c2376191aae0f24cf20eb3" => :x86_64_linux
   end
 
-  option "with-dwgsim", "Build with Whole Genome Simulation"
-  option "without-curses", "Skip use of libcurses, for platforms without it, or different curses naming"
-
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
   depends_on "htslib"
-  depends_on "dwgsim" => :optional
+  depends_on "homebrew/dupes/ncurses" unless OS.mac?
 
   def install
-    htslib = Formula["htslib"].opt_prefix
-    if build.without? "curses"
-      ohai "Building without curses"
-      system "./configure", "--with-htslib=#{htslib}", "--without-curses"
-    else
-      system "./configure", "--with-htslib=#{htslib}"
-    end
-
+    system "./configure", "--with-htslib=#{Formula["htslib"].opt_prefix}"
     system "make"
 
-    bin.install "samtools"
-    bin.install %w[misc/maq2sam-long misc/maq2sam-short misc/md5fa misc/md5sum-lite misc/wgsim]
-    bin.install Dir["misc/*.pl"]
+    bin.install Dir["{samtools,misc/*}"].select { |f| File.executable?(f) }
     lib.install "libbam.a"
-    man1.install %w[samtools.1]
-    (share+"samtools").install %w[examples]
-    (include+"bam").install Dir["*.h"]
+    (include/"bam").install Dir["*.h"]
+    man1.install "samtools.1"
+    pkgshare.install "examples"
   end
 
   test do
-    system "samtools 2>&1 |grep -q samtools"
+    system bin/"samtools", "--help"
   end
 end
