@@ -1,8 +1,10 @@
 class Circlator < Formula
-  desc "A tool to circularize genome assemblies"
+  desc "Tool to circularize genome assemblies"
   homepage "https://github.com/sanger-pathogens/circlator"
   url "https://github.com/sanger-pathogens/circlator/archive/v0.16.0.tar.gz"
   sha256 "c5331e1a687dacedd134356177671228e592c772df3306d6e037e55bd62d84df"
+  revision 1
+
   head "https://github.com/sanger-pathogens/circlator.git"
 
   bottle do
@@ -20,6 +22,7 @@ class Circlator < Formula
   depends_on "prodigal"
   depends_on "samtools"
   depends_on "spades"
+  depends_on "gcc" => :build
   depends_on "homebrew/python/numpy" => ["with-python3"]
   depends_on "homebrew/python/pymummer"
 
