@@ -18,12 +18,12 @@ class Circlator < Formula
   # tag "bioinformatics"
 
   depends_on "zlib" unless OS.mac?
+  depends_on :fortran
   depends_on :python3
   depends_on "bwa"
   depends_on "prodigal"
   depends_on "samtools"
   depends_on "spades"
-  depends_on "gcc" => :build
   depends_on "homebrew/python/numpy" => ["with-python3"]
   depends_on "homebrew/python/pymummer"
 
