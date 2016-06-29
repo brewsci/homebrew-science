@@ -1,10 +1,11 @@
 class Pandaseq < Formula
+  desc "PAired-eND Assembler for DNA sequences"
   homepage "https://github.com/neufeld/pandaseq"
   # doi "10.1186/1471-2105-13-31"
   # tag "bioinformatics"
 
-  url "https://github.com/neufeld/pandaseq/archive/v2.8.1.tar.gz"
-  sha256 "9f90fc178de605d0eb931d2493872e0f61a0e5d97b73c539f8152b331996327e"
+  url "https://github.com/neufeld/pandaseq/archive/v2.10.tar.gz"
+  sha256 "93cd34fc26a7357e14e386b9c9ba9b28361cf4da7cf62562dc8501e220f9a561"
 
   head "https://github.com/neufeld/pandaseq.git"
 
@@ -17,8 +18,8 @@ class Pandaseq < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "libtool" => :run
   depends_on "zlib" unless OS.mac?
 
   def install
@@ -32,6 +33,6 @@ class Pandaseq < Formula
   end
 
   test do
-    system "#{bin}/pandaseq -h 2>&1 |grep pandaseq"
+    assert_match version.to_s, shell_output("#{bin}/pandaseq -v 2>&1", 1)
   end
 end
