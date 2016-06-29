@@ -10,10 +10,9 @@ class Pandaseq < Formula
   head "https://github.com/neufeld/pandaseq.git"
 
   bottle do
-    sha256 "b8074161853044a591afc97ee5a99110c2a1208fd6bb93ddc561319bdf7a7598" => :yosemite
-    sha256 "c515d863dc15f1ef89c6fdd4a861fa0314a062cb092881deedff33250db1aec7" => :mavericks
-    sha256 "1c6d0cc30417723362c8b8a0a40f3710f7de64cac04ee8a8026561a8282b12a6" => :mountain_lion
-    sha256 "41d6205243f70ea83d77c93beea2e573364346e72fdd3bd638cdb28fe6eb1ddc" => :x86_64_linux
+    sha256 "86a784352c9eed0019160559fca1fd8e04a65375b5ca3496ba46140cecd4eaa3" => :el_capitan
+    sha256 "4483d73f7dcc06bed9fd3a7e1c917dfdd8417c360cc4646235f4a54169869749" => :yosemite
+    sha256 "d64c18e007b5b89440cb678c93f6ac386e0195b51c162cc63bae857cc8b31c25" => :mavericks
   end
 
   depends_on "autoconf" => :build
