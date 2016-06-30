@@ -47,6 +47,7 @@ script:
       docker run
         -w /home/linuxbrew/.linuxbrew/Library/Taps/homebrew/homebrew-science
         --env-file /tmp/travis.env
+        -e HOMEBREW_DEVELOPER=1
         -t
         linuxbrew
         brew test-bot --tap=homebrew/science;
