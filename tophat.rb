@@ -3,6 +3,8 @@ class Tophat < Formula
   homepage "http://ccb.jhu.edu/software/tophat"
   url "http://ccb.jhu.edu/software/tophat/downloads/tophat-2.1.1.tar.gz"
   sha256 "37840b96f3219630082b15642c47f5ef95d14f6ee99c06a369b08b3d05684da5"
+  # doi "10.1093/bioinformatics/btp120"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any
@@ -35,9 +37,8 @@ class Tophat < Formula
     # clean up Python libraries from bin
     (libexec/"python").install bin/"intervaltree", bin/"sortedcontainers"
     (libexec/"bin").install bin/"tophat-fusion-post"
-    (bin/"tophat-fusion-post").write_env_script(
-      libexec/"bin/tophat-fusion-post",
-      :PYTHONPATH => libexec/"python")
+    (bin/"tophat-fusion-post").write_env_script libexec/"bin/tophat-fusion-post",
+      :PYTHONPATH => libexec/"python"
   end
 
   test do
