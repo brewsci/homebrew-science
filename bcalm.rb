@@ -1,13 +1,13 @@
 class Bcalm < Formula
-  desc "de Bruijn CompAction in Low Memory"
-  homepage "https://github.com/Malfoy/bcalm"
-  # doi "10.1007/978-3-319-05269-4_4"
+  desc "de Bruijn graph compaction in low memory"
+  homepage "https://github.com/GATB/bcalm"
+  # doi "10.1093/bioinformatics/btw279"
   # tag "bioinformatics"
 
-  url "https://github.com/Malfoy/bcalm/archive/2.tar.gz"
-  sha256 "dc50883d2b24bcd13abbc731211ea28f0eef4bd45a91bb24c0641b1ece80c9ce"
+  url "https://github.com/GATB/bcalm/releases/download/v2.0.0/bcalm-2.0.0.zip"
+  sha256 "6d1d1d8b3339fff7cd0ec04b954a30e49138c1470efbcbcbf7b7e91f3c5b6d18"
 
-  head "https://github.com/Malfoy/bcalm.git"
+  head "https://github.com/GATB/bcalm.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,10 +17,19 @@ class Bcalm < Formula
     sha256 "d7dcaebe036421cac51f91f5962d13b442b5b9afb52605c4e48ff2212fe2bdbd" => :x86_64_linux
   end
 
+  depends_on "cmake" => :build
+
   def install
-    ENV.libcxx
-    system "make"
-    bin.install "bcalm"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make"
+      bin.install "bcalm", "bglue"
+    end
     doc.install "README.md"
+  end
+
+  test do
+    system bin/"bcalm"
+    system bin/"bglue"
   end
 end
