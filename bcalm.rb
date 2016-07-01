@@ -10,11 +10,9 @@ class Bcalm < Formula
   head "https://github.com/GATB/bcalm.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "275e8b52ba361c7b709bea9ad8d321cd72c3771d76fabe86054cea9c7dfbf9a9" => :el_capitan
-    sha256 "6850356f860b9e9a52f97303b64fa8d63c32d9448df7961ccce17decbd383c8a" => :yosemite
-    sha256 "35e0e2996bb345741d4c74165664df68e10507d9b007afd41e5a886a08f845ce" => :mavericks
-    sha256 "d7dcaebe036421cac51f91f5962d13b442b5b9afb52605c4e48ff2212fe2bdbd" => :x86_64_linux
+    sha256 "8dd755580072b0300c2c7c5fb1220c87c00f2d6c0267c9f0e435f8529c7c50d1" => :el_capitan
+    sha256 "615881b3cf75e5411969cfd0aa04de7fe12c077e5945c3f5eee18e7c8ebe49b4" => :yosemite
+    sha256 "f5a5a290258b96961aecbcda585cb6fffbee76791d12a566fd98b9c8d302fa93" => :mavericks
   end
 
   depends_on "cmake" => :build
