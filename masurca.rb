@@ -11,6 +11,7 @@ class Masurca < Formula
     sha256 "6f9032aa22d92cd3c2f182e6362bd56a6f1abfe44bc37905d09ed6319ee1f07e" => :yosemite
     sha256 "43e1abe110050b864613afa735bbca7870067ab91f434b7317d31063de2816c6" => :mavericks
     sha256 "be9c9590c280d56aba63e0c63244564c261efdc67cf35c4f46ff1b0022bfd3f6" => :mountain_lion
+    sha256 "df11f02365e628aa983140acecdb80992187eb8b0dcc962cd1a47a1e63fa2399" => :x86_64_linux
   end
 
   fails_with :clang do
