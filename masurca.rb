@@ -1,11 +1,18 @@
+class LinuxRequirement < Requirement
+  fatal true
+  satisfy OS.linux?
+  def message
+    "This software is only supported on Linux. Mac OS is missing the required function mremap."
+  end
+end
+
 class Masurca < Formula
   desc "MaSuRCA: Maryland Super-Read Celera Assembler"
   homepage "http://www.genome.umd.edu/masurca.html"
+  url "https://raw.githubusercontent.com/helios/bio-docker/master/stringtie/1.2.1/MaSuRCA-3.1.3.tar.gz"
+  sha256 "0708bc6ec5a61e177533b290380d2c3de598e49f1da640df9cd88fb538913e48"
   # doi "10.1093/bioinformatics/btt476"
   # tag "bioinformatics"
-
-  url "ftp://ftp.genome.umd.edu/pub/MaSuRCA/MaSuRCA-2.3.2b.tar.gz"
-  sha256 "837cb144d3dba206a778e88a06f2af67f2cc9ca4f5e6e97dd48ad4ac783aec70"
 
   bottle do
     sha256 "6f9032aa22d92cd3c2f182e6362bd56a6f1abfe44bc37905d09ed6319ee1f07e" => :yosemite
@@ -14,26 +21,23 @@ class Masurca < Formula
     sha256 "df11f02365e628aa983140acecdb80992187eb8b0dcc962cd1a47a1e63fa2399" => :x86_64_linux
   end
 
+  # A fix for Mac OS is welcome.
+  # sort.cc:62:75: error: 'mremap' was not declared in this scope
+  depends_on LinuxRequirement
+
   fails_with :clang do
-    build 600
-    cause "No rule to make target `jellyfish/jellyfish.hpp', needed by `AS_OVL_overlap.o'. Stop."
+    build 703
+    cause "n50.cc:105:51: error: no member named 'ceil' in namespace 'std'"
+  end
+
+  fails_with :gcc => "6" do
+    cause "n50.cc:105:51: error: no member named 'ceil' in namespace 'std'"
   end
 
   depends_on "parallel"
 
-  # Fix brew audit: Non-executables were installed to bin
-  patch :DATA
-
   def install
     if OS.mac?
-      # Fix error: 'operator()' is not a member of 'reallocator<basic_charb<reallocator<char> > >'
-      inreplace "SuperReads/include/reallocators.hpp",
-        "reallocator<T>::operator()",
-        "reallocator<T>::realloc"
-
-      # Fix ld: library not found for -lrt
-      inreplace "SuperReads//Makefile.in", "-lrt", ""
-
       # Fix cp: CA/Linux-amd64/bin/*: No such file or directory
       inreplace "install.sh", "Linux-amd64", "Darwin-amd64"
     elsif OS.linux?
@@ -45,35 +49,23 @@ class Masurca < Formula
     ENV["DEST"] = prefix
     system "./install.sh"
 
+    # Conflicts with SOAPdenovo
+    rm [bin/"SOAPdenovo-63mer", bin/"SOAPdenovo-127mer"]
+
     # Conflicts with jellyfish
+    rm bin/"jellyfish"
     rm Dir[lib/"libjellyfish*", lib/"pkgconfig/jellyfish-2.0.pc"]
-    rm_r include/"jellyfish-2.1.3"
+    rm_r include/"jellyfish-1"
+    rm man1/"jellyfish.1"
 
     # Conflicts with parallel
     rm bin/"parallel"
+
+    # Conflicts with samtools
+    rm bin/"samtools"
   end
 
   test do
     system "#{bin}/masurca", "-h"
   end
 end
-
-__END__
-diff --git a/SuperReads/src/fix_unitigs.sh b/SuperReads/src/fix_unitigs.sh
-index 9454bd8..844f71d 100755
---- a/SuperReads/src/fix_unitigs.sh
-+++ b/SuperReads/src/fix_unitigs.sh
-@@ -1,3 +1,4 @@
-+#!/bin/sh
- #$1 -- PREFIX
- rm -f f_*
- rm -f *.out
-diff --git a/SuperReads/src/run_ECR.sh b/SuperReads/src/run_ECR.sh
-index c330c71..04bf972 100755
---- a/SuperReads/src/run_ECR.sh
-+++ b/SuperReads/src/run_ECR.sh
-@@ -1,3 +1,4 @@
-+#!/bin/sh
- BEGIN_SCF=$1;
- END_SCF=$2;
- LAST_CKP=$3;
