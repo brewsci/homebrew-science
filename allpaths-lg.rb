@@ -12,8 +12,8 @@ class AllpathsLg < Formula
   # doi "10.1073/pnas.1017351108"
   # tag "bioinformatics"
 
-  url "ftp://ftp.broadinstitute.org/pub/crd/ALLPATHS/Release-LG/latest_source_code/allpathslg-50378.tar.gz"
-  sha256 "12d5f78a67a79b2bba06e2dff25302590fede62639cfb4db08d76e103871f4b2"
+  url "ftp://ftp.broadinstitute.org/pub/crd/ALLPATHS/Release-LG/latest_source_code/allpathslg-52488.tar.gz"
+  sha256 "035b49cb21b871a6b111976757d7aee9c2513dd51af04678f33375e620998542"
 
   bottle do
     cellar :any_skip_relocation
