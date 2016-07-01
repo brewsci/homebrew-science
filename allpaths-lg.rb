@@ -33,6 +33,9 @@ class AllpathsLg < Formula
       "--disable-dependency-tracking",
       "--prefix=#{prefix}"
     system "make", "install"
+
+    # Stripping reduces the size by 20 fold!
+    system "strip", *(Dir[bin/"*"] - Dir[bin/"*.p[lm]"])
   end
 
   test do
