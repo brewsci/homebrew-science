@@ -17,7 +17,7 @@ class AllpathsLg < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "05c9e295667a740c5a4949acfa58f236fc4e38c918d246c3b8657a8041aeab66" => :x86_64_linux
+    sha256 "603ca72cab38d3852a9e3ae35600c3526751e021136cabc1201238edab8fc4f5" => :x86_64_linux
   end
 
   # Prove us wrong!
