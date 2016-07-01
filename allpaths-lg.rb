@@ -15,6 +15,11 @@ class AllpathsLg < Formula
   url "ftp://ftp.broadinstitute.org/pub/crd/ALLPATHS/Release-LG/latest_source_code/allpathslg-50378.tar.gz"
   sha256 "12d5f78a67a79b2bba06e2dff25302590fede62639cfb4db08d76e103871f4b2"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "05c9e295667a740c5a4949acfa58f236fc4e38c918d246c3b8657a8041aeab66" => :x86_64_linux
+  end
+
   # Prove us wrong!
   # https://github.com/Homebrew/homebrew-science/issues/1329#issuecomment-68387020
   depends_on LinuxRequirement
