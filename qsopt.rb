@@ -13,9 +13,9 @@ class Qsopt < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6b1a86ff5c3febe9e3914497113c9fc55e6812cbe0949ea816dfde2f67988484" => :el_capitan
-    sha256 "4786b3521799135fa59b7aa15064572b024c04a4162ad1bfdc9bcaa4f499bfe1" => :yosemite
-    sha256 "c8d642603ae5db27641860f8e194b4b2b2f370512322ae895c0b5f41d81bbb23" => :mavericks
+    sha256 "858c18d9b0427e53c23ee721d5006d85a053958bb36d77a37918509b04742304" => :el_capitan
+    sha256 "cf2871b135eaa4b2baa8caf9448fdad2b792a27eb60665ec610904caa655f5a4" => :yosemite
+    sha256 "cecf58bacb0e005dcbd27554c29e2397e5c9daf8eb57344424f7283ddfc631f8" => :mavericks
   end
 
   resource "qsopt.h" do
