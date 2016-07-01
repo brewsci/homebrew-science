@@ -4,15 +4,15 @@ class Dealii < Formula
   url "https://github.com/dealii/dealii/releases/download/v8.4.1/dealii-8.4.1.tar.gz"
   sha256 "00a0e92d069cdafd216816f1aff460f7dbd48744b0d9e0da193287ebf7d6b3ad"
 
-  bottle do
-    cellar :any
-    sha256 "6101b7b38c71ace4739400911d4d3c7cc326743f3c93158ac8e0c8f4fa9af15f" => :el_capitan
-    sha256 "e105a54488c06cffc7c810f2ed26604c8ff3f3b470c059aa6f7aae58c1527238" => :yosemite
-    sha256 "19b0f5997c03f769fca7c0ab198f67d347c6127a6811cb1ece311a731e137432" => :mavericks
-  end
-
   head do
     url "https://github.com/dealii/dealii.git"
+  end
+
+  bottle do
+    cellar :any
+    sha256 "592e2da96fcc9455cbacb2b12b446cab20fe9fc32dceea6e9412641339107e05" => :el_capitan
+    sha256 "75b52df3214c1a6e9202ecfc301e03520152bfe3b407b45d2544ed066f2296dc" => :yosemite
+    sha256 "d848dbc4d52e2ade5661ec076d90de3853ae7fcdcec17142992677caf6d770f2" => :mavericks
   end
 
   option "with-testsuite", "Run full test suite (7000+ tests). Takes a lot of time."
