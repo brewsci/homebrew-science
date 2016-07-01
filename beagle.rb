@@ -16,6 +16,7 @@ class Beagle < Formula
     sha256 "8733c60372d50b85751797333a6ab514ecc317f099a1e0d0f8cc441030b349f2" => :el_capitan
     sha256 "042480e4bf775ca2589450bfa15ae881fd581014edc811d467bc79f73f28f9bf" => :yosemite
     sha256 "f1e1620257b47fee4b487e36cb9e3ae50a3c279f50c7ea25181fd4dd0bee2d6f" => :mavericks
+    sha256 "cd26ace4ad12f50c5dc4dd58c44739eef6ace01544f7f03927065526402979fa" => :x86_64_linux
   end
 
   option "with-test", "Run build-time tests"
