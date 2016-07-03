@@ -6,9 +6,10 @@ class RstudioServer < Formula
   head "https://github.com/rstudio/rstudio.git"
 
   bottle do
-    sha256 "bf71ddb962cdba1d6f2b6626ac6b8437bfb5e7eb9e4f517221e427057f021694" => :el_capitan
-    sha256 "3cdb8dc0bbf3d3a636fa066f9b8438e1dba851586bd3574fc9fe9f7af5d0a3b8" => :yosemite
-    sha256 "f91f2799e638ab00705d6b6cb33d6ed23f62cf302b959bed17a1731bcd19925a" => :mavericks
+    cellar :any
+    sha256 "e065c889b8e3fb09cc2af78f7f83739f9ec36ef56506100c3e6f22ccc36619bb" => :el_capitan
+    sha256 "f4d9f18ab8c68cc41935db55598f9a13b28252d96c143ce134aeb17724850335" => :yosemite
+    sha256 "9423b553f1fb69c1c8809af6ee4f02099c12e12d79ed6d183c56c9462a7528e5" => :mavericks
   end
 
   depends_on "ant" => :build
