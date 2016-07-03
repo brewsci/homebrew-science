@@ -1,17 +1,22 @@
 class Octave < Formula
   desc "high-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  revision 4
 
   stable do
-    url "https://ftpmirror.gnu.org/octave/octave-4.0.2.tar.gz"
-    sha256 "39cd8fd36c218fc00adace28d74a6c7c9c6faab7113a5ba3c4372324c755bdc1"
+    url "https://ftpmirror.gnu.org/octave/octave-4.0.3.tar.gz"
+    sha256 "5a16a42fca637ae1b55b4a5a6e7b16a6df590cbaeeb4881a19c7837789515ec6"
 
     # Fix alignment of dock widget titles for OSX (bug #46592)
     # See: http://savannah.gnu.org/bugs/?46592
     patch do
       url "http://hg.savannah.gnu.org/hgweb/octave/raw-rev/e870a68742a6"
       sha256 "0ddcd8dd032be79d5a846ad2bc190569794e4e1a33ce99f25147d70ae6974682"
+    end
+
+    # Fix bug #48407: libinterp fails to link to libz
+    patch :p0 do
+      url "http://savannah.gnu.org/bugs/download.php?file_id=37717"
+      sha256 "feeaad0d00be3008caef2162b549c42fd937f3fb02a36d01cde790a589d4eb2d"
     end
   end
 
@@ -58,9 +63,10 @@ class Octave < Formula
   option "without-curl",           "Do not use cURL (urlread/urlwrite/@ftp)"
   option "without-docs",           "Do not install documentation"
   option "without-fftw",           "Do not use FFTW (fft,ifft,fft2,etc.)"
+  option "without-fltk",           "Do not use FLTK graphics backend"
   option "without-glpk",           "Do not use GLPK"
   option "without-gnuplot",        "Do not use gnuplot graphics"
-  option "without-gui",            "Use the graphical user interface"
+  option "without-gui",            "Do not use the graphical user interface"
   option "without-hdf5",           "Do not use HDF5 (hdf5 data file support)"
   option "without-opengl",         "Do not use opengl"
   option "without-qhull",          "Do not use the Qhull library (delaunay,voronoi,etc.)"
@@ -71,7 +77,6 @@ class Octave < Formula
 
   # options, disabled by default
   option "with-audio",             "Use the sndfile and portaudio libraries for audio operations"
-  option "with-fltk",              "Build with FLTK graphics backend"
   option "with-java",              "Use Java, requires Java 6 from https://support.apple.com/kb/DL1572"
   option "with-jit",               "Use the experimental just-in-time compiler (not recommended)"
   option "with-openblas",          "Use OpenBLAS instead of native LAPACK/BLAS"
