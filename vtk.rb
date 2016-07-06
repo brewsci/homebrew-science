@@ -1,12 +1,23 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization."
   homepage "http://www.vtk.org"
-  url "http://www.vtk.org/files/release/7.1/VTK-7.1.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/VTK-7.1.0.tar.gz"
-  sha256 "5f3ea001204d4f714be972a810a62c0f2277fbb9d8d2f8df39562988ca37497a"
-  revision 1
+  revision 2
 
   head "https://github.com/Kitware/VTK.git"
+
+  stable do
+    url "http://www.vtk.org/files/release/7.1/VTK-7.1.0.tar.gz"
+    sha256 "5f3ea001204d4f714be972a810a62c0f2277fbb9d8d2f8df39562988ca37497a"
+    mirror "https://fossies.org/linux/misc/VTK-7.1.0.tar.gz"
+    patch do
+      # Fixes python linking. This is a modified version of
+      # https://github.com/Kitware/VTK/commit/5668595ea778e81acaed451ae4dc1125a43a8aa0
+      # This patch has been merged upstream and can be removed for the next VTK
+      # release containing the patch.
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/vtk/vtk-nopythonlinking-7.1.0.patch"
+      sha256 "b243eb77567f822540e299a9ee44f4fd646abb6fa3b8e889af3e69f97ff3993e"
+    end
+  end
 
   bottle do
     rebuild 1
@@ -153,45 +164,6 @@ class Vtk < Formula
     end
 
     pkgshare.install "Examples" if build.with? "examples"
-  end
-
-  def post_install
-    # This is a horrible, horrible hack because VTK's build system links
-    # directly against libpython, breaking all installs for users of brewed
-    # Python. See tracking issues:
-    #
-    # https://github.com/Homebrew/homebrew-science/pull/3811
-    # https://github.com/Homebrew/homebrew-science/issues/3401
-    # https://gitlab.kitware.com/vtk/vtk/merge_requests/1713
-    #
-    # This postinstall block should be removed once upstream issues a fix.
-    return unless OS.mac? && build.with?("python")
-    # Detect if we are using brewed Python 2
-    python = Formula["python"]
-    brewed_python = python.opt_frameworks/"Python.framework"
-    system_python = "/System/Library/Frameworks/Python.framework"
-    if python.linked_keg.exist?
-      ohai "Patching VTK to use Homebrew's Python 2"
-      from = system_python
-      to = brewed_python
-    else
-      ohai "Patching VTK to use system Python 2"
-      from = brewed_python
-      to = system_python
-    end
-
-    # Patch it all up
-    keg = Keg.new(prefix)
-    keg.mach_o_files.each do |file|
-      file.ensure_writable do
-        keg.each_install_name_for(file) do |old_name|
-          next unless old_name.start_with? from
-          new_name = old_name.sub(from, to)
-          puts "#{file}:\n  #{old_name} => #{new_name}" if ARGV.verbose?
-          keg.change_install_name(old_name, new_name, file)
-        end
-      end
-    end
   end
 
   def caveats
