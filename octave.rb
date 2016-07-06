@@ -20,13 +20,6 @@ class Octave < Formula
     end
   end
 
-  bottle do
-    revision 1
-    sha256 "8bc39a069bf627966c076202b689cf571a64594ea20c4c7e3a3598d8fa6ec425" => :el_capitan
-    sha256 "33bff593e0e119b600ed5fd876e987d2bc35e833ef654159ebae2526321f661e" => :yosemite
-    sha256 "7c910471c801df5e767e519f0a72bfd6f234b42cc037fa78dd2bb94174a9fdbc" => :mavericks
-  end
-
   if OS.mac? && MacOS.clang_version < "7.0"
     # Fix the build error with LLVM 3.5svn (-3.6svn?) and libc++ (bug #43298)
     # See: http://savannah.gnu.org/bugs/?43298
@@ -52,6 +45,12 @@ class Octave < Formula
     depends_on "automake"      => :build
     depends_on "bison"         => :build
     depends_on "icoutils"      => :build
+  end
+
+  bottle do
+    sha256 "ab2cd4059874f137f57cd956a19cd7bc434a748a33404fe844da1d4f7f484967" => :el_capitan
+    sha256 "ee6252781080ac5e9f63cad5ed1fe013e36eb6b3cc80efa45ec68ab52f3287db" => :yosemite
+    sha256 "8556db1fe1b44dfa0169c086c3497906df7c0200329a8f160eca818bd4f35c8d" => :mavericks
   end
 
   skip_clean "share/info" # Keep the docs
