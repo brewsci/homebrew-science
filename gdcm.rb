@@ -1,43 +1,13 @@
 class Gdcm < Formula
   desc "Grassroots DICOM library and utilities for medical files"
   homepage "http://sourceforge.net/projects/gdcm/"
-  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.6.3/gdcm-2.6.3.tar.bz2"
-  sha256 "7882e880b8b60efc66a492ae3c1c161799340ad62a90d690823b76eb400c0a8f"
+  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.6.4/gdcm-2.6.4.tar.bz2"
+  sha256 "b116dc0b0e9f65dcd2196fa55d8815be215065ec537b15665afde0469bd47e91"
 
   bottle do
     sha256 "ebba08f6b464cfd20b05c8ae70d73234ab2d0ba0e3f2600dbe3d6825fe33282b" => :el_capitan
     sha256 "2470f21f02a28496a5224104e2bb0b6a8f5e83119fbb17cacc5ec7033a3167f2" => :yosemite
     sha256 "4bfef048a07fc034def0228fda50f7b906ad34fec4afed0cac346baf4054a140" => :mavericks
-  end
-
-  patch do
-    url "https://gist.githubusercontent.com/tfmoraes/5489a2473c1ed6cc296aa646432a8536/raw/6e912995d89b65d0cc2cb5d9714dd9450d04a768/01_vtkCxxRevisionMacro.patch"
-    sha256 "4b21c41c562880ae7e31b075f1b945c19d4e5d27442085953f89b2f27cae99e3"
-  end
-
-  patch do
-    url "https://gist.githubusercontent.com/tfmoraes/5489a2473c1ed6cc296aa646432a8536/raw/6e912995d89b65d0cc2cb5d9714dd9450d04a768/02_vtkTypeRevisionMacro.patch"
-    sha256 "234d9fb4b33fd55b66f0662bb5ea0347caf7c79868c7171de42fdaab8bbb8389"
-  end
-
-  patch do
-    url "https://gist.githubusercontent.com/tfmoraes/5489a2473c1ed6cc296aa646432a8536/raw/6e912995d89b65d0cc2cb5d9714dd9450d04a768/03_float_double.patch"
-    sha256 "9cbe64dd7b518888c1a5c6b3e88f321139806e9078fc9c71abe0ad444008c496"
-  end
-
-  patch do
-    url "https://gist.githubusercontent.com/tfmoraes/5489a2473c1ed6cc296aa646432a8536/raw/ced7783f695a8156d9ed95559d9026d65c63296c/04_vtkfloatingpoint_app.patch"
-    sha256 "a1798438aba1ea0e916aab08436178ebc49b560de373f57eea7c0d1f1184bd17"
-  end
-
-  patch do
-    url "https://gist.githubusercontent.com/tfmoraes/5489a2473c1ed6cc296aa646432a8536/raw/13c5656edd53c364c624e064b110635c47cf4b64/05_vtk7python.patch"
-    sha256 "237aa9bf44157d327c9877cfc57e353919a9d756dd05f52f4ccf6a39ae581af1"
-  end
-
-  patch do
-    url "https://gist.githubusercontent.com/tfmoraes/5489a2473c1ed6cc296aa646432a8536/raw/13c5656edd53c364c624e064b110635c47cf4b64/06_vtk7apps_examples.patches"
-    sha256 "f9184c3f57dbc34179e5bb1a7f1144ffa850f94497add4d782bdffc06577cf8d"
   end
 
   option "with-check", "Run the GDCM test suite"
