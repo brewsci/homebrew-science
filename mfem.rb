@@ -7,9 +7,9 @@ class Mfem < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2febc72f32cd5d4ebe933d61a9d485c9a9754bc339d15458ad25fed24b4d02d4" => :el_capitan
-    sha256 "1cbabf97c2ec405d101a37de690ac4e2651f3735c1d8bccf02eda84b71578c7f" => :yosemite
-    sha256 "711d04ccd613bc6754c6cb45d4074e0740a0c6f89c1f1d630a1c177243abcc73" => :mavericks
+    sha256 "80e7d9a19599711887c5a402d93ddf2128f3c6cc01b931c4db2fb0f471eb4eb4" => :el_capitan
+    sha256 "c2829c108ab2f33407577b0898f1ffbe96e18dbaae240db61c6341bb1cf8ee8e" => :yosemite
+    sha256 "de0cbbb10de9a2396a090e8ec203f64b5c441e0372cb3727779986c34e22356d" => :mavericks
   end
 
   option "with-mpi", "Build with mpi support (implies --with-hypre --with-metis)"
