@@ -1,11 +1,11 @@
 class Lammps < Formula
+  desc "Molecular Dynamics Simulator"
   homepage "http://lammps.sandia.gov"
-  url "http://lammps.sandia.gov/tars/lammps-10Feb15.tar.gz"
-  sha256 "f7b785b656537507feaa7d669e9b676ff87967223f7c153aa01ed89e4e7b9e92"
+  url "http://lammps.sandia.gov/tars/lammps-14May16.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY.MM.DD (year.month.day) so that we get a comparable version numbering (for brew outdated)
-  version "2015.02.10"
-  revision 2
+  version "2016.05.14"
+  sha256 "a056a289cd86d4fa8f6a285b26104b04ab92e5ccc445f66281a0c23a432225c9"
 
   head "http://git.icms.temple.edu/lammps-ro.git"
 
@@ -45,7 +45,8 @@ class Lammps < Formula
 
   # setup user-packages as options
   USER_PACKAGES.each do |package|
-    option "enable-#{package}", "Build lammps with the '#{package}' package"
+    option "with-#{package}", "Build lammps with the '#{package}' package"
+    deprecated_option "enable-#{package}" => "with-#{package}"
   end
 
   depends_on "fftw"
@@ -53,6 +54,7 @@ class Lammps < Formula
   depends_on "voro++"
   depends_on :mpi => [:cxx, :f90, :recommended] # dummy MPI library provided in src/STUBS
   depends_on :fortran
+  depends_on :python if MacOS.version <= :snow_leopard
 
   def build_lib(comp, lmp_lib, opts = {})
     change_compiler_var = opts[:change_compiler_var] # a non-standard compiler name to replace
@@ -93,11 +95,6 @@ class Lammps < Formula
   def pyver
     Language::Python.major_minor_version "python"
   end
-
-  # This fixes the python module to point to the absolute path of the lammps library
-  # without this the module cannot find the library when homebrew is installed in a
-  # custom directory.
-  patch :DATA
 
   def install
     ENV.j1 # not parallel safe (some packages have race conditions :meam:)
@@ -177,41 +174,26 @@ class Lammps < Formula
         end
       end
 
+      # build the lammps executable and library
       system "make", "mac"
+      system "make", "mac", "mode=shlib"
       mv "lmp_mac", "lammps" # rename it to make it easier to find
-
-      # build the lammps library
-      system "make", "makeshlib"
-      system "make", "-f", "Makefile.shlib", "mac"
-
-      # install them
-      bin.install("lammps")
-      lib.install("liblammps_mac.so")
-      lib.install("liblammps.so") # this is just a soft-link to liblamps_mac.so
     end
 
-    # get the python module
+    # install the python module
     cd "python" do
-      temp_site_packages = lib/"python#{pyver}/site-packages"
-      mkdir_p temp_site_packages
-      ENV["PYTHONPATH"] = temp_site_packages
-
-      system "python", "install.py", lib, temp_site_packages
+      lib_site_packages = lib/"python#{pyver}/site-packages"
+      mkdir_p lib_site_packages
+      system "python", "install.py", lib_site_packages
+      (lib_site_packages/"homebrew-lammps.pth").write (opt_lib/"python#{pyver}/site-packages").to_s
       mv "examples", "python-examples"
-      prefix.install("python-examples")
+      pkgshare.install "python-examples"
     end
 
-    # install additional materials
-    (share / "lammps").install(%w[doc potentials tools bench examples])
-  end
-
-  test do
-    ENV.prepend_create_path "PYTHONPATH", lib + "python#{pyver}/site-packages"
-    # to prevent log files, move them to a temporary directory
-    mktemp do
-      system "lammps", "-in", "#{HOMEBREW_PREFIX}/share/lammps/bench/in.lj"
-      system "python", "-c", "from lammps import lammps ; lammps().file('#{HOMEBREW_PREFIX}/share/lammps/bench/in.lj')"
-    end
+    bin.install "src/lammps"
+    lib.install "src/liblammps_mac.so"
+    lib.install "src/liblammps.so" # this is just a soft-link to liblamps_mac.so
+    pkgshare.install(%w[doc potentials tools bench examples])
   end
 
   def caveats
@@ -243,21 +225,9 @@ class Lammps < Formula
 
     EOS
   end
-end
 
-__END__
-diff --git a/python/lammps.py b/python/lammps.py
-index c65e84c..b2b28a2 100644
---- a/python/lammps.py
-+++ b/python/lammps.py
-@@ -23,8 +23,8 @@ class lammps:
-     # if name = "g++", load liblammps_g++.so
- 
-     try:
--      if not name: self.lib = CDLL("liblammps.so",RTLD_GLOBAL)
--      else: self.lib = CDLL("liblammps_%s.so" % name,RTLD_GLOBAL)
-+      if not name: self.lib = CDLL("HOMEBREW_PREFIX/lib/liblammps.so",RTLD_GLOBAL)
-+      else: self.lib = CDLL("HOMEBREW_PREFIX/lib/liblammps_%s.so" % name,RTLD_GLOBAL)
-     except:
-       type,value,tb = sys.exc_info()
-       traceback.print_exception(type,value,tb)
+  test do
+    system "lammps", "-in", "#{HOMEBREW_PREFIX}/share/lammps/bench/in.lj"
+    system "python", "-c", "from lammps import lammps ; lammps().file('#{HOMEBREW_PREFIX}/share/lammps/bench/in.lj')"
+  end
+end
