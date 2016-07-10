@@ -13,6 +13,7 @@ class Kmergenie < Formula
     sha256 "740048e294ca177c2ed1ad74d83a760057c64b7f9d0bb5cbd23f7ee8b2339090" => :el_capitan
     sha256 "a1df7810b31ab2d720722ecd4a570129ffe06eed4dcba6859bea952780081555" => :yosemite
     sha256 "1e3b96f7fa34fcaa59a6cdd0f4c12c16fa2462b0aec304c4ed06f3c04a2b1662" => :mavericks
+    sha256 "620e31d5a64a7ec429d002fb2df5e409467064c210a6a6600fc5902d622f79bd" => :x86_64_linux
   end
 
   option "with-maxkmer=", "Specify maximum supported k-mer length (default: 121)"
