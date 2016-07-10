@@ -10,6 +10,7 @@ class Colpack < Formula
     sha256 "be9b05b68f33440ff8e8c4bf496afd6b9f6ed3b50cb2582a8eca29d3e2b4105c" => :el_capitan
     sha256 "579049570e51e0ade0376c95c52402d009f36c16f8d212442403b060ceb96181" => :yosemite
     sha256 "9608aa9a9f9c696f047b030983c597014fe413f7dccefbcd2a3c96fe1ef93183" => :mavericks
+    sha256 "eaafd0123afb2736ccdea1c7591c9d711d009e14e3f8235043492a1539c635e7" => :x86_64_linux
   end
 
   option "with-openmp", "Build with OpenMP support"
