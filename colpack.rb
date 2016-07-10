@@ -1,7 +1,9 @@
 class Colpack < Formula
-  homepage "http://www.cscapes.org/coloringpage/software.htm"
-  url "http://cscapes.cs.purdue.edu/download/ColPack/ColPack-1.0.9.tar.gz"
-  sha256 "06c5d3e61ab873b27d7962a9f09e90cbc52ccd9f480e88f1ecb50e6bced11932"
+  desc "Graph Coloring Algorithm Package"
+  homepage "http://cscapes.cs.purdue.edu/coloringpage"
+  url "https://github.com/CSCsw/ColPack/archive/v1.0.10.tar.gz"
+  sha256 "b22ead7da80fa1735291b2d83198adf41bf36101e4fcb2c4f07c1cfacf211c75"
+  head "https://github.com/CSCsw/ColPack.git"
 
   bottle do
     cellar :any
@@ -10,9 +12,62 @@ class Colpack < Formula
     sha256 "8aaa29a13ed9a4276387f55ff2edd60bb782600529bb7efedbd9ce4f9d43ca3e" => :mountain_lion
   end
 
+  option "with-openmp", "Build with OpenMP support"
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool"  => :build
+
+  needs :openmp if build.with? "openmp"
+
   def install
     ENV.libcxx
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
+    system "autoreconf", "-vif"
+    args = []
+    args << "with-openmp" if build.with? "openmp"
+    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking", *args
     system "make", "install"
+    pkgshare.install "Graphs"
+  end
+
+  test do
+    cp pkgshare/"Graphs/column-compress.mtx", testpath
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include "ColPack/ColPackHeaders.h"
+
+      using namespace ColPack;
+      using namespace std;
+
+      #ifndef TOP_DIR
+      #define TOP_DIR "."
+      #endif
+
+      string baseDir=TOP_DIR;
+
+      int main(int argc, char ** argv) {
+        string s_InputFile; //path of the input file
+        s_InputFile = baseDir;
+        s_InputFile += DIR_SEPARATOR; s_InputFile += "column-compress.mtx";
+
+        BipartiteGraphPartialColoringInterface *g = new BipartiteGraphPartialColoringInterface(SRC_FILE, s_InputFile.c_str(), "AUTO_DETECTED");
+        g->PartialDistanceTwoColoring("SMALLEST_LAST", "ROW_PARTIAL_DISTANCE_TWO");
+
+        g->PrintPartialColoringMetrics();
+        vector<int> vi_VertexPartialColors;
+        g->GetVertexPartialColors(vi_VertexPartialColors);
+        g->PrintPartialColors();
+
+        if(g->CheckPartialDistanceTwoColoring() == _FALSE)
+          cout << "FAILURE" << endl;
+        else
+          cout << "SUCCESS" << endl;
+
+        delete g;
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "test.cpp", "-I#{opt_include}", "-L#{opt_lib}", "-lColPack", "-o", "test"
+    system "./test"
+    assert_equal `./test | grep 'SUCCESS'`.strip, "SUCCESS"
   end
 end
