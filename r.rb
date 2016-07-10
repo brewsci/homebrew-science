@@ -19,6 +19,7 @@ class R < Formula
     sha256 "ac08e34ccfc063e7c307754da56004aed9de9ff512a5a31ba7f48b220dd19a6a" => :el_capitan
     sha256 "a63091632f248d5be2444b17eaf3050e124b8cc6cf53d7ab54cfe2d052ca6259" => :yosemite
     sha256 "ae9f6b850daac46ae8a2a3bc33e13b83ae7b13782dfcfa4a830cf75dfa195a3d" => :mavericks
+    sha256 "39ce8f1b7d2fa5fb3d7f5fbfcd5e55ebe663dfbd747c42781e1f0b699611dc52" => :x86_64_linux
   end
 
   head do
