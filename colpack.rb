@@ -7,9 +7,9 @@ class Colpack < Formula
 
   bottle do
     cellar :any
-    sha256 "8f58497acfce27796968d081d92aa416222d200e112e4e4b653ba928c472ad3a" => :yosemite
-    sha256 "c7bde703529bca89fd52670e1b39e340753e609cfa27eb768b8580bcb0775c7b" => :mavericks
-    sha256 "8aaa29a13ed9a4276387f55ff2edd60bb782600529bb7efedbd9ce4f9d43ca3e" => :mountain_lion
+    sha256 "be9b05b68f33440ff8e8c4bf496afd6b9f6ed3b50cb2582a8eca29d3e2b4105c" => :el_capitan
+    sha256 "579049570e51e0ade0376c95c52402d009f36c16f8d212442403b060ceb96181" => :yosemite
+    sha256 "9608aa9a9f9c696f047b030983c597014fe413f7dccefbcd2a3c96fe1ef93183" => :mavericks
   end
 
   option "with-openmp", "Build with OpenMP support"
