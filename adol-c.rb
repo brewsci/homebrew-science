@@ -6,9 +6,9 @@ class AdolC < Formula
   head "https://projects.coin-or.org/svn/ADOL-C/trunk/", :using => :svn
 
   bottle do
-    sha256 "02cdef39fbcdf6da577c09f5035f4a3a142cee299de904905249a97e770a9fad" => :el_capitan
-    sha256 "3c18da740949cead7af06e1610b82d522d39c66b0a45e4b089bd0339db437459" => :yosemite
-    sha256 "310a6b9e8f7d3e3ac39800ef65b5b80598aae9f11c30f3500abc0398b274e927" => :mavericks
+    sha256 "28d6ecbb9850d385a8ef1908efe899418a823316eaea312a9a2226a93077b91d" => :el_capitan
+    sha256 "022eb673f740a2ba680967e17200c8d3fb576255c627b21c9d257447b257a8d5" => :yosemite
+    sha256 "13232252782d0b91386bef40a72580b36bb430a441e31b24ecb9ae8151821c3f" => :mavericks
   end
 
   depends_on "autoconf" => :build
