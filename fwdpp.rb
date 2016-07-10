@@ -5,6 +5,7 @@ class Fwdpp < Formula
   sha256 "ee3ab255911c5d788a0388542865b4be109ec0f35b815368ac8758b9f572b26e"
   head "https://github.com/molpopgen/fwdpp.git"
   # doi "10.1534/genetics.114.165019"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any
