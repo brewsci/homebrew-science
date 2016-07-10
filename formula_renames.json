@@ -1,4 +1,5 @@
 {
   "gal-sim": "galsim",
-  "snp_sites": "snp-sites"
+  "snp_sites": "snp-sites",
+  "geant": "geant4"
 }
