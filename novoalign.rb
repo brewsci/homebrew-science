@@ -16,6 +16,7 @@ class Novoalign < Formula
     sha256 "e900cd36677ec495d0c6fa3a84e0700bd35680c509b28e2528b18fe40a0aa00b" => :yosemite
     sha256 "c4fd0e6b46ea57ec09014ea58f967229947dda33559bafdc93166ca4f797f30c" => :mavericks
     sha256 "0cdd8d02f923178f69f96296a768bc40e7772a796bd4c2ab0da2812ba3b21385" => :mountain_lion
+    sha256 "09ef31b4cd151b746de9e9ebd4912d6f6f605913841a1d3fd2c9754e398538ec" => :x86_64_linux
   end
 
   def install
