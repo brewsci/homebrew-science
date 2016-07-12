@@ -1,4 +1,12 @@
 class Mathgl < Formula
+  def self.with_qt?(version)
+    version.to_s == ARGV.value("with-qt")
+  end
+
+  def with_qt?(version)
+    self.class.with_qt? version
+  end
+
   desc "Scientific graphics library"
   homepage "http://mathgl.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/mathgl/mathgl/mathgl%202.3.5/mathgl-2.3.5.1.tar.gz"
@@ -24,14 +32,6 @@ class Mathgl < Formula
   depends_on "qt"  if with_qt? 4
   depends_on "qt5" if with_qt? 5
   depends_on :x11  if build.with? "fltk"
-
-  def self.with_qt?(version)
-    version.to_s == ARGV.value("with-qt")
-  end
-
-  def with_qt?(version)
-    self.class.with_qt? version
-  end
 
   def install
     args = std_cmake_args + %w[
