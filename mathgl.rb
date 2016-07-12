@@ -9,9 +9,8 @@ class Mathgl < Formula
 
   desc "Scientific graphics library"
   homepage "http://mathgl.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/mathgl/mathgl/mathgl%202.3.3/mathgl-2.3.3.tar.gz"
-  sha256 "324fb8155223251f28afd3c7074d6930f09bb7a60c122c3e06af228a448d4fc9"
-  revision 1
+  url "https://downloads.sourceforge.net/project/mathgl/mathgl/mathgl%202.3.5/mathgl-2.3.5.1.tar.gz"
+  sha256 "77a56936f5a763fc03480c9c1fe8ed528a949b3d63b858c91abc21c731acf0db"
 
   bottle do
     sha256 "a15ef02dc75ba2c9c16fa51d117aff88474563c560f0e136f7d557df8e03d2b6" => :el_capitan
@@ -53,7 +52,6 @@ class Mathgl < Formula
     args << "-Denable-fltk=ON"    if build.with? "fltk"
     args << "-Denable-wx=ON"      if build.with? "wxmac"
     args << ".."
-    rm "ChangeLog" if File.exist? "ChangeLog" # rm this problematic symlink.
     mkdir "brewery" do
       system "cmake", *args
       system "make", "install"
