@@ -1,21 +1,13 @@
 class Mathgl < Formula
-  def self.with_qt?(version)
-    version.to_s == ARGV.value("with-qt")
-  end
-
-  def with_qt?(version)
-    self.class.with_qt? version
-  end
-
   desc "Scientific graphics library"
   homepage "http://mathgl.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/mathgl/mathgl/mathgl%202.3.5/mathgl-2.3.5.1.tar.gz"
   sha256 "77a56936f5a763fc03480c9c1fe8ed528a949b3d63b858c91abc21c731acf0db"
 
   bottle do
-    sha256 "a15ef02dc75ba2c9c16fa51d117aff88474563c560f0e136f7d557df8e03d2b6" => :el_capitan
-    sha256 "9ff1c32fe9e778cc523e607559865007c782b9090ce1f57cae97bde54bb441b2" => :yosemite
-    sha256 "5a88cd43d549e263d62fa445cf52ca2bca61dfbb6295ff1e5e773a671b621c84" => :mavericks
+    sha256 "4d52aedbf366e65172f4f1e4390e8ee9a045fd521ccc72a7b069c854f2e9d4da" => :el_capitan
+    sha256 "1e1339d5fb9cea6eb4fbc6751289afe1c180017beaade40c5fa4ee9145660b94" => :yosemite
+    sha256 "c068a86ef976268694fe0b6c89bd71fffaa293e649495cdad60dc19def2f8d4b" => :mavericks
   end
 
   option "with-qt=", "Build with Qt 4 or 5 support"
@@ -32,6 +24,14 @@ class Mathgl < Formula
   depends_on "qt"  if with_qt? 4
   depends_on "qt5" if with_qt? 5
   depends_on :x11  if build.with? "fltk"
+
+  def self.with_qt?(version)
+    version.to_s == ARGV.value("with-qt")
+  end
+
+  def with_qt?(version)
+    self.class.with_qt? version
+  end
 
   def install
     args = std_cmake_args + %w[
