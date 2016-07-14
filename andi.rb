@@ -4,8 +4,8 @@ class Andi < Formula
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btu815"
 
-  url "https://github.com/EvolBioInf/andi/releases/download/v0.9.6.2/andi-0.9.6.2.tar.gz"
-  sha256 "7f7911d625461490743aab95f0c9d4c96ed1eb47d75b20ac355d76aae0163535"
+  url "https://github.com/EvolBioInf/andi/releases/download/v0.10/andi-0.10.tar.gz"
+  sha256 "7182d43bd13aa51d12a5d69fe4e3e4f83aab8429f5030192ae860e1a1b0e3f77"
 
   bottle do
     cellar :any
