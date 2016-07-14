@@ -1,8 +1,6 @@
 class Openni < Formula
   homepage "http://www.openni.org/"
 
-  head "https://github.com/OpenNI/OpenNI.git"
-
   stable do
     url "https://github.com/OpenNI/OpenNI/archive/Stable-1.5.7.10.tar.gz"
     sha256 "34b0bbf68633bb213dcb15408f979d5384bdceb04e151fa519e107a12e225852"
@@ -22,6 +20,14 @@ class Openni < Formula
     patch do
       url "https://github.com/OpenNI/OpenNI/pull/95.diff"
       sha256 "722fb0a6e6e99a5cc7c7e862ac802dfd3d03785c27af1d20d7f48314ff5154dd"
+    end
+  end
+
+  head do
+    url "https://github.com/OpenNI/OpenNI.git"
+    patch do
+      url "https://github.com/OpenNI/OpenNI/pull/106.diff"
+      sha256 "4aa53e8d6447417be32d1d7ff93788838ee837de291620cb753395be57a25d1d"
     end
   end
 
