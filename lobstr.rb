@@ -1,15 +1,18 @@
 class Lobstr < Formula
+  desc "Profiles Short Tandem Repeats (STRs) from sequencing data"
   homepage "http://lobstr.teamerlich.org"
-  url "http://erlichlab.wi.mit.edu/lobSTR/lobSTR-3.0.3.tar.gz"
-  sha256 "eba806e9a8703109ea856db95f452e96ee8fb8d16b0db74276dabd98fea21955"
-
-  option "without-check", "Disable build-time checking (not recommended)"
+  url "https://github.com/mgymrek/lobstr-code/releases/download/v4.0.6/lobSTR-4.0.6.tar.gz"
+  sha256 "f13bfc17eebd4aadd58fd798941318d8278a2da2e64e596027ebc26e004ce31c"
 
   head do
     url "https://github.com/mgymrek/lobstr-code.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
+
+  option "without-test", "Disable build-time checking (not recommended)"
+
+  deprecated_option "without-check" => "without-test"
 
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
@@ -22,20 +25,22 @@ class Lobstr < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking"
     system "make"
-    system "make", "check" if build.with? "check"
+    system "make", "check" if build.with? "test"
     system "make", "install"
   end
 
   test do
-    mktemp do
-      system "#{bin}/lobSTR",
-               "--verbose",
-               "--index-prefix", "#{share}/lobSTR/test-ref/lobSTR_",
-               "--fastq", "-f", "#{share}/lobSTR/sample/tiny.fq",
-               "--rg-sample", "test",
-               "--rg-lib", "test",
-               "--out", "./test"
-      assert $?.success?
-    end
+    args = %W[
+      --verbose
+      --index-prefix #{share}/lobSTR/test-ref/lobSTR_
+      --fastq
+      -f #{share}/lobSTR/sample/tiny.fq
+      --rg-sample test
+      --rg-lib test
+      --out test
+    ]
+    system bin/"lobSTR", *args
+    assert File.exist? "test.aligned.bam"
+    assert File.exist? "test.aligned.stats"
   end
 end
