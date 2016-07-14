@@ -8,10 +8,9 @@ class Mlst < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0d74d46e7a467d9aafe94a2ae33c05eee7dec985841b99e101fa0c60bc10788c" => :el_capitan
-    sha256 "b36e0c426f6583f5649620a4f0f4d5a6a0dd84f3dd50c3978d09e9e2e33d0207" => :yosemite
-    sha256 "ab387db5c198bc9ed6cea2b3bbcccdda40bdf9dbc8d8f2d18f6947bf0ff7ca67" => :mavericks
-    sha256 "50716cb3a2e7e7d6cfaef9148271c06e35c8ce25578fbe6174dccba95edac964" => :x86_64_linux
+    sha256 "72fc579a166cd813201a0a1561b80ba410943e652642be1e6b85b2cf1419735c" => :el_capitan
+    sha256 "e07a445788221fb0339753b273e7ea89861e9708d93aec54233c034c3cf3841d" => :yosemite
+    sha256 "2409d1b53557883751de173ddbe4d5c76441a2c61929a191d31b9c302af63001" => :mavericks
   end
 
   depends_on "blast"
