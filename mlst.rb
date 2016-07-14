@@ -3,8 +3,8 @@ class Mlst < Formula
   homepage "https://github.com/tseemann/mlst"
   # tag "bioinformatics"
 
-  url "https://github.com/tseemann/mlst/archive/2.4.tar.gz"
-  sha256 "6263e124bbc5f481d94dddaf4906fef05babdd9fe6e8b30de8ffbf9bdb0dfb1d"
+  url "https://github.com/tseemann/mlst/archive/v2.6.tar.gz"
+  sha256 "711bff24ce0873ab911cd43a17be3b805dd7bde7918f96401ce40e423f8de836"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,8 +22,6 @@ class Mlst < Formula
   depends_on "List::MoreUtils" => :perl
 
   def install
-    # if version is bumped before tag next time, this can be removed.
-    inreplace "bin/mlst", "my $VERSION = \"2.3\"", "my $VERSION = \"2.4\""
     prefix.install Dir["*"]
   end
 
