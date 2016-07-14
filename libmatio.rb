@@ -6,9 +6,9 @@ class Libmatio < Formula
 
   bottle do
     cellar :any
-    sha256 "fc4f887587a4faf0efa6093e0c38cd172b8a9f3bb44e062d166ebdb34c44335c" => :el_capitan
-    sha256 "92c4859f40adb08e7f98766a55c25daf5b4bffc000c9aa51ede93c2b46ac39c2" => :yosemite
-    sha256 "ed278812215d9647a7451de2694995f6f028f27197223d195a677f1136c6d4f4" => :mavericks
+    sha256 "c063177a44ec8ee57ae6b8dc32aa7acb863b1587d5474899c4258980aba3c5e8" => :el_capitan
+    sha256 "ffd0f3dc499b02b8970f87447621d0b1e68a8984116cb31069abbc70e697f4ce" => :yosemite
+    sha256 "93d19eb63acb97f6ade5a01556e26032680a2931154b73512ef2b132b9cd49ec" => :mavericks
   end
 
   option :universal
