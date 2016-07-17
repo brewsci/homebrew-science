@@ -7,9 +7,8 @@ end
 class Getdp < Formula
   desc "Open source finite element solver using mixed elements."
   homepage "http://www.geuz.org/getdp/"
-  url "http://www.geuz.org/getdp/src/getdp-2.8.0-source.tgz"
-  sha256 "7941809d01b3b045f70382b719dc1bcfeea9d794ac075771a1e82be0960748dd"
-  revision 1
+  url "http://www.geuz.org/getdp/src/getdp-2.9.0-source.tgz"
+  sha256 "08487f3f5a41012d06db0ec97206b883961c0e7853f47f8502f6d1ef80ef67c9"
   head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
 
   bottle do
@@ -32,19 +31,16 @@ class Getdp < Formula
   depends_on "petsc"    => :recommended
   depends_on "slepc"    => :recommended
 
+  depends_on "fftw" => :linked
+  depends_on "hwloc" => :linked
+  depends_on "netcdf" => :linked
+  depends_on "parmetis" => :linked
+  depends_on "scalapack" => :linked
+  depends_on "suite-sparse" => :linked
+  depends_on "sundials" => :linked
+  depends_on "superlu_dist" => :linked
+
   depends_on "cmake"    => :build
-
-  # patches for PETSc >= 3.7
-  # thanks @schoeps
-  patch do
-    url "https://gist.githubusercontent.com/schoeps/53365da617aa6cfac332d0a19235215f/raw/e4df9983682e189bd3a2cb33434a994b45757b8d/EigenSolve.patch"
-    sha256 "1950275890bf8ba1ad23ec80ff012921711fa0f3b5ee16ceac8be27ac356deea"
-  end
-
-  patch do
-    url "https://gist.githubusercontent.com/schoeps/53365da617aa6cfac332d0a19235215f/raw/e4df9983682e189bd3a2cb33434a994b45757b8d/LinAlg_PETSC.patch"
-    sha256 "43c3d0ba87c07846818f147e2ee66110e5b9c9ebd856b0ae682d6d1c014d76c6"
-  end
 
   def install
     args = std_cmake_args
