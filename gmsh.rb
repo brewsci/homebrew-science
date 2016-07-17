@@ -7,8 +7,8 @@ end
 class Gmsh < Formula
   desc "3D finite element grid generator with CAD engine"
   homepage "http://geuz.org/gmsh"
-  url "http://geuz.org/gmsh/src/gmsh-2.12.0-source.tgz"
-  sha256 "7fbd2ec8071e79725266e72744d21e902d4fe6fa9e7c52340ad5f4be5c159d09"
+  url "http://gmsh.info/src/gmsh-2.13.1-source.tgz"
+  sha256 "a10b750aaac7d4ef7d5d168e0be520b0d62ab35380d81bcbb1972db3fb73ac96"
 
   head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
 
@@ -25,10 +25,26 @@ class Gmsh < Formula
   depends_on :fortran
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
   depends_on "cmake" => :build
+
   depends_on "petsc" => :optional
   depends_on "slepc" => :optional
   depends_on "fltk" => :optional
   depends_on "cairo" if build.with? "fltk"
+
+  depends_on "cairo" => :linked
+  depends_on "fftw" => :linked
+  depends_on "gmp" => :linked
+  depends_on "jpeg" => :linked
+  depends_on "libpng" => :linked
+  depends_on "hdf5" => :linked
+  depends_on "hwloc" => :linked
+  depends_on "metis" => :linked
+  depends_on "netcdf" => :linked
+  depends_on "parmetis" => :linked
+  depends_on "scalapack" => :linked
+  depends_on "suite-sparse" => :linked
+  depends_on "sundials" => :linked
+  depends_on "superlu_dist" => :linked
 
   if build.with?("opencascade") && build.with?("oce")
     odie "gmsh: --without-opencascade must be specified when using --with-oce"
