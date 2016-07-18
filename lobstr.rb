@@ -9,6 +9,7 @@ class Lobstr < Formula
     sha256 "7026c87999258f045bf2696e11459fea2397c5b2037248b1f62d7e80ced60dd9" => :el_capitan
     sha256 "7589320083c7fcbf2a05d1ad68247312de85120d62663c6db75755c3cfbfcca1" => :yosemite
     sha256 "2e0aae1cc93cdf0d332969bfcb055c8e417ebe3f01314f59e338151b2211dc7b" => :mavericks
+    sha256 "f701269b076a6140ae1415e596ff6d4e19d5d55f968640619a541bb63d3f5286" => :x86_64_linux
   end
 
   head do
