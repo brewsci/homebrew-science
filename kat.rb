@@ -11,7 +11,7 @@ class Kat < Formula
     depends_on "automake" => :build
   end
 
-  bottle :disable, "Unsatisfied Python dependencies"
+  option "with-docs", "Build documentation"
 
   needs :cxx11
 
@@ -21,7 +21,7 @@ class Kat < Formula
   depends_on "matplotlib" => :python
   depends_on "numpy" => :python
   depends_on "scipy" => :python
-  depends_on "sphinx-doc" => :python
+  depends_on "sphinx-doc" => :python if build.with? "docs"
 
   def install
     ENV.cxx11
@@ -34,8 +34,10 @@ class Kat < Formula
       "--disable-silent-rules",
       "--prefix=#{prefix}"
 
-    system "make", "man"
-    system "make", "html"
+    if build.with? "docs"
+      system "make", "man"
+      system "make", "html"
+    end
     system "make"
     system "make", "install"
   end
