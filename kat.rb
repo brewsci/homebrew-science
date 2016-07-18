@@ -5,6 +5,13 @@ class Kat < Formula
   sha256 "29a44367e335f56d7ef1c80dfeb58e3d4fa07705ef36116013ec83ad0fb80864"
   # tag "bioinformatics"
 
+  bottle do
+    cellar :any
+    sha256 "60baa4159c9639b83edac2c04907a639df2a9effb5169e6e326306f6430a7ff3" => :el_capitan
+    sha256 "cdc42fece013f1609e9998c40c8ec7394e1bf584f1a9fde06111a965a77ec4a8" => :yosemite
+    sha256 "97f2048097cdf6559651e629e4ea455f55d6d6fa7eb72f9deec99dfd572b4630" => :mavericks
+  end
+
   head do
     url "https://github.com/TGAC/KAT.git"
     depends_on "autoconf" => :build
