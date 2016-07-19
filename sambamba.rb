@@ -12,6 +12,7 @@ class Sambamba < Formula
     sha256 "a1be7e5983f6ecc20dfde24f321692bc1149e9b87c15f6af9924072cd9029c08" => :el_capitan
     sha256 "410602e7eb4adb9c96e61449a2967ce3eda88aad6136add0bc38d4ad9769b29d" => :yosemite
     sha256 "62f775aaabeeed8957a6c9fccadce41af6f8a1e37957d17da7fa7d7036e83ce7" => :mavericks
+    sha256 "ab8eeba7ebc695d1d4fe5250c4e78d204c6320216e41280b72c3fbcac0654dc2" => :x86_64_linux
   end
 
   depends_on "ldc" => :build
