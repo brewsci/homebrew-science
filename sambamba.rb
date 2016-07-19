@@ -1,11 +1,12 @@
 class Sambamba < Formula
   desc "Tools for working with SAM/BAM data"
   homepage "https://lomereiter.github.io/sambamba"
+  url "https://github.com/lomereiter/sambamba.git",
+    :tag => "v0.6.3",
+    :revision => "4258ccbfeac21c9ef88c394f1145bf655dba8020"
+  head "https://github.com/lomereiter/sambamba.git"
   # doi "10.1093/bioinformatics/btv098"
   # tag "bioinformatics"
-
-  url "https://github.com/lomereiter/sambamba.git", :tag => "v0.5.6", :revision => "9d761c5d69cfbcd53ceb4cca25b5a6f694ea09ac"
-  head "https://github.com/lomereiter/sambamba.git"
 
   bottle do
     revision 1
@@ -25,9 +26,7 @@ class Sambamba < Formula
   end
 
   test do
-    cd pkgshare do
-      system *%W[#{bin}/sambamba sort -t2 -n ex1_header.bam -o ex1_header.nsorted.bam -m 200K]
-      assert File.exist?("ex1_header.nsorted.bam")
-    end
+    system *%W[#{bin}/sambamba sort -t2 -n #{pkgshare}/ex1_header.bam -o ex1_header.nsorted.bam -m 200K]
+    assert File.exist?("ex1_header.nsorted.bam")
   end
 end
