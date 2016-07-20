@@ -7,6 +7,12 @@ class Sga < Formula
   # doi "10.1101/gr.126953.111"
   # tag "bioinformatics"
 
+  bottle do
+    sha256 "cf547a4f578ec440e9c61b8b880ad910403efa4146b134e3794186914b8307eb" => :el_capitan
+    sha256 "b2655f7c854934997edc95bd38de8baa0387aa677322109e5aefbd0b4c47b994" => :yosemite
+    sha256 "36320d846cb7957f21482ca9de6421d36475bd31cb075a4b6674feff73ef7dde" => :mavericks
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "google-sparsehash" => :build
