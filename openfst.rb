@@ -1,7 +1,7 @@
 class Openfst < Formula
   homepage "http://www.openfst.org/"
-  url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.5.1.tar.gz"
-  sha256 "bb0c0e6cf8bed843c36f412f66abfd87604b3220773e4c25fd723a7a5759a3f2"
+  url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.5.3.tar.gz"
+  sha256 "9b09e457aeab87f613508b92a0f9f820140c9e18d05584e3f1ae384396b5dcbd"
 
   bottle do
     cellar :any

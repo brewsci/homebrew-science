@@ -1,7 +1,7 @@
 class OpengrmNgram < Formula
   homepage "http://www.openfst.org/twiki/bin/view/GRM/NGramLibrary"
-  url "http://openfst.cs.nyu.edu/twiki/pub/GRM/NGramDownload/opengrm-ngram-1.2.2.tar.gz"
-  sha256 "12bba4c1345f3933e161859cc9cb5d21b772d2b46173b4511fc778c67ada233b"
+  url "http://openfst.cs.nyu.edu/twiki/pub/GRM/NGramDownload/opengrm-ngram-1.3.0.tar.gz"
+  sha256 "bb5b4cb609f0beab6fabbb65234c818199a17a49e534bde270c6f72d880fe2b3"
 
   bottle do
     cellar :any
