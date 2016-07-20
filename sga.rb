@@ -1,8 +1,8 @@
 class Sga < Formula
   desc "de novo genome assembler based on the concept of string graphs"
   homepage "https://github.com/jts/sga"
-  url "https://github.com/jts/sga/archive/v0.10.13.tar.gz"
-  sha256 "77859ab233980594941aa4c4cb5c2cbe1f5c43f2519f329c3a88a97865dee599"
+  url "https://github.com/jts/sga/archive/v0.10.14.tar.gz"
+  sha256 "763c011b302e1085048c93d917f081ea9348a8470e222dfd369064548e8b3994"
   head "https://github.com/jts/sga.git"
   # doi "10.1101/gr.126953.111"
   # tag "bioinformatics"
@@ -18,6 +18,12 @@ class Sga < Formula
   depends_on "automake" => :build
   depends_on "google-sparsehash" => :build
   depends_on "bamtools"
+
+  # Fix error: use of undeclared identifier 'omp_set_num_threads'
+  patch do
+    url "https://github.com/jts/sga/commit/e0ffbff4eb8a2c8fa53d55da1043c981d5b3813a.patch"
+    sha256 "8087e4c40d0f57ae10c544de4b738e50f16cc3f8c33aa4ed69034e79e278af69"
+  end
 
   def install
     cd "src" do
