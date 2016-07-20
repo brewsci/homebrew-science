@@ -1,8 +1,8 @@
 class Gubbins < Formula
   desc "Detect recombinations in Bacteria"
   homepage "https://github.com/sanger-pathogens/gubbins"
-  url "https://github.com/sanger-pathogens/gubbins/archive/v1.4.7.tar.gz"
-  sha256 "6fdc2798a271114f8126d16e09bf6a1da2a616c7decdaeb436633629859fbfce"
+  url "https://github.com/sanger-pathogens/gubbins/archive/v2.0.0.tar.gz"
+  sha256 "1ebabbf390f4454345085787329c3c2101ab2fc68e27342c3f3aefb4841222c6"
   head "https://github.com/sanger-pathogens/gubbins.git"
   # tag "bioinformatics"
   # doi "10.1093/nar/gku1196"
@@ -19,31 +19,31 @@ class Gubbins < Formula
   depends_on "libtool"   => :build
   depends_on "check"     => :build
   depends_on :python3
+  depends_on "freetype" => :linked
   depends_on "homebrew/python/numpy" => ["with-python3"]
   depends_on "homebrew/python/pillow" => ["with-python3"]
   depends_on "zlib" unless OS.mac?
   depends_on "raxml"
   depends_on "fasttree" => ["with-double", :recommended]
-  depends_on "fastml"   => :recommended
 
   resource "biopython" do
-    url "https://pypi.python.org/packages/source/b/biopython/biopython-1.66.tar.gz"
-    sha256 "171ad726f50528b514f9777e6ea54138f6e35792c5b128c4ab91ce918a48bbbd"
+    url "https://pypi.python.org/packages/f4/35/67d779f52870770c228f9edd0c9d1d1b9bc11afad794e220295d7b88a804/biopython-1.67.tar.gz"
+    sha256 "1ab322fe4d2f79d2d999c9d8faf8b4e0b4c41c4e8b5f0a97912dfa0e3aa249e6"
   end
 
   resource "dendropy" do
-    url "https://pypi.python.org/packages/source/D/DendroPy/DendroPy-4.0.3.tar.gz"
-    sha256 "a2c074eb91e2866120521c076587983900c5b312879832c3559effb730bd4465"
+    url "https://pypi.python.org/packages/65/3a/19556a58c560de488dffbf3c7fe7c9ed34c1a6223f0dfe971224a42aaf39/DendroPy-4.1.0.tar.gz"
+    sha256 "c3d4b2780b84fb6ad64a8350855b2d762cabe45ecffbc04318f07214ee3bdfc9"
   end
 
   resource "nose" do
-    url "https://pypi.python.org/packages/source/n/nose/nose-1.3.7.tar.gz"
+    url "https://pypi.python.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
     sha256 "f1bffef9cbc82628f6e7d7b40d7e255aefaa1adb6a1b1d26c69a8b79e6208a98"
   end
 
   resource "reportlab" do
-    url "https://pypi.python.org/packages/source/r/reportlab/reportlab-3.2.0.tar.gz"
-    sha256 "72e687662bd854776407b9108483561831b45546d935df8b0477708199086293"
+    url "https://pypi.python.org/packages/b8/17/7c5342dfbc9dc856173309270006e34c3bfad59934f0faa1dcc117ac93f1/reportlab-3.3.0.tar.gz"
+    sha256 "f48900b9321bcb2871a46543993bd995148d769a11a9e24495f25b4ec0bbe267"
   end
 
   def install
