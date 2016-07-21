@@ -1,9 +1,8 @@
 class Butterflow < Formula
   desc "Makes fluid slow motion and motion interpolated videos"
   homepage "https://github.com/dthpham/butterflow"
-  url "http://srv.dthpham.me/butterflow/butterflow-0.2.0.tar.gz"
-  sha256 "dc70927d78193543b4b364573e0cf2d0881a54483aa306db51cd9f57cf23781e"
-  revision 2
+  url "http://srv.dthpham.me/butterflow/butterflow-0.2.1.tar.gz"
+  sha256 "66cd8964854eae5b5b66b031e2f038d87a38c9052d19793820d55e1fe6338ffe"
 
   bottle do
     cellar :any
