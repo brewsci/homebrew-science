@@ -1,8 +1,8 @@
 class Spades < Formula
   desc "SPAdes: de novo genome assembly"
   homepage "http://bioinf.spbau.ru/spades/"
-  url "http://spades.bioinf.spbau.ru/release3.8.1/SPAdes-3.8.1.tar.gz"
-  sha256 "8867c5d1fd1ae7eda015a58a0ca518cebe3968ea8a2eb9d85d397243afc6b3b0"
+  url "http://spades.bioinf.spbau.ru/release3.9.0/SPAdes-3.9.0.tar.gz"
+  sha256 "77436ac5945aa8584d822b433464969a9f4937c0a55c866205655ce06a72ed29"
   # tag "bioinformatics"
   # doi "10.1089/cmb.2012.0021"
 
@@ -21,6 +21,8 @@ class Spades < Formula
   fails_with :gcc => "4.7" do
     cause "Compiling SPAdes requires GCC >= 4.7 for OpenMP 3.1 support"
   end
+
+  depends_on "gcc" => :linked # needed for openmp
 
   def install
     mkdir "src/build" do
