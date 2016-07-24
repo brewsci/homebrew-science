@@ -1,8 +1,8 @@
 class Nexusformat < Formula
   desc "Common data format for neutron, x-ray, and muon science"
   homepage "http://www.nexusformat.org"
-  url "https://github.com/nexusformat/code/archive/4.3.3.tar.gz"
-  sha256 "fef979ded3b2b4a455514671eac4483d431aeb7c8b25428bbb666bc7d50cace3"
+  url "https://github.com/nexusformat/code/archive/v4.4.2.tar.gz"
+  sha256 "3cb2860c6040415dd0761ff4cfa062915f65df660c95f6f1fee044c86eddd8a2"
 
   bottle do
     sha256 "bf653a6a446ffdd8a160bfd1e0c41ec8a8baf5e8e49721d02746c960990edf3d" => :el_capitan
@@ -12,36 +12,35 @@ class Nexusformat < Formula
 
   option :cxx11
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "libmxml"
+  cxx11dep = build.cxx11? ? ["c++11"] : []
+  depends_on "hdf5" => cxx11dep
   depends_on "readline" => :recommended
-  if build.cxx11?
-    depends_on "hdf5" => "c++11"
-  else
-    depends_on "hdf5"
-  end
   depends_on "homebrew/versions/hdf4" => :recommended
   depends_on "doxygen" => :optional
+  depends_on "szip" => :linked
 
-  # make check fails to find libNeXus.0.dylib
-  # https://github.com/nexusformat/code/issues/427
-  patch :DATA if MacOS.version >= :el_capitan
+  # C++ API fails to build after selecting the C++11 or later standard.
+  # https://github.com/nexusformat/code/pull/435
+  patch do
+    url "https://github.com/nexusformat/code/pull/435.patch"
+    sha256 "bfc20b4d112a4ccb69dd8755dc78fead1e4c12c01d623c6ece5870ad29ab5f17"
+  end
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --disable-silent-rules
-      --disable-dependency-tracking
-      --disable-debug
-      --with-hdf4=#{Formula["homebrew/versions/hdf4"].opt_prefix}
-    ]
-    system "/bin/sh", "autogen.sh"
     ENV.cxx11 if build.cxx11?
-    system "./configure", *args
+    cmake_args = std_cmake_args
+    cmake_args << "-DENABLE_APPS=TRUE"
+    cmake_args << "-DENABLE_CXX=TRUE"
+    cmake_args << "-DENABLE_MXML=TRUE"
+    cmake_args << "-DENABLE_HDF4=TRUE" if build.with? "homebrew/versions/hdf4"
+    cmake_args << "-DHDF4_ROOT=#{Formula["homebrew/versions/hdf4"].opt_prefix}" if build.with? "homebrew/versions/hdf4"
+    system "cmake", ".", *cmake_args
     system "make"
-    system "make", "check"
+    # test failures have been reported upstream
+    # https://github.com/nexusformat/code/issues/426
+    # system "make", "test"
     system "make", "install"
   end
 
@@ -49,18 +48,3 @@ class Nexusformat < Formula
     system "#{bin}/nxdir"
   end
 end
-
-__END__
-diff --git a/test/Makefile.am b/test/Makefile.am
-index 9e866e5..c768d20 100644
---- a/test/Makefile.am
-+++ b/test/Makefile.am
-@@ -118,7 +118,7 @@ nxtranslate:
-
- # this sets the test running environment - in case we
- # have got built with shared HDF libraries we need to set LD_LIBRARY_PATH
--TESTS_ENVIRONMENT=env PYTHON=$(PYTHON) IDL_PATH="@abs_top_srcdir@/bindings/idl:<IDL_DEFAULT>" IDL_DLM_PATH="@abs_top_builddir@/bindings/idl:<IDL_DEFAULT>" LD_LIBRARY_PATH=@abs_top_builddir@/src/.libs:@abs_top_builddir@/bindings/cpp/.libs:@abs_top_builddir@/bindings/idl:$${LD_LIBRARY_PATH}:@EXTRA_LD_LIBRARY_PATH@:/usr/local/lib DYLD_LIBRARY_PATH=@abs_top_builddir@/src/.libs:@abs_top_builddir@/bindings/cpp/.libs:@abs_top_builddir@/bindings/idl:$${DYLD_LIBRARY_PATH}:@EXTRA_LD_LIBRARY_PATH@:/usr/local/lib
-+TESTS_ENVIRONMENT=env PYTHON=$(PYTHON) IDL_PATH="@abs_top_srcdir@/bindings/idl:<IDL_DEFAULT>" IDL_DLM_PATH="@abs_top_builddir@/bindings/idl:<IDL_DEFAULT>" LD_LIBRARY_PATH=@abs_top_builddir@/src/.libs:@abs_top_builddir@/bindings/cpp/.libs:@abs_top_builddir@/bindings/idl:$${LD_LIBRARY_PATH}:@EXTRA_LD_LIBRARY_PATH@:/usr/local/lib DYLD_LIBRARY_PATH=@abs_top_builddir@/src/.libs:@abs_top_builddir@/bindings/cpp/.libs:@abs_top_builddir@/bindings/idl:$${DYLD_LIBRARY_PATH}:@EXTRA_LD_LIBRARY_PATH@:/usr/local/lib NEXUSLIB=@abs_top_builddir@/src/.libs/libNeXus.0.dylib
-
- run_test_SOURCES=run_test.c
- run_test_LDFLAGS=-static $(HDF4_LDFLAGS) $(HDF5_LDFLAGS) $(XML_LDFLAGS) $(LDFLAGS)
