@@ -3,15 +3,9 @@ require File.expand_path("../Requirements/cuda_requirement", __FILE__)
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "http://www.pointclouds.org/"
-
-  stable do
-    url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.0.tar.gz"
-    sha256 "9e54b0c1b59a67a386b9b0f4acb2d764272ff9a0377b825c4ed5eedf46ebfcf4"
-  end
-
-  head do
-    url "https://github.com/PointCloudLibrary/pcl.git"
-  end
+  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.0.tar.gz"
+  sha256 "9e54b0c1b59a67a386b9b0f4acb2d764272ff9a0377b825c4ed5eedf46ebfcf4"
+  head "https://github.com/PointCloudLibrary/pcl.git"
 
   bottle do
     revision 1
@@ -53,6 +47,12 @@ class Pcl < Formula
   end
   depends_on "openni" => :optional
   depends_on "openni2" => :optional
+
+  depends_on "jpeg" => :linked
+  depends_on "libpng" => :linked
+  depends_on "libtiff" => :linked
+  depends_on "szip" => :linked
+  depends_on "hdf5" => :linked
 
   def install
     args = std_cmake_args + %W[
@@ -132,5 +132,9 @@ class Pcl < Formula
 
       prefix.install Dir["#{bin}/*.app"]
     end
+  end
+
+  test do
+    assert_match "tiff files", shell_output("#{bin}/pcl_tiff2pcd -h", 255)
   end
 end
