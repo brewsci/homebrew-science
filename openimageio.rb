@@ -1,9 +1,8 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "http://openimageio.org"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-1.6.13.tar.gz"
-  sha256 "b2989df4133d84c9b24e2b67ae8780528a49b6c088ce945e15ecefc31235a39b"
-
+  url "https://github.com/OpenImageIO/oiio/archive/Release-1.6.15.tar.gz"
+  sha256 "07e7d30a2f678d519af17adeb13352a4b80fb380f4458255e1a0152000ce8c90"
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
@@ -24,7 +23,6 @@ class Openimageio < Formula
   depends_on "field3d"
   depends_on "freetype"
   depends_on "giflib"
-  depends_on "glew"
   depends_on "hdf5"
   depends_on "ilmbase"
   depends_on "jpeg"
