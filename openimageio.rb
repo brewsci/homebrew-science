@@ -7,9 +7,9 @@ class Openimageio < Formula
 
   bottle do
     cellar :any
-    sha256 "62d601333afdc040411a78b45b468ab1e278468efc4d069a8723564386489b40" => :el_capitan
-    sha256 "10459d45ab61b253c3862879dbfa8a9d49ba9022033fb74832a3b64c1bfa1937" => :yosemite
-    sha256 "aa6708c91fa8ef3de1b8254b23983a5c5e5c317e6e353bde056204a2eee3f58e" => :mavericks
+    sha256 "7ca44de6ef662ba0b822107052e73ba73e8d1299579b302b62949a1772b7e371" => :el_capitan
+    sha256 "b5fdc266969521417950df252e20c84f24e253834d07de8c671c19792889d110" => :yosemite
+    sha256 "623a5b6505fcd46bfac0c02eba97d38604b1717caa64b55e2ce05fde36fe7f09" => :mavericks
   end
 
   option "with-test", "Dowload 95MB of test images and verify Oiio (~2 min)"
