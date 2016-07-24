@@ -4,6 +4,13 @@ class Concorde < Formula
   url "http://www.math.uwaterloo.ca/tsp/concorde/downloads/codes/src/co031219.tgz"
   sha256 "c3650a59c8d57e0a00e81c1288b994a99c5aa03e5d96a314834c2d8f9505c724"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "69213d208d41cfe56c6f2bb4caffa7583623dcec6e5ffa5566b154bd677425ef" => :el_capitan
+    sha256 "332061dd4741b3e1311dfae6319fd40617b62b0dfa1b9fe4e850bc5a6e103e3e" => :yosemite
+    sha256 "f7c2e151c88272a9fdbe8e5f48748825496c790297f3a77c47332fcf0691ef9c" => :mavericks
+  end
+
   option "with-cplex=", "Compile with CPLEX bindings, you must install CPLEX beforehand and pass the CPLEX installation directory. For example, with version 12.6.3 Community, the default installation directory is /Users/username/Applications/IBM/ILOG/CPLEX_Studio_Community1263/cplex"
   depends_on "qsopt" if build.without? "cplex="
 
