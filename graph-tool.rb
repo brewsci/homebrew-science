@@ -11,9 +11,8 @@ class GraphTool < Formula
   end
 
   bottle do
-    sha256 "1403a9699ab147da134b39d4cc3b64cd1a49be1d7d9b5941a842f87f5b9132b6" => :el_capitan
-    sha256 "c0259303a55befb147a40d60e58e283d2b9774d5a52b9d7f13b8eacc8e0d063f" => :yosemite
-    sha256 "7f2ecc68e838a493bcfe533b36c94d1e2b7dc90bd03ea0e1453f94bc1d80ef11" => :mavericks
+    sha256 "6737aefd4e77d3aeb428e85649cfbb0eb8fc5513b17fa34f4614f14bcf8df72f" => :el_capitan
+    sha256 "cf1b40d0f14167b3c5740e90c084174d92f68e7a156ffd69cd8730995e98ef2b" => :yosemite
   end
 
   option "without-cairo", "Build without cairo support for plotting"
