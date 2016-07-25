@@ -1,8 +1,8 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "http://www.vips.ecs.soton.ac.uk/"
-  url "http://www.vips.ecs.soton.ac.uk/supported/8.3/vips-8.3.1.tar.gz"
-  sha256 "09cb7f8d5640c7693bae07080202de0cead60c668e086f2739248bacd40a1006"
+  url "http://www.vips.ecs.soton.ac.uk/supported/8.3/vips-8.3.2.tar.gz"
+  sha256 "6f5f4129e25a86ec46a8d15576bffe0ee700d56455c80fcb3e2f02fa49359d4a"
 
   bottle do
     sha256 "7f7f80c38e844389d45aea55d354ebbbf5ef5efdefa64b5a00c5afe782215d7d" => :el_capitan
@@ -33,6 +33,10 @@ class Vips < Formula
   depends_on "poppler" => :recommended
   depends_on "librsvg" => :recommended
   depends_on "giflib" => :recommended
+
+  depends_on "cairo" => :linked
+  depends_on "freetype" => :linked
+  depends_on "gdk-pixbuf" => :linked
 
   depends_on "openslide" => :optional
   depends_on "imagemagick" => :optional
