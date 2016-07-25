@@ -1,10 +1,9 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "http://openimageio.org"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-1.6.15.tar.gz"
-  sha256 "07e7d30a2f678d519af17adeb13352a4b80fb380f4458255e1a0152000ce8c90"
+  url "https://github.com/OpenImageIO/oiio/archive/Release-1.6.16.tar.gz"
+  sha256 "619592ef04e9fd239e86be79d13f67234a3a0f4c60b3906ba1eeebfc28dddc89"
   head "https://github.com/OpenImageIO/oiio.git"
-  revision 1
 
   bottle do
     cellar :any
@@ -14,6 +13,7 @@ class Openimageio < Formula
   end
 
   option "with-test", "Dowload 95MB of test images and verify Oiio (~2 min)"
+  option "with-qt", "Build with qt support, neccessary for iv image viewer"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -35,6 +35,8 @@ class Openimageio < Formula
   depends_on "webp"
   depends_on "opencv" => :recommended
   depends_on :python3 => :optional
+
+  depends_on "glew" if build.with? "qt"
 
   depends_on "boost-python" => (build.with?("python3") ? ["with-python3"] : [])
 
@@ -87,12 +89,19 @@ class Openimageio < Formula
       chdir "localpub"
     end
 
+    # May require a revision bump if the glew version changes
+    inreplace "src/cmake/externalpackages.cmake", "GLEW_VERSION 1.5.1", "GLEW_VERSION 2.0.0" if build.with? "qt"
+
     ENV.append "MY_CMAKE_FLAGS", "-Wno-dev" # stops a warning.
-    ENV.append "MY_CMAKE_FLAGS", "-DOPENJPEG_INCLUDE_DIR=#{Formula["openjpeg"].opt_include}/openjpeg-1.5"
-    ENV.append "MY_CMAKE_FLAGS", "-DFREETYPE_INCLUDE_DIRS=#{Formula["freetype"].opt_include}/freetype2"
     ENV.append "MY_CMAKE_FLAGS", "-DUSE_OPENCV=OFF" if build.without? "opencv"
     ENV.append "MY_CMAKE_FLAGS", "-DCMAKE_FIND_FRAMEWORK=LAST"
     ENV.append "MY_CMAKE_FLAGS", "-DCMAKE_VERBOSE_MAKEFILE=ON"
+
+    # Explicilty disable CMake modules to prevent undeclared dependencies
+    ENV.append "MY_CMAKE_FLAGS", "-DUSE_FFMPEG=OFF"
+    ENV.append "MY_CMAKE_FLAGS", "-DUSE_JPEGTURBO=OFF"
+    ENV.append "MY_CMAKE_FLAGS", "-DUSE_LIBRAW=OFF"
+    ENV.append "MY_CMAKE_FLAGS", "-DUSE_PTEX=OFF"
 
     # CMake picks up the system's python dylib, even if we have a brewed one.
     # Code taken from the Insighttoolkit formula
@@ -133,15 +142,21 @@ class Openimageio < Formula
       resource("oiioimages").stage { (d+"oiio-images").install Dir["*"] }
     end
 
-    # make is a shell wrapper for cmake crafted by the devs.
-    args << "USE_OPENGL=" + (build.with?("qt") ? "1" : "0")
-    args << "USE_PYTHON3=1" if build.with? :python3
+    if build.with? "qt"
+      args << "USE_OPENGL=ON"
+      args << "USE_QT=ON"
+    else
+      args << "USE_OPENGL=OFF"
+      args << "USE_QT=OFF"
+    end
+
+    args << "USE_PYTHON3=ON" if build.with? "python3"
 
     system "make", *args
     system "make", "test" if build.with? "test"
     cd "dist/macosx" do
       (lib/"python#{pyver}").install "python"
-      (lib/"python#{py3ver}").install "python3" if build.with? :python3
+      (lib/"python#{py3ver}").install "python3" if build.with? "python3"
       prefix.install %w[bin include]
       lib.install Dir["lib/lib*"]
       doc.install "doc/openimageio.pdf"
