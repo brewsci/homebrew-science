@@ -5,9 +5,10 @@ class Nexusformat < Formula
   sha256 "3cb2860c6040415dd0761ff4cfa062915f65df660c95f6f1fee044c86eddd8a2"
 
   bottle do
-    sha256 "bf653a6a446ffdd8a160bfd1e0c41ec8a8baf5e8e49721d02746c960990edf3d" => :el_capitan
-    sha256 "73844d522f3d373188810b7efba696e6f53bc09e927675e8cf9467e9742e6d04" => :yosemite
-    sha256 "b48d8e0e87d6823537bccaf31f293e16cae79d42537634b1061ff5683905a480" => :mavericks
+    cellar :any
+    sha256 "9c321f7ebfa4862fff0ae02f2144a7d14fd80f9e2322f663bbd278688c8274d9" => :el_capitan
+    sha256 "3f4a3f513079aa3ee9a80ff6e30139a9519a0e12b78a343d47690f5c8c0c9c66" => :yosemite
+    sha256 "6d30387aabb88d7df56ca3226a6d6f2409f57ef0f7f68b3d48798eeaf6e0708e" => :mavericks
   end
 
   option :cxx11
