@@ -5,6 +5,13 @@ class Mathomatic < Formula
   sha256 "d93fe35914dbbafa0e67000480268d7ca3e4de773b70f4130a6b3f4fbb20fae2"
   head "https://github.com/mfillpot/mathomatic.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "0a8706e8eed80d001e8e7d8b2ce6bab4ec61eaca3e7e2077f900377a4fb9a527" => :el_capitan
+    sha256 "7290a8d02d944b54330d9c2f5141b2d7443115e30e6a163c421f638877da6e8c" => :yosemite
+    sha256 "d982a5a8fcc6a02e30b9b6d42f9af03759f2d9f9912a5d5c761811ee7d20ef4f" => :mavericks
+  end
+
   def install
     args = ["prefix=#{prefix}", "datadir=#{pkgshare}", "mandir=#{man}", "mathdocdir=#{doc}", "datadocdir=#{doc}", "READLINE=1"]
     system "make", *args
