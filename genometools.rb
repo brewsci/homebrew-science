@@ -12,6 +12,7 @@ class Genometools < Formula
     sha256 "94362afb9cc048a3b26a3ee8731c9fc75e15b74bf165c10eb9826acf45419738" => :el_capitan
     sha256 "4bc79c22e52962a18051aabaf9dcf86681847abbf3f8430ca79075bce0047dbf" => :yosemite
     sha256 "b432b847a18e0e76cf861b7fed9c814d0b214a6667fc9f40d719fec5985df3fb" => :mavericks
+    sha256 "511e0711954994632f5539fc59b7deb09b221c980b3065d9923f240be8b00051" => :x86_64_linux
   end
 
   option :universal
