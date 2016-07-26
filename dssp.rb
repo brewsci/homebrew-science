@@ -1,8 +1,10 @@
 class Dssp < Formula
+  desc "Secondary structure assignments for the Protein Data Bank"
   homepage "http://swift.cmbi.ru.nl/gv/dssp/"
   url "https://mirrors.kernel.org/debian/pool/main/d/dssp/dssp_2.2.1.orig.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dssp/dssp_2.2.1.orig.tar.gz"
   sha256 "5fb5e7c085de16c05981e3a72869c8b082911a0b46e6dcc6dbd669c9f267e8e1"
+  revision 1
 
   bottle do
     sha256 "d24eda9478670b24b40b27dac9ef9f31034c3f6ab2007900f4a972ec1208a0fd" => :yosemite
@@ -28,19 +30,15 @@ class Dssp < Formula
 
     # There is no need for the build to be static and static build causes
     # an error: ld: library not found for -lcrt0.o
-    inreplace "makefile" do |s|
-      s.gsub!(/-static/, "")
-    end
+    inreplace "makefile", "-static", ""
 
     system "make", "install", "DEST_DIR=#{prefix}", "MAN_DIR=#{man1}"
   end
 
   test do
     resource("pdb").stage do
-      system bin/"mkdssp", "-i", "3zzz_0cyc.pdb",
-             "-o", testpath/"test.dssp"
+      system "mkdssp", "-i", "3zzz_0cyc.pdb", "-o", testpath/"test.dssp"
     end
-    assert_match "POLYPYRIMIDINE TRACT BINDING PROTEIN RRM2",
-                 (testpath/"test.dssp").read
+    assert_match "POLYPYRIMIDINE TRACT BINDING PROTEIN RRM2", (testpath/"test.dssp").read
   end
 end
