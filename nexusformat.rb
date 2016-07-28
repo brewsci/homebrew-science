@@ -20,7 +20,6 @@ class Nexusformat < Formula
   depends_on "readline" => :recommended
   depends_on "homebrew/versions/hdf4" => :recommended
   depends_on "doxygen" => :optional
-  depends_on "szip" => :linked
 
   # C++ API fails to build after selecting the C++11 or later standard.
   # https://github.com/nexusformat/code/pull/435
