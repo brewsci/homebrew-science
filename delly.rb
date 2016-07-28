@@ -4,6 +4,8 @@ class Delly < Formula
   url "https://github.com/tobiasrausch/delly/archive/v0.7.5.tar.gz"
   sha256 "14daf744e7179b2781cbb88b26f674d1221c0093fec6d33c13a6d2863577598a"
   head "https://github.com/tobiasrausch/delly.git"
+  # doi "10.1093/bioinformatics/bts378"
+  # tag "bioinformatics"
 
   bottle do
     sha256 "172504e231086e94ea153395332c51b7bdaf142cedd3b890bace6c8ed620e094" => :el_capitan
