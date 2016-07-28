@@ -1,12 +1,11 @@
 class Skewer < Formula
   desc "Fast and accurate NGS adapter trimmer"
-  homepage "http://sourceforge.net/projects/skewer/"
-  # tag "bioinformatics"
+  homepage "https://github.com/relipmoc/skewer"
+  url "https://github.com/relipmoc/skewer/archive/0.1.126.tar.gz"
+  sha256 "3430fdddcdbea0f5c852b330f99f8773b57f9053bc3ace9f89367e836c2a1332"
+  head "https://github.com/relipmoc/skewer.git"
   # doi "10.1186/1471-2105-15-182"
-
-  url "https://github.com/relipmoc/skewer.git",
-    :revision => "e8e05fc506e94f964d671c7f0349585baf8d286c"
-  version "0.1.126"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,6 +22,6 @@ class Skewer < Formula
   end
 
   test do
-    assert_match "Nextera", shell_output("skewer --help 2>&1", 1)
+    assert_match "USAGE", shell_output("#{bin}/skewer --help 2>&1", 1)
   end
 end
