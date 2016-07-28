@@ -1,8 +1,8 @@
 class Skewer < Formula
   desc "Fast and accurate NGS adapter trimmer"
   homepage "https://github.com/relipmoc/skewer"
-  url "https://github.com/relipmoc/skewer/archive/0.1.126.tar.gz"
-  sha256 "3430fdddcdbea0f5c852b330f99f8773b57f9053bc3ace9f89367e836c2a1332"
+  url "https://github.com/relipmoc/skewer/archive/0.2.2.tar.gz"
+  sha256 "bc37afccdf55de047502b87fe56d537cdf78674ccaec1a401b2d29552d6b2dfc"
   head "https://github.com/relipmoc/skewer.git"
   # doi "10.1186/1471-2105-15-182"
   # tag "bioinformatics"
@@ -16,7 +16,7 @@ class Skewer < Formula
   end
 
   def install
-    system "make", "CXXFLAGS=-O2 -c"
+    system "make", "CXX=#{ENV.cxx}", "CXXFLAGS=-c #{ENV.cxxflags}"
     bin.install "skewer"
     doc.install "README.md", "LICENSE"
   end
