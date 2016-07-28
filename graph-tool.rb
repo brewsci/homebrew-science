@@ -42,9 +42,6 @@ class GraphTool < Formula
   if build.with? "cairo"
     depends_on "py2cairo" if build.with? "python"
     depends_on "py3cairo" if build.with? "python3"
-    depends_on "cairo" => :linked
-    depends_on "libsigc++" => :linked
-    depends_on "gmp" => :linked
   end
 
   if build.with? "gtk+3"
