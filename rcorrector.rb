@@ -7,6 +7,13 @@ class Rcorrector < Formula
   # doi "10.1186/s13742-015-0089-y"
   # tag "bioinformatics"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "652a86c2cc09aea5dd00038e2ed9ab3776f9cc086e0859274763b510aa78ee1d" => :el_capitan
+    sha256 "9d6f6a32d1bf8d19635f46a48e5062f2ca35dd1014a2f9e4e016a16eb7f40a47" => :yosemite
+    sha256 "d3cef8dc62cb87cb197b40c3beb00d28a667f3ccdbde24e953f1393bc7c01c57" => :mavericks
+  end
+
   depends_on "jellyfish"
 
   def install
