@@ -7,6 +7,13 @@ class Pilon < Formula
   # doi "10.1371/journal.pone.0112963"
   # tag "bioinformatics"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "3d0ef53b1593729bfb1699c541d92679e350ccf329f4b9345965778c1742d8f0" => :el_capitan
+    sha256 "d09447178b800403b14b89a138a6a57280c4abe68eab40a343bdf2dc38fa53fc" => :yosemite
+    sha256 "40061af656772107896ac883d514f5c3d01fe8bf36e95dfe5db501a2c32539fa" => :mavericks
+  end
+
   depends_on :java
 
   def install
