@@ -19,7 +19,6 @@ class Gubbins < Formula
   depends_on "libtool"   => :build
   depends_on "check"     => :build
   depends_on :python3
-  depends_on "freetype" => :linked
   depends_on "homebrew/python/numpy" => ["with-python3"]
   depends_on "homebrew/python/pillow" => ["with-python3"]
   depends_on "zlib" unless OS.mac?
