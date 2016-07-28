@@ -6,6 +6,13 @@ class Busco < Formula
   # doi "10.1093/bioinformatics/btv351"
   # tag "bioinformatics"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "1528092c980501dbcb700ae395153bc34780e337b36ebd5796625d5e8ef608f2" => :el_capitan
+    sha256 "29483abacdd407ae5d7a5e3f19c2cabdb2efda398a29051df7d299f884afd713" => :yosemite
+    sha256 "21a0045beef5494b79e9dd349258ef89451e18a5019097e5d5ce69e5c292d8a0" => :mavericks
+  end
+
   depends_on :python
 
   def install
