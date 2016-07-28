@@ -31,20 +31,6 @@ class Gmsh < Formula
   depends_on "fltk" => :optional
   depends_on "cairo" if build.with? "fltk"
 
-  depends_on "cairo" => :linked
-  depends_on "fftw" => :linked
-  depends_on "gmp" => :linked
-  depends_on "jpeg" => :linked
-  depends_on "libpng" => :linked
-  depends_on "hdf5" => :linked
-  depends_on "hwloc" => :linked
-  depends_on "metis" => :linked
-  depends_on "netcdf" => :linked
-  depends_on "parmetis" => :linked
-  depends_on "scalapack" => :linked
-  depends_on "suite-sparse" => :linked
-  depends_on "sundials" => :linked
-  depends_on "superlu_dist" => :linked
 
   if build.with?("opencascade") && build.with?("oce")
     odie "gmsh: --without-opencascade must be specified when using --with-oce"
