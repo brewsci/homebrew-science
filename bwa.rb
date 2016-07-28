@@ -4,8 +4,8 @@ class Bwa < Formula
   # doi "10.1093/bioinformatics/btp324"
   # tag "bioinformatics"
 
-  url "https://github.com/lh3/bwa/releases/download/v0.7.13/bwa-0.7.13.tar.bz2"
-  sha256 "559b3c63266e5d5351f7665268263dbb9592f3c1c4569e7a4a75a15f17f0aedc"
+  url "https://github.com/lh3/bwa/releases/download/v0.7.15/bwa-0.7.15.tar.bz2"
+  sha256 "2f56afefa49acc9bf45f12edb58e412565086cc20be098b8bf15ec07de8c0515"
 
   head "https://github.com/lh3/bwa.git"
 
