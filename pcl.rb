@@ -48,11 +48,6 @@ class Pcl < Formula
   depends_on "openni" => :optional
   depends_on "openni2" => :optional
 
-  depends_on "jpeg" => :linked
-  depends_on "libpng" => :linked
-  depends_on "libtiff" => :linked
-  depends_on "szip" => :linked
-  depends_on "hdf5" => :linked
 
   def install
     args = std_cmake_args + %W[
