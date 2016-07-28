@@ -34,9 +34,6 @@ class Vips < Formula
   depends_on "librsvg" => :recommended
   depends_on "giflib" => :recommended
 
-  depends_on "cairo" => :linked
-  depends_on "freetype" => :linked
-  depends_on "gdk-pixbuf" => :linked
 
   depends_on "openslide" => :optional
   depends_on "imagemagick" => :optional
