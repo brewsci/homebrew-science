@@ -22,7 +22,6 @@ class Spades < Formula
     cause "Compiling SPAdes requires GCC >= 4.7 for OpenMP 3.1 support"
   end
 
-  depends_on "gcc" => :linked # needed for openmp
 
   def install
     mkdir "src/build" do
