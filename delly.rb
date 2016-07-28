@@ -1,8 +1,8 @@
 class Delly < Formula
   desc "Structural variant discovery by paired-end and split-read analysis"
   homepage "https://github.com/tobiasrausch/delly"
-  url "https://github.com/tobiasrausch/delly/archive/v0.7.3.tar.gz"
-  sha256 "0a33178d468aa8e2247c46fd601919777634eb8948aeef3acc4e5f96536190ed"
+  url "https://github.com/tobiasrausch/delly/archive/v0.7.5.tar.gz"
+  sha256 "14daf744e7179b2781cbb88b26f674d1221c0093fec6d33c13a6d2863577598a"
   head "https://github.com/tobiasrausch/delly.git"
 
   bottle do
@@ -20,8 +20,9 @@ class Delly < Formula
   end
 
   resource "linux-binary" do
-    url "https://github.com/tobiasrausch/delly/releases/download/v0.7.3/delly_v0.7.3_CentOS5.4_x86_64bit"
-    sha256 "c6dd1fdd89c7e8af9b8b9eca2ea572716b2d010f93a057c614c14439de91142b"
+    url "https://github.com/tobiasrausch/delly/releases/download/v0.7.5/delly_v0.7.5_CentOS5.4_x86_64bit"
+    version "0.7.5"
+    sha256 "ffacd99c373b82ef346179868db94af7615877e5fdf6252f797c2a45e984ea99"
   end
 
   # The tests were removed after 0.6.5, but they still work
@@ -49,7 +50,8 @@ class Delly < Formula
   end
 
   test do
-    system "delly", "call", "-t", "DEL", "-g", pkgshare/"test/DEL.fa", "-o", testpath/"test.vcf", pkgshare/"test/DEL.bam"
-    assert File.exist? testpath/"test.vcf"
+    system bin/"delly", "call", "-t", "DEL", "-g", pkgshare/"test/DEL.fa",
+           "-o", "test.vcf", pkgshare/"test/DEL.bam"
+    assert File.exist?("test.vcf"), "Failed to create test.vcf!"
   end
 end
