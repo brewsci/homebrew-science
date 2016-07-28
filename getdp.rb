@@ -32,14 +32,6 @@ class Getdp < Formula
   depends_on "petsc"    => :recommended
   depends_on "slepc"    => :recommended
 
-  depends_on "fftw" => :linked
-  depends_on "hwloc" => :linked
-  depends_on "netcdf" => :linked
-  depends_on "parmetis" => :linked
-  depends_on "scalapack" => :linked
-  depends_on "suite-sparse" => :linked
-  depends_on "sundials" => :linked
-  depends_on "superlu_dist" => :linked
 
   depends_on "cmake"    => :build
 
