@@ -1,8 +1,8 @@
 class Trimmomatic < Formula
   desc "Flexible read trimming tool for Illumina data"
   homepage "http://www.usadellab.org/cms/?page=trimmomatic"
-  url "http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.35.zip"
-  sha256 "43b993ffa91c039b529db8334bc6aa4b0d601e69c79aaa9a1457ecd1c2c3cc69"
+  url "http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.36.zip"
+  sha256 "4846c42347b663b9d6d3a8cef30da2aec89fc718bf291392c58e5afcea9f70fe"
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btu170"
 
@@ -18,7 +18,7 @@ class Trimmomatic < Formula
 
   def install
     cmd = "trimmomatic"
-    jar = "#{cmd}-0.35.jar"
+    jar = "#{cmd}-0.36.jar"
     java = share/"java"
     java.install jar
     bin.write_jar_script java/jar, cmd
