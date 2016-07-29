@@ -17,11 +17,10 @@ class Soapdenovo < Formula
   head "https://github.com/aquaskyline/SOAPdenovo2.git"
 
   bottle do
-    cellar :any
-    sha256 "7405aab339c273e5384daf5e4b5022d326794b613a72a82e3dd51213f57e4d51" => :yosemite
-    sha256 "5e50ec67bd196042344214132ba175648f8b4140f069245b79551a7d770565e2" => :mavericks
-    sha256 "76c9e5c7ec9fb90ba94711b478a0b26a474fb91abff549d4efcaddc5120ba931" => :mountain_lion
-    sha256 "9a0d92735144cf0a45f0817beb34c774a2171c39a8c9984c611f78ed8db33f1a" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "45eff6f4d00ab87723e56cd9a70266f1655dd348c90956a5638a9b342747aa36" => :el_capitan
+    sha256 "36d4d5cf74c42109dc554d94a63043d092e1f7a2114870e5b58463d484546bfc" => :yosemite
+    sha256 "61a15f82f4419cfd5f30e386ec73ebaefe2327ed364a6de77bdc813747f8ba25" => :mavericks
   end
 
   # Fix undefined reference to `call_pregraph_sparse'
