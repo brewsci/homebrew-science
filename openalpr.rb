@@ -6,11 +6,9 @@ class Openalpr < Formula
   head "https://github.com/openalpr/openalpr.git", :branch => "master"
 
   bottle do
-    cellar :any
-    revision 1
-    sha256 "5e0af8c162176b5d4fe2ce344f4b7189f574089668085683c11c698fc9c16994" => :el_capitan
-    sha256 "bd18915d4c6bf5c24b38628694887b93a56040d6ccb5bdb71070f0e4229feb91" => :yosemite
-    sha256 "9546d90b5d3aaf22541651f521b3cabd8a4abe428de117c50135b2b248b4e7c3" => :mavericks
+    sha256 "88834bb81c3d4c937f6875223e98e26490854f3310f7ac1524f313c6e9ed3e71" => :el_capitan
+    sha256 "962168ab7bf72ed14060f4c36a493251b180332b8c8b4e898dd9b1c3956faa0f" => :yosemite
+    sha256 "b4b365cd4d4200b1acc3c388d7ffee809544c05863751751852e23f56ff6d8dd" => :mavericks
   end
 
   option "without-daemon", "Do not include the alpr daemon (alprd)"
