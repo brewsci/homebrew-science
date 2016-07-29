@@ -7,14 +7,14 @@ class Alembic < Formula
   version "1.5.4"
   revision 1
 
+  head "https://code.google.com/p/alembic/", :using => :hg
+
   bottle do
     cellar :any
     sha256 "fe01ae8b52ef731a968e4265ba2cb417220c0d24b9c83fba65cd84c417992cf1" => :el_capitan
     sha256 "f15a44339aabbab8d7a720da2f1df254535ad1f06d7be27b4e3c7fe0c015f352" => :yosemite
     sha256 "edf196a94ff53d1d77ffeaecd13323f639ab90ddf102b08fb9e365859b2d5e88" => :mavericks
   end
-
-  head "https://code.google.com/p/alembic/", :using => :hg
 
   needs :cxx11
 
