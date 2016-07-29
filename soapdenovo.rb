@@ -1,4 +1,5 @@
 class Soapdenovo < Formula
+  desc "Next generation sequencing reads de novo assembler"
   homepage "http://soap.genomics.org.cn/soapdenovo.html"
   # doi "10.1186/2047-217X-1-18"
   # tag "bioinformatics"
@@ -11,6 +12,9 @@ class Soapdenovo < Formula
     sha256 "b58fdb9b14766a122992d23dba5e91bd733c86e0062b432181aa5c1e7f052bb7"
   end
   version "2.04.r240"
+  revision 1
+
+  head "https://github.com/aquaskyline/SOAPdenovo2.git"
 
   bottle do
     cellar :any
@@ -28,6 +32,9 @@ class Soapdenovo < Formula
   end unless OS.mac?
 
   def install
+    # Without deparallelize, you get a mishmash of 63-mer and 127-mer object files.
+    ENV.deparallelize
+
     system "make"
     bin.install %w[SOAPdenovo-63mer SOAPdenovo-127mer]
     doc.install %w[LICENSE MANUAL VERSION]
