@@ -15,6 +15,10 @@ class Busco < Formula
   end
 
   depends_on :python
+  depends_on "augustus" => :run
+  depends_on "blast" => :run
+  depends_on "emboss" => :run
+  depends_on "hmmer" => :run
 
   def install
     bin.install "BUSCO_v#{version}.py" => "busco"
