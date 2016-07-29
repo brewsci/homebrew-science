@@ -24,7 +24,7 @@ class Alpscore < Formula
   boost_options << "c++11" if build.cxx11?
   depends_on "boost" => boost_options
 
-  depends_on "hdf5" => ((build.cxx11?) ? ["c++11"] : [])
+  depends_on "hdf5" => (build.cxx11? ? ["c++11"] : [])
 
   def install
     ENV.cxx11 if build.cxx11?
@@ -71,10 +71,11 @@ class Alpscore < Formula
         p["myparam"] = 1.0;
       }
     EOS
-    args_compile = ["test.cpp",
-                    "-lalps-accumulators", "-lalps-hdf5", "-lalps-utilities", "-lalps-params",
-                    "-lboost_filesystem-mt", "-lboost_system-mt", "-lboost_program_options-mt"
-                   ]
+    args_compile = [
+      "test.cpp",
+      "-lalps-accumulators", "-lalps-hdf5", "-lalps-utilities", "-lalps-params",
+      "-lboost_filesystem-mt", "-lboost_system-mt", "-lboost_program_options-mt"
+    ]
     args_compile << "-o" << "test"
     system ((build.with? "mpi") ? "mpicxx" : ENV.cxx), *args_compile
     system "./test"
