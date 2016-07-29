@@ -1,10 +1,8 @@
 class Openalpr < Formula
   desc "Automatic License Plate Recognition library"
   homepage "https://github.com/openalpr/openalpr"
-  url "https://github.com/openalpr/openalpr/archive/v2.2.0.tar.gz"
-  sha256 "44258a7b64a74ad773825f37ba0a77e07ee97fdb9cd1f4a45baede624524f20f"
-  revision 1
-
+  url "https://github.com/openalpr/openalpr/archive/v2.3.0.tar.gz"
+  sha256 "1cfcaab6f06e9984186ee19633a949158c0e2aacf9264127e2f86bd97641d6b9"
   head "https://github.com/openalpr/openalpr.git", :branch => "master"
 
   bottle do
@@ -35,7 +33,7 @@ class Openalpr < Formula
 
       # v2.2.0 require CMAKE_MACOSX_RPATH
       args << "-DCMAKE_MACOSX_RPATH=true"
-      args << "-DCMAKE_INSTALL_SYSCONFDIR=/usr/local/etc"
+      args << "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}"
 
       if build.without? "daemon"
         if build.head?
@@ -53,7 +51,7 @@ class Openalpr < Formula
   end
 
   test do
-    actual = `#{bin}/alpr #{HOMEBREW_PREFIX}/Library/Homebrew/test/fixtures/test.jpg`
-    assert_equal "No license plates found.\n", actual, "output from reading test JPG image"
+    output = shell_output("#{bin}/alpr #{test_fixtures("test.jpg")}")
+    assert_equal "No license plates found.", output.chomp
   end
 end
