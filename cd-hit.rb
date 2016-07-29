@@ -4,9 +4,9 @@ class CdHit < Formula
   # doi "10.1093/bioinformatics/btl158"
   # tag "bioinformatics"
 
-  url "https://github.com/weizhongli/cdhit/releases/download/V4.6.4/cd-hit-v4.6.4-2015-0603.tar.gz"
-  version "4.6.4"
-  sha256 "ca0050b6b27649dd548b6d74c2873dd76cff7bfdf70fb6f8e8578d0fa128d92c"
+  url "https://github.com/weizhongli/cdhit/releases/download/V4.6.6/cd-hit-v4.6.6-2016-0711.tar.gz"
+  version "4.6.6"
+  sha256 "97946f8ae62c3efa20ad4c527b8ea22200cf1b75c9941fb14de2bdaf1d6910f1"
 
   head "https://github.com/weizhongli/cdhit.git"
 
