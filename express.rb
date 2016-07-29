@@ -19,6 +19,10 @@ class Express < Formula
 
   def install
     inreplace "CMakeLists.txt", "set(Boost_USE_STATIC_LIBS ON)", ""
+
+    # Fix undefined reference to `deflate'
+    inreplace "src/CMakeLists.txt", 'libbamtools.a"', 'libbamtools.a" "-lz"'
+
     mkdir "bamtools"
     ln_s Formula["bamtools"].include/"bamtools", "bamtools/include"
     ln_s Formula["bamtools"].lib, "bamtools/"
