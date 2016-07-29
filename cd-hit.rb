@@ -15,10 +15,9 @@ class CdHit < Formula
 
   bottle do
     cellar :any
-    sha256 "d39f86e1115c63cbfb0f69ac9f10112ba93cde7de8e5113b8c62ab59bd770557" => :el_capitan
-    sha256 "687cb4899593b076dad1c9b7f82134b0e348db6a27dfa53b2743ae67ada0e71b" => :yosemite
-    sha256 "c4140245c4490436da64e35f3dc92e08903df12516e3b949acd013293ecbea4f" => :mavericks
-    sha256 "993fcce46c3a591e8ddd6453fd53f0b0c43f46a69099b68c0976b3aa843687ca" => :x86_64_linux
+    sha256 "3fb261d867d15de894911baa06140b920b34408a5917b92a4aeb780db2402e78" => :el_capitan
+    sha256 "44f2addb6cc0678b85a5c760ac9e83f9372c21a496e5ecea9b367e585c28aa5c" => :yosemite
+    sha256 "c2750c16922bea6bd9df9120dd3bdb776c88f7f753eb01f938fd9ce8dfc987d3" => :mavericks
   end
 
   def install
