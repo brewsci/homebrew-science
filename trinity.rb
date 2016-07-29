@@ -15,6 +15,7 @@ class Trinity < Formula
     sha256 "e0ede844281630b088be3dc1b0983e02aa9307a866ebdbc6320e1d596c142a70" => :el_capitan
     sha256 "9a6653a4b288245afcf0e71c024a51a8a8325e5ac54e9252920ff021efa7db37" => :yosemite
     sha256 "5902d884766d2bb88b252e64be063374b17a0d62274c7a26229d46a5e4576d65" => :mavericks
+    sha256 "ab62075292fa00b265ef44554ad015344cc8137a3859c661860c044bb57c699d" => :x86_64_linux
   end
 
   depends_on "express" => :recommended
