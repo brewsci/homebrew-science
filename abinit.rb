@@ -15,6 +15,8 @@ class Abinit < Formula
   option "without-test", "Skip build-time tests (not recommended)"
   option "with-testsuite", "Run full test suite (time consuming)"
 
+  deprecated_option "without-check" => "without-test"
+
   depends_on :mpi => [:cc, :cxx, :f77, :f90]
   depends_on :fortran
   depends_on "veclibfort"
@@ -31,16 +33,18 @@ class Abinit < Formula
     ENV.delete "CXX"
     ENV.delete "F77"
     ENV.delete "FC"
-    args = %W[CC=#{ENV["MPICC"]}
-              CXX=#{ENV["MPICXX"]}
-              F77=#{ENV["MPIF77"]}
-              FC=#{ENV["MPIFC"]}
-              --prefix=#{prefix}
-              --enable-mpi=yes
-              --with-mpi-prefix=#{HOMEBREW_PREFIX}
-              --enable-optim=safe
-              --enable-openmp=no
-              --enable-gw-dpc]
+    args = %W[
+      CC=#{ENV["MPICC"]}
+      CXX=#{ENV["MPICXX"]}
+      F77=#{ENV["MPIF77"]}
+      FC=#{ENV["MPIFC"]}
+      --prefix=#{prefix}
+      --enable-mpi=yes
+      --with-mpi-prefix=#{HOMEBREW_PREFIX}
+      --enable-optim=safe
+      --enable-openmp=no
+      --enable-gw-dpc
+    ]
 
     dft_flavor = "none"
     trio_flavor = "none"
