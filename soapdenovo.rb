@@ -21,6 +21,7 @@ class Soapdenovo < Formula
     sha256 "45eff6f4d00ab87723e56cd9a70266f1655dd348c90956a5638a9b342747aa36" => :el_capitan
     sha256 "36d4d5cf74c42109dc554d94a63043d092e1f7a2114870e5b58463d484546bfc" => :yosemite
     sha256 "61a15f82f4419cfd5f30e386ec73ebaefe2327ed364a6de77bdc813747f8ba25" => :mavericks
+    sha256 "c8639f2fcfcdf1e26eb9a875ca413729aa0c4ee94ba6ebc553f6f7e97e19400e" => :x86_64_linux
   end
 
   # Fix undefined reference to `call_pregraph_sparse'
