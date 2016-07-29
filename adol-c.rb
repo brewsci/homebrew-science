@@ -22,9 +22,7 @@ class AdolC < Formula
     ENV.cxx11
 
     # Configure may get automatically regenerated. So patch configure.ac.
-    inreplace %w[configure configure.ac] do |s|
-      s.gsub! "lib64", "lib"
-    end
+    inreplace %w[configure configure.ac], "lib64", "lib"
 
     args =  ["--prefix=#{prefix}", "--enable-sparse"]
     args << "--with-colpack=#{Formula["colpack"].opt_prefix}" if build.with? "colpack"
