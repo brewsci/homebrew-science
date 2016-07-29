@@ -4,8 +4,8 @@ class Diamond < Formula
   # doi "10.1038/nmeth.3176"
   # tag "bioinformatics"
 
-  url "https://github.com/bbuchfink/diamond/archive/v0.7.9.tar.gz"
-  sha256 "25dc43e41768f7a41c98b8b1dcf5aa2c51c0eaf62e71bff22ad01c97b663d341"
+  url "https://github.com/bbuchfink/diamond/archive/v0.8.16.tar.gz"
+  sha256 "369cbacc8169671a299cb87278a868fea3179da7d4c18eabf04f4c8750a5e482"
 
   bottle do
     sha256 "e0eb3edc6f875a6b8e37b2d369b27510ec714faf2e94ff414edb94fbd34a1141" => :yosemite
@@ -14,20 +14,15 @@ class Diamond < Formula
     sha256 "3a2da6cefa347fd6530eb53ced02e3b10212eb9c560566c7801fde3836fca862" => :x86_64_linux
   end
 
+  depends_on "cmake" => :build
   depends_on "boost"
 
   def install
-    Dir.chdir("src") do
-      inreplace "Makefile", "-Iboost/include", "-I#{Formula["boost"].include}"
-      inreplace "Makefile", "LIBS=-l", "LIBS=-L#{Formula["boost"].lib} -l"
-      inreplace "Makefile", "-lboost_thread", "-lboost_thread-mt"
-      system "make"
-    end
-    bin.install "bin/diamond"
-    doc.install "README.rst"
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do
-    assert_match "gapextend", shell_output("diamond -h 2>&1", 0)
+    assert_match "gapextend", shell_output("#{bin}/diamond help 2>&1")
   end
 end
