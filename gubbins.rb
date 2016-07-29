@@ -1,8 +1,8 @@
 class Gubbins < Formula
   desc "Detect recombinations in Bacteria"
   homepage "https://github.com/sanger-pathogens/gubbins"
-  url "https://github.com/sanger-pathogens/gubbins/archive/v2.0.0.tar.gz"
-  sha256 "1ebabbf390f4454345085787329c3c2101ab2fc68e27342c3f3aefb4841222c6"
+  url "https://github.com/sanger-pathogens/gubbins/archive/v2.1.0.tar.gz"
+  sha256 "27d9d26febf8858e038d91d32ec8736d61644e13069c1cc81b8315eb7b32318f"
   head "https://github.com/sanger-pathogens/gubbins.git"
   # tag "bioinformatics"
   # doi "10.1093/nar/gku1196"
@@ -81,8 +81,8 @@ class Gubbins < Formula
   end
 
   test do
-    assert_match "recombinations", shell_output("gubbins -h 2>&1", 0)
-    assert_match "Rapid", shell_output("run_gubbins.py -h 2>&1", 0)
-    assert_match "tree", shell_output("gubbins_drawer.py -h 2>&1", 0)
+    assert_match "recombinations", shell_output("#{bin}/gubbins -h 2>&1")
+    assert_match "Rapid", shell_output("#{bin}/run_gubbins.py -h 2>&1")
+    assert_match "tree", shell_output("#{bin}/gubbins_drawer.py -h 2>&1")
   end
 end
