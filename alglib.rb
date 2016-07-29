@@ -1,4 +1,5 @@
 class Alglib < Formula
+  desc "Cross-platform numerical analysis library"
   homepage "http://www.alglib.net"
   url "http://alglib.net/translator/re/alglib-2.6.0.cpp.zip"
   version "2.6.0"
