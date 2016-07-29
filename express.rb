@@ -9,6 +9,9 @@ class Express < Formula
   # doi "10.1038/nmeth.2251"
   # tag "bioinformatics"
 
+  bottle do
+    sha256 "673ec67525b87ae859d349368284d1e4e1fb537287db177bbc15285c2a37b442" => :x86_64_linux
+  end
   bottle :disable, "Work around 'Illegal instruction: 4' during CI" if OS.mac?
 
   depends_on "bamtools"
