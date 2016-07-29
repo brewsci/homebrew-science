@@ -24,9 +24,12 @@ class Abyss < Formula
   end
 
   option :cxx11
-  option "enable-maxk=", "Set the maximum k-mer length to N [default is 96]"
-  option "without-check", "Skip build-time tests (not recommended)"
+  option "with-maxk=", "Set the maximum k-mer length to N [default is 96]"
+  option "without-test", "Skip build-time tests (not recommended)"
   option "with-openmp", "Enable OpenMP multithreading"
+
+  deprecated_option "enable-maxk" => "with-maxk"
+  deprecated_option "without-check" => "without-test"
 
   needs :openmp if build.with? "openmp"
 
@@ -44,13 +47,14 @@ class Abyss < Formula
     system "./autogen.sh" if build.head?
 
     args = [
-      "--enable-maxk=#{ARGV.value("enable-maxk") || 96}",
+      "--enable-maxk=#{ARGV.value("with-maxk") || 96}",
       "--prefix=#{prefix}",
-      "--disable-dependency-tracking"]
+      "--disable-dependency-tracking",
+    ]
 
     system "./configure", *args
     system "make"
-    system "make", "check" if build.with? "check"
+    system "make", "check" if build.with? "test"
     system "make", "install"
   end
 
