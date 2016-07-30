@@ -7,10 +7,11 @@ class Mcl < Formula
   # tag "bioinformatics"
 
   bottle do
-    cellar :any
-    sha256 "ee751daa79605617936d8ec30f456d46d13729dbf3a43238b746683f721145c2" => :yosemite
-    sha256 "e8e0fcb0da6f1177a00d4c11674824df03944c0896d1e752f513fdd94f74fa17" => :mavericks
-    sha256 "0eb411a4a383fdfee14fefa90588a5d3cad38930a94866a4683bb22e219d6db6" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "96193e00265275f392d64742e6298a482832cd4a7848a9e4e4b18d8440d22075" => :el_capitan
+    sha256 "7224fd6d488de1671a28b905a39a2a4451c02a53faff329940b7d9793c82d5bb" => :yosemite
+    sha256 "dc43d7491e66496ff3358ed9fb5c057a0bd73e6d9e5227221f5b8842b17980fc" => :mavericks
   end
 
   def install
