@@ -20,7 +20,7 @@ class Octave < Formula
     end
   end
 
-  if OS.mac? && MacOS.clang_version < "7.0"
+  if OS.mac? && DevelopmentTools.clang_version < "7.0"
     # Fix the build error with LLVM 3.5svn (-3.6svn?) and libc++ (bug #43298)
     # See: http://savannah.gnu.org/bugs/?43298
     patch do
