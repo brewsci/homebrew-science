@@ -3,6 +3,8 @@ class Gubbins < Formula
   homepage "https://github.com/sanger-pathogens/gubbins"
   url "https://github.com/sanger-pathogens/gubbins/archive/v2.1.0.tar.gz"
   sha256 "27d9d26febf8858e038d91d32ec8736d61644e13069c1cc81b8315eb7b32318f"
+  revision 1
+
   head "https://github.com/sanger-pathogens/gubbins.git"
   # tag "bioinformatics"
   # doi "10.1093/nar/gku1196"
@@ -19,8 +21,8 @@ class Gubbins < Formula
   depends_on "libtool"   => :build
   depends_on "check"     => :build
   depends_on :python3
-  depends_on "homebrew/python/numpy" => ["with-python3"]
-  depends_on "homebrew/python/pillow" => ["with-python3"]
+  depends_on "homebrew/python/numpy" => ["with-python3", "without-python"]
+  depends_on "homebrew/python/pillow" => ["with-python3", "without-python"]
   depends_on "zlib" unless OS.mac?
   depends_on "raxml"
   depends_on "fasttree" => ["with-double", :recommended]
