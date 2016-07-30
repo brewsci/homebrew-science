@@ -3,8 +3,8 @@ class Seqtk < Formula
   homepage "https://github.com/lh3/seqtk"
   # tag "bioinformatics"
 
-  url "https://github.com/lh3/seqtk/archive/v1.1.tar.gz"
-  sha256 "f01b9f9af6e443673a0105a7536a01957a4fc371826385a1f3dd1e417aa91d52"
+  url "https://github.com/lh3/seqtk/archive/v1.2.tar.gz"
+  sha256 "bd53316645ab10f0aaba59e1e72c28442ee4c9c37fddaacce5e24757eff78d7b"
 
   head "https://github.com/lh3/seqtk.git"
 
