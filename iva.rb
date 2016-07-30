@@ -3,8 +3,10 @@ class Iva < Formula
   homepage "https://github.com/sanger-pathogens/iva"
   url "https://github.com/sanger-pathogens/iva/archive/v1.0.0.tar.gz"
   sha256 "c2054b7e922accf03e038d5f128b1e2f96c6cabc92c8a67a3b01e0412c29b7d3"
-  head "https://github.com/sanger-pathogens/iva.git"
   revision 1
+  head "https://github.com/sanger-pathogens/iva.git"
+  # doi "10.1093/bioinformatics/btv120"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any_skip_relocation
