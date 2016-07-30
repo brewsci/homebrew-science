@@ -6,9 +6,9 @@ class Analysis < Formula
 
   bottle do
     cellar :any
-    sha256 "40055b7f5992ceb0e82ebbb416c0ef9ed4ddadc128df8230edcf012242059c6b" => :yosemite
-    sha256 "67b41c0f0a5ff58e4a7e56c5656bbb6daff0819e27218e3a214245f74fff502c" => :mavericks
-    sha256 "5fc72ebd81ba0027610720a264ff3aba6613e10fe2de905b74b9c46c32649c55" => :mountain_lion
+    sha256 "73715fa6c7409ed0a61a1ef1fc52d9be3ecfb6b957cff457dda00e78994f7a07" => :el_capitan
+    sha256 "7401dbfefd51ca79a1108e74bcfe28ba6d07d3e7ba00dfd66be2741fe42083fa" => :yosemite
+    sha256 "46f056c0fe1224a7d1f177d0baed6d1b13ee3948078570de3204833e4aac8dbc" => :mavericks
   end
 
   depends_on "gsl"
