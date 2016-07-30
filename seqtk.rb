@@ -13,6 +13,7 @@ class Seqtk < Formula
     sha256 "7d26cf785f5c4d4eceb170198423b1d77be751aba18e4c72ef2f21bf946817ae" => :el_capitan
     sha256 "e4b6134eb4970b82fba4a291aef6f702c93a449033026f0f6c96dd71001e855b" => :yosemite
     sha256 "e0bb91282b4ed3c52a61f63f5bd6dcfab3131a567a744df9dd8778e8f4b7ff75" => :mavericks
+    sha256 "e92f2efea04c95b48b337c6b5de2e46f31c2c45e7543e1a621a6c9a1a8efcf4e" => :x86_64_linux
   end
 
   def install
