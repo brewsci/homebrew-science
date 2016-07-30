@@ -10,9 +10,10 @@ class Iva < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "486eec6468c9c8fd9d18e7c742401dff0fba1b33dfa5142dfb806d966d2662c8" => :yosemite
-    sha256 "7a8c29b61694656a4869163482ad224aac719d4a2799a605ee6b722c89a4a6da" => :mavericks
-    sha256 "8b5487cb63eaf6c241c07a139a0e3721e70e6e1ba13241557f92e86573f19f2a" => :mountain_lion
+    revision 1
+    sha256 "fa873a566f7430fcd1e5b070e52a69526a81378876aa47d1cbc6f107ceaa2842" => :el_capitan
+    sha256 "19220ffeb3f2eecd8d42d81cb5449bbc9f9ede57facd805423d94f8ce257a927" => :yosemite
+    sha256 "c53d8c24c4d8b6f97319f485efc03c7380d253134ebe36e3815631c0e57b0a84" => :mavericks
   end
 
   # tag "bioinformatics"
