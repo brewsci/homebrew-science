@@ -1,5 +1,5 @@
 class Octave < Formula
-  desc "high-level interpreted language for numerical computing"
+  desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
 
   stable do
@@ -305,8 +305,8 @@ class Octave < Formula
   end
 
   test do
-    system "octave", "--eval", "(22/7 - pi)/pi"
+    system bin/"octave", "--eval", "(22/7 - pi)/pi"
     # this is supposed to crash octave if there is a problem with veclibfort
-    system "octave", "--eval", "single ([1+i 2+i 3+i]) * single ([ 4+i ; 5+i ; 6+i])"
+    system bin/"octave", "--eval", "single ([1+i 2+i 3+i]) * single ([ 4+i ; 5+i ; 6+i])"
   end
 end
