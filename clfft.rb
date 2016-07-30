@@ -1,8 +1,8 @@
 class Clfft < Formula
   desc "FFT functions written in OpenCL"
   homepage "https://github.com/clMathLibraries/clFFT/"
-  url "https://github.com/clMathLibraries/clFFT/archive/v2.10.0.tar.gz"
-  sha256 "f70d8ae7b8c38f27b4f28e5e7abe55378e18c4f1c5cf8922b561dc908d36ffdc"
+  url "https://github.com/clMathLibraries/clFFT/archive/v2.12.1.tar.gz"
+  sha256 "3d0c6439730b243fb4890504d4aa71bc1f4d7d3f91dc79e257c5460dab40fcc5"
 
   bottle do
     cellar :any
