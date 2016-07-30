@@ -1,7 +1,8 @@
 class Analysis < Formula
+  desc "Programs for the (pre-NGS-era) analysis of population-genetic data."
   homepage "https://github.com/molpopgen/analysis"
-  url "https://github.com/molpopgen/analysis/archive/0.8.7.tar.gz"
-  sha256 "3af7ce89358376d3d27ee97b518735ddddc7a5cb6e0b340833c8e1a44fdb34be"
+  url "https://github.com/molpopgen/analysis/archive/0.8.8.tar.gz"
+  sha256 "f9ef9e0a90fce2c0f4fe462d6c05e22fef22df1c23b63a7c64ad7b538f6e8bb0"
 
   bottle do
     cellar :any
@@ -13,13 +14,6 @@ class Analysis < Formula
   depends_on "gsl"
   depends_on "libsequence"
 
-  # add missing include
-  # https://github.com/molpopgen/analysis/pull/3
-  patch do
-    url "https://github.com/tdsmith/molpopgen-analysis/commit/01c796d.diff"
-    sha256 "abaefd36f108f1981e28d874e4cd78ca961d07841e69b4af607d0585354c72d5"
-  end
-
   needs :cxx11
 
   def install
@@ -30,6 +24,6 @@ class Analysis < Formula
   end
 
   test do
-    assert shell_output("#{bin}/gestimator 2>&1", 1).include? "gestimator"
+    assert_match "codon", shell_output("#{bin}/gestimator 2>&1", 1)
   end
 end
