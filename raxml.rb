@@ -1,8 +1,8 @@
 class Raxml < Formula
   desc "maximum likelihood analysis of large phylogenies"
   homepage "http://sco.h-its.org/exelixis/web/software/raxml/index.html"
-  url "https://github.com/stamatak/standard-RAxML/archive/v8.2.8.tar.gz"
-  sha256 "a99bd3c5fcd640eecd6efa3023f5009c13c04a9b1cea6598c53daa5349f496b6"
+  url "https://github.com/stamatak/standard-RAxML/archive/v8.2.9.tar.gz"
+  sha256 "c7e12c8a4437e006b574d40520c8169f4bdcf7eda732e2930ac21fe39db868df"
   head "https://github.com/stamatak/standard-RAxML.git"
   # doi "10.1093/bioinformatics/btu033"
   # tag "bioinformatics"
@@ -14,6 +14,8 @@ class Raxml < Formula
     sha256 "bc4002fd54bea1592e7e2554c5d94dccb506612b4455e25332c0b26c806b7b0d" => :mavericks
     sha256 "9e017cb21b49b6ef20597dfd806bff25e072db052fdb262e853345172cafc3bc" => :x86_64_linux
   end
+
+  depends_on :fortran
 
   # Won't build on OS X - relies on Linux-specific threading APIs
   depends_on :mpi => [:cc, :optional] if OS.linux?
@@ -59,7 +61,7 @@ class Raxml < Formula
       Frog      ATGGCACACCCATCACAATTAGGTTTTCAAGACGCAGCCTCTCCAATTATAGAAGAATTA
     EOS
 
-    system *%W[raxmlHPC-PTHREADS -f a -m GTRGAMMA -p 12345 -x 12345 -N 100 -s aln.phy -n test -T 2]
-    File.exist? "RAxML_bipartitions.test"
+    system *%W[#{bin}/raxmlHPC-PTHREADS -f a -m GTRGAMMA -p 12345 -x 12345 -N 100 -s aln.phy -n test -T 2]
+    assert File.exist?("RAxML_bipartitions.test"), "Failed to create RAxML_bipartitions.test!"
   end
 end
