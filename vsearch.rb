@@ -1,6 +1,12 @@
 class Vsearch < Formula
   desc "USEARCH-compatible metagenomic sequence tool"
   homepage "https://github.com/torognes/vsearch"
+  url "https://github.com/torognes/vsearch/archive/v2.0.2.tar.gz"
+  sha256 "dbafeb2621d61e0c47b467a3496dce9b98d8148218570d47f0d0c0bc857c93ac"
+  head "https://github.com/torognes/vsearch.git"
+  # doi "10.5281/zenodo.31443"
+  # tag "bioinformatics"
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c2e3b55f92f61cf9f9adc4daa1c2aa718b37b77d66d098b1a888705049664b16" => :el_capitan
@@ -9,19 +15,10 @@ class Vsearch < Formula
     sha256 "720032f69cd5ec2153200dc3d30a196026b35ee0bc3008fb80a836f4ac976029" => :x86_64_linux
   end
 
-  # tag "bioinformatics"
-  # doi "10.5281/zenodo.31443"
-
-  url "https://github.com/torognes/vsearch/archive/v1.9.1.tar.gz"
-  sha256 "418065c9b361b033d9481064e46e8a29094e3df5edcb6ca2509bcdbedd331954"
-
-  head "https://github.com/torognes/vsearch.git"
-
-  depends_on "homebrew/dupes/zlib" => :recommended
-  depends_on "bzip2" => :recommended
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "homebrew/dupes/zlib" unless OS.mac?
+  depends_on "bzip2" unless OS.mac?
 
   def install
     system "./autogen.sh"
@@ -32,6 +29,6 @@ class Vsearch < Formula
   end
 
   test do
-    assert_match "allpairs_global", shell_output("vsearch --help 2>&1")
+    assert_match "allpairs_global", shell_output("#{bin}/vsearch --help 2>&1")
   end
 end
