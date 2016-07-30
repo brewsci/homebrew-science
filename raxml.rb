@@ -12,6 +12,7 @@ class Raxml < Formula
     sha256 "1b56bcbb1ec4bdaf975abaff4d882a63b116092c6be1ce4bc689f1c264f42901" => :el_capitan
     sha256 "f9147f80719097fa89861303f2c56364dbe0ab1073fcd72664c9d08773d00a11" => :yosemite
     sha256 "a0dc1c7055d184a3aca26f9a3dbbd922877347200968ac90b4a4f79196956b57" => :mavericks
+    sha256 "9dd4021dcd5ea7c9edcb8ebd419649814d9c22ec3cb7e07155821913b15362ba" => :x86_64_linux
   end
 
   depends_on :fortran
