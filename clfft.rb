@@ -6,9 +6,9 @@ class Clfft < Formula
 
   bottle do
     cellar :any
-    sha256 "05bc1e1fcd00e72b62a49248c571cb4c52bf16811300ef42712bb2591d1cb5ef" => :el_capitan
-    sha256 "ab68153761222e6a665860760dc6ea0505f800b7f04f531739feaa289e55513f" => :yosemite
-    sha256 "98835e913cea712dda7a263b23748cc242b2408276fd2cde3536dbc868dc1cca" => :mavericks
+    sha256 "18722b98fbc4ac7f1126af400b68cba62086322ab9fad506b39b2673b3d05d89" => :el_capitan
+    sha256 "8688d3c1e0812b9a436003bff76ce3c165f619b43a50a30a1884782a44aa330d" => :yosemite
+    sha256 "8117363f7b44415324e086f061373e76a7d0ea7a9cc05bdfe1e0e356a8e3fa92" => :mavericks
   end
 
   depends_on "cmake" => :build
