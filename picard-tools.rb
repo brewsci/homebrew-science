@@ -8,10 +8,9 @@ class PicardTools < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "42fe6b9ed31756fa0c14b5a0a2c52f3ebcf01179ff3a2bea38a50d8907eb1787" => :el_capitan
-    sha256 "0c920b6fcca5b84305c52fe8fc5147c5d4979b3b408f71e27eeb998cff21a0ba" => :yosemite
-    sha256 "38075522e8f8315d79747032e45b2485d5dc082252f6e7b1924813c1856f5e9e" => :mavericks
-    sha256 "7853f4661db79619215494650922585ce2b66edaf7d474e204089a3d6c6144c7" => :x86_64_linux
+    sha256 "51aabb5a819f82a4d56cf451afc55040e2cd3cf9c196c1215ab994a9f06f5cf9" => :el_capitan
+    sha256 "19cea4eb5ded78e93e8705c4c7d589097961ad1b1d81ccadd0aea872b6aac67e" => :yosemite
+    sha256 "1c822259698184eacf37bbc89e7b0f93b85fca499a1be1db7426255ba33a959b" => :mavericks
   end
 
   depends_on :java
