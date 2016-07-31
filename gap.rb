@@ -1,9 +1,9 @@
 class Gap < Formula
-  desc "A system for computational discrete algebra"
+  desc "System for computational discrete algebra"
   homepage "http://www.gap-system.org/"
-  url "http://www.gap-system.org/pub/gap/gap48/tar.bz2/gap4r8p3_2016_03_19-22_17.tar.bz2"
-  version "4.8.3"
-  sha256 "81d358109d87014eb10d1325c38ee94aa968b2a6365afd1a7411bfdd44f7a454"
+  url "http://www.gap-system.org/pub/gap/gap48/tar.bz2/gap4r8p4_2016_06_04-12_41.tar.bz2"
+  version "4.8.4"
+  sha256 "f394bb4c5f24c662ba5ef1674e6c3d7565e31e60fc7e37c7b0f7e5208e029828"
 
   bottle do
     cellar :any
@@ -26,13 +26,6 @@ class Gap < Formula
   #   See http://www.gap-system.org/Download/INSTALL for details.
 
   depends_on "readline" => :recommended
-
-  INST_PACKAGES_SCRIPT_URL = "http://www.gap-system.org/Download/InstPackages.sh"
-
-  resource "script_that_builds_included_packages" do
-    url INST_PACKAGES_SCRIPT_URL
-    sha256 "e4ed35338065597fda67d1edcb29a6372ef1a7b7e612237db2afebd657c5c509"
-  end
 
   def install
     # Remove some useless files
@@ -86,16 +79,10 @@ class Gap < Formula
 
     if build.with? "InstPackages"
       ohai "Trying to automatically build included packages"
-
-      resource("script_that_builds_included_packages").stage do
-        chmod "u+x", "InstPackages.sh"
-        (libexec/"pkg").install "InstPackages.sh"
-      end
-
       cd libexec/"pkg" do
         # NOTE:  running this script is known to produce a number of error
         #   messages, possibly failing to build certain packages
-        system "./InstPackages.sh"
+        system "../bin/BuildPackages.sh"
       end
     end
   end
@@ -109,7 +96,7 @@ class Gap < Formula
         some packages in:
           #{libexec/"pkg"}
         will need to be built manually with the following script:
-          #{INST_PACKAGES_SCRIPT_URL}
+          #{libexec/"bin/BuildPackages.sh"}
         See the Section 7 of #{libexec/"INSTALL"} for more info.
       EOS
     else
@@ -118,7 +105,7 @@ class Gap < Formula
         some packages in
           #{libexec/"pkg"}
         are automatically built using the following script:
-          #{INST_PACKAGES_SCRIPT_URL}
+          #{libexec/"bin/BuildPackages.sh"}
         However, this script is known to produce a number of error messages,
         and thus it might have failed to build certain packages.
       EOS
