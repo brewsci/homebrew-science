@@ -1,8 +1,19 @@
 class Beetl < Formula
   desc "Burrows-Wheeler Extended Tool Library"
   homepage "https://github.com/BEETL/BEETL"
-  url "https://github.com/BEETL/BEETL/archive/BEETL-0.9.0.tar.gz"
-  sha256 "d310ee76809fd99fe4a1e82a65a90ebbbdbca005f1e763bc9119929a6f06b290"
+  head "https://github.com/BEETL/BEETL.git", :branch => "RELEASE_1_1_0"
+
+  stable do
+    url "https://github.com/BEETL/BEETL/archive/BEETL-0.10.0.tar.gz"
+    sha256 "161ff8b4b3c99fd313851778c15dc32ab95dcaaf16912402940d53c56a74c283"
+
+    # Fixes "error: 'accumulate' is not a member of 'std'"
+    # Upstream commit "Little fix for compilation on mac"
+    patch do
+      url "https://github.com/BEETL/BEETL/commit/ba47b6f9.patch"
+      sha256 "63b67f3282893d1f74c66aa98f3bf2684aaba2fa9ce77858427b519f1f02807d"
+    end
+  end
 
   bottle do
     cellar :any
@@ -17,19 +28,14 @@ class Beetl < Formula
   needs :cxx11
   needs :openmp
 
-  patch do
-    # Include necessary headers
-    url "https://github.com/sjackman/BEETL/commit/c91ad73.diff"
-    sha256 "2b99dddb7c5becaede8e3cb4b71e73178b51d8653089a523af682063f012774d"
-  end
-
   def install
     boost = Formula["boost"].opt_prefix
     seqan = Formula["seqan"].opt_prefix/"include"
-    args = [
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}"]
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+    ]
     args << "--with-boost=#{boost}" if build.with? "boost"
     args << "--with-seqan=#{seqan}" if build.with? "seqan"
     system "./configure", *args
@@ -37,6 +43,6 @@ class Beetl < Formula
   end
 
   test do
-    system "beetl --version"
+    system "beetl", "--version"
   end
 end
