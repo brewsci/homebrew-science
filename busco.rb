@@ -3,6 +3,7 @@ class Busco < Formula
   homepage "http://busco.ezlab.org"
   url "http://busco.ezlab.org/files/BUSCO_v1.22.tar.gz"
   sha256 "86088bbd2128ea04ad9e1b2ebd18201f4c79a48a161ba2593feb12abb8a2d0e2"
+  revision 1
   # doi "10.1093/bioinformatics/btv351"
   # tag "bioinformatics"
 
@@ -15,14 +16,15 @@ class Busco < Formula
   end
 
   depends_on :python
-  depends_on "augustus" => :run
-  depends_on "blast" => :run
-  depends_on "emboss" => :run
-  depends_on "hmmer" => :run
+  depends_on "augustus" => :recommended
+  depends_on "blast" => :recommended
+  depends_on "emboss" => :recommended
+  depends_on "hmmer" => :recommended
 
   def install
-    bin.install "BUSCO_v#{version}.py" => "busco"
-    inreplace bin/"busco", "#!/bin/python", "#!/usr/bin/env python"
+    inreplace "BUSCO_v#{version}.py", "#!/bin/python", "#!/usr/bin/env python"
+    bin.install "BUSCO_v#{version}.py"
+    bin.install_symlink "BUSCO_v#{version}.py" => "busco"
     doc.install Dir["*"]
   end
 
