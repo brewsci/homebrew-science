@@ -9,10 +9,9 @@ class Busco < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1528092c980501dbcb700ae395153bc34780e337b36ebd5796625d5e8ef608f2" => :el_capitan
-    sha256 "29483abacdd407ae5d7a5e3f19c2cabdb2efda398a29051df7d299f884afd713" => :yosemite
-    sha256 "21a0045beef5494b79e9dd349258ef89451e18a5019097e5d5ce69e5c292d8a0" => :mavericks
-    sha256 "8d7ef0839cc8eb2ef27eff4acccfe19b5938149b96b1d4cbbab762ea2f9afcd3" => :x86_64_linux
+    sha256 "146e3caa137d45be78e03aae3b832e8c6bcbeeeb7919505f7d4f3cc5842c8cf9" => :el_capitan
+    sha256 "12f4fe1bf7d9199aa2ff5f9579051cc741fbd451ae801943caa3df3baeafa8dd" => :yosemite
+    sha256 "c4136ee88129c555fe0468d8e600e82c25a9b505c6a7199c74987fb8b3f71861" => :mavericks
   end
 
   depends_on :python
