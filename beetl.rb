@@ -17,9 +17,9 @@ class Beetl < Formula
 
   bottle do
     cellar :any
-    sha256 "80c5e95fbdb851bd1d5f7b31361c1552eb690feae4131fd422f5482b2145ec57" => :el_capitan
-    sha256 "0068755c3faa9344cbf71e0df4c88674a7260dc18e459d8dcf5e04503ff17201" => :yosemite
-    sha256 "a220aff6131e9b0d70a75d365671107cbc167b28892458fb60d0d1700064d0ee" => :mavericks
+    sha256 "32b190deb3501cb8fe2600860e97edbd78231cc0e400d1236ff09a82e222f5ee" => :el_capitan
+    sha256 "f03a3fae57263a692697141f59ae103466b912939734d13d653156bbda59dfc2" => :yosemite
+    sha256 "afec472f36aaf5fb71f7d82e92419299be2c54479a2f50a02362407695dbc156" => :mavericks
   end
 
   depends_on "boost" => :optional
