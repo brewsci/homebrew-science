@@ -3,6 +3,7 @@ class Nexusformat < Formula
   homepage "http://www.nexusformat.org"
   url "https://github.com/nexusformat/code/archive/v4.4.2.tar.gz"
   sha256 "3cb2860c6040415dd0761ff4cfa062915f65df660c95f6f1fee044c86eddd8a2"
+  revision 1
 
   bottle do
     cellar :any
@@ -34,8 +35,7 @@ class Nexusformat < Formula
     cmake_args << "-DENABLE_APPS=TRUE"
     cmake_args << "-DENABLE_CXX=TRUE"
     cmake_args << "-DENABLE_MXML=TRUE"
-    cmake_args << "-DENABLE_HDF4=TRUE" if build.with? "homebrew/versions/hdf4"
-    cmake_args << "-DHDF4_ROOT=#{Formula["homebrew/versions/hdf4"].opt_prefix}" if build.with? "homebrew/versions/hdf4"
+    cmake_args << "-DENABLE_HDF4=TRUE" if build.with? "hdf4"
     system "cmake", ".", *cmake_args
     system "make"
     # test failures have been reported upstream
