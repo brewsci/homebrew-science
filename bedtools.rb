@@ -14,6 +14,7 @@ class Bedtools < Formula
     sha256 "a90cbab5d09038ac04fc00bf7d05ab9edb5e899fda8a5b0a17a692841ad08ab1" => :el_capitan
     sha256 "00e4d5d86c09c388cfaefe13499a3bb82fd013a68f6879f392c9093f5c81fe0f" => :yosemite
     sha256 "6a23ad1a8f2d661f6e55c196ddfbb66219251ed2349746bd3b09789ee2b01253" => :mavericks
+    sha256 "b178c48e7af280abf06954dfbd9a1fcb431ff1e2635447e85117235ab0a945df" => :x86_64_linux
   end
 
   def install
