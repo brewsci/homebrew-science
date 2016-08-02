@@ -17,8 +17,10 @@ class Gap < Formula
   #   with Homebrew), and a number of GAP packages under `pkg/`, some of
   #   which need to be built.
 
-  option "with-InstPackages",
-         "Try to build included packages using InstPackages script"
+  option "with-packages",
+         "Try to build included packages using BuildPackages script"
+
+  deprecated_option "with-InstPackages" => "with-packages"
 
   depends_on "gmp"
   # NOTE:  A version of [GMP](https://gmplib.org) is included in GAP archive
@@ -77,7 +79,7 @@ class Gap < Formula
       bin.install_symlink File.expand_path(`readlink -n gap.sh`) => "gap"
     end
 
-    if build.with? "InstPackages"
+    if build.with? "packages"
       ohai "Trying to automatically build included packages"
       cd libexec/"pkg" do
         # NOTE:  running this script is known to produce a number of error
@@ -90,9 +92,9 @@ class Gap < Formula
   # XXX:  `brew info` displays the caveats according to the options it is
   #   given, not according to the options with which the formula is installed
   def caveats
-    if build.without?("InstPackages")
+    if build.without?("packages")
       <<-EOS.undent
-        If the formula is installed without the `--with-InstPackages' option,
+        If the formula is installed without the `--with-packages' option,
         some packages in:
           #{libexec/"pkg"}
         will need to be built manually with the following script:
@@ -101,7 +103,7 @@ class Gap < Formula
       EOS
     else
       <<-EOS.undent
-        When the formula is installed with the `--with-InstPackages' option,
+        When the formula is installed with the `--with-packages' option,
         some packages in
           #{libexec/"pkg"}
         are automatically built using the following script:
