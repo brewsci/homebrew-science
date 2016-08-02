@@ -1,7 +1,10 @@
 class Pastix < Formula
+  desc "Parallel solver for sparse linear systems based on direct methods"
   homepage "http://pastix.gforge.inria.fr"
   url "https://gforge.inria.fr/frs/download.php/file/35070/pastix_5.2.2.22.tar.bz2"
   sha256 "30f771a666719e6b116f549a6e4da451beabab99c2ecabc0745247c3654acbed"
+  revision 1
+
   head "git://scm.gforge.inria.fr/ricar/ricar.git"
 
   bottle do
@@ -31,7 +34,7 @@ class Pastix < Formula
         s.change_make_var! "MCFPROG",   ENV["MPIFC"]
         s.change_make_var! "MPCCPROG",  ENV["MPICC"]
         s.change_make_var! "MPCXXPROG", ENV["MPICXX"]
-        s.change_make_var! "VERSIONBIT", ((MacOS.prefer_64_bit?) ? "_64bit" : "_32bit")
+        s.change_make_var! "VERSIONBIT", MacOS.prefer_64_bit? ? "_64bit" : "_32bit"
 
         libgfortran = `#{ENV["MPIFC"]} --print-file-name libgfortran.a`.chomp
         s.change_make_var! "EXTRALIB", "-L#{File.dirname(libgfortran)} -lgfortran -lm"
