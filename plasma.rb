@@ -7,9 +7,9 @@ class Plasma < Formula
 
   bottle do
     cellar :any
-    sha256 "7b204b1f80e95c466924bd2f1f3dafea3afbf041c844cf22196405f5eb8272d0" => :el_capitan
-    sha256 "4d209daaa8ebbd622381e48665f3e63dd1909fb737b02c77c09fd9416e28524d" => :yosemite
-    sha256 "2dbb4bafd1ab74730ad81e44e2493d201b683396c5e3695bf443578e28b8bf48" => :mavericks
+    sha256 "49d06b2267dec1723d1b1c3eaae8a43179c7d25df691fa240c91eb74c4267fa5" => :el_capitan
+    sha256 "29620f22990abfd10d6e2dd1ada4e570fd2bcf6aad42f38ce750f3e7c28c9996" => :yosemite
+    sha256 "98f41b8a657904f44b41dbed597672c70c21e2e5da5b4ab8418eebe5f5dcfb71" => :mavericks
   end
 
   depends_on "hwloc"
