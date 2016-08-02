@@ -15,9 +15,9 @@ class Gmsh < Formula
 
   bottle do
     cellar :any
-    sha256 "a3ae14069d89ae8b282da7f22e3b72d151cdf68a5e18b4efedf45a661b04e82f" => :el_capitan
-    sha256 "7309b07b2a7642fe8cf6859fa55ba23441096870a0f3b82c34dbd2c002a2ee97" => :yosemite
-    sha256 "9c7c1e398f83c3dea045d5288ede8f22e5effe955691f6dc8c426235873e2f1d" => :mavericks
+    sha256 "f9d86d1c53e3ca76410b42d7b8a56c6c8e8215ff1748f20a093b09b5edd488e3" => :el_capitan
+    sha256 "80d0bfdf149762c85b0a95286e94cc7355986883b5574b5c420eae346399fe1c" => :yosemite
+    sha256 "6aa50b7753a2ef962912078495220f7d9b892e40920d4899ec786006ccb8baeb" => :mavericks
   end
 
   option "with-oce",               "Build with oce support (conflicts with opencascade)"
