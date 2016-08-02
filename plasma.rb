@@ -2,7 +2,8 @@ class Plasma < Formula
   desc "Parallel Linear Algebra for Multicore Architectures"
   homepage "http://icl.cs.utk.edu/plasma"
   url "http://icl.cs.utk.edu/projectsfiles/plasma/pubs/plasma_2.8.0.tar.gz"
-  sha256 "e8758a71ddd02ad1fb57373cfd62fb1b32cebea62ba517484f1adf9f0afb1ddb"
+  sha256 "b2f2226c275c6a26ba15f040816cc25b6849134a65563e04d38b9144070230d3"
+  revision 1
 
   bottle do
     cellar :any
@@ -19,6 +20,9 @@ class Plasma < Formula
     url "http://www.netlib.org/lapack/lapack-3.6.0.tgz"
     sha256 "a9a0082c918fe14e377bbd570057616768dca76cbdc713457d8199aaa233ffc3"
   end
+
+  # fixes "gfortran: error: auxiliary.o: No such file or directory"
+  patch :DATA
 
   def install
     resource("lapacke").stage do
@@ -85,3 +89,27 @@ class Plasma < Formula
     system "./example_dposv_f"
   end
 end
+
+__END__
+diff --git a/timing/Makefile b/timing/Makefile
+index fabd207..889c0f6 100644
+--- a/timing/Makefile
++++ b/timing/Makefile
+@@ -87,13 +87,13 @@ time_%.o : time_%.c $(ALLHDR)
+ %auxiliary.o : %auxiliary.c $(ALLHDR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+-time_s% : time_s%.o sauxiliary.o
++time_s% : time_s%.o sauxiliary.o auxiliary.o
+	$(LOADER) $@.o auxiliary.o sauxiliary.o -o $@ $(LDFLAGS)
+-time_d% : time_d%.o dauxiliary.o
++time_d% : time_d%.o dauxiliary.o auxiliary.o
+	$(LOADER) $@.o auxiliary.o dauxiliary.o -o $@ $(LDFLAGS)
+-time_c% : time_c%.o cauxiliary.o
++time_c% : time_c%.o cauxiliary.o auxiliary.o
+	$(LOADER) $@.o auxiliary.o cauxiliary.o -o $@ $(LDFLAGS)
+-time_z% : time_z%.o zauxiliary.o
++time_z% : time_z%.o zauxiliary.o auxiliary.o
+	$(LOADER) $@.o auxiliary.o zauxiliary.o -o $@ $(LDFLAGS)
+
+ time_zlapack2tile time_clapack2tile time_dlapack2tile time_slapack2tile : auxiliary.o
