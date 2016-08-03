@@ -8,9 +8,9 @@ class Kat < Formula
 
   bottle do
     cellar :any
-    sha256 "668b031af5125dd68f69175c3d46808e82d70334f2e187b0f84b034e6f988d11" => :el_capitan
-    sha256 "76b37eb9758cd693baebe92e521fa3c8311df3915e2f2ca5de8f228cce629b6f" => :yosemite
-    sha256 "ce0c9790770b5c667b9695fb12475eab906de0f5d99f91689bc960b6bf4cb438" => :mavericks
+    sha256 "5978032303b587966edf2b86340039148df15681137a9da0d0958089d86bf81b" => :el_capitan
+    sha256 "1d5c0781c5f127c2a5e00a903b26ab0e7c58877a41290c70f2960554b9acf49a" => :yosemite
+    sha256 "0d5f2252b25b92a9443349633098c5405cd1e4d6413e6eeb79b393e61d56ccf8" => :mavericks
   end
 
   head do
