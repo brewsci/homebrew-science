@@ -6,6 +6,7 @@ class Fwdpp < Formula
   head "https://github.com/molpopgen/fwdpp.git"
   # doi "10.1534/genetics.114.165019"
   # tag "bioinformatics"
+  revision 1
 
   bottle do
     cellar :any
