@@ -5,9 +5,9 @@ class EtsfIo < Formula
   revision 3
 
   bottle do
-    sha256 "cd03510221814aef2f3d0e2039e42c31b41ee9735fd271a04d883c94dc73a694" => :yosemite
-    sha256 "a1a3888da1bbbb4f808768413f57267ddd90f97111992e4d9f161a494a51728a" => :mavericks
-    sha256 "2ccb27658150b9cf718d4e297e6b74e9f70516fed326d27694e15c68680d077c" => :mountain_lion
+    sha256 "8c1b67b178286f5e780c07f170593a6036dddf1733771a4ce72d94c437c123ef" => :el_capitan
+    sha256 "f0115fa7db2c4d5a27afaa8c7e6db275b3aa1dd143baf62df48984cc34e0e315" => :yosemite
+    sha256 "3e35f91bf47ee55f0b9a7b5e394942a264d5dd3e5e8edf03aaa8ccc8dba66434" => :mavericks
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
