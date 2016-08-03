@@ -2,7 +2,7 @@ class Hopdm < Formula
   homepage "http://www.maths.ed.ac.uk/~gondzio/software/hopdm.html"
   url "http://dl.dropbox.com/u/72178/dist/hopdm-2.13.tar.gz"
   sha256 "84f1a265612fb96ee2ee1a645dbef2deeb66b798c5909e9c26670341814817fe"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
