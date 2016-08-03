@@ -3,6 +3,7 @@ class Madlib < Formula
   homepage "http://madlib.net"
   url "https://github.com/madlib/madlib/archive/v1.8.tar.gz"
   sha256 "15d8ee925866f477f4fb62964a1ea6a15796e9c7db676d786928495249078df3"
+  revision 1
 
   head "https://github.com/madlib/madlib.git"
 
