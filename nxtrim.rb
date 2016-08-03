@@ -3,6 +3,7 @@ class Nxtrim < Formula
   homepage "https://github.com/sequencing/NxTrim"
   # doi "10.1101/007666"
   # tag "bioinformatics"
+  revision 1
 
   url "https://github.com/sequencing/NxTrim/archive/v0.4.0.tar.gz"
   sha256 "aaa2dafefa1c0cca5966d8290eef758cfcca87426a2ba019506c4f38309161ea"
