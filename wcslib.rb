@@ -2,6 +2,7 @@ class Wcslib < Formula
   homepage "http://www.atnf.csiro.au/people/mcalabre/WCS/"
   url "ftp://ftp.atnf.csiro.au/pub/software/wcslib/wcslib-5.12.tar.bz2"
   sha256 "50ff182920541bea156e7f53588cdfba1754b1bdcd0bc64a136a5d124af98de4"
+  revision 1
 
   bottle do
     cellar :any
