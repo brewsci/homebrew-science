@@ -1,13 +1,9 @@
 class Alembic < Formula
   desc "Open computer graphics interchange framework"
   homepage "http://alembic.io"
-  url "https://code.google.com/p/alembic/",
-    :using => :hg,
-    :tag => "1_05_04"
-  version "1.5.4"
-  revision 1
-
-  head "https://code.google.com/p/alembic/", :using => :hg
+  url "https://github.com/alembic/alembic/archive/1.6.1.tar.gz"
+  sha256 "404195c175323d8c01eef7810d0a66b040645bb3ff6654f7bc176d57454ad00c"
+  head "https://github.com/alembic/alembic.git"
 
   bottle do
     cellar :any
@@ -19,26 +15,29 @@ class Alembic < Formula
   needs :cxx11
 
   depends_on "cmake" => :build
-  depends_on "boost"
-  depends_on "boost-python"
-  depends_on "hdf5"
+  depends_on "hdf5" => :build
   depends_on "ilmbase"
 
   def install
-    ENV.libcxx if ENV.compiler == :clang
+    ENV.cxx11
     cmake_args = std_cmake_args + %W[
-      -DUSE_PYILMBASE=OFF
       -DUSE_PRMAN=OFF
       -DUSE_ARNOLD=OFF
       -DUSE_MAYA=OFF
       -DUSE_PYALEMBIC=OFF
-      -DCMAKE_CXX_FLAGS='-std=c++11'
+      -DUSE_HDF5=ON
+      -DUSE_STATIC_HDF5=ON
+      -DUSE_EXAMPLES=ON
     ]
     system "cmake", ".", *cmake_args
+    system "make"
+    system "make", "test"
     system "make", "install"
 
-    lib.install_symlink Dir[prefix/"alembic-#{version}/lib/static/*"]
-    include.install_symlink Dir[prefix/"alembic-#{version}/include/*"]
-    bin.install_symlink Dir[prefix/"alembic-#{version}/bin/*"]
+    pkgshare.install "prman/Tests/testdata/cube.abc"
+  end
+
+  test do
+    assert_match "root", shell_output("#{bin}/abcls #{pkgshare}/cube.abc")
   end
 end
