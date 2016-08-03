@@ -4,6 +4,7 @@ class BioformatsCpp < Formula
   url "http://downloads.openmicroscopy.org/bio-formats/5.1.8/artifacts/bioformats-dfsg-5.1.8.zip"
   sha256 "b760dc17465c7985a808c0f70a568c4faebe51f8aeaeab56afe1dbc29061c9b8"
   head "https://github.com/openmicroscopy/bioformats.git", :branch => "develop", :shallow => false
+  revision 1
 
   bottle do
     sha256 "4d3b0a13171684836b20823e22ff22712706a7dc7ee925b63e60cd6e867d87e8" => :el_capitan
