@@ -3,6 +3,7 @@ class Nixio < Formula
   homepage "http://www.g-node.org/nix"
   url "https://github.com/G-Node/nix/archive/1.1.0.tar.gz"
   sha256 "d607d96117621e5cc563002c4c161913d95db36eeb7c4e6f51afca5f6b788fcc"
+  revision 1
 
   head "https://github.com/G-Node/nix.git"
 
@@ -32,6 +33,9 @@ class Nixio < Formula
 
   def install
     ENV.cxx11
+
+    # https://github.com/G-Node/nix/pull/622
+    inreplace "CMakeLists.txt", "(nix CXX)", "(nix C CXX)"
 
     system "cmake", ".", *std_cmake_args
     system "make"
