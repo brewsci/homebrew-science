@@ -8,10 +8,9 @@ class Sailfish < Formula
   revision 1
 
   bottle do
-    sha256 "c6df8bd3a9116d061b67a44ae26d53b10ef4d3d77e01f078821208505ca9d935" => :el_capitan
-    sha256 "bf415e7662f81af38304629155376e745aaee9a96cd0fd48216f0936c5ed1fc5" => :yosemite
-    sha256 "eac2cb0702725332f551a53023968d396d3325dbff246cdc7f5955b3341f31c3" => :mavericks
-    sha256 "38d78199750c9d1e28ed25fea65c894f1d48841daa1534eb71b92a6ea0ba29d5" => :x86_64_linux
+    sha256 "16e1cce6665ec8c6587f31e7fdf94bd5d0da0f21392efafd6b6d6464f344284d" => :el_capitan
+    sha256 "62c8f97b957c13e3f9d97b58cd8363c651c4b6a43a9c94710b6ca95900a5ae55" => :yosemite
+    sha256 "16906591aea875161ae8dfeaeeb84f71653c422470e2e68f8ccf9d235344d9a2" => :mavericks
   end
 
   depends_on "autoconf" => :build
