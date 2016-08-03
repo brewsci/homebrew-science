@@ -3,6 +3,7 @@ class Delly < Formula
   homepage "https://github.com/tobiasrausch/delly"
   url "https://github.com/tobiasrausch/delly/archive/v0.7.5.tar.gz"
   sha256 "14daf744e7179b2781cbb88b26f674d1221c0093fec6d33c13a6d2863577598a"
+  revision 1
   head "https://github.com/tobiasrausch/delly.git"
   # doi "10.1093/bioinformatics/bts378"
   # tag "bioinformatics"
