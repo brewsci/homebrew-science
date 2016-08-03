@@ -5,6 +5,7 @@ class Libsequence < Formula
   url "https://github.com/molpopgen/libsequence/archive/1.8.4.tar.gz"
   sha256 "f45a04ae03d8fa6f2eae0a3cec72686028071c851c355e4aab84859bb2cb394a"
   head "https://github.com/molpopgen/libsequence.git"
+  revision 1
 
   bottle do
     cellar :any
