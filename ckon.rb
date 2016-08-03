@@ -8,9 +8,9 @@ class Ckon < Formula
 
   bottle do
     cellar :any
-    sha256 "2f05fa8bf5027c91630710a6159233cd4828b36d4b8173ffdfe3cac7d23e3b20" => :el_capitan
-    sha256 "096a70c301f7eca465c9836c0b4373f05f63953596c0cca34efc9a2e59346e21" => :yosemite
-    sha256 "e569652ecbf1bb0ad64bcfbe959a3423c7dd4e648a4b2c93e04b58d29ce32bb8" => :mavericks
+    sha256 "e2464bbde400dd6de4216fb69c0768a2baeea6191542d2bef875b4532314d8af" => :el_capitan
+    sha256 "f2fc9c6438725ffeeebee3fe8de52faff8edad71c43da0a3068f459053ffddf9" => :yosemite
+    sha256 "3e08681ba64857a892c80f4a9913396871c8c4d48d3bb54dc6282d3326ffdc7a" => :mavericks
   end
 
   depends_on "boost"
