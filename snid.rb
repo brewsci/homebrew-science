@@ -6,9 +6,9 @@ class Snid < Formula
 
   bottle do
     cellar :any
-    sha256 "0ec373a313ba1961806f28bb46217786f0010c37e95261d664b46336b7a83af9" => :yosemite
-    sha256 "855d5fe8b71e8d9f2ad2b4ae9dbc21f7f736e40e0ec8d3ded403530b5176f877" => :mavericks
-    sha256 "3cb5fe729d14efdc2ec972e5e224141be7cb5564c09cfa68598da67e1441016a" => :mountain_lion
+    sha256 "fa8c7f1382c01c7a19c1bfc0d49ac15038a27115f2969a965df272b651f43ced" => :el_capitan
+    sha256 "fe5ddacf58977530252501431582022940b9bcdac4c9381a286b12d1e7a37107" => :yosemite
+    sha256 "25102eb4a165e7fd29fb9f62ee1e614084c529f5c55fedcdcf373060268a816b" => :mavericks
   end
 
   depends_on :x11
