@@ -5,6 +5,7 @@ class Salmon < Formula
 
   url "https://github.com/COMBINE-lab/salmon/archive/v0.6.0.tar.gz"
   sha256 "2a015c0f95b745fbed575d8610aea7e09cb1af55ca2c68e10ab15826fba263b1"
+  revision 1
 
   head "https://github.com/COMBINE-lab/salmon.git"
 
