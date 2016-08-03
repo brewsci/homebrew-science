@@ -2,6 +2,7 @@ class Mtl < Formula
   homepage "http://www.simunova.com"
   url "http://www.simunova.com/downloads/mtl4/MTL-4.0.9555-Linux.tar.bz2"
   sha256 "b747922b25ccf3192de7f8a6b2035705d415ccbebc5d90dd9538a7087539008d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
