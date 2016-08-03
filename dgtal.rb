@@ -4,6 +4,7 @@ class Dgtal < Formula
   url "http://liris.cnrs.fr/dgtal/releases/DGtal-0.9.1-Source.tar.gz"
   sha256 "9969eee23f0542d94f1a3f39b55665010baada65496223d671998f2c3eefb007"
   head "https://github.com/DGtal-team/DGtal.git"
+  revision 2
 
   bottle do
     cellar :any
