@@ -2,7 +2,7 @@ class EtsfIo < Formula
   homepage "http://www.etsf.eu/resources/software/libraries_and_tools"
   url "http://www.etsf.eu/system/files/etsf_io-1.0.4.tar.gz"
   sha256 "3140c2cde17f578a0e6b63acb27a5f6e9352257a1371a17b9c15c3d0ef078fa4"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "cd03510221814aef2f3d0e2039e42c31b41ee9735fd271a04d883c94dc73a694" => :yosemite
