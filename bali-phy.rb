@@ -3,6 +3,7 @@ class BaliPhy < Formula
   homepage "http://www.bali-phy.org/"
   url "http://www.bali-phy.org/bali-phy-2.3.7.tar.gz"
   sha256 "3120f9b448d308889093aa26a5941866c2841078e5eb9f1af1e2a6cbb134356a"
+  revision 1
 
   head "https://github.com/bredelings/BAli-Phy.git"
 
