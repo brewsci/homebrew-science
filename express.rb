@@ -3,15 +3,12 @@ class Express < Formula
   homepage "http://bio.math.berkeley.edu/eXpress/"
   url "http://bio.math.berkeley.edu/eXpress/downloads/express-1.5.1/express-1.5.1-src.tgz"
   sha256 "0c5840a42da830fd8701dda8eef13f4792248bab4e56d665a0e2ca075aff2c0f"
-  revision 3
+  revision 4
   head "https://github.com/adarob/eXpress.git"
 
   # doi "10.1038/nmeth.2251"
   # tag "bioinformatics"
 
-  bottle do
-    sha256 "673ec67525b87ae859d349368284d1e4e1fb537287db177bbc15285c2a37b442" => :x86_64_linux
-  end
   bottle :disable, "Work around 'Illegal instruction: 4' during CI" if OS.mac?
 
   depends_on "bamtools"
