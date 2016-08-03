@@ -7,9 +7,9 @@ class BioformatsCpp < Formula
   revision 1
 
   bottle do
-    sha256 "4d3b0a13171684836b20823e22ff22712706a7dc7ee925b63e60cd6e867d87e8" => :el_capitan
-    sha256 "892ce30c8cba75081ca6ec0ffa40de66e20a23636b8a4e111e50aba7d13e3b91" => :yosemite
-    sha256 "ef40a74b3188a7d30ad4a3bb8c77906d46648c7fb10b7434dbc3e5f6dd1e8904" => :mavericks
+    sha256 "72f5a6eb8f9c1adec19ca64de121cb4b23b3cab8b92fea66554a264ddb8f95fe" => :el_capitan
+    sha256 "a0fa7e1b277db6fe217321c954c47476b32f58f046f5a3dd161ded2ca4316f9b" => :yosemite
+    sha256 "34e63d87b4d9c67e464b8946899abc64c7efa3f441f09ce35d98823b7ed00a38" => :mavericks
   end
 
   option "without-check", "Skip build time tests (not recommended)"
