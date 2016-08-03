@@ -2,6 +2,7 @@ class EnblendEnfuse < Formula
   homepage "http://enblend.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/enblend/enblend-enfuse/enblend-enfuse-4.1/enblend-enfuse-4.1.1.tar.gz"
   sha256 "9d0947633ebaa0dc1211331b31009408de6fe2108751ad4190760e3a9f181bc9"
+  revision 1
 
   option "with-gpu", "Build with GPU support"
 
@@ -31,11 +32,11 @@ class EnblendEnfuse < Formula
   end
 
   test do
-    system "#{libexec}/enblend", \
+    system "#{bin}/enblend", \
       "/System/Library/Frameworks/SecurityInterface.framework/Versions/A/Resources/Key_Large.png", \
       "/System/Library/Frameworks/SecurityInterface.framework/Versions/A/Resources/Key_Large.png"
 
-    system "#{libexec}/enfuse", \
+    system "#{bin}/enfuse", \
       "/System/Library/Frameworks/SecurityInterface.framework/Versions/A/Resources/Key_Large.png", \
       "/System/Library/Frameworks/SecurityInterface.framework/Versions/A/Resources/Key_Large.png"
   end
