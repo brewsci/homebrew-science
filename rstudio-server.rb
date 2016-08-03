@@ -4,6 +4,7 @@ class RstudioServer < Formula
   url "https://github.com/rstudio/rstudio/archive/v0.99.902.tar.gz"
   sha256 "703a3ebedbb4bb44d2cacffed2615b4f65156fcd4115029931eb5fd99950c689"
   head "https://github.com/rstudio/rstudio.git"
+  revision 1
 
   bottle do
     cellar :any
