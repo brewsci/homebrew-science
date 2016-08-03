@@ -4,7 +4,7 @@ class Vtk < Formula
   url "http://www.vtk.org/files/release/7.0/VTK-7.0.0.tar.gz"
   mirror "https://fossies.org/linux/misc/VTK-7.0.0.tar.gz"
   sha256 "78a990a15ead79cdc752e86b83cfab7dbf5b7ef51ba409db02570dbdd9ec32c3"
-  revision 1
+  revision 2
 
   head "https://github.com/Kitware/VTK.git"
 
