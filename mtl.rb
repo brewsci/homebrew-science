@@ -6,9 +6,9 @@ class Mtl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1f9f254b05d47d34e18e570902cbf90eefa4ffa1eae47cf50f635c66ebed6fb8" => :el_capitan
-    sha256 "d164d9820f22e7edb98e56261a67b6955ddd4fcc284a91a2071f167ce7cbe922" => :yosemite
-    sha256 "9a2a5047bd351256a2acef3122e51539d12c0dfc8bf72c02cec8e032f43ff558" => :mavericks
+    sha256 "6389e2d406ea278e950a169bb68e43520ebe54f865634e80b48039263b442a98" => :el_capitan
+    sha256 "0d0c2e477431d64e163211b2b98efb3180e024f40904b4ec2d25e904e1f7acba" => :yosemite
+    sha256 "1440f542ade9660038b9d079967830e48c69f9401b28d9e480f16797632f785e" => :mavericks
   end
 
   head do
