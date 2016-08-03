@@ -11,7 +11,7 @@ process the images from your space telescope? Maybe we can help!
 Or `brew tap homebrew/science` and then `brew install <formula>`.
 
 ## Troubleshooting
-**IMPORTANT** First read the [Troubleshooting Checklist](https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Troubleshooting.md#troubleshooting).).
+**IMPORTANT** First read the [Troubleshooting Checklist](https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Troubleshooting.md#troubleshooting).
 
 Use `brew gist-logs <formula>` to create a [Gist](https://gist.github.com/) and post the link in your issue.
 
