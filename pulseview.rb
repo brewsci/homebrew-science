@@ -2,7 +2,7 @@ class Pulseview < Formula
   homepage "http://sigrok.org/"
   url "http://sigrok.org/download/source/pulseview/pulseview-0.2.0.tar.gz"
   sha256 "feb5d33a0a91c989bfc39fa758195755e78e87c3cf445bb135a8c8d4f86bc1dd"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
