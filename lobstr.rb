@@ -7,10 +7,9 @@ class Lobstr < Formula
 
   bottle do
     cellar :any
-    sha256 "7026c87999258f045bf2696e11459fea2397c5b2037248b1f62d7e80ced60dd9" => :el_capitan
-    sha256 "7589320083c7fcbf2a05d1ad68247312de85120d62663c6db75755c3cfbfcca1" => :yosemite
-    sha256 "2e0aae1cc93cdf0d332969bfcb055c8e417ebe3f01314f59e338151b2211dc7b" => :mavericks
-    sha256 "f701269b076a6140ae1415e596ff6d4e19d5d55f968640619a541bb63d3f5286" => :x86_64_linux
+    sha256 "6d1ec738059879b19e22d04c93739dff1b0f9ca85cc3d997e6150df8f903a536" => :el_capitan
+    sha256 "1d0d246f91f2f84b32d8bd72c0828dc571f5731ce2afcbf0b3c6a258a857b738" => :yosemite
+    sha256 "58e3fcfc4d6b23975cb8c688ebc84e5a4d690ab1f1d0061161e3edc55f178a02" => :mavericks
   end
 
   head do
