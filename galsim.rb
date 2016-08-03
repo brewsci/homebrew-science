@@ -4,6 +4,7 @@ class Galsim < Formula
   url "https://github.com/GalSim-developers/GalSim/archive/v1.3.0.tar.gz"
   sha256 "4afd3284adfd12845b045ea3c8e293b63057c7da57872bc9eecd005cf0a763c0"
   head "https://github.com/GalSim-developers/GalSim.git"
+  revision 1
 
   option "with-openmp", "Enable openmp support (gcc only)"
   option "without-check", "Skip build-time tests (not recommended)"
