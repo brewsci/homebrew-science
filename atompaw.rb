@@ -3,6 +3,7 @@ class Atompaw < Formula
   homepage "http://users.wfu.edu/natalie/papers/pwpaw/man.html"
   url "http://users.wfu.edu/natalie/papers/pwpaw/atompaw-4.0.0.13.tar.gz"
   sha256 "cbd73f11f3e9cc3ff2e5f3ec87498aeaf439555903d0b95a72f3b0a021902020"
+  revision 1
 
   bottle do
     sha256 "fd3287eef1d8d627e5a1d478783df367c239fe738c11a187430136f66b08db76" => :el_capitan
