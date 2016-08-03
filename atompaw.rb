@@ -6,9 +6,9 @@ class Atompaw < Formula
   revision 1
 
   bottle do
-    sha256 "fd3287eef1d8d627e5a1d478783df367c239fe738c11a187430136f66b08db76" => :el_capitan
-    sha256 "292af99a2ae89bc07e8e87b6014f137b0f070576dbbdaf9865b7665f12f01114" => :yosemite
-    sha256 "956259d23620f80e5d887f5ff2c3cbc07e784fcd776586f53a012a8fcea9945f" => :mavericks
+    sha256 "cd45642d971fa91d287ee36ddfa6abf977ca213073ecb5ca027c6761695e486e" => :el_capitan
+    sha256 "7a164937d25106a74c492ebe3457952048d630a2ccef1efd856b96a36c87a637" => :yosemite
+    sha256 "2861f7274926bb37c3b96d0e4bfc5d1f32a21e6793c291a3743a8eb7949c3a2c" => :mavericks
   end
 
   depends_on :fortran
