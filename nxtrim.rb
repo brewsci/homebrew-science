@@ -11,10 +11,9 @@ class Nxtrim < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4ff85893ca6b912579bd0ca1cec049590ced304b4d64bac45c2fe16213f8e52d" => :el_capitan
-    sha256 "ba16dd96bc704c65fa99bc19a00f124aca51f9cee8fb8ba3aff049c6fb70d265" => :yosemite
-    sha256 "957d5b0449da272e80c329171f426ff3836dfae55144d76f6f3cf843b3174e72" => :mavericks
-    sha256 "4459d054326725307855294e3932b4e12f34f49e939a59b7c6fe6116cc213e65" => :x86_64_linux
+    sha256 "99cbd6c41735a519543d95a9bd28cb14e876b3aeefad714390dbbc97581450b7" => :el_capitan
+    sha256 "a10e999c509236a139fcec9fb8517dc72656ef9f75d352e2ac010f255e46c065" => :yosemite
+    sha256 "d52ca66367ad2d753cb4034575ac386ac83f5193d27012674f4f17af0122f488" => :mavericks
   end
 
   depends_on "boost"
