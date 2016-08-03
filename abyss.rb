@@ -10,10 +10,9 @@ class Abyss < Formula
 
   bottle do
     cellar :any
-    sha256 "f0df6ae35b0db758ecba42d60cf7f6bf793e9cfe54bf05e6663afc51f4cbb5eb" => :yosemite
-    sha256 "d1c37d46cbef0781ab1078d390b530f805e731ca7ed1272225db6f32d4c04b23" => :mavericks
-    sha256 "943dd756f97b6c787f86cd95b150cab78d70d673648a2209b867e58ee4827906" => :mountain_lion
-    sha256 "7c6252a1734df9bfaf90ae8c3d702aa578e7968621d5258a37bd10a4beb54d03" => :x86_64_linux
+    sha256 "6c0b06cc672b077fe85d00e477d86b7132f8ae77631597eb5fed2f54ba8bd5bc" => :el_capitan
+    sha256 "af309c5203e760859f2b434b23259c15cbc3cb29efc3d3b686607a31d501d7ab" => :yosemite
+    sha256 "a3fd8a9126721dccf37745b476847eaa9b1393bc10c5f29eb2ac28a2458af7cc" => :mavericks
   end
 
   head do
