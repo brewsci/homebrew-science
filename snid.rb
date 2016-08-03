@@ -2,7 +2,7 @@ class Snid < Formula
   homepage "http://people.lam.fr/blondin.stephane/software/snid"
   url "http://people.lam.fr/blondin.stephane/software/snid/snid-5.0.tar.gz"
   sha256 "22199803971fdd1bb394a550e81da661bd315224827373aae67408166873ec5c"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
