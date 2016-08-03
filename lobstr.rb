@@ -3,6 +3,7 @@ class Lobstr < Formula
   homepage "http://lobstr.teamerlich.org"
   url "https://github.com/mgymrek/lobstr-code/releases/download/v4.0.6/lobSTR-4.0.6.tar.gz"
   sha256 "f13bfc17eebd4aadd58fd798941318d8278a2da2e64e596027ebc26e004ce31c"
+  revision 1
 
   bottle do
     cellar :any
