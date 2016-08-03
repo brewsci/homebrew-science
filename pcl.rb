@@ -9,10 +9,9 @@ class Pcl < Formula
   revision 1
 
   bottle do
-    revision 2
-    sha256 "a5a50a919360e53bfdfb8ff626a5597c9bc1c5a3a1ed2e38edfa374f8f4ec2ec" => :el_capitan
-    sha256 "bb4ff535bd2f4c292e8040f40a3c8946bddecdc5fe241161fe011a34b8137edd" => :yosemite
-    sha256 "5b7ae3d77d20f7b0812d84d1d286615322d6711500ee6ac8ae26f6b654381340" => :mavericks
+    sha256 "a63ef4e2a8325e425059963fef8f669fbda997a78eeb7a34777e356a3020a1d3" => :el_capitan
+    sha256 "568873fdb75e6792bffc41225bb37cbcd5dbf640f22d5de2952fbcd7079fe2f3" => :yosemite
+    sha256 "4e50efd531f72f639444f8ed8f1a62191a9a01fe90bfe593e84e7eacd6a9342c" => :mavericks
   end
 
   option "with-examples", "Build pcl examples."
