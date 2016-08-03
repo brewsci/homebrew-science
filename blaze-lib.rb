@@ -3,6 +3,7 @@ class BlazeLib < Formula
   homepage "https://bitbucket.org/blaze-lib/blaze/"
   url "https://bitbucket.org/blaze-lib/blaze/downloads/blaze-2.4.tar.gz"
   sha256 "34af70c8bb4da5fd0017b7c47e5efbfef9aadbabc5aae416582901a4059d1fa3"
+  revision 1
 
   bottle do
     cellar :any
