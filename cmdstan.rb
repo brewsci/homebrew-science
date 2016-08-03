@@ -4,6 +4,7 @@ class Cmdstan < Formula
   # tag "math"
   url "https://github.com/stan-dev/cmdstan/releases/download/v2.9.0/cmdstan-2.9.0.tar.gz"
   sha256 "a9f2858caa5b55576da85ef31b4eae632c97837aa042514242a9aad7ada97121"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
