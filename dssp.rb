@@ -7,9 +7,9 @@ class Dssp < Formula
   revision 2
 
   bottle do
-    sha256 "224b90a4adfcd230032a9ece77734a00f14ea7c4dd4a0611c8067500193277b9" => :el_capitan
-    sha256 "47a3940152c82c015951ddd78ba678f2e95b91fb691b1904b5068e9edb0757ce" => :yosemite
-    sha256 "8e40363a573cc7857c61494f2023959eac8ac069518e8d42d659ea66c2dbdeb9" => :mavericks
+    sha256 "4af36720bc8f9f91c4affe5de5a42811596b113a05dc0326c6091e59ecc7a64b" => :el_capitan
+    sha256 "e93f3dcaf703a3e5a31c057a218a224dfdbd24b627d7b57bb790278076fb174e" => :yosemite
+    sha256 "c0b06eb5a524919861752c64a820e31ae4b75fbc8fee228f2b2c35782bf2ea6b" => :mavericks
   end
 
   depends_on "boost"
