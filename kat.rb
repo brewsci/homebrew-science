@@ -4,6 +4,7 @@ class Kat < Formula
   url "https://github.com/TGAC/KAT/releases/download/Release-2.1.1/kat-2.1.1.tar.gz"
   sha256 "bcb86a01bdd2aa01cc64c6d2f2a33fff1a71961867e45a21de8de303e6f3440d"
   # tag "bioinformatics"
+  revision 1
 
   bottle do
     cellar :any
