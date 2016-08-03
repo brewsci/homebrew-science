@@ -3,7 +3,7 @@ class Mlpack < Formula
   # doi "arXiv:1210.6293"
   url "http://www.mlpack.org/files/mlpack-2.0.1.tar.gz"
   sha256 "87305f7003e060d3c93d60ce1365c4ec0fa7e827c356e857be316b0e54114f22"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
