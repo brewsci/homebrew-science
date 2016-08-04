@@ -20,6 +20,9 @@ class Cufflinks < Formula
   depends_on "eigen"
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
+
     ENV["EIGEN_CPPFLAGS"] = "-I#{Formula["eigen"].opt_include}/eigen3"
     ENV.append "LIBS", "-lboost_system-mt -lboost_thread-mt -lboost_serialization-mt"
     system "./configure", "--disable-debug",
