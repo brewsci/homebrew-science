@@ -9,6 +9,7 @@ class SuiteSparse < Formula
     sha256 "a53bbf4ebd0636ac08095c16be433a84f615179ae6d7cf6b48112e2d4d6aa3f1" => :el_capitan
     sha256 "1e333295fed780557ba4feecf3e0788b0bdeaed651ad02b4d81ac704c1a0f5cd" => :yosemite
     sha256 "5d532fc7fdef8479aea2f53ebc3d321e40649e323a27612ff41d0a9f9a357e06" => :mavericks
+    sha256 "cc1dd40cee45d0d984d2c6edbc79ba76caa2a864f5089537feea51ac63a2b022" => :x86_64_linux
   end
 
   option "with-matlab", "Install Matlab interfaces and tools"
