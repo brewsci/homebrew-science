@@ -4,6 +4,12 @@ class EnblendEnfuse < Formula
   sha256 "9d0947633ebaa0dc1211331b31009408de6fe2108751ad4190760e3a9f181bc9"
   revision 1
 
+  bottle do
+    cellar :any
+    sha256 "770c42f2b61395ecf25222c4f4adac3ac1a4c7270563ee6e02e870094b6c33e5" => :el_capitan
+    sha256 "c887a8481687e39410d81194986cb2492dcbbf2652ed9ff69ab9955a4ee1cbf6" => :yosemite
+  end
+
   option "with-gpu", "Build with GPU support"
 
   depends_on "libpng"
