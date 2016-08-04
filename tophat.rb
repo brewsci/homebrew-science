@@ -12,6 +12,7 @@ class Tophat < Formula
     sha256 "7c8cd03f1b5429a9458f23c3e89c1ca70a3bb66f86ea99830da78f6ca7df3060" => :el_capitan
     sha256 "9018f5952a79235bd3955522ac46ab0e94cbd489ec802f9295c24bd85ab204dd" => :yosemite
     sha256 "acd66232b41070f1fd1d5901a63f7306cbdb7793a7036c67b31a887c5be019dd" => :mavericks
+    sha256 "a4aaf9f979f98b0c6e07cbf9eec6b334da8a08fb31e42170e6a5b46623300f1c" => :x86_64_linux
   end
 
   depends_on "boost"
