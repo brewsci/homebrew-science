@@ -1,4 +1,5 @@
 class Libsequence < Formula
+  desc "C++ library for evolutionary genetics"
   homepage "https://molpopgen.github.io/libsequence/"
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btg316"
