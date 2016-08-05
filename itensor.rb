@@ -1,0 +1,157 @@
+class Itensor < Formula
+  desc "C++ library for implementing tensor product wavefunction calculations"
+  homepage "http://itensor.org/"
+  url "https://github.com/ITensor/ITensor/archive/v2.0.10.tar.gz"
+  sha256 "3b5e829362ecfc6984227baa0cfbd5ef4aec45334bfb8cdda3cc7aa88c109ddb"
+  head "https://github.com/ITensor/ITensor.git"
+
+  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
+
+  needs :cxx11
+
+  patch :DATA
+
+  def install
+    if OS.mac?
+      dylib_ext = "dylib"
+      dylib_flags = "-dynamiclib -current_version #{version} -compatibility_version 1.0.0"
+    else
+      dylib_ext = "so"
+      dylib_flags = "-shared"
+    end
+
+    if build.with? "openblas"
+      platform = "openblas"
+      openblas_dir = Formula["openblas"].opt_prefix
+      blas_lapack_libflags = "-lpthread -L#{openblas_dir}/lib -lopenblas"
+      blas_lapack_includeflags = "-I#{openblas_dir}/include -DHAVE_LAPACK_CONFIG_H -DLAPACK_COMPLEX_STRUCTURE"
+    elsif OS.mac?
+      platform="macos"
+      blas_lapack_libflags = "-framework Accelerate"
+      blas_lapack_includeflags = ""
+    else
+      platform="lapack"
+      blas_lapack_libflags = "-llapack -lblas"
+      blas_lapack_includeflags = ""
+    end
+
+    (buildpath/"itensor/platform.h").write <<-EOS.undent
+      #ifndef __ITENSOR_PLATFORM_H
+      #define __ITENSOR_PLATFORM_H
+
+      #define PLATFORM_#{platform}
+
+      #endif
+    EOS
+
+    (buildpath/"options.mk").write <<-EOS.undent
+      CCCOM=#{ENV.cxx} -std=c++11 -fPIC
+      BLAS_LAPACK_LIBFLAGS=#{blas_lapack_libflags}
+      BLAS_LAPACK_INCLUDEFLAGS=#{blas_lapack_includeflags}
+      OPTIMIZATIONS=-O2 -DNDEBUG -Wall
+      DEBUGFLAGS=-DDEBUG -g -Wall -pedantic
+      PREFIX=#{prefix}
+      ITENSOR_LIBDIR=#{lib}
+      ITENSOR_INCLUDEDIR=#{buildpath}
+      OPTIMIZATIONS+= -D__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0
+      DEBUGFLAGS+= -D__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0
+      ITENSOR_INCLUDEFLAGS=-I$(ITENSOR_INCLUDEDIR) $(BLAS_LAPACK_INCLUDEFLAGS)
+      CCFLAGS=-I. $(ITENSOR_INCLUDEFLAGS) $(OPTIMIZATIONS) -Wno-unused-variable
+      CCGFLAGS=-I. $(ITENSOR_INCLUDEFLAGS) $(DEBUGFLAGS)
+      DYLIB_EXT=#{dylib_ext}
+      DYLIB_FLAGS=#{dylib_flags}
+    EOS
+
+    lib.mkpath
+    system "make"
+
+    include.mkpath
+    ["itensor",
+     "itensor/detail",
+     "itensor/mps",
+     "itensor/mps/lattice",
+     "itensor/mps/sites",
+     "itensor/itdata",
+     "itensor/tensor",
+     "itensor/util"].each do |p|
+      (include + p).mkpath
+      (include + p).install Dir["#{p}/*.h", "#{p}/*.ih"]
+    end
+  end
+
+  test do
+    (testpath/"test.cc").write <<-EOS.undent
+      #include "itensor/all.h"
+      using namespace itensor;
+      int main()
+      {
+          Index site("spin", 2, Site);
+          printfln("%d", site.m());
+          return 0;
+      }
+    EOS
+    system ENV.cxx, "-std=c++11", "test.cc", "-o", "test", "-I#{include}", "-L#{lib}", "-litensor"
+    assert_match "2", shell_output("./test")
+  end
+end
+__END__
+diff --git a/itensor/Makefile b/itensor/Makefile
+index 8d0872b..6d74f4e 100644
+--- a/itensor/Makefile
++++ b/itensor/Makefile
+@@ -73,14 +73,22 @@ libitensor-g.a: mkdebugdir $(GOBJECTS)
+	@ar r $(ITENSOR_LIBDIR)/libitensor-g.a $(GOBJECTS)
+	@ranlib $(ITENSOR_LIBDIR)/libitensor-g.a
+
++libitensor.$(DYLIB_EXT): $(OBJECTS)
++	@echo "Building dynamic library $(ITENSOR_LIBDIR)/libitensor.$(DYLIB_EXT)"
++	@$(CCCOM) $(DYLIB_FLAGS) -o $(ITENSOR_LIBDIR)/libitensor.$(DYLIB_EXT) $(OBJECTS) $(BLAS_LAPACK_LIBFLAGS)
++
++libitensor-g.$(DYLIB_EXT): mkdebugdir $(GOBJECTS)
++	@echo "Building dynamic library $(ITENSOR_LIBDIR)/libitensor-g.$(DYLIB_EXT)"
++	@$(CCCOM) $(DYLIB_FLAGS) -o $(ITENSOR_LIBDIR)/libitensor-g.$(DYLIB_EXT) $(GOBJECTS) $(BLAS_LAPACK_LIBFLAGS)
++
+ touch_all_headers:
+	@touch all.h
+	@touch all_basic.h
+	@touch all_mps.h
+
+-build: libitensor.a touch_all_headers
++build: libitensor.a libitensor.$(DYLIB_EXT) touch_all_headers
+
+-debug: libitensor-g.a touch_all_headers
++debug: libitensor-g.a libitensor-g.$(DYLIB_EXT) touch_all_headers
+
+ mkdebugdir:
+	@mkdir -p .debug_objs
+diff --git a/itensor/tensor/lapack_wrap.cc b/itensor/tensor/lapack_wrap.cc
+index 6d97590..1eed01c 100644
+--- a/itensor/tensor/lapack_wrap.cc
++++ b/itensor/tensor/lapack_wrap.cc
+@@ -72,9 +72,15 @@ zdotc_wrapper(LAPACK_INT N,
+     {
+ #ifdef ITENSOR_USE_CBLAS
+     Cplx res;
++#if defined PLATFORM_openblas
++    auto pX = reinterpret_cast<OPENBLAS_CONST double*>(X);
++    auto pY = reinterpret_cast<OPENBLAS_CONST double*>(Y);
++    auto pres = reinterpret_cast<openblas_complex_double*>(&res);
++#else
+     auto pX = reinterpret_cast<const void*>(X);
+     auto pY = reinterpret_cast<const void*>(Y);
+     auto pres = reinterpret_cast<void*>(&res);
++#endif
+     cblas_zdotc_sub(N,pX,incx,pY,incy,pres);
+     return res;
+ #else
+diff --git a/itensor/tensor/lapack_wrap.h b/itensor/tensor/lapack_wrap.h
+index 2de9d96..898810c 100644
+--- a/itensor/tensor/lapack_wrap.h
++++ b/itensor/tensor/lapack_wrap.h
+@@ -6,6 +6,7 @@
+ #define __ITENSOR_LAPACK_WRAP_h
+
+ #include <vector>
++#include "itensor/platform.h"
+ #include "itensor/types.h"
+ #include "itensor/util/timers.h"
