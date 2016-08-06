@@ -55,8 +55,8 @@ class Mfem < Formula
 
     if build.with?("suite-sparse")
       ss_lib = "-L#{Formula["suite-sparse"].opt_lib} "
-      ss_lib += "-lumfpack -lcholmod -lcolamd -lamd -lcamd -lccolamd "
-      ss_lib += "-lsuitesparseconfig #{metis_lib} #{lapack_lib}"
+      ss_lib += "-lklu -lbtf -lumfpack -lcholmod -lcolamd -lamd -lcamd "
+      ss_lib += "-lccolamd -lsuitesparseconfig #{metis_lib} #{lapack_lib}"
       make_args += ["MFEM_USE_SUITESPARSE=YES",
                     "SUITESPARSE_DIR=#{Formula["suite-sparse"].opt_prefix}",
                     "SUITESPARSE_OPT=-I#{Formula["suite-sparse"].opt_include}",
