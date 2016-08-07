@@ -27,6 +27,7 @@ class Mfem < Formula
 
   depends_on "suite-sparse" => :optional
   depends_on "openblas" => :optional
+  depends_on "netcdf" => :optional
 
   def install
     make_args = ["PREFIX=#{prefix}"]
@@ -62,6 +63,23 @@ class Mfem < Formula
                     "SUITESPARSE_DIR=#{Formula["suite-sparse"].opt_prefix}",
                     "SUITESPARSE_OPT=-I#{Formula["suite-sparse"].opt_include}",
                     "SUITESPARSE_LIB=#{ss_lib}"]
+    end
+
+    if build.with?("netcdf")
+      netcdf_lib = "-L#{Formula["netcdf"].opt_lib} -lnetcdf "
+      netcdf_lib += "-L#{Formula["hdf5"].opt_lib} -lhdf5_hl -lhdf5 "
+      if OS.mac?
+        netcdf_lib += "-L/usr/lib -lz"
+      else
+        netcdf_lib += "-L#{Formula["zlib"].opt_lib} -lz"
+      end
+      zlib_dir = OS.mac? ? "/usr" : Formula["zlib"].opt_prefix.to_s
+      make_args += ["MFEM_USE_NETCDF=YES",
+                    "NETCDF_DIR=#{Formula["netcdf"].opt_prefix}",
+                    "HDF5_DIR=#{Formula["hdf5"].opt_prefix}",
+                    "ZLIB_DIR=#{zlib_dir}",
+                    "NETCDF_OPT=-I#{Formula["netcdf"].opt_include}",
+                    "NETCDF_LIB=#{netcdf_lib}"]
     end
 
     system "make", "config", *make_args
