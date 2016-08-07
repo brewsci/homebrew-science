@@ -5,6 +5,13 @@ class Itensor < Formula
   sha256 "3b5e829362ecfc6984227baa0cfbd5ef4aec45334bfb8cdda3cc7aa88c109ddb"
   head "https://github.com/ITensor/ITensor.git"
 
+  bottle do
+    cellar :any
+    sha256 "9b1735cc1ca66d95b98b127471ca898d5fd9cbfe212cae444ef65a6efe604cf2" => :el_capitan
+    sha256 "4e6b3c30fbeaa8e62306fb41a6881c23fa9416a4e9229a0eb3de998fda65a705" => :yosemite
+    sha256 "3ac47b1e2e86069285083cbbe4a3f723e794f38ec3ed395238b4458a3e78f29e" => :mavericks
+  end
+
   depends_on "openblas" => (OS.mac? ? :optional : :recommended)
 
   needs :cxx11
