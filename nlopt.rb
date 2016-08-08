@@ -8,9 +8,9 @@ class Nlopt < Formula
 
   bottle do
     cellar :any
-    sha256 "9df03f31fb174e5b5f8f5da6bd86d3e4d3ec251f6cdbb49d8aafaac358e3ae60" => :el_capitan
-    sha256 "3ca33af7b8d0901ffd956dd1d2f0e45e2b4d4bb5c9527557209ba333639b9cf6" => :yosemite
-    sha256 "e4ef742d0c606323d8bdeb776ddb9c98ba023fb9919de45edb203f64601b9d9b" => :mavericks
+    sha256 "292f3990f7eb9525d01e0dbdacd7d88b073aa93f35dd3af8c044236d32cb6d76" => :el_capitan
+    sha256 "43ac732979527d6a7ad63f5ceaa37b862ec2437d692943337a40b75b7b77c704" => :yosemite
+    sha256 "19c1a65bc3060e13e85c052b5cbb2451546013fb5ac9c380ab155205d4d57c9b" => :mavericks
   end
 
   option "with-python", "Build Python bindings (requires NumPy)"
