@@ -1,8 +1,8 @@
 class Shark < Formula
   desc "Machine leaning library"
   homepage "http://image.diku.dk/shark/"
-  url "https://github.com/Shark-ML/Shark/archive/v3.1.0.tar.gz"
-  sha256 "e36399b0720c69e6cb930786a8b099ac74707d71bc836a132424fa2282e368b4"
+  url "https://github.com/Shark-ML/Shark/archive/v3.1.1.tar.gz"
+  sha256 "87ae435b34d1b0ac027f194ab41626f07077d60e7cd9ea8e7efc206cd43b69ca"
 
   bottle do
     sha256 "75eac173c7f64e9f342570dc7f7cf43fe55ce491e3a746423247738d5efb9e59" => :el_capitan
