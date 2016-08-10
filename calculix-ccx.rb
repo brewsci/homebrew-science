@@ -4,6 +4,7 @@ class CalculixCcx < Formula
   url "http://www.dhondt.de/ccx_2.11.src.tar.bz2"
   version "2.11"
   sha256 "11588c7a2836cadbc4c6f2b866b0daa67512eebe755887094a76a997e6dc2493"
+  revision 1
 
   bottle do
     cellar :any
@@ -117,7 +118,7 @@ index acccf3b..da517de 100644
 @@ -41,5 +41,5 @@ void *u_free(void* ptr,const char *file,const int line, const char* ptr_name){
    if(log_realloc==1) {
        printf("FREEING of variable %s, file %s, line=%d: oldaddress= %ld\n",ptr_name,file,line,(long int)ptr);
-   }
+   }      
 -  return;
 +  return NULL;
  }
