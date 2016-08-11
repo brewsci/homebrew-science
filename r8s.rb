@@ -1,9 +1,11 @@
 class R8s < Formula
   desc "Estimate rates and divergence times on phylogenetic trees"
-  homepage "http://loco.biosci.arizona.edu/r8s/"
-  url "http://loco.biosci.arizona.edu/r8s/r8s.dist.tgz"
+  homepage "http://ceiba.biosci.arizona.edu/r8s/"
+  url "http://ceiba.biosci.arizona.edu/r8s/r8s.dist.tgz"
   version "1.8"
-  sha256 "a388d70275abfabf73a84a4346175ae94b3a3b2f1f399a4d3657bb430a22f903"
+  sha256 "3b70c86c5aeff52b42598bd48777881b22104c1c1c4658ebcf96d2da9d9521b4"
+  revision 1
+
   bottle do
     cellar :any
     sha256 "e46feb1ae0e09b56aa5380de42fcccaf828bad63714898a64a973ce8ab5c538f" => :yosemite
@@ -35,6 +37,6 @@ class R8s < Formula
   end
 
   test do
-    assert_match(/r8s version #{version}/, shell_output("#{bin}/r8s -v -b", 1))
+    assert_match "r8s version #{version}", shell_output("#{bin}/r8s -v -b", 1)
   end
 end
