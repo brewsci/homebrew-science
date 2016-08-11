@@ -5,10 +5,11 @@ class Ann < Formula
   sha256 "1b54b58ae697202a09d793de51ee9200fe1d5c39def78d9e8f5c0d08e48afaf5"
 
   bottle do
-    cellar :any
-    sha256 "1af4c7a1d3aa264cd62565687859432a872b404962cd22f250e5bedf08d8c8d0" => :yosemite
-    sha256 "101435719a743112bc700a56abb483a107ed3dfcba12313ec790db72de9c59a9" => :mavericks
-    sha256 "67e681a734fcdd3d4fb1ac79f86cabdd29b4370ea90ddd441e4ad4fc4663c7e9" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "61a6eecaed8aa80f604ee2c5997e29cb41c1e453965c00157e0f7fb22df64a20" => :el_capitan
+    sha256 "1b8388192aeb11c8729f84d9094807ecfb7503a800fb7819d07e531e38049c02" => :yosemite
+    sha256 "623b013fc20d81861d90b45f3acd517a908db17b3ef124c3e5b678107d39fe43" => :mavericks
   end
 
   def install
