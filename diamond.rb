@@ -3,10 +3,9 @@ class Diamond < Formula
   homepage "http://ab.inf.uni-tuebingen.de/software/diamond/"
   # doi "10.1038/nmeth.3176"
   # tag "bioinformatics"
-  revision 1
 
-  url "https://github.com/bbuchfink/diamond/archive/v0.8.17.tar.gz"
-  sha256 "3d5b221f7ec2de0eec5564c9aa45f17cd483c52b6977d22720bb3578c1d7e990"
+  url "https://github.com/bbuchfink/diamond/archive/v0.8.18.tar.gz"
+  sha256 "54925afd1a4744ace9422d96171e436d0146a606ad25f3d2fb8e15fb17a413e5"
 
   bottle do
     cellar :any_skip_relocation
