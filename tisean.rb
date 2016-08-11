@@ -1,8 +1,9 @@
 class Tisean < Formula
+  desc "Nonlinear time series analysis"
   homepage "http://www.mpipks-dresden.mpg.de/~tisean/"
   url "http://www.mpipks-dresden.mpg.de/~tisean/TISEAN_3.0.1.tar.gz"
   sha256 "cd6662505a2e411218f5d34ccb8bf206a6148b6c79b1cc8e4fa4dc11dfd00534"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -27,7 +28,7 @@ class Tisean < Formula
           "compare", "upo", "upoembed", "cluster", "choose", "rms", "notch",
           "autocor", "spectrum", "wiener1", "wiener2", "surrogates",
           "endtoend", "timerev", "events", "intervals", "spikespec",
-          "spikeauto", "henon", "ikeda", "lorenz", "ar-run", "xrecur"]
+          "spikeauto", "henon", "ikeda", "lorenz", "ar-run", "xrecur"].freeze
 
   def install
     system "./configure", "--prefix=#{prefix}"
@@ -39,7 +40,7 @@ class Tisean < Formula
     system "make"
     system "make", "install"
     if build.with? "prefixed-binaries"
-      Tisean::BINS.each { |item| system "mv #{bin}/#{item} #{bin}/tisean-#{item}" }
+      Tisean::BINS.each { |item| mv "#{bin}/#{item}", "#{bin}/tisean-#{item}" }
     end
   end
 
@@ -53,6 +54,6 @@ class Tisean < Formula
 
   test do
     pfx = build.with?("prefixed-binaries") ? "tisean-" : ""
-    Tisean::BINS.each { |item| system "#{bin}/#{pfx}#{item} -h" }
+    Tisean::BINS.each { |item| system "#{bin}/#{pfx}#{item}", "-h" }
   end
 end
