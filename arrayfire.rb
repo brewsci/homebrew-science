@@ -11,9 +11,10 @@ class Arrayfire < Formula
   end
 
   bottle do
-    sha256 "d0a072a58dc4ac4f612035de2c90332a04683395f328fbd8d396b24ebc1bc395" => :el_capitan
-    sha256 "c9e4d69359ed23e939e0f1127ca4605abb7eb8b1d28e997bd5eba57a39d73229" => :yosemite
-    sha256 "e1d5401b261667155e34b990dda6696c7256a62e144572bca7ad1291c9536ac2" => :mavericks
+    revision 1
+    sha256 "0d65cd4660c99c0d6c9eb7eea489d0f0b5eba529b63ec5525709248a829317d3" => :el_capitan
+    sha256 "8af4bcc8decb30cb88b93f50dd640c45b9fadf7348485d5e6e6670ff0306f1b9" => :yosemite
+    sha256 "450d80668d39debf3b9fab6aa5af0db8e9d63a2b7432e37d54b173dad308e334" => :mavericks
   end
 
   # https://github.com/arrayfire/arrayfire/issues/794
