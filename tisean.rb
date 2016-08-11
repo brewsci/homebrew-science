@@ -7,9 +7,9 @@ class Tisean < Formula
 
   bottle do
     cellar :any
-    sha256 "7f371b4adb10c1f3b9ac5899aecda52d05f5667941aa419422b8874305bfea67" => :yosemite
-    sha256 "0e67267ae5ee08fe0855d670577e02585884f6851bf8f1fa3f1d469d32f0a197" => :mavericks
-    sha256 "205942c3e368a65fdf3d255fef32bc8933fec2ba7266d93eec7b618937fdb299" => :mountain_lion
+    sha256 "5bef9892b02cb98343b500548005d7b0b7e4e67a71d9368f0a88281d561489d8" => :el_capitan
+    sha256 "6a71e792bf200692d7c69b2032ec58585508db09327413bae51ae79b541e38d8" => :yosemite
+    sha256 "af6b8c14ff739f4972b03a3053a3d221371a37434b09ffdd64e18b37bf265247" => :mavericks
   end
 
   option "without-prefixed-binaries", "Do not prefix binaries with `tisean-`"
