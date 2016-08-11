@@ -33,7 +33,6 @@ class Arrayfire < Formula
   depends_on "homebrew/versions/glfw3"
   depends_on :x11
 
-
   # build forge separately so we can tell it to use the system freetype
   resource "forge" do
     url "https://github.com/arrayfire/forge/archive/af3.2.2.tar.gz"
