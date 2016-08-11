@@ -1,5 +1,5 @@
 class Amos < Formula
-  desc "A Modular Open-Source Assembler"
+  desc "Modular Open-Source Assembler"
   homepage "http://sourceforge.net/apps/mediawiki/amos/index.php?title=AMOS"
   # doi "10.1002/0471250953.bi1108s33"
   # tag "bioinformatics"
