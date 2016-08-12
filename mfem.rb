@@ -25,9 +25,15 @@ class Mfem < Formula
     depends_on "metis" => :optional
   end
 
+  if OS.mac?
+    depends_on "openblas" => :optional
+  else
+    depends_on "openblas"
+  end
+
   depends_on "suite-sparse" => :optional
-  depends_on "openblas" => :optional
   depends_on "netcdf" => :optional
+  depends_on "superlu_dist" => :optional
 
   def install
     make_args = ["PREFIX=#{prefix}"]
@@ -63,6 +69,14 @@ class Mfem < Formula
                     "SUITESPARSE_DIR=#{Formula["suite-sparse"].opt_prefix}",
                     "SUITESPARSE_OPT=-I#{Formula["suite-sparse"].opt_include}",
                     "SUITESPARSE_LIB=#{ss_lib}"]
+    end
+
+    if build.with?("superlu_dist")
+      superlu_lib = "-L#{Formula["superlu_dist"].opt_lib} -lsuperlu_dist"
+      make_args += ["MFEM_USE_SUPERLU=YES",
+                    "SUPERLU_DIR=#{Formula["superlu_dist"].opt_prefix}",
+                    "SUPERLU_OPT=-I#{Formula["superlu_dist"].opt_include}",
+                    "SUPERLU_LIB=#{superlu_lib}"]
     end
 
     if build.with?("netcdf")
