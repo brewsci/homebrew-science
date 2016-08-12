@@ -5,6 +5,8 @@ class Poretools < Formula
   sha256 "5f547b014c6208ca14a2f95cc10eecc34f9a69edf44e693eade31f083da36b18"
   head "https://github.com/arq5x/poretools.git"
   revision 5
+  # doi "10.1093/bioinformatics/btu555"
+  # tag "bioinformatics"
 
   bottle do
     sha256 "013cb567445c5f6b1b4b56c77734110ed5e96b4d94c1af1054c372a416c27c4c" => :el_capitan
