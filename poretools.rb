@@ -4,7 +4,7 @@ class Poretools < Formula
   url "https://github.com/arq5x/poretools/archive/v0.5.1.tar.gz"
   sha256 "5f547b014c6208ca14a2f95cc10eecc34f9a69edf44e693eade31f083da36b18"
   head "https://github.com/arq5x/poretools.git"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "13d37f2ca149f6b6460052a431d1913ac91efae1d95a02f51b7fcf7b8538cecf" => :el_capitan
@@ -85,6 +85,8 @@ class Poretools < Formula
   end
 
   def install
+    ENV.delete("SDKROOT")
+
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python2.7/site-packages"
     ENV.prepend_create_path "PATH", libexec/"vendor/bin"
