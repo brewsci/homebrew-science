@@ -15,9 +15,6 @@ class R8s < Formula
     sha256 "25350b1b9e43062e3f391feacdd38b3e748a6805fd378f7952aed1b7e5410e39" => :mavericks
   end
 
-  # doi "10.1093/bioinformatics/19.2.301"
-  # tag "bioinformatics"
-
   depends_on :fortran
 
   def install
