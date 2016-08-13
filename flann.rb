@@ -1,9 +1,8 @@
 class Flann < Formula
-  desc "FLANN - Fast Library for Approximate Nearest Neighbors"
+  desc "Fast Library for Approximate Nearest Neighbors"
   homepage "http://www.cs.ubc.ca/~mariusm/index.php/FLANN/FLANN"
-  url "http://people.cs.ubc.ca/~mariusm/uploads/FLANN/flann-1.8.4-src.zip"
-  sha256 "dfbb9321b0d687626a644c70872a2c540b16200e7f4c7bd72f91ae032f445c08"
-  revision 1
+  url "https://github.com/mariusmuja/flann/archive/1.9.1.tar.gz"
+  sha256 "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
 
   bottle do
     cellar :any
@@ -17,6 +16,8 @@ class Flann < Formula
 
   option "with-octave", "Enable Matlab/Octave bindings"
   option "without-examples", "Do not build and install example binaries"
+  option "with-openmp", "Build with OpenMP support"
+  needs :openmp if build.with? "openmp"
 
   depends_on "cmake" => :build
   depends_on "hdf5"
