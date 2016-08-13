@@ -5,10 +5,11 @@ class Sfscode < Formula
   sha256 "1f69ed96e20f1453df2882ce78171b49cb3378b25538a3cacd18db00e07c979a"
 
   bottle do
-    cellar :any
-    sha256 "8e3adc0429a8e5e7b80b52cb1ca7ed6ef2fbed2e154687612fb6622cc42888ec" => :yosemite
-    sha256 "22fc81e423c179ac776a0e78d74d678609929d5d17c2d377dd7cba6185a3c26a" => :mavericks
-    sha256 "87c0cc3e34e84861a2d460ce1997adfeb8f05dc0f8aff21859752a72a3cbb135" => :mountain_lion
+    cellar :any_skip_relocation
+    revision 1
+    sha256 "65355ebf143d5ae2b9c7ca01bf830b451ce2348ecfb18af8d1f5beed96148f83" => :el_capitan
+    sha256 "20c6de798168eb20dbadd36c133cb2c7d1f9f0834e577db37404d4924856dd42" => :yosemite
+    sha256 "8bb471709ea95a2285c985a975e6500f56700b28e8e4dd3376098be12bc4cd5f" => :mavericks
   end
 
   def install
