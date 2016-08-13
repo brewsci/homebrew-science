@@ -1,14 +1,16 @@
 class Tbl2asn < Formula
+  desc "Automates the submission of sequence records to GenBank"
   homepage "https://www.ncbi.nlm.nih.gov/genbank/tbl2asn2/"
   # tag "bioinformatics"
 
-  version "24.9"
+  # version number is in ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/DOCUMENTATION/VERSIONS
+  version "25.0"
   if OS.mac?
     url "ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/mac.tbl2asn.gz"
-    sha256 "3d3575cfd93f08e24432df2c3b0c9ac8c58546462ed70c9ee371d1e8dcd27a85"
+    sha256 "d18785994de6e20e7f3502aa042b59817eaf58365b11e2b32b95856bc4738ec1"
   elsif OS.linux?
     url "ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/linux64.tbl2asn.gz"
-    sha256 "730d9bcf6d654e2395d19e529f01a4f670030633129ceea2dbf6e4850e42aa2a"
+    sha256 "0f95c6c2872b2beb908eb42a64b15ed282424332faab3c442b43fc8b99548e58"
   end
 
   bottle do
@@ -34,6 +36,6 @@ class Tbl2asn < Formula
   end
 
   test do
-    assert_match "tbl2asn #{version}", shell_output("tbl2asn -", 0)
+    assert_match "tbl2asn #{version}", shell_output("tbl2asn -")
   end
 end
