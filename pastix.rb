@@ -21,6 +21,7 @@ class Pastix < Formula
 
   depends_on :mpi       => [:cc, :cxx, :f90]
   depends_on :fortran
+  depends_on "gcc"
 
   def install
     ENV.deparallelize
