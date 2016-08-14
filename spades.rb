@@ -15,6 +15,8 @@ class Spades < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "gcc"
+  depends_on :python if OS.linux?
 
   needs :openmp
 
@@ -22,16 +24,10 @@ class Spades < Formula
     cause "Compiling SPAdes requires GCC >= 4.7 for OpenMP 3.1 support"
   end
 
-
   def install
     mkdir "src/build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
-    end
-
-    # Fix audit error "Non-executables were installed to bin"
-    inreplace bin/"spades_init.py" do |s|
-      s.sub! /^/, "#!/usr/bin/env python\n"
     end
   end
 
