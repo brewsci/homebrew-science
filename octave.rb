@@ -1,6 +1,7 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
+  revision 1
 
   stable do
     url "https://ftpmirror.gnu.org/octave/octave-4.0.3.tar.gz"
@@ -20,6 +21,12 @@ class Octave < Formula
     end
   end
 
+  bottle do
+    sha256 "ab2cd4059874f137f57cd956a19cd7bc434a748a33404fe844da1d4f7f484967" => :el_capitan
+    sha256 "ee6252781080ac5e9f63cad5ed1fe013e36eb6b3cc80efa45ec68ab52f3287db" => :yosemite
+    sha256 "8556db1fe1b44dfa0169c086c3497906df7c0200329a8f160eca818bd4f35c8d" => :mavericks
+  end
+
   if OS.mac? && DevelopmentTools.clang_version < "7.0"
     # Fix the build error with LLVM 3.5svn (-3.6svn?) and libc++ (bug #43298)
     # See: http://savannah.gnu.org/bugs/?43298
@@ -37,7 +44,7 @@ class Octave < Formula
 
   # dependencies needed for head
   # "librsvg" and ":tex" are currently not necessary
-  # since we do not build the pdf docs ("DOC_TARGETS=")
+  # since we do not build the pdf docs
   head do
     url "http://www.octave.org/hg/octave", :branch => "default", :using => :hg
     depends_on :hg             => :build
@@ -45,12 +52,13 @@ class Octave < Formula
     depends_on "automake"      => :build
     depends_on "bison"         => :build
     depends_on "icoutils"      => :build
-  end
 
-  bottle do
-    sha256 "ab2cd4059874f137f57cd956a19cd7bc434a748a33404fe844da1d4f7f484967" => :el_capitan
-    sha256 "ee6252781080ac5e9f63cad5ed1fe013e36eb6b3cc80efa45ec68ab52f3287db" => :yosemite
-    sha256 "8556db1fe1b44dfa0169c086c3497906df7c0200329a8f160eca818bd4f35c8d" => :mavericks
+    # Fix bug #46723: retina scaling of buttons
+    # see https://savannah.gnu.org/bugs/?46723
+    patch :p1 do
+      url "https://savannah.gnu.org/bugs/download.php?file_id=38206"
+      sha256 "8307cec2b84fe546c8f490329b488ecf1da628ce823301b6765ffa7e6e292eed"
+    end
   end
 
   skip_clean "share/info" # Keep the docs
@@ -60,12 +68,10 @@ class Octave < Formula
 
   # options, enabled by default
   option "without-curl",           "Do not use cURL (urlread/urlwrite/@ftp)"
-  option "without-docs",           "Do not install documentation"
   option "without-fftw",           "Do not use FFTW (fft,ifft,fft2,etc.)"
   option "without-fltk",           "Do not use FLTK graphics backend"
   option "without-glpk",           "Do not use GLPK"
   option "without-gnuplot",        "Do not use gnuplot graphics"
-  option "without-gui",            "Do not use the graphical user interface"
   option "without-hdf5",           "Do not use HDF5 (hdf5 data file support)"
   option "without-opengl",         "Do not use opengl"
   option "without-qhull",          "Do not use the Qhull library (delaunay,voronoi,etc.)"
@@ -76,6 +82,8 @@ class Octave < Formula
 
   # options, disabled by default
   option "with-audio",             "Use the sndfile and portaudio libraries for audio operations"
+  option "with-docs",              "Compile and install documentation"
+  option "with-gui",               "Compile with graphical user interface"
   option "with-java",              "Use Java, requires Java 6 from https://support.apple.com/kb/DL1572"
   option "with-jit",               "Use the experimental just-in-time compiler (not recommended)"
   option "with-openblas",          "Use OpenBLAS instead of native LAPACK/BLAS"
@@ -114,17 +122,23 @@ class Octave < Formula
   depends_on "pstoedit"        if build.with? "ghostscript"
   depends_on "qhull"           if build.with? "qhull"
   depends_on "qrupdate"        if build.with? "qrupdate"
-  depends_on "qscintilla2"     if build.with? "gui"
-  depends_on "qt"              if build.with? "gui"
   depends_on "suite-sparse"    if build.with? "suite-sparse"
   depends_on "libsndfile"      if build.with? "audio"
   depends_on "portaudio"       if build.with? "audio"
   depends_on "veclibfort"      if build.without? "openblas"
-
   depends_on "openblas" => (OS.mac? ? :optional : :recommended)
 
+  # Qt5 support is only available with Octave >=4.2
+  if build.with?("gui") && build.head?
+    depends_on "qscintilla2"
+    depends_on "qt5"
+  elsif build.with?("gui")
+    odie "Homebrew dropped support of Qt4 but Octave 4.2 is not yet released.
+       If you need the GUI, you may try installing with --HEAD"
+  end
+
   # If GraphicsMagick was built from source, it is possible that it was
-  # done to change quantum depth.  If so, our Octave bottles are no good.
+  # done to change quantum depth. If so, our Octave bottles are no good.
   # https://github.com/Homebrew/homebrew-science/issues/2737
   if build.with? "graphicsmagick"
     def pour_bottle?
@@ -136,8 +150,13 @@ class Octave < Formula
     ENV.m64 if MacOS.prefer_64_bit?
     ENV.append_to_cflags "-D_REENTRANT"
     ENV.append "LDFLAGS", "-L#{Formula["readline"].opt_lib} -lreadline" if build.with? "readline"
-    ENV.prepend_path "PATH", "#{Formula["texinfo"].opt_bin}"
+    ENV.prepend_path "PATH", Formula["texinfo"].bin
     ENV["FONTCONFIG_PATH"] = "/opt/X11/lib/X11/fontconfig"
+
+    # make sure qt5 is found
+    if build.with?("gui")
+      ENV.prepend_path "PATH", Formula["qt5"].bin
+    end
 
     # basic arguments
     args = ["--prefix=#{prefix}"]
@@ -210,29 +229,20 @@ class Octave < Formula
 
     system "./bootstrap" if build.head?
 
-    # libtool needs to see -framework to handle dependencies better.
-    inreplace "configure", "-Wl,-framework -Wl,", "-framework "
+    stable do # can be dropped with Octave >=4.2
+      # libtool needs to see -framework to handle dependencies better.
+      inreplace "configure", "-Wl,-framework -Wl,", "-framework "
 
-    # the Mac build configuration passes all linker flags to mkoctfile to
-    # be inserted into every oct/mex build. This is actually unnecessary and
-    # can cause linking problems.
-    inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
-
-    # make gnuplot the default backend since the native qt backend is rather unstable
-    # if (build.with? "gnuplot") && (Tab.for_name("gnuplot").with? "qt")
-    #   system "echo", "\"graphics_toolkit('gnuplot');\" >> \"scripts/startup/local-rcfile\""
-    #   system "echo", "\"setenv('GNUTERM','qt');\" >> \"scripts/startup/local-rcfile\"" if Tab.for_name("gnuplot").with? "qt"
-    # end
+      # the Mac build configuration passes all linker flags to mkoctfile to
+      # be inserted into every oct/mex build. This is actually unnecessary and
+      # can cause linking problems.
+      inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
+    end
 
     system "./configure", *args
-
-    # call make with "DOC_TARGETS=" such that the manual is not build
-    # due to broken osmesa which is required to generate the images
-    # however the texinfo for built-in octave help is still generated
-    # this can be disabled by "--without-docs"
-    system "make", "all", "DOC_TARGETS="
-    system "make", "check", "DOC_TARGETS=" if build.with? "test"
-    system "make", "install", "DOC_TARGETS="
+    system "make", "all"
+    system "make", "check" if build.with? "test"
+    system "make", "install"
 
     prefix.install "test/fntests.log" if File.exist? "test/fntests.log"
   end
@@ -243,10 +253,10 @@ class Octave < Formula
     if build.with?("gui")
       s += <<-EOS.undent
 
-      The graphical user interface is now used when running Octave interactively.
-      The start-up option --no-gui will run the familiar command line interface.
-      The option --no-gui-libs runs a minimalist command line interface that does not
-      link with the Qt libraries and uses the fltk toolkit for plotting if available.
+      Octave is compiled with a graphical user interface. The start-up option --no-gui
+      will run the familiar command line interface. The option --no-gui-libs runs a
+      minimalistic command line interface that does not link with the Qt libraries and
+      uses the fltk toolkit for plotting if available.
 
       EOS
 
@@ -254,21 +264,21 @@ class Octave < Formula
 
       s += <<-EOS.undent
 
-      The graphical user interface is now enabled by default; run 'octave-cli' or
-      install via brew with the option --without-gui to disable it.
+      Octave's graphical user interface is disabled; compile Octave with the option
+      --with-gui to enable it.
 
       EOS
 
     end
 
-    if build.with?("gnuplot")
+    if build.with?("gnuplot") || build.with?("fltk")
       s += <<-EOS.undent
 
-        Gnuplot is configured as default graphics toolkit, this can be changed within
-        Octave using 'graphics_toolkit'. Other Gnuplot terminals can be used by setting
-        the environment variable GNUTERM and building gnuplot with the following options.
+        Several graphics toolkit are available. You can select them by using the command
+        'graphics_toolkit' in Octave.  Individual Gnuplot terminals can be chosen by setting
+        the environment variable GNUTERM and building gnuplot with the following options:
 
-          setenv('GNUTERM','qt')    # Requires QT; install gnuplot --with-qt
+          setenv('GNUTERM','qt')    # Requires QT; install gnuplot --with-qt5
           setenv('GNUTERM','x11')   # Requires XQuartz; install gnuplot --with-x11
           setenv('GNUTERM','wxt')   # Requires wxmac; install gnuplot --with-wxmac
           setenv('GNUTERM','aqua')  # Requires AquaTerm; install gnuplot --with-aquaterm
@@ -284,18 +294,8 @@ class Octave < Formula
     if build.without?("osmesa") || (build.with?("osmesa") && build.with?("opengl"))
       s += <<-EOS.undent
 
-      When using the native qt or fltk toolkits then invisible figures do not work because
-      osmesa does currently not work with the Mac's OpenGL implementation. The usage of
-      gnuplot is recommended.
-
-      EOS
-    end
-
-    if build.without?("openblas")
-      s += <<-EOS.undent
-
-      Octave has been compiled with Apple's BLAS routines, this leads to segfaults in some
-      tests. The option "--with-openblas" is a more conservative choice.
+      When using the native Qt or fltk toolkits then invisible figures do not work because
+      osmesa is incompatible with Mac's OpenGL. The usage of gnuplot is recommended.
 
       EOS
     end
