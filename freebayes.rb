@@ -9,6 +9,13 @@ class Freebayes < Formula
   # doi "arXiv:1207.3907v2"
   # tag "bioinformatics"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "299858bffe93d8b1952d20b597e91a2d22a78d7001e3855272b20db018e2b715" => :el_capitan
+    sha256 "303723bb1b6fba6a009198ffa956d6bd7b6d4a2acaddc6933714554a9dc6bfb4" => :yosemite
+    sha256 "23201ee36b507225d714a70f1bf9b2fa9a9a92a315cb23b61ebc3f289f012bc1" => :mavericks
+  end
+
   depends_on "cmake" => :build
 
   depends_on "parallel" => :recommended
