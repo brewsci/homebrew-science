@@ -1,4 +1,5 @@
 class Bamhash < Formula
+  desc "Hash BAM and FASTQ files to verify data integrity"
   homepage "https://github.com/DecodeGenetics/BamHash"
   # doi "10.1101/015867"
   # tag "bioinformatics"
