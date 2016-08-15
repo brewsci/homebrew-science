@@ -1,8 +1,8 @@
 class Hwloc < Formula
-  homepage "http://www.open-mpi.org/projects/hwloc/"
   desc "Portable abstraction of the hierarchical topology of modern architectures"
-  url "http://www.open-mpi.org/software/hwloc/v1.11/downloads/hwloc-1.11.2.tar.bz2"
-  sha256 "8c029b6b1638245837707bfa6c865f448af4e49e7d352335e019d818b51fecf8"
+  homepage "http://www.open-mpi.org/projects/hwloc/"
+  url "http://www.open-mpi.org/software/hwloc/v1.11/downloads/hwloc-1.11.3.tar.bz2"
+  sha256 "e7748e4412fb94cf22fd1971de939d9770e6068f7003dea107417f21146333fa"
 
   bottle do
     cellar :any
@@ -29,6 +29,7 @@ class Hwloc < Formula
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
+                          "--enable-shared",
                           "--prefix=#{prefix}",
                           "--without-x"
     system "make", "install"
@@ -38,7 +39,7 @@ class Hwloc < Formula
 
   test do
     system ENV.cc, "-I#{include}", "-L#{lib}", "-lhwloc",
-           share/"hwloc/tests/hwloc_groups.c", "-o", "test"
+           pkgshare/"tests/hwloc_groups.c", "-o", "test"
     system "./test"
   end
 end
