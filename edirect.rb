@@ -1,10 +1,11 @@
 class Edirect < Formula
+  desc "Access NCBI's databases from the shell"
   homepage "http://www.ncbi.nlm.nih.gov/books/NBK179288/"
   # tag "bioinformatics"
 
   url "ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/edirect.tar.gz"
-  sha256 "2d108d780cef39bc4fdfd265d97ebaafe59ec937667061f54274f17a40a1a74f"
-  version "3.60"
+  version "4.80"
+  sha256 "9e3074ca7dacbfca17b8f9875467d000a52378af18127c122b2d5cb09e5fb0f7"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,6 +17,7 @@ class Edirect < Formula
   def install
     doc.install "README"
     libexec.install "setup.sh", "setup-deps.pl"
+    rm ["Mozilla-CA.tar.gz", "xtract.go"]
     bin.install Dir["*"]
   end
 
