@@ -1,4 +1,5 @@
 class Blat < Formula
+  desc "Genomic sequence search tool"
   homepage "http://genome.ucsc.edu/FAQ/FAQblat.html"
   # doi "10.1101/gr.229202"
   # tag "bioinformatics"
