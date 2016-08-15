@@ -1,4 +1,5 @@
 class Bless < Formula
+  desc "Bloom-filter-based error correction tool for NGS reads"
   homepage "https://sourceforge.net/projects/bless-ec/"
   # doi "10.1093/bioinformatics/btu030"
   # tag "bioinformatics"
