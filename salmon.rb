@@ -3,16 +3,10 @@ class Salmon < Formula
   homepage "https://github.com/COMBINE-lab/salmon"
   # tag "bioinformatics"
 
-  url "https://github.com/COMBINE-lab/salmon/archive/v0.6.0.tar.gz"
-  sha256 "2a015c0f95b745fbed575d8610aea7e09cb1af55ca2c68e10ab15826fba263b1"
-  revision 2
+  url "https://github.com/COMBINE-lab/salmon/archive/v0.7.0.tar.gz"
+  sha256 "b0c30941814760095d6d302f7c3c74be0fc098c2851ff0fd58dd171ed1f8b4d8"
 
   head "https://github.com/COMBINE-lab/salmon.git"
-
-  patch do
-    url "https://github.com/COMBINE-lab/salmon/pull/70.patch"
-    sha256 "7129eac8591ad954cca30576519071b1f5ea2a36206f973a1aef0bc1eb5d20da"
-  end
 
   bottle do
     cellar :any
