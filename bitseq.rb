@@ -1,5 +1,5 @@
 class Bitseq < Formula
-  desc "Transcript isoform level expression and differential expression estimation for RNA-seq"
+  desc "RNA-seq analysis library"
   homepage "https://bitseq.github.io/"
   url "https://github.com/BitSeq/BitSeq/archive/v0.7.5.tar.gz"
   sha256 "017eb516041de923ecdb5f7122bc2f4f1f99bbc08962028891a6bc845319ac2d"
