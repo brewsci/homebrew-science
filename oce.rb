@@ -1,15 +1,14 @@
 class Oce < Formula
+  desc "Open CASCADE Community Edition"
   homepage "https://github.com/tpaviot/oce"
-  url "https://github.com/tpaviot/oce/archive/OCE-0.17.tar.gz"
-  sha256 "9ab0dc2a2d125b46cef458b56c6d171dfe2218d825860d616c5ab17994b8f74d"
+  url "https://github.com/tpaviot/oce/archive/OCE-0.17.2.tar.gz"
+  sha256 "8d9995360cd531cbd4a7aa4ca5ed969f08ec7c7a37755e2f3d4ef832c1b2f56e"
 
   bottle do
     sha256 "75932d64aab68b7fad6c27a365cee5158924d311f9fbe789c063379b87759a2d" => :yosemite
     sha256 "b98386e67112e79bfecb597f61fd00e86d8c2ed0b51fa07bdf5d3b105b34d9e0" => :mavericks
     sha256 "c7e01db93d10a1bcccb7f52419caaec057eeb5cf246f25f7ca2514533b1d83eb" => :mountain_lion
   end
-
-  conflicts_with "opencascade", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
 
   option "without-opencl", "Build without OpenCL support"
 
@@ -20,6 +19,8 @@ class Oce < Formula
   depends_on "gl2ps" => :recommended
   depends_on "tbb" => :recommended
   depends_on :macos => :snow_leopard
+
+  conflicts_with "opencascade", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
 
   def install
     cmake_args = std_cmake_args
@@ -51,6 +52,8 @@ class Oce < Formula
   end
 
   test do
-    "1\n"==`CASROOT=#{share}/oce-#{version} #{bin}/DRAWEXE -v -c \"pload ALL\"`
+    vers = version.to_s.split(".")[0..1].join(".")
+    cmd = "CASROOT=#{share}/oce-#{vers} #{bin}/DRAWEXE -v -c \"pload ALL\""
+    assert_equal "1", shell_output(cmd).chomp
   end
 end
