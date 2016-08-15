@@ -41,7 +41,7 @@ class BaliPhy < Formula
   end
 
   test do
-    system "#{bin}/bali-phy", "#{share}/bali-phy/examples/Sequences/5S-rRNA/5d.fasta", "--iter=150"
+    system "#{bin}/bali-phy", "#{pkgshare}/examples/Sequences/5S-rRNA/5d.fasta", "--iter=150"
     system "#{bin}/bp-analyze.pl", "5d-1"
   end
 end
