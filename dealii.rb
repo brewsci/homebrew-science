@@ -3,11 +3,9 @@ class Dealii < Formula
   homepage "http://www.dealii.org"
   url "https://github.com/dealii/dealii/releases/download/v8.4.1/dealii-8.4.1.tar.gz"
   sha256 "00a0e92d069cdafd216816f1aff460f7dbd48744b0d9e0da193287ebf7d6b3ad"
-  revision 1
+  revision 2
 
-  head do
-    url "https://github.com/dealii/dealii.git"
-  end
+  head "https://github.com/dealii/dealii.git"
 
   bottle do
     cellar :any
@@ -17,6 +15,9 @@ class Dealii < Formula
   end
 
   option "with-testsuite", "Run full test suite (7000+ tests). Takes a lot of time."
+  option "without-oce", "Build without oce support (conflicts with opencascade)"
+
+  deprecated_option "without-opencascade" => "without-oce"
 
   depends_on "cmake"        => :run
   depends_on :mpi           => [:cc, :cxx, :f90, :recommended]
@@ -32,7 +33,7 @@ class Dealii < Formula
   depends_on "metis"        => :recommended
   depends_on "muparser"     => :recommended if MacOS.version != :mountain_lion # Undefined symbols for architecture x86_64
   depends_on "netcdf"       => [:recommended, "with-fortran", "with-cxx-compat"]
-  depends_on "opencascade"  => :recommended
+  depends_on "oce"          => :recommended
   depends_on "p4est"        => [:recommended] + openblasdep if build.with? "mpi"
   depends_on "parmetis"     => :recommended if build.with? "mpi"
   depends_on "petsc"        => [:recommended] + openblasdep
@@ -86,7 +87,7 @@ class Dealii < Formula
     args << "-DMETIS_DIR=#{Formula["metis"].opt_prefix}" if build.with? "metis"
     args << "-DMUPARSER_DIR=#{Formula["muparser"].opt_prefix}" if build.with? "muparser"
     args << "-DNETCDF_DIR=#{Formula["netcdf"].opt_prefix}" if build.with? "netcdf"
-    args << "-DOPENCASCADE_DIR=#{Formula["opencascade"].opt_prefix}" if build.with? "opencascade"
+    args << "-DOPENCASCADE_DIR=#{Formula["oce"].opt_prefix}" if build.with? "oce"
     args << "-DP4EST_DIR=#{Formula["p4est"].opt_prefix}" if build.with? "p4est"
     args << "-DPETSC_DIR=#{Formula["petsc"].opt_prefix}" if build.with? "petsc"
     args << "-DSLEPC_DIR=#{Formula["slepc"].opt_prefix}" if build.with? "slepc"
