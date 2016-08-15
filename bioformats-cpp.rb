@@ -3,8 +3,8 @@ class BioformatsCpp < Formula
   homepage "http://www.openmicroscopy.org/site/products/bio-formats"
   url "http://downloads.openmicroscopy.org/bio-formats/5.1.8/artifacts/bioformats-dfsg-5.1.8.zip"
   sha256 "b760dc17465c7985a808c0f70a568c4faebe51f8aeaeab56afe1dbc29061c9b8"
-  head "https://github.com/openmicroscopy/bioformats.git", :branch => "develop", :shallow => false
   revision 1
+  head "https://github.com/openmicroscopy/bioformats.git", :branch => "develop", :shallow => false
 
   bottle do
     sha256 "72f5a6eb8f9c1adec19ca64de121cb4b23b3cab8b92fea66554a264ddb8f95fe" => :el_capitan
@@ -12,9 +12,11 @@ class BioformatsCpp < Formula
     sha256 "34e63d87b4d9c67e464b8946899abc64c7efa3f441f09ce35d98823b7ed00a38" => :mavericks
   end
 
-  option "without-check", "Skip build time tests (not recommended)"
+  option "without-test", "Skip build time tests (not recommended)"
   option "with-qt5", "Build with Qt5 (used for OpenGL image rendering)"
   option "without-docs", "Build API reference and manual pages"
+
+  deprecated_option "without-check" => "without-test"
 
   depends_on "boost"
   depends_on "cmake" => :build
