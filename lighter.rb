@@ -4,8 +4,8 @@ class Lighter < Formula
   # tag 'bioinformatics'
   # doi '10.1186/s13059-014-0509-9'
 
-  url "https://github.com/mourisl/Lighter/archive/v1.0.7.tar.gz"
-  sha256 "fde9969f49fa618d12713473b15c79884f91da6017710329e3c9f890f464465f"
+  url "https://github.com/mourisl/Lighter/archive/v1.1.1.tar.gz"
+  sha256 "9b29b87cd87f6d57ef8c39d22fb8679977128a1bdf557d8c161eae2816e374b7"
   head "https://github.com/mourisl/Lighter.git"
 
   bottle do
@@ -17,7 +17,8 @@ class Lighter < Formula
   end
 
   def install
-    system "make"
+    # do not use "CXXFLAGS=#{ENV.cxxflags}" as -Os compiles incorrectly
+    system "make", "CXX=#{ENV.cxx}"
     bin.install "lighter"
     doc.install "README.md", "LICENSE"
   end
