@@ -12,6 +12,7 @@ class Salmon < Formula
     cellar :any
     sha256 "701fe4ff264c88522a12b90cceafc1de09149b2509934ea97adbf526bbcf2ba8" => :el_capitan
     sha256 "585ed6734572b41c62f51548a39a4064d4f69915f38a2851e7cac60425d42539" => :yosemite
+    sha256 "5a514675dc1d6e76d14535b9ff48feca8534addd9bbea83b95b36113585f24cc" => :x86_64_linux
   end
 
   # See https://github.com/kingsfordgroup/sailfish/issues/74
