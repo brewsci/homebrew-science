@@ -11,6 +11,7 @@ class Circlator < Formula
     sha256 "d0a4f5960e9b0a4cc2ab208767224217616addad2e0f2b56368a52f7e410526a" => :el_capitan
     sha256 "81f736c3c6127245e144a0cd471352ac33487c7092281bce2f72a34c2c546f80" => :yosemite
     sha256 "4626b272a3f08dcdd00832358b663de3b062ee750c80403539e741b1c44406fb" => :mavericks
+    sha256 "17cadae21eac200b3db265347f4d7a0698cdf38169e874ace62df71dbbb61c0f" => :x86_64_linux
   end
 
   # tag "bioinformatics"
