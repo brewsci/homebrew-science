@@ -1,7 +1,8 @@
 class Biopieces < Formula
+  desc "Bioinformatic framework"
   homepage "https://code.google.com/p/biopieces/"
+  url "http://biopieces.googlecode.com/svn/trunk/", :revision => "2291"
   version "2291"
-  url "http://biopieces.googlecode.com/svn/trunk/", :revision => version
   head "http://biopieces.googlecode.com/svn/trunk/"
 
   depends_on "biopieces" => :ruby
@@ -34,7 +35,7 @@ class Biopieces < Formula
 
     # Install the documentation.
     cd prefix do
-      system "svn checkout http://biopieces.googlecode.com/svn/wiki bp_usage"
+      system "svn", "checkout", "http://biopieces.googlecode.com/svn/wiki", "bp_usage"
     end
   end
 
@@ -51,6 +52,6 @@ class Biopieces < Formula
   end
 
   test do
-    system "#{bin}/read_fasta --help"
+    system "#{bin}/read_fasta", "--help"
   end
 end
