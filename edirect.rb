@@ -12,6 +12,7 @@ class Edirect < Formula
     sha256 "5aec9857a21f73fd5c527db30cabc47222bfb7d8089cb63f10effbc407f16de4" => :el_capitan
     sha256 "aef2d88463ff0d4974d9953f35f87ba872d4e3e52ff65e8b4778d9502b3c9bd1" => :yosemite
     sha256 "6ce8f0cac378f0706a6c87609dd04fbe11443dc8450f221e6a308aabca309931" => :mavericks
+    sha256 "e3c4accf5971c40cce06e82cb2490d7acfbc7735f30d57a330eaf15358baca5d" => :x86_64_linux
   end
 
   def install
