@@ -1,11 +1,10 @@
 class Biopieces < Formula
   desc "Bioinformatic framework"
-  homepage "https://code.google.com/p/biopieces/"
-  url "http://biopieces.googlecode.com/svn/trunk/", :revision => "2291"
-  version "2291"
-  head "http://biopieces.googlecode.com/svn/trunk/"
-
-  depends_on "biopieces" => :ruby
+  homepage "https://github.com/maasha/biopieces"
+  url "https://github.com/maasha/biopieces/archive/2.0.tar.gz"
+  sha256 "484877c4a844ed1e6c70594248c44b9f19a6e7a1fd08456e28f2cc83425151e8"
+  head "https://github.com/maasha/biopieces.git"
+  # tag "bioinformatics"
 
   depends_on "Bit::Vector" => :perl
   depends_on "Carp::Clan" => :perl
@@ -25,18 +24,12 @@ class Biopieces < Formula
   depends_on "XML::Parser" => :perl
   depends_on "version" => :perl
 
-  def install
-    prefix.install Dir["*"]
-    bin.mkdir
-    cd bin do
-      bin.install_symlink Dir["../bp_bin/*"]
-    end
-    rm_f bin/"00README"
+  depends_on "inline" => :ruby
+  depends_on "narray" => :ruby
 
-    # Install the documentation.
-    cd prefix do
-      system "svn", "checkout", "http://biopieces.googlecode.com/svn/wiki", "bp_usage"
-    end
+  def install
+    rm "bin/00README"
+    prefix.install Dir["*"]
   end
 
   def caveats; <<-EOS.undent
@@ -45,8 +38,8 @@ class Biopieces < Formula
         export BP_DATA="$BP_DIR/bp_data"
         export BP_LOG=~/Library/Logs/Biopieces
         export BP_TMP=/tmp
-        export PERL5LIB="$BP_DIR/code_perl:$PERL5LIB"
-        export RUBYLIB="$BP_DIR/code_ruby/lib:$RUBYLIB"
+        export PERL5LIB="$BP_DIR/src/perl:$PERL5LIB"
+        export RUBYLIB="$BP_DIR/src/ruby/lib:$RUBYLIB"
         mkdir -p $BP_LOG
     EOS
   end
