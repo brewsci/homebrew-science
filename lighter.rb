@@ -9,11 +9,10 @@ class Lighter < Formula
   head "https://github.com/mourisl/Lighter.git"
 
   bottle do
-    cellar :any
-    sha256 "0cfd10552918cbea28e5e3bf2a8c9d87b220da3eda6c0c7cbcf9764f7494b49c" => :yosemite
-    sha256 "65dc90163a1ad643d49d88f2769cfa65c176b19d5485081819cb2b8c52130996" => :mavericks
-    sha256 "72a4d55edc5b4504d6c72201b5fcf5388c49f2ff3d97ae9c2d9f5e301af252f5" => :mountain_lion
-    sha256 "87fb66adc4b92ef4c68a35ba9a92c4279a98e68f8025adde7c93c2f173e0f73c" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "a202957bd7ae808ada5b2a97dff037b2d1fa77d06b2e3f959500a82e6ba826e8" => :el_capitan
+    sha256 "8307d8e6802c307b962f2236fc7ef9c9713be4ee178d6634fff3121bbcf96997" => :yosemite
+    sha256 "29f093c9a6192a6d99637efe99fe7197e37eda3740ca86ab574f395be7723b3b" => :mavericks
   end
 
   def install
