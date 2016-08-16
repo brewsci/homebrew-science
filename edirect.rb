@@ -1,11 +1,11 @@
 class Edirect < Formula
   desc "Access NCBI's databases from the shell"
   homepage "http://www.ncbi.nlm.nih.gov/books/NBK179288/"
-  # tag "bioinformatics"
-
-  url "ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/edirect.tar.gz"
+  url "ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/versions/2016-08-09/edirect.tar.gz"
   version "4.80"
   sha256 "9e3074ca7dacbfca17b8f9875467d000a52378af18127c122b2d5cb09e5fb0f7"
+  head "ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/versions/current/edirect.tar.gz"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,6 +23,6 @@ class Edirect < Formula
   end
 
   test do
-    system "#{bin}/esearch", "-version"
+    system bin/"esearch", "-version"
   end
 end
