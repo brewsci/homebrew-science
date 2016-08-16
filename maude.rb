@@ -5,10 +5,10 @@ class Maude < Formula
   sha256 "b1887c7fa75e85a1526467727242f77b5ec7cd6a5dfa4ceb686b6f545bb1534b"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cbdd5374a68789987374995e612f268dcda8afd8f6e493744884943a0f1ac7cb" => :el_capitan
-    sha256 "3280a654d8d4248d8aaace8667f51e645e812b5cc2a87d1f3e24572578de238f" => :yosemite
-    sha256 "3826c4e7c7361a826d10db6aafc82f58681968b1427658338e717669dd714ee3" => :mavericks
+    cellar :any
+    sha256 "4483de1d92e6eadfac788f22bd6fcb2eb29161b2de9f4debafde0572bd8be542" => :el_capitan
+    sha256 "ba6cf045460330fd734a17f6a9eab4fef171ff4f3ce7985a258d974d374f05d0" => :yosemite
+    sha256 "56aac9af714615769ca7c06ceb738f11050b7c38e70f1e47675e900984be90e9" => :mavericks
   end
 
   depends_on "gmp"
