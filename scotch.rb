@@ -1,9 +1,9 @@
 class Scotch < Formula
-  desc "Software package for graph and mesh/hypergraph partitioning, graph clustering, and sparse matrix ordering"
+  desc "Graph/mesh/hypergraph partitioning, clustering, and ordering"
   homepage "https://gforge.inria.fr/projects/scotch"
   url "https://gforge.inria.fr/frs/download.php/file/34618/scotch_6.0.4.tar.gz"
   sha256 "f53f4d71a8345ba15e2dd4e102a35fd83915abf50ea73e1bf6efe1bc2b4220c7"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -13,7 +13,8 @@ class Scotch < Formula
     sha256 "90da8b03e290fae7c21f2907678aecf6339eb873f0f37a2086fa658cf1b45c4b" => :mavericks
   end
 
-  option "without-check", "skip build-time tests (not recommended)"
+  option "without-test", "skip build-time tests (not recommended)"
+  deprecated_option "without-check" => "without-test"
 
   depends_on :mpi => :cc
   depends_on "xz" => :optional # Provides lzma compression.
@@ -44,7 +45,8 @@ class Scotch < Formula
       if OS.mac?
         make_args << "LIB=.dylib"
         make_args << "AR=libtool"
-        make_args << "ARFLAGS=-dynamic -install_name #{lib}/$(notdir $@) -undefined dynamic_lookup -o "
+        arflags = ldflags.join(" ") + " -dynamic -install_name #{lib}/$(notdir $@) -undefined dynamic_lookup -o "
+        make_args << "ARFLAGS=#{arflags}"
       else
         make_args << "LIB=.so"
         make_args << "ARCH=ar"
@@ -54,19 +56,20 @@ class Scotch < Formula
       system "make", "scotch", "VERBOSE=ON", *make_args
       system "make", "ptscotch", "VERBOSE=ON", *make_args
       system "make", "install", "prefix=#{prefix}", *make_args
-      system "make", "check", "ptcheck", "EXECP=mpirun -np 2", *make_args if build.with? "check"
+      system "make", "check", "ptcheck", "EXECP=mpirun -np 2", *make_args if build.with? "test"
     end
 
     # Install documentation + sample graphs and grids.
-    doc.install Dir["doc/*"]
-    (share / "scotch").install "grf", "tgt"
+    doc.install Dir["doc/*.pdf"]
+    pkgshare.install Dir["doc/*.f"], Dir["doc/*.txt"]
+    pkgshare.install "grf", "tgt"
   end
 
   test do
     mktemp do
-      system "echo cmplt 7 | #{bin}/gmap #{share}/scotch/grf/bump.grf.gz - bump.map"
-      system "#{bin}/gmk_m2 32 32 | #{bin}/gmap - #{share}/scotch/tgt/h8.tgt brol.map"
-      system "#{bin}/gout -Mn -Oi #{share}/scotch/grf/4elt.grf.gz #{share}/scotch/grf/4elt.xyz.gz - graph.iv"
+      system "echo cmplt 7 | #{bin}/gmap #{pkgshare}/grf/bump.grf.gz - bump.map"
+      system "#{bin}/gmk_m2 32 32 | #{bin}/gmap - #{pkgshare}/tgt/h8.tgt brol.map"
+      system "#{bin}/gout", "-Mn", "-Oi", "#{pkgshare}/grf/4elt.grf.gz", "#{pkgshare}/grf/4elt.xyz.gz", "-", "graph.iv"
     end
   end
 end
