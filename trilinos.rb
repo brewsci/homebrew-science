@@ -1,8 +1,9 @@
 class Trilinos < Formula
   desc "Solution of large-scale, multi-physics problems"
   homepage "http://trilinos.sandia.gov"
-  url "http://trilinos.csbsju.edu/download/files/trilinos-12.6.2-Source.tar.bz2"
-  sha256 "77f1674d1fe8b9249db967b8f6c162ebfde50c43d5cb993044825302c624b00e"
+  url "https://github.com/trilinos/Trilinos/archive/trilinos-release-12-6-4.tar.gz"
+  version "12.6.4"
+  sha256 "d367b064c20afa848ae939cdd4c8339c47a999b4140af2cd0737a208acef79cf"
   head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
 
   bottle do
@@ -19,7 +20,8 @@ class Trilinos < Formula
   # options and dependencies not supported in the current version
   # are commented out with #- and failure reasons are documented.
 
-  #-option "with-csparse", "Build with CSparse (Experimental TPL) from suite-sparse" # Undefined symbols for architecture x86_64: "Amesos_CSparse::Amesos_CSparse(Epetra_LinearProblem const&)"
+  # Undefined symbols for architecture x86_64: "Amesos_CSparse::Amesos_CSparse(Epetra_LinearProblem const&)"
+  option "with-csparse", "Build with CSparse (Experimental TPL) from suite-sparse"
 
   depends_on :mpi           => [:cc, :cxx, :recommended]
   depends_on :fortran       => :recommended
@@ -31,7 +33,11 @@ class Trilinos < Formula
   depends_on "cmake"        => :build
   depends_on "pkg-config"   => :build
 
-  depends_on "openblas" => :optional
+  if OS.mac?
+    depends_on "openblas" => :optional
+  else
+    depends_on "openblas"
+  end
 
   openblasdep = (build.with? "openblas") ? ["with-openblas"] : []
   mpidep      = (build.with? "mpi")      ? ["with-mpi"]      : []
@@ -49,10 +55,10 @@ class Trilinos < Formula
   depends_on "scalapack"    => [:recommended] + openblasdep
   depends_on "scotch"       => :recommended
   depends_on "suite-sparse" => [:recommended] + openblasdep
-  # depends_on "superlu"      => [:recommended] + openblasdep # broken; see below
+  depends_on "superlu"      => [:optional] + openblasdep # make recommended when bug is fixed (see below)
   depends_on "superlu_dist" => [:recommended] + openblasdep if build.with? "parmetis"
 
-  #-depends_on "petsc"        => :optional # ML packages currently do not compile with PETSc >= 3.3
+  depends_on "petsc"        => :optional # ML packages currently do not compile with PETSc >= 3.3
   #-depends_on "qd"           => :optional # Fails due to global namespace issues (std::pow vs qd::pow)
   #-depends_on "binutils"     => :optional # libiberty is deliberately omitted in Homebrew (see PR #35881)
 
@@ -140,23 +146,19 @@ class Trilinos < Formula
     args << "-DTrilinos_ENABLE_CXX11:BOOL=ON"
 
     # Extra non-default packages
+    args << "-DTrilinos_ENABLE_Amesos2=ON"
+    args << "-DTrilinos_ENABLE_FEI=ON"
+    args << "-DTrilinos_ENABLE_Pike=ON"
+    args << "-DTrilinos_ENABLE_Piro=ON"
     args << "-DTrilinos_ENABLE_ShyLU:BOOL=ON"
     args << "-DTrilinos_ENABLE_Teko:BOOL=ON"
 
     # Temporary disable due to compiler errors:
-    # packages:
-    args << "-DTrilinos_ENABLE_FEI=OFF"
-    args << "-DTrilinos_ENABLE_Pike=OFF" # 12.4.2
-    args << "-DTrilinos_ENABLE_Piro=OFF"
     args << "-DTrilinos_ENABLE_SEACAS=OFF"
     args << "-DTrilinos_ENABLE_STK=OFF"
     args << "-DTrilinos_ENABLE_Stokhos=OFF"
     args << "-DTrilinos_ENABLE_Sundance=OFF" if !OS.mac? || MacOS.version < :mavericks
     args << "-DTrilinos_ENABLE_Zoltan2=OFF" # 12.4.2
-    args << "-DTrilinos_ENABLE_Amesos2=OFF" # compiler error with explicit instantiation
-    # Amesos, conflicting types of double and complex SLU_D
-    # see https://trilinos.org/pipermail/trilinos-users/2015-March/004731.html
-    # and https://trilinos.org/pipermail/trilinos-users/2015-March/004802.html
     if build.with? "superlu_dist"
       args << "-DTeuchos_ENABLE_COMPLEX:BOOL=OFF"
       args << "-DKokkosTSQR_ENABLE_Complex:BOOL=OFF"
@@ -169,23 +171,23 @@ class Trilinos < Formula
     args << "-DIfpack2_ENABLE_TESTS=OFF"
 
     # Third-party libraries
-    args << onoff("-DTPL_ENABLE_Boost:BOOL=",       (build.with? "boost"))
-    args << onoff("-DTPL_ENABLE_Scotch:BOOL=",      (build.with? "scotch"))
-    args << onoff("-DTPL_ENABLE_Netcdf:BOOL=",      (build.with? "netcdf"))
-    args << onoff("-DTPL_ENABLE_ADOLC:BOOL=",       (build.with? "adol-c"))
-    args << onoff("-DTPL_ENABLE_AMD:BOOL=",         (build.with? "suite-sparse"))
-    args << onoff("-DTPL_ENABLE_Matio:BOOL=",       (build.with? "libmatio"))
-    args << onoff("-DTPL_ENABLE_yaml-cpp:BOOL=",    (build.with? "yaml-cpp"))
+    args << onoff("-DTPL_ENABLE_Boost:BOOL=", (build.with? "boost"))
+    args << onoff("-DTPL_ENABLE_Scotch:BOOL=", (build.with? "scotch"))
+    args << onoff("-DTPL_ENABLE_Netcdf:BOOL=", (build.with? "netcdf"))
+    args << onoff("-DTPL_ENABLE_ADOLC:BOOL=", (build.with? "adol-c"))
+    args << onoff("-DTPL_ENABLE_AMD:BOOL=", (build.with? "suite-sparse"))
+    args << onoff("-DTPL_ENABLE_Matio:BOOL=", (build.with? "libmatio"))
+    args << onoff("-DTPL_ENABLE_yaml-cpp:BOOL=", (build.with? "yaml-cpp"))
 
-    # if (build.with? "suite-sparse") && (build.with? "csparse")
-    #   args << "-DTPL_ENABLE_CSparse:BOOL=ON"
-    #   args << "-DCSparse_LIBRARY_NAMES=cxsparse;amd;colamd;suitesparseconfig"
-    # else
-    args << "-DTPL_ENABLE_CSparse:BOOL=OFF"
-    # end
-    args << onoff("-DTPL_ENABLE_Cholmod:BOOL=",     (build.with? "suite-sparse"))
+    if (build.with? "suite-sparse") && (build.with? "csparse")
+      args << "-DTPL_ENABLE_CSparse:BOOL=ON"
+      args << "-DCSparse_LIBRARY_NAMES=cxsparse;amd;colamd;suitesparseconfig"
+    else
+      args << "-DTPL_ENABLE_CSparse:BOOL=OFF"
+    end
+    args << onoff("-DTPL_ENABLE_Cholmod:BOOL=", (build.with? "suite-sparse"))
 
-    args << onoff("-DTPL_ENABLE_UMFPACK:BOOL=",     (build.with? "suite-sparse"))
+    args << onoff("-DTPL_ENABLE_UMFPACK:BOOL=", (build.with? "suite-sparse"))
     args << "-DUMFPACK_LIBRARY_NAMES=umfpack;amd;colamd;cholmod;suitesparseconfig" if build.with? "suite-sparse"
 
     args << onoff("-DTPL_ENABLE_CppUnit:BOOL=", (build.with? "cppunit"))
@@ -194,9 +196,9 @@ class Trilinos < Formula
     args << onoff("-DTPL_ENABLE_Eigen:BOOL=", (build.with? "eigen"))
     args << "-DEigen_INCLUDE_DIRS=#{Formula["eigen"].opt_include}/eigen3" if build.with? "eigen"
 
-    args << onoff("-DTPL_ENABLE_GLPK:BOOL=",        (build.with? "glpk"))
-    args << onoff("-DTPL_ENABLE_HWLOC:BOOL=",       (build.with? "hwloc"))
-    args << onoff("-DTPL_ENABLE_HYPRE:BOOL=",       (build.with? "hypre"))
+    args << onoff("-DTPL_ENABLE_GLPK:BOOL=", (build.with? "glpk"))
+    args << onoff("-DTPL_ENABLE_HWLOC:BOOL=", (build.with? "hwloc"))
+    args << onoff("-DTPL_ENABLE_HYPRE:BOOL=", (build.with? "hypre"))
 
     # Even though METIS seems to conflicts with ParMETIS in Trilinos config (see TPLsList.cmake in the source folder),
     # we still need to provide METIS_INCLUDE_DIRS so that metis.h is picked up on Linuxbrew.
@@ -217,7 +219,7 @@ class Trilinos < Formula
       args << "-DMUMPS_LIBRARY_NAMES=dmumps;mumps_common;pord"
     end
 
-    args << onoff("-DTPL_ENABLE_PETSC:BOOL=", false) #       (build.with? "petsc"))
+    args << onoff("-DTPL_ENABLE_PETSC:BOOL=", (build.with? "petsc"))
     args << onoff("-DTPL_ENABLE_HDF5:BOOL=", (build.with? "hdf5"))
 
     if build.with? "parmetis"
@@ -232,6 +234,7 @@ class Trilinos < Formula
 
     args << onoff("-DTPL_ENABLE_SCALAPACK:BOOL=", (build.with? "scalapack"))
 
+    # https://github.com/trilinos/Trilinos/issues/563
     # Amesos_Superlu.cpp:479:5: error: no matching function for call to
     # 'dgssvx'
     #     dgssvx( &(SLUopt), &(data_->A),
@@ -239,24 +242,24 @@ class Trilinos < Formula
     #         /usr/local/opt/superlu/include/superlu/slu_ddefs.h:111:1: note:
     #         candidate function not viable: requires 22 arguments, but 21 were
     #         provided
-    args << onoff("-DTPL_ENABLE_SuperLU:BOOL=", false) # (build.with? "superlu"))
-    # args << "-DSuperLU_INCLUDE_DIRS=#{Formula["superlu"].opt_include}/superlu" if build.with? "superlu"
+    args << onoff("-DTPL_ENABLE_SuperLU:BOOL=", (build.with? "superlu"))
+    args << "-DSuperLU_INCLUDE_DIRS=#{Formula["superlu"].opt_include}/superlu" if build.with? "superlu"
 
     # fix for 4.0:
     args << "-DHAVE_SUPERLUDIST_LUSTRUCTINIT_2ARG:BOOL=ON" if build.with? "superlu_dist"
     args << onoff("-DTPL_ENABLE_SuperLUDist:BOOL=", (build.with? "superlu_dist"))
     args << "-DSuperLUDist_INCLUDE_DIRS=#{Formula["superlu_dist"].opt_include}/superlu_dist" if build.with? "superlu_dist"
 
-    args << onoff("-DTPL_ENABLE_QD:BOOL=", false) #        (build.with? "qd"))
-    args << onoff("-DTPL_ENABLE_Lemon:BOOL=", false) #     (build.with? "lemon"))
+    args << onoff("-DTPL_ENABLE_QD:BOOL=", false) # (build.with? "qd"))
+    args << onoff("-DTPL_ENABLE_Lemon:BOOL=", false) # (build.with? "lemon"))
     args << onoff("-DTPL_ENABLE_GLM:BOOL=", (build.with? "glm"))
-    args << onoff("-DTPL_ENABLE_CASK:BOOL=", false) #      (build.with? "cask"))
-    args << onoff("-DTPL_ENABLE_BinUtils:BOOL=", false) #  (build.with? "binutils"))
+    args << onoff("-DTPL_ENABLE_CASK:BOOL=", false) # (build.with? "cask"))
+    args << onoff("-DTPL_ENABLE_BinUtils:BOOL=", false) # (build.with? "binutils"))
 
-    args << onoff("-DTPL_ENABLE_TBB:BOOL=",         (build.with? "tbb"))
-    args << onoff("-DTPL_ENABLE_X11:BOOL=",         (build.with? "x11"))
+    args << onoff("-DTPL_ENABLE_TBB:BOOL=", (build.with? "tbb"))
+    args << onoff("-DTPL_ENABLE_X11:BOOL=", (build.with? "x11"))
 
-    args << onoff("-DTrilinos_ENABLE_Fortran=",     (build.with? "fortran"))
+    args << onoff("-DTrilinos_ENABLE_Fortran=", (build.with? "fortran"))
     if build.with? "fortran"
       libgfortran = `$FC --print-file-name libgfortran.a`.chomp
       ENV.append "LDFLAGS", "-L#{File.dirname libgfortran} -lgfortran"
@@ -275,18 +278,14 @@ class Trilinos < Formula
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "VERBOSE=1"
-      system ("ctest -j" + Hardware::CPU.cores) if build.with? "test"
+      system "ctest", "-j", Hardware::CPU.cores if build.with? "test"
       system "make", "install"
-      # When trilinos is built with Python, libpytrilinos is included through
-      # cmake configure files. Namely, Trilinos_LIBRARIES in TrilinosConfig.cmake
-      # contains pytrilinos. This leads to a run-time error:
-      # Symbol not found: _PyBool_Type
-      # and prevents Trilinos to be used in any C++ code, which links executable
-      # against the libraries listed in Trilinos_LIBRARIES.
-      # See https://github.com/Homebrew/homebrew-science/issues/2148#issuecomment-103614509
-      # A workaround it to remove PyTrilinos from the COMPONENTS_LIST :
+
+      # Temporary fix for https://github.com/trilinos/Trilinos/issues/569
       if build.with? "python"
-        inreplace "#{lib}/cmake/Trilinos/TrilinosConfig.cmake", "PyTrilinos;", "" if s.include? "COMPONENTS_LIST"
+        inreplace "#{lib}/cmake/Trilinos/TrilinosConfig.cmake" do |s|
+          s.gsub! "PyTrilinos;", "" if s.include? "COMPONENTS_LIST"
+        end
       end
     end
   end
@@ -294,9 +293,6 @@ class Trilinos < Formula
   def caveats; <<-EOS
     The following Trilinos packages were disabled due to compile errors:
       FEI, MueLU, Pike, Piro, SEACAS, STK, Stokhos, Zoltan2, Amesos2
-
-    On Linuxbrew install with:
-      --with-openblas
     EOS
   end
 
@@ -305,11 +301,6 @@ class Trilinos < Formula
     system "mpirun", "-np", "2", "#{bin}/Epetra_BasicPerfTest_test.exe", "10", "12", "1", "2", "9", "-v" if build.with? "mpi"
     system "#{bin}/Epetra_BasicPerfTest_test_LL.exe", "16", "12", "1", "1", "25", "-v"
     system "mpirun", "-np", "2", "#{bin}/Epetra_BasicPerfTest_test_LL.exe", "10", "12", "1", "2", "9", "-v" if build.with? "mpi"
-    # system "#{bin}/Ifpack2_BelosTpetraHybridPlatformExample.exe"                    # this file is not there
-    # system "#{bin}/KokkosClassic_SerialNodeTestAndTiming.exe"                       # this file is not there
-    # system "#{bin}/KokkosClassic_TPINodeTestAndTiming.exe"                          # this file is not there
-    # system "#{bin}/KokkosClassic_TBBNodeTestAndTiming.exe" if build.with? "tbb"     # this file is not there
-    # system "#{bin}/Tpetra_GEMMTiming_TBB.exe" if build.with? "tbb"                  # this file is not there
-    # system "#{bin}/Tpetra_GEMMTiming_TPI.exe"                                       # this file is not there
+    system "python", "-c", "'from PyTrilinos import Epetra'" if Tab.for_name("trilinos").unused_options.include? "without-python"
   end
 end
