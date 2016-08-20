@@ -4,9 +4,9 @@ class RnaStar < Formula
   # doi "10.1093/bioinformatics/bts635"
   # tag "bioinformatics"
 
-  url "https://github.com/alexdobin/STAR/archive/STAR_2.4.1d.tar.gz"
-  sha256 "1c895fc4111798d62a0497c5746f3ae25fdd3f41a0afc4becd90959de183cd5b"
-
+  url "https://github.com/alexdobin/STAR/archive/2.5.2b.tar.gz"
+  version "2.5.2b"
+  sha256 "f88b992740807ab10f2ac3b83781bf56951617f210001fab523f6480d0b546d9"
   head "https://github.com/alexdobin/STAR.git"
 
   bottle do
@@ -20,16 +20,23 @@ class RnaStar < Formula
   # Fix error: 'omp.h' file not found
   needs :openmp
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
     cd "source" do
-      system "make", "htslib"
-      system "make", OS.mac? ? "STARforMac" : "STAR"
-      bin.install "STAR"
+      progs = %w[STAR STARlong]
+      targets = OS.mac? ? %w[STARforMacStatic STARlongForMacStatic] : progs
+      system "make", *targets
+      bin.install progs
     end
-    doc.install "CHANGES", "LICENSE", "README", "RELEASEnotes", "doc/STARmanual.pdf"
+    pkgshare.install "extras"
+    doc.install (buildpath/"doc").children
+    mv "RELEASEnotes.md", "NOTES.md"
   end
 
   test do
     system "#{bin}/STAR", "--version"
+    system "#{bin}/STARlong", "--version"
   end
 end
