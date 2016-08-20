@@ -7,10 +7,9 @@ class Scotch < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "cf4496e8f83b59f659ac6cca13d1d86d6a5cb0bfd6c0c649355421bd27067311" => :el_capitan
-    sha256 "d003dd5e30c0945013e134842cd1cd8d16bbf234d161ccba6867ad95324c93cf" => :yosemite
-    sha256 "90da8b03e290fae7c21f2907678aecf6339eb873f0f37a2086fa658cf1b45c4b" => :mavericks
+    sha256 "9c7ef40b1b0910d3dc57cdd1f6ade7965ac9fb603a8d48acea9a5160606aba96" => :el_capitan
+    sha256 "fd7983eb50b0e15e319925aaeba8104b1511222e0b779ff04521c10c53fea0b8" => :yosemite
+    sha256 "1269643e3c6fa06bfee946fcbd1483bd27558340ceffc0b847262487bc97a175" => :mavericks
   end
 
   option "without-test", "skip build-time tests (not recommended)"
