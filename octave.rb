@@ -22,9 +22,9 @@ class Octave < Formula
   end
 
   bottle do
-    sha256 "ab2cd4059874f137f57cd956a19cd7bc434a748a33404fe844da1d4f7f484967" => :el_capitan
-    sha256 "ee6252781080ac5e9f63cad5ed1fe013e36eb6b3cc80efa45ec68ab52f3287db" => :yosemite
-    sha256 "8556db1fe1b44dfa0169c086c3497906df7c0200329a8f160eca818bd4f35c8d" => :mavericks
+    sha256 "19a9fab6c3331589ff50de4e5e5e16c75b1eee77a6e81460db7b283c9f4c512f" => :el_capitan
+    sha256 "99e4345ff41469ef9b318f2ef2ef81efc0b933ce3b0973533c1ea1f46cb81cd5" => :yosemite
+    sha256 "cb18d800c5d8eda1aed272caf41d3b77adaf539d42800a92c91cf2dba649a11e" => :mavericks
   end
 
   if OS.mac? && DevelopmentTools.clang_version < "7.0"
