@@ -1,6 +1,12 @@
 class Rapsearch2 < Formula
   desc "Reduced Alphabet based Protein similarity Search"
   homepage "http://rapsearch2.sourceforge.net/"
+  bottle do
+    sha256 "9ac3cea477b5f6cb59f355527e0087abdfc8d9f79cdf8338a32e7dfcc109368a" => :el_capitan
+    sha256 "f0ca7688f5aac5f23995b99c7f975770fbd74ce5033d23f23b44a9ac62a8ae77" => :yosemite
+    sha256 "276f588874b3f84e33f861c597c29e2e26edd06ea863b3ffd1afbe80c9445f74" => :mavericks
+  end
+
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btr595:"
 
