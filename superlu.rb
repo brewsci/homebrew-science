@@ -3,6 +3,7 @@ class Superlu < Formula
   homepage "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
   url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_5.2.1.tar.gz"
   sha256 "28fb66d6107ee66248d5cf508c79de03d0621852a0ddeba7301801d3d859f463"
+  revision 1
 
   bottle do
     cellar :any
@@ -31,15 +32,14 @@ class Superlu < Formula
   def install
     ENV.deparallelize
     cp "MAKE_INC/make.mac-x", "./make.inc"
-    make_args = ["RANLIB=true",
-                 "CC=#{ENV.cc}",
+    build_args = ["RANLIB=true",
+                  "SuperLUroot=#{buildpath}",
+                  "SUPERLULIB=$(SuperLUroot)/lib/libsuperlu.a"]
+    make_args = ["CC=#{ENV.cc}",
                  "CFLAGS=-fPIC #{ENV.cflags}",
                  "FORTRAN=#{ENV.fc}",
                  "FFLAGS=#{ENV.fcflags}",
-                 "SuperLUroot=#{buildpath}",
-                 "SUPERLULIB=$(SuperLUroot)/lib/libsuperlu.a",
-                 "NOOPTS=-fPIC",
-                ]
+                 "NOOPTS=-fPIC"]
 
     if build.with? "openblas"
       blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
@@ -49,11 +49,12 @@ class Superlu < Formula
     make_args << "BLASLIB=#{blas}"
     make_args << ("LOADOPTS=" + ((build.with? "openmp") ? "-fopenmp" : ""))
 
-    system "make", "lib", *make_args
+    all_args = build_args + make_args
+    system "make", "lib", *all_args
     if build.with? "test"
-      system "make", "testing", *make_args
+      system "make", "testing", *all_args
       cd "TESTING" do
-        system "make", *make_args
+        system "make", *all_args
         %w[stest dtest ctest ztest].each do |tst|
           ohai `tail -1 #{tst}.out`.chomp
         end
@@ -61,19 +62,22 @@ class Superlu < Formula
     end
 
     cd "EXAMPLE" do
-      system "make", *make_args
+      system "make", *all_args
     end
 
     if build.with? "matlab"
       matlab = ARGV.value("with-matlab-path") || HOMEBREW_PREFIX
       cd "MATLAB" do
-        system "make", "MATLAB=#{matlab}", *make_args
+        system "make", "MATLAB=#{matlab}", *all_args
       end
     end
 
     prefix.install "make.inc"
     File.open(prefix/"make_args.txt", "w") do |f|
-      f.puts(make_args.join(" ")) # Record options passed to make.
+      make_args.each do |arg|
+        var, val = arg.split("=")
+        f.puts "#{var}=\"#{val}\"" # Record options passed to make, preserve spaces.
+      end
     end
     lib.install Dir["lib/*"]
     (include/"superlu").install Dir["SRC/*.h"]
@@ -98,23 +102,12 @@ class Superlu < Formula
     ENV.fortran
     cp_r pkgshare/"examples", testpath
     cp prefix/"make.inc", testpath
-    make_args = ["CC=#{ENV.cc}",
-                 "CFLAGS=-fPIC #{ENV.cflags}",
-                 "FORTRAN=#{ENV.fc}",
-                 "FFLAGS=#{ENV.fcflags}",
-                 "SuperLUroot=#{opt_prefix}",
+    make_args = ["SuperLUroot=#{opt_prefix}",
                  "SUPERLULIB=#{opt_lib}/libsuperlu.a",
-                 "NOOPTS=-fPIC",
-                 "HEADER=#{opt_include}/superlu",
-                ]
-
-    if build.with? "openblas"
-      blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
-    else
-      blas = OS.mac? ? "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort" : "-lblas"
+                 "HEADER=#{opt_include}/superlu"]
+    File.readlines(opt_prefix/"make_args.txt").each do |line|
+      make_args << line.chomp.delete('\\"')
     end
-    make_args << "BLASLIB=#{blas}"
-    make_args << ("LOADOPTS=" + ((build.with? "openmp") ? "-fopenmp" : ""))
 
     cd "examples" do
       system "make", *make_args
