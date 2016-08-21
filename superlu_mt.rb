@@ -4,6 +4,13 @@ class SuperluMt < Formula
   url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_mt_3.0.tar.gz"
   sha256 "e5750982dc83ac62f4da31f24638aa62dbfe3ff00f9b8b786ad2eed5f9cabf56"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "a460a5543263472459e092635ddc8e80ca5d98260774e08f7ac8f8307caaa649" => :el_capitan
+    sha256 "eb3cb0a2af993bed8c3ebb3ec62b1b044d5df00b0c34bb196547de87d1aff663" => :yosemite
+    sha256 "885528f086c805ddfdaa5001b087b70abe65ea7e0110c423b8dba8e513a66a2c" => :mavericks
+  end
+
   option "with-openmp", "use OpenMP instead of Pthreads interface"
 
   # Accelerate single precision is buggy and causes certain single precision
