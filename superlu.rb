@@ -7,9 +7,9 @@ class Superlu < Formula
 
   bottle do
     cellar :any
-    sha256 "6b3bf2f1ca7ffcfc432acc3f1bfffec0853ae765f302d40b64ec59314e051c77" => :el_capitan
-    sha256 "550c82a7478c80537c938b10033ca96c1d26cdf08aed6781f9b905782880cc42" => :yosemite
-    sha256 "9700b51bd6767c950a43305d42aeec1af26ace68b477bb877b9150207f4efa38" => :mavericks
+    sha256 "b2abb4ce19cdd2970686ca1121646027e3e4ac2661a67f7139ee68421c063e65" => :el_capitan
+    sha256 "7d4246588947079e777286ddca9808655f51bc6a8b2c46f394663bccb339e84c" => :yosemite
+    sha256 "43ccc7838aad7afa3ee77415b1d05d1a636efc1c39daaab485dfbf08cca7f512" => :mavericks
   end
 
   deprecated_option "without-check" => "without-test"
