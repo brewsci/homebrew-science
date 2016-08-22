@@ -1,7 +1,7 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  revision 1
+  revision 2
 
   stable do
     url "https://ftpmirror.gnu.org/octave/octave-4.0.3.tar.gz"
@@ -52,6 +52,7 @@ class Octave < Formula
     depends_on "automake"      => :build
     depends_on "bison"         => :build
     depends_on "icoutils"      => :build
+    depends_on "librsvg"        => :build
 
     # Fix bug #46723: retina scaling of buttons
     # see https://savannah.gnu.org/bugs/?46723
