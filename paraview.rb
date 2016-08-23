@@ -6,9 +6,9 @@ class Paraview < Formula
   revision 1
 
   bottle do
-    sha256 "f3c77c1007faebe1294e72f6e431b654916ccfaa632411080932e827e5efa2bf" => :yosemite
-    sha256 "ca240a0ce1d30fb2cfea1406e687b79c427b774c4a2d8539c0a4712754a03280" => :mavericks
-    sha256 "1a8b184f3cfa7adf51c1cb43a8cf5a6b7297cca7da3741afa0b2074e204a744a" => :mountain_lion
+    sha256 "292701a29ec2e69c9b8682c91f4afc14bb54e0f0b83477e6ab813f0786d7c8fe" => :el_capitan
+    sha256 "2c6acc0e77222e0c4b0b049a06498b1942225c88581d721c4e936c52332e37c9" => :yosemite
+    sha256 "c285db72fbd4e8d4d8fafbdbf89eea81683546bf3a8f7cfda5cad814a5834191" => :mavericks
   end
 
   depends_on "cmake" => :build
