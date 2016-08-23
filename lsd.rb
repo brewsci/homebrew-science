@@ -1,6 +1,13 @@
 class Lsd < Formula
   desc "Least-Squares for estimating Dates from phylogenies"
   homepage "https://github.com/tothuhien/lsd-0.3beta"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "79d386d8cc6098d384db82e3f429f47cb72e40d1ed61b96ccc9b594f2ea59fca" => :el_capitan
+    sha256 "5e96e65e0ba2d7e186b426d0c07ae23001c900070e59362426166d10924f9825" => :yosemite
+    sha256 "fc8f99290db0e29e2686f052a0d345fa4893a172b54a0bf294a10741a4943b79" => :mavericks
+  end
+
   # doi "10.1093/sysbio/syv068"
   # tag "bioinformatics"
 
