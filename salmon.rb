@@ -10,9 +10,9 @@ class Salmon < Formula
 
   bottle do
     cellar :any
-    sha256 "701fe4ff264c88522a12b90cceafc1de09149b2509934ea97adbf526bbcf2ba8" => :el_capitan
-    sha256 "585ed6734572b41c62f51548a39a4064d4f69915f38a2851e7cac60425d42539" => :yosemite
-    sha256 "5a514675dc1d6e76d14535b9ff48feca8534addd9bbea83b95b36113585f24cc" => :x86_64_linux
+    sha256 "56a898e692600bedf77529b9c54d48b0c103ba3b7a616c271113c028e16cf083" => :el_capitan
+    sha256 "4db164ef187c888cfd99caaefb82e0cf5e6fd42f8911adfbd0932b19f86df616" => :yosemite
+    sha256 "44f0fb9350fc6b3ee4c447c395cd6bed9bac78d6990bcc7e53a2b38972c56037" => :mavericks
   end
 
   # See https://github.com/kingsfordgroup/sailfish/issues/74
