@@ -1,7 +1,7 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  revision 2
+  revision 3
 
   stable do
     url "https://ftpmirror.gnu.org/octave/octave-4.0.3.tar.gz"
@@ -69,6 +69,7 @@ class Octave < Formula
 
   # options, enabled by default
   option "without-curl",           "Do not use cURL (urlread/urlwrite/@ftp)"
+  option "without-docs",           "Compile and install documentation"
   option "without-fftw",           "Do not use FFTW (fft,ifft,fft2,etc.)"
   option "without-fltk",           "Do not use FLTK graphics backend"
   option "without-glpk",           "Do not use GLPK"
@@ -83,7 +84,6 @@ class Octave < Formula
 
   # options, disabled by default
   option "with-audio",             "Use the sndfile and portaudio libraries for audio operations"
-  option "with-docs",              "Compile and install documentation"
   option "with-gui",               "Compile with graphical user interface"
   option "with-java",              "Use Java, requires Java 6 from https://support.apple.com/kb/DL1572"
   option "with-jit",               "Use the experimental just-in-time compiler (not recommended)"
