@@ -4,8 +4,8 @@ class Minia < Formula
   # doi "10.1186/1748-7188-8-22"
   # tag "bioinformatics"
 
-  url "http://gatb-tools.gforge.inria.fr/versions/src/minia-2.0.3-Source.tar.gz"
-  sha256 "494ffec613c3652b5ce941cac7e08a44914fa331750a53f70d17d545372c1997"
+  url "https://github.com/GATB/minia/releases/download/v2.0.7/minia-v2.0.7-Source.tar.gz"
+  sha256 "76d96dc14b8c4c01e081da6359c3a8236edafc5ef93b288eaf25f324de65f3ce"
 
   bottle do
     sha256 "434cf1e9e71f20651bb324403754d6618648b9e707cb29250322f19ac550118b" => :el_capitan
@@ -27,6 +27,8 @@ class Minia < Formula
       system "cmake", "..", *args
       system "make"
       system "make", "install"
+      # Resolve conflict with hdf5: https://github.com/GATB/minia/issues/5
+      mv bin/"h5dump", bin/"minia-h5dump"
     end
   end
 
