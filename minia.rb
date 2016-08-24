@@ -8,10 +8,9 @@ class Minia < Formula
   sha256 "76d96dc14b8c4c01e081da6359c3a8236edafc5ef93b288eaf25f324de65f3ce"
 
   bottle do
-    sha256 "434cf1e9e71f20651bb324403754d6618648b9e707cb29250322f19ac550118b" => :el_capitan
-    sha256 "c652ff072aba5cb9cfae040183bc1ecaeaf60ac872be3b73a16caa8fc9b9176e" => :yosemite
-    sha256 "a2ec64fb3fc86c5fb1c76c46d79e37e85e96bcd5c3795cd772fe799693b9cc88" => :mavericks
-    sha256 "989049eb72e29cba6eceb0179273236d649738bae40251aaeaf35a6f74c8a90c" => :x86_64_linux
+    sha256 "165930add4c386d013532197a6e078c0a56138e578a043cdac95074a7ba9b104" => :el_capitan
+    sha256 "a9718a1b14a8cb65fbadb05a8867a50986ad85e776970671c76f16d7f39cfa8d" => :yosemite
+    sha256 "0a36cc1620d6fb667b76edd7243cb6954c57422e2629d2132332e56e6667f318" => :mavericks
   end
 
   depends_on "cmake" => :build
