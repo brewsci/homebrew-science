@@ -8,9 +8,9 @@ class Dgtal < Formula
 
   bottle do
     cellar :any
-    sha256 "f5831beb33a43119f7ac61221514341b12003a43edc927671523b2abf1faeaf7" => :el_capitan
-    sha256 "e56a577077e8db005ca89e71e7dd2dee7db8aa839f66864a47cdb385dc40de58" => :yosemite
-    sha256 "6990e203f40c8061d689b7ef70486df5a4fe21e2ff49441365981e16c4e6aa69" => :mavericks
+    sha256 "22e98882123ba406271a0d0a32eb2f8c84929296c7a5f2b2485242bff645e2ae" => :el_capitan
+    sha256 "10ca3bd949f1f1d4e400de0ac5180ba740f12e9628c07d4a63e8e1809bc12602" => :yosemite
+    sha256 "b2ef6f45cd070b340cef5ab1fa395dd8f285784c12c7b75ac2bd080f4e3ee17a" => :mavericks
   end
 
   option "without-test", "Skip build-time tests"
