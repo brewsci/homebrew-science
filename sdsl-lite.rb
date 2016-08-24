@@ -1,6 +1,13 @@
 class SdslLite < Formula
   desc "Succinct Data Structure Library 2.0"
   homepage "https://github.com/simongog/sdsl-lite"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "48ae4f44f316ba307b190b87e01a119d01d81f22521e6ec2a27f60f14cc7611d" => :el_capitan
+    sha256 "e6ea4f8b2e4c5f3618ab2ea6faf7a6cadc4caff92f498f8f0fa934381edd2cac" => :yosemite
+    sha256 "f3ce68732cce03d5108064f8eafd3ea5fadab326c515edb3aee5c140fcf586af" => :mavericks
+  end
+
   # doi "arXiv:1311.1249v1"
   # tag "bioinformatics"
 
