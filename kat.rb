@@ -40,7 +40,8 @@ class Kat < Formula
       "--disable-debug",
       "--disable-dependency-tracking",
       "--disable-silent-rules",
-      "--prefix=#{prefix}"
+      "--prefix=#{prefix}",
+      "--with-boost=#{Formula["boost"].prefix}"
 
     if build.with? "docs"
       system "make", "man"
