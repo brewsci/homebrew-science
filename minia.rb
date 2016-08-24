@@ -11,6 +11,7 @@ class Minia < Formula
     sha256 "165930add4c386d013532197a6e078c0a56138e578a043cdac95074a7ba9b104" => :el_capitan
     sha256 "a9718a1b14a8cb65fbadb05a8867a50986ad85e776970671c76f16d7f39cfa8d" => :yosemite
     sha256 "0a36cc1620d6fb667b76edd7243cb6954c57422e2629d2132332e56e6667f318" => :mavericks
+    sha256 "ed82a1b755f536400457cfed2904bf231288e02d0c6784b7fd72e68fe185bec2" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
