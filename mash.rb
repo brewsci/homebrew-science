@@ -4,9 +4,8 @@ class Mash < Formula
   # tag "bioinformatics"
   # doi "10.1101/029827"
 
-  url "https://github.com/marbl/Mash/archive/v1.1.tar.gz"
-  sha256 "ef79c5e1dbfe64c289a2bd1f5afa272041508500e1f28353aef8bd12fe5dc41d"
-
+  url "https://github.com/marbl/Mash/archive/v1.1.1.tar.gz"
+  sha256 "d2097267342a719cd831d1c58fe2b924ee4f4e918c8f7b2b7476f682f15ef623"
   head "https://github.com/marbl/Mash.git"
 
   bottle do
@@ -36,6 +35,6 @@ class Mash < Formula
   end
 
   test do
-    assert_match "Estimate the distance", shell_output("#{bin}/mash -h 2>&1", 0)
+    system bin/"mash", "-h"
   end
 end
