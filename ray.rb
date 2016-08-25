@@ -13,6 +13,7 @@ class Ray < Formula
 
   url "https://downloads.sourceforge.net/project/denovoassembler/Ray-2.3.1.tar.bz2"
   sha256 "3122edcdf97272af3014f959eab9a0f0e5a02c8ffc897d842b06b06ccd748036"
+  revision 1
 
   head "https://github.com/sebhtml/ray.git"
 
