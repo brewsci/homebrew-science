@@ -3,6 +3,7 @@ class Exabayes < Formula
   homepage "http://sco.h-its.org/exelixis/web/software/exabayes/"
   url "http://sco.h-its.org/exelixis/material/exabayes/1.4.1/exabayes-1.4.1-src.tar.gz"
   sha256 "23e00b361a29365757e760b1acbb9d71744d2be5d9c450f8afdfaf5594d8994f"
+  revision 1
 
   bottle do
     cellar :any
