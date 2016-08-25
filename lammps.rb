@@ -6,6 +6,7 @@ class Lammps < Formula
   # YYYY.MM.DD (year.month.day) so that we get a comparable version numbering (for brew outdated)
   version "2016.05.14"
   sha256 "a056a289cd86d4fa8f6a285b26104b04ab92e5ccc445f66281a0c23a432225c9"
+  revision 1
 
   head "http://git.icms.temple.edu/lammps-ro.git"
 
