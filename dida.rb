@@ -6,6 +6,7 @@ class Dida < Formula
 
   url "http://www.bcgsc.ca/platform/bioinfo/software/dida/releases/1.0.1/dida-1.0.1.tar.gz"
   sha256 "251d8b6d40d061eb7a7c49737a1ce41592b89a6c8647a791fb9d64ff26afd7bd"
+  revision 1
 
   bottle do
     cellar :any
