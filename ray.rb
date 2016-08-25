@@ -3,9 +3,9 @@ class Ray < Formula
   homepage "http://denovoassembler.sourceforge.net"
   bottle do
     cellar :any
-    sha256 "81aded510ff259906110a510b7c79b46e7c540c059da790bf7a2809fc178654e" => :yosemite
-    sha256 "eb8796487157f5077c4c692a6b3a2e78d9c7e278f8ae831cbc55f4862d4e2513" => :mavericks
-    sha256 "a82a34c37f1c48d655921ff409eb8b2a3db666743c53f31dbedee0cd5f2ddff3" => :mountain_lion
+    sha256 "d7619f3b6326643113fabfcbfe2c2ed6db57c8748e6679491050b1bdecadcb01" => :el_capitan
+    sha256 "6fc8e695923a3492203d41614d6ccbe685f30645110e9788a64076eab1b52928" => :yosemite
+    sha256 "190bc6ad483f41afacd886718c750e960d1b828ac0901ea9bb625f558c70bf42" => :mavericks
   end
 
   # doi "10.1089/cmb.2009.0238"
