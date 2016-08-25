@@ -6,7 +6,7 @@ class Abyss < Formula
 
   url "https://github.com/bcgsc/abyss/releases/download/1.9.0/abyss-1.9.0.tar.gz"
   sha256 "1030fcea4bfae942789deefd3a4ffb30653143e02eb6a74c7e4087bb4bf18a14"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
