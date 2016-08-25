@@ -1,10 +1,11 @@
 class Clark < Formula
+  desc "Fast, accurate and versatile kmer based classification system"
   homepage "http://clark.cs.ucr.edu/"
   # tag "bioinformatics"
   # doi "10.1186/s12864-015-1419-2"
 
-  url "http://clark.cs.ucr.edu/Download/CLARKV1.1.2.tar.gz"
-  sha256 "d97936a6c3c9215f659296a665c662de3f9406dcc957f8f58b313edd2c52f371"
+  url "http://clark.cs.ucr.edu/Download/CLARKV1.2.3.tar.gz"
+  sha256 "3223daa518a3f5c9f08af6f1a8cca669286672f87197c0c7f2e03504c44b37da"
 
   bottle do
     cellar :any
@@ -18,7 +19,14 @@ class Clark < Formula
   def install
     system "sh", "install.sh"
     bin.install Dir["exe/*"]
-    doc.install "README.txt", "LICENSE_GNU_GPL.txt"
+    doc.install "README.txt", "LICENSE_GNU_GPL.txt", "CHANGELOG"
+    pkgshare.install Dir["*.sh"]
+  end
+
+  def caveats
+    <<-EOS.undent
+    Additional helper scripts are installed in #{pkgshare}
+    EOS
   end
 
   test do
