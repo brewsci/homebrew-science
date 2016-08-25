@@ -5,9 +5,9 @@ class Meme < Formula
   # doi "10.1093/nar/gkp335"
 
   url "http://meme-suite.org/meme-software/4.10.1/meme_4.10.1_3.tar.gz"
-  sha256 "9ccc0cfdb7d1467d5b021328fcf1407685d63fb6e65fa34b5b5929b493a35d66"
   version "4.10.1"
-  revision 1
+  sha256 "9ccc0cfdb7d1467d5b021328fcf1407685d63fb6e65fa34b5b5929b493a35d66"
+  revision 2
 
   bottle do
     sha256 "f2b74feb7f4b23ea69486a9a7b77aeb884fe1b6c37ac0ff1d214d99ec1a04a6d" => :el_capitan
