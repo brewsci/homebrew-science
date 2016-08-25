@@ -10,9 +10,9 @@ class Meme < Formula
   revision 2
 
   bottle do
-    sha256 "f2b74feb7f4b23ea69486a9a7b77aeb884fe1b6c37ac0ff1d214d99ec1a04a6d" => :el_capitan
-    sha256 "9dd7b51a5c63ee4c254dab5d1a494c8af0483834361644727ad90e43ed625083" => :yosemite
-    sha256 "9c9f6689114bdc801b5cb40399a21b5f4dddc80368440ab41e3fad010d16d430" => :mavericks
+    sha256 "68ffc928fd91c265161c603799acad20bdf59e191cba44c4fee693cb060913de" => :el_capitan
+    sha256 "03738680e74d2983ca39f7c55af7ef5f0b10e150146d8eeb2298004dc3814376" => :yosemite
+    sha256 "1f7c6057fd93c90f15bd0a66a0927c06eabd94f2d288179e2ff0bf1302fb248f" => :mavericks
   end
 
   keg_only <<-EOF.undent
