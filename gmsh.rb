@@ -9,7 +9,7 @@ class Gmsh < Formula
   homepage "http://geuz.org/gmsh"
   url "http://gmsh.info/src/gmsh-2.13.1-source.tgz"
   sha256 "a10b750aaac7d4ef7d5d168e0be520b0d62ab35380d81bcbb1972db3fb73ac96"
-  revision 1
+  revision 2
 
   head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
 
