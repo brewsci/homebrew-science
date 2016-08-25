@@ -3,6 +3,7 @@ class Scotch5 < Formula
   url "https://gforge.inria.fr/frs/download.php/28978"
   version "5.1.12b"
   sha256 "82654e63398529cd3bcc8eefdd51d3b3161c0429bb11770e31f8eb0c3790db6e"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,9 +12,9 @@ class Scotch5 < Formula
     sha256 "565b19c1b337a74ffcc3c481d0221e1665eb7193352c32c15a7c0290babf3008" => :mountain_lion
   end
 
-  depends_on :mpi => :cc
-
   keg_only "Conflicts with scotch (6.x)"
+
+  depends_on :mpi => :cc
 
   # bugs in makefile:
   # - libptesmumps must be built before main_esmumps
@@ -38,9 +39,7 @@ class Scotch5 < Formula
                       "AR=$(CCS)",
                       "ARFLAGS=-shared -Wl,-soname -Wl,#{lib}/$(notdir $@) -o "]
       end
-      inreplace "Makefile.inc" do |s|
-        s.gsub! "-O3", "-O3 -fPIC"
-      end
+      inreplace "Makefile.inc", "-O3", "-O3 -fPIC"
 
       system "make", "scotch", *make_args
       system "make", "ptscotch", *make_args
