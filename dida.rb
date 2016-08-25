@@ -10,10 +10,9 @@ class Dida < Formula
 
   bottle do
     cellar :any
-    sha256 "ed1693e77dd976f0949bb554a3bc226881dcbccb20cd1b6fb696ab3892e26248" => :el_capitan
-    sha256 "65df860ef7d86f41538d7ab1ebce3978a578a6b552ae09fd28f058b0d869c413" => :yosemite
-    sha256 "2fbf1a21752ea89ddf730f260143df9cdd5b6d7f9909a9ed156b5863c77aa4af" => :mavericks
-    sha256 "d6ad8834fb82223b18282eb70997eded987eba7c34c004a4d2f7932000f57fce" => :x86_64_linux
+    sha256 "38e35d907cb2841dc82b94de93d5323c3b8136d7e0ff4a0e97e2c96c46529232" => :el_capitan
+    sha256 "6d221aa3bbb2d3886906b75d021dae0534f40de5ee6173488c0aa5b70e411396" => :yosemite
+    sha256 "09d21a097b6b1caa7fbb33b69c09500115f8d5c49a47da810ce64b972593eebb" => :mavericks
   end
 
   # Fix error: DIDA must be compiled with a C++ compiler that supports OpenMP threading.
