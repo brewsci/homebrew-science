@@ -9,9 +9,9 @@ class Clark < Formula
 
   bottle do
     cellar :any
-    sha256 "a0f1ca3b707728175ca5c3774ca3c6ea55d4455f44ca36705b5fa2f60b11a53b" => :yosemite
-    sha256 "1e34d4ff84565b78abf776ca99c3384b0349bb4f5b48f493821e6760beacac26" => :mavericks
-    sha256 "3bc269e1bc75327c298c1f0b6d21741f9895e3755405d65b7352eba1b8547f3e" => :mountain_lion
+    sha256 "1ef50d25121c19b6567f3e5112897a08887189672bf408abeb24979fdbd061b5" => :el_capitan
+    sha256 "361ed1106de564e044f96ce1ca82dd894c684ddf7ff58e417533cf567d71fa14" => :yosemite
+    sha256 "52acdda74cbcec8a4815d998136784d8769c7c1e7efc7eeb2eab8a44552cbf98" => :mavericks
   end
 
   needs :openmp
