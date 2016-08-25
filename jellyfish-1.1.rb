@@ -8,11 +8,10 @@ class Jellyfish11 < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "719f8126dea0b27deeaf8fb720dcdea3820b5d61b28b07e13e86be0af9f738b1" => :yosemite
-    sha256 "d649707ed054452a311d5f01bcf98bdff674801d4fb253f16abe18fe7940cc0a" => :mavericks
-    sha256 "e5c6e3b53f473f31c44bdcbf9c8e04ac74f01199982dde27dc89d384a31630b8" => :mountain_lion
-    sha256 "e862dc1e911bbc68a299922e65b6e1e3c260f9528e6b601b07bef8daac7713a2" => :x86_64_linux
+    rebuild 2
+    sha256 "8c5a0090bb0cf7e57eaa5827a9080c393c242a28205f1b9cd0eac0142528f39a" => :el_capitan
+    sha256 "698fbcc1a2d17f1f2b603ddf9c4c4e15aad4bddf15178b8f19ff2e4b0e46b6cf" => :yosemite
+    sha256 "31c83eac99b4de298865103a122c2b3a8cd48d99aa0d7f78cc0a2472cd777b7b" => :mavericks
   end
 
   keg_only "It conflicts with jellyfish."
