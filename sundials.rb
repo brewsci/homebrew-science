@@ -2,7 +2,7 @@ class Sundials < Formula
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
   url "http://ftp.mcs.anl.gov/pub/petsc/externalpackages/sundials-2.5.0.tar.gz"
   sha256 "9935760931fa6539edd0741acbcf4986770426fd5ea40e50ad4ebed0fc77b0d3"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -97,7 +97,7 @@ class Sundials < Formula
         %w[cvsAdvDiff_ASAi_bnd cvsAdvDiff_bnd
            cvsDirectDemo_ls cvsDiurnal_kry
            cvsDiurnal_kry_bp cvsFoodWeb_ASAi_kry
-           cvsFoodWeb_ASAp_kry cvsHessian_ASA_FSA
+           cvsFoodWeb_ASAp_kry
            cvsKrylovDemo_ls cvsKrylovDemo_prec
            cvsRoberts_ASAi_dns cvsRoberts_dns
            cvsRoberts_dns_uw].each do |file|
