@@ -4,6 +4,8 @@ class Trilinos < Formula
   url "https://github.com/trilinos/Trilinos/archive/trilinos-release-12-6-4.tar.gz"
   version "12.6.4"
   sha256 "d367b064c20afa848ae939cdd4c8339c47a999b4140af2cd0737a208acef79cf"
+  revision 1
+
   head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
 
   bottle do
