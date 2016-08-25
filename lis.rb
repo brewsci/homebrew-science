@@ -2,7 +2,7 @@ class Lis < Formula
   homepage "http://www.ssisc.org/lis"
   url "http://www.ssisc.org/lis/dl/lis-1.4.34.tar.gz"
   sha256 "e25fb5ef0c52fa0c66efab626da7d1a4b4082776173ffce632a034ab73a4d292"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
