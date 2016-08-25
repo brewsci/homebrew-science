@@ -6,9 +6,9 @@ class Lis < Formula
 
   bottle do
     cellar :any
-    sha256 "4347e7169640064e07ff2c191a52dd2c788ca4b5bce8e21ad56c2a847c32be9c" => :el_capitan
-    sha256 "ea4fe78d212bae4166fbfdacb744423d8ab220b541665c92c26f1912db5bd1a8" => :yosemite
-    sha256 "26755c99879002b4019f514db0467218be9d06b163a51cdbec08f7c965ec28b8" => :mavericks
+    sha256 "931659dd58dd7555990bcf001bb7ef906560ea35a315b25d40be553bb096014b" => :el_capitan
+    sha256 "669a7ae326c8cb8a78358d632653503bc74eef6eaaa0d56521024708206f5317" => :yosemite
+    sha256 "3b5cf44e575fd9a4cba5184597444c3b0d8f75839b9ee91753840e8a36a1dc44" => :mavericks
   end
 
   option "without-check", "Skip build-time checks (not recommended)"
