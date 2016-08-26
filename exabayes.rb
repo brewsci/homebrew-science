@@ -7,10 +7,9 @@ class Exabayes < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "d018bac15a8658066a2b8225b7ea4a890a7beef0083b60f6f5c9bb5bbff16692" => :el_capitan
-    sha256 "9e5ff9eb74e4bf5bb101969144c732f7860f6c199f139f3a1665432f00fec602" => :yosemite
-    sha256 "cbd49207f24bf05034b681609abd84a90653f01dd4fb28846da5e593bc1ee27e" => :mavericks
+    sha256 "c3f196886125a8fda6b34c41875d962e72b8acae9947613ec6e564324801960a" => :el_capitan
+    sha256 "167e98f4be51ba8d3b10e4a747c54a84478f491dcb390d9bce38f7c89af7a78c" => :yosemite
+    sha256 "76761cf6439fe52c10eaeaedde419f4a1bcbd887ebdf04aad265a22f5e38af4d" => :mavericks
   end
 
   head do
