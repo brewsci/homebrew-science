@@ -5,6 +5,12 @@ class Fplll < Formula
   url "https://github.com/fplll/fplll/releases/download/5.0.1/fplll-5.0.1.tar.gz"
   sha256 "1145622cf46c309153ae26210b26b9fc1475830103be3db5a7cb5eb56b8affd1"
 
+  bottle do
+    sha256 "deaac09f3e3f65082042123aa1280d7e5328252da3c3fdde3c6be6de82764d1e" => :el_capitan
+    sha256 "c04639d7684321f0b9821c52fad2fdb95d51826d10b7b0b3871f658461e48115" => :yosemite
+    sha256 "d94490c6e365cdfd7a1165a13bf90ec20d0f9af3114ee15766e0a9fa9ed37440" => :mavericks
+  end
+
   needs :cxx11
 
   option "without-test", "Disable build-time checking (not recommended)"
