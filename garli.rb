@@ -6,6 +6,12 @@ class Garli < Formula
   revision 1
   # tag "bioinformatics"
 
+  bottle do
+    sha256 "5449142219c1d736f742a372cb2e89a42057f798b2cc4ae347d096064c1f2661" => :el_capitan
+    sha256 "f922d66d4a7dce7b1e9929f728b5a69b3c53448f3e676ed5f2f123f71147200e" => :yosemite
+    sha256 "277ec8eb53c43b1909ddd4ca8fd78d86ca14027547a3d43fb4e384f3785e5064" => :mavericks
+  end
+
   option "with-brewed-ncl", "Use Homebrew's NCL instead of building a separate copy"
   depends_on "ncl" if build.with? "brewed-ncl"
   depends_on :mpi => :recommended
