@@ -7,9 +7,9 @@ class Scotch5 < Formula
 
   bottle do
     cellar :any
-    sha256 "47c553dce7da037ad291ce82b8ba2a5f1bce90ccf27168b67132e0e0c7915f86" => :yosemite
-    sha256 "ab718b8c7215be2734ddb98cccf46761077b623d2b69ce9ba4eddb0857646fbe" => :mavericks
-    sha256 "565b19c1b337a74ffcc3c481d0221e1665eb7193352c32c15a7c0290babf3008" => :mountain_lion
+    sha256 "196ca2e162b649cf87b2f906fbc01de49048d0e6aba602c9f27c4f2d7ae3a181" => :el_capitan
+    sha256 "a556a95bb6fa93f0c50986829fc3d821158b652e482982dfd6895017b9e92e0e" => :yosemite
+    sha256 "3704eea2ff80599ddbf302c80ad0b67ef812c731b8a844e343f7823eb73626fb" => :mavericks
   end
 
   keg_only "Conflicts with scotch (6.x)"
