@@ -7,9 +7,9 @@ class Zoltan < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6b5eb3c315a4ca0e78584098fd40cfd433892646345989a14750c68b6dbb25ca" => :el_capitan
-    sha256 "73fc99ec31644bf572ab685865a360d6a99ab812fdf43721a00a3c9873a874d1" => :yosemite
-    sha256 "d719f85c4d0706270df71dbf6918df233ce866e0199da62cfca63d8dc83bf1a5" => :mavericks
+    sha256 "8e93c8dbbd9f7df20fbd5d3da95a85766a82230fb12078e5e8f0c2c665dd48e3" => :el_capitan
+    sha256 "7714a986f1f3cc1a2b761758715cddaaf2a78b1656d075b513e089206fe15335" => :yosemite
+    sha256 "f5637e0318ca0045b480eb8ce3525d15facf464a7d0ea54a9034a9b55cd01f12" => :mavericks
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
