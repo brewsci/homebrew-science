@@ -9,8 +9,9 @@ class Getdp < Formula
   homepage "http://www.geuz.org/getdp/"
   url "http://www.geuz.org/getdp/src/getdp-2.9.0-source.tgz"
   sha256 "08487f3f5a41012d06db0ec97206b883961c0e7853f47f8502f6d1ef80ef67c9"
+  revision 3
+
   head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
-  revision 2
 
   bottle do
     sha256 "7de10f6b53dd9f395084b317666a15d46c0112132dcc47ea71eafe63372e0c28" => :el_capitan
@@ -23,10 +24,19 @@ class Getdp < Formula
 
   depends_on :fortran
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
-  depends_on "arpack"   => :recommended
+  if build.with? "mpi"
+    depends_on "arpack"   => [:recommended, "with-mpi"]
+  else
+    depends_on "arpack" => :recommended
+  end
   depends_on "gmsh"     => :recommended
   depends_on "gsl"      => :recommended
   depends_on "hdf5"     => :recommended
+  if build.with? "mpi"
+    depends_on "hdf5"   => [:recommended, "with-mpi"]
+  else
+    depends_on "hdf5" => :recommended
+  end
   depends_on "metis"    => :recommended
   depends_on "mumps"    => :recommended
   depends_on "petsc"    => :recommended
