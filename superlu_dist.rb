@@ -6,9 +6,9 @@ class SuperluDist < Formula
   revision 1
 
   bottle do
-    sha256 "2e330af1603d2d39df45d00dc5f3b25dcff5f2b34737634d104751abd939742f" => :el_capitan
-    sha256 "684e8d324e5b3d3452835ddbe47cb15921e9feddc0eac927a960396f08a215d3" => :yosemite
-    sha256 "2ed2f6063464dd9585246fba5ce2fabdb9bb7197ed9676d0fbadc90ef87d2b01" => :mavericks
+    sha256 "832ef134b3f34d13f990ab01cd09042f2eb7e6fa0c3c3c8dd8dcd7eb0dd19109" => :el_capitan
+    sha256 "77863960780d6b70ee0020cbf351c04f57390411f73d388852e0a6795412269e" => :yosemite
+    sha256 "56acc4159cf7b0f16dee6705e4308935280daa2a287514d37c631d4a878bdbab" => :mavericks
   end
 
   option "without-test", "skip build-time tests (not recommended)"
