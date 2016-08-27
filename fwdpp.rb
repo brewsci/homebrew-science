@@ -9,10 +9,9 @@ class Fwdpp < Formula
 
   bottle do
     cellar :any
-    sha256 "448f70e0f045bfb77e7ebe8d89935509b5e4b9e677c8d4f05404f2f9dd6e0696" => :el_capitan
-    sha256 "d66625d6f617d5b30535f75d0c02273d25a7d79ba393396f8f09b555222ea94c" => :yosemite
-    sha256 "99e736627840f266d6e4cd4f0052061e7c045bcbfc97c5340246ee64a6c995dd" => :mavericks
-    sha256 "7449a508a0230cf8695d3c2e72dc7e6bbdc36559a6c1a6b7160bfcba2501761a" => :x86_64_linux
+    sha256 "2b4865fcacdcc89e7736775badc99dd2559892e09742b8068fd90d468d30dc04" => :el_capitan
+    sha256 "542a5bd2087d974f6c98cb851c2f66b5c9ad4761a7b6ce17f33cf21de39e70c0" => :yosemite
+    sha256 "11c9a6b1101f05382059bd81f82e0f02fae561a61854b896898f4a04a4349b46" => :mavericks
   end
 
   option "without-test", "Disable build-time checking (not recommended)"
