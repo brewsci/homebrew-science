@@ -9,9 +9,9 @@ class Dealii < Formula
 
   bottle do
     cellar :any
-    sha256 "8d46159340215a00f0ae2e0869c24fab18a6416c5b700f91b023071947ac0c54" => :el_capitan
-    sha256 "410e69594770bba3cc59de5d46d196fa650aa0d31a3fb9bd8d3749fcf67b3fe1" => :yosemite
-    sha256 "38c8afeaa644f79e7fb033c0f382573174e01ef5fdee7bf08d335adc852275cf" => :mavericks
+    sha256 "905032553341d4c3e4f4c9c22fca17805d62630ee20fc8aacd6a4f81560d9d5b" => :el_capitan
+    sha256 "d87e1cf1947dd7058bf6b7e47786dfa8d6b51af614a6ed048790ff4820399802" => :yosemite
+    sha256 "a00c1ae26edea0cf79d414c1b50f56adac4a0528766dc9aecddf41ee8516ee2e" => :mavericks
   end
 
   option "with-testsuite", "Run full test suite (7000+ tests). Takes a lot of time."
