@@ -44,7 +44,7 @@ class P4est < Formula
                           "--prefix=#{prefix}"
 
     system "make"
-    system "make", "check" if build.with? "check"
+    ENV.deparallelize { system "make", "check" } if build.with? "check"
     system "make", "install"
   end
 end
