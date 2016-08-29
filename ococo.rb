@@ -6,6 +6,13 @@ class Ococo < Formula
 
   head "https://github.com/karel-brinda/ococo.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "2708bd14a7ee3339a7934de5c98b6c1050d3384aaaae070e254ddb9c2b290379" => :el_capitan
+    sha256 "48fe3507e28ecb56300e576c7ee9b7f89bb9b3f8eddd0f1690cec2c049d41992" => :yosemite
+    sha256 "6035fc4acf5ae5591e8bfb18d6c2b7f4e23849ade637f1a58c0410d83ff37543" => :mavericks
+  end
+
   depends_on "htslib"
 
   def install
