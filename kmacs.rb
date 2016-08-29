@@ -1,6 +1,13 @@
 class Kmacs < Formula
   desc "k Mismatch Average Common Substring Approach"
   homepage "http://kmacs.gobics.de/"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "74a1d8ec162cc13f341d016d243651c8c1cd164e96254cf54f280992caad9970" => :el_capitan
+    sha256 "8af8df33d1b57160b4d571025c50fda29e1b5e5a4a7ac4199a7bd693b70c0bba" => :yosemite
+    sha256 "46d83a1535dacc9111701b5db92399f408a93c2d2e43d8f5480266d3566e594d" => :mavericks
+  end
+
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btu331"
 
