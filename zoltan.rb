@@ -3,7 +3,7 @@ class Zoltan < Formula
   homepage "http://www.cs.sandia.gov/Zoltan"
   url "http://www.cs.sandia.gov/~kddevin/Zoltan_Distributions/zoltan_distrib_v3.83.tar.gz"
   sha256 "d0d78fdeab7a385c87d3666b8a8dc748994ff04d3fd846872a4845e12d79c1bb"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -11,6 +11,8 @@ class Zoltan < Formula
     sha256 "7714a986f1f3cc1a2b761758715cddaaf2a78b1656d075b513e089206fe15335" => :yosemite
     sha256 "f5637e0318ca0045b480eb8ce3525d15facf464a7d0ea54a9034a9b55cd01f12" => :mavericks
   end
+
+  keg_only "conflicts with trilinos"
 
   option "without-test", "Skip build-time tests (not recommended)"
 
@@ -42,6 +44,15 @@ class Zoltan < Formula
     end
   end
 
+  def caveats;<<-EOS.undent
+    To link against Zoltan, add
+      #{opt_include}
+    to the search path for includes and
+      #{opt_lib}
+    to the library search path.
+    EOS
+  end
+
   test do
     (testpath/"test.c").write <<-EOS.undent
       #include <stdio.h>
@@ -58,7 +69,7 @@ class Zoltan < Formula
         return 0;
       }
     EOS
-    system "mpicc", "test.c", "-o", "test", "-lzoltan"
+    system "mpicc", "-I#{opt_include}", "test.c", "-o", "test", "-L#{opt_lib}", "-lzoltan"
     system "./test"
   end
 end
