@@ -10,9 +10,9 @@ class Poretools < Formula
   # tag "bioinformatics"
 
   bottle do
-    sha256 "013cb567445c5f6b1b4b56c77734110ed5e96b4d94c1af1054c372a416c27c4c" => :el_capitan
-    sha256 "26b40b4be408e3521f3f286da48af907bdcf111ff97faad9cbe98648f76668fa" => :yosemite
-    sha256 "2670829410a444270c032c88cec9813ad2e367a5d3aa7bb82d9da9195421a221" => :mavericks
+    sha256 "dbda16ee7192ede15203764aa35c3c329249859b77745b87b0b477ffe9a67bb4" => :el_capitan
+    sha256 "e6590dda55bd3917ee55bfbc76492bd5853c2fc0a3fdb7b56df43d8ff01c16a5" => :yosemite
+    sha256 "4adae393ddc11735fac33482844322b6a744005d49d2f26a2560bfa05eb4f1a9" => :mavericks
   end
 
   depends_on "pkg-config" => :build # for h5py
