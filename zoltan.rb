@@ -7,9 +7,9 @@ class Zoltan < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8e93c8dbbd9f7df20fbd5d3da95a85766a82230fb12078e5e8f0c2c665dd48e3" => :el_capitan
-    sha256 "7714a986f1f3cc1a2b761758715cddaaf2a78b1656d075b513e089206fe15335" => :yosemite
-    sha256 "f5637e0318ca0045b480eb8ce3525d15facf464a7d0ea54a9034a9b55cd01f12" => :mavericks
+    sha256 "cc7c42d60ef77018b8e274024237223f88cc3fe4aea503e146005bc6d20d624c" => :el_capitan
+    sha256 "dd8c56898a543c2a063d74f77e9d1a28f741b2e749875b55bd551498e17cc47a" => :yosemite
+    sha256 "a4128a0c7000c85eb9087724e7da9a8bd17e4227b7dcdae39110d560e9e92dbe" => :mavericks
   end
 
   keg_only "conflicts with trilinos"
