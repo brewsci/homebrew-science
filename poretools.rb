@@ -1,10 +1,11 @@
 class Poretools < Formula
+  include Language::Python::Virtualenv
+
   desc "Tools for working with nanopore sequencing data"
-  homepage "http://poretools.readthedocs.org/"
-  url "https://github.com/arq5x/poretools/archive/v0.5.1.tar.gz"
-  sha256 "5f547b014c6208ca14a2f95cc10eecc34f9a69edf44e693eade31f083da36b18"
+  homepage "https://poretools.readthedocs.org"
+  url "https://github.com/arq5x/poretools/archive/v0.6.0.tar.gz"
+  sha256 "64d22ac045bf4b424bd709abb07fcdb6ef4d198a76213183de166a307646b9fa"
   head "https://github.com/arq5x/poretools.git"
-  revision 5
   # doi "10.1093/bioinformatics/btu555"
   # tag "bioinformatics"
 
@@ -14,71 +15,71 @@ class Poretools < Formula
     sha256 "2670829410a444270c032c88cec9813ad2e367a5d3aa7bb82d9da9195421a221" => :mavericks
   end
 
-  depends_on "pkg-config" => :build  # for h5py
-  depends_on "freetype"  # for matplotlib
+  depends_on "pkg-config" => :build # for h5py
+  depends_on "freetype" # for matplotlib
   depends_on "hdf5"
-  depends_on :fortran  # for scipy
+  depends_on :fortran # for scipy
   depends_on :python if MacOS.version <= :snow_leopard
 
   cxxstdlib_check :skip
 
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz"
+    sha256 "84808fda00508757928e1feadcf41c9f78e9a9b7167b6649ab0933b76f75e7b9"
+  end
+
   resource "Cycler" do
-    url "https://pypi.python.org/packages/c2/4b/137dea450d6e1e3d474e1d873cd1d4f7d3beed7e0dc973b06e8e10d32488/cycler-0.10.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/c2/4b/137dea450d6e1e3d474e1d873cd1d4f7d3beed7e0dc973b06e8e10d32488/cycler-0.10.0.tar.gz"
     sha256 "cd7b2d1018258d7247a71425e9f26463dfb444d411c39569972f4ce586b0c9d8"
   end
 
-  resource "Cython" do
-    url "https://pypi.python.org/packages/b1/51/bd5ef7dff3ae02a2c6047aa18d3d06df2fb8a40b00e938e7ea2f75544cac/Cython-0.24.tar.gz"
-    sha256 "6de44d8c482128efc12334641347a9c3e5098d807dd3c69e867fa8f84ec2a3f1"
-  end
-
   resource "h5py" do
-    url "https://pypi.python.org/packages/22/82/64dada5382a60471f85f16eb7d01cc1a9620aea855cd665609adf6fdbb0d/h5py-2.6.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/22/82/64dada5382a60471f85f16eb7d01cc1a9620aea855cd665609adf6fdbb0d/h5py-2.6.0.tar.gz"
     sha256 "b2afc35430d5e4c3435c996e4f4ea2aba1ea5610e2d2f46c9cae9f785e33c435"
   end
 
   resource "matplotlib" do
-    url "https://pypi.python.org/packages/8f/f4/c0c7e81f64d5f4d36e52e393af687f28882c53dcd924419d684dc9859f40/matplotlib-1.5.1.tar.gz"
-    sha256 "3ab8d968eac602145642d0db63dd8d67c85e9a5444ce0e2ecb2a8fedc7224d40"
+    url "https://files.pythonhosted.org/packages/15/89/240b4ebcd63bcdde9aa522fbd2e13f0af3347bea443cb8ad111e3b4c6f3a/matplotlib-1.5.2.tar.gz"
+    sha256 "8875d763c9e0d0ae01fefd5ebbe2b22bde5f080037f9467126d5dbee31785913"
   end
 
   resource "numpy" do
-    url "https://pypi.python.org/packages/1a/5c/57c6920bf4a1b1c11645b625e5483d778cedb3823ba21a017112730f0a12/numpy-1.11.0.tar.gz"
-    sha256 "a1d1268d200816bfb9727a7a27b78d8e37ecec2e4d5ebd33eb64e2789e0db43e"
+    url "https://files.pythonhosted.org/packages/e0/4c/515d7c4ac424ff38cc919f7099bf293dd064ba9a600e1e3835b3edefdb18/numpy-1.11.1.tar.gz"
+    sha256 "dc4082c43979cc856a2bf352a8297ea109ccb3244d783ae067eb2ee5b0d577cd"
   end
 
   resource "pandas" do
-    url "https://pypi.python.org/packages/11/09/e66eb844daba8680ddff26335d5b4fead77f60f957678243549a8dd4830d/pandas-0.18.1.tar.gz"
+    url "https://files.pythonhosted.org/packages/11/09/e66eb844daba8680ddff26335d5b4fead77f60f957678243549a8dd4830d/pandas-0.18.1.tar.gz"
     sha256 "d2e483692c7915916dffd1b83256ea9761b4224c8d45646ceddf48b977ee77b2"
   end
 
   resource "pyparsing" do
-    url "https://pypi.python.org/packages/41/45/1f1b5e0f58d9f5c4e60ca062704c033700d866958f5dc02531996239f5da/pyparsing-2.1.2.tar.gz"
-    sha256 "57754e38d618fb47fdd17d1ce7a2dc8cbb7986ab07363ce8dcfc57270e6c9a2a"
+    url "https://files.pythonhosted.org/packages/65/25/1bb68622ca70abc145ac9c9bcd0e837fccd2889d79cee641aa8604d18a11/pyparsing-2.1.8.tar.gz"
+    sha256 "03a4869b9f3493807ee1f1cb405e6d576a1a2ca4d81a982677c0c1ad6177c56b"
   end
 
   resource "python-dateutil" do
-    url "https://pypi.python.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
+    url "https://files.pythonhosted.org/packages/3e/f5/aad82824b369332a676a90a8c0d1e608b17e740bbb6aeeebca726f17b902/python-dateutil-2.5.3.tar.gz"
     sha256 "1408fdb07c6a1fa9997567ce3fcee6a337b39a503d80699e0f213de4aa4b32ed"
   end
 
   resource "pytz" do
-    url "https://pypi.python.org/packages/f4/7d/7c0c85e9c64a75dde11bc9d3e1adc4e09a42ce7cdb873baffa1598118709/pytz-2016.4.tar.bz2"
-    sha256 "ee7c751544e35a7b7fb5e3fb25a49dade37d51e70a93e5107f10575d7102c311"
+    url "https://files.pythonhosted.org/packages/f7/c7/08e54702c74baf9d8f92d0bc331ecabf6d66a56f6d36370f0a672fc6a535/pytz-2016.6.1.tar.bz2"
+    sha256 "b5aff44126cf828537581e534cc94299b223b945a2bb3b5434d37bf8c7f3a10c"
   end
 
   resource "scipy" do
-    url "https://pypi.python.org/packages/16/87/fdd4d069b1e784d4598605c20d8a7c535883b298aef960dc286b395359d7/scipy-0.17.0.tar.gz"
-    sha256 "f600b755fb69437d0f70361f9e560ab4d304b1b66987ed5a28bdd9dd7793e089"
+    url "https://files.pythonhosted.org/packages/01/a1/dce70d47377d662aa4b0895df8431aee92cea6faefaab9dae21b0f901ded/scipy-0.18.0.tar.gz"
+    sha256 "f01784fb1c2bc246d4211f2482ecf4369db5abaecb9d5afb9d94f6c59663286a"
   end
 
   resource "seaborn" do
-    url "https://pypi.python.org/packages/05/70/727aea83084506060c5fe2b35b6a640ddf66e926a4b54d752542e031b3c3/seaborn-0.7.0.tar.gz"
-    sha256 "15a8b2747becfdb86cfa60b5fcfa9bb934e42ef0ced660e0d57e8aea741f7145"
+    url "https://files.pythonhosted.org/packages/ed/dc/f168ff9db34f8c03c568987b4f81603cd3df40dd8043722d526026381a91/seaborn-0.7.1.tar.gz"
+    sha256 "fa274344b1ee72f723bab751c40a5c671801d47a29ee9b5e69fcf63a18ce5c5d"
   end
 
   resource "six" do
-    url "https://pypi.python.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
   end
 
@@ -87,51 +88,40 @@ class Poretools < Formula
     sha256 "76b00286acba1f65c76a3869bc60e099190ce48d0a5822606ce222e80529e523"
   end
 
+  def resources
+    front_load = [resource("six"), resource("numpy")]
+    front_load + (super - front_load - [resource("Cython"), resource("test")])
+  end
+
   def install
     ENV.delete("SDKROOT")
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python2.7/site-packages"
-    ENV.prepend_create_path "PATH", libexec/"vendor/bin"
-    ENV.prepend_create_path "PATH", buildpath/"cython/bin"
     ENV["HDF5_DIR"] = Formula["hdf5"].opt_prefix
-
-    res = resources.map(&:name).to_set - ["numpy", "Cython", "test"]
-    res = ["numpy"] + res.to_a
 
     resource("Cython").stage do
       system "python", *Language::Python.setup_install_args(buildpath/"cython")
     end
 
-    res.each do |rp|
-      resource(rp).stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
+    ENV.prepend_create_path "PATH", buildpath/"cython/bin"
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python2.7/site-packages"
 
-    # install poretools
-    ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    virtualenv_install_with_resources
 
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-
-    resource("test").stage { (pkgshare/"test_data").install Dir["*"] }
+    (pkgshare/"test_data").install resource("test")
   end
 
   test do
     result = <<-EOS.undent
-    total reads	297
-    total base pairs	260131
-    mean	875.86
-    median	795
-    min	325
-    max	3602
-    N25	965
-    N50	830
-    N75	741
+      total reads	297
+      total base pairs	260131
+      mean	875.86
+      median	795
+      min	325
+      max	3602
+      N25	965
+      N50	830
+      N75	741
     EOS
-
-    assert_equal result, shell_output("#{bin}/poretools stats #{pkgshare}/test_data/")
+    output = shell_output("#{bin}/poretools stats #{pkgshare}/test_data")
+    assert_equal result, output
   end
 end
