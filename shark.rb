@@ -5,9 +5,10 @@ class Shark < Formula
   sha256 "73d77860494bee2b5f36d492773ddb9ea7da864d2ce2d38b3abce673e9f1c4ab"
 
   bottle do
-    sha256 "f4441c3e99bec7049d2694ef96e337dd452e1fa84c914fbc7be1c0e544dfe831" => :el_capitan
-    sha256 "c6ad00f988a65776d81eb21de5cd070368bfefbb41c5e1a147bc2b591a90c070" => :yosemite
-    sha256 "ac84e035d32327e7f019bac93b276f7a42cd132eb184cf324f3f6ffce83ccfe5" => :mavericks
+    cellar :any
+    sha256 "80b7a08e5f6f6a76b3fcf8bbdca72ef02dc14fd822ed2ef10041908d9339e024" => :el_capitan
+    sha256 "0427ea59bb0d23a1eb70717babe5a722afd46c3b9051e0cbf479be07ea0c939f" => :yosemite
+    sha256 "8ef6293010b5039c9add3dbd82dda302973d3ee2dfcf97fae948ec277270bf66" => :mavericks
   end
 
   depends_on "cmake" => :build
