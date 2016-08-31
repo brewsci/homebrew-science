@@ -3,6 +3,8 @@ class Hotspot < Formula
   homepage "https://github.com/rthurman/hotspot"
   url "https://github.com/rthurman/hotspot/archive/v4.1.0.tar.gz"
   sha256 "9ecdbba612b80f137b78314c23ac94aa6840d217bf4256faf8adee88a73fdd0c"
+  revision 1
+
   head "https://github.com/rthurman/hotspot.git"
 
   bottle do
@@ -19,17 +21,20 @@ class Hotspot < Formula
     system "make", "-C", "hotspot-distr/hotspot-deploy"
 
     inreplace "hotspot-distr/pipeline-scripts/test/runall.tokens.txt",
-              "/full/path/to/hotspot-distr",
-              "#{pkgshare}"
+              "/full/path/to/hotspot-distr", pkgshare
     pkgshare.install "hotspot-distr/pipeline-scripts", "hotspot-distr/data"
 
     bin.install Dir["hotspot-distr/hotspot-deploy/bin/*"]
-    doc.install %w[LICENSE README.md]
+    rm bin/"wavelets" unless OS.linux?
   end
 
   def caveats; <<-EOS.undent
     Run the test suite (~1 hr):
       #{opt_pkgshare}/pipeline-scripts/test/runhotspot
     EOS
+  end
+
+  test do
+    assert_match "Usage", shell_output("#{bin}/hotspot 2>&1", 1)
   end
 end
