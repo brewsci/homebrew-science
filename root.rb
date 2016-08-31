@@ -4,6 +4,8 @@ class Root < Formula
   version "5.34.36"
   url "https://root.cern.ch/download/root_v#{version}.source.tar.gz"
   sha256 "fc868e5f4905544c3f392cc9e895ef5571a08e48682e7fe173bd44c0ba0c7dcd"
+  revision 1
+
   head "https://github.com/root-mirror/root.git", :branch => "v5-34-00-patches"
 
   bottle do
