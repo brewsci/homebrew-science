@@ -6,9 +6,9 @@ class AtomicPseudopotentialEngine < Formula
 
   bottle do
     cellar :any
-    sha256 "cc5ef9f0ca16e83b094e4d35a72747d44babe2215fba7ff8948b942c20448b07" => :el_capitan
-    sha256 "67ac8c354e1698eaaf91ef5f3b632de8fe55136c992dfcb2b541dd6e4f8c845a" => :yosemite
-    sha256 "c0bb6a3fe70e6d2714dcdbc51fe76d91895f799b9a3b166f90966f435f3554be" => :mavericks
+    sha256 "b2859416ce31d1a6f5a9dabed3ef406a85bbeaacf3c5362ccd148f962adf0e0c" => :el_capitan
+    sha256 "92dc615fda5235922e6e7fc557647aeb6d78a40640302567e6348392f76c7d14" => :yosemite
+    sha256 "93eaa810321b25bc322900419149f6b13dbca8793f6f845649b02b1c7a4350be" => :mavericks
   end
 
   depends_on :fortran
