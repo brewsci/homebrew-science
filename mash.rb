@@ -6,6 +6,8 @@ class Mash < Formula
 
   url "https://github.com/marbl/Mash/archive/v1.1.1.tar.gz"
   sha256 "d2097267342a719cd831d1c58fe2b924ee4f4e918c8f7b2b7476f682f15ef623"
+  revision 1
+
   head "https://github.com/marbl/Mash.git"
 
   bottle do
