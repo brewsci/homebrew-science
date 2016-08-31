@@ -3,7 +3,10 @@ class Apophenia < Formula
   homepage "http://apophenia.info/"
   url "https://github.com/b-k/apophenia/archive/v1.0.tar.gz"
   sha256 "c753047a9230f9d9e105541f671c4961dc7998f4402972424e591404f33b82ca"
+  revision 1
+
   head "https://github.com/b-k/apophenia.git"
+
   bottle do
     cellar :any
     sha256 "da2829ec4b831d440d0462681515b42a38b5d15133f0c39cb2d4643edf0e5d9f" => :el_capitan
