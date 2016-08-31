@@ -3,7 +3,7 @@ class Gnudatalanguage < Formula
   homepage "http://gnudatalanguage.sourceforge.net"
   url "https://downloads.sourceforge.net/project/gnudatalanguage/gdl/0.9.5/gdl-0.9.5.tar.gz"
   sha256 "cc9635e836b5ea456cad93f8a07d589aed8649668fbd14c4aad22091991137e2"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "5adb7ff184a86ff2e8cc0f39dad812fbe452d74fd31b39fd7503498d9ed9231f" => :el_capitan
