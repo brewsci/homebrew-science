@@ -1,11 +1,9 @@
 class Visp < Formula
   desc "Visual Servoing Platform library, version 3"
   homepage "https://visp.inria.fr"
-
-  stable do
-    url "http://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.0.0.tar.gz"
-    sha256 "f9fa6f16f5c06d4eaa91ed374ecd7416ad49639d9f3a1865b21933af368e720f"
-  end
+  url "http://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.0.0.tar.gz"
+  sha256 "f9fa6f16f5c06d4eaa91ed374ecd7416ad49639d9f3a1865b21933af368e720f"
+  revision 1
 
   bottle do
     sha256 "afa2cfb18faae45fc4c42c288cd1d6767aa0a6a798bbb04eab2aa54c7eb5e672" => :el_capitan
