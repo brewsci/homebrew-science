@@ -1,9 +1,8 @@
 class Fgsl < Formula
   desc "Fortran bindings for the GNU Scientific Library"
   homepage "http://www.lrz.de/services/software/mathematik/gsl/fortran/"
-  url "http://www.lrz.de/services/software/mathematik/gsl/fortran/download/fgsl-1.0.0.tar.gz"
-  sha256 "2841f6deb2ce05e153fc1d89fe5e46aba74c60a2595c857cef9ca771a0cf6290"
-  revision 1
+  url "http://www.lrz.de/services/software/mathematik/gsl/fortran/download/fgsl-1.1.0.tar.gz"
+  sha256 "18d45e2bf87695587cd83320777ada0d9e2dfdee43eb9d76e0dab660758aff47"
 
   bottle do
     revision 1
