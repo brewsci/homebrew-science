@@ -7,6 +7,8 @@ class Root6 < Formula
   mirror "https://fossies.org/linux/misc/root_v#{version_number}.source.tar.gz"
   version version_number
   sha256 "0a7d702a130a260c72cb6ea754359eaee49a8c4531b31f23de0bfcafe3ce466b"
+  revision 1
+
   head "http://root.cern.ch/git/root.git"
 
   bottle do
