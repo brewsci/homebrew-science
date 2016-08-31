@@ -1,8 +1,8 @@
 class Shark < Formula
   desc "Machine leaning library"
   homepage "http://image.diku.dk/shark/"
-  url "https://github.com/Shark-ML/Shark/archive/v3.1.1.tar.gz"
-  sha256 "87ae435b34d1b0ac027f194ab41626f07077d60e7cd9ea8e7efc206cd43b69ca"
+  url "https://github.com/Shark-ML/Shark/archive/v3.1.2.tar.gz"
+  sha256 "73d77860494bee2b5f36d492773ddb9ea7da864d2ce2d38b3abce673e9f1c4ab"
 
   bottle do
     sha256 "f4441c3e99bec7049d2694ef96e337dd452e1fa84c914fbc7be1c0e544dfe831" => :el_capitan
@@ -11,7 +11,7 @@ class Shark < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "homebrew/versions/boost160"
+  depends_on "boost"
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -35,8 +35,8 @@ class Shark < Formula
     EOS
 
     system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-lshark",
-           "-L#{Formula["boost160"].lib}", "-lboost_serialization",
-           "-I#{Formula["boost160"].include}"
+           "-L#{Formula["boost"].lib}", "-lboost_serialization",
+           "-I#{Formula["boost"].include}"
     system "./test"
   end
 end
