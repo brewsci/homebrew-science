@@ -9,9 +9,9 @@ class Apophenia < Formula
 
   bottle do
     cellar :any
-    sha256 "da2829ec4b831d440d0462681515b42a38b5d15133f0c39cb2d4643edf0e5d9f" => :el_capitan
-    sha256 "c12717497f2d73c1bc983c7c35642d9332cc647a16d5708834206c69f87379d5" => :yosemite
-    sha256 "bb04cc51a07d2e48f4b760781d8644d0e20e4babff1ebc120ce1f5c60dd142e9" => :mavericks
+    sha256 "077cf0dbc7082d1049be542d862fe5172f9c95f7553ccfac2e044bde8ae961fa" => :el_capitan
+    sha256 "01dad8fbecbfbecaeb6d37c095c40b7ca1811ad0ba578543aa9220bac15bf79d" => :yosemite
+    sha256 "d4c8528bcc990d7c866ebfb48530eec37f235e5d481299aa401bd1023fdb1de3" => :mavericks
   end
 
   # doi "arXiv:1502.02614"
