@@ -16,8 +16,10 @@ class Art < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cfc9ac48fd2054b3ebbd654f11ff0919e0f08c175e9d1b9bf3a5926d1675974a" => :x86_64_linux
+    cellar :any
+    sha256 "c811bc3baceb7c217d1096f094d97cb91a0797880897a0edaaebadd0feadfa94" => :el_capitan
+    sha256 "031f2d36aeda67a3207950bd4461435df42a8e33c6e82434e45038d787b0b912" => :yosemite
+    sha256 "22f4e0e4911921a44553ce9c1eb7e540c2eee411fb8bf65e2a6a01eb3654b6fb" => :mavericks
   end
 
   depends_on "gsl"
