@@ -3,6 +3,7 @@ class Nip2 < Formula
   homepage "http://www.vips.ecs.soton.ac.uk/"
   url "http://www.vips.ecs.soton.ac.uk/supported/8.2/nip2-8.2.tar.gz"
   sha256 "18151e2185eb9db60196d98354ef751eb55ea9d3b55ef090f4a039125d465fca"
+  revision 1
 
   bottle do
     cellar :any
