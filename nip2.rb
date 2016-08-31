@@ -7,9 +7,9 @@ class Nip2 < Formula
 
   bottle do
     cellar :any
-    sha256 "20d379cce240bb99db2e40a8ba8158daa804c9f6f9b7ca0f653ca7f99b903c06" => :el_capitan
-    sha256 "9aedd3b2ea45252cccd768c4a00dcc72017a0033d96954b1bc6f7d6f198f3323" => :yosemite
-    sha256 "651eb4cd587a533590a38cf068f64c86c7504fa9b32df93148874bb7eef3931d" => :mavericks
+    sha256 "517799012b227b2073c42927aaa9c4c4e99ddbcbeb72f0e422e15168b46384e3" => :el_capitan
+    sha256 "d7bee2898d6d4fd1482ac7820c2bf01638744f01ab17d5e14379f134b588990a" => :yosemite
+    sha256 "ada6912ef86789eec29a19aa883ae2fecfbbe0ea7d597d2c74db22da56b58c7c" => :mavericks
   end
 
   option "with-check", "Enable build-time checking"
