@@ -8,9 +8,9 @@ class Jsbsim < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a88430d291a5ffb8cff4dd62c122acc976cf10e0a7a362e06b1713447ecb742a" => :el_capitan
-    sha256 "a98477ca4a33b32e4bcabce5a0c8a941992afbde2c5056a7a15fc385fdf811a9" => :yosemite
-    sha256 "992d34b5e4c61efdaeda03c3a493db32094e63c38909fb4cdf082fdcd0dfc8c0" => :mavericks
+    sha256 "d26afc5d86e930816d2fb2e1c0d117aba24cbdee0a045c84a4806a89cce1ac27" => :el_capitan
+    sha256 "b2de90a1b12b98f50ba0d5ce9757d5b34615d89b7a028d1f6a4d84813e2ecf9e" => :yosemite
+    sha256 "5abf5c285d07246ed7ccfa021fe34ebc557f8f50e1c9d1ff99f12eb737d56ce9" => :mavericks
   end
 
   head do
