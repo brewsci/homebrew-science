@@ -14,9 +14,9 @@ class Mathgl < Formula
   revision 1
 
   bottle do
-    sha256 "4d52aedbf366e65172f4f1e4390e8ee9a045fd521ccc72a7b069c854f2e9d4da" => :el_capitan
-    sha256 "1e1339d5fb9cea6eb4fbc6751289afe1c180017beaade40c5fa4ee9145660b94" => :yosemite
-    sha256 "c068a86ef976268694fe0b6c89bd71fffaa293e649495cdad60dc19def2f8d4b" => :mavericks
+    sha256 "bb8bd47819fd2d94e67afb56bb1119b24abf16029d0c8a828c913d83c9cefda0" => :el_capitan
+    sha256 "a6dfebc7ec6ce8ec0249d65be1e51940def38f479e5623bbb7f61de66a0fb2fb" => :yosemite
+    sha256 "ccd995d632e808a82d55d2f566c451fe656b673b0ede83780e6dfe350633239e" => :mavericks
   end
 
   option "with-qt=", "Build with Qt 4 or 5 support"
