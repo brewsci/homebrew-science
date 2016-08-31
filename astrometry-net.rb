@@ -10,7 +10,7 @@ class AstrometryNet < Formula
     sha256 "7bd2e73e375b07ec806c1172bcc8ab6b5c825eca34b66715678c556471b78f1e" => :mavericks
   end
 
-  revision 1
+  revision 2
 
   head "https://github.com/dstndstn/astrometry.net.git"
 
