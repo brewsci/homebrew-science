@@ -6,12 +6,14 @@ class Art < Formula
 
   if OS.mac?
     url "http://www.niehs.nih.gov/research/resources/assets/docs/artsrcchocolatecherrycake031915macostgz.tgz"
+    version "031915"
     sha256 "35cb37d3d5ce428fed77b59e4aa5b1498572c1fe9ed140173db02e6b1767c5f8"
   else
     url "http://www.niehs.nih.gov/research/resources/assets/docs/artsrcchocolatecherrycake031915linuxtgz.tgz"
+    version "031915"
     sha256 "306f1dd9f207e59e5fc07b2c1152fa091b142dc65267f7b37538931b60584965"
   end
-  version "031915"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
