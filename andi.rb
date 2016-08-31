@@ -10,10 +10,9 @@ class Andi < Formula
 
   bottle do
     cellar :any
-    sha256 "0e87c2f66d747c56e71995435f0972cdd4f55042596237a677eb03c488659797" => :el_capitan
-    sha256 "511676f1065cbee4099049ad351098f55111190a53b8dba63ca5182528d09a88" => :yosemite
-    sha256 "3ed9cf0b24aa1e585a5b22f90f425844979c481d9f036607f3c819f13a9bf8c8" => :mavericks
-    sha256 "6473702f23976c531ff21fa9720aa6e9f2d4887d5abe999bd089dee709ba2b46" => :x86_64_linux
+    sha256 "92ea0b4143d62faafd41495514d5f966d761b6dd6f30bae1a16afb094628c417" => :el_capitan
+    sha256 "e220eb0b520a6aec9539596af23eccb060ce3ae69667e177b2dbf0005865181e" => :yosemite
+    sha256 "232bbad5b5e892049e1e3353ec754ca4daff972862011a2848de1e57bf756ea6" => :mavericks
   end
 
   depends_on "gsl"
