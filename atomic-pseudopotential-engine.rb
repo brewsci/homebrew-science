@@ -2,7 +2,7 @@ class AtomicPseudopotentialEngine < Formula
   homepage "http://www.tddft.org/programs/APE/"
   url "http://www.tddft.org/programs/APE/sites/default/files/ape-2.2.1.tar.gz"
   sha256 "91c09e1d5ddcfb1d421a0d1d416c760de10afbf7f54e6ba1ad767661e1671357"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
