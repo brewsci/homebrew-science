@@ -3,7 +3,7 @@ class Abinit < Formula
   homepage "http://www.abinit.org"
   url "http://ftp.abinit.org/abinit-8.0.7.tar.gz"
   sha256 "9df2fe572af39cef937a4134d569321b99c6670f187edbac9b355ff2defd5afc"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
