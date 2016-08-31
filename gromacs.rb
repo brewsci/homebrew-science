@@ -4,6 +4,7 @@ class Gromacs < Formula
   url "ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.1.tar.gz"
   mirror "https://fossies.org/linux/privat/gromacs-5.1.1.tar.gz"
   sha256 "9316fd0be320e2dd8c048f905df5be115e1b230c4ca4f3a7ef5892a1fc0bc212"
+  revision 1
 
   bottle do
     sha256 "8a7b09bbb64edff8c203b6db0240c048f209e0c44053c9d25a36a45dea3cc98a" => :el_capitan
