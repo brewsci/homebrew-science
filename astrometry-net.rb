@@ -3,6 +3,13 @@ class AstrometryNet < Formula
   homepage "http://astrometry.net"
   url "http://astrometry.net/downloads/astrometry.net-0.67.tar.gz"
   sha256 "e351c81f7787550d42d45855db394a1702fd17c249ba934bdf4b6abf56281446"
+  bottle do
+    cellar :any
+    sha256 "d30413e5191d466921104ddc3ef5c502ec7a65d508334f43588ba597595e33d5" => :el_capitan
+    sha256 "f2a08fd1ddead1861237e6ccdd1a312bc90b0dd0f5260bd0d06e364ebac568bb" => :yosemite
+    sha256 "7bd2e73e375b07ec806c1172bcc8ab6b5c825eca34b66715678c556471b78f1e" => :mavericks
+  end
+
   revision 1
 
   head "https://github.com/dstndstn/astrometry.net.git"
