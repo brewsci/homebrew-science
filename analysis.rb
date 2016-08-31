@@ -3,6 +3,7 @@ class Analysis < Formula
   homepage "https://github.com/molpopgen/analysis"
   url "https://github.com/molpopgen/analysis/archive/0.8.8.tar.gz"
   sha256 "f9ef9e0a90fce2c0f4fe462d6c05e22fef22df1c23b63a7c64ad7b538f6e8bb0"
+  revision 1
   # tag "bioinformatics"
 
   bottle do
