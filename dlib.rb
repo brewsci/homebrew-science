@@ -9,9 +9,9 @@ class Dlib < Formula
 
   bottle do
     cellar :any
-    sha256 "e020c1f9554ab1e8f21ec2badb46f339fa729f52d1e0d207cbc7741dcbf3b159" => :el_capitan
-    sha256 "f3e2feb3e403ee8b64aa4338462815ea958be25b9a901beda43190730f7bcf15" => :yosemite
-    sha256 "70cb278bfab84c3d0720815145ecbce59aafe8a887c99268b4b15da3186dd9c1" => :mavericks
+    sha256 "9871c5e7578d41b84c49dcc7741f32faaf45abb8a43c2735be031cb5a1902cd5" => :el_capitan
+    sha256 "6a412c4e11718bc67f16b78b9f2166fe8444255d16f6ba380465080081d140bc" => :yosemite
+    sha256 "5f3c699b192772ba7990ce4ca19a45ecca7c241d36e546b4092b24bdbfd7f957" => :mavericks
   end
 
   depends_on CudaRequirement => :optional
