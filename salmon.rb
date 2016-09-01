@@ -3,8 +3,8 @@ class Salmon < Formula
   homepage "https://github.com/COMBINE-lab/salmon"
   # tag "bioinformatics"
 
-  url "https://github.com/COMBINE-lab/salmon/archive/v0.7.1.tar.gz"
-  sha256 "2ff6689a1d675366342881836fa47c12eac998c6a382aa55a3be99a09cd885dc"
+  url "https://github.com/COMBINE-lab/salmon/archive/v0.7.2.tar.gz"
+  sha256 "d35147663d349a6c28bcabf51e85d5a45f24273be1c4cda76173ffa15bd68d0a"
 
   head "https://github.com/COMBINE-lab/salmon.git"
 
@@ -33,9 +33,9 @@ class Salmon < Formula
 
     # Fix wonky clang reporting itself as GCC
     if ENV.compiler == :clang && MacOS.version <= :mavericks
-        inreplace "include/concurrentqueue.h",
-            "typedef ::max_align_t max_align_t",
-            "typedef std::max_align_t max_align_t"
+      inreplace "include/concurrentqueue.h",
+                "typedef ::max_align_t max_align_t",
+                "typedef std::max_align_t max_align_t"
     end
 
     system "cmake", ".", *std_cmake_args
