@@ -9,10 +9,10 @@ class Proteinortho < Formula
   sha256 "718af74289a4fc0075f9dce2b12fe3fa1c7d96718c7ec8d9ddca94beac658a17"
 
   bottle do
-    cellar :any
-    sha256 "ecfd27b026b742c4b48d64e5b727b8f3dcb6207e905d27406a8d58205bfed3a6" => :yosemite
-    sha256 "c90ddf8615f5781064c2b7886ad442d4524009a4c92a65d2c35f8a573b01f3e2" => :mountain_lion
-    sha256 "c0158b7c561ce1a175443ac084a261c71f5164d775a8eb12e180e140274c0740" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "90278cd36c92e1f2470ddfbe67310b8af11146c5e1e7c2c0963fca6563cb57f2" => :el_capitan
+    sha256 "310de812c9d5d37bb4b368e737b83bbdd7fafc025bd4acfce167d4cb14c05203" => :yosemite
+    sha256 "faf9b72151379cd25d4cbe40d4164da161d832e3ab07ea58b937ad331b7ab893" => :mavericks
   end
 
   depends_on "blast"
