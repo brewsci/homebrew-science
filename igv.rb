@@ -1,10 +1,10 @@
 class Igv < Formula
   desc "Interactive Genomics Viewer"
-  homepage "http://www.broadinstitute.org/software/igv"
+  homepage "https://www.broadinstitute.org/software/igv"
   # tag "bioinformatics"
   # doi "10.1093/bib/bbs017"
-  url "http://www.broadinstitute.org/igv/projects/downloads/IGV_2.3.80.zip"
-  sha256 "f95368bb5c359b28786e8cf2d9c44240f44ad5bad7cd41ba8ae22c3608213535"
+  url "https://www.broadinstitute.org/igv/projects/downloads/IGV_2.3.81.zip"
+  sha256 "bed05e61bb4f059eb43116457ffb86e8d4f4045856849f9ab8fa8932866d459d"
   head "https://github.com/broadinstitute/IGV.git"
 
   bottle :unneeded
