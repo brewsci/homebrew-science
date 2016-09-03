@@ -1,10 +1,8 @@
 class Dealii < Formula
   desc "open source finite element library"
   homepage "http://www.dealii.org"
-  url "https://github.com/dealii/dealii/releases/download/v8.4.1/dealii-8.4.1.tar.gz"
-  sha256 "00a0e92d069cdafd216816f1aff460f7dbd48744b0d9e0da193287ebf7d6b3ad"
-  revision 4
-
+  url "https://github.com/dealii/dealii/releases/download/v8.4.2/dealii-8.4.2.tar.gz"
+  sha256 "ec7c00fadc9d298d1a0d16c08fb26818868410a9622c59ba624096872f3058e4"
   head "https://github.com/dealii/dealii.git"
 
   bottle do
@@ -43,15 +41,9 @@ class Dealii < Formula
   depends_on "trilinos"     => [:recommended] + openblasdep
 
   needs :cxx11
+
   def install
     ENV.cxx11
-
-    # PETSc 3.7.x added a parameter to PetscOptionsSetValue()
-    # https://bitbucket.org/petsc/petsc/src/5d547b27bccc01eacb9fc0eef6ae71e85dce2b0c/src/sys/objects/options.c?at=master&fileviewer=file-view-default#options.c-1078
-    # See upstream PR: https://github.com/dealii/dealii/pull/2327
-    inreplace "source/lac/petsc_precondition.cc",
-      "PetscOptionsSetValue(\"",
-      "PetscOptionsSetValue(NULL,\""
 
     args = %W[
       -DCMAKE_BUILD_TYPE=DebugRelease
