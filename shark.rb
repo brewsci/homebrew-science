@@ -6,9 +6,9 @@ class Shark < Formula
 
   bottle do
     cellar :any
-    sha256 "80b7a08e5f6f6a76b3fcf8bbdca72ef02dc14fd822ed2ef10041908d9339e024" => :el_capitan
-    sha256 "0427ea59bb0d23a1eb70717babe5a722afd46c3b9051e0cbf479be07ea0c939f" => :yosemite
-    sha256 "8ef6293010b5039c9add3dbd82dda302973d3ee2dfcf97fae948ec277270bf66" => :mavericks
+    sha256 "65fb8571660c52bc94c20272c851e010f657f275f850590afa4728589adf8765" => :el_capitan
+    sha256 "7cf6ec0decb6795e7cebe8abd5d9501e15333672b21ad9c68a1a97a44e4ed0c2" => :yosemite
+    sha256 "536853ce249e438b35fa3e49ba1c54f5ac3c5493bf3bc33c9374c13ebcaa20f8" => :mavericks
   end
 
   depends_on "cmake" => :build
