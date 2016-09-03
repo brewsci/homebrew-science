@@ -6,6 +6,13 @@ class Cfitsio < Formula
   version "3.390"
   sha256 "62d3d8f38890275cc7a78f5e9a4b85d7053e75ae43e988f1e2390e539ba7f409"
 
+  bottle do
+    cellar :any
+    sha256 "29e485f25a51ce580f6547bcd0d05cc517189e8a01881ac21c5e27781ed8230d" => :el_capitan
+    sha256 "3d3de057f3f3ae3ff4111a77193871a18ba6b9b1d71a7a68882937f2dccd216a" => :yosemite
+    sha256 "b21eee517163d977dca6c7bd1f2de3f4c16d8f14a91b72899df19404887b36e4" => :mavericks
+  end
+
   option "with-examples", "Compile and install example programs"
 
   resource "examples" do
