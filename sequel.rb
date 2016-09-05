@@ -1,6 +1,13 @@
 class Sequel < Formula
   desc "Improving the Accuracy of Genome Assemblies"
   homepage "http://bix.ucsd.edu/SEQuel/index.html"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "421e6e93d10691e279d5aa6aaae3ed8c371cb23425aba82a520d891bab212282" => :el_capitan
+    sha256 "0663e912b943010a8049de6e8896dcacb21b346e43ba7299244814aa1dd35713" => :yosemite
+    sha256 "0663e912b943010a8049de6e8896dcacb21b346e43ba7299244814aa1dd35713" => :mavericks
+  end
+
   # doi "10.1093/bioinformatics/bts219"
   # tag "bioinformatics"
 
