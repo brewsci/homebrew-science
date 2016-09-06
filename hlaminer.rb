@@ -1,13 +1,11 @@
 class Hlaminer < Formula
   desc "HLA predictions from next-generation shotgun (NGS) sequence read data"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/hlaminer"
+  url "http://www.bcgsc.ca/platform/bioinfo/software/hlaminer/releases/1.3.1/HLAminer_v1-3-1.tar.gz"
+  version "1.3.0"
+  sha256 "a009575d80484c7c1dd188f29c21419ccca3ff7feea31128d0906cfc944959fe"
   # doi "10.1186/gm396"
   # tag "bioinformatics"
-
-  url "http://www.bcgsc.ca/platform/bioinfo/software/hlaminer/releases/1.1/HLAminer.tar.gz"
-  version "1.1.0"
-  sha256 "2c3e4458215f06764f58e8f3d95fb8e3a47d2a19152478d047453944c8cb84c3"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -29,6 +27,6 @@ class Hlaminer < Formula
   end
 
   test do
-    assert_match "HLAminer.pl [v1.1]", shell_output("#{bin}/HLAminer.pl", 255)
+    assert_match "HLAminer.pl [v1.3]", shell_output("#{bin}/HLAminer.pl", 255)
   end
 end
