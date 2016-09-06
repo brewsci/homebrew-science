@@ -4,6 +4,12 @@ class ParallelNetcdf < Formula
   url "http://cucis.ece.northwestern.edu/projects/PnetCDF/Release/parallel-netcdf-1.7.0.tar.gz"
   sha256 "52f0d106c470a843c6176318141f74a21e6ece3f70ee8fe261c6b93e35f70a94"
 
+  bottle do
+    sha256 "b92b5215732879b47567fdaf624389f3ffa0de15139894987142c52bdc6b6474" => :el_capitan
+    sha256 "9236dcb918df510933bcca44a10372a28c109c2fe6f1f30fc060b1e36b9a6dc5" => :yosemite
+    sha256 "80b2151a528e52322f657b122b14e380dc3080bba30fe34eb8f9bc2e15515ce6" => :mavericks
+  end
+
   option "without-cxx", "Don't compile C++ bindings"
   option "without-fortran", "Don't compile Fortran bindings"
   # disabled (see comment below): option "without-test", "Disable checks (not recommended)"
