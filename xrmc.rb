@@ -1,10 +1,10 @@
 class Xrmc < Formula
-  homepage "https://github.com/golosio/xrmc"
   desc "Monte Carlo simulation of X-ray imaging and spectroscopy experiments"
+  homepage "https://github.com/golosio/xrmc"
   url "http://lvserver.ugent.be/xrmc/files/xrmc-6.5.0.tar.gz"
   mirror "https://xrmc.s3.amazonaws.com/xrmc-6.5.0.tar.gz"
   sha256 "4995eaaf3b4583d443d0cf2003d73d1855b443938e431a4f758a607f540e026a"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "c65c774606b4f4828b9ecaa9da78fb294c943ff95496288b9f75640cb2b10f53" => :yosemite
@@ -12,11 +12,21 @@ class Xrmc < Formula
     sha256 "cc9fd9634165a26fcadfc8a7ec9632fea2122c5458db368f6bc111fe4e6ccaea" => :mountain_lion
   end
 
-  depends_on "xraylib"
-  depends_on "pkg-config" => :build
+  option "without-test", "Don't run build-time tests (may take a long time)"
+
   needs :openmp
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "xmi-msim" => :optional
-  option "with-check", "Run build-time tests (may take a long time)"
+
+  if build.with? "xmi-msim"
+    depends_on "xraylib" => "with-fortran"
+  else
+    depends_on "xraylib"
+  end
 
   fails_with :llvm do
     cause <<-EOS.undent
@@ -26,23 +36,33 @@ class Xrmc < Formula
   end
 
   def install
+    inreplace Dir.glob("{examples,test}/*/Makefile.am"),
+      "$(datadir)/examples/xrmc/", "$(datadir)/examples/"
+
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
       --enable-openmp
+      --docdir=#{doc}
+      --datarootdir=#{pkgshare}
     ]
 
-    args << ((build.with? "xmi-msim") ? "--enable-xmi-msim" : "--disable-xmi-msim")
+    if build.with? "xmi-msim"
+      args << "--enable-xmi-msim"
+    else
+      args << "--disable-xmi-msim"
+    end
 
+    system "autoreconf", "-fiv"
     system "./configure", *args
     system "make"
-    system "make", "check" if build.with? "check"
+    system "make", "check" if build.with? "test"
     system "make", "install"
   end
 
   test do
-    cp Dir.glob("#{share}/examples/xrmc/cylind_cell/*"), "."
-    system "#{bin}/xrmc", "input.dat"
+    cp_r (pkgshare/"examples/cylind_cell").children, testpath
+    system bin/"xrmc", "input.dat"
   end
 end
