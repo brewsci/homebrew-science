@@ -39,6 +39,8 @@ class Xraylib < Formula
     args << ((build.with? "ruby") ? "--enable-ruby" : "--disable-ruby")
     args << ((build.with? "pascal") ? "--enable-pascal" : "--disable-pascal")
 
+    ENV.delete "PYTHONPATH"
+
     if build.without?("python") && build.with?("python3")
       args << "--enable-python"
       args << "PYTHON=python3"
