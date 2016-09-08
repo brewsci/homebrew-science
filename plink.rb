@@ -1,4 +1,5 @@
 class Plink < Formula
+  desc "Whole genome association analysis toolset"
   homepage "http://pngu.mgh.harvard.edu/~purcell/plink/"
   url "http://pngu.mgh.harvard.edu/~purcell/plink/dist/plink-1.07-src.zip"
   sha256 "4af56348443d0c6a1db64950a071b1fcb49cc74154875a7b43cccb4b6a7f482b"
@@ -13,6 +14,14 @@ class Plink < Formula
     sha256 "248422187c63e69e516f0cdd06a108512841b0a0c38f2b60b330c30b462916ae" => :x86_64_linux
   end
 
+  fails_with :clang do
+    build 425
+    cause <<-EOS.undent
+      Old versions of clang are missing some symbols for
+      exception unwinding (Homebrew/science issue #4234).
+      EOS
+  end
+
   # allows plink to build with clang and new versions of gcc
   # borrowed from Debian; discussion at:
   # https://lists.debian.org/debian-mentors/2012/04/msg00410.html
@@ -23,16 +32,16 @@ class Plink < Formula
   option "without-webcheck", "Build without default version webcheck"
 
   def install
-    make_args = (OS.mac?) ? ["SYS=MAC"] : ["FORCE_DYNAMIC=1"]
+    make_args = OS.mac? ? ["SYS=MAC"] : ["FORCE_DYNAMIC=1"]
     make_args << "WITH_WEBCHECK=0" if build.without? "webcheck"
     system "make", *make_args
-    (share / "plink").install "test.map", "test.ped"
+    pkgshare.install "test.map", "test.ped"
     bin.install "plink"
     doc.install "COPYING.txt", "README.txt"
   end
 
   test do
-    system "plink", "--file", prefix/"share/plink/test"
+    system "#{bin}/plink", "--file", pkgshare/"test"
   end
 end
 __END__
