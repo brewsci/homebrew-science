@@ -1,6 +1,13 @@
 class Vt < Formula
   desc "Toolset for short variant discovery from NGS data"
   homepage "http://genome.sph.umich.edu/wiki/Vt"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "8fdf8b6373ce9a6968b230d11815e30e4355fa81b938d718fec4dec7dbaf21bf" => :el_capitan
+    sha256 "c3bcf866e90b6a93f666ceb725ca6891cb23448856c4163e066548f13bf4b50a" => :yosemite
+    sha256 "3d2e1bad812a3097a4c515ba7940a7cd09518e0f251e9a806d965e8de759db37" => :mavericks
+  end
+
   # doi "10.1093/bioinformatics/btv112"
   # tag "bioinformatics"
 
