@@ -1,16 +1,18 @@
 class Tabtk < Formula
+  desc "Toolkit for processing TAB-delimited format"
   homepage "https://github.com/lh3/tabtk"
-  url "https://github.com/lh3/tabtk/archive/7109d8b.tar.gz"
-  sha256 "8d2f92a4ef22e07984f927cfbf65ac9c54a379e58d18613e56ba763e92a9ed90"
-  version "2014-09-22-r9"
+  url "https://github.com/lh3/tabtk/archive/v0.1.tar.gz"
+  sha256 "311df21ef04b4d396a7552ce1384bf056e1d6f87a5679d55e905ec6c8591b906"
+  head "https://github.com/lh3/tabtk.git"
+  # tab "bioinformatics"
 
   def install
     system "make"
     bin.install "tabtk"
-    doc.install "README.md"
+    doc.install_metafiles
   end
 
   test do
-    system "tabtk 2>&1 |grep -q tabtk"
+    assert_match "Usage", shell_output("#{bin}/tabtk 2>&1", 1)
   end
 end
