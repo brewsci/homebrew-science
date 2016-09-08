@@ -7,11 +7,11 @@ class Plink < Formula
   # doi "10.1086/519795"
 
   bottle do
-    cellar :any
-    sha256 "e9aae1de18b36eb1b9fa200a9ec4527af50e14df9b1ae245bd983eb592920250" => :yosemite
-    sha256 "b123ad9ffbc9825aece2080ce51ca6814c8a5821dcee5b865b328b24917332f7" => :mavericks
-    sha256 "e0b9b89dff5335544012f7592cfa72cfddc44ee33b6809c9a16c02343df7fa4e" => :mountain_lion
-    sha256 "248422187c63e69e516f0cdd06a108512841b0a0c38f2b60b330c30b462916ae" => :x86_64_linux
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "92beceeafe1e15d5a0a4e6e6d78c9208256c402508f246035464c5842a9058d2" => :el_capitan
+    sha256 "5e6555322bafaa569abacea7e62bded2ecfdd2ac3a01a79d6f82cf7e0a93238e" => :yosemite
+    sha256 "40506cd63be7f7fd9829f73de28d2f2ab5fccbd28a5eaa76d1146fd46316f0ee" => :mavericks
   end
 
   fails_with :clang do
