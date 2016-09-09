@@ -5,6 +5,12 @@ class Cmor < Formula
   sha256 "ee58b6d405f081e4e0633af931b7992f1a570953b71ece17c01ab9e15889211a"
   # doi "10.5281/zenodo.61943"
 
+  bottle do
+    sha256 "652cc1010791eccbc52907c809033ed5ed30e7a3c82aaf29b3dce38ddfad3782" => :el_capitan
+    sha256 "d01148d52e2f26a1eccf46d1351bf1131434ba488f533858c8401ee6ad9e0898" => :yosemite
+    sha256 "8548ba7e8ce1933abcb59b9dcaf3305842ecf2d5f1cdcbfda14a28809e2a5617" => :mavericks
+  end
+
   depends_on "ossp-uuid"
   depends_on "udunits"
   depends_on "netcdf" => "with-fortran"
