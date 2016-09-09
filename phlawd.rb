@@ -9,7 +9,7 @@ class Phlawd < Formula
   url "https://github.com/chinchliff/phlawd/releases/download/3.4a/phlawd_3.4a_src_with_sqlitewrapped_1.3.1.tar.gz"
   version "3.4a"
   sha256 "0ec8e45359af6e932ea4a042fe4f42ddf05b04689a25df937b2d85db41038253"
-  revision 1
+  revision 2
   head "https://github.com/chinchliff/phlawd.git"
 
   bottle do
@@ -42,6 +42,11 @@ class Phlawd < Formula
   depends_on "sqlite"
 
   def install
+    # Linux doesn't support -arch
+    if OS.linux?
+      inreplace "sqlitewrapped-1.3.1/Makefile", "-arch x86_64", ""
+      inreplace "src/Makefile.MAC", "-arch x86_64", ""
+    end
     # compile sqlitewrapped: a dependency included here since it's uncommon and unmaintained
     system "make", "-C", "sqlitewrapped-1.3.1"
 
