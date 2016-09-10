@@ -1,7 +1,6 @@
 class XmiMsim < Formula
   homepage "https://github.com/tschoonj/xmimsim"
-  url "http://lvserver.ugent.be/xmi-msim/xmimsim-5.0.tar.gz"
-  mirror "https://xmi-msim.s3.amazonaws.com/xmimsim-5.0.tar.gz"
+  url "http://xmi-msim.tomschoonjans.eu/xmimsim-5.0.tar.gz"
   sha256 "3503b56bb36ec555dc941b958308fde9f4e550ba3de4af3b6913bc29c2c0c9f1"
   revision 4
 
