@@ -9,9 +9,9 @@ class Vsearch < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "68d58acb86609f5869432fa9463b9295d4f66df383470da957841b6205320bd5" => :el_capitan
-    sha256 "f80c70a4f8b9f9766d31223ef422e215d96f65451f6ae10206966649b000ba2a" => :yosemite
-    sha256 "f2cc0f306663efd0301b977b6bb6960b17056f85b8ab046c260d898890a15b5b" => :mavericks
+    sha256 "dca5d11787cea6d50852e5d9645f3142bf8dac58e0f2d22e56a592e9428321c8" => :el_capitan
+    sha256 "28d17c749ecdbd6f358fe9a033d620fd17eaece08df36d37d3615a464070b2b2" => :yosemite
+    sha256 "267808a5e1ac1a723c04bb8fa9326b9d15ff4746a9a2aab0f64826eb213f0ca7" => :mavericks
   end
 
   depends_on "autoconf" => :build
