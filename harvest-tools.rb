@@ -1,9 +1,13 @@
 class HarvestTools < Formula
+  desc "Utility for creating and interfacing with Gingr files"
   homepage "https://github.com/marbl/harvest-tools"
   # doi "10.1186/s13059-014-0524-x"
   # tag "bioinformatics"
   url "https://github.com/marbl/harvest-tools/archive/v1.2.tar.gz"
   sha256 "6f9a7ab056d52fad78bdb7a93832ff8b509b77566c22481a2d81089736e10af4"
+  revision 1
+
+  head "https://github.com/marbl/harvest-tools.git"
 
   bottle do
     sha256 "9fdf80746d5a9aee3e8a532316c5803f67cb327bc443544bc563ac642f336cea" => :yosemite
