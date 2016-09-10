@@ -9,10 +9,9 @@ class Sambamba < Formula
   # tag "bioinformatics"
 
   bottle do
-    sha256 "a1be7e5983f6ecc20dfde24f321692bc1149e9b87c15f6af9924072cd9029c08" => :el_capitan
-    sha256 "410602e7eb4adb9c96e61449a2967ce3eda88aad6136add0bc38d4ad9769b29d" => :yosemite
-    sha256 "62f775aaabeeed8957a6c9fccadce41af6f8a1e37957d17da7fa7d7036e83ce7" => :mavericks
-    sha256 "ab8eeba7ebc695d1d4fe5250c4e78d204c6320216e41280b72c3fbcac0654dc2" => :x86_64_linux
+    sha256 "7b44b4f06b0cc6cfdbfb0b6cb099ed32780767cc02e4a4ea3b90aa22b9812a28" => :el_capitan
+    sha256 "a1fadb84af7e1a73daede860b45d8adfd2f6785d227e1f41d8960ab7d6d34883" => :yosemite
+    sha256 "57171cb36e80bf605e54bd2142aa5edf0f0fadc7b83c52043ea51731839888c7" => :mavericks
   end
 
   depends_on "ldc" => :build
