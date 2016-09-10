@@ -9,9 +9,9 @@ class Diamond < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "191b41a1ded8853bf5eca50ab7bc0d25d425d07c1d6e76b275e4606f9a831df6" => :el_capitan
-    sha256 "5d4510c1d158b3cec4a1a971d78df5bd1eef54bed2611d511325d921b4dfb092" => :yosemite
-    sha256 "740c0187351f10105039b409405c11a990ad7ec7f9a4711882a21e463bb37739" => :mavericks
+    sha256 "4c4fc6d65cd9bc5f556d3552a5c654650ad7b342feec772452bc9a5444434b24" => :el_capitan
+    sha256 "9908a3348fe573b94fe5f2e6e34613db8def949aadad3cc42cbb116f4ef2e50a" => :yosemite
+    sha256 "e02dc0e11c5ff8377325e8a4212e41a01034da3ba44a5e622df3a127a6c757a8" => :mavericks
   end
 
   depends_on "cmake" => :build
