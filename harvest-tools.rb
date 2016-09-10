@@ -10,8 +10,9 @@ class HarvestTools < Formula
   head "https://github.com/marbl/harvest-tools.git"
 
   bottle do
-    sha256 "9fdf80746d5a9aee3e8a532316c5803f67cb327bc443544bc563ac642f336cea" => :yosemite
-    sha256 "01a6c4e6f7a5f83cc2c037911526bba1e092c2de0e066447e9145359230ccbc3" => :mavericks
+    sha256 "7051d0d9403aa94a5986aa18b02515b6c03b4075238d0bbd5f482577db5942b5" => :el_capitan
+    sha256 "18661add81319869a30b07662f86099509978434bab7d0af37faec5b4b100e0e" => :yosemite
+    sha256 "022ab27d877d18c2f49d54fa3dccd28b554ad92ba4d22787f93b3a48239c5554" => :mavericks
   end
 
   depends_on "autoconf" => :build
