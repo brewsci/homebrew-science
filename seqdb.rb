@@ -1,8 +1,9 @@
 class Seqdb < Formula
+  desc "High-throughput compression of FASTQ data"
   homepage "https://bitbucket.org/mhowison/seqdb"
   url "https://bitbucket.org/mhowison/seqdb/downloads/seqdb-0.2.0.tar.gz"
   sha256 "e7bcf9ebfa584414bc93ebb37e93b1c992b0b379bc541a57c25966bfe9b6f906"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
