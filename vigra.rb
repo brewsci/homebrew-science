@@ -1,12 +1,16 @@
 class Vigra < Formula
-  homepage 'http://hci.iwr.uni-heidelberg.de/vigra/'
-  url 'https://github.com/ukoethe/vigra/releases/download/Version-1-10-0/vigra-1.10.0-src-with-docu.tar.gz'
+  desc "Image processing and analysis library"
+  homepage "https://ukoethe.github.io/vigra/"
+  url "https://github.com/ukoethe/vigra/releases/download/Version-1-10-0/vigra-1.10.0-src-with-docu.tar.gz"
   sha256 "42d4a361b0bb52fbfdae7e76000698be04dabba77be3f4248d369139fe96a099"
-  head 'https://github.com/ukoethe/vigra.git'
-  revision 1
+  revision 2
+
+  head "https://github.com/ukoethe/vigra.git"
 
   option :cxx11
-  option "without-check", "skip tests"
+  option "without-test", "skip tests"
+
+  deprecated_option "without-check" => "without-test"
 
   depends_on :python => :optional
   depends_on "numpy" => :python if build.with? :python
@@ -39,7 +43,7 @@ class Vigra < Formula
     mkdir "build" do
       system "cmake", "..", *cmake_args
       system "make"
-      system "make", "check" if build.with? "check"
+      system "make", "check" if build.with? "test"
       system "make", "install"
     end
   end
@@ -48,12 +52,12 @@ class Vigra < Formula
     s = ""
     libtiff = Formula["libtiff"]
     libtiff_cxx11 = Tab.for_formula(libtiff).cxx11?
-    if (build.cxx11? and !libtiff_cxx11) || (libtiff_cxx11 and !build.cxx11?)
+    if (build.cxx11? && !libtiff_cxx11) || (libtiff_cxx11 && !build.cxx11?)
       s += <<-EOS.undent
       The Homebrew warning about libtiff not being built with the C++11
       standard may be safely ignored as Vigra only relies on C API of libtiff.
       EOS
     end
-    return s
+    s
   end
 end
