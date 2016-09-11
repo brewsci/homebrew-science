@@ -3,7 +3,7 @@ class H5utils < Formula
   homepage "http://ab-initio.mit.edu/wiki/index.php/H5utils"
   url "http://ab-initio.mit.edu/h5utils/h5utils-1.12.1.tar.gz"
   sha256 "7290290ca5d5d4451d757a70c86baaa70d23a28edb09c951b6b77c22b924a38d"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "53e09efdef87074bd12c9aa66ed092d681db3c1438a8541b06f36466240a737e" => :el_capitan
