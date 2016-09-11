@@ -1,9 +1,9 @@
 class Gnudatalanguage < Formula
-  desc "A free and open-source IDL/PV-WAVE compiler"
+  desc "Free and open-source IDL/PV-WAVE compiler"
   homepage "http://gnudatalanguage.sourceforge.net"
   url "https://downloads.sourceforge.net/project/gnudatalanguage/gdl/0.9.5/gdl-0.9.5.tar.gz"
   sha256 "cc9635e836b5ea456cad93f8a07d589aed8649668fbd14c4aad22091991137e2"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "930bd0222dce71af8ff7237ea5ef56d787e99ae0ace73ee19c96decf70252979" => :el_capitan
