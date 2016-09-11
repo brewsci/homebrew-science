@@ -3,7 +3,7 @@ class Nexusformat < Formula
   homepage "http://www.nexusformat.org"
   url "https://github.com/nexusformat/code/archive/v4.4.2.tar.gz"
   sha256 "3cb2860c6040415dd0761ff4cfa062915f65df660c95f6f1fee044c86eddd8a2"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
