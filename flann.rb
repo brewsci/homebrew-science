@@ -3,6 +3,7 @@ class Flann < Formula
   homepage "http://www.cs.ubc.ca/~mariusm/index.php/FLANN/FLANN"
   url "https://github.com/mariusmuja/flann/archive/1.9.1.tar.gz"
   sha256 "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
+  revision 1
 
   bottle do
     cellar :any
