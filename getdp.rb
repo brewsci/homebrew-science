@@ -9,7 +9,7 @@ class Getdp < Formula
   homepage "http://www.geuz.org/getdp/"
   url "http://www.geuz.org/getdp/src/getdp-2.9.0-source.tgz"
   sha256 "08487f3f5a41012d06db0ec97206b883961c0e7853f47f8502f6d1ef80ef67c9"
-  revision 4
+  revision 5
 
   head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
 
@@ -22,6 +22,7 @@ class Getdp < Formula
   option "without-test", "skip build-time tests (not recommended)"
   deprecated_option "without-check" => "without-test"
 
+  depends_on "cmake"    => :build
   depends_on :fortran
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
   if build.with? "mpi"
@@ -41,9 +42,6 @@ class Getdp < Formula
   depends_on "mumps"    => :recommended
   depends_on "petsc"    => :recommended
   depends_on "slepc"    => :recommended
-
-
-  depends_on "cmake"    => :build
 
   def install
     args = std_cmake_args
