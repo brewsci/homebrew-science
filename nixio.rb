@@ -9,9 +9,9 @@ class Nixio < Formula
 
   bottle do
     cellar :any
-    sha256 "9ba0a2b8f922be3c83a45ef8c6502ec773cc5824b355cf38128dd1e27c02b36b" => :el_capitan
-    sha256 "b1cd780b3b2e0f095a2d22ea5277f69d3c3cb2b86ef407883b4905c2ef5d07d7" => :yosemite
-    sha256 "ac762654d8b9691fd20476decb1cb7bb3f9089b857bea6d1a9475f64f601989e" => :mavericks
+    sha256 "fedfe2338978e3a0512a235420e121da1ccf2d31fcee3dc55f6f2c009cf324e1" => :el_capitan
+    sha256 "4c2152eb4c59383098d7ac205de4a6329106d53fb3b26de428af413daa0fadfc" => :yosemite
+    sha256 "27e17c6bfbcc4322109d105139ebfaf5bbf95dceb7d4f6b243fc93172044a486" => :mavericks
   end
 
   depends_on "cmake" => :build
