@@ -3,11 +3,19 @@ class Nanopolish < Formula
   homepage "https://github.com/jts/nanopolish"
   # doi "10.1038/nmeth.3444"
   # tag "bioinformatics"
-
-  url "https://github.com/jts/nanopolish.git",
-    :tag => "v0.4.0",
-    :revision => "28bcaa3ea9de8394441c0ceac5b96cf409015a10"
   head "https://github.com/jts/nanopolish.git"
+
+  stable do
+    url "https://github.com/jts/nanopolish.git",
+        :tag => "v0.5.0",
+        :revision => "758d81a330860e82a24570ef5e6005982b095b49"
+
+    # upstream commit "remove unused function, closes #57"
+    patch do
+      url "https://github.com/jts/nanopolish/commit/c4ada9f.patch"
+      sha256 "d427641e4007fcc78013ffc170be68a6158674bf2d313c9a5547242ffee9c6de"
+    end
+  end
 
   bottle do
     cellar :any
@@ -21,16 +29,40 @@ class Nanopolish < Formula
   needs :openmp
 
   depends_on "hdf5"
+  depends_on "eigen" => :build
+
+  # use Homebrew eigen not the one upstream wants to fetch with wget
+  patch :DATA
 
   def install
+    ln_s Formula["eigen"].opt_include/"eigen3", "eigen"
     system "make", "HDF5=#{Formula["hdf5"].opt_prefix}"
-
     prefix.install "scripts", "nanopolish"
     bin.install_symlink "../nanopolish"
-    doc.install "LICENSE", "README.md"
   end
 
   test do
-    `#{bin}/nanopolish consensus --version`.include?(version.to_s)
+    system bin/"nanopolish", "--help"
   end
 end
+
+__END__
+diff --git a/Makefile b/Makefile
+index 8072faf..6f38c6f 100644
+--- a/Makefile
++++ b/Makefile
+@@ -69,12 +69,10 @@ lib/libhdf5.a:
+
+
+ # Download and install eigen if not already downloaded
+-EIGEN=eigen/INSTALL
++EIGEN=eigen
+
+ $(EIGEN):
+-	wget http://bitbucket.org/eigen/eigen/get/3.2.5.tar.bz2
+-	tar -xjvf 3.2.5.tar.bz2
+-	mv eigen-eigen-bdd17ee3b1b3 eigen
++	echo "using brew eigen"
+
+ #
+ # Source files
