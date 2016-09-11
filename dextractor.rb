@@ -6,8 +6,9 @@ class Dextractor < Formula
 
   url "https://github.com/thegenemyers/DEXTRACTOR/archive/V1.0.tar.gz"
   sha256 "5f45ab8944f857fc30b7a0e762fbdc63d9b61f3303412deee29d7580c53272bc"
+  revision 2
+
   head "https://github.com/thegenemyers/DEXTRACTOR.git"
-  revision 1
 
   bottle do
     cellar :any
