@@ -3,11 +3,14 @@ class Poretools < Formula
 
   desc "Tools for working with nanopore sequencing data"
   homepage "https://poretools.readthedocs.org"
-  url "https://github.com/arq5x/poretools/archive/v0.6.0.tar.gz"
-  sha256 "64d22ac045bf4b424bd709abb07fcdb6ef4d198a76213183de166a307646b9fa"
-  head "https://github.com/arq5x/poretools.git"
   # doi "10.1093/bioinformatics/btu555"
   # tag "bioinformatics"
+
+  url "https://github.com/arq5x/poretools/archive/v0.6.0.tar.gz"
+  sha256 "64d22ac045bf4b424bd709abb07fcdb6ef4d198a76213183de166a307646b9fa"
+  revision 1
+
+  head "https://github.com/arq5x/poretools.git"
 
   bottle do
     sha256 "dbda16ee7192ede15203764aa35c3c329249859b77745b87b0b477ffe9a67bb4" => :el_capitan
