@@ -3,6 +3,8 @@ class Insighttoolkit < Formula
   homepage "http://www.itk.org"
   url "https://downloads.sourceforge.net/project/itk/itk/4.10/InsightToolkit-4.10.0.tar.gz"
   sha256 "2ede59a95c4864885c863365f9df9371c39d2b31a545e3da6bda800249840168"
+  revision 1
+
   head "git://itk.org/ITK.git"
 
   bottle do
@@ -12,6 +14,13 @@ class Insighttoolkit < Formula
   end
 
   option :cxx11
+  option "with-examples", "Compile and install various examples"
+  option "with-itkv3-compatibility", "Include ITKv3 compatibility"
+  option "with-remove-legacy", "Disable legacy APIs"
+
+  deprecated_option "examples" => "with-examples"
+  deprecated_option "remove-legacy" => "with-remove-legacy"
+
   cxx11dep = build.cxx11? ? ["c++11"] : []
 
   depends_on "cmake" => :build
@@ -32,13 +41,6 @@ class Insighttoolkit < Formula
   else
     depends_on "vtk" => [:build] + cxx11dep
   end
-
-  deprecated_option "examples" => "with-examples"
-  deprecated_option "remove-legacy" => "with-remove-legacy"
-
-  option "with-examples", "Compile and install various examples"
-  option "with-itkv3-compatibility", "Include ITKv3 compatibility"
-  option "with-remove-legacy", "Disable legacy APIs"
 
   def install
     args = std_cmake_args + %W[
