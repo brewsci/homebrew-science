@@ -6,9 +6,10 @@ class Moab < Formula
   head "https://bitbucket.org/fathomteam/moab.git"
 
   bottle do
-    sha256 "097016feed8abaee3de749c285bebe43e154939e0dd389d14bea50fc961c08fe" => :yosemite
-    sha256 "1f0481c59eae7c0e97b2058eee421070e9b205c91c5ff7b977b73937d2d4b08c" => :mavericks
-    sha256 "ae9c07a183340ac8d454c7e9a9b1b86a7e1f47c27bee5a557bfe416c6f63c434" => :mountain_lion
+    cellar :any
+    sha256 "fa7cad15c7f86546a90e6c308a758025ddfea152340a74d46ff4b5ca52551eee" => :el_capitan
+    sha256 "e863c8326fd5d0408322cf4b191b447da12127b849fd9906f1b44463ae612c0e" => :yosemite
+    sha256 "d21fd72720b56e8344bac3bc163dfe89795e48b8f2cafdc4c54c5234e9bcd10d" => :mavericks
   end
 
   depends_on "autoconf" => :build
