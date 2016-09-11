@@ -4,7 +4,7 @@ class Netcdf < Formula
   url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.3.3.1.tar.gz"
   mirror "http://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.3.3.1.tar.gz"
   sha256 "bdde3d8b0e48eed2948ead65f82c5cfb7590313bc32c4cf6c6546e4cea47ba19"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
@@ -13,13 +13,14 @@ class Netcdf < Formula
     sha256 "b807d5fd18583e30e8d00d5b754cf6ad6f5ccbd95e6d56f007b83c911911be22" => :mavericks
   end
 
+  option "without-cxx", "Don't compile C++ bindings"
+  option "with-cxx-compat", "Compile C++ bindings for compatibility"
+  option "without-test", "Disable checks (not recommended)"
+
   deprecated_option "enable-fortran" => "with-fortran"
   deprecated_option "disable-cxx" => "without-cxx"
   deprecated_option "enable-cxx-compat" => "with-cxx-compat"
-
-  option "without-cxx", "Don't compile C++ bindings"
-  option "with-cxx-compat", "Compile C++ bindings for compatibility"
-  option "without-check", "Disable checks (not recommended)"
+  deprecated_option "without-check" => "without-test"
 
   depends_on :fortran => :optional
   depends_on "hdf5"
@@ -70,8 +71,8 @@ class Netcdf < Formula
 
     system "./configure", *args
     system "make"
-    ENV.deparallelize if build.with? "check" # Required for `make check`.
-    system "make", "check" if build.with? "check"
+    ENV.deparallelize if build.with? "test" # Required for `make check`.
+    system "make", "check" if build.with? "test"
     system "make", "install"
 
     # Add newly created installation to paths so that binding libraries can
@@ -84,7 +85,7 @@ class Netcdf < Formula
       resource("cxx").stage do
         system "./configure", *common_args
         system "make"
-        system "make", "check" if build.with? "check"
+        system "make", "check" if build.with? "test"
         system "make", "install"
       end
     end
@@ -93,7 +94,7 @@ class Netcdf < Formula
       resource("cxx-compat").stage do
         system "./configure", *common_args
         system "make"
-        system "make", "check" if build.with? "check"
+        system "make", "check" if build.with? "test"
         system "make", "install"
       end
     end
@@ -103,10 +104,10 @@ class Netcdf < Formula
         # fixes "error while loading shared libraries: libnetcdf.so.7".
         # see https://github.com/Homebrew/homebrew-science/issues/2521#issuecomment-121851582
         # this should theoretically be enough: ENV.prepend "LDFLAGS", "-L#{lib}", but it is not.
-        ENV.prepend "LD_LIBRARY_PATH", "#{lib}"
+        ENV.prepend "LD_LIBRARY_PATH", lib
         system "./configure", *common_args
         system "make"
-        system "make", "check" if build.with? "check"
+        system "make", "check" if build.with? "test"
         system "make", "install"
       end
     end
