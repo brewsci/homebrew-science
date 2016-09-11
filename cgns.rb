@@ -3,6 +3,7 @@ class Cgns < Formula
   homepage "http://cgns.org/"
   url "https://github.com/CGNS/CGNS/archive/v3.3.0.tar.gz"
   sha256 "8422c67994f8dc6a2f201523a14f6c7d7e16313bdd404c460c16079dbeafc662"
+  revision 1
 
   bottle do
     sha256 "17ffdcc5a095371e22cc3e67e893df6a6a9a1e26256d6346be8126214266df35" => :el_capitan
