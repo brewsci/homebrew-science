@@ -7,9 +7,9 @@ class Seqdb < Formula
 
   bottle do
     cellar :any
-    sha256 "8ddb581bc22c39c5a58e8e5535b56f11d49a1ef787882fecc367d3d38e101f2a" => :el_capitan
-    sha256 "7d9bf9fe088d6473d6f818d91da9a252944c98c46f57b10bebabadb24b6c7f5a" => :yosemite
-    sha256 "7368f17d4e48db7d1ef19c366a5c20a073c9a7930c8b5e9a0f782d719c37912f" => :mavericks
+    sha256 "f67b91b4ac4cc9b7c37bb25f4a0f4cb41017502e693b1d9109af4dcab6b95a16" => :el_capitan
+    sha256 "8f4b25df86a0977e5c9898d737e527a4a946d38f93da7a9fa1af9bff038d5a80" => :yosemite
+    sha256 "80ecdb90b18ffcb3d31e99df7833f5e00858a2fbc4dc9283f6e0e29f398e6bfa" => :mavericks
   end
 
   needs :openmp
