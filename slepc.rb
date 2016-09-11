@@ -3,7 +3,7 @@ class Slepc < Formula
   homepage "http://www.grycap.upv.es/slepc"
   url "http://slepc.upv.es/download/download.php?filename=slepc-3.7.2.tar.gz"
   sha256 "09bd88a6023f39aa91edf55f24be1c8b9fdcfebb952539af0292aae69985741f"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "2b577b439e0c00f43625fb0fbedf59f4019a7f394caa8327ed7543aab7793580" => :el_capitan
@@ -25,6 +25,7 @@ class Slepc < Formula
   depends_on "petsc" => openblasdep
   depends_on :mpi => [:cc, :f90]
   depends_on :fortran
+  depends_on "hdf5"
   depends_on :x11 => :optional
   depends_on "arpack" => [:recommended, "with-mpi"] + openblasdep
 
