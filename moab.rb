@@ -1,7 +1,8 @@
 class Moab < Formula
+  desc "Mesh-Oriented datABase for evaluating mesh data"
   homepage "http://press3.mcs.anl.gov/sigma/moab-library/"
-  url "http://ftp.mcs.anl.gov/pub/fathom/moab-4.8.0.tar.gz"
-  sha256 "349e66e06cac38325926eafb01807b9d520bfce73016088d5dd7b973e687467a"
+  url "http://ftp.mcs.anl.gov/pub/fathom/moab-4.9.2.tar.gz"
+  sha256 "5d79e299dd9bf76d7cade434cde478bb6dc8290e5b574b25cc30ee96f35a203d"
   head "https://bitbucket.org/fathomteam/moab.git"
 
   bottle do
@@ -38,5 +39,9 @@ class Moab < Formula
       # Move non-libraries out of lib
       prefix.install %w[iMesh-Defs.inc moab.config moab.make MOABConfig.cmake]
     end
+  end
+
+  test do
+    system bin/"mbconvert", "-h"
   end
 end
