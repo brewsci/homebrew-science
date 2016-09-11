@@ -9,10 +9,9 @@ class Kallisto < Formula
 
   bottle do
     cellar :any
-    sha256 "fc93dd76c238ed66f842367edcd0e3da27565b1f4e360cbe5d36ee9b8bc942b9" => :el_capitan
-    sha256 "ed1a4a70e2b1510465bbc3f6ab9a3d492ab2230c68509743ba07bfff3130cf45" => :yosemite
-    sha256 "ea5118efaa234ff719f74f2658ae837ac0b16cd1c305438046e87d966f491762" => :mavericks
-    sha256 "280c8c39e87b65be15bfcec6a9ce8925490cf2a7340aa2cc0ca0ce4ce2aebf6d" => :x86_64_linux
+    sha256 "fbab1f82a936c0091cbcd4ec45ceafbd777004a2caff26eaf1127bb30d86a688" => :el_capitan
+    sha256 "31cdd3101d4d458cfe9d8c5da4c49068bf63ee47e38381558ff6fc31c28fd20e" => :yosemite
+    sha256 "57cad6ffc94cb6b96de2adb0abbba6eac4f582b4b28b0c81e4230eb181daa433" => :mavericks
   end
 
   needs :cxx11
