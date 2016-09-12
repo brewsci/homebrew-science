@@ -1,10 +1,9 @@
 class Moose < Formula
   desc "Multiscale Object Oriented Simulation Environment"
   homepage "http://moose.ncbs.res.in"
-  url "https://github.com/BhallaLab/moose-core/archive/ghevar_3.0.2-beta.3.tar.gz"
-  version "3.0.2"
-  sha256 "ad8e7b50874b35190aa5cfdbf0bccaacba241ff19f4d12708f115816cc391b35"
-  revision 1
+  url "https://github.com/BhallaLab/moose-core/archive/3.1.0.tar.gz"
+  sha256 "3914535e9554473ee629289de1281aab95f85cc27b6602c26f01a46f6ccec968"
+  head "https://github.com/BhallaLab/moose-core.git"
 
   bottle do
     cellar :any
