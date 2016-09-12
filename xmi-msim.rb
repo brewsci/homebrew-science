@@ -3,7 +3,7 @@ class XmiMsim < Formula
   homepage "https://github.com/tschoonj/xmimsim"
   url "https://xmi-msim.tomschoonjans.eu/xmimsim-5.0.tar.gz"
   sha256 "3503b56bb36ec555dc941b958308fde9f4e550ba3de4af3b6913bc29c2c0c9f1"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "16b9d9321218883a8e4b7250be0a513e1cab6da8dd70d7df360e02eb6bb992c8" => :el_capitan
@@ -46,15 +46,18 @@ class XmiMsim < Formula
                           "--disable-mac-integration",
                           "--disable-libnotify",
                           "--enable-opencl"
-    system "make"
-
-    # this next step can take a long time...
-    system "./bin/xmimsim-db"
     system "make", "install"
-    (share / "xmimsim").install "xmimsimdata.h5"
+  end
+
+  def post_install
+    ohai "Generating xmimsimdata.h5 – this may take a while"
+    mktemp do
+      system bin/"xmimsim-db"
+      (share/"xmimsim").install "xmimsimdata.h5"
+    end
   end
 
   test do
-    system "#{bin}/xmimsim", "--version"
+    system bin/"xmimsim", "--version"
   end
 end
