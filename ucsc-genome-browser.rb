@@ -1,11 +1,11 @@
 class UcscGenomeBrowser < Formula
-  desc "A mirror of the UCSC Genome Browser"
+  desc "Mirror of the UCSC Genome Browser"
   homepage "http://genome.ucsc.edu"
   # doi "10.1093/nar/gkq963"
   # tag "bioinformatics"
 
-  url "http://hgdownload.cse.ucsc.edu/admin/jksrc.v316.zip"
-  sha256 "8ad7d11c776c52abc69557f393cb0df38c79efc8875a1f0652928ca0e8240f72"
+  url "http://hgdownload.cse.ucsc.edu/admin/jksrc.v338.zip"
+  sha256 "760972f8f8b6f5a2ac62c1a563a9235b3844c040757d8c51d793962224afa239"
   head "git://genome-source.cse.ucsc.edu/kent.git"
 
   keg_only <<-EOF.undent
@@ -19,6 +19,10 @@ class UcscGenomeBrowser < Formula
 
   def install
     ENV.j1
+
+    # Fix build error caused by curling to a nonexistant site
+    inreplace "src/hg/hgMirror/makefile", "curl", "#curl"
+
     machtype = `uname -m`.chomp
     user = `whoami`.chomp
     mkdir prefix/"cgi-bin-#{user}"
@@ -36,7 +40,7 @@ class UcscGenomeBrowser < Formula
         "SCRIPTS=#{prefix}/scripts",
         "CGI_BIN=#{prefix}/cgi-bin",
         "DOCUMENTROOT=#{prefix}/htdocs",
-        "PNGLIB=-L#{Formula["libpng"].opt_lib} -lpng",
+        "PNGLIB=-L#{Formula["libpng"].opt_lib} -lpng -lz -lcrypto",
         "MYSQLLIBS=-lmysqlclient -lz",
         "MYSQLINC=#{Formula["mysql"].opt_include}/mysql"
     end
