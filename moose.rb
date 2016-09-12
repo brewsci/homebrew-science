@@ -7,9 +7,9 @@ class Moose < Formula
 
   bottle do
     cellar :any
-    sha256 "cf2258da0c7409d0f8e63e5930a11fcc3716bf888d8281428929998cdd16513d" => :el_capitan
-    sha256 "1e500c88340fd383178a7d204d20e0048ab0a8108d46da80b345a9d09778d5c6" => :yosemite
-    sha256 "523529c5baf29e1a79b14d83308fa427054d60091edf7ab5bc18fb258dccb0cb" => :mavericks
+    sha256 "b4a3aabccfbb20a4c8ff870a945ae5c6b6d1301926efc8bf56f1152553bd5d71" => :el_capitan
+    sha256 "cf91cc7c5d8a11f4369c2ae731e37101fc15e2f053d2b08994496a5977cd236d" => :yosemite
+    sha256 "481739080d78790db5e8c81089c73f50695d372c16a945ef2e5e585024184852" => :mavericks
   end
 
   option "with-gui", "Enable gui support"
