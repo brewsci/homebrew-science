@@ -1,8 +1,9 @@
 class XmiMsim < Formula
+  desc "Monte Carlo simulation of X-ray fluorescence spectrometers"
   homepage "https://github.com/tschoonj/xmimsim"
-  url "http://xmi-msim.tomschoonjans.eu/xmimsim-5.0.tar.gz"
+  url "https://xmi-msim.tomschoonjans.eu/xmimsim-5.0.tar.gz"
   sha256 "3503b56bb36ec555dc941b958308fde9f4e550ba3de4af3b6913bc29c2c0c9f1"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "85515f865a44e9ff3b96c9a968bbf6a3b9863b2e09dc5daa9fbcbf7170ade973" => :el_capitan
