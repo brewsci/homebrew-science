@@ -3,9 +3,9 @@ require File.expand_path("../Requirements/cuda_requirement", __FILE__)
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "http://opencv.org/"
-  url "https://github.com/Itseez/opencv/archive/2.4.13.tar.gz"
+  url "https://github.com/opencv/opencv/archive/2.4.13.tar.gz"
   sha256 "94ebcca61c30034d5fb16feab8ec12c8a868f5162d20a9f0396f0f5f6d8bbbff"
-  head "https://github.com/Itseez/opencv.git", :branch => "2.4"
+  head "https://github.com/opencv/opencv.git", :branch => "2.4"
 
   bottle do
     revision 2
