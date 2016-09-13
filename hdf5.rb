@@ -1,8 +1,9 @@
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "http://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/current18/src/hdf5-1.8.18.tar.bz2"
-  sha256 "01c6deadf4211f86922400da82c7a8b5b50dc8fc1ce0b5912de3066af316a48c"
+  url "https://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.0-patch1/src/hdf5-1.10.0-patch1.tar.bz2"
+  version "1.10.0-patch1"
+  sha256 "f772264dd853dceb18855418a81c63c9cdcca7bcd075b9c54eb516af006fdfba"
 
   bottle do
     rebuild 1
@@ -19,7 +20,6 @@ class Hdf5 < Formula
   deprecated_option "enable-cxx" => "with-cxx"
   deprecated_option "with-check" => "with-test"
 
-  option :universal
   option "with-test", "Run build-time tests"
   option "with-threadsafe", "Trade performance for C API thread-safety"
   option "with-fortran2003", "Compile Fortran 2003 bindings (requires --with-fortran)"
@@ -38,8 +38,6 @@ class Hdf5 < Formula
   depends_on "libtool" => :build
 
   def install
-    ENV.universal_binary if build.universal?
-
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in tools/misc/h5cc.in],
       "${libdir}/libhdf5.settings", "#{pkgshare}/libhdf5.settings"
 
@@ -50,8 +48,7 @@ class Hdf5 < Formula
 
     args = %W[
       --prefix=#{prefix}
-      --enable-production
-      --enable-debug=no
+      --enable-build-mode=production
       --disable-dependency-tracking
       --with-zlib=#{OS.mac? ? "/usr" : Formula["zlib"].opt_prefix}
       --with-szlib=#{Formula["szip"].opt_prefix}
@@ -98,6 +95,6 @@ class Hdf5 < Formula
       }
     EOS
     system "#{bin}/h5cc", "test.c"
-    assert_match version.to_s, shell_output("./a.out")
+    assert_equal "1.10.0", shell_output("./a.out").chomp
   end
 end
