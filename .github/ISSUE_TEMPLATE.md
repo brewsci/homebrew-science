@@ -8,12 +8,15 @@
 
 ### Bug reports / build errors:
 
-_Erase any parts of this template not applicable to your Issue._
+#### Brief summary of issue:
 
-- Brief summary of issue:
-- Please state the complete command that you issued.
-- Please do not post lengthy build output here. Instead provide a link to a gist.
-- If reporting a build failure paste the output of `brew gist-logs <formula>` (where `<formula>` is the name of the formula that failed to build).
+#### The complete command that you issued:
+
+#### Gist with output of `brew doctor`:
+
+#### Link output by `brew gist-logs <formula>`:
+
+#### Output of `brew config`:
 
 ### Formula Requests:
 
