@@ -5,7 +5,9 @@ class Dlib < Formula
   homepage "http://dlib.net/"
   url "http://dlib.net/files/dlib-19.1.tar.bz2"
   sha256 "242f3b8fbc857621d36b5c3f0b32659a9c9e9adccba794cd82d230aa1adb575c"
-  revision 1
+  revision 2
+
+  head "https://github.com/davisking/dlib.git"
 
   bottle do
     cellar :any
@@ -25,6 +27,12 @@ class Dlib < Formula
   depends_on :x11
 
   needs :cxx11
+
+  # remove patch at next release
+  patch do
+    url "https://github.com/davisking/dlib/commit/114d156daee8e11c7e6ebf907e4b147a998226f0.patch"
+    sha256 "18687e9078222bbb97ba5e43086707b0efddc7778d79567cc5d21faa20faceaa"
+  end unless build.head?
 
   def install
     ENV.cxx11
