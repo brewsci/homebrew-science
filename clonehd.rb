@@ -4,6 +4,12 @@ class Clonehd < Formula
   url "https://github.com/ivazquez/cloneHD/archive/v1.17.9.tar.gz"
   sha256 "176b5002a4bd51eab35c73ab799271ace35f6db2f1bdecc9fd0f0a85e45d0e46"
   head "https://github.com/ivazquez/cloneHD.git"
+  bottle do
+    sha256 "8ee4733510ff68c206f5a5ce8ae554bef0cdfd5986b9cbebf9d54e591dc774d2" => :el_capitan
+    sha256 "debd6eb1f17dd3dcb613e2ce73e8cd087dbbf5f1163b384d89a3e407eb19e675" => :yosemite
+    sha256 "aef26cbb76e8df98d9e876b37815804dc7053db999cf81e427c039e06c0980cd" => :mavericks
+  end
+
   # doi "10.1016/j.celrep.2014.04.055"
   # tag "bioinformatics"
 
