@@ -222,7 +222,7 @@ class Octave < Formula
       if ["arpack", "qrupdate", "suite-sparse"].any? { |n| Tab.for_name(n).with? "openblas" }
         odie "Arpack, qrupdate or suite-sparse are compiled --with-openblas but Octave is not."
       else
-        args << "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lveclibFort"
+        args << "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
       end
     else # OS.linux? and without "openblas"
       args << "-lblas -llapack"
