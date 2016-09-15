@@ -4,9 +4,8 @@ class Abyss < Formula
   # doi "10.1101/gr.089532.108"
   # tag "bioinformatics"
 
-  url "https://github.com/bcgsc/abyss/releases/download/1.9.0/abyss-1.9.0.tar.gz"
-  sha256 "1030fcea4bfae942789deefd3a4ffb30653143e02eb6a74c7e4087bb4bf18a14"
-  revision 2
+  url "https://github.com/bcgsc/abyss/releases/download/2.0.1/abyss-2.0.1.tar.gz"
+  sha256 "3c176f9124fe9d65098d1e1c40956bc8adfefd918f9df4fb3361fc63bbef237c"
 
   bottle do
     cellar :any
