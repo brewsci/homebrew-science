@@ -1,7 +1,7 @@
 class Xrmc < Formula
   desc "Monte Carlo simulation of X-ray imaging and spectroscopy experiments"
   homepage "https://github.com/golosio/xrmc"
-  url "http://xrmc.tomschoonjans.eu/xrmc-6.5.0.tar.gz"
+  url "https://xrmc.tomschoonjans.eu/xrmc-6.5.0.tar.gz"
   sha256 "4995eaaf3b4583d443d0cf2003d73d1855b443938e431a4f758a607f540e026a"
   revision 2
 
