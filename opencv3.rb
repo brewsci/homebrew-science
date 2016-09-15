@@ -3,7 +3,7 @@ require File.expand_path("../Requirements/cuda_requirement", __FILE__)
 class Opencv3 < Formula
   desc "Open source computer vision library, version 3"
   homepage "http://opencv.org/"
-  revision 3
+  revision 4
 
   stable do
     url "https://github.com/opencv/opencv/archive/3.1.0.tar.gz"
@@ -37,7 +37,6 @@ class Opencv3 < Formula
   end
 
   bottle do
-    revision 4
     sha256 "47fc984f127ec80f786aa009b4a698430516b307da6f0caf5b20e6fb2f1425dc" => :el_capitan
     sha256 "52a75aa66b42daed8f0c26e6f1bf82f753b4c23b7bb83ff55a33da6322a08bb4" => :yosemite
     sha256 "710f4eb5c3499f41c2859593ba940b0d8d1c7c9c7d0c52fb23584efe7a43f9a3" => :mavericks

@@ -5,10 +5,10 @@ class Opencv < Formula
   homepage "http://opencv.org/"
   url "https://github.com/opencv/opencv/archive/2.4.13.tar.gz"
   sha256 "94ebcca61c30034d5fb16feab8ec12c8a868f5162d20a9f0396f0f5f6d8bbbff"
+  revision 3
   head "https://github.com/opencv/opencv.git", :branch => "2.4"
 
   bottle do
-    revision 2
     sha256 "c411ad159c668082559407bd3683b2e13111560942ada0ecbded230fad2e8fff" => :el_capitan
     sha256 "2bca1422b19f8fb6443daf8bb17897bcbeb0b6ae896be94da46ddacc95923ef8" => :yosemite
     sha256 "f2ce6fce88ab8e245ce7965ce92748d09987bfc2635698b4f07b32d2a56f6fda" => :mavericks
