@@ -9,9 +9,9 @@ class Opencv < Formula
   head "https://github.com/opencv/opencv.git", :branch => "2.4"
 
   bottle do
-    sha256 "c411ad159c668082559407bd3683b2e13111560942ada0ecbded230fad2e8fff" => :el_capitan
-    sha256 "2bca1422b19f8fb6443daf8bb17897bcbeb0b6ae896be94da46ddacc95923ef8" => :yosemite
-    sha256 "f2ce6fce88ab8e245ce7965ce92748d09987bfc2635698b4f07b32d2a56f6fda" => :mavericks
+    sha256 "ba4f66fa0c6cfb0b6b9e2c8d0eb2d528893d06c7668404fec8416a742efeb41d" => :el_capitan
+    sha256 "f4d9ae190cc4900355ef20974b1a79664badfeaab0aa45952ebd093eab85056f" => :yosemite
+    sha256 "3438ec1d44d7cfe72e1505410cb1b9a7ba4b1b50284e73f3e8a0f82372df48c9" => :mavericks
   end
 
   option "32-bit"
