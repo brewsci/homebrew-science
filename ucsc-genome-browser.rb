@@ -1,6 +1,13 @@
 class UcscGenomeBrowser < Formula
   desc "Mirror of the UCSC Genome Browser"
   homepage "http://genome.ucsc.edu"
+  bottle do
+    cellar :any
+    sha256 "fcc259c3a85c7c768c395ff08f73c967e6dee6871178737813896fe45f3def32" => :sierra
+    sha256 "464c2f20b03aec8b07c8d2351d0fb9954dd25502fe52f4096b89c49294a5e021" => :el_capitan
+    sha256 "34420c79358503243dd11ec436f81c4e2feea9b638dafe005bd3e0cd7c2598fa" => :yosemite
+  end
+
   # doi "10.1093/nar/gkq963"
   # tag "bioinformatics"
 
