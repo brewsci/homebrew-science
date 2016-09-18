@@ -1,19 +1,18 @@
 class UcscGenomeBrowser < Formula
   desc "Mirror of the UCSC Genome Browser"
   homepage "http://genome.ucsc.edu"
+  url "http://hgdownload.cse.ucsc.edu/admin/jksrc.v338.zip"
+  sha256 "760972f8f8b6f5a2ac62c1a563a9235b3844c040757d8c51d793962224afa239"
+  head "git://genome-source.cse.ucsc.edu/kent.git"
+  # doi "10.1093/nar/gkq963"
+  # tag "bioinformatics"
+
   bottle do
     cellar :any
     sha256 "fcc259c3a85c7c768c395ff08f73c967e6dee6871178737813896fe45f3def32" => :sierra
     sha256 "464c2f20b03aec8b07c8d2351d0fb9954dd25502fe52f4096b89c49294a5e021" => :el_capitan
     sha256 "34420c79358503243dd11ec436f81c4e2feea9b638dafe005bd3e0cd7c2598fa" => :yosemite
   end
-
-  # doi "10.1093/nar/gkq963"
-  # tag "bioinformatics"
-
-  url "http://hgdownload.cse.ucsc.edu/admin/jksrc.v338.zip"
-  sha256 "760972f8f8b6f5a2ac62c1a563a9235b3844c040757d8c51d793962224afa239"
-  head "git://genome-source.cse.ucsc.edu/kent.git"
 
   keg_only <<-EOF.undent
     The UCSC Genome Browser installs many commands, and some conflict
