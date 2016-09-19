@@ -36,6 +36,7 @@ class Phlawd < Formula
 
   needs :openmp
 
+  depends_on "wget"
   depends_on "mafft"
   depends_on "muscle"
   depends_on "quicktree"
