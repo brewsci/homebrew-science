@@ -1,7 +1,7 @@
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "http://www.hdfgroup.org/HDF5"
-  url "https://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.17/src/hdf5-1.8.17.tar.bz2"
+  url "https://support.hdfgroup.org/ftp/HDF5/current/src/hdf5-1.8.17.tar.bz2"
   sha256 "fc35dd8fd8d398de6b525b27cc111c21fc79795ad6db1b1f12cb15ed1ee8486a"
 
   bottle do
