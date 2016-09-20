@@ -89,7 +89,7 @@ class Itensor < Formula
   test do
     if build.with? "openblas"
       openblas_dir = Formula["openblas"].opt_prefix
-      blas_lapack_flags = ["-I#{openblas_dir}/include" , "-DHAVE_LAPACK_CONFIG_H", "-DLAPACK_COMPLEX_STRUCTURE",
+      blas_lapack_flags = ["-I#{openblas_dir}/include", "-DHAVE_LAPACK_CONFIG_H", "-DLAPACK_COMPLEX_STRUCTURE",
                            "-lpthread", "-L#{openblas_dir}/lib", "-lopenblas"]
     elsif OS.mac?
       blas_lapack_flags = ["-framework", "Accelerate"]
