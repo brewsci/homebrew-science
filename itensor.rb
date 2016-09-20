@@ -1,8 +1,8 @@
 class Itensor < Formula
   desc "C++ library for implementing tensor product wavefunction calculations"
   homepage "http://itensor.org/"
-  url "https://github.com/ITensor/ITensor/archive/v2.0.10.tar.gz"
-  sha256 "3b5e829362ecfc6984227baa0cfbd5ef4aec45334bfb8cdda3cc7aa88c109ddb"
+  url "https://github.com/ITensor/ITensor/archive/v2.0.11.tar.gz"
+  sha256 "07c4cc4a0c7c3fa2832f249ce5d1d81ffc66a28deb8b53e03dc00c76431262e5"
   head "https://github.com/ITensor/ITensor.git"
 
   bottle do
@@ -87,6 +87,16 @@ class Itensor < Formula
   end
 
   test do
+    if build.with? "openblas"
+      openblas_dir = Formula["openblas"].opt_prefix
+      blas_lapack_flags = ["-I#{openblas_dir}/include" , "-DHAVE_LAPACK_CONFIG_H", "-DLAPACK_COMPLEX_STRUCTURE",
+                           "-lpthread", "-L#{openblas_dir}/lib", "-lopenblas"]
+    elsif OS.mac?
+      blas_lapack_flags = ["-framework", "Accelerate"]
+    else
+      blas_lapack_flags = ["-llapack", "-lblas"]
+    end
+
     (testpath/"test.cc").write <<-EOS.undent
       #include "itensor/all.h"
       using namespace itensor;
@@ -97,7 +107,8 @@ class Itensor < Formula
           return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cc", "-o", "test", "-I#{include}", "-L#{lib}", "-litensor"
+    system ENV.cxx, "-std=c++11", "test.cc", "-o", "test",
+        "-I#{include}", "-L#{lib}", "-litensor", *blas_lapack_flags
     assert_match "2", shell_output("./test")
   end
 end
@@ -131,26 +142,6 @@ index 8d0872b..6d74f4e 100644
 
  mkdebugdir:
 	@mkdir -p .debug_objs
-diff --git a/itensor/tensor/lapack_wrap.cc b/itensor/tensor/lapack_wrap.cc
-index 6d97590..1eed01c 100644
---- a/itensor/tensor/lapack_wrap.cc
-+++ b/itensor/tensor/lapack_wrap.cc
-@@ -72,9 +72,15 @@ zdotc_wrapper(LAPACK_INT N,
-     {
- #ifdef ITENSOR_USE_CBLAS
-     Cplx res;
-+#if defined PLATFORM_openblas
-+    auto pX = reinterpret_cast<OPENBLAS_CONST double*>(X);
-+    auto pY = reinterpret_cast<OPENBLAS_CONST double*>(Y);
-+    auto pres = reinterpret_cast<openblas_complex_double*>(&res);
-+#else
-     auto pX = reinterpret_cast<const void*>(X);
-     auto pY = reinterpret_cast<const void*>(Y);
-     auto pres = reinterpret_cast<void*>(&res);
-+#endif
-     cblas_zdotc_sub(N,pX,incx,pY,incy,pres);
-     return res;
- #else
 diff --git a/itensor/tensor/lapack_wrap.h b/itensor/tensor/lapack_wrap.h
 index 2de9d96..898810c 100644
 --- a/itensor/tensor/lapack_wrap.h
