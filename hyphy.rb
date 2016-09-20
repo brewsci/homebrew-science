@@ -1,7 +1,8 @@
 class Hyphy < Formula
+  desc "Hypothesis testing with phylogenies"
   homepage "http://www.hyphy.org/"
-  url "https://github.com/veg/hyphy/archive/2.2.4.tar.gz"
-  sha256 "09bc43973d83118ade168177ccebfd393cffa110a96da9b52905d3a4a99afa18"
+  url "https://github.com/veg/hyphy/archive/2.2.7.tar.gz"
+  sha256 "8c84340665b126742b85ed8d54354455ffc97ebd3cc689658120d7f5791adf13"
   head "https://github.com/veg/hyphy.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Hyphy < Formula
 
   depends_on "openssl"
   depends_on "cmake" => :build
-  depends_on :mpi => :optional
+  depends_on mpi: :optional
 
   fails_with :clang do
     build 77
@@ -39,7 +40,7 @@ class Hyphy < Formula
   end
 
   def caveats; <<-EOS.undent
-    The help has been installed to #{HOMEBREW_PREFIX}/share/hyphy.
+    The help has been installed to #{doc}/hyphy.
     EOS
   end
 
