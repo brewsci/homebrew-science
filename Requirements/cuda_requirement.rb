@@ -9,7 +9,7 @@ class CudaRequirement < Requirement
     super
   end
 
-  satisfy :build_env => false do
+  satisfy build_env: false do
     next false unless which "nvcc"
     next true unless @version
     cuda_version = /\d\.\d/.match Utils.popen_read("nvcc", "-V")

@@ -21,7 +21,7 @@ class Spades < Formula
 
   needs :openmp
 
-  fails_with :gcc => "4.7" do
+  fails_with gcc: "4.7" do
     cause "Compiling SPAdes requires GCC >= 4.7 for OpenMP 3.1 support"
   end
 

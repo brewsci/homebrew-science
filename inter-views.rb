@@ -3,7 +3,7 @@ class InterViews < Formula
   url "http://www.neuron.yale.edu/ftp/neuron/versions/v7.4/iv-19.tar.gz"
   sha256 "3cb76ad00ebf4282d4c586540f54624fef7ecf8cd3fa2e6b3075d8fdacdc42e0"
 
-  head "http://www.neuron.yale.edu/hg/neuron/iv", :using => :hg
+  head "http://www.neuron.yale.edu/hg/neuron/iv", using: :hg
 
   bottle do
     sha256 "450c67bb59269255d149bc07debe9b76e829e4715063bd972a4b73cdbcdb8d1e" => :yosemite

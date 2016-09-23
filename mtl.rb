@@ -12,7 +12,7 @@ class Mtl < Formula
   end
 
   head do
-    url "https://simunova.zih.tu-dresden.de/svn/mtl4/trunk", :using => :svn
+    url "https://simunova.zih.tu-dresden.de/svn/mtl4/trunk", using: :svn
     depends_on "cmake" => :build
   end
 

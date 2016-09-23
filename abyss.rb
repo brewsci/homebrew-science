@@ -37,7 +37,7 @@ class Abyss < Formula
   depends_on "boost" => :build
   depends_on "google-sparsehash" => :build
   depends_on "sqlite" unless OS.mac?
-  depends_on :mpi => [:cc, :recommended]
+  depends_on mpi: [:cc, :recommended]
 
   # strip breaks the ability to read compressed files.
   skip_clean "bin"

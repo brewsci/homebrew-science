@@ -4,7 +4,7 @@ class SigrokCli < Formula
   sha256 "73a30501525b13c09624ae00d37041cdaa50238d89c6febf169fc784affe723c"
 
   head do
-    url "git://sigrok.org/sigrok-cli", :shallow => false
+    url "git://sigrok.org/sigrok-cli", shallow: false
     depends_on "glib"
     depends_on "libtool" => :build
     depends_on "autoconf" => :build

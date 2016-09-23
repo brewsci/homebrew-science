@@ -15,7 +15,7 @@ class Simpleitk < Formula
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on :python
-  depends_on :java => :optional
+  depends_on java: :optional
   depends_on "r" => :optional
   depends_on "lua" => :optional
 

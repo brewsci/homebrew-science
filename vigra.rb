@@ -18,7 +18,7 @@ class Vigra < Formula
 
   deprecated_option "without-check" => "without-test"
 
-  depends_on :python => :optional
+  depends_on python: :optional
   depends_on "numpy" => :python if build.with? :python
   depends_on "cmake" => :build
   depends_on "jpeg"

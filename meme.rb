@@ -20,7 +20,7 @@ class Meme < Formula
     with other packages.
   EOF
 
-  depends_on :mpi => [:recommended]
+  depends_on mpi: [:recommended]
 
   def install
     ENV.deparallelize

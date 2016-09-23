@@ -16,7 +16,7 @@ class Mfem < Formula
   option "with-mpi", "Build with mpi support (implies --with-hypre --with-metis)"
   option "with-suite-sparse", "Build with suite-sparse support (implies --with-metis)"
 
-  depends_on :mpi => [:cxx, :optional]
+  depends_on mpi: [:cxx, :optional]
   if build.with?("mpi")
     depends_on "metis"
     depends_on "hypre" => "with-mpi"

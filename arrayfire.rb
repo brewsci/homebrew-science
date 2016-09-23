@@ -4,8 +4,8 @@ class Arrayfire < Formula
 
   stable do
     url "https://github.com/arrayfire/arrayfire.git",
-      :tag => "v3.3.2",
-      :revision => "f65dd9798f8efeea4d55efe34ba62f4fc3ae7ca0"
+      tag: "v3.3.2",
+      revision: "f65dd9798f8efeea4d55efe34ba62f4fc3ae7ca0"
     mirror "http://arrayfire.com/arrayfire_source/arrayfire-full-3.2.2.tar.bz2"
     sha256 "7bcc13ff29bdfb647813ee0e9830ce8387217953427abe0d9904de671e600831"
   end
@@ -18,7 +18,7 @@ class Arrayfire < Formula
   end
 
   # https://github.com/arrayfire/arrayfire/issues/794
-  depends_on :macos => :mavericks
+  depends_on macos: :mavericks
 
   depends_on "cmake" => :build
   depends_on "boost" => :build

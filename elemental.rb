@@ -17,7 +17,7 @@ class Elemental < Formula
     url "https://github.com/elemental/Elemental/archive/0.86-rc1.tar.gz"
     sha256 "4f27c55828f27ce1685aaf65018cc149849692b7dfbd9352fc203fed1a96c924"
     version "0.86-rc1"
-    depends_on :python => :recommended
+    depends_on python: :recommended
     depends_on "metis"
   end
 
@@ -29,7 +29,7 @@ class Elemental < Formula
   option "without-check", "Skip build time tests (not recommended)"
 
   depends_on "cmake" => :build
-  depends_on :mpi => [:cc, :cxx, :f90]
+  depends_on mpi: [:cc, :cxx, :f90]
 
   depends_on "openblas"  => :optional
   depends_on "qt5"       => :optional

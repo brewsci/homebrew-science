@@ -15,7 +15,7 @@ class Nlopt < Formula
 
   option "with-python", "Build Python bindings (requires NumPy)"
 
-  depends_on :python => "numpy" if build.with? "python"
+  depends_on python: "numpy" if build.with? "python"
   depends_on "octave" => :optional
   depends_on "swig" if build.head?
   depends_on "cmake" => :build if build.head?

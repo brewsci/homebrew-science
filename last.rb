@@ -3,7 +3,7 @@ class Last < Formula
   homepage "http://last.cbrc.jp/"
   url "http://last.cbrc.jp/last-752.zip"
   sha256 "e2e8efc1ce1ec9b20cb3554126bf7a86a62fff712a07e156b414554283236ed5"
-  head "http://last.cbrc.jp/last", :using => :hg
+  head "http://last.cbrc.jp/last", using: :hg
   # doi "10.1101/gr.113985.110"
   # tag "bioinformatics"
 

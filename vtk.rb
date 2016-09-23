@@ -28,12 +28,12 @@ class Vtk < Formula
   option "without-python",  "Build without python2 support"
 
   depends_on "cmake" => :build
-  depends_on :x11 => :optional
+  depends_on x11: :optional
   depends_on "qt" => :optional
   depends_on "qt5" => :optional
 
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
+  depends_on python: :recommended if MacOS.version <= :snow_leopard
+  depends_on python3: :optional
 
   depends_on "boost" => :recommended
   depends_on "fontconfig" => :recommended

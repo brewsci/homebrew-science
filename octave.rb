@@ -46,8 +46,8 @@ class Octave < Formula
   # "librsvg" and ":tex" are currently not necessary
   # since we do not build the pdf docs
   head do
-    url "http://www.octave.org/hg/octave", :branch => "default", :using => :hg
-    depends_on :hg             => :build
+    url "http://www.octave.org/hg/octave", branch: "default", using: :hg
+    depends_on hg: :build
     depends_on "autoconf"      => :build
     depends_on "automake"      => :build
     depends_on "bison"         => :build
@@ -118,7 +118,7 @@ class Octave < Formula
   depends_on "glpk"            if build.with? "glpk"
   depends_on "gnuplot"         if build.with? "gnuplot"
   depends_on "hdf5"            if build.with? "hdf5"
-  depends_on :java => "1.6+"   if build.with? "java"
+  depends_on java: "1.6+" if build.with? "java"
   depends_on "llvm"            if build.with? "jit"
   depends_on "pstoedit"        if build.with? "ghostscript"
   depends_on "qhull"           if build.with? "qhull"

@@ -18,7 +18,7 @@ class Raxml < Formula
   depends_on :fortran
 
   # Won't build on OS X - relies on Linux-specific threading APIs
-  depends_on :mpi => [:cc, :optional] if OS.linux?
+  depends_on mpi: [:cc, :optional] if OS.linux?
   needs :openmp if build.with? "mpi"
 
   def make_clean(makefile)

@@ -16,7 +16,7 @@ class Beast < Formula
     sha256 "55d3f39de9fe6938a7f203ad8302de011a3271ee2c273e3c85c4bf0b423964c7" => :x86_64_linux
   end
 
-  depends_on :ant => :build
+  depends_on ant: :build
 
   def install
     system "ant", "linux"

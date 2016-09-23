@@ -11,7 +11,7 @@ class Getdp < Formula
   sha256 "08487f3f5a41012d06db0ec97206b883961c0e7853f47f8502f6d1ef80ef67c9"
   revision 5
 
-  head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
+  head "https://geuz.org/svn/getdp/trunk", using: GetdpSvnStrategy
 
   bottle do
     sha256 "9e9220b148e3c2ccb3b748a7384974764a6fdef11da2ce43ec2191fa89ea5dd5" => :el_capitan
@@ -24,7 +24,7 @@ class Getdp < Formula
 
   depends_on "cmake"    => :build
   depends_on :fortran
-  depends_on :mpi => [:cc, :cxx, :f90, :recommended]
+  depends_on mpi: [:cc, :cxx, :f90, :recommended]
   if build.with? "mpi"
     depends_on "arpack"   => [:recommended, "with-mpi"]
   else

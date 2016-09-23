@@ -16,7 +16,7 @@ class Minia < Formula
 
   depends_on "cmake" => :build
   depends_on "imagemagick" => :build if build.with? "tex"
-  depends_on :tex => [:build, :optional]
+  depends_on tex: [:build, :optional]
 
   def install
     mkdir "build" do

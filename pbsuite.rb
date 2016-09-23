@@ -8,7 +8,7 @@ class Pbsuite < Formula
 
   bottle :unneeded
 
-  conflicts_with "bedtools", :because => "Both install bin/bamToFastq"
+  conflicts_with "bedtools", because: "Both install bin/bamToFastq"
 
   depends_on "blasr" => :recommended
   depends_on "python"

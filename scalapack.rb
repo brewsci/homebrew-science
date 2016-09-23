@@ -5,7 +5,7 @@ class Scalapack < Formula
   sha256 "0c74aeae690fe5ee4db7926f49c5d0bb69ce09eea75beb915e00bba07530395c"
   revision 7
 
-  head "https://icl.cs.utk.edu/svn/scalapack-dev/scalapack/trunk", :using => :svn
+  head "https://icl.cs.utk.edu/svn/scalapack-dev/scalapack/trunk", using: :svn
 
   bottle do
     cellar :any
@@ -17,7 +17,7 @@ class Scalapack < Formula
   option "without-test", "Skip build-time tests (not recommended)"
   deprecated_option "without-check" => "without-test"
 
-  depends_on :mpi => [:cc, :f90]
+  depends_on mpi: [:cc, :f90]
   depends_on "cmake" => :build
   depends_on "openblas" => :optional
   depends_on "veclibfort" if build.without?("openblas") && OS.mac?

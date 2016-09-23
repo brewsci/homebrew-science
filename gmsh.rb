@@ -11,7 +11,7 @@ class Gmsh < Formula
   sha256 "a10b750aaac7d4ef7d5d168e0be520b0d62ab35380d81bcbb1972db3fb73ac96"
   revision 2
 
-  head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
+  head "https://geuz.org/svn/gmsh/trunk", using: GmshSvnStrategy
 
   bottle do
     cellar :any
@@ -24,7 +24,7 @@ class Gmsh < Formula
   option "without-opencascade",    "Build without opencascade support"
 
   depends_on :fortran
-  depends_on :mpi => [:cc, :cxx, :f90, :recommended]
+  depends_on mpi: [:cc, :cxx, :f90, :recommended]
   depends_on "cmake" => :build
 
   depends_on "petsc" => :optional

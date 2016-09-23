@@ -24,7 +24,7 @@ class Maude < Formula
                           "--prefix=#{libexec}",
                           "--without-cvc4"
     system "make", "install"
-    (bin/"maude").write_env_script libexec/"bin/maude", :MAUDE_LIB => libexec/"share"
+    (bin/"maude").write_env_script libexec/"bin/maude", MAUDE_LIB: libexec/"share"
   end
 
   test do

@@ -4,7 +4,7 @@ class Osgearth < Formula
   url "https://github.com/gwaldron/osgearth/archive/osgearth-2.7.tar.gz"
   sha256 "cf973b664aeb79f70e48f5cd02ba670069ec273d71fe541604ed5b328d956d83"
 
-  head "https://github.com/gwaldron/osgearth.git", :branch => "master"
+  head "https://github.com/gwaldron/osgearth.git", branch: "master"
 
   bottle do
     cellar :any

@@ -30,7 +30,7 @@ class LpSolve < Formula
     sha256 "40e0fb01f795a4e7583802dadd04c8c08fdbe4fe776ea5602a78997fc2575065" => :x86_64_linux
   end
 
-  depends_on :python => :optional
+  depends_on python: :optional
   depends_on NumpyHasHeaders.new if build.with? "python"
 
   resource "lp_solve_python" do

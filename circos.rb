@@ -80,7 +80,7 @@ class Circos < Formula
       end
     end
 
-    (bin/"circos").write_env_script("#{libexec}/bin/circos", :PERL5LIB => ENV["PERL5LIB"])
+    (bin/"circos").write_env_script("#{libexec}/bin/circos", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do

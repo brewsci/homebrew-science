@@ -20,11 +20,11 @@ class Zoltan < Formula
 
   depends_on "scotch"   => :optional
   depends_on "parmetis" => :optional
-  depends_on :fortran   => :optional
+  depends_on fortran: :optional
 
   mpilang = [:cc, :cxx]
   mpilang << :f90 if build.with? :fortran
-  depends_on :mpi => mpilang
+  depends_on mpi: mpilang
 
   def install
     args = [

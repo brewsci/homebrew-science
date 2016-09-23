@@ -12,7 +12,7 @@ class Yaggo < Formula
     sha256 "bdc50a12ce87a7a578d9d3e972fc6b509399d346ff8acda7218bd2adb24a8341" => :mavericks
   end
 
-  depends_on :ruby => ["1.9", :build]
+  depends_on ruby: ["1.9", :build]
 
   def install
     system "make", "install", "prefix=#{prefix}"

@@ -1,7 +1,7 @@
 class Joinx < Formula
   homepage "http://gmt.genome.wustl.edu/joinx"
   url "https://github.com/genome/joinx.git",
-    :tag => "v1.7.4", :revision => "350f063c9213f64d9db669ce6f94d162cb0075ab"
+    tag: "v1.7.4", revision: "350f063c9213f64d9db669ce6f94d162cb0075ab"
 
   depends_on "cmake" => :build
   depends_on "boost"

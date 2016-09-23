@@ -26,7 +26,7 @@ class Gnudatalanguage < Formula
   depends_on "fftw"
   depends_on "eigen"
   depends_on :x11
-  depends_on :python => :optional
+  depends_on python: :optional
 
   # part 1 taken from macports https://trac.macports.org/browser/trunk/dports/math/gnudatalanguage/files/patch-CMakeLists.txt.diff
   # other parts taken from https://github.com/freebsd/freebsd-ports/tree/master/science/gnudatalanguage/files

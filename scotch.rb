@@ -15,7 +15,7 @@ class Scotch < Formula
   option "without-test", "skip build-time tests (not recommended)"
   deprecated_option "without-check" => "without-test"
 
-  depends_on :mpi => :cc
+  depends_on mpi: :cc
   depends_on "xz" => :optional # Provides lzma compression.
 
   def install

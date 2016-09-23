@@ -16,7 +16,7 @@ class Fastml < Formula
     sha256 "e52c1906263bae1c4af89f1b4b69ca97d1728343dbac5485e593eed221b6b139" => :x86_64_linux
   end
 
-  depends_on :macos => :mavericks # won't build on [Mountain] Lion
+  depends_on macos: :mavericks # won't build on [Mountain] Lion
 
   def install
     # Rename bundled version of getopt to avoid conflicts with gcc version

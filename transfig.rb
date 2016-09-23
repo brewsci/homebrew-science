@@ -15,7 +15,7 @@ class Transfig < Formula
   depends_on "homebrew/x11/imake" => :build
   depends_on "jpeg"
   depends_on "ghostscript"
-  depends_on :x11 => "2.7.2"
+  depends_on x11: "2.7.2"
 
   def install
     # transfig does not like to execute makefiles in parallel

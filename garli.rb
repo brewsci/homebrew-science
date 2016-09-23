@@ -14,7 +14,7 @@ class Garli < Formula
 
   option "with-brewed-ncl", "Use Homebrew's NCL instead of building a separate copy"
   depends_on "ncl" if build.with? "brewed-ncl"
-  depends_on :mpi => :recommended
+  depends_on mpi: :recommended
 
   # Fix template instantiation errors by making GCC infer types rather than
   # explicitly specifying the types. Patch emailed to upstream 12-Jun-2016.

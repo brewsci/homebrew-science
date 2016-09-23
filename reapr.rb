@@ -92,7 +92,7 @@ class Reapr < Formula
       ]
     end
     libexec.install "third_party/snpomatic/findknownsnps"
-    bin.env_script_all_files(libexec, :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec, PERL5LIB: ENV["PERL5LIB"])
     ln_s bin/"reapr", prefix/"reapr"
   end
 

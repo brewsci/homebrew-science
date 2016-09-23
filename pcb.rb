@@ -28,7 +28,7 @@ class Pcb < Formula
   depends_on "gtkglext"
   depends_on :tex if build.with? "doc"
 
-  conflicts_with "gts", :because => "both install `include/gts.h`"
+  conflicts_with "gts", because: "both install `include/gts.h`"
 
   patch :DATA
 

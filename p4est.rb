@@ -14,13 +14,13 @@ class P4est < Formula
   end
 
   head do
-    url "https://github.com/cburstedde/p4est.git", :branch => "master"
+    url "https://github.com/cburstedde/p4est.git", branch: "master"
     version "1.2pre"
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
 
-  depends_on :mpi => [:cc, :cxx, :f77, :f90]
+  depends_on mpi: [:cc, :cxx, :f77, :f90]
   depends_on :fortran
   depends_on "openblas" => :optional
 

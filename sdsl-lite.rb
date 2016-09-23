@@ -15,8 +15,8 @@ class SdslLite < Formula
   # url "https://github.com/simongog/sdsl-lite/archive/v2.1.1.tar.gz"
   # sha256 "e36591338c390184760dbdddbb653d972d9c1986c8819f462e7e73ddd28b992b"
   url "https://github.com/simongog/sdsl-lite.git",
-    :revision => "0546faf0552142f06ff4b201b671a5769dd007ad",
-    :tag => "v2.1.1"
+    revision: "0546faf0552142f06ff4b201b671a5769dd007ad",
+    tag: "v2.1.1"
 
   head "https://github.com/simongog/sdsl-lite.git"
 

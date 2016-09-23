@@ -12,8 +12,8 @@ class Sundials < Formula
   end
 
   depends_on "openblas" => :optional
-  depends_on :fortran => :optional
-  depends_on :mpi => [:cc, :f77, :recommended]
+  depends_on fortran: :optional
+  depends_on mpi: [:cc, :f77, :recommended]
 
   option "without-check", "Skip build-time checks and examples (not recommended)"
 

@@ -6,7 +6,7 @@ class Salt < Formula
 
   depends_on :fortran
 
-  conflicts_with "fastbit", :because => "both install `include/filter.h`"
+  conflicts_with "fastbit", because: "both install `include/filter.h`"
 
   resource "data" do
     url "http://supernovae.in2p3.fr/salt/lib/exe/fetch.php?media=salt2-4_data.tgz"

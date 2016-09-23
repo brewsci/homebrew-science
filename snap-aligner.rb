@@ -15,7 +15,7 @@ class SnapAligner < Formula
     sha256 "eebca15ab841a3344e87850d03ff4cf315039a8cc6d790d39859b32df6ed3bba" => :x86_64_linux
   end
 
-  conflicts_with "snap", :because => "both install bin/snap"
+  conflicts_with "snap", because: "both install bin/snap"
 
   def install
     system "make"

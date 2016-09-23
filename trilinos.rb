@@ -6,7 +6,7 @@ class Trilinos < Formula
   sha256 "d367b064c20afa848ae939cdd4c8339c47a999b4140af2cd0737a208acef79cf"
   revision 1
 
-  head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
+  head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", using: :git
 
   bottle do
     sha256 "b07ae9a659f0390551f911fd1687856e8b16a28cc04db616d4c72e8774d39a03" => :el_capitan
@@ -25,10 +25,10 @@ class Trilinos < Formula
   # Undefined symbols for architecture x86_64: "Amesos_CSparse::Amesos_CSparse(Epetra_LinearProblem const&)"
   option "with-csparse", "Build with CSparse (Experimental TPL) from suite-sparse"
 
-  depends_on :mpi           => [:cc, :cxx, :recommended]
-  depends_on :fortran       => :recommended
-  depends_on :x11           => :recommended
-  depends_on :python        => :recommended if MacOS.version <= :snow_leopard
+  depends_on mpi: [:cc, :cxx, :recommended]
+  depends_on fortran: :recommended
+  depends_on x11: :recommended
+  depends_on python: :recommended if MacOS.version <= :snow_leopard
   depends_on "numpy"        => :python if build.with? "python"
   depends_on "swig"         => :build if build.with? "python"
 

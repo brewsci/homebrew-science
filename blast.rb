@@ -17,7 +17,7 @@ class Blast < Formula
   end
 
   # Fix configure: error: Do not know how to build MT-safe with compiler g++-5 5.1.0
-  fails_with :gcc => "5"
+  fails_with gcc: "5"
 
   # Due to boost 1.58
   fails_with :llvm do
@@ -34,7 +34,7 @@ class Blast < Formula
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
   depends_on "lzo" => :optional
-  depends_on :mysql => :optional
+  depends_on mysql: :optional
   depends_on "pcre" => :recommended
   depends_on :python if MacOS.version <= :snow_leopard
 

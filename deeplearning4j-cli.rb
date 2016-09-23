@@ -7,7 +7,7 @@ class Deeplearning4jCli < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on java: "1.7+"
 
   def install
     inreplace "bin/dl4j", "$DIR/../lib", libexec

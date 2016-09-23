@@ -15,7 +15,7 @@ class Pykep < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "boost-python"
-  depends_on :python => :recommended
+  depends_on python: :recommended
 
   def install
     args = std_cmake_args + [

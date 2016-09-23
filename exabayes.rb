@@ -13,7 +13,7 @@ class Exabayes < Formula
   end
 
   head do
-    url "https://github.com/aberer/exabayes.git", :branch => "devel"
+    url "https://github.com/aberer/exabayes.git", branch: "devel"
     depends_on "autoconf" => :build
     depends_on "autoconf-archive" => :build
     depends_on "automake" => :build
@@ -23,7 +23,7 @@ class Exabayes < Formula
   # ExaBayes needs std::unique_ptr, unordered_map, array
   needs :cxx11
 
-  depends_on :mpi => [:cc, :cxx, :recommended]
+  depends_on mpi: [:cc, :cxx, :recommended]
 
   def install
     # Fix: ./src/comm/PendingSwap.hpp:50:8: error: no type named 'unique_ptr' in namespace 'std'

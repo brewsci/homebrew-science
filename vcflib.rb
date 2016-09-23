@@ -4,7 +4,7 @@ class Vcflib < Formula
   # tag "bioinformatics"
 
   url "https://github.com/ekg/vcflib.git",
-    :tag => "v1.0.0-rc0", :revision => "8ac9fd517579134ef3b9797714d20c9c99c18ec6"
+    tag: "v1.0.0-rc0", revision: "8ac9fd517579134ef3b9797714d20c9c99c18ec6"
   head "https://github.com/ekg/vcflib.git"
   revision 1
 

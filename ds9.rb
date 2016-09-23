@@ -13,7 +13,7 @@ class Ds9 < Formula
     sha256 "211226f72b21eef4059b09fba5072adca9fe1a3cc62e5f38730134a707edfd92" => :mavericks
   end
 
-  depends_on :macos => :lion
+  depends_on macos: :lion
   depends_on :x11
 
   def install

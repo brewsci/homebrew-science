@@ -13,8 +13,8 @@ class Hypre < Formula
     sha256 "83420dd19fa18da92767c3495048450faa6e1ac84bf09cbbff97fb7de5b2db3c" => :mavericks
   end
 
-  depends_on :fortran => :recommended
-  depends_on :mpi => [:cc, :cxx, :f90, :f77, :recommended]
+  depends_on fortran: :recommended
+  depends_on mpi: [:cc, :cxx, :f90, :f77, :recommended]
   depends_on "openblas" => :optional
 
   option "without-check", "Skip build-time tests (not recommended)"

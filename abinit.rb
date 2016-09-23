@@ -17,7 +17,7 @@ class Abinit < Formula
 
   deprecated_option "without-check" => "without-test"
 
-  depends_on :mpi => [:cc, :cxx, :f77, :f90]
+  depends_on mpi: [:cc, :cxx, :f77, :f90]
   depends_on :fortran
   depends_on "veclibfort"
   depends_on "scalapack" => :recommended

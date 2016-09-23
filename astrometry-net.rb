@@ -28,7 +28,7 @@ class AstrometryNet < Formula
   depends_on "cfitsio"
 
   # this formula includes python bindings
-  depends_on :python => :recommended
+  depends_on python: :recommended
 
   resource "numpy" do
     url "https://files.pythonhosted.org/packages/e0/4c/515d7c4ac424ff38cc919f7099bf293dd064ba9a600e1e3835b3edefdb18/numpy-1.11.1.tar.gz"

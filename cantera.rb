@@ -18,7 +18,7 @@ class Cantera < Formula
   depends_on "numpy" => :python
   depends_on "sundials" => ["without-mpi", :recommended]
   depends_on "graphviz" => :optional
-  depends_on :python3 => :optional
+  depends_on python3: :optional
 
   resource "Cython" do
     url "https://pypi.python.org/packages/source/C/Cython/cython-0.22.tar.gz"

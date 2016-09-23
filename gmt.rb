@@ -19,7 +19,7 @@ class Gmt < Formula
   depends_on "fftw"
   depends_on "pcre"
 
-  conflicts_with "gmt4", :because => "both versions install the same binaries"
+  conflicts_with "gmt4", because: "both versions install the same binaries"
 
   resource "gshhg" do
     url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.5.tar.gz"

@@ -3,7 +3,7 @@ class AdolC < Formula
   homepage "https://projects.coin-or.org/ADOL-C"
   url "http://www.coin-or.org/download/source/ADOL-C/ADOL-C-2.6.1.tgz"
   sha256 "037089e0f64224e5e6255b61af4fe7faac080533fd778b76fe946e52491918b5"
-  head "https://projects.coin-or.org/svn/ADOL-C/trunk/", :using => :svn
+  head "https://projects.coin-or.org/svn/ADOL-C/trunk/", using: :svn
 
   bottle do
     sha256 "28d6ecbb9850d385a8ef1908efe899418a823316eaea312a9a2226a93077b91d" => :el_capitan

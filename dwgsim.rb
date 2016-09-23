@@ -1,8 +1,8 @@
 class Dwgsim < Formula
   homepage "https://github.com/nh13/DWGSIM"
   url "https://github.com/nh13/DWGSIM.git",
-    :tag => "dwgsim.0.1.11",
-    :revision => "49aa199775e0d8bc1fee79aec7117a7fde8cb2bf"
+    tag: "dwgsim.0.1.11",
+    revision: "49aa199775e0d8bc1fee79aec7117a7fde8cb2bf"
   head "https://github.com/nh13/DWGSIM.git"
 
   bottle do

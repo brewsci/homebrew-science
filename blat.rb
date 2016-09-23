@@ -15,7 +15,7 @@ class Blat < Formula
   end
 
   depends_on "libpng" => :build
-  depends_on :mysql => :build
+  depends_on mysql: :build
   depends_on "openssl"
 
   def install

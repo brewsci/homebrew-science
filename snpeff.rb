@@ -16,7 +16,7 @@ class Snpeff < Formula
     sha256 "e349272665f4be6cb103b9b27c6e5bd366ef6d3735fa2543bff013be3c1606d3" => :x86_64_linux
   end
 
-  depends_on :java => "1.7+"
+  depends_on java: "1.7+"
 
   def install
     inreplace "scripts/snpEff" do |s|

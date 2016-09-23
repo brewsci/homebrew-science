@@ -13,7 +13,7 @@ class Mumps < Formula
     sha256 "e7a7b0e17d710f9f88941de2f40f521ac0f091e92a7e3c8853562e51b8001337" => :mavericks
   end
 
-  depends_on :mpi => [:cc, :cxx, :f90, :recommended]
+  depends_on mpi: [:cc, :cxx, :f90, :recommended]
   if build.with? "mpi"
     depends_on "scalapack" => (build.with? "openblas") ? ["with-openblas"] : []
   end

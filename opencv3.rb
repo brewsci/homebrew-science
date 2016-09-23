@@ -72,7 +72,7 @@ class Opencv3 < Formula
 
   option :cxx11
 
-  depends_on :ant => :build if build.with? "java"
+  depends_on ant: :build if build.with? "java"
   depends_on "cmake" => :build
   depends_on CudaRequirement => :optional
   depends_on "pkg-config" => :build
@@ -83,7 +83,7 @@ class Opencv3 < Formula
   depends_on "gstreamer" => :optional
   depends_on "gst-plugins-good" if build.with? "gstreamer"
   depends_on "jasper" => :optional
-  depends_on :java => :optional
+  depends_on java: :optional
   depends_on "jpeg"
   depends_on "libdc1394" => :optional
   depends_on "libpng"
@@ -91,8 +91,8 @@ class Opencv3 < Formula
   depends_on "openexr" => :recommended
   depends_on "openni" => :optional
   depends_on "openni2" => :optional
-  depends_on :python => :recommended unless OS.mac? && MacOS.version > :snow_leopard
-  depends_on :python3 => :optional
+  depends_on python: :recommended unless OS.mac? && MacOS.version > :snow_leopard
+  depends_on python3: :optional
   depends_on "qt" => :optional
   depends_on "qt5" => :optional
   depends_on "tbb" => :optional
@@ -106,12 +106,12 @@ class Opencv3 < Formula
   cxxstdlib_check :skip
 
   resource "icv-macosx" do
-    url "https://raw.githubusercontent.com/opencv/opencv_3rdparty/81a676001ca8075ada498583e4166079e5744668/ippicv/ippicv_macosx_20151201.tgz", :using => :nounzip
+    url "https://raw.githubusercontent.com/opencv/opencv_3rdparty/81a676001ca8075ada498583e4166079e5744668/ippicv/ippicv_macosx_20151201.tgz", using: :nounzip
     sha256 "8a067e3e026195ea3ee5cda836f25231abb95b82b7aa25f0d585dc27b06c3630"
   end
 
   resource "icv-linux" do
-    url "https://raw.githubusercontent.com/opencv/opencv_3rdparty/81a676001ca8075ada498583e4166079e5744668/ippicv/ippicv_linux_20151201.tgz", :using => :nounzip
+    url "https://raw.githubusercontent.com/opencv/opencv_3rdparty/81a676001ca8075ada498583e4166079e5744668/ippicv/ippicv_linux_20151201.tgz", using: :nounzip
     sha256 "4333833e40afaa22c804169e44f9a63e357e21476b765a5683bcb3760107f0da"
   end
 

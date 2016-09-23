@@ -28,8 +28,8 @@ class Shogun < Formula
   depends_on "lua" => :optional
   depends_on "octave" => :optional
   depends_on "opencv" => :optional
-  depends_on :java => :optional
-  depends_on :python => :optional
+  depends_on java: :optional
+  depends_on python: :optional
 
   if build.with? "python"
     depends_on "swig" => :build
