@@ -3,10 +3,23 @@ require File.expand_path("../Requirements/cuda_requirement", __FILE__)
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "http://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/2.4.13.tar.gz"
-  sha256 "94ebcca61c30034d5fb16feab8ec12c8a868f5162d20a9f0396f0f5f6d8bbbff"
-  revision 3
   head "https://github.com/opencv/opencv.git", :branch => "2.4"
+
+  stable do
+    url "https://github.com/opencv/opencv/archive/2.4.13.1.tar.gz"
+    sha256 "0d5ce5e0973e3a745f927d1ee097aaf909aae59f787be6d27a03d639e2d96bd7"
+
+    # patch to fix building stable on macOS Sierra and/or with Xcode 8
+    # adds support for AVFoundation and fixes dependencies on removed headers
+    # https://github.com/opencv/opencv/issues/6913 (applies to 2.4 branch as well)
+    # can be removed with next release
+    if DevelopmentTools.clang_build_version >= 800
+      patch do
+        url "https://github.com/opencv/opencv/commit/9ff63a46fcfe784e6465320af80624a53a98ccaa.diff"
+        sha256 "33dd03572c40d2c0ce41910be6318fab1350f72d958f850941aad019dfb67de5"
+      end
+    end
+  end
 
   bottle do
     sha256 "ba4f66fa0c6cfb0b6b9e2c8d0eb2d528893d06c7668404fec8416a742efeb41d" => :el_capitan
@@ -20,11 +33,14 @@ class Opencv < Formula
   option "with-tbb", "Enable parallel code in OpenCV using Intel TBB"
   option "without-test", "Build without accuracy & performance tests"
   option "without-opencl", "Disable GPU code in OpenCV using OpenCL"
-  option "with-quicktime", "Use QuickTime for Video I/O instead of QTKit"
   option "with-opengl", "Build with OpenGL support"
   option "with-ximea", "Build with XIMEA support"
   option "without-numpy", "Use a numpy you've installed yourself instead of a Homebrew-packaged numpy"
   option "without-python", "Build without Python support"
+
+  if DevelopmentTools.clang_build_version < 800
+    option "with-quicktime", "Use QuickTime for Video I/O"
+  end
 
   deprecated_option "without-brewed-numpy" => "without-numpy"
   deprecated_option "without-tests" => "without-test"
