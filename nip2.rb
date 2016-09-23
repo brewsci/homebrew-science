@@ -1,9 +1,8 @@
 class Nip2 < Formula
-  desc "A GUI for the VIPS image processing system"
+  desc "GUI for the VIPS image processing system"
   homepage "http://www.vips.ecs.soton.ac.uk/"
-  url "http://www.vips.ecs.soton.ac.uk/supported/8.2/nip2-8.2.tar.gz"
-  sha256 "18151e2185eb9db60196d98354ef751eb55ea9d3b55ef090f4a039125d465fca"
-  revision 1
+  url "http://www.vips.ecs.soton.ac.uk/supported/8.4/nip2-8.4.0.tar.gz"
+  sha256 "7a8c8b145216fbf2212de6eda4fbaff1884e3e1f8970f5e14e12a5df164e2c8a"
 
   bottle do
     cellar :any
@@ -12,7 +11,8 @@ class Nip2 < Formula
     sha256 "ada6912ef86789eec29a19aa883ae2fecfbbe0ea7d597d2c74db22da56b58c7c" => :mavericks
   end
 
-  option "with-check", "Enable build-time checking"
+  option "with-test", "Enable build-time testing"
+  deprecated_option "with-check" => "with-test"
 
   depends_on "pkg-config" => :build
   depends_on "XML::Parser" => :perl
