@@ -11,9 +11,9 @@ class NcbiCxxToolkit < Formula
     sha256 "a2735fe595865420230f43284cdbbabfdda2cda5920af408c07aee4ff292bdf4" => :mountain_lion
   end
 
-  head "http://anonsvn.ncbi.nlm.nih.gov/repos/v1/trunk/c++", using: :svn
+  head "http://anonsvn.ncbi.nlm.nih.gov/repos/v1/trunk/c++", :using => :svn
 
-  fails_with gcc: "5" do
+  fails_with :gcc => "5" do
     cause "5.1.0 is not fully supported."
   end
 

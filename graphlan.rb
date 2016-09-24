@@ -3,7 +3,7 @@ class Graphlan < Formula
   homepage "https://bitbucket.org/nsegata/graphlan/wiki/Home"
   # tag "bioinformatics"
 
-  url "https://hg@bitbucket.org/nsegata/graphlan", using: :hg, tag: "1.0"
+  url "https://hg@bitbucket.org/nsegata/graphlan", :using => :hg, :tag => "1.0"
 
   depends_on LanguageModuleRequirement.new :python, "biopython", "Bio"
   depends_on "matplotlib" => :python

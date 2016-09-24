@@ -53,7 +53,7 @@ class Lammps < Formula
   depends_on "fftw"
   depends_on "jpeg"
   depends_on "voro++"
-  depends_on mpi: [:cxx, :f90, :recommended] # dummy MPI library provided in src/STUBS
+  depends_on :mpi => [:cxx, :f90, :recommended] # dummy MPI library provided in src/STUBS
   depends_on :fortran
   depends_on :python if MacOS.version <= :snow_leopard
 
@@ -114,9 +114,9 @@ class Lammps < Formula
     build_lib "FC",    "reax"
     build_lib "FC",    "meam"
     build_lib "CXX",   "poems"
-    build_lib "CXX",   "colvars", change_compiler_var: "CXX" if build.include? "enable-user-colvars"
+    build_lib "CXX",   "colvars", :change_compiler_var => "CXX" if build.include? "enable-user-colvars"
     if build.include? "enable-user-awpmd"
-      build_lib "MPICXX", "awpmd", prefix_make_var: "user-"
+      build_lib "MPICXX", "awpmd", :prefix_make_var => "user-"
       ENV.append "LDFLAGS", "-lblas -llapack"
     end
 

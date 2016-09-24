@@ -14,7 +14,7 @@ class Discovar < Formula
   needs :cxx11
   needs :openmp
 
-  fails_with gcc: "5" do
+  fails_with :gcc => "5" do
     cause "error: reference to 'align' is ambiguous. See https://groups.google.com/a/broadinstitute.org/forum/?hl=en&fromgroups=#!topic/discovar-user-forum/zuqNcaRUetA"
   end
 

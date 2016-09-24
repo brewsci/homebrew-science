@@ -40,7 +40,7 @@ class Tophat < Formula
     (libexec/"python").install bin/"intervaltree", bin/"sortedcontainers"
     (libexec/"bin").install bin/"tophat-fusion-post"
     (bin/"tophat-fusion-post").write_env_script libexec/"bin/tophat-fusion-post",
-      PYTHONPATH: libexec/"python"
+      :PYTHONPATH => libexec/"python"
   end
 
   test do

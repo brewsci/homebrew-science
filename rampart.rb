@@ -3,7 +3,7 @@ class Rampart < Formula
   # tag "bioinformatics"
 
   head do
-    url "https://github.com/TGAC/RAMPART.git", branch: "develop"
+    url "https://github.com/TGAC/RAMPART.git", :branch => "develop"
     depends_on "maven" => :build
   end
 
@@ -17,7 +17,7 @@ class Rampart < Formula
     sha256 "810d7b76559426a412b7ab83f270475f26eef4cf652b6b17716291e6d5b2d7ca" => :mountain_lion
   end
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
   # Dataset improvement
   depends_on "sickle" => :optional

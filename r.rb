@@ -24,7 +24,7 @@ class R < Formula
   end
 
   head do
-    url "https://svn.r-project.org/R/trunk", using: RDownloadStrategy
+    url "https://svn.r-project.org/R/trunk", :using => RDownloadStrategy
     depends_on :tex
   end
 
@@ -50,7 +50,7 @@ class R < Formula
   depends_on "openblas" => :optional
   depends_on "pango" => :optional
   depends_on "valgrind" => :optional
-  depends_on x11: (OS.mac? ? :optional : :recommended)
+  depends_on :x11 => (OS.mac? ? :optional : :recommended)
 
   cairo_opts = build.with?("x11") ? ["with-x11"] : []
   cairo_opts << :optional if OS.linux?

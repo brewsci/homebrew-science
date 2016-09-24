@@ -11,7 +11,7 @@ class Opencascade < Formula
     sha256 "6034c93c5bb2d78048f00a61d27dab7001974480addbbb6893675db77e8e7e52" => :mavericks
   end
 
-  conflicts_with "oce", because: "OCE is a fork for patches/improvements/experiments over OpenCascade"
+  conflicts_with "oce", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
 
   option "without-opencl", "Build without OpenCL support" if OS.mac?
   option "without-extras", "Don't install documentation (~725MB) or samples (~40MB)"
@@ -24,7 +24,7 @@ class Opencascade < Formula
   depends_on "freeimage" => :recommended
   depends_on "gl2ps" => :recommended
   depends_on "tbb" => :recommended if OS.mac? # Couldn't make it find TBB...
-  depends_on macos: :snow_leopard
+  depends_on :macos => :snow_leopard
 
   def install
     # recent xcode stores it's sdk in the application folder

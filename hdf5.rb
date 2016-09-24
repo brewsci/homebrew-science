@@ -27,9 +27,9 @@ class Hdf5 < Formula
   option "with-unsupported", "Allow unsupported combinations of configure options"
   option :cxx11
 
-  depends_on fortran: :optional
+  depends_on :fortran => :optional
   depends_on "szip"
-  depends_on mpi: [:optional, :cc, :cxx, :f90]
+  depends_on :mpi => [:optional, :cc, :cxx, :f90]
   depends_on "zlib" unless OS.mac?
 
   depends_on "autoconf" => :build

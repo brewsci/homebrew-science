@@ -34,7 +34,7 @@ class Dgtal < Formula
 
   # GCC 4 works, and according to upstream issue, GCC <= 5.2.1 may also be fine
   ["5", "6"].each do |n|
-    fails_with gcc: n do
+    fails_with :gcc => n do
       cause "testClone2 fails: https://github.com/DGtal-team/DGtal/issues/1203"
     end
   end

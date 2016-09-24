@@ -7,7 +7,7 @@ class Htsbox < Formula
   version "r312"
   sha256 "18956deaf1d163a01f36e7849aba8ff01e9d883bd4792f870debdce53d0b665e"
 
-  head "https://github.com/lh3/htsbox.git", branch: "lite"
+  head "https://github.com/lh3/htsbox.git", :branch => "lite"
 
   bottle do
     cellar :any_skip_relocation

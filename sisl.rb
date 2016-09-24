@@ -3,7 +3,7 @@ class Sisl < Formula
   url "https://github.com/SINTEF-Geometry/SISL/archive/SISL-4.6.0.tar.gz"
   sha256 "b207fe6b4b20775e3064168633256fddd475ff98573408f6f5088a938c086f86"
 
-  head "https://github.com/SINTEF-Geometry/SISL.git", branch: "master"
+  head "https://github.com/SINTEF-Geometry/SISL.git", :branch => "master"
 
   depends_on "cmake" => :build
 

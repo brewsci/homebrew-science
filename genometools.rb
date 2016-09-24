@@ -21,7 +21,7 @@ class Genometools < Formula
   option "with-hmmer", "Build with HMMER (to enable protein domain search functionality in the ltrdigest tool)"
 
   depends_on "pkg-config" => :build
-  depends_on python: :recommended unless OS.mac? && MacOS.version >= :lion
+  depends_on :python => :recommended unless OS.mac? && MacOS.version >= :lion
 
   if build.with? "pangocairo"
     depends_on "cairo"

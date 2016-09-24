@@ -6,7 +6,7 @@ class Root < Formula
   sha256 "fc868e5f4905544c3f392cc9e895ef5571a08e48682e7fe173bd44c0ba0c7dcd"
   revision 1
 
-  head "https://github.com/root-mirror/root.git", branch: "v5-34-00-patches"
+  head "https://github.com/root-mirror/root.git", :branch => "v5-34-00-patches"
 
   bottle do
     sha256 "cfdd163868a261c66e452996db76eede43245be4e575ca92f7803bdfd6ae8f39" => :el_capitan
@@ -21,7 +21,7 @@ class Root < Formula
   depends_on "gsl" => :recommended
   depends_on "fftw" => :optional
   depends_on "qt" => [:optional, "with-qt3support"]
-  depends_on x11: :optional
+  depends_on :x11 => :optional
   depends_on :python if MacOS.version <= :snow_leopard
 
   def install

@@ -7,8 +7,8 @@ class Libsigrokdecode < Formula
     sha256 "2c50efe16c2424b77ab0d9ae6b5d98d7c9894407ddb43dfb43846b3bdef5b5d1"
 
     resource "librevisa" do
-      url "http://www.librevisa.org/git/librevisa.git", tag: "alpha-2013-08-12",
-                                                        revision: "3e3e027ac7bcf2679089adc8886bb3c92574a042"
+      url "http://www.librevisa.org/git/librevisa.git", :tag => "alpha-2013-08-12",
+                                                        :revision => "3e3e027ac7bcf2679089adc8886bb3c92574a042"
     end
 
     resource "libserialport" do
@@ -29,7 +29,7 @@ class Libsigrokdecode < Formula
   end
 
   head do
-    url "git://sigrok.org/libsigrokdecode", shallow: false
+    url "git://sigrok.org/libsigrokdecode", :shallow => false
 
     depends_on "libtool" => :build
     depends_on "autoconf" => :build
@@ -41,11 +41,11 @@ class Libsigrokdecode < Formula
     end
 
     resource "libserialport" do
-      url "git://sigrok.org/libserialport", shallow: false
+      url "git://sigrok.org/libserialport", :shallow => false
     end
 
     resource "libsigrok" do
-      url "git://sigrok.org/libsigrok", shallow: false
+      url "git://sigrok.org/libsigrok", :shallow => false
     end
   end
 

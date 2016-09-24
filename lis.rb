@@ -15,8 +15,8 @@ class Lis < Formula
   option "with-saamg",    "build SA-AMG preconditioner"
   option "with-quad",     "enable quadruple precision operations"
 
-  depends_on fortran: :recommended
-  depends_on mpi: [:cc, :cxx, :f77, :f90, :recommended]
+  depends_on :fortran => :recommended
+  depends_on :mpi => [:cc, :cxx, :f77, :f90, :recommended]
 
   def install
     ENV.deparallelize

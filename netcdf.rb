@@ -22,7 +22,7 @@ class Netcdf < Formula
   deprecated_option "enable-cxx-compat" => "with-cxx-compat"
   deprecated_option "without-check" => "without-test"
 
-  depends_on fortran: :optional
+  depends_on :fortran => :optional
   depends_on "hdf5"
 
   resource "cxx" do

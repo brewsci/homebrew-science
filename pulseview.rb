@@ -12,7 +12,7 @@ class Pulseview < Formula
   end
 
   head do
-    url "git://sigrok.org/pulseview", shallow: false
+    url "git://sigrok.org/pulseview", :shallow => false
     depends_on "glib"
     depends_on "autoconf" => :build
     depends_on "automake" => :build

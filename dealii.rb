@@ -20,7 +20,7 @@ class Dealii < Formula
   deprecated_option "without-opencascade" => "without-oce"
 
   depends_on "cmake"        => :run
-  depends_on mpi: [:cc, :cxx, :f90, :recommended]
+  depends_on :mpi           => [:cc, :cxx, :f90, :recommended]
   depends_on "openblas"     => :optional
 
   openblasdep = (build.with? "openblas") ? ["with-openblas"] : []

@@ -1,7 +1,7 @@
 class Biopieces < Formula
   desc "Bioinformatic framework"
   homepage "https://code.google.com/p/biopieces/"
-  url "http://biopieces.googlecode.com/svn/trunk/", revision: "2291"
+  url "http://biopieces.googlecode.com/svn/trunk/", :revision => "2291"
   version "2291"
   head "http://biopieces.googlecode.com/svn/trunk/"
 

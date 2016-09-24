@@ -7,8 +7,8 @@ class TransrateTools < Formula
   # url "https://github.com/Blahah/transrate-tools/archive/v1.0.0.beta4.tar.gz"
   # sha256 "d6edd8f06dc59beed9c70dc1ef16a4dd42675f85b81751b5e51716c1a4cbc4e8"
   url "https://github.com/Blahah/transrate-tools.git",
-    revision: "08c4c5b02c946ed3ab286e492f972600538a3692",
-    tag: "v1.0.0.beta4"
+    :revision => "08c4c5b02c946ed3ab286e492f972600538a3692",
+    :tag => "v1.0.0.beta4"
   version "1.0.0.beta4"
 
   head "https://github.com/Blahah/transrate-tools.git"

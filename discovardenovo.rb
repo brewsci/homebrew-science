@@ -8,11 +8,11 @@ class Discovardenovo < Formula
   needs :cxx11
   needs :openmp
 
-  fails_with gcc: "5" do
+  fails_with :gcc => "5" do
     cause "error: reference to 'align' is ambiguous. See https://groups.google.com/a/broadinstitute.org/forum/?hl=en&fromgroups=#!topic/discovar-user-forum/zuqNcaRUetA"
   end
 
-  conflicts_with "allpaths-lg", because: "Both install bin/MakeLookupTable"
+  conflicts_with "allpaths-lg", :because => "Both install bin/MakeLookupTable"
 
   depends_on "jemalloc"
 

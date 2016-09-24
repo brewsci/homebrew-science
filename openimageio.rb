@@ -34,7 +34,7 @@ class Openimageio < Formula
   depends_on "openjpeg"
   depends_on "webp"
   depends_on "opencv" => :recommended
-  depends_on python3: :optional
+  depends_on :python3 => :optional
 
   depends_on "glew" if build.with? "qt"
 
@@ -69,7 +69,7 @@ class Openimageio < Formula
 
   resource "oiioimages" do
     url "https://github.com/OpenImageIO/oiio-images.git",
-        revision: "9a70c65c7a29a50114a8208d61c87ba4fedd018e"
+        :revision => "9a70c65c7a29a50114a8208d61c87ba4fedd018e"
   end
 
   def pyver

@@ -4,7 +4,7 @@ class BioformatsCpp < Formula
   url "http://downloads.openmicroscopy.org/bio-formats/5.1.8/artifacts/bioformats-dfsg-5.1.8.zip"
   sha256 "b760dc17465c7985a808c0f70a568c4faebe51f8aeaeab56afe1dbc29061c9b8"
   revision 1
-  head "https://github.com/openmicroscopy/bioformats.git", branch: "develop", shallow: false
+  head "https://github.com/openmicroscopy/bioformats.git", :branch => "develop", :shallow => false
 
   bottle do
     sha256 "72f5a6eb8f9c1adec19ca64de121cb4b23b3cab8b92fea66554a264ddb8f95fe" => :el_capitan
@@ -30,7 +30,7 @@ class BioformatsCpp < Formula
   depends_on "graphviz" => :build if build.with? "docs"
 
   # Needs clang/libc++ toolchain; mountain lion is too broken
-  depends_on macos: :mavericks
+  depends_on :macos => :mavericks
 
   # Required python modules for docs
   resource "sphinx" do

@@ -11,8 +11,8 @@ class Gdcm < Formula
   end
 
   option "with-check", "Run the GDCM test suite"
-  depends_on python: :optional
-  depends_on python3: :optional
+  depends_on :python => :optional
+  depends_on :python3 => :optional
   depends_on "openssl" => :optional
 
   option :cxx11

@@ -13,7 +13,7 @@ class Gmt4 < Formula
   depends_on "gdal"
   depends_on "netcdf"
 
-  conflicts_with "gmt", because: "both versions install the same binaries."
+  conflicts_with "gmt", :because => "both versions install the same binaries."
 
   resource "gshhg" do
     url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.4.tar.gz"

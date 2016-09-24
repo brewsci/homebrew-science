@@ -2,7 +2,7 @@ class Galfit < Formula
   homepage "http://users.obs.carnegiescience.edu/peng/work/galfit/galfit.html"
   version "3.0.5"
 
-  depends_on macos: :leopard
+  depends_on :macos => :leopard
 
   if MacOS.version == :mavericks
     url "http://users.obs.carnegiescience.edu/peng/work/galfit/galfit3-mavericks.tar.gz"

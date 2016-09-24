@@ -4,7 +4,7 @@ class QrMumps < Formula
   url "http://buttari.perso.enseeiht.fr/qr_mumps/releases/1.2/qr_mumps-1.2.tgz"
   sha256 "6aacdab63c4d4160998f47ac736d4665f0dd5deb6002eeb2aa59de6eb274c337"
   revision 1
-  head "https://wwwsecu.irit.fr/svn/qr_mumps/tags/1.2", using: :svn
+  head "https://wwwsecu.irit.fr/svn/qr_mumps/tags/1.2", :using => :svn
 
   bottle do
     sha256 "9f0000e98be58f64151f24532fb7ac1994442bef69b662c6628ada21f66987c7" => :el_capitan

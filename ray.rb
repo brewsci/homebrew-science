@@ -22,7 +22,7 @@ class Ray < Formula
     url "https://github.com/sebhtml/RayPlatform.git"
   end
 
-  depends_on mpi: :cxx
+  depends_on :mpi => :cxx
 
   fails_with :llvm do
     build 2336

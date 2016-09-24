@@ -12,7 +12,7 @@ class Ess < Formula
     sha256 "ae72a98f8f4131a2cde8219f53df51d6470839eaa1299331fb13d3a8fd7c4f5e" => :mavericks
   end
 
-  depends_on emacs: "23"
+  depends_on :emacs => "23"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

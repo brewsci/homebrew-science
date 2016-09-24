@@ -4,7 +4,7 @@ class Neuron < Formula
   url "http://www.neuron.yale.edu/ftp/neuron/versions/v7.4/nrn-7.4.tar.gz"
   sha256 "165513a4c5e4f11fb78b6c8a71d92f11a00c120c4bbeec26abfedac241729e98"
 
-  head "http://www.neuron.yale.edu/hg/neuron/nrn", using: :hg
+  head "http://www.neuron.yale.edu/hg/neuron/nrn", :using => :hg
 
   bottle do
     revision 1
@@ -14,7 +14,7 @@ class Neuron < Formula
   end
 
   depends_on "inter-views"
-  depends_on mpi: :optional
+  depends_on :mpi => :optional
   depends_on :python if MacOS.version <= :snow_leopard
 
   # NEURON uses .la files to compile HOC files at runtime

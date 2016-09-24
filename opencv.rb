@@ -6,7 +6,7 @@ class Opencv < Formula
   url "https://github.com/opencv/opencv/archive/2.4.13.tar.gz"
   sha256 "94ebcca61c30034d5fb16feab8ec12c8a868f5162d20a9f0396f0f5f6d8bbbff"
   revision 3
-  head "https://github.com/opencv/opencv.git", branch: "2.4"
+  head "https://github.com/opencv/opencv.git", :branch => "2.4"
 
   bottle do
     sha256 "ba4f66fa0c6cfb0b6b9e2c8d0eb2d528893d06c7668404fec8416a742efeb41d" => :el_capitan
@@ -39,7 +39,7 @@ class Opencv < Formula
   depends_on "gstreamer"  => :optional
   depends_on "gst-plugins-good" if build.with? "gstreamer"
   depends_on "jasper"     => :optional
-  depends_on java: :optional
+  depends_on :java        => :optional
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
@@ -51,7 +51,7 @@ class Opencv < Formula
   depends_on "tbb"        => :optional
   depends_on "vtk"        => :optional
 
-  depends_on python: :recommended unless OS.mac? && MacOS.version > :snow_leopard
+  depends_on :python => :recommended unless OS.mac? && MacOS.version > :snow_leopard
   depends_on "homebrew/python/numpy" => :recommended if build.with? "python"
 
   # Can also depend on ffmpeg, but this pulls in a lot of extra stuff that

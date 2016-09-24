@@ -16,7 +16,7 @@ class Mapsembler2 < Formula
     cause "error: no member named 'malloc' in namespace 'std'"
   end
 
-  fails_with gcc: "5" do
+  fails_with :gcc => "5" do
     cause "undefined reference to `prefix_trashable[abi:cxx11]'"
   end
 

@@ -19,7 +19,7 @@ class Visp < Formula
   depends_on "libxml2"   => :recommended
   depends_on "gsl"       => :recommended
   depends_on "zbar"      => :recommended
-  depends_on x11: :recommended
+  depends_on :x11        => :recommended
   option :cxx11
 
   def arg_switch(opt)

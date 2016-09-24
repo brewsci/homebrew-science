@@ -34,7 +34,7 @@ class GraphTool < Formula
   depends_on "cgal" => cxx11
   depends_on "google-sparsehash" => cxx11 + [:recommended]
   depends_on "gtk+3" => :recommended
-  depends_on python3: :optional
+  depends_on :python3 => :optional
 
   depends_on "homebrew/python/numpy" => [:recommended] + with_pythons
   depends_on "homebrew/python/scipy" => [:recommended] + with_pythons
@@ -59,15 +59,15 @@ class GraphTool < Formula
     build 699
   end
 
-  fails_with gcc: "4.8" do
+  fails_with :gcc => "4.8" do
     cause "We need GCC 5.0 or above for sufficient c++14 support"
   end
-  fails_with gcc: "4.9" do
+  fails_with :gcc => "4.9" do
     cause "We need GCC 5.0 or above for sufficient c++14 support"
   end
 
   if MacOS.version == :mavericks
-    fails_with gcc: "6" do
+    fails_with :gcc => "6" do
       cause "GCC 6 fails with 'Internal compiler error' on Mavericks. You should install GCC 5 instead with 'brew tap homebrew/versions; brew install gcc5"
     end
   end

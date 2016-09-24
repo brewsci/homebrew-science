@@ -24,8 +24,8 @@ class Nest < Formula
   needs :openmp if build.with? "openmp"
 
   depends_on "gsl" => :recommended
-  depends_on mpi: [:optional, :cc, :cxx]
-  depends_on python: :optional if MacOS.version <= :snow_leopard
+  depends_on :mpi => [:optional, :cc, :cxx]
+  depends_on :python => :optional if MacOS.version <= :snow_leopard
   depends_on "numpy" => :python if build.with? "python"
   depends_on "scipy" => :python if build.with? "python"
   depends_on "matplotlib" => :python if build.with? "python"

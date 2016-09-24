@@ -5,7 +5,7 @@ class AceCorrector < Formula
   # tag "bioinformatics"
 
   url "https://github.com/Sheikhizadeh/ACE.git",
-    revision: "189f154997aeef954d690a8a08300233c21305f3"
+    :revision => "189f154997aeef954d690a8a08300233c21305f3"
   version "20150501"
 
   head "https://github.com/Sheikhizadeh/ACE.git"

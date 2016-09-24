@@ -14,7 +14,7 @@ class Cytoscape < Formula
     sha256 "3f401c5d124c644ae3c2993ec867d782cadc108e3b71769f0b5cdac3a3cfa20d" => :x86_64_linux
   end
 
-  depends_on java: "1.8"
+  depends_on :java => "1.8"
 
   def install
     inreplace "cytoscape.sh", "$script_path", prefix

@@ -20,7 +20,7 @@ class Dynare < Formula
     depends_on "bison"    => :build
   end
 
-  depends_on tex: :build
+  depends_on :tex    => :build
   depends_on "boost" => :build
   depends_on "xz"    => :build
   depends_on "fftw"

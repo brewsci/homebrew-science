@@ -22,7 +22,7 @@ class Fwdpp < Formula
 
   # build fails on mountain lion at configure stage when looking for libsequence
   # so restrict to mavericks and newer
-  depends_on macos: :mavericks
+  depends_on :macos => :mavericks
 
   depends_on "gsl"
   depends_on "libsequence"

@@ -1,7 +1,7 @@
 class Beetl < Formula
   desc "Burrows-Wheeler Extended Tool Library"
   homepage "https://github.com/BEETL/BEETL"
-  head "https://github.com/BEETL/BEETL.git", branch: "RELEASE_1_1_0"
+  head "https://github.com/BEETL/BEETL.git", :branch => "RELEASE_1_1_0"
   # doi "10.1093/bioinformatics/bts173"
   # tag "bioinformatics"
 

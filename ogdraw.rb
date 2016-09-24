@@ -37,7 +37,7 @@ class Ogdraw < Formula
 
     libexec.install bin/"drawgenemap"
     (bin/"drawgenemap").write_env_script libexec/"drawgenemap",
-      PERL5LIB: lib/"perl5/site_perl:$PERL5LIB"
+      :PERL5LIB => lib/"perl5/site_perl:$PERL5LIB"
   end
 
   test do

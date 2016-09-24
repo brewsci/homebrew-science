@@ -18,7 +18,7 @@ class Alpscore < Formula
   option "with-static", "Build static instead of shared libraries"
 
   depends_on "cmake" => :build
-  depends_on mpi: [:cc, :cxx, :recommended]
+  depends_on :mpi => [:cc, :cxx, :recommended]
 
   boost_options = []
   boost_options << "c++11" if build.cxx11?

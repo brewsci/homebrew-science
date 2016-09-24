@@ -19,7 +19,7 @@ class Madlib < Formula
   depends_on "boost-python" => boost_opts if build.with? "python"
   depends_on "cmake" => :build
   depends_on "postgresql" => ["with-python"]
-  depends_on python: :optional
+  depends_on :python => :optional
 
   resource "pyxb" do
     url "https://downloads.sourceforge.net/project/pyxb/pyxb/1.2.4/PyXB-1.2.4.tar.gz"

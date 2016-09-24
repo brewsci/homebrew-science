@@ -5,7 +5,7 @@ class Flint < Formula
   # tag "math"
   url "http://flintlib.org/flint-2.5.2.tar.gz"
   sha256 "cbf1fe0034533c53c5c41761017065f85207a1b770483e98b2392315f6575e87"
-  head "https://github.com/wbhart/flint2.git", branch: "trunk"
+  head "https://github.com/wbhart/flint2.git", :branch => "trunk"
 
   bottle do
     revision 1

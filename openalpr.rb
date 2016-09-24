@@ -3,7 +3,7 @@ class Openalpr < Formula
   homepage "https://github.com/openalpr/openalpr"
   url "https://github.com/openalpr/openalpr/archive/v2.3.0.tar.gz"
   sha256 "1cfcaab6f06e9984186ee19633a949158c0e2aacf9264127e2f86bd97641d6b9"
-  head "https://github.com/openalpr/openalpr.git", branch: "master"
+  head "https://github.com/openalpr/openalpr.git", :branch => "master"
 
   bottle do
     sha256 "88834bb81c3d4c937f6875223e98e26490854f3310f7ac1524f313c6e9ed3e71" => :el_capitan

@@ -11,7 +11,7 @@ class Cgns < Formula
     sha256 "6925f42ae86b056704be41aa4d8991a329f9def1837c772c6182dfd7a8b84573" => :mavericks
   end
 
-  depends_on fortran: :optional
+  depends_on :fortran => :optional
   depends_on "cmake" => :build
   depends_on "hdf5" => :recommended
   depends_on "szip"

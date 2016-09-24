@@ -75,7 +75,7 @@ class RstudioServer < Formula
   end
 
   resource "rsconnect" do
-    url "https://github.com/rstudio/rsconnect.git", branch: "master"
+    url "https://github.com/rstudio/rsconnect.git", :branch => "master"
   end
 
   resource "admin-script" do

@@ -17,7 +17,7 @@ class Nonpareil < Formula
   revision 1
 
   depends_on "r"
-  depends_on mpi: [:cxx, :optional]
+  depends_on :mpi => [:cxx, :optional]
 
   def install
     r_library = lib/"R"/r_major_minor

@@ -26,7 +26,7 @@ class Trinity < Formula
   depends_on "htslib"
   depends_on "gcc"
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
   needs :openmp
 

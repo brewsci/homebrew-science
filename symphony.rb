@@ -16,8 +16,8 @@ class Symphony < Formula
   depends_on "mysql" => :build if build.with? "gmpl"
   depends_on "readline" => :recommended
 
-  conflicts_with "coinutils", because: "Symphony contains CoinUtils"
-  conflicts_with "coinmp", because: "Symphony and CoinMP contain CoinUtils"
+  conflicts_with "coinutils", :because => "Symphony contains CoinUtils"
+  conflicts_with "coinmp", :because => "Symphony and CoinMP contain CoinUtils"
 
   def install
     args = ["--disable-debug", "--disable-dependency-tracking",

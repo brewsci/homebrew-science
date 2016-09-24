@@ -18,9 +18,9 @@ class Oce < Formula
   depends_on "freeimage" => :recommended
   depends_on "gl2ps" => :recommended
   depends_on "tbb" => :recommended
-  depends_on macos: :snow_leopard
+  depends_on :macos => :snow_leopard
 
-  conflicts_with "opencascade", because: "OCE is a fork for patches/improvements/experiments over OpenCascade"
+  conflicts_with "opencascade", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
 
   def install
     cmake_args = std_cmake_args

@@ -3,7 +3,7 @@ class Ipopt < Formula
   homepage "https://projects.coin-or.org/Ipopt"
   url "http://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.5.tgz"
   sha256 "53e7af6eefcb6de1f8e936c9c887c7bcb5a9fa4fcf7673a227f16de131147325"
-  head "https://projects.coin-or.org/svn/Ipopt/trunk", using: :svn
+  head "https://projects.coin-or.org/svn/Ipopt/trunk", :using => :svn
 
   bottle do
     cellar :any

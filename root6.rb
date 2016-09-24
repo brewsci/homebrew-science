@@ -19,8 +19,8 @@ class Root6 < Formula
   depends_on "cmake" => :build
   depends_on "xrootd" => :optional
   depends_on "openssl" => :recommended # use homebrew's openssl
-  depends_on python: :recommended # make sure we install pyroot
-  depends_on x11: :recommended if OS.linux?
+  depends_on :python => :recommended # make sure we install pyroot
+  depends_on :x11 => :recommended if OS.linux?
   depends_on "gsl" => :recommended
   # root5 obviously conflicts, simply need `brew unlink root`
   conflicts_with "root"

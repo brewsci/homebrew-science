@@ -2,8 +2,8 @@ class Freebayes < Formula
   desc "Bayesian variant discovery and genotyping"
   homepage "https://github.com/ekg/freebayes"
   url "https://github.com/ekg/freebayes.git",
-    tag: "v1.0.2",
-    revision: "0cb269728b2db6307053cafe6f913a8b6fa1331e"
+    :tag => "v1.0.2",
+    :revision => "0cb269728b2db6307053cafe6f913a8b6fa1331e"
   revision 1
   head "https://github.com/ekg/freebayes.git"
   # doi "arXiv:1207.3907v2"

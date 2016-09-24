@@ -5,7 +5,7 @@ class Petsc < Formula
   sha256 "7509281536ab7b908ee77ce5e999bb196f1a9e6ac5515f4518e1c3331e27128a"
   revision 2
 
-  head "https://bitbucket.org/petsc/petsc", using: :git
+  head "https://bitbucket.org/petsc/petsc", :using => :git
 
   bottle do
     sha256 "d1e559894290f7057a0ae914ec694126b2c6b4f259864e612ff02775b3963270" => :el_capitan
@@ -22,9 +22,9 @@ class Petsc < Formula
   deprecated_option "complex" => "with-complex"
   deprecated_option "debug"   => "with-debug"
 
-  depends_on mpi: [:cc, :cxx, :f77, :f90]
+  depends_on :mpi => [:cc, :cxx, :f77, :f90]
   depends_on :fortran
-  depends_on x11: :optional
+  depends_on :x11 => :optional
   depends_on "cmake" => :build
 
   depends_on "openblas" => :optional

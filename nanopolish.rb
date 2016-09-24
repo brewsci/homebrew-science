@@ -7,8 +7,8 @@ class Nanopolish < Formula
 
   stable do
     url "https://github.com/jts/nanopolish.git",
-        tag: "v0.5.0",
-        revision: "758d81a330860e82a24570ef5e6005982b095b49"
+        :tag => "v0.5.0",
+        :revision => "758d81a330860e82a24570ef5e6005982b095b49"
 
     # upstream commit "remove unused function, closes #57"
     patch do

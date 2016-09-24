@@ -15,8 +15,8 @@ class RGui < Formula
   end
 
   depends_on :xcode
-  depends_on macos: :snow_leopard
-  depends_on arch: :x86_64
+  depends_on :macos => :snow_leopard
+  depends_on :arch => :x86_64
 
   depends_on "r"
 

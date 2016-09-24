@@ -17,9 +17,9 @@ class Emboss < Formula
   depends_on "libharu"    => :optional
   depends_on "gd"         => :optional
   depends_on "libpng"     => :recommended
-  depends_on x11: :recommended
-  depends_on postgresql: :optional
-  depends_on mysql: :optional
+  depends_on :x11         => :recommended
+  depends_on :postgresql  => :optional
+  depends_on :mysql       => :optional
 
   def install
     inreplace "Makefile.in", "$(bindir)/embossupdate", "" if build.without? "embossupdate"
