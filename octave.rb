@@ -1,24 +1,10 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  revision 4
 
   stable do
-    url "https://ftpmirror.gnu.org/octave/octave-4.0.3.tar.gz"
-    sha256 "5a16a42fca637ae1b55b4a5a6e7b16a6df590cbaeeb4881a19c7837789515ec6"
-
-    # Fix alignment of dock widget titles for OSX (bug #46592)
-    # See: http://savannah.gnu.org/bugs/?46592
-    patch do
-      url "http://hg.savannah.gnu.org/hgweb/octave/raw-rev/e870a68742a6"
-      sha256 "0ddcd8dd032be79d5a846ad2bc190569794e4e1a33ce99f25147d70ae6974682"
-    end
-
-    # Fix bug #48407: libinterp fails to link to libz
-    patch :p0 do
-      url "http://savannah.gnu.org/bugs/download.php?file_id=37717"
-      sha256 "feeaad0d00be3008caef2162b549c42fd937f3fb02a36d01cde790a589d4eb2d"
-    end
+    url "ftp://alpha.gnu.org/gnu/octave/octave-4.2.0-rc2.tar.xz"
+    sha256 "42982be516d7f27719d019bc93020304781607d7a9203c7043570dbf27ab9a24"
   end
 
   bottle do
@@ -42,34 +28,36 @@ class Octave < Formula
     end
   end
 
+  # Fix bug #46723: retina scaling of buttons
+  # see https://savannah.gnu.org/bugs/?46723
+  patch :p1 do
+    url "https://savannah.gnu.org/bugs/download.php?file_id=38206"
+    sha256 "8307cec2b84fe546c8f490329b488ecf1da628ce823301b6765ffa7e6e292eed"
+  end
+
   # dependencies needed for head
-  # "librsvg" and ":tex" are currently not necessary
-  # since we do not build the pdf docs
   head do
     url "http://www.octave.org/hg/octave", :branch => "default", :using => :hg
     depends_on :hg             => :build
     depends_on "autoconf"      => :build
     depends_on "automake"      => :build
-    depends_on "bison"         => :build
     depends_on "icoutils"      => :build
-    depends_on "librsvg"        => :build
+  end
 
-    # Fix bug #46723: retina scaling of buttons
-    # see https://savannah.gnu.org/bugs/?46723
-    patch :p1 do
-      url "https://savannah.gnu.org/bugs/download.php?file_id=38206"
-      sha256 "8307cec2b84fe546c8f490329b488ecf1da628ce823301b6765ffa7e6e292eed"
-    end
+  # build the pdf docs
+  if build.with? "docs"
+    depends_on :tex             => :build
+    depends_on "librsvg"        => :build
   end
 
   skip_clean "share/info" # Keep the docs
 
   # deprecated options
   deprecated_option "without-check" => "without-test"
+  deprecated_option "without-gui" => "without-qt5"
 
   # options, enabled by default
   option "without-curl",           "Do not use cURL (urlread/urlwrite/@ftp)"
-  option "without-docs",           "Compile and install documentation"
   option "without-fftw",           "Do not use FFTW (fft,ifft,fft2,etc.)"
   option "without-fltk",           "Do not use FLTK graphics backend"
   option "without-glpk",           "Do not use GLPK"
@@ -84,11 +72,12 @@ class Octave < Formula
 
   # options, disabled by default
   option "with-audio",             "Use the sndfile and portaudio libraries for audio operations"
-  option "with-gui",               "Compile with graphical user interface"
+  option "with-docs",              "Compile and install documentation"
   option "with-java",              "Use Java, requires Java 6 from https://support.apple.com/kb/DL1572"
   option "with-jit",               "Use the experimental just-in-time compiler (not recommended)"
   option "with-openblas",          "Use OpenBLAS instead of native LAPACK/BLAS"
   option "with-osmesa",            "Use the OSmesa library (incompatible with opengl)"
+  option "with-qt5",               "Compile with graphical user interface"
 
   # build dependencies
   depends_on "gnu-sed"         => :build
@@ -97,8 +86,10 @@ class Octave < Formula
   # essential dependencies
   depends_on :fortran
   depends_on :x11
+  depends_on "bison"           => :build
   depends_on "fontconfig"
   depends_on "freetype"
+  depends_on "gawk"            => :build
   depends_on "texinfo"         => :build # we need >4.8
   depends_on "pcre"
 
@@ -119,24 +110,18 @@ class Octave < Formula
   depends_on "gnuplot"         if build.with? "gnuplot"
   depends_on "hdf5"            if build.with? "hdf5"
   depends_on :java => "1.6+"   if build.with? "java"
+  depends_on "libsndfile"      if build.with? "audio"
   depends_on "llvm"            if build.with? "jit"
+  depends_on "portaudio"       if build.with? "audio"
   depends_on "pstoedit"        if build.with? "ghostscript"
   depends_on "qhull"           if build.with? "qhull"
   depends_on "qrupdate"        if build.with? "qrupdate"
+  depends_on "qscintilla2"     if build.with? "qt5"
+  depends_on "qt5"             if build.with? "qt5"
   depends_on "suite-sparse"    if build.with? "suite-sparse"
-  depends_on "libsndfile"      if build.with? "audio"
-  depends_on "portaudio"       if build.with? "audio"
-  depends_on "veclibfort"      if build.without? "openblas"
-  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
+  depends_on "veclibfort"      if build.without?("openblas") && OS.mac?
 
-  # Qt5 support is only available with Octave >=4.2
-  if build.with?("gui") && build.head?
-    depends_on "qscintilla2"
-    depends_on "qt5"
-  elsif build.with?("gui")
-    odie "Homebrew dropped support of Qt4 but Octave 4.2 is not yet released.
-       If you need the GUI, you may try installing with --HEAD"
-  end
+  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
 
   # If GraphicsMagick was built from source, it is possible that it was
   # done to change quantum depth. If so, our Octave bottles are no good.
@@ -154,11 +139,6 @@ class Octave < Formula
     ENV.prepend_path "PATH", Formula["texinfo"].bin
     ENV["FONTCONFIG_PATH"] = "/opt/X11/lib/X11/fontconfig"
 
-    # make sure qt5 is found
-    if build.with?("gui")
-      ENV.prepend_path "PATH", Formula["qt5"].bin
-    end
-
     # basic arguments
     args = ["--prefix=#{prefix}"]
     args << "--enable-dependency-tracking"
@@ -173,7 +153,7 @@ class Octave < Formula
     args << "--without-fftw3"            if build.without? "fftw"
     args << "--with-fltk-prefix=#{Formula["fltk"].opt_prefix}" if build.with? "fltk"
     args << "--without-glpk"             if build.without? "glpk"
-    args << "--disable-gui"              if build.without? "gui"
+    args << "--without-qt"               if build.without? "qt5"
     args << "--without-opengl"           if build.without? "opengl"
     args << "--without-framework-opengl" if build.without? "opengl"
     args << "--without-OSMesa"           if build.without? "osmesa"
@@ -207,8 +187,8 @@ class Octave < Formula
       args << "--without-cholmod"
       args << "--without-umfpack"
     else
-      ENV.append_to_cflags "-L#{Formula["suite-sparse"].opt_lib} -lsuitesparseconfig"
-      ENV.append_to_cflags "-L#{Formula["metis"].opt_lib} -lmetis"
+      ENV.append "LDFLAGS", "-L#{Formula["suite-sparse"].opt_lib} -lsuitesparseconfig"
+      ENV.append "LDFLAGS", "-L#{Formula["metis"].opt_lib} -lmetis"
     end
 
     # check if openblas settings are compatible
@@ -230,15 +210,10 @@ class Octave < Formula
 
     system "./bootstrap" if build.head?
 
-    stable do # can be dropped with Octave >=4.2
-      # libtool needs to see -framework to handle dependencies better.
-      inreplace "configure", "-Wl,-framework -Wl,", "-framework "
-
-      # the Mac build configuration passes all linker flags to mkoctfile to
-      # be inserted into every oct/mex build. This is actually unnecessary and
-      # can cause linking problems.
-      inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
-    end
+    # the Mac build configuration passes all linker flags to mkoctfile to
+    # be inserted into every oct/mex build. This is actually unnecessary and
+    # can cause linking problems.
+    inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
 
     system "./configure", *args
     system "make", "all"
@@ -251,7 +226,7 @@ class Octave < Formula
   def caveats
     s = ""
 
-    if build.with?("gui")
+    if build.with?("qt5")
       s += <<-EOS.undent
 
       Octave is compiled with a graphical user interface. The start-up option --no-gui
