@@ -1,9 +1,9 @@
 class Gap < Formula
   desc "System for computational discrete algebra"
   homepage "http://www.gap-system.org/"
-  url "http://www.gap-system.org/pub/gap/gap48/tar.bz2/gap4r8p4_2016_06_04-12_41.tar.bz2"
-  version "4.8.4"
-  sha256 "f394bb4c5f24c662ba5ef1674e6c3d7565e31e60fc7e37c7b0f7e5208e029828"
+  url "http://www.gap-system.org/pub/gap/gap48/tar.bz2/gap4r8p5_2016_09_25-11_49.tar.bz2"
+  version "4.8.5"
+  sha256 "08153c57e103a3899fb9603b976e3c3b581dd3f51f973db97ba73501b76967ab"
 
   bottle do
     cellar :any
