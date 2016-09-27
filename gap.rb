@@ -7,9 +7,9 @@ class Gap < Formula
 
   bottle do
     cellar :any
-    sha256 "5592f3f365905cfe3989ea9498c8aef785d3c9195051884b2898d7fa9df31165" => :el_capitan
-    sha256 "9f2ac0862296062c2bfceeb3834e81626843a7c6e3c2f20e13b009f125cb39a6" => :yosemite
-    sha256 "9aab0786812ffcc15eec79265b03970913b90551c1ccec5ebad6c41b41315624" => :mavericks
+    sha256 "05067553c3e67cf9833cfea8bd1c61cf38de4dcfbac9afe67419d98891a507d7" => :sierra
+    sha256 "1ac79801436998a2059e359d09308bb2723b73d7416a25c66b2b1df817f8054d" => :el_capitan
+    sha256 "b86702fb7ecaf9416379be25ee19b56b5180b0ad8d5c214dcd5479bd763ad32d" => :yosemite
   end
 
   # NOTE:  the archive contains the [GMP library](http://gmplib.org) under
