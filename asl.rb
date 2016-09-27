@@ -7,9 +7,9 @@ class Asl < Formula
 
   bottle do
     cellar :any
-    sha256 "871a2da89b0e728feccfaa4334145f37a39b29a02dbfc6fd7a81f7d993979acb" => :el_capitan
-    sha256 "253f89694d8eace41ae1705415629f0b1d7e2a9b0d124472c5530fe2385f83d7" => :yosemite
-    sha256 "4cdd2255de6dc86dd59068558dbd492823ef9bb6025bf27ff19014a3df89f6a1" => :mavericks
+    sha256 "d017b21e844f283ff93005b373303ea0dba8687f5df88d59a1ff94db1e3103a6" => :sierra
+    sha256 "251f1ea420b39ba36b960684ad201d0bb0f1764e3b3b8459efe06f6e2c8c2bba" => :el_capitan
+    sha256 "eae46d7447404c3a38d041a619b423c195a5533e39d32fa06c6a377b544b534f" => :yosemite
   end
 
   option "with-matlab", "Build MEX files for use with Matlab"
