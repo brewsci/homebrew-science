@@ -1,19 +1,20 @@
 class GraphTool < Formula
+  desc "efficient network analysis"
   homepage "http://graph-tool.skewed.de/"
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.18.tar.bz2"
   sha256 "3c4929fb7b6bae13a12115afdf8c07d6531aeeba548305376ba7b0ac710ec4d4"
-  revision 1
+  revision 2
+
+  bottle do
+    sha256 "a07b14e3831a5dc35549ea74a4f2e777dc51167ae9be1e9c2de368bb13f3b41a" => :el_capitan
+    sha256 "621b8fb9ea4418048091462374e160f4fbde1c3f671c8e17fccaed78bfa3ec77" => :yosemite
+  end
 
   head do
     url "https://git.skewed.de/count0/graph-tool.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-  end
-
-  bottle do
-    sha256 "a07b14e3831a5dc35549ea74a4f2e777dc51167ae9be1e9c2de368bb13f3b41a" => :el_capitan
-    sha256 "621b8fb9ea4418048091462374e160f4fbde1c3f671c8e17fccaed78bfa3ec77" => :yosemite
   end
 
   option "without-cairo", "Build without cairo support for plotting"
@@ -72,8 +73,14 @@ class GraphTool < Formula
     end
   end
 
-  def install
+  # Fix compilation problem with newer CGAL
+  # Remove at next release
+  patch do
+    url "https://aur.archlinux.org/cgit/aur.git/plain/0001-Fix-compilation-problem-with-newer-CGAL.patch?h=python-graph-tool"
+    sha256 "6d325261f5e592c45c8eafb5c0b82d28e16fe4a11335d2c0c49f8e3439007f09"
+  end
 
+  def install
     if MacOS.version == :mavericks && (Tab.for_name("boost").stdlib == "libcxx" || Tab.for_name("boost-python").stdlib == "libcxx")
       odie "boost and boost-python must be built against libstdc++ on Mavericks. One way to achieve this, is to use GCC to compile both libraries."
     end
