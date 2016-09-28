@@ -1,11 +1,9 @@
 class Madlib < Formula
   desc "Library for scalable in-database analytics."
-  homepage "http://madlib.net"
-  url "https://github.com/madlib/madlib/archive/v1.8.tar.gz"
-  sha256 "15d8ee925866f477f4fb62964a1ea6a15796e9c7db676d786928495249078df3"
-  revision 1
-
-  head "https://github.com/madlib/madlib.git"
+  homepage "https://madlib.incubator.apache.org/"
+  url "https://github.com/apache/incubator-madlib/archive/rel/v1.9.1.tar.gz"
+  sha256 "60ffb6bb2c41895330e62b3eea135ebdd42ac88c34db9f016a151795b3dbbcbc"
+  head "https://github.com/apache/incubator-madlib.git"
 
   bottle do
     sha256 "71f051842a24ba554179392c649e0f0bf8f6ba2d86a384a02f030beac833c5d8" => :el_capitan
@@ -41,10 +39,8 @@ class Madlib < Formula
     cause "See http://jira.madlib.net/browse/MADLIB-865"
   end
 
-  fails_with :llvm do
-    build 5666
-    cause "See http://jira.madlib.net/browse/MADLIB-865"
-  end
+  # See https://github.com/apache/incubator-madlib/pull/76
+  patch :DATA
 
   def install
     # http://jira.madlib.net/browse/MADLIB-913
@@ -70,10 +66,7 @@ class Madlib < Formula
     # Versions/<current version>/bin. Homebrew won't link
     # bin/madpack and, even if it did, madpack would not find
     # its dependencies. Hence, we create a shim script.
-    (bin/"madpack").write <<-EOS.undent
-      #!/bin/bash
-      exec "#{prefix}/Current/bin/madpack" "$@"
-    EOS
+    bin.write_exec_script("#{prefix}/Current/bin/madpack")
   end
 
   def caveats; <<-EOS.undent
@@ -86,22 +79,34 @@ class Madlib < Formula
   test do
     # The following fails if madpack cannot find its dependencies.
     system "#{bin}/madpack", "-h"
-    pg_bin = Formula["postgresql"].bin
-    # Start PostgreSQL server if it is not already running
-    if File.exist? "#{var}/postgres/postmaster.pid"
-      pg_running = true
-    else
-      pg_running = false
-      system "launchctl", "load", Formula["postgresql"].opt_prefix/"homebrew.mxcl.postgresql.plist"
-      sleep(5) # Wait for the server to start
-    end
-    system "#{pg_bin}/createdb", "-w", "-U", "#{ENV["USER"]}", "test_madpack"
+
+    pg_bin = Formula["postgresql"].opt_bin
+    pg_port = "55562"
+    system "#{pg_bin}/initdb", testpath/"test"
+    pid = fork { exec "#{pg_bin}/postgres", "-D", testpath/"test", "-p", pg_port }
+
     begin
-      system "#{bin}/madpack", "-p", "postgres", "-c", "#{ENV["USER"]}/@localhost/test_madpack", "install"
-      system "#{bin}/madpack", "-p", "postgres", "-c", "#{ENV["USER"]}/@localhost/test_madpack", "install-check"
-    ensure # clean up
-      system "#{pg_bin}/dropdb", "-w", "-U", "#{ENV["USER"]}", "test_madpack"
-      system "launchctl", "unload", Formula["postgresql"].opt_prefix/"homebrew.mxcl.postgresql.plist" unless pg_running
+      sleep 2
+      system "#{pg_bin}/createdb", "-p", pg_port, "test_madpack"
+      system "#{bin}/madpack", "-p", "postgres", "-c", "#{ENV["USER"]}/@localhost:#{pg_port}/test_madpack", "install"
+      system "#{bin}/madpack", "-p", "postgres", "-c", "#{ENV["USER"]}/@localhost:#{pg_port}/test_madpack", "install-check"
+    ensure
+      Process.kill 9, pid
+      Process.wait pid
     end
   end
 end
+
+__END__
+diff --git a/src/dbal/BoostIntegration/MathToolkit_impl.hpp b/src/dbal/BoostIntegration/MathToolkit_impl.hpp
+index 2239f14..a83b421 100644
+--- a/src/dbal/BoostIntegration/MathToolkit_impl.hpp
++++ b/src/dbal/BoostIntegration/MathToolkit_impl.hpp
+@@ -11,6 +11,7 @@
+
+ #include <iomanip>
+
++#include <boost/format.hpp>
+ #include <boost/math/policies/error_handling.hpp>
+
+ namespace boost {
