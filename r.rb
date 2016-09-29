@@ -10,7 +10,7 @@ class R < Formula
   url "https://cran.rstudio.com/src/base/R-3/R-3.3.1.tar.gz"
   mirror "https://cran.r-project.org/src/base/R-3/R-3.3.1.tar.gz"
   sha256 "3dc59ae5831f5380f83c169bac2103ad052efe0ecec4ffa74bde4d85a0fda9e2"
-  revision 2
+  revision 3
 
   # Do not remove executable permission from these scripts.
   # See https://github.com/Linuxbrew/linuxbrew/issues/614
@@ -59,6 +59,11 @@ class R < Formula
   patch :DATA
 
   def install
+    # Fix dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
+    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+      ENV["ac_cv_have_decl_clock_gettime"] = "no"
+    end
+
     # Fix cairo detection with Quartz-only cairo
     inreplace ["configure", "m4/cairo.m4"], "cairo-xlib.h", "cairo.h"
 
