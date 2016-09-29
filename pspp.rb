@@ -4,7 +4,7 @@ class Pspp < Formula
   url "https://ftpmirror.gnu.org/pspp/pspp-0.10.2.tar.gz"
   mirror "https://ftp.gnu.org/gnu/pspp/pspp-0.10.2.tar.gz"
   sha256 "f77cacae6948689a60f1a5808a5d2e183c1cd0847c7fc6142646c63814c0daa9"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "c788733e5382a9a9756cf53bd580936b0e6a613f6bbc982dc10b139d63bf2b9a" => :el_capitan
