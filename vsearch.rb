@@ -1,8 +1,8 @@
 class Vsearch < Formula
   desc "USEARCH-compatible metagenomic sequence tool"
   homepage "https://github.com/torognes/vsearch"
-  url "https://github.com/torognes/vsearch/archive/v2.1.1.tar.gz"
-  sha256 "09d3ddad555ec513f2876bcb9858d988d9b3a67c752619729060bf3b6d04c466"
+  url "https://github.com/torognes/vsearch/archive/v2.1.2.tar.gz"
+  sha256 "a8b01fbd7c6a694993c32ac41a77188e098deeb51373cab597f43bddbc91eeff"
   head "https://github.com/torognes/vsearch.git"
   # doi "10.5281/zenodo.31443"
   # tag "bioinformatics"
