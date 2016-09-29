@@ -3,7 +3,7 @@ class Nest < Formula
   homepage "http://www.nest-simulator.org/"
   url "https://github.com/nest/nest-simulator/releases/download/v2.10.0/nest-2.10.0.tar.gz"
   sha256 "2b6fc562cd6362e812d94bb742562a5a685fb1c7e08403765dbe123d59b0996c"
-  revision 2
+  revision 3
 
   head "https://github.com/nest/nest-simulator.git"
 
