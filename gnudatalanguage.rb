@@ -6,9 +6,9 @@ class Gnudatalanguage < Formula
   revision 5
 
   bottle do
-    sha256 "10357af398cc3b9869b68dc238e2e311bee32241eb167c3843857529fc15ebe7" => :el_capitan
-    sha256 "b5da54ccd28af6bcc128744f65984c6a419b1512048362cb09399f8d2b8242c3" => :yosemite
-    sha256 "a820a234765d1069effc1b47a92e798ee007040aaa50ddc675e2b89518ca7e3f" => :mavericks
+    sha256 "278a75fa3d3714badaf45dc4a369be777e2428373ad38b549095fed23d17832c" => :sierra
+    sha256 "df74f121cddf66d954e3dd839996e0c0c891121d2f03beb16936219e3114b5dc" => :el_capitan
+    sha256 "6256c4b6353acc4a18031cba64402cfbc7cff79af65fd8fafb03bbbd96dac052" => :yosemite
   end
 
   depends_on "cmake" => :build
