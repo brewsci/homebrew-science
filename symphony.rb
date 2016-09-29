@@ -1,7 +1,9 @@
 class Symphony < Formula
+  desc "Generic MILP solver"
   homepage "http://www.coin-or.org/projects/SYMPHONY.xml"
   url "http://www.coin-or.org/download/source/SYMPHONY/SYMPHONY-5.6.6.tgz"
   sha256 "af28afff326635b04ac47857af648244704af0b0743c9a9acd6da0b6b2b60bfb"
+  revision 1
 
   bottle do
     sha256 "f04fc061bc7a9482ed88057fee10ad75de10e5ec3412b19ca6d15a40f3e8fd28" => :yosemite
@@ -9,14 +11,15 @@ class Symphony < Formula
     sha256 "9696eb5df65c0f53cb2336949488d431e38d06e0ea2160b052b7d427e0be4f0b" => :mountain_lion
   end
 
-  option "without-check", "Skip build-time tests (not recommended)"
+  option "without-test", "Skip build-time tests (not recommended)"
   option "with-openmp", "Enable openmp support"
   option "with-gmpl", "GNU Modeling Language support via GLPK"
+
+  deprecated_option "without-check" => "without-test"
 
   depends_on "mysql" => :build if build.with? "gmpl"
   depends_on "readline" => :recommended
 
-  conflicts_with "coinutils", :because => "Symphony contains CoinUtils"
   conflicts_with "coinmp", :because => "Symphony and CoinMP contain CoinUtils"
 
   def install
@@ -46,16 +49,16 @@ class Symphony < Formula
 
     system "./configure", *args
     system "make"
-    system "make", "test" if build.with? "check"
+    system "make", "test" if build.with? "test"
     ENV.deparallelize
     system "make", "install"
 
-    (share / "symphony/Datasets").install "SYMPHONY/Datasets/sample.mps"
-    (share / "symphony/Datasets").install "SYMPHONY/Datasets/sample.mod", "SYMPHONY/Datasets/sample.dat" if build.with? "gmpl"
+    (pkgshare/"Datasets").install "SYMPHONY/Datasets/sample.mps"
+    (pkgshare/"Datasets").install "SYMPHONY/Datasets/sample.mod", "SYMPHONY/Datasets/sample.dat" if build.with? "gmpl"
   end
 
   test do
-    system "#{bin}/symphony", "-F", "#{share}/symphony/Datasets/sample.mps"
-    system "#{bin}/symphony", "-F", "#{share}/symphony/Datasets/sample.mod", "-D", "#{share}/symphony/Datasets/sample.dat" if build.with? "gmpl"
+    system "#{bin}/symphony", "-F", "#{pkgshare}/Datasets/sample.mps"
+    system "#{bin}/symphony", "-F", "#{pkgshare}/Datasets/sample.mod", "-D", "#{pkgshare}/Datasets/sample.dat" if build.with? "gmpl"
   end
 end
