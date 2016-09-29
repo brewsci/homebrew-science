@@ -4,6 +4,7 @@ class Gap < Formula
   url "http://www.gap-system.org/pub/gap/gap48/tar.bz2/gap4r8p5_2016_09_25-11_49.tar.bz2"
   version "4.8.5"
   sha256 "08153c57e103a3899fb9603b976e3c3b581dd3f51f973db97ba73501b76967ab"
+  revision 1
 
   bottle do
     cellar :any
