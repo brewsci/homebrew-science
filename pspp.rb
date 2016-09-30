@@ -7,9 +7,9 @@ class Pspp < Formula
   revision 2
 
   bottle do
-    sha256 "c788733e5382a9a9756cf53bd580936b0e6a613f6bbc982dc10b139d63bf2b9a" => :el_capitan
-    sha256 "93d8f790a38b07904010dc1119bd1bc5347d8b3225e63c0d8162c52499d9b64b" => :yosemite
-    sha256 "c5f5fe5fe033f4f88290a54c8b8dffe126a52fa79523d60609d79ff798bc7675" => :mavericks
+    sha256 "74e7134c04699d36bbe4ac066d6d7fa0d7b40ba378eb87bfcb51ee4321faaa58" => :sierra
+    sha256 "d0d6762cc94be1193e07eb492c57ce69eb7119df3defd227520e791ce4f93d52" => :el_capitan
+    sha256 "62aa35d54136a0879cacb151ce9e4d0fe31fba280756adb16be30cfc59eb846c" => :yosemite
   end
 
   option "without-test", "Skip running the PSPP test suite"
