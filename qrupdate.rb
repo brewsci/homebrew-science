@@ -14,7 +14,7 @@ class Qrupdate < Formula
   option "without-check", "Skip build-time tests (not recommended)"
 
   depends_on :fortran
-  depends_on "openblas" => :optional
+  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
   depends_on "veclibfort" if build.without?("openblas") && OS.mac?
 
   def install
