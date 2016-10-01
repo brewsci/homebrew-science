@@ -6,9 +6,10 @@ class Qrupdate < Formula
 
   bottle do
     cellar :any
-    sha256 "41e44bd439bf76efd0c32f87c8968efa8143d9ebe71e96c4345fac1847f0d0ba" => :el_capitan
-    sha256 "ad4754939869974e4147018e4dcc7f83b95727d83244d5c3acab732b6e92e0ae" => :yosemite
-    sha256 "c1067adb88710e0abc4677effbbf0aaca08a8eaf657fc25239c6a274aece9c6e" => :mavericks
+    rebuild 1
+    sha256 "44e581580a31b504fb7ce816dab11473e7644b13cede5661e2a6212d322d0a19" => :sierra
+    sha256 "7bc6c8d7c20f7080a70f16bfa7a728fdcdc75dd8fcaa225d8a9205aa7a0488d1" => :el_capitan
+    sha256 "197b6d2237bd187a178ab7140f6b6e1629b1cabdf6a2f74978b46b5a5874d58c" => :yosemite
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
