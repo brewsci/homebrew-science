@@ -205,7 +205,7 @@ class Octave < Formula
         args << "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
       end
     else # OS.linux? and without "openblas"
-      args << "-lblas -llapack"
+      args << "--with-blas=-lblas -llapack"
     end
 
     system "./bootstrap" if build.head?
