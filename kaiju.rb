@@ -7,6 +7,13 @@ class Kaiju < Formula
   # tag "bioinformatics"
   # doi "10.1038/ncomms11257"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "499974be14c54c90110e2a83a739ebb9eab04c2c9ea826079c13320aad51c27e" => :sierra
+    sha256 "7f153714f6ca82b32ece4d1204aa7e625c777a5929cccf1e575916dfcf2f6e7c" => :el_capitan
+    sha256 "02ffa74401420205885e4433db256a45033d2a642942c0d87df4f19155591da3" => :yosemite
+  end
+
   def install
     cd "src" do
       system "make"
