@@ -1,8 +1,8 @@
 class Mbsystem < Formula
   desc "MB-System seafloor mapping software"
   homepage "http://www.mbari.org/data/mbsystem/mb-cookbook/index.html"
-  url "ftp://ftp.ldeo.columbia.edu/pub/mbsystem/mbsystem-5.5.2270.tar.gz"
-  sha256 "42ccd82b81d7d67d32cdc25adcd5e0135e544d6b510e7bbad0b1e892edc78039"
+  url "ftp://ftp.ldeo.columbia.edu/pub/mbsystem/mbsystem-5.5.2279.tar.gz"
+  sha256 "50b0013af2bb2d66d8278057f64ea3d3be931d23e6fb7aa0af207285b27c00f2"
 
   bottle do
     sha256 "9bbe5f82306688756f642f334e4b3a3a92d1fb6f82d17c66b9ff02e080844cad" => :el_capitan
@@ -17,6 +17,7 @@ class Mbsystem < Formula
   depends_on "netcdf"
   depends_on "proj"
   depends_on "fftw"
+  depends_on "gdal"
   depends_on "homebrew/x11/gv"
   depends_on "homebrew/x11/openmotif"
 
@@ -38,6 +39,7 @@ class Mbsystem < Formula
                           "--enable-shared",
                           "--with-gmt-include=#{Formula["gmt"].opt_include}/gmt",
                           "--with-gmt-lib=#{Formula["gmt"].opt_lib}/gmt"
+    system "make"
     system "make", "check" if build.with? "check"
     system "make", "install"
   end
