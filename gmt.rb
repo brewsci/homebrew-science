@@ -4,6 +4,7 @@ class Gmt < Formula
   url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.2.1-src.tar.xz"
   mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-5.2.1-src.tar.xz"
   mirror "ftp://gd.tuwien.ac.at/pub/gmt/gmt-5.2.1-src.tar.xz"
+  mirror "ftp://ftp.iris.washington.edu/pub/gmt/gmt-5.2.1-src.tar.xz"
   sha256 "01c199525bdfa78ad388959e739f34eca8effb8d82475c8786a066e04b5e19af"
   revision 1
 
@@ -25,6 +26,7 @@ class Gmt < Formula
     url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.5.tar.gz"
     mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.5.tar.gz"
     mirror "ftp://gd.tuwien.ac.at/pub/gmt/gshhg-gmt-2.3.5.tar.gz"
+    mirror "ftp://ftp.iris.washington.edu/pub/gmt/gshhg-gmt-2.3.5.tar.gz"
     sha256 "dec86939b40fe80d992307352505d89e4ce55ec2cfa67d693f117ba6f6ea6c5e"
   end
 
@@ -32,6 +34,7 @@ class Gmt < Formula
     url "ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.2.tar.gz"
     mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/dcw-gmt-1.1.2.tar.gz"
     mirror "ftp://gd.tuwien.ac.at/pub/gmt/dcw-gmt-1.1.2.tar.gz"
+    mirror "ftp://ftp.iris.washington.edu/pub/gmt/dcw-gmt-1.1.2.tar.gz"
     sha256 "f719054f8d657e7b10b5182d4c15bc7f38ef7483ed05cdaa9f94ab1a0008bfb6"
   end
 
