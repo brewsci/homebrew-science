@@ -7,11 +7,11 @@ class Repeatscout < Formula
   sha256 "bda6f782382f2b7dcb6a004b7da586d5046b3c12429b158e24787be62de6199c"
 
   bottle do
-    cellar :any
-    sha256 "3736ad2e736c526c1b485d84fd59aaf644d371d9718fdb7ccafe59efcdbd11f4" => :yosemite
-    sha256 "f77ed5e45329577b5042585d0811f6bfc42771c07c14606b5f93502967463719" => :mavericks
-    sha256 "3d2fbc43ac051ac3ffe8c699b4cb702fc8841440985bb720925595c24d99b378" => :mountain_lion
-    sha256 "3e23d52321796318510d560e0efb1467340c1e7221503981ddf004d10f329661" => :x86_64_linux
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "b03af9a3be3be79b556401d5270a8216c06aa54cd5dec861068ab6e2acd06454" => :sierra
+    sha256 "46e0c47129bc7449c083fd6588e2b0db6caa4f4e179f33fe42ffb758a9638543" => :el_capitan
+    sha256 "bd9704196baabb1e7abee5c227a209e49f5a155fe47b5395a2db77e63f78708c" => :yosemite
   end
 
   depends_on "trf" => :optional
