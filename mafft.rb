@@ -12,6 +12,7 @@ class Mafft < Formula
     sha256 "8809d503a8ce528e51072e57b80902384df4f2a011d427a431b8ea533e6f5d5d" => :sierra
     sha256 "2e07771ee7a58f3ab7595b7b20d5f220104ce40414977d691d2f03f1d793049c" => :el_capitan
     sha256 "8806462b6e5e4077819b18e6a48eff94f154199ca03a2e524de273b6b09d2a7f" => :yosemite
+    sha256 "d9dddf512066174d8c819051397e155b6e964c226aa39998349e247cdc8a987b" => :x86_64_linux
   end
 
   fails_with :clang do
