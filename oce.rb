@@ -3,6 +3,7 @@ class Oce < Formula
   homepage "https://github.com/tpaviot/oce"
   url "https://github.com/tpaviot/oce/archive/OCE-0.17.2.tar.gz"
   sha256 "8d9995360cd531cbd4a7aa4ca5ed969f08ec7c7a37755e2f3d4ef832c1b2f56e"
+  revision 1
 
   bottle do
     sha256 "73427f93d1bb2be3b1c40145e67e74efe0843867340397cf6b3604ab42c6f82c" => :el_capitan
@@ -21,6 +22,10 @@ class Oce < Formula
   depends_on :macos => :snow_leopard
 
   conflicts_with "opencascade", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
+
+  # fix build with Xcode 8 "previous definition of CLOCK_REALTIME"
+  # reported 27 Sep 2016 https://github.com/tpaviot/oce/issues/643
+  patch :DATA if DevelopmentTools.clang_version >= "8.0"
 
   def install
     cmake_args = std_cmake_args
@@ -57,3 +62,38 @@ class Oce < Formula
     assert_equal "1", shell_output(cmd).chomp
   end
 end
+
+__END__
+diff -ruN a/adm/cmake/TKernel/CMakeLists.txt b/adm/cmake/TKernel/CMakeLists.txt
+--- a/adm/cmake/TKernel/CMakeLists.txt	2016-06-02 14:18:16.000000000 +0200
++++ b/adm/cmake/TKernel/CMakeLists.txt	2016-10-05 19:25:14.000000000 +0200
+@@ -29,7 +29,7 @@
+	set(TOOLKIT_LIBS ${TOOLKIT_LIBS} ${CSF_SOCKETLibs_LIB} ${CSF_advapi32_LIB} ${CSF_gdi32_LIB} ${CSF_user32_LIB} ${CSF_kernel32_LIB} ${CSF_psapi_LIB})
+ else(WIN32)
+	#  An implementation for Mac OS X has been added in src/OSD/gettime_osx.h
+-	if(NOT APPLE)
++	if(APPLE)
+		include( CheckFunctionExists )
+		check_function_exists( clock_gettime CLOCK_GETTIME_IN_LIBC )
+		if(NOT CLOCK_GETTIME_IN_LIBC)
+@@ -40,7 +40,7 @@
+			endif(NOT CLOCK_GETTIME_IN_LIBRT)
+			set(TOOLKIT_LIBS ${TOOLKIT_LIBS} rt)
+		endif(NOT CLOCK_GETTIME_IN_LIBC)
+-	endif(NOT APPLE)
++	endif(APPLE)
+ endif(WIN32)
+
+ # Adde-DHAVE_TBB in TKernel in order to benefit from Standard_MMgrTBBalloc
+Binary files a/src/.DS_Store and b/src/.DS_Store differ
+diff -ruN a/src/OSD/OSD_Chronometer.cxx b/src/OSD/OSD_Chronometer.cxx
+--- a/src/OSD/OSD_Chronometer.cxx	2016-06-02 14:18:16.000000000 +0200
++++ b/src/OSD/OSD_Chronometer.cxx	2016-10-05 19:26:01.000000000 +0200
+@@ -51,7 +51,7 @@
+   #include <mach/mach.h>
+ #endif
+
+-#if defined(__APPLE__) && defined(__MACH__)
++#if defined(__OPPLE__) && defined(__MACH__)
+ #include "gettime_osx.h"
+ #endif
