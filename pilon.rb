@@ -12,6 +12,7 @@ class Pilon < Formula
     sha256 "f5612edbf1efa4ac46840c949f96963b8ec048a252a90b19d07de0bccc1b3d1c" => :sierra
     sha256 "f5612edbf1efa4ac46840c949f96963b8ec048a252a90b19d07de0bccc1b3d1c" => :el_capitan
     sha256 "f5612edbf1efa4ac46840c949f96963b8ec048a252a90b19d07de0bccc1b3d1c" => :yosemite
+    sha256 "0ca54d343873a55d5cc4039744cdfea08b1ec56d6fd39a753a8b90f2e7cc37fd" => :x86_64_linux
   end
 
   depends_on :java
