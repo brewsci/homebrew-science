@@ -13,6 +13,7 @@ class Samblaster < Formula
     sha256 "4137edc9cfa83df097dc67c317dec52c3a782d74d5727540119be4208622f040" => :sierra
     sha256 "b590cc9c46e59698c39d7ed144435d69b778fea516e69975820a49bc890ba6d5" => :el_capitan
     sha256 "4083347ced3f2a97d54bc03136a3eb1466d29023e81f33dd03c3adc578acbd0c" => :yosemite
+    sha256 "276c523c8272bf832ca82f2553c6fb758155e989cdc67610cf808eebed940fdd" => :x86_64_linux
   end
 
   def install
