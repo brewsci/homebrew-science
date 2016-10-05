@@ -20,13 +20,13 @@ The `test do` block allows for a post-build test of software functionality sandb
 
 `make check` or equivalent should be enabled if the package provides it:
 
-    option "without-check", "Disable build-time checking (not recommended)"
+    option "without-test", "Skip build-time tests (not recommended)""
     ...
     system "make"
-    system "make", "check" if build.with? "check"
+    system "make", "check" if build.with? "test"
     system "make", "install"
 
-If this target takes an inordinate amount of resources or is otherwise problematic the option can be switched to `"with-check"`, disabling `make check` in the default build.
+If this target takes an inordinate amount of resources or is otherwise problematic the option can be switched to `"with-test"`, disabling `make check` in the default build.
 
 #### Revisions
 
