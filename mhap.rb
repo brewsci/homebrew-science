@@ -11,9 +11,9 @@ class Mhap < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f4869a9e52350d3c26eb8253c0bdaec69b8e7a4d4226242051aa8cc8e2795048" => :el_capitan
-    sha256 "da477a2c0bbacf09f68f3c516a2eea0d72c42e711127869eccba360732324317" => :yosemite
-    sha256 "5e625cbb37e5fc9e9f0050b9e5bc2f59daf0c30aaa23d03902c76d0fa2de6231" => :mavericks
+    sha256 "9adbb7bd7ecb554569963c18b240943d7ac688e33a134abbd04928194f003bd2" => :sierra
+    sha256 "a646dc8d072bc89d60771f7a38d55c599aea25f4a45c057cf4774e99f678d365" => :el_capitan
+    sha256 "165943433f514997de36880f545b9d3d4b1ed0f196c8f4fd9e5bb10de4b9dc8c" => :yosemite
   end
 
   def install
