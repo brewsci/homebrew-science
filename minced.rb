@@ -1,6 +1,11 @@
 class Minced < Formula
   desc "Mining CRISPRs in Environmental Datasets"
   homepage "https://github.com/ctSkennerton/minced"
+  url "https://github.com/ctSkennerton/minced/archive/0.2.0.tar.gz"
+  sha256 "e1ca61e0307e6a2a2480bc0a1291a2c677110f34c3247d4773fdba7e95a6b573"
+  head "https://github.com/ctSkennerton/minced.git"
+  # tag "bioinformatics"
+
   bottle do
     cellar :any_skip_relocation
     sha256 "a216985fb9de6c65592a71c336ce839bcf6369a9be4555a0144e1ea10eaa78b5" => :el_capitan
@@ -9,19 +14,13 @@ class Minced < Formula
     sha256 "47c01ab05039209cc26031aaafe3a16e7a5685714de26ec789fb0e7c6654e514" => :x86_64_linux
   end
 
-  # tag "bioinformatics"
-
-  url "https://github.com/ctSkennerton/minced/releases/download/0.2.0/minced.jar"
-  sha256 "8c908302b829b7e1b787742e1ef7a602f5d15ac40b4fc7a24208368b0c147038"
-
-  # head "https://github.com/ctSkennerton/minced.git"
-
-  depends_on :java
+  depends_on :java => "1.8"
 
   def install
-    name = "minced"
-    (share/name).install "#{name}.jar"
-    bin.write_jar_script share/"#{name}/#{name}.jar", name
+    system "make"
+    libexec.install "minced.jar"
+    bin.write_jar_script libexec/"minced.jar", "minced"
+    pkgshare.install Dir["t/*"]
   end
 
   test do
