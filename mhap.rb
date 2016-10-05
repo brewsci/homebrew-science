@@ -4,10 +4,9 @@ class Mhap < Formula
   # doi "10.1038/nbt.3238"
   # tag "bioinformatics"
 
-  url "https://github.com/marbl/MHAP/releases/download/v2.1/mhap-2.1.jar.gz"
-  version "2.1"
-  sha256 "1525fb366d469879859e8b1df0363ceae3da29e6f3232885601f2001a9998f41"
-
+  url "https://github.com/marbl/MHAP/releases/download/v2.1.1/mhap-2.1.1.jar.gz"
+  version "2.1.1"
+  sha256 "66a5f34eb7ed23a4073edb44e3019d7ca16357951945b75a1825fd0c8763fdb3"
   head "https://github.com/marbl/MHAP.git"
 
   bottle do
