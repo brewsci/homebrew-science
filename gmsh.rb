@@ -7,9 +7,8 @@ end
 class Gmsh < Formula
   desc "3D finite element grid generator with CAD engine"
   homepage "http://geuz.org/gmsh"
-  url "http://gmsh.info/src/gmsh-2.13.1-source.tgz"
-  sha256 "a10b750aaac7d4ef7d5d168e0be520b0d62ab35380d81bcbb1972db3fb73ac96"
-  revision 2
+  url "http://gmsh.info/src/gmsh-2.13.2-source.tgz"
+  sha256 "6f61352cc80a41118600507ee8a4c3a28052d93466c5a8510558ed936d3b11e3"
 
   head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
 
@@ -21,7 +20,7 @@ class Gmsh < Formula
   end
 
   option "with-oce",               "Build with oce support (conflicts with opencascade)"
-  option "without-opencascade",    "Build without opencascade support"
+  option "with-opencascade",       "Build with opencascade support (conflicts with oce)"
 
   depends_on :fortran
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
@@ -34,7 +33,7 @@ class Gmsh < Formula
 
 
   if build.with?("opencascade") && build.with?("oce")
-    odie "gmsh: --without-opencascade must be specified when using --with-oce"
+    odie "gmsh: switches '--with-opencascade' and '--with-oce' are conflicting."
   else
     depends_on "opencascade"      if build.with? "opencascade"
     depends_on "oce"              if build.with? "oce"
