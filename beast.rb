@@ -1,12 +1,11 @@
 class Beast < Formula
   desc "Bayesian Evolutionary Analysis Sampling Trees"
   homepage "http://beast.bio.ed.ac.uk/"
+  url "https://github.com/beast-dev/beast-mcmc/archive/v1.8.4.tar.gz"
+  sha256 "de8e7dd82eb9017b3028f3b06fd588e5ace57c2b7466ba2e585f9bd8381407af"
+  head "https://github.com/beast-dev/beast-mcmc.git"
   # doi "10.1093/molbev/mss075"
   # tag "bioinformatics"
-
-  url "https://github.com/beast-dev/beast-mcmc/archive/v1.8.3.tar.gz"
-  sha256 "1b03318e77064f8d556a0859aadd3c81036b41e56e323364fb278a56a00aff44"
-  head "https://github.com/beast-dev/beast-mcmc.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,6 +16,7 @@ class Beast < Formula
   end
 
   depends_on :ant => :build
+  depends_on :java => "1.7+"
 
   def install
     system "ant", "linux"
@@ -24,6 +24,9 @@ class Beast < Formula
 
     # Move installed JARs to libexec
     mv lib, libexec
+
+    # Move examples to pkgshare
+    pkgshare.install prefix/"examples"
 
     # Point wrapper scripts to libexec
     inreplace Dir[bin/"*"] do |s|
@@ -33,12 +36,12 @@ class Beast < Formula
 
   def caveats; <<-EOS.undent
     Examples are installed in:
-      #{opt_prefix}/examples/
+      #{opt_pkgshare}/examples/
     EOS
   end
 
   test do
-    cp (opt_prefix/"examples"/"clockModels"/"testUCRelaxedClockLogNormal.xml"), testpath
+    cp (opt_pkgshare/"examples"/"clockModels"/"testUCRelaxedClockLogNormal.xml"), testpath
 
     # Run fewer generations to speed up tests
     inreplace "testUCRelaxedClockLogNormal.xml" do |s|
