@@ -1,8 +1,8 @@
 class Blis < Formula
   desc "BLAS-like Library Instantiation Software Framework"
   homepage "https://github.com/flame/blis"
-  url "https://github.com/flame/blis/archive/0.1.8.tar.gz"
-  sha256 "b649a13ccdf0040e44bdbd5cf39e7c9a24cc0ac41ded1ad10681fe9bcce4cc89"
+  url "https://github.com/flame/blis/archive/0.2.1.tar.gz"
+  sha256 "45087029417934011bf4ebefff24f1ff228299e324238170c08bc858ffae0dbf"
   head "https://github.com/flame/blis.git"
 
   bottle do
@@ -14,6 +14,10 @@ class Blis < Formula
 
   deprecated_option "without-check" => "without-test"
 
+  fails_with :clang do
+    cause "make_defs.mk:51: *** gcc is required for this configuration"
+  end
+
   option "with-configuration=",
       "BLIS framework configuration name (default: reference)\n" \
       "\thttps://github.com/flame/blis/wiki/BuildSystem" \
@@ -21,6 +25,8 @@ class Blis < Formula
   option "without-test", "Skip build-time tests (not recommended)"
   option "without-shared", "Do not build as a shared library"
   option "without-static", "Do not build as a static library"
+
+  depends_on "gcc"
 
   def install
     if build.without?("shared") && build.without?("static")
@@ -30,7 +36,7 @@ class Blis < Formula
     system "./configure",
         "-p#{prefix}",
         ARGV.value("with-configuration") || "reference"
-    if build.with? "check"
+    if build.with? "test"
       system "make", "test"
       prefix.install "output.testsuite"
     end
