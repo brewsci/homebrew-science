@@ -6,10 +6,9 @@ class BoostCompute < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "d516939ec6717a489317194b1e18bc9d9669a1a6139c6fff0997fd0880606a85" => :el_capitan
-    sha256 "a74b092683200efe5479785e816e693e443f8b4c4a1319b9872b90529e0e823d" => :yosemite
-    sha256 "7da9866ac9fac5fe928999d7e324db2c54d6070f6298cb7102332b7e9a718e77" => :mavericks
+    sha256 "3c39bd0fe571d220bc2bf9686fd47b952015d71acd3432f7fe6bd28fbb721688" => :sierra
+    sha256 "3c39bd0fe571d220bc2bf9686fd47b952015d71acd3432f7fe6bd28fbb721688" => :el_capitan
+    sha256 "3c39bd0fe571d220bc2bf9686fd47b952015d71acd3432f7fe6bd28fbb721688" => :yosemite
   end
 
   depends_on "cmake" => :build
