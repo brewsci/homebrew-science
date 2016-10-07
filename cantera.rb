@@ -3,6 +3,7 @@ class Cantera < Formula
   url "https://github.com/Cantera/cantera/archive/v2.2.1.tar.gz"
   sha256 "c7bca241848f541466f56e479402521c618410168e8983e2b54ae48888480e1e"
   head "https://github.com/cantera/cantera.git"
+  revision 1
 
   bottle do
     sha256 "2e43b966e86bab0e4bbcb58a72323c046a72af46f29ca9d8c376b66c69218eb4" => :el_capitan
