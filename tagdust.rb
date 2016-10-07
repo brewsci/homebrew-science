@@ -9,6 +9,7 @@ class Tagdust < Formula
     sha256 "03d9c2100d4c4ec058ebe172099bce03881a9c15128c36fb26dfd329151dcae0" => :sierra
     sha256 "77127e578dddb67139e381f182776bc55f4d0f3d5879285e69de42310f0ca327" => :el_capitan
     sha256 "104cff492044c54c985e5a0f634b28703cc5607281c44cb8beb75ebcaa1a6166" => :yosemite
+    sha256 "476b38d4342f76fdb0593a5076483dc5a54bebc10a25c03d7fa21a315c102292" => :x86_64_linux
   end
 
   # tag "bioinformatics"
