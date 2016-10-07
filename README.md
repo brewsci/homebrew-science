@@ -1,4 +1,5 @@
 # Homebrew Science
+![BrewSci logo](https://raw.githubusercontent.com/Homebrew/homebrew-science/gh-pages/images/brewsci-256x256.png)
 [![For science.](http://i.imgur.com/Bswp1.png)](http://xkcd.com/585)
 
 These formulæ provide software tailored to scientific endeavours. Need to store
