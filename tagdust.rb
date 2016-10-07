@@ -1,3 +1,4 @@
+# tagdust: Build a bottle for Linuxbrew
 class Tagdust < Formula
   desc "Generic method to extract reads from sequencing data"
   homepage "http://tagdust.sourceforge.net"
