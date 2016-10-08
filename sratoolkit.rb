@@ -4,10 +4,8 @@ class Sratoolkit < Formula
   # doi "10.1093/nar/gkq1019"
   # tag "bioinformatics"
 
-  url "https://github.com/ncbi/sra-tools/archive/2.7.0.tar.gz"
-  sha256 "274cd6c4a228c351b5e72eecf382d73d5cccde7d852940af68877883d7e1ea8e"
-  revision 1
-
+  url "https://github.com/ncbi/sra-tools/archive/2.8.0.tar.gz"
+  sha256 "df6ea1041d3fd3aab357b4c01c43d0054358a0e7f985a59511cae9c9e220b70a"
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
@@ -23,13 +21,13 @@ class Sratoolkit < Formula
   depends_on "hdf5" => :recommended
 
   resource "ngs-sdk" do
-    url "https://github.com/ncbi/ngs/archive/1.2.5.tar.gz"
-    sha256 "2a32c30d1611f8ce68aba81e5b44369969c6d32bcebc37aa41be2cdbaa76c113"
+    url "https://github.com/ncbi/ngs/archive/1.3.0.tar.gz"
+    sha256 "803c650a6de5bb38231d9ced7587f3ab788b415cac04b0ef4152546b18713ef2"
   end
 
   resource "ncbi-vdb" do
-    url "https://github.com/ncbi/ncbi-vdb/archive/2.7.0.tar.gz"
-    sha256 "8e227b06dffb5894cac43c2a8d3fee50b23f4609cc6a7027951ef88d7a782c74"
+    url "https://github.com/ncbi/ncbi-vdb/archive/2.8.0.tar.gz"
+    sha256 "efa0b9b4987db7ef80e2c91ba35f5a0bab202e3a4824e8f34c51de303ca4eb17"
   end
 
   def install
@@ -41,18 +39,21 @@ class Sratoolkit < Formula
 
     resource("ngs-sdk").stage do
       cd "ngs-sdk" do
-        system "./configure", "--prefix=#{prefix}", "--build=#{prefix}"
+        system "./configure", "--prefix=#{prefix}",
+                              "--build=#{Pathname.pwd}/ngs-sdk-build"
         system "make"
         system "make", "test"
         system "make", "install"
       end
     end
 
-    resource("ncbi-vdb").stage do
-      system "./configure", "--with-ngs-sdk-prefix=#{prefix}", "--prefix=#{prefix}", "--build=#{prefix}"
+    (buildpath/"ncbi-vdb").install resource("ncbi-vdb")
+    cd "ncbi-vdb" do
+      system "./configure", "--prefix=#{prefix}",
+                            "--with-ngs-sdk-prefix=#{prefix}",
+                            "--build=#{buildpath}/ncbi-vdb-build"
       system "make"
       system "make", "install"
-      (include/"ncbi-vdb").install Dir["*"]
     end
 
     inreplace "tools/copycat/Makefile", "-smagic-static", "-smagic"
@@ -60,19 +61,17 @@ class Sratoolkit < Formula
     # Fix the error: undefined reference to `SZ_encoder_enabled'
     inreplace "tools/pacbio-load/Makefile", "-shdf5 ", "-shdf5 -ssz "
 
-    system "./configure",
-      "--prefix=#{prefix}",
-      "--with-ngs-sdk-prefix=#{prefix}",
-      "--with-ncbi-vdb-sources=#{include}/ncbi-vdb",
-      "--with-ncbi-vdb-build=#{prefix}",
-      "--build=#{prefix}"
-    system "make"
-    system "make", "install"
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-ngs-sdk-prefix=#{prefix}",
+                          "--with-ncbi-vdb-sources=#{buildpath}/ncbi-vdb",
+                          "--with-ncbi-vdb-build=#{buildpath}/ncbi-vdb-build",
+                          "--build=#{buildpath}/sra-tools-build"
+
+    system "make", "VDB_SRCDIR=#{buildpath}/ncbi-vdb"
+    system "make", "VDB_SRCDIR=#{buildpath}/ncbi-vdb", "install"
+
     rm "#{bin}/magic"
     rm_rf "#{bin}/ncbi"
-    rm_rf "#{prefix}/sra-tools"
-    rm_rf "#{prefix}/ngs-sdk"
-    rm_rf "#{prefix}/ncbi-vdb"
     rm_rf "#{lib}64"
     rm_rf include.to_s
   end
