@@ -24,6 +24,13 @@ class Libbi < Formula
       sha256 "7c0785c5337bcdd8dac9e90e0c37b7766d579684d48abac35974fb5fde67d6b5"
     end if build.without? "openmp"
   end
+  bottle do
+    cellar :any
+    sha256 "6b6fcc8d95053807a1a4f084276a9896ea42faf2ddca8ab0c46a8b32394309cc" => :sierra
+    sha256 "c2f6d7c8f6d13cbcc852658285c29031b6985f7895d64882f454a413cfbdd394" => :el_capitan
+    sha256 "83ae940a4cbf044e6b87d9daf00c4e0288b43157a92f4a49319b83eab0832a88" => :yosemite
+  end
+
 
   head do
     url "https://github.com/libbi/LibBi.git"
