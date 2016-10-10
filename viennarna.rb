@@ -1,4 +1,5 @@
 class Viennarna < Formula
+  desc "Prediction and comparison of RNA secondary structures"
   homepage "http://www.tbi.univie.ac.at/~ronny/RNA/"
   # tag "bioinformatics"
   # doi "10.1186/1748-7188-6-26"
@@ -14,10 +15,13 @@ class Viennarna < Formula
     sha256 "36c76d0d280fca64bae4a5424d499830ab46c5362482bb91048a11f0d4c28702" => :x86_64_linux
   end
 
+  option "with-openmp", "Enable OpenMP multithreading"
   option "with-perl", "Build and install Perl interface"
 
   depends_on :x11
   depends_on "gd"
+
+  needs :openmp if build.with? "openmp"
 
   def install
     ENV["ARCHFLAGS"] = "-arch i386 -arch x86_64" if build.with? "perl"
@@ -28,7 +32,7 @@ class Viennarna < Formula
       "--disable-dependency-tracking",
       "--with-python",
     ]
-    args << "--disable-openmp" if ENV.compiler == :clang
+    args << "--disable-openmp" if build.without? "openmp"
     args << "--without-perl" if build.without? "perl"
 
     system "./configure", *args
@@ -39,6 +43,6 @@ class Viennarna < Formula
 
   test do
     output = `echo CGACGUAGAUGCUAGCUGACUCGAUGC |#{bin}/RNAfold --MEA`
-    assert output.include?("-1.30 MEA=21.31")
+    assert_match "-1.30 MEA=21.31", output
   end
 end
