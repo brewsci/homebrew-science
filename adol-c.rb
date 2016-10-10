@@ -1,8 +1,8 @@
 class AdolC < Formula
   desc "Automatic Differentiation by Overloading in C/C++"
   homepage "https://projects.coin-or.org/ADOL-C"
-  url "http://www.coin-or.org/download/source/ADOL-C/ADOL-C-2.6.1.tgz"
-  sha256 "037089e0f64224e5e6255b61af4fe7faac080533fd778b76fe946e52491918b5"
+  url "http://www.coin-or.org/download/source/ADOL-C/ADOL-C-2.6.2.tgz"
+  sha256 "f6326e7ba994d02074816132d4461915221069267c31862b31fab7020965c658"
   head "https://projects.coin-or.org/svn/ADOL-C/trunk/", :using => :svn
 
   bottle do
@@ -11,12 +11,18 @@ class AdolC < Formula
     sha256 "13232252782d0b91386bef40a72580b36bb430a441e31b24ecb9ae8151821c3f" => :mavericks
   end
 
+  option "with-openmp", "Enable OpenMP multithreading"
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "colpack" => :recommended
+
+  colpack_opts = []
+  colpack_opts << "with-openmp" if build.with? "openmp"
+  depends_on "colpack" => [:recommended] + colpack_opts
 
   needs :cxx11
+  needs :openmp if build.with? "openmp"
 
   def install
     ENV.cxx11
@@ -26,7 +32,6 @@ class AdolC < Formula
 
     args =  ["--prefix=#{prefix}", "--enable-sparse"]
     args << "--with-colpack=#{Formula["colpack"].opt_prefix}" if build.with? "colpack"
-    args << "--with-openmp-flag=-fopenmp" if ENV.compiler != :clang
     args << "--enable-ulong" if MacOS.prefer_64_bit?
 
     ENV.append_to_cflags "-I#{buildpath}/ADOL-C/include/adolc"
