@@ -9,10 +9,9 @@ class Elemental < Formula
   end
 
   bottle do
-    revision 1
-    sha256 "64e4ab14479423b75e2676f70e985605f3eced11ec9d49fa79e61c330d1ad40e" => :yosemite
-    sha256 "e531728234b0ce946c0dfb64b25222cbebdfac625a5ac38bbc9de6b9954a7037" => :mavericks
-    sha256 "1fd737518f9f95c7892b1dfa44ffbf44fce71561c3e9c840fdd3a87691f1fbe6" => :mountain_lion
+    sha256 "885bccf4b409e222f7f0d3b12a51dbb343b4db5646087a7a054d916df09c21e2" => :sierra
+    sha256 "81ba151f885cb5060b9c25e1b97421c253b12aea53cf9d84faf4ddf0a5f5f330" => :el_capitan
+    sha256 "9d0e87d9744e789bf332d4ae95ecffb36f7b1b0221635cc483a36cbdf8894a17" => :yosemite
   end
 
   devel do
