@@ -3,11 +3,12 @@ class Galsim < Formula
   homepage "https://github.com/GalSim-developers/GalSim"
   url "https://github.com/GalSim-developers/GalSim/archive/v1.3.0.tar.gz"
   sha256 "4afd3284adfd12845b045ea3c8e293b63057c7da57872bc9eecd005cf0a763c0"
-  head "https://github.com/GalSim-developers/GalSim.git"
   revision 1
+  head "https://github.com/GalSim-developers/GalSim.git"
 
-  option "with-openmp", "Enable openmp support (gcc only)"
-  option "without-check", "Skip build-time tests (not recommended)"
+  option "with-openmp", "Enable OpenMP multithreading"
+  option "without-test", "Skip build-time tests (not recommended)"
+  deprecated_option "without-check" => "without-test"
 
   depends_on "scons" => :build
   depends_on "fftw"
@@ -18,7 +19,9 @@ class Galsim < Formula
   # FITS support should come from astropy.io.fits (PyFITS has been deprecated)
   depends_on "astropy" => :python
   depends_on "numpy" => :python
-  depends_on "nose" => :python if build.with? "check"
+  depends_on "nose" => :python if build.with? "test"
+
+  needs :openmp if build.with? "openmp"
 
   def pyver
     IO.popen("python -c 'import sys; print sys.version[:3]'").read.strip
@@ -29,14 +32,8 @@ class Galsim < Formula
             "FFTW_DIR=#{Formula["fftw"].opt_prefix}",
             "TMV_DIR=#{Formula["tmv-cpp"].opt_prefix}",
             "TMV_LINK=#{Formula["tmv-cpp"].opt_share}/tmv/tmv-link",
-            "EXTRA_LIB_PATH=#{Formula["boost-python"].opt_lib}",
-           ]
-    if build.with? "openmp"
-      if ENV.compiler == :clang
-        opoo "OpenMP support will not be enabled. Use --cc=gcc-x.y if you require OpenMP."
-      end
-      args << "WITH_OPENMP=true"
-    end
+            "EXTRA_LIB_PATH=#{Formula["boost-python"].opt_lib}"]
+    args << "WITH_OPENMP=true" if build.with? "openmp"
     scons *args
     scons "tests"
     scons "install", "PREFIX=#{prefix}", "PYPREFIX=#{lib}/python#{pyver}/site-packages"
@@ -44,17 +41,18 @@ class Galsim < Formula
   end
 
   def caveats
-      homebrew_site_packages = Language::Python.homebrew_site_packages
-      user_site_packages = Language::Python.user_site_packages "python"
-      s = <<-EOS.undent
-        If you use the Apple-provided Python instead of one from Homebrew, you
-        may want to add all Homebrew python packages to the default paths
-        by running:
+    homebrew_site_packages = Language::Python.homebrew_site_packages
+    user_site_packages = Language::Python.user_site_packages "python"
+    s = <<-EOS.undent
+      If you use the Apple-provided Python instead of one from Homebrew, you
+      may want to add all Homebrew python packages to the default paths
+      by running:
 
-           mkdir -p #{user_site_packages}
-           echo 'import sys; sys.path.insert(1, "#{homebrew_site_packages}")' >> \\
-               #{user_site_packages}/homebrew.pth
+        mkdir -p #{user_site_packages}
+        echo 'import sys; sys.path.insert(1, "#{homebrew_site_packages}")' >> \\
+            #{user_site_packages}/homebrew.pth
     EOS
+    s
   end
 
   test do
