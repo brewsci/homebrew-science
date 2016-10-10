@@ -25,13 +25,14 @@ class Colpack < Formula
     ENV.libcxx
     system "autoreconf", "-vif"
     args = []
-    args << "with-openmp" if build.with? "openmp"
+    args << "--enable-openmp" if build.with? "openmp"
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking", *args
     system "make", "install"
     pkgshare.install "Graphs"
   end
 
   test do
+    ENV.libcxx
     cp pkgshare/"Graphs/column-compress.mtx", testpath
     (testpath/"test.cpp").write <<-EOS.undent
       #include "ColPack/ColPackHeaders.h"
@@ -67,7 +68,8 @@ class Colpack < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{opt_include}", "-L#{opt_lib}", "-lColPack", "-o", "test"
+    args = ["test.cpp", "-I#{opt_include}", "-L#{opt_lib}", "-lColPack", "-o", "test"]
+    system *(ENV.cxx.split + args)
     system "./test"
     assert_equal `./test | grep 'SUCCESS'`.strip, "SUCCESS"
   end
