@@ -14,8 +14,11 @@ class Metis < Formula
   end
 
   option :universal
+  option "with-openmp", "Enable OpenMP multithreading"
 
   depends_on "cmake" => :build
+
+  needs :openmp if build.with? "openmp"
 
   def install
     ENV.universal_binary if build.universal?
@@ -27,11 +30,11 @@ class Metis < Formula
     inreplace "GKlib/error.c", "#define MAX_JBUFS 128", "#define MAX_JBUFS 24"
 
     make_args = ["shared=1", "prefix=#{prefix}"]
-    make_args << "openmp=" + ((ENV.compiler == :clang) ? "0" : "1")
+    make_args << "openmp=" + ((build.with? "openmp") ? "0" : "1")
     system "make", "config", *make_args
     system "make", "install"
 
-    (share / "metis").install "graphs"
+    pkgshare.install "graphs"
     doc.install "manual"
   end
 
