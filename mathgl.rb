@@ -20,6 +20,7 @@ class Mathgl < Formula
   end
 
   option "with-qt=", "Build with Qt 4 or 5 support"
+  option "with-openmp", "Enable OpenMP multithreading"
 
   depends_on "cmake"   => :build
   depends_on "gsl"     => :recommended
@@ -34,18 +35,20 @@ class Mathgl < Formula
   depends_on "qt5" if with_qt? 5
   depends_on :x11  if build.with? "fltk"
 
+  needs :openmp if build.with? "openmp"
+
   def install
     args = std_cmake_args + %w[
       -Denable-glut=ON
       -Denable-gsl=ON
       -Denable-jpeg=ON
-      -Denable-pthread=ON
       -Denable-pdf=ON
       -Denable-python=OFF
       -Denable-octave=OFF
     ]
 
-    args << "-Denable-openmp=" + ((ENV.compiler == :clang) ? "OFF" : "ON")
+    args << "-Denable-openmp=" + ((build.with? "openmp") ? "ON" : "OFF")
+    args << "-Denable-pthread=" + ((build.with? "openmp") ? "OFF" : "ON")
     args << "-Denable-qt4=ON"     if with_qt? 4
     args << "-Denable-qt5=ON"     if with_qt? 5
     args << "-Denable-gif=ON"     if build.with? "giflib"
