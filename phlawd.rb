@@ -19,14 +19,6 @@ class Phlawd < Formula
     sha256 "3702f5dda4d6a607283d81b4efc83dd2cfe0c57d0ec6b8a907f974156e8f26f3" => :mavericks
   end
 
-  fails_with :clang do
-    build 600
-    cause <<-eos
-      PHLAWD requires openmp support, which is not available in clang.
-      Currently, PHLAWD can only be compiled with gcc > 4.2.
-    eos
-  end
-
   fails_with :llvm do
     cause "The llvm compiler is not supported."
   end
