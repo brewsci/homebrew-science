@@ -1,9 +1,8 @@
 class Slepc < Formula
   desc "Scalable Library for Eigenvalue Computations"
   homepage "http://www.grycap.upv.es/slepc"
-  url "http://slepc.upv.es/download/download.php?filename=slepc-3.7.2.tar.gz"
-  sha256 "09bd88a6023f39aa91edf55f24be1c8b9fdcfebb952539af0292aae69985741f"
-  revision 2
+  url "http://slepc.upv.es/download/download.php?filename=slepc-3.7.3.tar.gz"
+  sha256 "3ef9bcc645a10c1779d56b3500472ceb66df692e389d635087d30e7c46424df9"
 
   bottle do
     sha256 "d52d4dc0438078f63dc85a62bcb70096a916128682d1a1a552c10125bea237e5" => :el_capitan
