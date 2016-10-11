@@ -6,9 +6,10 @@ class Nfft < Formula
 
   bottle do
     cellar :any
-    sha256 "974d157ac1307b48aa95fd4fcf15b737c0eac42409fd35a4b7faf5b383d9b5ef" => :yosemite
-    sha256 "31491ef2ea68c1a516b33ed28ee65bb03f1ad3976f58f69f5b1fbe69054949c5" => :mavericks
-    sha256 "0636617b35ad4b61cdfe51f50db319f4247ee0482b36a6ddbb8f9d09f387f6f4" => :mountain_lion
+    rebuild 1
+    sha256 "84139f9d6ff8086294af900a96c0127c7622505da1545284017d5e7d0b34c84c" => :sierra
+    sha256 "fb20ea3b10936307e4941509a097c78db2bb51e79d590f0a1002ee52cf1a9a6a" => :el_capitan
+    sha256 "e7693f10ebff1091b248bf432165f9931cfa3086f1cdc4c6145b5025e621faa4" => :yosemite
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
