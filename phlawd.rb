@@ -14,9 +14,10 @@ class Phlawd < Formula
 
   bottle do
     cellar :any
-    sha256 "a7b98405c068cd47d3182d45a3602ac3ca8ab3b15e0fcc95e7ceab32da5fc9e1" => :el_capitan
-    sha256 "68e72f580d7e1096d4913a95e83d69d3dd5435eb31fadd75273db8fbe93618b2" => :yosemite
-    sha256 "3702f5dda4d6a607283d81b4efc83dd2cfe0c57d0ec6b8a907f974156e8f26f3" => :mavericks
+    rebuild 1
+    sha256 "eab194f5f8a40fffc3801a179d8b794c28ff29232cd2a666a05fe34913c2cdbe" => :sierra
+    sha256 "98172e8ee0bce6476d8c39e8bda5bfe6bc9ac582a41c5be2507d3f8a527bc5c4" => :el_capitan
+    sha256 "147f7deae6e1c6c0f3697ed7f3c893b338bc147fb0fc2a4f28054806982b5fef" => :yosemite
   end
 
   fails_with :llvm do
