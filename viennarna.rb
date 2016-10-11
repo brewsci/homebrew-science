@@ -8,11 +8,11 @@ class Viennarna < Formula
   sha256 "367f6a89ddbf7d326ab9ff7d87e3441774e434e1ef599d3511a4bf92a3b392eb"
 
   bottle do
-    cellar :any
-    sha256 "d904e8069d9f78c88509effdcd557b7aabdd3ea98cd545bfe877cedf241b6d6e" => :yosemite
-    sha256 "25087b1886e24201b585f09fd7e5acb0291369d5f42ff2bd09bd5e3f39d6fff9" => :mavericks
-    sha256 "ca8239c8abe3e8e47ab143e4e49e0ceb435f8316eb8bd0999ee8249dc4cc9aef" => :mountain_lion
-    sha256 "36c76d0d280fca64bae4a5424d499830ab46c5362482bb91048a11f0d4c28702" => :x86_64_linux
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "379ce1c1c5cc034df6284c1643a151eba16f11305cd441341d2da61ce65a52ce" => :sierra
+    sha256 "79877f0084806c38e46488a0330086e3011587ba1fded8b0f4844c6cf1d6bd85" => :el_capitan
+    sha256 "0a2340ab9b86cfecbe7baeee8cccbd5188ab9f9e62cfd25e8e6f7e64269e95f1" => :yosemite
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
