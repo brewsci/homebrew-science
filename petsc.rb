@@ -1,9 +1,21 @@
+class SundialsNoConflictRequirement < Requirement
+  fatal true
+
+  satisfy(:build_env => false) { !Tab.for_name("sundials").with?("petsc") }
+
+  def message; <<-EOS.undent
+    Sundials must not be compiled with PETSc support to avoid circular dependency:
+      brew uninstall sundials
+    This formula will build sundials with appropriate options.
+    EOS
+  end
+end
+
 class Petsc < Formula
   desc "Scalable solution of models that use partial differential equations"
   homepage "http://www.mcs.anl.gov/petsc/index.html"
-  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.7.3.tar.gz"
-  sha256 "7509281536ab7b908ee77ce5e999bb196f1a9e6ac5515f4518e1c3331e27128a"
-  revision 3
+  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.7.4.tar.gz"
+  sha256 "92aab64b7fd9c8491eefffd4ccebe5c8a0ba90a464e766db453e8fe96fd332e9"
 
   head "https://bitbucket.org/petsc/petsc", :using => :git
 
@@ -43,6 +55,8 @@ class Petsc < Formula
   depends_on "suite-sparse" => [:recommended] + openblasdep
   depends_on "netcdf"       => ["with-fortran", :recommended]
   depends_on "fftw"         => ["with-mpi", "with-fortran", :recommended]
+
+  depends_on SundialsNoConflictRequirement if build.with? "sundials"
 
   # TODO: YAML dependencies when the formulae are available
 
