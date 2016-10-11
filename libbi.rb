@@ -31,7 +31,6 @@ class Libbi < Formula
     sha256 "83ae940a4cbf044e6b87d9daf00c4e0288b43157a92f4a49319b83eab0832a88" => :yosemite
   end
 
-
   head do
     url "https://github.com/libbi/LibBi.git"
 
@@ -148,10 +147,20 @@ class Libbi < Formula
     system "make", "install"
 
     bin.install libexec/"bin/libbi"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"], :CPPFLAGS => ENV["CPPFLAGS"], :CXX => ENV["CXX"])
+    (libexec/"share/test").install "Test.bi", "test.conf"
+    perl_dir = `dirname $(which perl)`
+    bin.env_script_all_files(libexec/"bin", :PATH => perl_dir.chomp.concat(":\$PATH"), :PERL5LIB => ENV["PERL5LIB"], :CPPFLAGS => ENV["CPPFLAGS"], :CXX => ENV["CXX"])
+  end
+
+  def caveats; <<-EOS.undent
+    libbi must be run with the same version of perl it was installed with. Changing perl versions might require a reinstall of libbi.
+    EOS
   end
 
   test do
-    system "libbi"
+    cp Dir[libexec/"share/test/*"], testpath
+    cd testpath do
+      system "libbi", "sample", "@test.conf"
+    end
   end
 end
