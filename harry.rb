@@ -1,5 +1,5 @@
 class Harry < Formula
-  desc "A Tool for Measuring String Similarity"
+  desc "Tool for Measuring String Similarity"
   homepage "http://www.mlsec.org/harry"
   url "http://www.mlsec.org/harry/files/harry-0.4.2.tar.gz"
   sha256 "43315f616057cc1640dd87fc3d81453b97ce111683514ad99909d0033bcb578a"
@@ -10,31 +10,39 @@ class Harry < Formula
     sha256 "b89d04a14d0de576fe21fc7d3152eabdff6b80e3725626482d0dbe720bbf70b0" => :mavericks
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "libconfig"
-  depends_on "libarchive" => :recommended
-
   head do
     url "https://github.com/rieck/harry.git"
-
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
+  option "with-openmp", "Enable OpenMP multithreading"
+
+  depends_on "pkg-config" => :build
+  depends_on "libconfig"
+  depends_on "libarchive" => :recommended
+
+  needs :openmp if build.with? "openmp"
+
   def install
-    opoo "Clang does not support OpenMP. Compile with gcc to use multi-threading." if ENV.compiler == :clang
+    ENV.delete("SDKROOT")
     system "./bootstrap" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    args = ["--disable-debug",
+            "--disable-dependency-tracking",
+            "--disable-silent-rules",
+            "--prefix=#{prefix}"]
+    args << "--with-openmp" if build.with? "openmp"
+    args << "--with-pthreads" if build.without? "openmp"
+    args << "--with-libarchive" if build.with? "libarchive"
+    system "./configure", *args
     system "make", "all"
     system "make", "check"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/harry", "--version"
+    system bin/"harry", doc/"data.txt", "-"
+    system bin/"harry", "-m", "dist_hamming", doc/"data.txt", "-"
   end
 end
