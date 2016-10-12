@@ -1,8 +1,8 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "http://www.vips.ecs.soton.ac.uk/"
-  url "http://www.vips.ecs.soton.ac.uk/supported/8.4/vips-8.4.1.tar.gz"
-  sha256 "3e7021db2df099736c02aaf48211ca5f306371af75e9878a35bbcf06742cbb6e"
+  url "http://www.vips.ecs.soton.ac.uk/supported/8.4/vips-8.4.2.tar.gz"
+  sha256 "3aa197f9f0a08801f076c808cb3b3c24b6065a2ed1d648c640c8c2853682b243"
 
   bottle do
     sha256 "d75c9525e7bb8026bb420a65a6f115b34345ecddc6a8c3d99840b2c82a9b7471" => :sierra
