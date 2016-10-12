@@ -4,7 +4,7 @@ class Vtk < Formula
   url "http://www.vtk.org/files/release/7.0/VTK-7.0.0.tar.gz"
   mirror "https://fossies.org/linux/misc/VTK-7.0.0.tar.gz"
   sha256 "78a990a15ead79cdc752e86b83cfab7dbf5b7ef51ba409db02570dbdd9ec32c3"
-  revision 4
+  revision 5
 
   head "https://github.com/Kitware/VTK.git"
 
@@ -117,23 +117,31 @@ class Vtk < Formula
     ENV.cxx11 if build.cxx11?
 
     mkdir "build" do
-      if build.with?("python") && build.without?("python3")
+      if build.with?("python3") && build.with?("python")
+        # VTK Does not support building both python 2 and 3 versions
+        odie "VTK: Does not support building both python 2 and 3 wrappers"
+      elsif build.with?("python") || build.with?("python3")
+        python_executable = `which python`.strip if build.with? "python"
+        python_executable = `which python3`.strip if build.with? "python3"
+
+        python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
+        python_include = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp
+        python_version = "python" + `#{python_executable} -c 'import sys;print(sys.version[:3])'`.chomp
+        py_site_packages = "#{lib}/#{python_version}/site-packages"
+
         args << "-DVTK_WRAP_PYTHON=ON"
-        # CMake picks up the system"s python dylib, even if we have a brewed one.
-        args << "-DPYTHON_LIBRARY='#{`python-config --prefix`.chomp}/lib/libpython2.7.dylib'"
+        args << "-DPYTHON_EXECUTABLE='#{python_executable}'"
+        args << "-DPYTHON_INCLUDE_DIR='#{python_include}'"
+        # CMake picks up the system's python dylib, even if we have a brewed one.
+        if File.exist? "#{python_prefix}/Python"
+          args << "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
+        elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
+          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
+        else
+          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.dylib'"
+        end
         # Set the prefix for the python bindings to the Cellar
-        args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{lib}/python2.7/site-packages'"
-      elsif build.without?("python") && build.with?("python3")
-        args << "-DVTK_WRAP_PYTHON=ON"
-        args << "-DPYTHON_EXECUTABLE=/usr/local/bin/python3"
-        args << "-DPYTHON_INCLUDE_DIR='#{`python3-config --prefix`.chomp}/include/python3.5m'"
-        # CMake picks up the system"s python dylib, even if we have a brewed one.
-        args << "-DPYTHON_LIBRARY='#{`python3-config --prefix`.chomp}/lib/libpython3.5.dylib'"
-        # Set the prefix for the python bindings to the Cellar
-        args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{lib}/python3.5/site-packages'"
-      elsif build.with?("python3") && build.with?("python")
-        # Does not currenly support building both python 2 and 3 versions
-        odie "VTK: Does not currently support building both python 2 and 3 wrappers"
+        args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{py_site_packages}/'"
       end
 
       if build.with?("qt") || build.with?("qt5")
