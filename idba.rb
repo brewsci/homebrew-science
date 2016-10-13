@@ -9,10 +9,9 @@ class Idba < Formula
 
   bottle do
     cellar :any
-    sha256 "9ce6a82cee5d4a891f1dfe38a9a6a9d2a409f9fe9d2193c54cce498a53897eef" => :yosemite
-    sha256 "066ff8986d811ee9190db54c6fbfb77fde054ef0c096800438fa2338a4badec6" => :mavericks
-    sha256 "10bf4be36d3797c48f58580078ee2d197227cdb297f5b2ba826590fd4ba92983" => :mountain_lion
-    sha256 "b388e1426c8c92637246a8dd21487ff0b4d31c4f15073892211be12e65a3c9eb" => :x86_64_linux
+    sha256 "f62d93ef0fc8c4bac79c87fae6469a7dedf205c4ae28ad6e4a55af2605139ed0" => :sierra
+    sha256 "122697a0e489f1fe328ff5a8338704c3ada8e8f18f6f5509a43e1003485490ab" => :el_capitan
+    sha256 "3eea0748c64e69e9be231f3044edb52b6b34f316445b16f9ed4c3b6b2cbee18b" => :yosemite
   end
 
   depends_on "autoconf" => :build
