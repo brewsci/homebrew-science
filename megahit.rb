@@ -4,8 +4,8 @@ class Megahit < Formula
   # doi "10.1093/bioinformatics/btv033"
   # tag "bioinformatics"
 
-  url "https://github.com/voutcn/megahit/archive/v1.0.5.tar.gz"
-  sha256 "b16a06a58520da3801affa245575e185310617f602c7bf28a294634d4b93800b"
+  url "https://github.com/voutcn/megahit/archive/v1.0.6.tar.gz"
+  sha256 "16dde39241e11c69f20f7b55c0d28db40860ace9e624db9e43e06e34cb052c11"
 
   head "https://github.com/voutcn/megahit.git"
 
@@ -14,6 +14,13 @@ class Megahit < Formula
     sha256 "73807f684e62e5720227c81d4c9f85a1df9935b23f637f7a9d710e59adb01462" => :yosemite
     sha256 "020cb2ec6ec0c4f5c8aac9431aa71ca1b86b474500b87434a147fb89bbfd4b16" => :mavericks
     sha256 "83b0355a318e06e493e655d3cbd2b5ae3aed2764ac24322c66b24cba1eff7eb4" => :x86_64_linux
+  end
+
+  # Fix error: 'HashGraph::HashGraph(const HashGraph&)' is private within this context
+  # Fixed upstream: https://github.com/voutcn/megahit/issues/96
+  patch do
+    url "https://github.com/voutcn/megahit/commit/a9f7e90e537f79684fc2d76da971b60cac48bfa0.patch"
+    sha256 "5ec070ae1611df9b0c12e3566f7a6bf6c9f933c3b3e62f46edf2ca1fd5ab5ed1"
   end
 
   fails_with :llvm do
