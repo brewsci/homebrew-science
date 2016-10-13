@@ -11,6 +11,7 @@ class Abinit < Formula
     sha256 "69f790dd1910e514e22c586bda90903fc99afda5432671f0960de2dc53083259" => :yosemite
   end
 
+  option "with-openmp", "Enable OpenMP multithreading"
   option "without-test", "Skip build-time tests (not recommended)"
   option "with-testsuite", "Run full test suite (time consuming)"
 
@@ -25,6 +26,8 @@ class Abinit < Formula
   depends_on "netcdf" => ["with-fortran", :recommended]
   depends_on "etsf_io" => :recommended
   depends_on "gsl" => :recommended
+
+  needs :openmp if build.with? "openmp"
 
   def install
     # Environment variables CC, CXX, etc. will be ignored.
@@ -41,9 +44,9 @@ class Abinit < Formula
       --enable-mpi=yes
       --with-mpi-prefix=#{HOMEBREW_PREFIX}
       --enable-optim=safe
-      --enable-openmp=no
       --enable-gw-dpc
     ]
+    args << ("--enable-openmp=" + (build.with?("openmp") ? "yes" : "no"))
 
     dft_flavor = "none"
     trio_flavor = "none"
