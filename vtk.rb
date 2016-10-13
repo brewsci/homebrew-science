@@ -238,15 +238,8 @@ class Vtk < Formula
         }
       EOS
 
-    (testpath/"CMakeLists.txt").write <<-EOS
-      cmake_minimum_required(VERSION 2.8)
-      PROJECT(Version)
-      find_package(VTK REQUIRED)
-      include(${VTK_USE_FILE})
-      add_executable( Version Version.cpp )
-      target_link_libraries(Version ${VTK_LIBRARIES})
-      EOS
-    system "cmake", "."
-    system "make && ./Version"
+    system ENV.cxx, "Version.cpp", "-I#{opt_include}/vtk-7.0"
+    system "./a.out"
+    system "#{bin}/vtkpython", "-c", "exit()"
   end
 end
