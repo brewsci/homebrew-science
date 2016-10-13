@@ -8,11 +8,11 @@ class Oases < Formula
   sha256 "a90d469bd19d355edf6193dcf321f77216389d2831a849d4c151c1c0c771ab36"
 
   bottle do
-    cellar :any
-    sha256 "6c9a086271088e7933f75c1cd3d89c50e37bea568dac1026784dede336f858a1" => :yosemite
-    sha256 "e4f27e40c47e47e76e066f96a60186ba54fa6268c6f65eefcd190cf97f8812c3" => :mavericks
-    sha256 "844878b4b64e7d8be9097a15db5b2fef32469173b1f12f93eb6faa2d62affc20" => :mountain_lion
-    sha256 "93435651356741caa1459ad4edf46ee628dc9641035d002291964f400fa7c622" => :x86_64_linux
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "960697aae1d2da525ce31c358796f7c87b0e227de286823b6a130315e497f780" => :sierra
+    sha256 "33799650d7f12a3654d44d79ff7d9aa443fb589579d355df7d3ebab79795b841" => :el_capitan
+    sha256 "2e22db9ebc3d79b9c31b8507432a35b28a558988e8d1fa4cd16a57e28a7a3759" => :yosemite
   end
 
   option "with-maxkmerlength=", "Specify maximum k-mer length, any positive odd integer (default: 127)"
