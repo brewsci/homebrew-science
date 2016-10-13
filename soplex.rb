@@ -4,6 +4,13 @@ class Soplex < Formula
   url "http://soplex.zib.de/download/release/soplex-2.2.1.tgz"
   sha256 "c2fffca4095c56f7261820dc2bcc2a31a6a6ff91446a9da083814a913a2a086f"
 
+  bottle do
+    cellar :any
+    sha256 "41d33e7eb2e439d46876b992c58588b46a15dab29c84dbc2e09d8f6d0173fae6" => :sierra
+    sha256 "1babfb72fc28968f150f346011b2fca9df0a534e4cc32b9b7d0914002e99abf7" => :el_capitan
+    sha256 "e5948d3b0653c07e528423792f2133ea5046676d7eb12c8ed8f042e5c9a18db4" => :yosemite
+  end
+
   option "without-test", "Skip build-time tests (not recommended)"
 
   depends_on "zlib" if OS.linux?
