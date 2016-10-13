@@ -6,11 +6,10 @@ class Metis < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "cd1d538230d1c589d1e42d1d6a8f4c36e540572743a1aead69463ce544b3dd69" => :el_capitan
-    sha256 "6cf085111dd13789dafa876363d0a9b290ea33ee0db5fea6c4f69fbb4e8a9b2a" => :yosemite
-    sha256 "4dd9efbec7accf007b469e613a7a47fe32ae4328cd7bd326ceba91c255f80db9" => :mavericks
-    sha256 "28d257e79e25936ffbbacc7e3e8756952ec3061c41bfca86414c4cb3f9f5eeae" => :x86_64_linux
+    rebuild 2
+    sha256 "2823ed824da175fb8f09a26b59cafa57cc2f52c5052bff57ed454888a4d1ba86" => :sierra
+    sha256 "40ab306bef9447b8d35eff4b7193a3795c627b40f1baf5a9372a3eb4509c60d4" => :el_capitan
+    sha256 "e38752a78e5a6d873dddb4b4c9f87d77bd9cec6c4b9efc8f9fd7367aecc0cfbb" => :yosemite
   end
 
   option :universal
