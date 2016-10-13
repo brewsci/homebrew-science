@@ -20,9 +20,9 @@ class Sundials < Formula
 
   bottle do
     cellar :any
-    sha256 "d693a2b3c7d99c01259597a6eeec921423721e56b0a7cf6f981ea91c8fe39e77" => :sierra
-    sha256 "b3f43a32210cda546eecacc659afcd442f43522ad325d75f8e8411beb360babb" => :el_capitan
-    sha256 "b68f8366933e83344761b9dacb57a8f1387ad7d2f0856dd24030cfa614b3cf39" => :yosemite
+    sha256 "d0326bca849dd8eae7a5a25d4e6c01703a61cf22fd46185b0b0a7539ad8d0385" => :sierra
+    sha256 "5cadc69c135cb9b492ba394a4ca68e30af8aae5adbb2d81b22ef8af92551d1a5" => :el_capitan
+    sha256 "d8c8a40ef2bf9b8ec453955a9a5e44495daa6fa0ebac121ceb6853ddfc4fce41" => :yosemite
   end
 
   option "without-test", "Skip build-time checks and examples (not recommended)"
