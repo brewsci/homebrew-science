@@ -1,8 +1,6 @@
 class Phlawd < Formula
   desc "Phylogenetic dataset construction"
   homepage "http://www.phlawd.net/"
-  # doi "10.1186/1471-2148-9-37"
-
   # The most up to date version of phlawd is the chinchliff fork, which contains
   # a variety of bug fixes and new features. This fork and the (original)
   # blackrim fork will eventually be merged.
@@ -11,6 +9,8 @@ class Phlawd < Formula
   sha256 "0ec8e45359af6e932ea4a042fe4f42ddf05b04689a25df937b2d85db41038253"
   revision 2
   head "https://github.com/chinchliff/phlawd.git"
+  # doi "10.1186/1471-2148-9-37"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any
