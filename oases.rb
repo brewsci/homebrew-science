@@ -1,5 +1,5 @@
-
 class Oases < Formula
+  desc "De novo transcriptome assembler for very short reads"
   homepage "http://www.ebi.ac.uk/~zerbino/oases/"
   # doi "10.1093/bioinformatics/bts094"
   # tag "bioinformatics"
@@ -15,10 +15,13 @@ class Oases < Formula
     sha256 "93435651356741caa1459ad4edf46ee628dc9641035d002291964f400fa7c622" => :x86_64_linux
   end
 
-  depends_on "velvet"
-
   option "with-maxkmerlength=", "Specify maximum k-mer length, any positive odd integer (default: 127)"
   option "with-categories=", "Specify number of categories, any positive integer (default: 2)"
+  option "with-openmp", "Enable OpenMP multithreading"
+
+  depends_on "velvet"
+
+  needs :openmp if build.with? "openmp"
 
   resource "velvet" do
     url "https://www.ebi.ac.uk/~zerbino/velvet/velvet_1.2.10.tgz"
@@ -34,7 +37,7 @@ class Oases < Formula
     end
 
     args = ["LONGSEQUENCES=1"]
-    args << "OPENMP=1" unless ENV.compiler == :clang
+    args << "OPENMP=1" if build.with? "openmp"
 
     maxkmerlength = ARGV.value("with-maxkmerlength") || "127"
     args << "MAXKMERLENGTH=#{maxkmerlength}"
