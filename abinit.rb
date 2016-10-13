@@ -6,9 +6,10 @@ class Abinit < Formula
 
   bottle do
     cellar :any
-    sha256 "b46db1ea06e1e6146980d52d8db1f397f488d6f28ca01562c20111cda83240dc" => :sierra
-    sha256 "7d7cd518243afe3dcee0fa5c3aa51bd553245db1a0f24da4d6125f6e08b5e3fa" => :el_capitan
-    sha256 "69f790dd1910e514e22c586bda90903fc99afda5432671f0960de2dc53083259" => :yosemite
+    rebuild 1
+    sha256 "b60e32a19323bebae9c5ae85651009fa9e81c9db1156efd5a05b41cc4b1f94e9" => :sierra
+    sha256 "9418874505ab7553c3edafb2577092900166296e232fa0c0af1e25871fe94754" => :el_capitan
+    sha256 "8fb1203894219af9b9a317feeeeeab7afc6202fb7f19fd17cb0eca23ca8b9930" => :yosemite
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
