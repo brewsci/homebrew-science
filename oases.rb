@@ -13,6 +13,7 @@ class Oases < Formula
     sha256 "960697aae1d2da525ce31c358796f7c87b0e227de286823b6a130315e497f780" => :sierra
     sha256 "33799650d7f12a3654d44d79ff7d9aa443fb589579d355df7d3ebab79795b841" => :el_capitan
     sha256 "2e22db9ebc3d79b9c31b8507432a35b28a558988e8d1fa4cd16a57e28a7a3759" => :yosemite
+    sha256 "a5b641f152a49610d329f014981bb23bdba67beafaeb568f825876696d6a0593" => :x86_64_linux
   end
 
   option "with-maxkmerlength=", "Specify maximum k-mer length, any positive odd integer (default: 127)"
