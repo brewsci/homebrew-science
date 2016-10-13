@@ -25,7 +25,7 @@ class Oce < Formula
 
   # fix build with Xcode 8 "previous definition of CLOCK_REALTIME"
   # reported 27 Sep 2016 https://github.com/tpaviot/oce/issues/643
-  patch :DATA if DevelopmentTools.clang_version >= "8.0"
+  patch :DATA if !DevelopmentTools.clang_version.nil? && DevelopmentTools.clang_version >= "8.0"
 
   def install
     cmake_args = std_cmake_args
