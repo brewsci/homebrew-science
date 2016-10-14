@@ -1,12 +1,21 @@
 class TmvCpp < Formula
-  homepage "https://code.google.com/p/tmv-cpp/"
-  url "https://googledrive.com/host/0B6hIz9tCW5iZdEcybFNjRHFmOEE/tmv0.72.tar.gz"
-  sha256 "064424c41786d5bf85c10f9c6a3eee2cb5adc0e1bca60546d27acdf596092d5a"
-  head "http://tmv-cpp.googlecode.com/svn/trunk"
+  desc "user-friendly C++ interface to BLAS and LAPACK"
+  homepage "https://github.com/rmjarvis/tmv"
+  url "https://github.com/rmjarvis/tmv/archive/v0.73.tar.gz"
+  sha256 "6b44b89e14b9b6041af0b080ff122a5480876fdd5e5a65eaeb93ec1c98ffc582"
+  head "https://github.com/rmjarvis/tmv.git"
 
-  option "without-check", "Do not build tests (not recommended)"
+  option "without-test", "Do not build tests (not recommended)"
+  deprecated_option "without-check" => "without-test"
+
   option "with-full-check", "Go through all tests (time consuming)"
+  option "with-openmp", "Enable OpenMP multithreading"
+
   depends_on "scons" => :build
+
+  # currently fails with g++-6
+  # https://github.com/rmjarvis/tmv/issues/22
+  needs :openmp if build.with? "openmp"
 
   def install
     args = ["CXX=#{ENV["CXX"]}", "PREFIX=#{prefix}"]
@@ -15,24 +24,24 @@ class TmvCpp < Formula
                TEST_INT=true TEST_LONGDOUBLE=true
                WITH_BLAS=true WITH_LAPACK=true]
     args << "XTEST=1111111" if build.with? "full-check"
-    args << "WITH_OPENMP=false" if ENV.compiler == :clang
+    args << ("WITH_OPENMP=" + (build.with?("openmp") ? "true" : "false"))
 
     scons *args
-    scons "test" if build.with? "check"
+    scons "tests" if build.with? "test"
     scons "examples"
     scons "install"
 
     # dylibs don't have the correct install name.
     %w[libtmv.0.dylib libtmv_symband.0.dylib].each do |libname|
-      system "install_name_tool -id #{lib}/#{libname} #{lib}/#{libname}"
+      system "install_name_tool", "-id", "#{lib}/#{libname}", "#{lib}/#{libname}"
     end
 
-    (share / "tmv/tests").install Dir["test/tmvtest*"] if build.with? "check"
-    (share / "tmv/examples").install Dir["examples/*[^\.o]"]
+    (pkgshare/"tests").install Dir["test/tmvtest*"] if build.with? "test"
+    (pkgshare/"examples").install Dir["examples/*[^\.o]"]
   end
 
   test do
-    Dir[share / "tmv/tests/tmvtest*"].each do |testcase|
+    Dir[pkgshare/"tests/tmvtest*"].each do |testcase|
       system testcase
     end
   end
