@@ -1,7 +1,9 @@
 class Velvet < Formula
+  desc "sequence assembler for very short reads"
   homepage "http://www.ebi.ac.uk/~zerbino/velvet/"
   url "http://www.ebi.ac.uk/~zerbino/velvet/velvet_1.2.10.tgz"
   sha256 "884dd488c2d12f1f89cdc530a266af5d3106965f21ab9149e8cb5c633c977640"
+
   bottle do
     cellar :any
     sha256 "23c3dbe996eead11507bad1f51fd499c2165d21927fb71812d21da1e4f38669d" => :yosemite
@@ -16,10 +18,13 @@ class Velvet < Formula
 
   option "with-maxkmerlength=", "Specify maximum k-mer length, any positive odd integer (default: 31)"
   option "with-categories=", "Specify number of categories, any positive integer (default: 2)"
+  option "with-openmp", "Enable OpenMP multithreading"
+
+  needs :openmp if build.with? "openmp"
 
   def install
     args = ["CFLAGS=-Wall -m64", "LONGSEQUENCES=1"]
-    args << "OPENMP=1" unless ENV.compiler == :clang
+    args << "OPENMP=1" if build.with? "openmp"
     maxkmerlength = ARGV.value("with-maxkmerlength") || "-1"
     categories = ARGV.value("with-categories") || "-1"
     args << "MAXKMERLENGTH=#{maxkmerlength}" if maxkmerlength.to_i > 0
