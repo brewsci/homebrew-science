@@ -5,12 +5,12 @@ class Lightstringgraph < Formula
   url "https://github.com/AlgoLab/LightStringGraph/archive/v0.4.0.tar.gz"
   sha256 "7a1530b147269b285875687fecaecbfd4d94c3db04d33ddeb1d0624547317b00"
   head "https://github.com/AlgoLab/LightStringGraph.git"
+  revision 1
 
   depends_on "boost"
   depends_on "beetl" => :recommended
 
   fails_with :clang do
-    build 703
     cause "error: variable length array of non-POD element type 'string'"
   end
 
