@@ -10,6 +10,7 @@ class Velvet < Formula
     sha256 "b475b9b3cd469d2f0665fa84fc73108632c86e53a06d04b9b979c2a4ced65344" => :sierra
     sha256 "6fe3c9d2afef2247e13d63fe148baefb4be9515a680267c78474467f92528820" => :el_capitan
     sha256 "505a5749837f89cfe68f058593bc23a6c1c935ff5e212c03109b3c9c136d4de0" => :yosemite
+    sha256 "83ff1ef5b16dd8f142418c9b54189ff86979d7ba427ca55cc44c3fe6ad2197c0" => :x86_64_linux
   end
 
   # doi "10.1101/gr.074492.107"
