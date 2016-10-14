@@ -5,6 +5,13 @@ class TmvCpp < Formula
   sha256 "6b44b89e14b9b6041af0b080ff122a5480876fdd5e5a65eaeb93ec1c98ffc582"
   head "https://github.com/rmjarvis/tmv.git"
 
+  bottle do
+    cellar :any
+    sha256 "c22c4a27e0f18927b85f8e0454b51c92d1ab636bef713cb8c6771c4e6d98286b" => :sierra
+    sha256 "f555a81859663a4ba960369bb737642b19c2aff9bd182dace56782ee53647e63" => :el_capitan
+    sha256 "c267898309507b441d89163f69795ca67de36e165f6baa0651253820366f441c" => :yosemite
+  end
+
   option "without-test", "Do not build tests (not recommended)"
   deprecated_option "without-check" => "without-test"
 
