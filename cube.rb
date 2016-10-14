@@ -3,10 +3,10 @@ class Cube < Formula
   url "http://apps.fz-juelich.de/scalasca/releases/cube/4.2/dist/cube-4.2.2.tar.gz"
   sha256 "67a7e2b3cf4927620fc4e987d6fae76b753a74303b3c9d30ea2e0937e64ae82a"
 
-  depends_on "qt" => :recommended
+  # qt is currently not available on 10.12
+  depends_on "qt" => :recommended if MacOS.version < :sierra
 
   fails_with :clang do
-    build 600
     cause <<-EOS.undent
       Undefined symbols for architecture x86_64:
       "cube::Cube::def_mirror(std::string const&)", referenced from:
@@ -27,6 +27,6 @@ class Cube < Formula
   end
 
   test do
-    system "#{bin}/cube-config --version"
+    system "#{bin}/cube-config", "--version"
   end
 end
