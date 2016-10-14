@@ -12,6 +12,7 @@ class Idba < Formula
     sha256 "f62d93ef0fc8c4bac79c87fae6469a7dedf205c4ae28ad6e4a55af2605139ed0" => :sierra
     sha256 "122697a0e489f1fe328ff5a8338704c3ada8e8f18f6f5509a43e1003485490ab" => :el_capitan
     sha256 "3eea0748c64e69e9be231f3044edb52b6b34f316445b16f9ed4c3b6b2cbee18b" => :yosemite
+    sha256 "e8c0a07b4d537f67cf81fd69ab4fb821c7757232cb4e382772ccca09cec67c0c" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
