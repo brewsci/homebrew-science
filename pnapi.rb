@@ -1,20 +1,22 @@
 class Pnapi < Formula
-  homepage "http://service-technology.org/pnapi/"
+  desc "C++ library encapsulating Petri net-related functions"
+  homepage "http://home.gna.org/service-tech/pnapi"
   url "http://download.gna.org/service-tech/pnapi/pnapi-4.03.tar.gz"
   sha256 "2235be39b1c0615ded0197e57661a5127337681f034a8d29bed833f376c8a836"
 
   head do
     url "http://svn.gna.org/svn/service-tech/trunk/pnapi"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
     depends_on "libtool" => :build
     depends_on "gengetopt" => :build
     depends_on "help2man" => :build
     depends_on "gnu-sed" => :build
   end
 
-  option "without-check", "skip build-time checks (not recommended)"
+  option "with-test", "perform build-time checks"
+  deprecated_option "with-check" => "with-test"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "graphviz"
   depends_on "lola"
   depends_on "pkg-config" => :build
@@ -23,13 +25,13 @@ class Pnapi < Formula
   def install
     ENV.deparallelize if build.head?
 
-    system "autoreconf -i" if build.head?
+    system "autoreconf", "-i" if build.head?
     system "./configure", "--disable-assert",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
-    system "make", "check" if build.with? "check"
+    system "make", "check" if build.with? "test"
     # for some reason config.h is not installed by the Makefile
     (include/"pnapi").install "src/config.h"
   end
