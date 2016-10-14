@@ -1,10 +1,9 @@
 class Trilinos < Formula
   desc "Solution of large-scale, multi-physics problems"
   homepage "http://trilinos.sandia.gov"
-  url "https://github.com/trilinos/Trilinos/archive/trilinos-release-12-6-4.tar.gz"
-  version "12.6.4"
-  sha256 "d367b064c20afa848ae939cdd4c8339c47a999b4140af2cd0737a208acef79cf"
-  revision 1
+  url "https://github.com/trilinos/Trilinos/archive/trilinos-release-12-8-1.tar.gz"
+  version "12.8.1"
+  sha256 "ea5eac8a2a64b00a18c2d3e1368e6badd7f190ad16a71acf39221528849b8184"
 
   head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
 
@@ -16,6 +15,7 @@ class Trilinos < Formula
 
   option "with-test", "Perform build time checks (time consuming and contains failures)"
   option "without-python", "Build without python2 support"
+  option "with-openmp", "Enable OpenMP multithreading"
 
   deprecated_option "with-check" => "with-test"
 
@@ -23,6 +23,7 @@ class Trilinos < Formula
   # are commented out with #- and failure reasons are documented.
 
   # Undefined symbols for architecture x86_64: "Amesos_CSparse::Amesos_CSparse(Epetra_LinearProblem const&)"
+  # https://github.com/trilinos/Trilinos/issues/565
   option "with-csparse", "Build with CSparse (Experimental TPL) from suite-sparse"
 
   depends_on :mpi           => [:cc, :cxx, :recommended]
@@ -94,6 +95,7 @@ class Trilinos < Formula
 
   # Kokkos, Tpetra and Sacado will be OFF without cxx11
   needs :cxx11
+  needs :openmp if build.with? "openmp"
 
   def install
     ENV.cxx11
@@ -139,11 +141,7 @@ class Trilinos < Formula
     args << "-DTrilinos_ASSERT_MISSING_PACKAGES=OFF" if build.head?
 
     args << onoff("-DTPL_ENABLE_MPI:BOOL=", (build.with? "mpi"))
-    # TODO: OpenMP leads deal.II to fail with compiler errors in trilinos headers even though trilinos compiles fine
-    # It could be that there is a missing #include somewhere in Trilinos which becames visible when we
-    # try to use it.
-    # For now disable OpenMP:
-    # args << onoff("-DTrilinos_ENABLE_OpenMP:BOOL=", (ENV.compiler != :clang))
+    args << onoff("-DTrilinos_ENABLE_OpenMP:BOOL=", build.with?("openmp"))
     args << "-DTrilinos_ENABLE_OpenMP:BOOL=OFF"
     args << "-DTrilinos_ENABLE_CXX11:BOOL=ON"
 
