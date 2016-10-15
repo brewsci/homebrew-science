@@ -1,8 +1,9 @@
 class Gmt4 < Formula
+  desc "Manipulation of geographic and Cartesian data sets"
   homepage "http://gmt.soest.hawaii.edu/"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.14-src.tar.bz2"
-  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-4.5.14-src.tar.bz2"
-  sha256 "b34ab9bcfdc6b85036546372f1c6ef6138420d12a343052fc95fed40962adfe3"
+  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.15-src.tar.bz2"
+  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-4.5.15-src.tar.bz2"
+  sha256 "f0646402858559ea07a3d51f5029a0b43e7af7547ab79c3064cce3f899ad6626"
 
   bottle do
     sha256 "9941229dd9ec00eb4f81e044218d348cb96f7dd364a141f7ff3e1bad84beb988" => :el_capitan
@@ -16,9 +17,9 @@ class Gmt4 < Formula
   conflicts_with "gmt", :because => "both versions install the same binaries."
 
   resource "gshhg" do
-    url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.4.tar.gz"
-    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.4.tar.gz"
-    sha256 "420c6c0df9170015ac0f7c7d472c5a58f8b70a7bf89f162c59dcd70735389110"
+    url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.6.tar.gz"
+    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.6.tar.gz"
+    sha256 "ccffff9d96fd6c9cc4f9fbc897d7420c5fc3862fb98d1fd1b03dc4a15c95124e"
   end
 
   def install
@@ -33,10 +34,16 @@ class Gmt4 < Formula
                           "--disable-xgrid",
                           "--disable-mex"
     system "make"
-    system "make install-gmt"
-    system "make install-data"
-    system "make install-suppl"
-    system "make install-man"
+    system "make", "install-gmt"
+    system "make", "install-data"
+    system "make", "install-suppl"
+    system "make", "install-man"
     datadir.install resource("gshhg")
+  end
+
+  test do
+    cd testpath do
+      system "gmt pscoast -R-90/-70/0/20 -JM6i -P -Ba5 -Gchocolate > GMT_tut_3.ps"
+    end
   end
 end
