@@ -6,9 +6,9 @@ class Gmt4 < Formula
   sha256 "f0646402858559ea07a3d51f5029a0b43e7af7547ab79c3064cce3f899ad6626"
 
   bottle do
-    sha256 "9941229dd9ec00eb4f81e044218d348cb96f7dd364a141f7ff3e1bad84beb988" => :el_capitan
-    sha256 "b435bbc16bb61108fec57fde20c5c321f731deab4f6aa58f4428b08f94815bd8" => :yosemite
-    sha256 "88327327631181c96c69a26e2cbd96bb36688ff33c76ebe23e182761d131d9c8" => :mavericks
+    sha256 "d2fdb0d6e6a794688ccb021788bd3c4670a53242bf337bba69ed31708a2ac354" => :sierra
+    sha256 "95561595edb5fe2746172472dbbf28addbe4b33bec4c718da6ab5d0f785cab89" => :el_capitan
+    sha256 "7c46380cd50294f6d078af1163668928bc5c1250cc936218a4869b00f958734d" => :yosemite
   end
 
   depends_on "gdal"
