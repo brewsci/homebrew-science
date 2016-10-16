@@ -5,6 +5,12 @@ class Omcompiler < Formula
       :tag => "v1.9.6",
       :revision => "d3c35c90b382998275f42eb5da05c0f25e6b63a8"
 
+  bottle do
+    sha256 "f0f61fb5c79d1ec1262abbd705752612cd06bb702d8ec43ac7529893dd3f37b2" => :sierra
+    sha256 "8f90e485a4f2b477d6cb3ec75a907698c0825f753de76e7664bc5a4dd8729a44" => :el_capitan
+    sha256 "290c67df15a0e1eea8913c07ffeac6f5dcce01c1d0505fd91a9a7e4d9ff3ebae" => :yosemite
+  end
+
   # Build dependencies
   depends_on "autoconf"     => :build
   depends_on "automake"     => :build
