@@ -12,6 +12,13 @@ class FastxToolkit < Formula
       sha256 "792e0ea3c96ffe3ad65617a104b7dc50684932bc96d2adab501c952fd65c3e4a"
     end
   end
+  bottle do
+    cellar :any
+    sha256 "16a206dd63204c3e4df48dea0cd0fe66fdd523eefc896906a88a62c74c5b4049" => :sierra
+    sha256 "0281c815a83cf3656e2e54d2f11fa7a7416938e3e0f4f558408db611ac18c42a" => :el_capitan
+    sha256 "58b8c0df75f64dae6649f0a67f4aa8cfcb5512f5da763fdb0075a950bd5d0d2b" => :yosemite
+  end
+
 
   head do
     url "https://github.com/agordon/fastx_toolkit.git"
