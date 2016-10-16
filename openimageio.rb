@@ -1,8 +1,8 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "http://openimageio.org"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-1.6.16.tar.gz"
-  sha256 "619592ef04e9fd239e86be79d13f67234a3a0f4c60b3906ba1eeebfc28dddc89"
+  url "https://github.com/OpenImageIO/oiio/archive/Release-1.7.7.tar.gz"
+  sha256 "1c006765d153d1c56806e78a83ece330f7905209ecf0f5d3c3b52d77a328345a"
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
@@ -14,6 +14,7 @@ class Openimageio < Formula
 
   option "with-test", "Dowload 95MB of test images and verify Oiio (~2 min)"
   option "with-qt", "Build with qt support, neccessary for iv image viewer"
+  option "with-jpeg-turbo", "Build with libjpeg-turbo support, instead of libjpeg"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -35,6 +36,7 @@ class Openimageio < Formula
   depends_on "webp"
   depends_on "opencv" => :recommended
   depends_on :python3 => :optional
+  depends_on "jpeg-turbo" => :optional
 
   depends_on "glew" if build.with? "qt"
 
@@ -94,12 +96,12 @@ class Openimageio < Formula
 
     ENV.append "MY_CMAKE_FLAGS", "-Wno-dev" # stops a warning.
     ENV.append "MY_CMAKE_FLAGS", "-DUSE_OPENCV=OFF" if build.without? "opencv"
+    ENV.append "MY_CMAKE_FLAGS", "-DUSE_JPEGTURBO=OFF" if build.without? "jpeg-turbo"
     ENV.append "MY_CMAKE_FLAGS", "-DCMAKE_FIND_FRAMEWORK=LAST"
     ENV.append "MY_CMAKE_FLAGS", "-DCMAKE_VERBOSE_MAKEFILE=ON"
 
     # Explicilty disable CMake modules to prevent undeclared dependencies
     ENV.append "MY_CMAKE_FLAGS", "-DUSE_FFMPEG=OFF"
-    ENV.append "MY_CMAKE_FLAGS", "-DUSE_JPEGTURBO=OFF"
     ENV.append "MY_CMAKE_FLAGS", "-DUSE_LIBRAW=OFF"
     ENV.append "MY_CMAKE_FLAGS", "-DUSE_PTEX=OFF"
 
