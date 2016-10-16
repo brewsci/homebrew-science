@@ -1,6 +1,7 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
+  revision 1
 
   stable do
     url "ftp://alpha.gnu.org/gnu/octave/octave-4.2.0-rc2.tar.xz"
@@ -54,8 +55,10 @@ class Octave < Formula
   skip_clean "share/info" # Keep the docs
 
   # deprecated options
+  deprecated_option "with-jit"      => "with-llvm"
+  deprecated_option "with-audio"    => "with-sndfile"
   deprecated_option "without-check" => "without-test"
-  deprecated_option "without-gui" => "without-qt5"
+  deprecated_option "without-gui"   => "without-qt5"
 
   # options, enabled by default
   option "without-curl",           "Do not use cURL (urlread/urlwrite/@ftp)"
@@ -67,62 +70,72 @@ class Octave < Formula
   option "without-opengl",         "Do not use opengl"
   option "without-qhull",          "Do not use the Qhull library (delaunay,voronoi,etc.)"
   option "without-qrupdate",       "Do not use the QRupdate package (qrdelete,qrinsert,qrshift,qrupdate)"
+  option "without-qt5",            "Do not compile with qt-based graphical user interface"
   option "without-suite-sparse",   "Do not use SuiteSparse (sparse matrix operations)"
   option "without-test",           "Do not perform build-time tests (not recommended)"
   option "without-zlib",           "Do not use zlib (compressed MATLAB file formats)"
 
   # options, disabled by default
-  option "with-audio",             "Use the sndfile and portaudio libraries for audio operations"
   option "with-docs",              "Compile and install documentation"
   option "with-java",              "Use Java, requires Java 6 from https://support.apple.com/kb/DL1572"
-  option "with-jit",               "Use the experimental just-in-time compiler (not recommended)"
+  option "with-llvm",              "Use the experimental just-in-time compiler (not recommended)"
   option "with-openblas",          "Use OpenBLAS instead of native LAPACK/BLAS"
   option "with-osmesa",            "Use the OSmesa library (incompatible with opengl)"
-  option "with-qt5",               "Compile with graphical user interface"
+  option "with-portaudio",         "Use portaudio for audio playback and recording"
+  option "with-sndfile",           "Use sndfile libraries for audio file operations"
 
   # build dependencies
-  depends_on "gnu-sed"         => :build
-  depends_on "pkg-config"      => :build
+  depends_on "gnu-sed"             => :build # http://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
+  depends_on "pkg-config"          => :build
 
   # essential dependencies
   depends_on :fortran
   depends_on :x11
-  depends_on "bison"           => :build
+  depends_on "bison"               => :build
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "gawk"            => :build
-  depends_on "texinfo"         => :build # we need >4.8
+  depends_on "gawk"                => :build
+  depends_on "texinfo"             => :build # we need >4.8
   depends_on "pcre"
 
   # recommended dependencies (implicit options)
-  depends_on "readline"       => :recommended
-  depends_on "arpack"         => :recommended
-  depends_on "epstool"        => :recommended
-  depends_on "ghostscript"    => :recommended  # ps/pdf image output
-  depends_on "gl2ps"          => :recommended
-  depends_on "graphicsmagick" => :recommended  # imread/imwrite
-  depends_on "transfig"       => :recommended
+  depends_on "arpack"              => :recommended
+  depends_on "curl"                => :recommended
+  depends_on "epstool"             => :recommended
+  depends_on "fftw"                => :recommended
+  depends_on "fltk"                => :recommended
+  depends_on "gl2ps"               => :recommended
+  depends_on "glpk"                => :recommended
+  depends_on "graphicsmagick"      => :recommended # imread/imwrite
+  depends_on "hdf5"                => :recommended
+  depends_on "qhull"               => :recommended
+  depends_on "qrupdate"            => :recommended
+  depends_on "readline"            => :recommended
+  depends_on "suite-sparse"        => :recommended
+  depends_on "transfig"            => :recommended
 
-  # conditional dependecies (explicit options)
-  depends_on "curl"            if build.with?("curl") && MacOS.version == :leopard
-  depends_on "fftw"            if build.with? "fftw"
-  depends_on "fltk"            if build.with? "fltk"
-  depends_on "glpk"            if build.with? "glpk"
-  depends_on "gnuplot"         if build.with? "gnuplot"
-  depends_on "hdf5"            if build.with? "hdf5"
-  depends_on :java => "1.6+"   if build.with? "java"
-  depends_on "libsndfile"      if build.with? "audio"
-  depends_on "llvm"            if build.with? "jit"
-  depends_on "portaudio"       if build.with? "audio"
-  depends_on "pstoedit"        if build.with? "ghostscript"
-  depends_on "qhull"           if build.with? "qhull"
-  depends_on "qrupdate"        if build.with? "qrupdate"
-  depends_on "qscintilla2"     if build.with? "qt5"
-  depends_on "qt5"             if build.with? "qt5"
-  depends_on "suite-sparse"    if build.with? "suite-sparse"
-  depends_on "veclibfort"      if build.without?("openblas") && OS.mac?
+  # recommended blas dependencies
+  depends_on "openblas"            => (OS.mac? ? :optional : :recommended)
+  depends_on "veclibfort"          if build.without?("openblas") && OS.mac?
 
-  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
+  # recommended ghostscript dependencies
+  depends_on "ghostscript"         => :recommended # ps/pdf image output
+  depends_on "pstoedit"            if build.with? "ghostscript"
+
+  # recommended qt5 dependencies
+  depends_on "qt5"                 => :recommended
+  if build.with? "qt5"
+    depends_on "qscintilla2"
+    depends_on "gnuplot" => [:recommended, "with-qt5"]
+  else
+    depends_on "gnuplot" => :recommended
+  end
+
+  # other optional dependencies
+  depends_on "libsndfile"          => :optional
+  depends_on "llvm"                => :optional
+  depends_on "portaudio"           => :optional
+  depends_on :java                 => ["1.6+", :optional]
 
   # If GraphicsMagick was built from source, it is possible that it was
   # done to change quantum depth. If so, our Octave bottles are no good.
@@ -164,8 +177,8 @@ class Octave < Formula
     args << "--without-zlib"             if build.without? "zlib"
 
     # arguments for options disabled by default
-    args << "--with-portaudio"           if build.without? "audio"
-    args << "--with-sndfile"             if build.without? "audio"
+    args << "--with-portaudio"           if build.with? "portaudio"
+    args << "--with-sndfile"             if build.with? "sndfile"
     args << "--disable-java"             if build.without? "java"
     args << "--enable-jit"               if build.with? "jit"
 
@@ -216,6 +229,10 @@ class Octave < Formula
     # can cause linking problems.
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
 
+    # Octave does strict assumptions on the name of qscintilla2
+    # see http://savannah.gnu.org/bugs/?48773
+    inreplace "configure", "qscintilla2-qt5 qt5scintilla2", "qscintilla2-qt5 qt5scintilla2 qscintilla2"
+
     system "./configure", *args
     system "make", "all"
     system "make", "check" if build.with? "test"
@@ -242,7 +259,7 @@ class Octave < Formula
       s += <<-EOS.undent
 
       Octave's graphical user interface is disabled; compile Octave with the option
-      --with-gui to enable it.
+      --with-qt5 to enable it.
 
       EOS
 
