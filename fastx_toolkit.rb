@@ -1,5 +1,7 @@
 class FastxToolkit < Formula
+  desc "Process short-read FASTA/FASTQ sequencing files"
   homepage "http://hannonlab.cshl.edu/fastx_toolkit/"
+  # tag "bioinformatics"
 
   stable do
     url "https://github.com/agordon/fastx_toolkit/releases/download/0.0.14/fastx_toolkit-0.0.14.tar.bz2"
@@ -27,7 +29,7 @@ class FastxToolkit < Formula
 
   fails_with :clang do
     build (MacOS.version >= :mavericks ? 425 : 503)
-    cause 'clang build fails on Mountain Lion, but works on Mavericks. See issue #620'
+    cause "clang build fails on Mountain Lion, but works on Mavericks. See issue #620"
   end
 
   def install
