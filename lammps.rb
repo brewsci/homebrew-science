@@ -1,13 +1,11 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "http://lammps.sandia.gov"
-  url "http://lammps.sandia.gov/tars/lammps-14May16.tar.gz"
+  url "http://lammps.sandia.gov/tars/lammps-13Oct16.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY.MM.DD (year.month.day) so that we get a comparable version numbering (for brew outdated)
-  version "2016.05.14"
-  sha256 "a056a289cd86d4fa8f6a285b26104b04ab92e5ccc445f66281a0c23a432225c9"
-  revision 1
-
+  version "2016.10.13"
+  sha256 "ca6f7269c6b0ba739954903c3588ae168ab1320c9fc2eb8a7e3f6bf2cd0b5ee8"
   head "http://git.icms.temple.edu/lammps-ro.git"
 
   bottle do
@@ -27,7 +25,7 @@ class Lammps < Formula
     user-molfile
     user-reaxc
     user-sph
-  ]
+  ].freeze
 
   # could not get gpu or user-cuda to install (hardware problem?)
   # kim requires openkim software, which is not currently in homebrew.
@@ -38,11 +36,11 @@ class Lammps < Formula
     kim
     user-omp
     kokkos
-  ]
+  ].freeze
   DISABLED_USER_PACKAGES = %w[
     user-atc
     user-cuda
-  ]
+  ].freeze
 
   # setup user-packages as options
   USER_PACKAGES.each do |package|
@@ -99,6 +97,15 @@ class Lammps < Formula
 
   def install
     ENV.j1 # not parallel safe (some packages have race conditions :meam:)
+
+    cd "lib/python" do
+      inreplace ["Makefile.lammps", "Makefile.lammps.python2"],
+        "python_SYSLIB = $(shell which python2-config > /dev/null 2>&1 && python2-config --ldflags || python-config --ldflags)",
+        "python_SYSLIB = -ldl -framework CoreFoundation -undefined dynamic_lookup"
+      inreplace "Makefile.lammps.python2.7",
+        "python_SYSLIB = -lpython2.7 -lnsl -ldl -lreadline -ltermcap -lpthread -lutil -lm -Xlinker -export-dynamic",
+        "python_SYSLIB = -undefined dynamic_lookup -lnsl -ldl -lreadline -ltermcap -lpthread -lutil -lm -Xlinker -export-dynamic"
+    end
 
     # make sure to optimize the installation
     ENV.append "CFLAGS", "-O"
