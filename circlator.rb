@@ -3,8 +3,8 @@ class Circlator < Formula
 
   desc "Tool to circularize genome assemblies"
   homepage "https://sanger-pathogens.github.io/circlator/"
-  url "https://github.com/sanger-pathogens/circlator/archive/v1.3.0.tar.gz"
-  sha256 "0d5219ffa7b2c93fbd8277e6b39ac8e3926cb71b64a06c3f66e3f98a0b5be39d"
+  url "https://github.com/sanger-pathogens/circlator/archive/v1.4.0.tar.gz"
+  sha256 "dfd07bed66237adc48417466f44f1953c16bf0da59a752a0ae90b9f5fdefe402"
   head "https://github.com/sanger-pathogens/circlator.git"
 
   bottle do
@@ -30,23 +30,23 @@ class Circlator < Formula
   end
 
   resource "jdcal" do
-    url "https://files.pythonhosted.org/packages/37/36/3199cfb80fcbf4e4df3a43647733d4f429862c6c97aeadd757613b9e6830/jdcal-1.2.tar.gz"
-    sha256 "5ebedb58b95ebabd30f56abef65139c6f69ec1687cf1d2f3a7c503f9a2cdfa4d"
+    url "https://files.pythonhosted.org/packages/9b/fa/40beb2aa43a13f740dd5be367a10a03270043787833409c61b79e69f1dfd/jdcal-1.3.tar.gz"
+    sha256 "b760160f8dc8cc51d17875c6b663fafe64be699e10ce34b6a95184b5aa0fdc9e"
   end
 
   resource "openpyxl" do
-    url "https://files.pythonhosted.org/packages/25/17/0d6096f9b2cb3e0ebb5b2fb60de016606f6dd599bec94ed524e84a1e2da8/openpyxl-2.3.5.tar.gz"
-    sha256 "4307578b94a708e1519295c333c51477ac51a06f01e81b2697cc301c286a4762"
+    url "https://files.pythonhosted.org/packages/7e/75/9bb309f80e4f75d139ecc55e9edf65c5844336b5a84966a609267255f961/openpyxl-2.4.0.tar.gz"
+    sha256 "21c02df20d626ebd2e92b3c33066ba3ad18520a92d4b6d734f4dee99b4289283"
   end
 
   resource "pyfastaq" do
-    url "https://files.pythonhosted.org/packages/2a/46/6ece19838a79489556c97092e832bafeb46e7b28c52418a6c5a7568da999/pyfastaq-3.13.0.tar.gz"
-    sha256 "79bfe342e053d51efbc7a901489c62e996566b4baf0f33cde1caff3a387756af"
+    url "https://files.pythonhosted.org/packages/0e/5d/8b39442b62c43da835c89f4c244d037bc7fcd8b47b0c0fff6e8d9097a035/pyfastaq-3.14.0.tar.gz"
+    sha256 "54dc8cc8b3d24111f6939cf563833b8e9e78777b9cf7b82ca8ddec04aa1c05f2"
   end
 
   resource "pymummer" do
-    url "https://files.pythonhosted.org/packages/8d/28/e289144751e0b33685f00a54eb5947b989348d4472a83b64a8de0b0e3f2e/pymummer-0.7.1.tar.gz"
-    sha256 "7aab311c60fcb9fc5a2bce658e949d80f4801e73107eb2e835f46caed02cfedf"
+    url "https://files.pythonhosted.org/packages/96/04/a67728a727a8214de494b06178bfaca025550156889953d581a141976ec0/pymummer-0.10.1.tar.gz"
+    sha256 "04a06d2faecf5b972b3a60e1493520e384cb10dd5c00bf7d643a1d059c4e8f87"
   end
 
   resource "pysam" do
@@ -55,7 +55,6 @@ class Circlator < Formula
   end
 
   def install
-    virtualenv_create(libexec, "python3")
     virtualenv_install_with_resources
   end
 
