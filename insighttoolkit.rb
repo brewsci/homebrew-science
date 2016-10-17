@@ -1,10 +1,8 @@
 class Insighttoolkit < Formula
   desc "ITK is a toolkit for performing registration and segmentation"
   homepage "http://www.itk.org"
-  url "https://downloads.sourceforge.net/project/itk/itk/4.10/InsightToolkit-4.10.0.tar.gz"
-  sha256 "2ede59a95c4864885c863365f9df9371c39d2b31a545e3da6bda800249840168"
-  revision 1
-
+  url "https://downloads.sourceforge.net/project/itk/itk/4.10/InsightToolkit-4.10.1.tar.gz"
+  sha256 "cb1048facf2b60cebf4ea0b3f89a13a32f8036d906aab3cfafa65e94760caa7a"
   head "git://itk.org/ITK.git"
 
   bottle do
