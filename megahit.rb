@@ -13,6 +13,7 @@ class Megahit < Formula
     sha256 "7f4912f5884915f4a9f95c60880e72aaafe16c5e632449777859bb313302e542" => :sierra
     sha256 "9828d04f35fbbc5106dad0e696d8eb5d4b85a522aaba03061355939d36972244" => :el_capitan
     sha256 "4628d5e3c19988808e15c631ebc08a20eef96d5a4f7773c67163fb715f721ef9" => :yosemite
+    sha256 "cbe3c26c1b373422fac89b257ff7b805c8ef62b3c74573c492e6b5654ea1e17b" => :x86_64_linux
   end
 
   # Fix error: 'HashGraph::HashGraph(const HashGraph&)' is private within this context
