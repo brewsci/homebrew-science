@@ -5,6 +5,13 @@ class MadX < Formula
   url "http://svn.cern.ch/guest/madx/tags/5.02.12/madX/"
   head "http://svn.cern.ch/guest/madx/trunk/madX/"
 
+  bottle do
+    cellar :any
+    sha256 "47118481abb0e82d5c1a5daf6634ff3627147536877e77c7cd0d4bfc36649fd4" => :sierra
+    sha256 "211f4542a5fd90eda1cb39d2834b8ff21384953a7bdf898f96bd8bf142759952" => :el_capitan
+    sha256 "277924e195dc4656a7735d7451145010708549f3a02f4ed14092968906d56864" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on :fortran
   depends_on :x11
