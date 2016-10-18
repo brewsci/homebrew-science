@@ -4,6 +4,7 @@ class KentTools < Formula
   url "http://hgdownload.soe.ucsc.edu/admin/exe/userApps.v339.src.tgz"
   sha256 "8de1450dae123cfc6953b77b40c28e945d2278a0b0cf2ef0c36e5c373b234bee"
   head "git://genome-source.cse.ucsc.edu/kent.git"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any
