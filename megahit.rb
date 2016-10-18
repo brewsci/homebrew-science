@@ -10,10 +10,9 @@ class Megahit < Formula
   head "https://github.com/voutcn/megahit.git"
 
   bottle do
-    sha256 "f0c6ad32a8ce2b8699843e122a11603ecf038d8cd1994ecfa53d84a298b9fbff" => :el_capitan
-    sha256 "73807f684e62e5720227c81d4c9f85a1df9935b23f637f7a9d710e59adb01462" => :yosemite
-    sha256 "020cb2ec6ec0c4f5c8aac9431aa71ca1b86b474500b87434a147fb89bbfd4b16" => :mavericks
-    sha256 "83b0355a318e06e493e655d3cbd2b5ae3aed2764ac24322c66b24cba1eff7eb4" => :x86_64_linux
+    sha256 "7f4912f5884915f4a9f95c60880e72aaafe16c5e632449777859bb313302e542" => :sierra
+    sha256 "9828d04f35fbbc5106dad0e696d8eb5d4b85a522aaba03061355939d36972244" => :el_capitan
+    sha256 "4628d5e3c19988808e15c631ebc08a20eef96d5a4f7773c67163fb715f721ef9" => :yosemite
   end
 
   # Fix error: 'HashGraph::HashGraph(const HashGraph&)' is private within this context
