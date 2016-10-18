@@ -7,9 +7,8 @@ end
 class Getdp < Formula
   desc "Open source finite element solver using mixed elements."
   homepage "http://www.geuz.org/getdp/"
-  url "http://www.geuz.org/getdp/src/getdp-2.9.2-source.tgz"
-  sha256 "15f4a88c9344234834e8fa0d6b26988ab05f6fe0b2720964083bdcda42351fa1"
-  revision 1
+  url "http://getdp.info/src/getdp-2.10.0-source.tgz"
+  sha256 "2f16b2ce9941aada75ddfef4eb5b96d0c47478e4ed82a67dc4ca8e3ff8f72599"
 
   head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
 
