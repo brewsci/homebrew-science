@@ -3,8 +3,8 @@ class Igv < Formula
   homepage "https://www.broadinstitute.org/software/igv"
   # tag "bioinformatics"
   # doi "10.1093/bib/bbs017"
-  url "https://www.broadinstitute.org/igv/projects/downloads/IGV_2.3.82.zip"
-  sha256 "cac28a0fe6eac05658adbc496f6772fc881912981536b5b9cc96b30872a88ce1"
+  url "https://www.broadinstitute.org/igv/projects/downloads/IGV_2.3.83.zip"
+  sha256 "9810afc7769249b7cb4f0d0456f1ce89b61331818c5c6164d32a67e302ae3d77"
   head "https://github.com/broadinstitute/IGV.git"
 
   bottle :unneeded
