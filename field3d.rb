@@ -30,7 +30,7 @@ class Field3d < Formula
   end
 
   test do
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lfield3d",
+    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lField3D",
            "-I#{Formula["boost"].opt_include}",
            "-L#{Formula["boost"].opt_lib}", "-lboost_system",
            "-I#{Formula["hdf5"].opt_include}",
