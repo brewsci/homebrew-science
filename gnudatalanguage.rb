@@ -41,6 +41,8 @@ class Gnudatalanguage < Formula
     sha256 "937e82f6052aa72576df49046aa57d03593c7ba21d074f2455cd614318b881dd"
   end
 
+  patch :DATA if build.with? "hdf4"
+
   def install
     args = std_cmake_args
     args << "-DHDF=OFF" if build.without?("hdf4")
@@ -57,3 +59,20 @@ class Gnudatalanguage < Formula
     system "#{bin}/gdl", "--version"
   end
 end
+
+__END__
+diff --git a/src/GDLTokenTypes.hpp b/src/GDLTokenTypes.hpp
+index 06b9316..a91f226 100644
+--- a/src/GDLTokenTypes.hpp
++++ b/src/GDLTokenTypes.hpp
+@@ -10,6 +10,10 @@
+ #ifdef __cplusplus
+ struct CUSTOM_API GDLTokenTypes {
+ #endif
++
++#ifdef NOP
++#undef NOP
++#endif
+	enum {
+		EOF_ = 1,
+		ALL = 4,
