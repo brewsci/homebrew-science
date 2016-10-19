@@ -47,8 +47,12 @@ class Openimageio < Formula
     sha256 "21cf3156ed2a2a39765c0d57f36c71d1291e9c30054775a2f0a8fdd2964f1799"
   end
 
+  # DNS cannot resolve ftp.remotesensing.org to 140.211.15.132
   resource "tiffpic" do
-    url "ftp://ftp.remotesensing.org/pub/libtiff/pics-3.8.0.tar.gz"
+    url "ftp://140.211.15.132/pub/libtiff/pics-3.8.0.tar.gz"
+    mirror "http://dl.maptools.org/dl/libtiff/pics-3.8.0.tar.gz"
+    mirror "ftp://ftp.ntua.gr/pub/graphics/tiff/pics-3.8.0.tar.gz"
+    mirror "ftp://ftp.u-aizu.ac.jp/pub/graphics/image/ImageMagick/simplesystems.org/libtiff/pics-3.8.0.tar.gz"
     sha256 "e0e34732b61e1ce49eff2c7a079994c856d2a5f772f5228c84678272bc6829a9"
   end
 
