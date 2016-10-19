@@ -6,9 +6,9 @@ class Fplll < Formula
   sha256 "d2b11b7dcb26c30ac1aab9ff75aca9b3dd6e0b0b40c382af16017a717dfe05c2"
 
   bottle do
-    sha256 "491208e21633670637197906301caa4de673226f79121b4ea9b0d464b1ae0cd1" => :el_capitan
-    sha256 "188ec3033d607103a242c0809062fe012e19aa06b07dab9a2a8c6ab17ce66506" => :yosemite
-    sha256 "b494ba9cf9a01e4efc4db5e7c6c271c5d8e6153a972a40eb8f6ceafe9c5da94e" => :mavericks
+    sha256 "a04abe726103e053f0f79ccc272dfe2d9d8889d5fd5994156d9407c42f19f303" => :sierra
+    sha256 "28c720c3ddecc1fa1c81cb06e93a2afb2ccd831fa59cf97b41f8fa6eb10a6d5d" => :el_capitan
+    sha256 "d2812782c33ac299a0989afe88e617d39a1b3b26339a0e0f94a1dfc88b9bec58" => :yosemite
   end
 
   needs :cxx11
