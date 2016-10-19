@@ -2,15 +2,15 @@ class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "http://libbi.org"
 
-  patch do
-    # patch for thrust to work in case CUDA is not installed
-    url "https://github.com/libbi/LibBi/pull/8.diff"
-    sha256 "cd3aec69ec9aa05fc5ed1d9ccaead9494f9ce4d580577c51b3e8acb63273663b"
-  end
-
   stable do
     url "https://github.com/libbi/LibBi/archive/1.2.0.tar.gz"
     sha256 "57566aff0b752dd55356c21b818295e3a54ad893bc6aff97d267ff7bcf2d0b68"
+
+    patch do
+      # patch for thrust to work in case CUDA is not installed
+      url "https://github.com/libbi/LibBi/pull/8.diff"
+      sha256 "cd3aec69ec9aa05fc5ed1d9ccaead9494f9ce4d580577c51b3e8acb63273663b"
+    end
 
     patch do
       # fix to work if CUDA_ROOT is not set
@@ -33,12 +33,6 @@ class Libbi < Formula
 
   head do
     url "https://github.com/libbi/LibBi.git"
-
-    patch do
-      # fix to work if CUDA_ROOT is not set
-      url "https://github.com/libbi/LibBi/pull/9.diff"
-      sha256 "80746f04740c0730d241418014c37857303f126cf2ed48f55b44b597386e85a2"
-    end
   end
 
   option "without-test", "Disable build-time checking (not recommended)"
