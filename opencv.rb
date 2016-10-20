@@ -22,9 +22,10 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 "f90c3ee6fe0e85eaeed67d2b907add7c2b111e4710d36da710789899e769a782" => :sierra
-    sha256 "00eaee32e10dd543712104e36a643ec0df660d049d3e04f5bff8dfc1596d21bc" => :el_capitan
-    sha256 "74e573c50a8bce47fa5df85d39d00f7c524fa358e6379a097d9999b007de8322" => :yosemite
+    rebuild 1
+    sha256 "82d779bcfb222508f4aa798510acdfcb8224fe77596f7214defd3caa1e5f60ca" => :sierra
+    sha256 "5acd7b906e5ba9ff3d10dd201f20293c86d59ee3611834bec927f2c03fa00d71" => :el_capitan
+    sha256 "7c5a86df6e270135297dd74f4218ca899a80666ed613300916011ac5a7971f7e" => :yosemite
   end
 
   option "32-bit"
