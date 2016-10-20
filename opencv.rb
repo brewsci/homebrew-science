@@ -13,7 +13,7 @@ class Opencv < Formula
     # adds support for AVFoundation and fixes dependencies on removed headers
     # https://github.com/opencv/opencv/issues/6913 (applies to 2.4 branch as well)
     # can be removed with next release
-    if DevelopmentTools.clang_build_version >= 800
+    if !DevelopmentTools.clang_build_version.nil? && DevelopmentTools.clang_build_version >= 800
       patch do
         url "https://github.com/opencv/opencv/commit/9ff63a46fcfe784e6465320af80624a53a98ccaa.diff"
         sha256 "33dd03572c40d2c0ce41910be6318fab1350f72d958f850941aad019dfb67de5"
@@ -38,7 +38,7 @@ class Opencv < Formula
   option "without-numpy", "Use a numpy you've installed yourself instead of a Homebrew-packaged numpy"
   option "without-python", "Build without Python support"
 
-  if DevelopmentTools.clang_build_version < 800
+  if DevelopmentTools.clang_build_version.nil? || DevelopmentTools.clang_build_version < 800
     option "with-quicktime", "Use QuickTime for Video I/O"
   end
 
