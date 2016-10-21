@@ -3,8 +3,8 @@ class Libsigrokdecode < Formula
   homepage "http://sigrok.org/"
 
   stable do
-    url "http://sigrok.org/download/source/libsigrokdecode/libsigrokdecode-0.3.1.tar.gz"
-    sha256 "2c50efe16c2424b77ab0d9ae6b5d98d7c9894407ddb43dfb43846b3bdef5b5d1"
+    url "http://sigrok.org/download/source/libsigrokdecode/libsigrokdecode-0.4.0.tar.gz"
+    sha256 "fd7e9d1b73245e844ead97a16d5321c766196f946c9b28a8646cab2e98ec3537"
 
     resource "librevisa" do
       url "http://www.librevisa.org/git/librevisa.git", :tag => "alpha-2013-08-12",
@@ -12,13 +12,13 @@ class Libsigrokdecode < Formula
     end
 
     resource "libserialport" do
-      url "http://sigrok.org/download/source/libserialport/libserialport-0.1.0.tar.gz"
-      sha256 "ec905bd64bd8b82234b68a5eded5fd79b67704fe0cd73bf092666b9679a319af"
+      url "http://sigrok.org/download/source/libserialport/libserialport-0.1.1.tar.gz"
+      sha256 "4a2af9d9c3ff488e92fb75b4ba38b35bcf9b8a66df04773eba2a7bbf1fa7529d"
     end
 
     resource "libsigrok" do
-      url "http://sigrok.org/download/source/libsigrok/libsigrok-0.3.0.tar.gz"
-      sha256 "43926907a06f1d7aa73c68ae379d66412ac2728483eed7d20a8cf061f73f7050"
+      url "http://sigrok.org/download/source/libsigrok/libsigrok-0.4.0.tar.gz"
+      sha256 "5f291f3fee36e6dab1336f1c78596e50588831bc5ebd7cddc2a95fe8c71d669e"
     end
   end
 
@@ -52,11 +52,13 @@ class Libsigrokdecode < Formula
   option "with-libserialport", "Build with libserialport"
   option "with-librevisa", "Build with librevisa"
 
+  depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
+  depends_on "glibmm"
+  depends_on :java
   depends_on "libzip"
   depends_on :python3
-
   depends_on "check"    => :optional
   depends_on "libftdi0" => :optional
   depends_on "libusb"   => :recommended
