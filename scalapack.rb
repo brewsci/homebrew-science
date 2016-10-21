@@ -9,6 +9,7 @@ class Scalapack < Formula
 
   bottle do
     cellar :any
+    sha256 "742bce84d22fe05d80f2f357b0cce08527e34cab5cdff7b8a2b749e64ce2f316" => :sierra
     sha256 "4acfb5c2d1979bee44ec79371215cdc3173ace8100e87442b989198345a1436b" => :el_capitan
     sha256 "417487f2452d2e9ad500702b09522e88ba6f39b7ec8d1f8bf25b86c4186ba637" => :yosemite
     sha256 "a6c491eefc1456a555af7918469836110ee969920280fa41adaf10808b7db9b9" => :mavericks
