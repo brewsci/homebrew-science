@@ -2,11 +2,30 @@ class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "http://root.cern.ch"
   version "5.34.36"
-  url "https://root.cern.ch/download/root_v#{version}.source.tar.gz"
-  sha256 "fc868e5f4905544c3f392cc9e895ef5571a08e48682e7fe173bd44c0ba0c7dcd"
-  revision 1
-
+  revision 2
   head "https://github.com/root-mirror/root.git", :branch => "v5-34-00-patches"
+
+  stable do
+     url "https://root.cern.ch/download/root_v5.34.36.source.tar.gz"
+     sha256 "fc868e5f4905544c3f392cc9e895ef5571a08e48682e7fe173bd44c0ba0c7dcd"
+
+     if MacOS.version == :sierra
+       # Same as https://root.cern.ch/gitweb/?p=root.git;a=patch;h=b86b8376e0c49d45cd909619bbf058d45398b9a9
+       # but with the change to LICENSE.txt removed to prevent it from failing
+       # Only needed so patch below can apply successfully
+       patch do
+         url "https://gist.githubusercontent.com/ilovezfs/df76b33d0e4da8243508d44e8ce9eda9/raw/fd149d6dafcae4aae5dbbc86e7ea2bef7430274f/gistfile1.txt"
+         sha256 "4214bc69f46c97f4e2d545c3942d8ec158105e4059f25f7f2323671377603e3f"
+       end
+
+       # Patch for macOS Sierra; remove for > 5.34.36
+       # Already fixed in the v5-34-00-patches branch
+       patch do
+         url "https://root.cern.ch/gitweb/?p=root.git;a=patch;h=c06fdeae0b3b4d627aacef2bda9df0acd079626b"
+         sha256 "90b8cbf99d6c1d6f04e0ad1ee0c1afeefa798b67151be63008f0573b5ed8d0f3"
+       end
+     end
+   end
 
   bottle do
     sha256 "cfdd163868a261c66e452996db76eede43245be4e575ca92f7803bdfd6ae8f39" => :el_capitan
