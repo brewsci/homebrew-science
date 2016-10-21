@@ -23,9 +23,9 @@ class Libsigrokdecode < Formula
   end
 
   bottle do
-    sha256 "9f00e902cc67765b56d3d377ef27e49f41445c889fb31788d468fbf294794d1b" => :el_capitan
-    sha256 "7e64006458494989213a2a70bf0d8a3f72bb7f67360395c42524c0abd9c0e230" => :yosemite
-    sha256 "6eb9503d9b22617221856ae4efdf63e9c71b6273486ce503d3f3f5db89c990d5" => :mavericks
+    sha256 "6061b84474e86b46b7d2295c3e02564a7a531539765c7bc5b6482663d3a61b7d" => :sierra
+    sha256 "c6931c3865d19e5f0f29c4c32cb0ece419764c49a2caf2e3a526a88cd8c30ad0" => :el_capitan
+    sha256 "cfbffac916711bc2491ab80972fb876aa1e8256a4a505181f3eedee7fed7a774" => :yosemite
   end
 
   head do
