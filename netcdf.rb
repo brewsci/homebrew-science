@@ -8,6 +8,7 @@ class Netcdf < Formula
 
   bottle do
     cellar :any
+    sha256 "190b86532879057628fb6b6e07a56aa5e0e768cb0e58cb00642d769e57b5f5ab" => :sierra
     sha256 "296b07ef52da85517d59f87e0968654aef7f6ed5c082bcd10e911c17ae52da80" => :el_capitan
     sha256 "fd7b1c3e4684d76a6b6d0e7eb65bf87e8b7de649ff924e56860a7e858ed0d73b" => :yosemite
     sha256 "a219ba5fd0ea60622cb81b93c80a8f5840db52ed8d933a17af65689650504fcb" => :mavericks
