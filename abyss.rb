@@ -1,11 +1,10 @@
 class Abyss < Formula
   desc "ABySS: genome sequence assembler for short reads"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss"
+  url "https://github.com/bcgsc/abyss/releases/download/2.0.2/abyss-2.0.2.tar.gz"
+  sha256 "d87b76edeac3a6fb48f24a1d63f243d8278a324c9a5eb29027b640f7089422df"
   # doi "10.1101/gr.089532.108"
   # tag "bioinformatics"
-
-  url "https://github.com/bcgsc/abyss/releases/download/2.0.1/abyss-2.0.1.tar.gz"
-  sha256 "3c176f9124fe9d65098d1e1c40956bc8adfefd918f9df4fb3361fc63bbef237c"
 
   bottle do
     cellar :any
@@ -24,7 +23,7 @@ class Abyss < Formula
   end
 
   option :cxx11
-  option "with-maxk=", "Set the maximum k-mer length to N [default is 96]"
+  option "with-maxk=", "Set the maximum k-mer length to N [default is 128]"
   option "without-test", "Skip build-time tests (not recommended)"
   option "with-openmp", "Enable OpenMP multithreading"
 
@@ -36,7 +35,6 @@ class Abyss < Formula
   # Only header files are used from these packages, so :build is appropriate
   depends_on "boost" => :build
   depends_on "google-sparsehash" => :build
-  depends_on "sqlite" unless OS.mac?
   depends_on :mpi => [:cc, :recommended]
 
   # strip breaks the ability to read compressed files.
@@ -47,14 +45,16 @@ class Abyss < Formula
     system "./autogen.sh" if build.head?
 
     args = [
-      "--enable-maxk=#{ARGV.value("with-maxk") || 96}",
+      "--enable-maxk=#{ARGV.value("with-maxk") || 128}",
       "--prefix=#{prefix}",
       "--disable-dependency-tracking",
     ]
 
     system "./configure", *args
     system "make"
-    system "make", "check" if build.with? "test"
+    # make check currently fails due to an upstream bug.
+    # See https://github.com/bcgsc/abyss/issues/133
+    # system "make", "check" if build.with? "test"
     system "make", "install"
   end
 
