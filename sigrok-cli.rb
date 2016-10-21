@@ -1,7 +1,7 @@
 class SigrokCli < Formula
   homepage "http://sigrok.org/"
-  url "http://sigrok.org/download/source/sigrok-cli/sigrok-cli-0.5.0.tar.gz"
-  sha256 "73a30501525b13c09624ae00d37041cdaa50238d89c6febf169fc784affe723c"
+  url "http://sigrok.org/download/source/sigrok-cli/sigrok-cli-0.6.0.tar.gz"
+  sha256 "ab2ede4e245f3987e19a89a530bd204e0d792c07474d9fed3345d4af4e84723c"
 
   head do
     url "git://sigrok.org/sigrok-cli", :shallow => false
@@ -13,7 +13,7 @@ class SigrokCli < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-
+  depends_on "glib"
   depends_on "libsigrokdecode"
 
   def install
