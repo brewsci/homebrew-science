@@ -5,9 +5,9 @@ class Pulseview < Formula
 
   bottle do
     cellar :any
-    sha256 "442c04e94baf9c0fcbbef377bb652e04eb704b9faef6b96be48fdd005ea08ddf" => :el_capitan
-    sha256 "18f7496ed1a453457fcefb414b975227fb12f3e9687f69df8e0f37bde8c21ed0" => :yosemite
-    sha256 "3b59b1204f5eaddfc2669357467b7e36b0b48ef4291526b1a13db18544617efd" => :mavericks
+    sha256 "63b2d68ec757998244dcd8aba72c4862877b9392048888ffa10c71c6700b82d6" => :sierra
+    sha256 "2dfacfba2ea9e5767e0600ee21ed8e1ce5220532ee403b08421d1896cb2acc7f" => :el_capitan
+    sha256 "22ad2013d06095a0294caa63189ace8a26dbfabcb21646ba4b54099073ff363e" => :yosemite
   end
 
   head do
