@@ -28,9 +28,9 @@ class Root < Formula
    end
 
   bottle do
-    sha256 "cfdd163868a261c66e452996db76eede43245be4e575ca92f7803bdfd6ae8f39" => :el_capitan
-    sha256 "28e9a5573e3e4268005a83d23641874f50b6f3afd27921ccd097ae0f33cb23a7" => :yosemite
-    sha256 "f13fb325e42cb4c14955fca8f070f3119081078ed5fdb1dc33b2e5d170cddc4b" => :mavericks
+    sha256 "1d68a7c81296880e4a9bd8ab98e4e069e6220b422b004dc035f4543e8eb5b857" => :sierra
+    sha256 "fac65200906f92419295887a51bc63729a6a0bc16ce6a814f9d63c6447c7cc53" => :el_capitan
+    sha256 "6ba709de6f4f67a406ba8ebceb07830213de2538dda936e2e262a1daa72de350" => :yosemite
   end
 
   option "with-qt", "Build with Qt graphics backend and GSI's Qt integration"
