@@ -3,6 +3,7 @@ class Shogun < Formula
   homepage "http://www.shogun-toolbox.org"
   url "http://shogun-toolbox.org/archives/shogun/releases/4.1/sources/shogun-4.1.0.tar.bz2"
   sha256 "0eb313a95606edee046768a4577d63f32f7ccce340bed7bf0ff0d69225567185"
+  revision 1
 
   bottle do
     sha256 "1c8664a8d548482e328384b29b6897472ee3a7dffa9b87940f71df53d155fdc3" => :el_capitan
@@ -41,6 +42,13 @@ class Shogun < Formula
 
   def cmake_use(opt, arg)
     "-D#{arg}=#{build.with?(opt) ? "ON" : "OFF"}"
+  end
+
+  # fix error downloading gmock; remove for > 4.1.0
+  # upstream commit from 26 Aug 2016 "Googlecode is dead for good"
+  patch do
+    url "https://github.com/shogun-toolbox/shogun/commit/4dd6193.patch"
+    sha256 "f8bc03d603e7a43d38e36568fc82652290069efc4e70f5cef7a17429480ab881"
   end
 
   def install
