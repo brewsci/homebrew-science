@@ -11,6 +11,7 @@ class Delly < Formula
     sha256 "c6478c7dc9388998b1c5123d465e179d93f74545c63dcac2b5136a9ffe0320b2" => :sierra
     sha256 "87fe6a00d909fc35acd6aa7aaa9b45ee17359012569a2a9fdee07faf9fc73a5e" => :el_capitan
     sha256 "1dff37e02abeb42c449f465d24cca8629517dcc6d5284e7d5072113a30b1b970" => :yosemite
+    sha256 "3e03ea87d7069b018342c926e70e0692d0afae139c673059721ef44dd5e6c7d9" => :x86_64_linux
   end
 
   option "with-binary", "Install a statically linked binary for 64-bit Linux" if OS.linux?
