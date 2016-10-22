@@ -1,8 +1,8 @@
 class Adam < Formula
-  desc "Genomics analysis platform using Apache Avro, Spark, and Parquet"
+  desc "Genomics analysis platform built on Apache Avro, Apache Spark and Parquet"
   homepage "https://github.com/bigdatagenomics/adam"
-  url "https://search.maven.org/remotecontent?filepath=org/bdgenomics/adam/adam-distribution_2.10/0.19.0/adam-distribution_2.10-0.19.0-bin.tar.gz"
-  sha256 "9010b198e8fc38de24030a2d00ae86351a6a3af2a3f62b3d21251648e3d60524"
+  url "https://search.maven.org/remotecontent?filepath=org/bdgenomics/adam/adam-distribution-spark2_2.11/0.20.0/adam-distribution-spark2_2.11-0.20.0-bin.tar.gz"
+  sha256 "f87beb379ee0ae1346d67cde374ba7b2416754ed690a2ada8b6b51a45e7717c0"
 
   bottle do
     cellar :any_skip_relocation
@@ -24,13 +24,12 @@ class Adam < Formula
 
   def install
     if build.head?
-      system "mvn", "clean", "install",
-                    "-DskipAssembly=True",
+      system "scripts/move_to_scala_2.11.sh"
+      system "scripts/move_to_spark_2.sh"
+      system "mvn", "clean", "package",
                     "-DskipTests=" + (build.with?("test") ? "False" : "True")
-      libexec.install Dir["adam-cli/target/appassembler/*"]
-    else
-      libexec.install Dir["*"]
     end
+    libexec.install Dir["*"]
     bin.write_exec_script Dir["#{libexec}/bin/*"]
   end
 
