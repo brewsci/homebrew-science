@@ -3,9 +3,8 @@ class BamReadcount < Formula
   homepage "https://github.com/genome/bam-readcount"
   # tag "bioinformatics"
 
-  url "https://github.com/genome/bam-readcount/archive/v0.7.4.tar.gz"
-  sha256 "4bff2ee56e2f77c6d5d89b4c644448a610e0dde00502a82764d652ca4e6fbd92"
-
+  url "https://github.com/genome/bam-readcount/archive/v0.8.0.tar.gz"
+  sha256 "4f4dd558e3c6bfb24d6a57ec441568f7524be6639b24f13ea6f2bb350c7ea65f"
   head "https://github.com/genome/bam-readcount.git"
 
   bottle do
@@ -24,19 +23,9 @@ class BamReadcount < Formula
     ENV["SAMTOOLS_ROOT"] = "#{samtools}:#{samtools}/include/bam"
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
-
-      # Build the vendored dependencies
-      # Fix a compiler error when building with make -j.
-      # See https://github.com/genome/bam-readcount/issues/22
-      system "make", "deps"
-
-      system "make"
-
-      # Fix error: INSTALL cannot copy file
-      # Fixed upstream. See https://github.com/genome/bam-readcount/issues/21
-      bin.install "bin/bam-readcount"
+      system "make", "VERBOSE=1"
+      system "make", "VERBOSE=1", "install"
     end
-    doc.install "README.textile"
   end
 
   test do
