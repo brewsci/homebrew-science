@@ -8,11 +8,10 @@ class BamReadcount < Formula
   head "https://github.com/genome/bam-readcount.git"
 
   bottle do
-    cellar :any
-    sha256 "dcabd11abe3fb222e77e8ac6ad43e2c5329c26a54d6993cdbab578f30c4d561b" => :yosemite
-    sha256 "45a7be6af3210e5e5038b35d371872cfe59f4f532299fbd6b69b8cae16111b8b" => :mavericks
-    sha256 "bb1094ef2d35a29caa4b545ef78769970c1d5a88692f0ffc97aef35595378f4c" => :mountain_lion
-    sha256 "b2199666915c1b49439498e75feaba450ffb350897d0e4c21a66aeec499d40a7" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "17c0f2260c9fe12b1bfc6bf932ed6c103988e547ea68f1df0c972df73dfb0988" => :sierra
+    sha256 "62c7ac502fdece44ec104177a97b37aa46e5244a82d3084e1e58f7f3bc528dba" => :el_capitan
+    sha256 "6e7c930c6275a04fc69791ae70f3de147face2068cb94a4b18070a727eedc90a" => :yosemite
   end
 
   depends_on "cmake" => :build
