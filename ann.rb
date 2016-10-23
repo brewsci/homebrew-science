@@ -6,7 +6,8 @@ class Ann < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
+    sha256 "c53407253ccd9d5f5e32e3bc41b789ef143911e369522d20ff538bc02d346ad6" => :sierra
     sha256 "61a6eecaed8aa80f604ee2c5997e29cb41c1e453965c00157e0f7fb22df64a20" => :el_capitan
     sha256 "1b8388192aeb11c8729f84d9094807ecfb7503a800fb7819d07e531e38049c02" => :yosemite
     sha256 "623b013fc20d81861d90b45f3acd517a908db17b3ef124c3e5b678107d39fe43" => :mavericks
