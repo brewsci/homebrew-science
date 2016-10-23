@@ -9,9 +9,9 @@ class Hotspot < Formula
 
   bottle do
     cellar :any
-    sha256 "fc949fe55227e919164e64f7e6d6f9c1c7444cca515ae4159e0deb1219864ed2" => :yosemite
-    sha256 "5bd2cd5293c8e791e4e29f7bd85d9aba76a6eedbec03903f0e02722173398be2" => :mavericks
-    sha256 "e69620eb7ce1bf2614a081aa206cd4802099f83a53316b29bae31e94ad5412ea" => :mountain_lion
+    sha256 "3aa6e14332036fa6fca63ea2d5c6ba77cbf74aee8ed4bafd70d35fc47fb485ea" => :sierra
+    sha256 "8b37a09702e2b76c5cba0165f6699f56b5ba109d4ef083d193f2c43e437ddb59" => :el_capitan
+    sha256 "eb2ae1d0b6a85d8273da8bcc1b4b563f5fde3ca8d0b61e3875f2dacde51cd9e8" => :yosemite
   end
 
   depends_on "gsl"
