@@ -2,8 +2,8 @@ class Sambamba < Formula
   desc "Tools for working with SAM/BAM data"
   homepage "https://lomereiter.github.io/sambamba"
   url "https://github.com/lomereiter/sambamba.git",
-    :tag => "v0.6.4",
-    :revision => "24720b5e5b9a9d31219eddc6abaaabaf7cffdfc8"
+    :tag => "v0.6.5",
+    :revision => "22fef748d96a8ee53e5b458e177dbc3457a7cbeb"
   head "https://github.com/lomereiter/sambamba.git"
   # doi "10.1093/bioinformatics/btv098"
   # tag "bioinformatics"
