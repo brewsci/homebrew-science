@@ -1,9 +1,19 @@
 class GraphTool < Formula
   desc "efficient network analysis"
   homepage "http://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.18.tar.bz2"
-  sha256 "3c4929fb7b6bae13a12115afdf8c07d6531aeeba548305376ba7b0ac710ec4d4"
-  revision 2
+  revision 3
+
+  stable do
+    url "https://downloads.skewed.de/graph-tool/graph-tool-2.18.tar.bz2"
+    sha256 "3c4929fb7b6bae13a12115afdf8c07d6531aeeba548305376ba7b0ac710ec4d4"
+
+    # Fix compilation problem with newer CGAL
+    # Remove at next release
+    patch do
+      url "https://aur.archlinux.org/cgit/aur.git/plain/0001-Fix-compilation-problem-with-newer-CGAL.patch?h=python-graph-tool"
+      sha256 "6d325261f5e592c45c8eafb5c0b82d28e16fe4a11335d2c0c49f8e3439007f09"
+    end
+  end
 
   bottle do
     sha256 "3e5a3446ecfefc34742c75c0c4546a0acbb33a0a986e21df51f93651b9f0dee8" => :sierra
@@ -30,7 +40,7 @@ class GraphTool < Formula
   with_pythons = build.with?("python3") ? ["with-python3"] : []
 
   depends_on "pkg-config" => :build
-  depends_on "boost" => cxx11
+  depends_on "homebrew/versions/boost160" => cxx11
   depends_on "boost-python" => cxx11 + with_pythons
   depends_on "cairomm" if build.with? "cairo"
   depends_on "cgal" => cxx11
@@ -72,13 +82,6 @@ class GraphTool < Formula
     fails_with :gcc => "6" do
       cause "GCC 6 fails with 'Internal compiler error' on Mavericks. You should install GCC 5 instead with 'brew tap homebrew/versions; brew install gcc5"
     end
-  end
-
-  # Fix compilation problem with newer CGAL
-  # Remove at next release
-  patch do
-    url "https://aur.archlinux.org/cgit/aur.git/plain/0001-Fix-compilation-problem-with-newer-CGAL.patch?h=python-graph-tool"
-    sha256 "6d325261f5e592c45c8eafb5c0b82d28e16fe4a11335d2c0c49f8e3439007f09"
   end
 
   def install
