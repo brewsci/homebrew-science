@@ -52,7 +52,7 @@ class Oce < Formula
 
   def caveats; <<-EOF.undent
     Some apps will require this enviroment variable:
-      CASROOT=#{opt_share}/oce-#{version}
+      CASROOT=#{opt_share}/oce-#{version.to_s.split(".")[0..1].join(".")}
     EOF
   end
 
