@@ -14,18 +14,21 @@ class Mumps < Formula
   end
 
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
+  depends_on "openblas" => OS.mac? ? :optional : :recommended
+  depends_on "veclibfort" if build.without?("openblas") && OS.mac?
+  depends_on :fortran
+
   if build.with? "mpi"
-    depends_on "scalapack" => (build.with? "openblas") ? ["with-openblas"] : []
+    if OS.mac?
+      depends_on "scalapack" => build.with?("openblas") ? ["with-openblas"] : []
+    else
+      depends_on "scalapack" => build.without?("openblas") ? ["without-openblas"] : []
+    end
   end
   depends_on "metis"    => :optional if build.without? "mpi"
   depends_on "parmetis" => :optional if build.with? "mpi"
   depends_on "scotch5"  => :optional
   depends_on "scotch"   => :optional
-
-  depends_on "openblas" => :optional
-  depends_on "veclibfort" if build.without?("openblas") && OS.mac?
-
-  depends_on :fortran
 
   resource "mumps_simple" do
     url "https://github.com/dpo/mumps_simple/archive/v0.4.tar.gz"
@@ -184,7 +187,7 @@ class Mumps < Formula
   test do
     ENV.fortran
     cp_r pkgshare/"examples", testpath
-    opts = ["-I#{opt_include}", "-L#{opt_lib}", "-lmumps_common"]
+    opts = ["-I#{opt_include}", "-L#{opt_lib}", "-lmumps_common", "-lpord"]
     if Tab.for_name("mumps").with? "openblas"
       opts << "-L#{Formula["openblas"].opt_lib}" << "-lopenblas"
     elsif OS.mac?
@@ -196,6 +199,7 @@ class Mumps < Formula
       f90 = "mpif90"
       cc = "mpicc"
       mpirun = "mpirun -np #{Hardware::CPU.cores}"
+      opts << "-lscalapack"
     else
       f90 = ENV["FC"]
       cc = ENV["CC"]
