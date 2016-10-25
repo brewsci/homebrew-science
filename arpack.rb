@@ -18,7 +18,7 @@ class Arpack < Formula
 
   depends_on :fortran
   depends_on :mpi => [:optional, :f77]
-  depends_on "openblas" => :optional
+  depends_on "openblas" => OS.mac? ? :optional : :recommended
   depends_on "veclibfort" if build.without?("openblas") && OS.mac?
 
   def install
