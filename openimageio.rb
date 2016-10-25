@@ -4,6 +4,7 @@ class Openimageio < Formula
   url "https://github.com/OpenImageIO/oiio/archive/Release-1.7.7.tar.gz"
   sha256 "1c006765d153d1c56806e78a83ece330f7905209ecf0f5d3c3b52d77a328345a"
   head "https://github.com/OpenImageIO/oiio.git"
+  revision 1
 
   bottle do
     cellar :any
@@ -34,6 +35,9 @@ class Openimageio < Formula
   depends_on "openexr"
   depends_on "openjpeg"
   depends_on "webp"
+  depends_on "ffmpeg" => :recommended
+  depends_on "libraw" => :recommended
+  depends_on "ptex" => :recommended
   depends_on "opencv" => :recommended
   depends_on :python3 => :optional
   depends_on "jpeg-turbo" => :optional
@@ -103,11 +107,11 @@ class Openimageio < Formula
     ENV.append "MY_CMAKE_FLAGS", "-DUSE_JPEGTURBO=OFF" if build.without? "jpeg-turbo"
     ENV.append "MY_CMAKE_FLAGS", "-DCMAKE_FIND_FRAMEWORK=LAST"
     ENV.append "MY_CMAKE_FLAGS", "-DCMAKE_VERBOSE_MAKEFILE=ON"
+    ENV.append "MY_CMAKE_FLAGS", "-DUSE_NUKE=OFF"
 
-    # Explicilty disable CMake modules to prevent undeclared dependencies
-    ENV.append "MY_CMAKE_FLAGS", "-DUSE_FFMPEG=OFF"
-    ENV.append "MY_CMAKE_FLAGS", "-DUSE_LIBRAW=OFF"
-    ENV.append "MY_CMAKE_FLAGS", "-DUSE_PTEX=OFF"
+    ENV.append "MY_CMAKE_FLAGS", "-DUSE_FFMPEG=OFF" if build.without? "ffmpeg"
+    ENV.append "MY_CMAKE_FLAGS", "-DUSE_LIBRAW=OFF" if build.without? "libraw"
+    ENV.append "MY_CMAKE_FLAGS", "-DUSE_PTEX=OFF" if build.without? "ptex"
 
     # CMake picks up the system's python dylib, even if we have a brewed one.
     # Code taken from the Insighttoolkit formula
