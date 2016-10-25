@@ -37,6 +37,8 @@ class GraphTool < Formula
   option "with-openmp", "Enable parallel algorithms with OpenMP (requires GCC or clang >= 3.8)"
 
   cxx11 = MacOS.version < :mavericks ? ["c++11"] : []
+
+  depends_on :python3 => :optional
   with_pythons = build.with?("python3") ? ["with-python3"] : []
 
   depends_on "pkg-config" => :build
@@ -46,7 +48,6 @@ class GraphTool < Formula
   depends_on "cgal" => cxx11
   depends_on "google-sparsehash" => cxx11 + [:recommended]
   depends_on "gtk+3" => :recommended
-  depends_on :python3 => :optional
 
   depends_on "homebrew/python/numpy" => [:recommended] + with_pythons
   depends_on "homebrew/python/scipy" => [:recommended] + with_pythons
