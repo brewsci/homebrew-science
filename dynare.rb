@@ -10,6 +10,12 @@ class Dynare < Formula
     depends_on "matlab2tikz"
   end
 
+  bottle do
+    sha256 "9e7ccd123e20a57c19b953fc2713e4e9bbfcf0f8d8466e5000df2d38d075e03b" => :sierra
+    sha256 "2938c14f9ca79bb0927a109ff9286c459a9fd7a5bd1f00b46b5e80b4be3b8189" => :el_capitan
+    sha256 "45a200ee168a90b7ffc284dd03527454c754a9995be78c40dd2f8b1f04f8d5c3" => :yosemite
+  end
+
   head do
     url "https://github.com/DynareTeam/dynare.git"
 
