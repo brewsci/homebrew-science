@@ -1,6 +1,7 @@
 class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "http://libbi.org"
+  revision 1
 
   stable do
     url "https://github.com/libbi/LibBi/archive/1.2.0.tar.gz"
@@ -115,6 +116,7 @@ class Libbi < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV.append "CPPFLAGS", "-I#{include}"
+    ENV.append "LDFLAGS", "-L#{Formula["qrupdate"].lib}"
 
     perl_resources = [] << "Getopt::ArgvFile" << "Carp::Assert" << "File::Slurp" << "Parse::Yapp" << "Parse::Template" << "Parse::Lex" << "Parse::RecDescent" << "Math::Symbolic" << "Class::Inspector" << "File::ShareDir" << "Template" << "Graph"
     include_resources = [] << "thrust"
@@ -143,7 +145,7 @@ class Libbi < Formula
     bin.install libexec/"bin/libbi"
     (libexec/"share/test").install "Test.bi", "test.conf"
     perl_dir = `dirname $(which perl)`
-    bin.env_script_all_files(libexec/"bin", :PATH => perl_dir.chomp.concat(":\$PATH"), :PERL5LIB => ENV["PERL5LIB"], :CPPFLAGS => ENV["CPPFLAGS"], :CXX => ENV["CXX"])
+    bin.env_script_all_files(libexec/"bin", :PATH => perl_dir.chomp.concat(":\$PATH"), :PERL5LIB => ENV["PERL5LIB"], :CPPFLAGS => "\$CPPFLAGS -I#{HOMEBREW_PREFIX}/include", :LDFLAGS => "\$LDFLAGS -L#{HOMEBREW_PREFIX}/lib", :CXX => ENV["CXX"])
   end
 
   def caveats; <<-EOS.undent
@@ -154,7 +156,7 @@ class Libbi < Formula
   test do
     cp Dir[libexec/"share/test/*"], testpath
     cd testpath do
-      system "libbi", "sample", "@test.conf"
+      system "#{bin}/libbi", "sample", "@test.conf"
     end
   end
 end
