@@ -34,7 +34,7 @@ class GraphTool < Formula
   option "without-numpy", "Use a numpy you've installed yourself instead of a Homebrew-packaged numpy"
   option "without-python", "Build without python2 support"
   option "without-scipy", "Use a scipy you've installed yourself instead of a Homebrew-packaged scipy"
-  option "with-openmp", "Enable parallel algorithms with OpenMP (requires GCC or clang >= 3.8)"
+  option "with-openmp", "Enable OpenMP multithreading"
 
   cxx11 = MacOS.version < :mavericks ? ["c++11"] : []
 
@@ -95,6 +95,8 @@ class GraphTool < Formula
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/2310f75/graph-tool/add-degree-to-filtered-graph.diff"
     sha256 "72e9b37a5ed78f363da81e7f894579d2866dcb3ab4fab3eb92be582d4127b423"
   end
+
+  needs :openmp if build.with? "openmp"
 
   def install
     if MacOS.version == :mavericks && (Tab.for_name("boost").stdlib == "libcxx" || Tab.for_name("boost-python").stdlib == "libcxx")
