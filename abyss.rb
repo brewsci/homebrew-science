@@ -11,6 +11,7 @@ class Abyss < Formula
     sha256 "251f9ae9ceae20c2320ca368043ce36f8fce74fd86efcbdc1a61ad5182c9cdfc" => :sierra
     sha256 "240ba4e0961f45c54084e14b5f3f6aaf09864539e605d3c641dc1164c078feea" => :el_capitan
     sha256 "991ef66e31957509517bcd373476753b5a314ff2b657f02260bcea1314da09cf" => :yosemite
+    sha256 "31da03dd3dabc22c36c0ef9cb748d08e669e49fc3f29a4f64b0939d6be8354ca" => :x86_64_linux
   end
 
   head do
