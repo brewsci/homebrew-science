@@ -10,6 +10,10 @@ matrix:
       sudo: required
       dist: trusty
 
+addons:
+  apt_packages:
+    - csh
+
 before_install:
   - if [ -f ".git/shallow" ]; then
       travis_retry git fetch --unshallow;
