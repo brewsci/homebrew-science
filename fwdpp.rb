@@ -14,6 +14,7 @@ class Fwdpp < Formula
     sha256 "c785a5999d4b0cc7bbf0a091434a1a57b4ecf82957313a3c4d77b7fa2431349a" => :el_capitan
     sha256 "89fb122a30f40da1ff691f337c55bf3536d5531df21b442658ed7056c488c14b" => :yosemite
     sha256 "9bf816a3d87dc0f6514bbd9747a32ae13bd6b91d4f02487cb53022657bad08c4" => :mavericks
+    sha256 "2a630a217c6264a4b1c971b7437008f978ff0a2682dc756414be139d66f57c0d" => :x86_64_linux
   end
 
   option "without-test", "Disable build-time checking (not recommended)"
