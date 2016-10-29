@@ -5,6 +5,7 @@ class Rapsearch2 < Formula
     sha256 "9ac3cea477b5f6cb59f355527e0087abdfc8d9f79cdf8338a32e7dfcc109368a" => :el_capitan
     sha256 "f0ca7688f5aac5f23995b99c7f975770fbd74ce5033d23f23b44a9ac62a8ae77" => :yosemite
     sha256 "276f588874b3f84e33f861c597c29e2e26edd06ea863b3ffd1afbe80c9445f74" => :mavericks
+    sha256 "3bcc1082a7c239d73969dbbebfa5c452b5d58fc428b3d5db972466d9c5176a9a" => :x86_64_linux
   end
 
   # tag "bioinformatics"
