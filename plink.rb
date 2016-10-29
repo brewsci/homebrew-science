@@ -12,6 +12,7 @@ class Plink < Formula
     sha256 "92beceeafe1e15d5a0a4e6e6d78c9208256c402508f246035464c5842a9058d2" => :el_capitan
     sha256 "5e6555322bafaa569abacea7e62bded2ecfdd2ac3a01a79d6f82cf7e0a93238e" => :yosemite
     sha256 "40506cd63be7f7fd9829f73de28d2f2ab5fccbd28a5eaa76d1146fd46316f0ee" => :mavericks
+    sha256 "e7de28c47171e77be9023fd4ced2a7b860be794811982cac768c58154e16fa60" => :x86_64_linux
   end
 
   fails_with :clang do
