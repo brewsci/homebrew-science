@@ -14,6 +14,7 @@ class Mothur < Formula
   end
 
   depends_on "boost"
+  depends_on "readline" unless OS.mac?
 
   def install
     boost = Formula["boost"]
