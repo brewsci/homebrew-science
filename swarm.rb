@@ -12,6 +12,7 @@ class Swarm < Formula
     sha256 "e9210c40ca8298f48a6e199f4f0d653b5aa20a804c6981acbaeb7a1f7b3f040b" => :el_capitan
     sha256 "a4063aa6d1255a498e1c010489a38011f37c5454bd84ff39d41668e8e142c44f" => :yosemite
     sha256 "3f46038c3334df0db03ac85a8ba573c099d8d2bbfd3313e358664095c85560cb" => :mavericks
+    sha256 "0309262e98ab2e87cf3f5d582e7a450e65ca1ec9442e7a74483a931c444c1c68" => :x86_64_linux
   end
 
   def install
