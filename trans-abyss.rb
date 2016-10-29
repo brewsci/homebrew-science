@@ -7,6 +7,8 @@ class TransAbyss < Formula
   url "https://github.com/bcgsc/transabyss/archive/1.5.3.tar.gz"
   sha256 "0661f70d9d971edb3b225906082860c5531adcc4ecb4cceb24365b96c529af96"
 
+  bottle :unneeded
+
   head "https://github.com/bcgsc/transabyss.git"
 
   depends_on "abyss"
