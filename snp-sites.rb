@@ -13,6 +13,7 @@ class SnpSites < Formula
     sha256 "2a1fc64def2288b12ebd1ce7a9ce5265a9cd0ad900ccf6230a00edee4e7a37b4" => :sierra
     sha256 "c7350da7fd4fd2eb59e983de0927e3cd14a77968410f5584171f0fae570609ef" => :el_capitan
     sha256 "8b0dcb2e7fefd753f4eb11df8a117725a7a3aed8e1694ca13de19121bf296b64" => :yosemite
+    sha256 "d4fba5117af1976be010b60a810ae39b59d6df53921a3ccdf31b190bfd2622ae" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
