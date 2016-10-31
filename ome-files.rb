@@ -5,6 +5,12 @@ class OmeFiles < Formula
   sha256 "e75ce6fd12e05e382fa6c916c473d31a28a90eee3f24e5ecfa9a650c0de8033d"
   head "https://github.com/ome/ome-files-cpp.git", :branch => "develop", :shallow => false
 
+  bottle do
+    sha256 "6118272d011277c5f3a4b64061e7a21fc1876952d99361333913a695f0d40d4e" => :sierra
+    sha256 "fc5d0c213f8bd5de183a4d41e8773e2b16c3418028bc8fddcbc4c89ec6cb4dc5" => :el_capitan
+    sha256 "0ee5596d2e817306cc10f09679e9e10d34f17e8cd57fb87a6a8be271dce0675f" => :yosemite
+  end
+
   option "with-api-docs", "Build API reference"
   option "without-docs", "Build man pages and manual using sphinx"
   option "without-test", "Skip build time tests (not recommended)"
