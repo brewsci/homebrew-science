@@ -1,11 +1,12 @@
 class SnpSites < Formula
   desc "Find SNP sites in a multi FASTA alignment file"
   homepage "https://github.com/sanger-pathogens/snp-sites"
-  url "https://github.com/sanger-pathogens/snp-sites/archive/2.2.0.tar.gz"
-  sha256 "6ee85a175871218d40ba25677814b1ec7959bfa16435f497f8167c06bce2a6c6"
-  head "https://github.com/sanger-pathogens/snp-sites.git"
   # doi "10.1101/038190"
   # tag "bioinformatics"
+
+  url "https://github.com/sanger-pathogens/snp-sites/archive/2.3.2.tar.gz"
+  sha256 "7a77af914b0baa425ccacedf2e4fbb2cac984fe671f3d8c07d98d3596202ed89"
+  head "https://github.com/sanger-pathogens/snp-sites.git"
 
   bottle do
     cellar :any
@@ -35,6 +36,6 @@ class SnpSites < Formula
   end
 
   test do
-    system "snp-sites"
+    assert_match "#{version}", shell_output("#{bin}/snp-sites -V 2>&1", 0)
   end
 end
