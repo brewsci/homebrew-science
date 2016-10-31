@@ -10,10 +10,9 @@ class SnpSites < Formula
 
   bottle do
     cellar :any
-    sha256 "fc578b9dc761947865807d14c58adfbfa53c2c25924c37be95459df5bbd26ed3" => :el_capitan
-    sha256 "1dec6728adb00f284429b636b6bae8575a3437b4812b012b74f3225bb8eb09bd" => :yosemite
-    sha256 "1f53e480cce81b4cd405de5196d7297b67765757ac0b896c1622a7e428f7debc" => :mavericks
-    sha256 "f8e5d6646175a8c7fe09e23868c4a23f9020c8c3d36140a468e20106a21a55fc" => :x86_64_linux
+    sha256 "2a1fc64def2288b12ebd1ce7a9ce5265a9cd0ad900ccf6230a00edee4e7a37b4" => :sierra
+    sha256 "c7350da7fd4fd2eb59e983de0927e3cd14a77968410f5584171f0fae570609ef" => :el_capitan
+    sha256 "8b0dcb2e7fefd753f4eb11df8a117725a7a3aed8e1694ca13de19121bf296b64" => :yosemite
   end
 
   depends_on "autoconf" => :build
