@@ -5,6 +5,13 @@ class OmeXml < Formula
   sha256 "aabf05e61a84d627bac457b979dc25d682c9aaf319e802d43771937fda959019"
   head "https://github.com/openmicroscopy/bioformats.git", :branch => "develop", :shallow => false
 
+  bottle do
+    cellar :any
+    sha256 "3a3df9c62ff0ef3949a44ed41de22687088dae65a3e9b9987951d26a26a046e1" => :sierra
+    sha256 "a91b3cb53f822a8da5c2095df2158966a586fc923316e0237cd21e0126fb4d25" => :el_capitan
+    sha256 "425aa95e25ce4e4522b42ea13ee6ecf97bf8347e09d763a35631f805f3dfe2ee" => :yosemite
+  end
+
   option "with-api-docs", "Build API reference"
   option "without-test", "Skip build time tests (not recommended)"
 
