@@ -5,6 +5,12 @@ class OmeCommon < Formula
   sha256 "12dc65ddf6813e272412fcf65da58a3a56eb41873da6113f93ada57bd7402fbf"
   head "https://github.com/ome/ome-common-cpp.git", :branch => "develop", :shallow => false
 
+  bottle do
+    sha256 "e42ef6bdde96633c2b06e2b61b1b2f0f2839f1cfb468219105c032e876822bdd" => :sierra
+    sha256 "df8f8be0536c58a5876fc7a744c8547b5f22c25f7182b89e221eeb4978b8546d" => :el_capitan
+    sha256 "96e83f1de862a2e307faf38791b34a129eb8094f947c55d810b671614335a1f1" => :yosemite
+  end
+
   option "with-api-docs", "Build API reference"
   option "without-test", "Skip build time tests (not recommended)"
 
