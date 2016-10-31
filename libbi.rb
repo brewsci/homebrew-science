@@ -27,9 +27,9 @@ class Libbi < Formula
   end
   bottle do
     cellar :any
-    sha256 "6b6fcc8d95053807a1a4f084276a9896ea42faf2ddca8ab0c46a8b32394309cc" => :sierra
-    sha256 "c2f6d7c8f6d13cbcc852658285c29031b6985f7895d64882f454a413cfbdd394" => :el_capitan
-    sha256 "83ae940a4cbf044e6b87d9daf00c4e0288b43157a92f4a49319b83eab0832a88" => :yosemite
+    sha256 "91e73d75d7a4be9772f609e0f1d221b46e026971200a1cd7f5cfafab9ef9b7b8" => :sierra
+    sha256 "dc4d64e9223d4d6bc1db73c7a5cb4dd5565aabee228ccf7b177141e46b95b247" => :el_capitan
+    sha256 "221d0a9fdf8c9190519425fe6779345756eece6260e2f0b7fd62ef4c6fa9f614" => :yosemite
   end
 
   head do
