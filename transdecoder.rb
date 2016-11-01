@@ -9,10 +9,9 @@ class Transdecoder < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ce741f3518c5cb58affd3b81448c15e744ebe94aebdd5643b48862cf05834eb2" => :el_capitan
-    sha256 "4a50568376ef0523f282e83df50e022d967c96973cbbefc39facab97c5203f85" => :yosemite
-    sha256 "eff88daefa4b2d0478e396c96f6106d6930cde4a096efad125a2cd544cab1c9c" => :mavericks
-    sha256 "b31a31876895e69dedda9db43f62464c2adbe5e939761fa134f02ebd56b37e09" => :x86_64_linux
+    sha256 "05955821eb2ace7c8ef8bfd5a36ff35321355e35f3b432235c08ce29b4cd7411" => :sierra
+    sha256 "b1c90616d9d140b4e313c1ea831d435965cad5d6a680083a3f00b70f0cb1efe1" => :el_capitan
+    sha256 "4a812936c775a6c2edca2c8e1930c143596bfe4c2817e9a71b0bcc7d45af38ec" => :yosemite
   end
 
   depends_on "cd-hit"
