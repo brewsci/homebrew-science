@@ -1,7 +1,7 @@
 class GraphTool < Formula
   desc "efficient network analysis"
   homepage "http://graph-tool.skewed.de/"
-  revision 3
+  revision 4
 
   stable do
     url "https://downloads.skewed.de/graph-tool/graph-tool-2.18.tar.bz2"
@@ -42,7 +42,7 @@ class GraphTool < Formula
   with_pythons = build.with?("python3") ? ["with-python3"] : []
 
   depends_on "pkg-config" => :build
-  depends_on "homebrew/versions/boost160" => cxx11
+  depends_on "boost" => cxx11
   depends_on "boost-python" => cxx11 + with_pythons
   depends_on "cairomm" if build.with? "cairo"
   depends_on "cgal" => cxx11
@@ -83,6 +83,17 @@ class GraphTool < Formula
     fails_with :gcc => "6" do
       cause "GCC 6 fails with 'Internal compiler error' on Mavericks. You should install GCC 5 instead with 'brew tap homebrew/versions; brew install gcc5"
     end
+  end
+
+  # Fix build with boost 1.62.0 "no matching function for call to 'degree( ..."
+  # graph-tool isn't using the stock filtered_graph.hpp, so its modified
+  # header needs the same change that was made in boost 1.62.0 adding an
+  # implementation of the 'degree' function for filtered_graph
+  # Upstream issue 21 Oct 2016 https://git.skewed.de/count0/graph-tool/issues/347
+  # Regression due to boostorg/graph@50bfd8d (boostorg/graph#29)
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2310f75/graph-tool/add-degree-to-filtered-graph.diff"
+    sha256 "72e9b37a5ed78f363da81e7f894579d2866dcb3ab4fab3eb92be582d4127b423"
   end
 
   def install
