@@ -4,6 +4,7 @@ class Ipopt < Formula
   url "http://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.5.tgz"
   sha256 "53e7af6eefcb6de1f8e936c9c887c7bcb5a9fa4fcf7673a227f16de131147325"
   head "https://projects.coin-or.org/svn/Ipopt/trunk", :using => :svn
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,7 @@ class Ipopt < Formula
   option "without-test", "Skip build-time tests (not recommended)"
   deprecated_option "without-check" => "without-test"
 
-  depends_on "asl" => :recommended
+  depends_on "ampl-mp" => :recommended
   depends_on "openblas" => :optional
   depends_on "pkg-config" => :build
 
@@ -47,9 +48,9 @@ class Ipopt < Formula
       args << "--with-lapack-lib=-L#{Formula["openblas"].opt_lib} -lopenblas"
     end
 
-    if build.with? "asl"
-      args << "--with-asl-incdir=#{Formula["asl"].opt_include}/asl"
-      args << "--with-asl-lib=-L#{Formula["asl"].opt_lib} -lasl"
+    if build.with? "ampl-mp"
+      args << "--with-asl-incdir=#{Formula["ampl-mp"].opt_include}/asl"
+      args << "--with-asl-lib=-L#{Formula["ampl-mp"].opt_lib} -lasl"
     end
 
     system "./configure", *args
@@ -61,6 +62,6 @@ class Ipopt < Formula
 
   test do
     # IPOPT still fails to converge on the Waechter-Biegler problem?!?!
-    system "#{bin}/ipopt", "#{Formula["asl"].opt_share}/asl/example/examples/wb" if build.with? "asl"
+    system "#{bin}/ipopt", "#{Formula["ampl-mp"].opt_pkgshare}/example/examples/wb" if build.with? "ampl-mp"
   end
 end
