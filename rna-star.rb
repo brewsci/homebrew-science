@@ -13,6 +13,7 @@ class RnaStar < Formula
     sha256 "2d73757478b6a224e266be8e256c9e390216663c6ce15ea1e8c31bb6a4df02cb" => :sierra
     sha256 "816d772d1f9b4e50c9057e8e67427aea0f13d41b458dbbb7fc6af22e22e80704" => :el_capitan
     sha256 "9d3355cff6dfcc663bfa28e155b74888508d5cf34554098696d367c0cd2e1811" => :yosemite
+    sha256 "69221e01050b5ca54fb6900139f9ccd30b3142c151f75b81a0b8464fdb779907" => :x86_64_linux
   end
 
   # Fix error: 'omp.h' file not found
