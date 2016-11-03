@@ -10,11 +10,9 @@ class RnaStar < Formula
   head "https://github.com/alexdobin/STAR.git"
 
   bottle do
-    cellar :any
-    sha256 "b1581ed25ac7dd736acfbe4db632031b3885744bf5e71e7455734696d51e0a92" => :yosemite
-    sha256 "98cec003bf3ee5f234a4e161f305fb30fb39eb4f53c2a7f5e24beb8a1facf2c3" => :mavericks
-    sha256 "467ee2a2ffbe6c5346d744d43cbe0460ad3607756a37ea6702bd75611a333be8" => :mountain_lion
-    sha256 "7e519c1b6d87f138bd0b88d6e6c8680af54fb3b2e4922992a0d66ff1fcef27cf" => :x86_64_linux
+    sha256 "2d73757478b6a224e266be8e256c9e390216663c6ce15ea1e8c31bb6a4df02cb" => :sierra
+    sha256 "816d772d1f9b4e50c9057e8e67427aea0f13d41b458dbbb7fc6af22e22e80704" => :el_capitan
+    sha256 "9d3355cff6dfcc663bfa28e155b74888508d5cf34554098696d367c0cd2e1811" => :yosemite
   end
 
   # Fix error: 'omp.h' file not found
