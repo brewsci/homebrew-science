@@ -1,4 +1,5 @@
 {
+  "asl": "ampl-mp",
   "gal-sim": "galsim",
   "snp_sites": "snp-sites",
   "geant": "geant4"
