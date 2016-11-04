@@ -1,10 +1,9 @@
 class Mumps < Formula
   desc "Parallel Sparse Direct Solver"
   homepage "http://mumps-solver.org"
-  url "http://mumps.enseeiht.fr/MUMPS_5.0.1.tar.gz"
-  mirror "http://graal.ens-lyon.fr/MUMPS/MUMPS_5.0.1.tar.gz"
-  sha256 "50355b2e67873e2239b4998a46f2bbf83f70cdad6517730ab287ae3aae9340a0"
-  revision 4
+  url "http://mumps.enseeiht.fr/MUMPS_5.0.2.tar.gz"
+  mirror "http://graal.ens-lyon.fr/MUMPS/MUMPS_5.0.2.tar.gz"
+  sha256 "77292b204942640256097a3da482c2abcd1e0d5a74ecd1d4bab0f5ef6e60fe45"
 
   bottle do
     cellar :any
@@ -199,7 +198,7 @@ class Mumps < Formula
     if Tab.for_name("mumps").with?("mpi")
       f90 = "mpif90"
       cc = "mpicc"
-      mpirun = "mpirun -np #{Hardware::CPU.cores}"
+      mpirun = "mpirun -np 2"
       opts << "-lscalapack"
     else
       f90 = ENV["FC"]
@@ -218,7 +217,7 @@ class Mumps < Formula
       system "#{mpirun} ./zsimpletest < input_simpletest_cmplx"
       system cc, "-c", "c_example.c", "-I#{opt_include}"
       system f90, "-o", "c_example", "c_example.o", "-ldmumps", *opts
-      system "#{mpirun} ./c_example"
+      system *(mpirun.split + ["./c_example"] + opts)
     end
   end
 end
