@@ -13,6 +13,13 @@ matrix:
 addons:
   apt_packages:
     - csh
+    - cython
+    - python-astropy
+    - python-matplotlib
+    - python-nose
+    - python-pip
+    - python-scipy
+    - python-sphinx
 
 before_install:
   - if [ -f ".git/shallow" ]; then
@@ -38,6 +45,7 @@ before_install:
       brew tap homebrew/x11;
     else
       brew tap linuxbrew/xorg;
+      pip install pysam;
     fi;
   - chmod 0644 $(brew --repo)/Library/Taps/homebrew/homebrew-science/*.rb;
   - export TRAVIS_BUILD_DIR="$(brew --repo)/Library/Taps/homebrew/homebrew-science";
