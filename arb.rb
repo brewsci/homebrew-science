@@ -7,11 +7,9 @@ class Arb < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "6fc16931a8baa38235344a0876c1b9b4b245770ef4780027d7af41f71641c611" => :sierra
-    sha256 "4bbb15a225d7533491f998d920ed80edb643726fab7037703ca1863d213f78a0" => :el_capitan
-    sha256 "31656464034a68399d2572021f4a76e8834d3b6434dfa989bfd058ef2c3eae6a" => :yosemite
-    sha256 "55f4656b03aae0ebac69b732ada10540dd571666282ad1452e3b00377299ebc9" => :mavericks
+    sha256 "ab5f1dbe1bf3cd50a4e7aef3c46f17db65505fa023288c09f055ca8039bda431" => :sierra
+    sha256 "30eaaca98a509db97c7122e312da4ec05ee1a83645e79d02d21944b5194cd649" => :el_capitan
+    sha256 "1284efa410c2b3c2159c25e53b6f2e60affe92e2e624d81ed29474c6d4b193eb" => :yosemite
   end
 
   option "without-test", "Disable build-time checking (not recommended)"
