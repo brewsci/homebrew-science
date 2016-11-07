@@ -1,11 +1,10 @@
 class RGui < Formula
   desc "R.app Cocoa GUI for the R Programming Language"
-  homepage "http://cran.r-project.org/bin/macosx/"
-  url "http://cran.r-project.org/bin/macosx/Mac-GUI-1.67.tar.gz"
-  sha256 "8a565c0268b0194c69ba1c19b4919e802fc63c420a0eb80fa8943e10f053e898"
+  homepage "https://cran.r-project.org/bin/macosx/"
+  url "https://cran.r-project.org/bin/macosx/Mac-GUI-1.68.tar.gz"
+  sha256 "7dff17659a69e3c492fdfc3fb765e3c9537157d50b6886236bee7ad873eb416d"
 
   head "https://svn.r-project.org/R-packages/trunk/Mac-GUI"
-  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +13,7 @@ class RGui < Formula
     sha256 "a1daa51392bf3ab2704fbf6335685d09269514773e0eb5ceda8ae4873513092e" => :mavericks
   end
 
-  depends_on :xcode
+  depends_on :xcode => :build
   depends_on :macos => :snow_leopard
   depends_on :arch => :x86_64
 
