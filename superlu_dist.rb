@@ -27,8 +27,10 @@ class SuperluDist < Formula
     # prevent linking errors on linuxbrew:
     ENV.deparallelize
 
+    dylib_ext = OS.mac? ? "dylib" : "so"
+
     cmake_args = std_cmake_args
-    cmake_args << "-DTPL_PARMETIS_LIBRARIES=#{Formula["parmetis"].opt_lib}/libparmetis.dylib;#{Formula["metis"].opt_lib}/libmetis.dylib"
+    cmake_args << "-DTPL_PARMETIS_LIBRARIES=#{Formula["parmetis"].opt_lib}/libparmetis.#{dylib_ext};#{Formula["metis"].opt_lib}/libmetis.#{dylib_ext}"
     cmake_args << "-DTPL_PARMETIS_INCLUDE_DIRS=#{Formula["parmetis"].opt_include};#{Formula["metis"].opt_include}"
     cmake_args << "-DCMAKE_C_FLAGS=-fPIC -O2"
     cmake_args << "-DBUILD_SHARED_LIBS=ON"
