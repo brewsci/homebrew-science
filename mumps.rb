@@ -7,10 +7,9 @@ class Mumps < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "c845a3a894a356b5e19be6c36237389dfe83e6376efe0bdcb2c2120d0d3fef63" => :sierra
-    sha256 "a56d1f43247a5a0a91f6f9346d63e0510e03f20f35f4bca6c135c4b21e526c66" => :el_capitan
-    sha256 "f15a94e420432eeda74874ebd63a785083cec41a8c53b634f3474ea13821c99f" => :yosemite
+    sha256 "bc6b4ff949520d550cd9808b3af48293ebb250b8a2c842e3f7389e8cff9491b9" => :sierra
+    sha256 "a4cd336293ca818e7b3f9a6df27488b30ce813bbb5d425189776b92b8fc0cab4" => :el_capitan
+    sha256 "4f3412a8017d46db7e1ead3eed0069f50dc28f97c322edfc8e11c26435326723" => :yosemite
   end
 
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
