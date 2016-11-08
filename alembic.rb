@@ -1,8 +1,8 @@
 class Alembic < Formula
   desc "Open computer graphics interchange framework"
   homepage "http://alembic.io"
-  url "https://github.com/alembic/alembic/archive/1.6.1.tar.gz"
-  sha256 "404195c175323d8c01eef7810d0a66b040645bb3ff6654f7bc176d57454ad00c"
+  url "https://github.com/alembic/alembic/archive/1.7.0.tar.gz"
+  sha256 "05d7128f55c3f8846f69e346e824112b0dff8200e83758d2e0b70887f030bffa"
   head "https://github.com/alembic/alembic.git"
 
   bottle do
@@ -20,7 +20,9 @@ class Alembic < Formula
 
   def install
     ENV.cxx11
-    cmake_args = std_cmake_args + %W[
+    ENV.prepend "LDFLAGS", "-lmpi" if Tab.for_name("hdf5").with? "mpi"
+
+    cmake_args = std_cmake_args + %w[
       -DUSE_PRMAN=OFF
       -DUSE_ARNOLD=OFF
       -DUSE_MAYA=OFF
@@ -31,7 +33,10 @@ class Alembic < Formula
     ]
     system "cmake", ".", *cmake_args
     system "make"
-    system "make", "test"
+
+    # Re-enable for > 1.7.0
+    # system "make", "test"
+
     system "make", "install"
 
     pkgshare.install "prman/Tests/testdata/cube.abc"
