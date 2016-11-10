@@ -5,10 +5,9 @@ class Cube < Formula
   sha256 "34c55fc5d0c84942c0845a7324d84cde09f3bc1b3fae6a0f9556f7ea0e201065"
 
   bottle do
-    cellar :any
-    sha256 "9c9e2d16c2414ac48e69cd1da6e762af48231216dba898166ff137ee972f3c5e" => :sierra
-    sha256 "4fdad30075b6d2e0c2eceec05069f980138036985df956940207f878162c9ec0" => :el_capitan
-    sha256 "a6adbc6dfc92586c4bc71bc86d12f4d52834b58ae30880c75b055594c348e0f8" => :yosemite
+    sha256 "f4752655005bcf04a3faebe0173c571e4ca8128fd579db1d4b1eb5967cbbf874" => :sierra
+    sha256 "b468ee3261ea60adaa54d628034d413b6157a98230a4c30cbff3d11d23a6b568" => :el_capitan
+    sha256 "13c046ba780a2450ab4bf055f5cf70e98a3128ca2e79a55ca364dbc5519bdce9" => :yosemite
   end
 
   depends_on "qt5"
