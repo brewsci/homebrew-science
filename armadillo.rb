@@ -1,8 +1,8 @@
 class Armadillo < Formula
   desc "C++ linear algebra library"
   homepage "http://arma.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-7.500.0.tar.xz"
-  sha256 "7aa6f82b226753b7a534cd77dffb08f82ecbcf60662aa1ea5a7ff5c7c46828f5"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-7.500.1.tar.xz"
+  sha256 "7d790ee5825caaab4ef29da2746aa1dc4d5fa1a555e13306b8894a487da1f5a4"
 
   bottle do
     cellar :any
@@ -23,6 +23,11 @@ class Armadillo < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
+
+    if build.with? "hdf5"
+      inreplace "CMakeLists.txt", "project(armadillo CXX)",
+                                  "project(armadillo CXX)\nENABLE_LANGUAGE(C)"
+    end
 
     args = std_cmake_args
     args << "-DDETECT_HDF5=ON" if build.with? "hdf5"
