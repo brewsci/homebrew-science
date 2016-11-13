@@ -13,6 +13,7 @@ class Stringtie < Formula
     sha256 "12a4d53cfdb13779c0710c980954cac156a8798f2f0e5a258382f9dc02ea1c4f" => :sierra
     sha256 "bd6612dad917983b7e7c32f9e9ae36f631ada47d802260e76640507c6dddba12" => :el_capitan
     sha256 "c4d7ee1d4bae8d851b7b5b49c22e72390ce060f61a3f195569a1202756623628" => :yosemite
+    sha256 "c8e6dc6f2272ca43ae8b1637515f2bd2fd28e4d50a8c94247e015a6293a786fc" => :x86_64_linux
   end
 
   def install
