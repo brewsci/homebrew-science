@@ -21,7 +21,7 @@ class Cgns < Formula
       "-DCGNS_ENABLE_TESTS=YES",
     ]
 
-    args << "-DCGNS_ENABLE_64BIT=YES" if Hardware.is_64_bit? && MacOS.version >= :snow_leopard
+    args << "-DCGNS_ENABLE_64BIT=YES" if Hardware::CPU.is_64_bit? && MacOS.version >= :snow_leopard
     args << "-DCGNS_ENABLE_FORTRAN=YES" if build.with? "fortran"
 
     if build.with? "hdf5"
