@@ -1,18 +1,10 @@
 class GraphTool < Formula
   desc "efficient network analysis"
   homepage "http://graph-tool.skewed.de/"
-  revision 4
 
   stable do
-    url "https://downloads.skewed.de/graph-tool/graph-tool-2.18.tar.bz2"
-    sha256 "3c4929fb7b6bae13a12115afdf8c07d6531aeeba548305376ba7b0ac710ec4d4"
-
-    # Fix compilation problem with newer CGAL
-    # Remove at next release
-    patch do
-      url "https://aur.archlinux.org/cgit/aur.git/plain/0001-Fix-compilation-problem-with-newer-CGAL.patch?h=python-graph-tool"
-      sha256 "6d325261f5e592c45c8eafb5c0b82d28e16fe4a11335d2c0c49f8e3439007f09"
-    end
+    url "https://downloads.skewed.de/graph-tool/graph-tool-2.19.tar.bz2"
+    sha256 "eba1090f94b0434890beedaf0c100dd0fc77e41ebfe29b4725d76cadb82099af"
   end
 
   bottle do
@@ -83,17 +75,6 @@ class GraphTool < Formula
     fails_with :gcc => "6" do
       cause "GCC 6 fails with 'Internal compiler error' on Mavericks. You should install GCC 5 instead with 'brew tap homebrew/versions; brew install gcc5"
     end
-  end
-
-  # Fix build with boost 1.62.0 "no matching function for call to 'degree( ..."
-  # graph-tool isn't using the stock filtered_graph.hpp, so its modified
-  # header needs the same change that was made in boost 1.62.0 adding an
-  # implementation of the 'degree' function for filtered_graph
-  # Upstream issue 21 Oct 2016 https://git.skewed.de/count0/graph-tool/issues/347
-  # Regression due to boostorg/graph@50bfd8d (boostorg/graph#29)
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2310f75/graph-tool/add-degree-to-filtered-graph.diff"
-    sha256 "72e9b37a5ed78f363da81e7f894579d2866dcb3ab4fab3eb92be582d4127b423"
   end
 
   needs :openmp if build.with? "openmp"
