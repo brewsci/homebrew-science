@@ -8,9 +8,9 @@ class GraphTool < Formula
   end
 
   bottle do
-    sha256 "cdaad683371103e808de36ad44655c63049139fdb1e5678d921a1caf70abb750" => :sierra
-    sha256 "e0b5b40d4ab45d1bfe337acaa0eadbeaa019fa1804f9476c5623bbd4f4bd24f6" => :el_capitan
-    sha256 "0e20e28fd211d4d281d3b8b4000ee67ddd0dcccc8841ced084b53d8d95ea321d" => :yosemite
+    sha256 "548cec02e9b37106c208c85f16e906ce3cc60a81b47eda960eff53515140651f" => :sierra
+    sha256 "aae2cca7b0edaec413d5de47b3d4167cea96bab364da051a0d07b33ee9de3315" => :el_capitan
+    sha256 "6a434696db83d434f244e2f50606c953d60af4a8c4a2ea7c741fb20765397a7f" => :yosemite
   end
 
   head do
