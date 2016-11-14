@@ -1,10 +1,10 @@
 class Populations < Formula
+  desc "individual and population distances, and file conversions"
   homepage "http://bioinformatics.org/~tryphon/populations/"
-  # tag "bioinformatics"
-
-  url "https://launchpad.net/~olivier-langella/+archive/ppa/+files/populations_1.2.33-2.tar.gz"
+  url "https://launchpad.net/~olivier-langella/+archive/ubuntu/ppa/+files/populations_1.2.33-2.tar.gz"
   sha256 "bea8ba96e6ed2b1e193194564475458a5bdcd23e1bb3a9d93f27c9a94797124f"
-  version "1.2.33-2"
+  revision 1
+  # tag "bioinformatics"
 
   bottle do
     cellar :any
@@ -16,13 +16,19 @@ class Populations < Formula
 
   depends_on "cmake" => :build
   depends_on "gettext"
-  depends_on "qt"
+  depends_on "qt5"
 
   # Fix a compiler error.
   patch :DATA
 
+  # Use qt5
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3a87627/populations/use-qt5.patch"
+    sha256 "dbfa52b6354556fc15b87f259a8463ea4be605eab26587395eb95c2aec0129c1"
+  end
+
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DCMAKE_PREFIX_PATH=#{Formula["qt5"].opt_prefix}"
     system "make", "install"
   end
 
