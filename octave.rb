@@ -1,12 +1,9 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  revision 1
-
-  stable do
-    url "ftp://alpha.gnu.org/gnu/octave/octave-4.2.0-rc2.tar.xz"
-    sha256 "42982be516d7f27719d019bc93020304781607d7a9203c7043570dbf27ab9a24"
-  end
+  url "https://ftpmirror.gnu.org/octave/octave-4.2.0.tar.lz"
+  mirror "https://ftp.gnu.org/gnu/octave/octave-4.2.0.tar.lz"
+  sha256 "119d45c21d567c02eb0042987da4676aa25c7c2fde6e119053e0c6d779a47ba7"
 
   bottle do
     sha256 "48ff4fefeb6077484abfd7330d47fb9cb713903ce051b66a7763cee14c707638" => :sierra
@@ -136,6 +133,13 @@ class Octave < Formula
   depends_on "portaudio"           => :optional
   depends_on :java                 => ["1.6+", :optional]
 
+  # Fix bug #49053: retina scaling of figures
+  # see https://savannah.gnu.org/bugs/?49053
+  resource "retina-scaling-patch" do
+    url "https://savannah.gnu.org/support/download.php?file_id=38902"
+    sha256 "d56eff94f9f811845ba3b0897b70cba43c0715a0102b1c79852b72ab10d24e6c"
+  end
+
   # If GraphicsMagick was built from source, it is possible that it was
   # done to change quantum depth. If so, our Octave bottles are no good.
   # https://github.com/Homebrew/homebrew-science/issues/2737
@@ -151,6 +155,14 @@ class Octave < Formula
     ENV.append "LDFLAGS", "-L#{Formula["readline"].opt_lib} -lreadline" if build.with? "readline"
     ENV.prepend_path "PATH", Formula["texinfo"].bin
     ENV["FONTCONFIG_PATH"] = "/opt/X11/lib/X11/fontconfig"
+
+    resource("retina-scaling-patch").stage do
+      inreplace "download.php" do |s|
+        s.gsub! "#include <QApplication.h>", "#include <QApplication>"
+        s.gsub! "__fontsize_points__", "fontsize_points" if build.stable?
+      end
+      system "patch", "-p1", "-i", Pathname.pwd/"download.php", "-d", buildpath
+    end
 
     # basic arguments
     args = ["--prefix=#{prefix}"]
