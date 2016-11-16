@@ -5,6 +5,13 @@ class Alglib < Formula
   version "3.10.0"
   sha256 "26a6aa966da5bba01da1bebddc0acb0a8fc579f07d53a2cbcfa5dfcaf612aaeb"
 
+  bottle do
+    cellar :any
+    sha256 "8e598ccbc0a92205ce55a079e9d0ff6a120675c3350ca6673aae7f5e9d9b48a3" => :sierra
+    sha256 "8e598ccbc0a92205ce55a079e9d0ff6a120675c3350ca6673aae7f5e9d9b48a3" => :el_capitan
+    sha256 "f0a4fd70b961c25d781f7a2dc9c25980a53a680db5074577c6ffea6fb4665d46" => :yosemite
+  end
+
   depends_on "qt5"
   depends_on "pkg-config" => :build
 
