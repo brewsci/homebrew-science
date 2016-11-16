@@ -5,8 +5,9 @@ class Pcl < Formula
   homepage "http://www.pointclouds.org/"
   url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.0.tar.gz"
   sha256 "9e54b0c1b59a67a386b9b0f4acb2d764272ff9a0377b825c4ed5eedf46ebfcf4"
+  revision 4
+
   head "https://github.com/PointCloudLibrary/pcl.git"
-  revision 3
 
   bottle do
     sha256 "53eb77ef3d620252ae8ceb2f6e77819d6f60ff65a2ea6c2112b3d6ad38cb3590" => :sierra
@@ -32,14 +33,9 @@ class Pcl < Formula
 
   depends_on "glew"
   depends_on CudaRequirement => :optional
-  depends_on "qt" => :optional
   depends_on "qt5" => :optional
 
-  if build.with? "qt"
-    depends_on "sip" # Fix for building system
-    depends_on "pyqt" # Fix for building system
-    depends_on "vtk" => [:recommended, "with-qt"]
-  elsif build.with? "qt5"
+  if build.with? "qt5"
     depends_on "sip" # Fix for building system
     depends_on "pyqt5" => ["with-python", "without-python3"] # Fix for building system
     depends_on "vtk" => [:recommended, "with-qt5"]
@@ -48,11 +44,10 @@ class Pcl < Formula
   end
   depends_on "openni" => :optional
   depends_on "openni2" => :optional
-
   depends_on "XML::Parser" => :perl
 
   def install
-    args = std_cmake_args + %W[
+    args = std_cmake_args + %w[
       -DBUILD_SHARED_LIBS:BOOL=ON
       -DBUILD_simulation:BOOL=AUTO_OFF
       -DBUILD_outofcore:BOOL=AUTO_OFF
@@ -61,16 +56,14 @@ class Pcl < Formula
       -DWITH_TUTORIALS:BOOL=OFF
       -DWITH_DOCS:BOOL=OFF
     ]
-    if build.with? "qt"
-      args << "-DPCL_QT_VERSION=4"
-    elsif build.with? "qt5"
+    if build.with? "qt5"
       args << "-DPCL_QT_VERSION=5"
     else
       args << "-DWITH_QT:BOOL=FALSE"
     end
 
     if build.with? "cuda"
-      args += %W[
+      args += %w[
         -DWITH_CUDA:BOOL=AUTO_OFF
         -DBUILD_GPU:BOOL=ON
         -DBUILD_gpu_people:BOOL=ON
@@ -88,7 +81,7 @@ class Pcl < Formula
     end
 
     if build.with? "apps"
-      args += %W[
+      args += %w[
         -DBUILD_apps=AUTO_OFF
         -DBUILD_apps_3d_rec_framework=AUTO_OFF
         -DBUILD_apps_cloud_composer=AUTO_OFF
@@ -96,7 +89,7 @@ class Pcl < Formula
         -DBUILD_apps_optronic_viewer=AUTO_OFF
         -DBUILD_apps_point_cloud_editor=AUTO_OFF
       ]
-      if !build.head? && build.without?("qt") && build.without?("qt5")
+      if !build.head? && build.without?("qt5")
         args << "-DBUILD_apps_modeler:BOOL=OFF"
       else
         args << "-DBUILD_apps_modeler=AUTO_OFF"
