@@ -8,10 +8,9 @@ class Populations < Formula
 
   bottle do
     cellar :any
-    sha256 "d2f69b0c356ac9361bb3750a6f76417ed730db2c3b7f18b496fcee72f7a98dbd" => :yosemite
-    sha256 "0c2fae734364600434ebc4f059776372e19b16c2e176876e74b3de0c83e3caaf" => :mavericks
-    sha256 "dd0f5bbb215bf76eb1f3593e7c4ffb885af8fbfddcf71467232941e637be69c5" => :mountain_lion
-    sha256 "97d5ea179a80f8b435efaf00a37f2faa727890232c57237ce411da4af2087853" => :x86_64_linux
+    sha256 "9f95976745be9f265339f36966a5d4b4c7c94046fd86bb7ffd9ba43d20520d8b" => :sierra
+    sha256 "6c2835403b79a0583bc27f7b3dcdac55db397091daa612f386aa71fc8b0cc930" => :el_capitan
+    sha256 "996d10aaa6c180071e8e1f4220dd9b00b22e1c32ad412bb35f3ca0da91af8510" => :yosemite
   end
 
   depends_on "cmake" => :build
