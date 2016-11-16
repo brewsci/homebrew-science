@@ -3,7 +3,7 @@ class Statismo < Formula
   homepage "https://github.com/statismo/statismo"
   url "https://github.com/statismo/statismo/archive/v0.11.0.tar.gz"
   sha256 "f9b7109996d9e42e48b07923ea6edacca57b8ac7c573de1c905dbba921385c4c"
-  revision 5
+  revision 6
 
   head "https://github.com/statismo/statismo.git"
 

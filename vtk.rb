@@ -4,7 +4,7 @@ class Vtk < Formula
   url "http://www.vtk.org/files/release/7.0/VTK-7.0.0.tar.gz"
   mirror "https://fossies.org/linux/misc/VTK-7.0.0.tar.gz"
   sha256 "78a990a15ead79cdc752e86b83cfab7dbf5b7ef51ba409db02570dbdd9ec32c3"
-  revision 5
+  revision 6
 
   head "https://github.com/Kitware/VTK.git"
 
@@ -29,7 +29,6 @@ class Vtk < Formula
 
   depends_on "cmake" => :build
   depends_on :x11 => :optional
-  depends_on "qt" => :optional
   depends_on "qt5" => :optional
 
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
@@ -44,21 +43,11 @@ class Vtk < Formula
   depends_on "matplotlib" => :python if build.with?("matplotlib") && build.with?("python")
 
   # If --with-qt and --with-python, then we automatically use PyQt, too!
-  if build.with? "python"
-    if build.with? "qt"
-      depends_on "sip"
-      depends_on "pyqt"
-    elsif build.with? "qt5"
+  if build.with? "qt5"
+    if build.with? "python"
       depends_on "sip"
       depends_on "pyqt5" => ["with-python", "without-python3"]
-    end
-  end
-
-  if build.with? "python3"
-    if build.with? "qt"
-      depends_on "sip" => ["with-python3", "without-python"]
-      depends_on "pyqt" => ["with-python3", "without-python"]
-    elsif build.with? "qt5"
+    elsif build.with? "python3"
       depends_on "sip"   => ["with-python3", "without-python"]
       depends_on "pyqt5"
     end
@@ -83,8 +72,8 @@ class Vtk < Formula
       args << "-DBUILD_TESTING=OFF"
     end
 
-    if build.with?("qt") || build.with?("qt5") || build.with?("qt-extern")
-      args << "-DVTK_QT_VERSION:STRING=5" if build.with? "qt5"
+    if build.with?("qt5")
+      args << "-DVTK_QT_VERSION:STRING=5"
       args << "-DVTK_Group_Qt=ON"
     end
 
@@ -144,10 +133,9 @@ class Vtk < Formula
         args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{py_site_packages}/'"
       end
 
-      if build.with?("qt") || build.with?("qt5")
+      if build.with?("qt5")
         args << "-DVTK_WRAP_PYTHON_SIP=ON"
-        args << "-DSIP_PYQT_DIR='#{Formula["pyqt"].opt_share}/sip'" if build.with? "qt"
-        args << "-DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'" if build.with? "qt5"
+        args << "-DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'"
       end
 
       args << ".."
@@ -201,10 +189,10 @@ class Vtk < Formula
   def caveats
     s = ""
     s += <<-EOS.undent
-        Even without the --with-qt option, you can display native VTK render windows
+        Even without the --with-qt5 option, you can display native VTK render windows
         from python. Alternatively, you can integrate the RenderWindowInteractor
-        in PyQt, PySide, Tk or Wx at runtime. Read more:
-            import vtk.qt4; help(vtk.qt4) or import vtk.wx; help(vtk.wx)
+        in PyQt4, Tk or Wx at runtime. Read more:
+            import vtk.qt5; help(vtk.qt5) or import vtk.wx; help(vtk.wx)
     EOS
 
     if build.with? "examples"
