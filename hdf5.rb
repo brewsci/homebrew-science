@@ -8,6 +8,7 @@ class Hdf5 < Formula
     sha256 "d025f1b8f3559742c9d3e713f82fd89f80d2d1d7fbd2ad3da1b456ffa4031c88" => :sierra
     sha256 "11afa17299b35cf660cb4d330e2c23962dd8d56d94c76a792d50a109e048fe6a" => :el_capitan
     sha256 "f723827a399c907f1f36d32f7f16f3d758b1b3fc3d0a93492fe67a80101b4a6e" => :yosemite
+    sha256 "22841e96b70ac08d949102c60acbaa94cc24954685b6e3a0bfdf86ef4bb700ee" => :x86_64_linux
   end
 
   deprecated_option "enable-fortran" => "with-fortran"
