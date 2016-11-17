@@ -1,8 +1,8 @@
 class OmeXml < Formula
   desc "Open Microscopy Environment (OME) XML metadata model"
   homepage "https://www.openmicroscopy.org/site/products/ome-files-cpp/"
-  url "http://downloads.openmicroscopy.org/bio-formats/5.2.3/artifacts/bioformats-dfsg-5.2.3.tar.xz"
-  sha256 "aabf05e61a84d627bac457b979dc25d682c9aaf319e802d43771937fda959019"
+  url "http://downloads.openmicroscopy.org/bio-formats/5.2.4/artifacts/bioformats-dfsg-5.2.4.tar.xz"
+  sha256 "4e50c4a6936514d1085f05bdbdd009966b61428a97415bf6a4d4d27667b7ff15"
   head "https://github.com/openmicroscopy/bioformats.git", :branch => "develop", :shallow => false
 
   bottle do
