@@ -7,9 +7,9 @@ class OmeXml < Formula
 
   bottle do
     cellar :any
-    sha256 "3a3df9c62ff0ef3949a44ed41de22687088dae65a3e9b9987951d26a26a046e1" => :sierra
-    sha256 "a91b3cb53f822a8da5c2095df2158966a586fc923316e0237cd21e0126fb4d25" => :el_capitan
-    sha256 "425aa95e25ce4e4522b42ea13ee6ecf97bf8347e09d763a35631f805f3dfe2ee" => :yosemite
+    sha256 "e3f575ef2795b2b1569f4699a79e9c14c3c841b53191f3afa6cf92c51f0923ea" => :sierra
+    sha256 "6ad1c23c68e1c160c704b2d4cb192c2ffc82a678ccc280221253a69041ffd236" => :el_capitan
+    sha256 "a6972ac3e49b34b38d0e4f1afd4cfb2b1603db375bc6fdefeae2a1c077b9212c" => :yosemite
   end
 
   option "with-api-docs", "Build API reference"
