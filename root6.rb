@@ -1,12 +1,12 @@
 class Root6 < Formula
   # in order to update, simply change version number and update sha256
-  version_number = "6.06.08"
+  version_number = "6.08.00"
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
   url "https://root.cern.ch/download/root_v#{version_number}.source.tar.gz"
   mirror "https://fossies.org/linux/misc/root_v#{version_number}.source.tar.gz"
   version version_number
-  sha256 "7cb836282014cce822ef589cad27811eb7a86d7fad45a871fa6b0e6319ec201a"
+  sha256 "388b4158c6e5706418031060c52c4e6b89cd8856ba06bf11c550eeb1759615d9"
 
   head "http://root.cern.ch/git/root.git"
 
@@ -50,6 +50,7 @@ class Root6 < Formula
     args = %W[
       -Dgnuinstall=ON
       -DCMAKE_INSTALL_ELISPDIR=#{share}/emacs/site-lisp/#{name}
+      -Dfortran=OFF
       -Dbuiltin_freetype=ON
       -Droofit=ON
       -Dminuit2=ON
