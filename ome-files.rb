@@ -1,8 +1,8 @@
 class OmeFiles < Formula
   desc "Open Microscopy Environment (OME) File scientific image I/O library"
   homepage "https://www.openmicroscopy.org/site/products/ome-files-cpp/"
-  url "https://downloads.openmicroscopy.org/ome-files-cpp/0.2.2/source/ome-files-cpp-0.2.2.tar.xz"
-  sha256 "e75ce6fd12e05e382fa6c916c473d31a28a90eee3f24e5ecfa9a650c0de8033d"
+  url "https://downloads.openmicroscopy.org/ome-files-cpp/0.2.3/source/ome-files-cpp-0.2.3.tar.xz"
+  sha256 "01104dbe15e354649bf570ceb9e5adc29e1061eee661906dd7cd562bef86d438"
   head "https://github.com/ome/ome-files-cpp.git", :branch => "develop", :shallow => false
 
   bottle do
