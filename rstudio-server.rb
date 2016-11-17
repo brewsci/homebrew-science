@@ -1,9 +1,8 @@
 class RstudioServer < Formula
   desc "Integrated development environment (IDE) for R"
   homepage "http://www.rstudio.com"
-  url "https://github.com/rstudio/rstudio/archive/v0.99.902.tar.gz"
-  sha256 "703a3ebedbb4bb44d2cacffed2615b4f65156fcd4115029931eb5fd99950c689"
-  revision 2
+  url "https://github.com/rstudio/rstudio/archive/v1.0.44.tar.gz"
+  sha256 "43ece6cfdd1a13ac0e17f2a50154a30a1a14ad6c1b3cf381cc6007988ce44a0f"
   head "https://github.com/rstudio/rstudio.git"
 
   bottle do
@@ -15,8 +14,8 @@ class RstudioServer < Formula
 
   depends_on "ant" => :build
   depends_on "cmake" => :build
+  depends_on "r" => :recommended
   depends_on "boost"
-  depends_on "r"
   depends_on "openssl"
 
   resource "gin" do
@@ -55,13 +54,13 @@ class RstudioServer < Formula
   end
 
   resource "mathjax" do
-    url "https://s3.amazonaws.com/rstudio-buildtools/mathjax-23.zip"
-    sha256 "5242d35eb5f0d6fae295422b39a61070c17f9a7923e6bc996c74b9a825c1d699"
+    url "https://s3.amazonaws.com/rstudio-buildtools/mathjax-26.zip"
+    sha256 "939a2d7f37e26287970be942df70f3e8f272bac2eb868ce1de18bb95d3c26c71"
   end
 
   resource "pandoc" do
-    url "https://s3.amazonaws.com/rstudio-buildtools/pandoc-1.15.2.zip"
-    sha256 "ebd94d50a95fb9e141d0fa37e51ee89ebbba5d0d0b03365b1541750092399201"
+    url "https://s3.amazonaws.com/rstudio-buildtools/pandoc-1.17.2.zip"
+    sha256 "887991ffbe191278ddc010146c8ab3e98810932d08a6201245a8acb1ddc38390"
   end
 
   resource "libclang" do
@@ -74,20 +73,6 @@ class RstudioServer < Formula
     sha256 "0b8f54c8d278dd5cd2fb3ec6f43e9ea1bfc9e8d595ff88127073d46550e88a74"
   end
 
-  resource "rsconnect" do
-    url "https://github.com/rstudio/rsconnect.git", :branch => "master"
-  end
-
-  resource "admin-script" do
-    url "https://raw.githubusercontent.com/rstudio/rstudio/7c5c91be6e3edb2984264168bc162f0c0bf392dc/src/cpp/server/extras/admin/rstudio-server.mac.in"
-    sha256 "afbc23c88d53feb5f5e1a298b1fe6ead440e825ef4b88413b5d2a7c6b70e0509"
-  end
-
-  resource "launchd-plist" do
-    url "https://raw.githubusercontent.com/rstudio/rstudio/cd6433df6af3f79a77f727eed9efc64e57994c86/src/cpp/server/extras/launchd/com.rstudio.launchd.rserver.plist.in"
-    sha256 "6c03b5225a8628d6a75cb4fe330ee685e3acf1e55de6e94e4c56d2f26dc13c6e"
-  end
-
   # RStudio assumes that boost is linked against libstdc++,
   # however homebrew/boost is linked against libc++
   # https://support.rstudio.com/hc/en-us/community/posts/211702327-Build-RStudio-against-libc-
@@ -95,6 +80,12 @@ class RstudioServer < Formula
   patch :DATA
 
   def install
+    unless build.head?
+      ENV["RSTUDIO_VERSION_MAJOR"] = version.to_s.split(".")[0]
+      ENV["RSTUDIO_VERSION_MINOR"] = version.to_s.split(".")[1]
+      ENV["RSTUDIO_VERSION_PATCH"] = version.to_s.split(".")[2]
+    end
+
     gwt_lib = buildpath/"src/gwt/lib/"
     (gwt_lib/"gin/1.5").install resource("gin")
     (gwt_lib/"gwt/2.7.0").install resource("gwt")
@@ -106,11 +97,11 @@ class RstudioServer < Formula
     common_dir = buildpath/"dependencies/common"
 
     (common_dir/"dictionaries").install resource("dictionaries")
-    (common_dir/"mathjax-23").install resource("mathjax")
+    (common_dir/"mathjax-26").install resource("mathjax")
 
     resource("pandoc").stage do
-      (common_dir/"pandoc/1.15.2/").install "mac/pandoc"
-      (common_dir/"pandoc/1.15.2/").install "mac/pandoc-citeproc"
+      (common_dir/"pandoc/1.17.2/").install "mac/pandoc"
+      (common_dir/"pandoc/1.17.2/").install "mac/pandoc-citeproc"
     end
 
     resource("libclang").stage do
@@ -118,24 +109,6 @@ class RstudioServer < Formula
     end
 
     (common_dir/"libclang/builtin-headers").install resource("libclang-builtin-headers")
-
-    (common_dir/"rsconnect").install resource("rsconnect")
-    chdir("dependencies/common") { system "R", "CMD", "build", "rsconnect" }
-
-    # ah-hoc way to install admin script and launchd plist
-    # should not be needed in future stable release of RStudio Server
-    resource("admin-script").stage do
-      (prefix/"rstudio-server/bin").install "rstudio-server.mac.in" => "rstudio-server"
-    end
-    inreplace "#{prefix}/rstudio-server/bin/rstudio-server", "${CMAKE_INSTALL_PREFIX}", "#{opt_prefix}/rstudio-server"
-    inreplace "#{prefix}/rstudio-server/bin/rstudio-server", "${CPACK_PACKAGE_VERSION}", version.to_s
-    chmod 0755, "#{prefix}/rstudio-server/bin/rstudio-server"
-
-    resource("launchd-plist").stage do
-      (prefix/"rstudio-server/extras/launchd").install "com.rstudio.launchd.rserver.plist.in" => "com.rstudio.launchd.rserver.plist"
-    end
-    inreplace "#{prefix}/rstudio-server/extras/launchd/com.rstudio.launchd.rserver.plist",
-        "${CMAKE_INSTALL_PREFIX}", "#{opt_prefix}/rstudio-server"
 
     mkdir "build" do
       system "cmake", "..",
@@ -216,7 +189,7 @@ class RstudioServer < Formula
   end
 
   test do
-    system "rstudio-server", "version"
+    system "#{bin}/rstudio-server", "version"
   end
 end
 
