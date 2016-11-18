@@ -1,8 +1,8 @@
 class Vsearch < Formula
   desc "USEARCH-compatible metagenomic sequence tool"
   homepage "https://github.com/torognes/vsearch"
-  url "https://github.com/torognes/vsearch/archive/v2.3.1.tar.gz"
-  sha256 "1b48ebc7ca384ae080deb8841aa40301dde12d1b7bcddd028f270297596b81fa"
+  url "https://github.com/torognes/vsearch/archive/v2.3.2.tar.gz"
+  sha256 "82f523ca697ba5fb78ca84cea5ba0a2cffc7df5d9ab0d72ae72ead441ac2362e"
   head "https://github.com/torognes/vsearch.git"
   # doi "10.5281/zenodo.31443"
   # tag "bioinformatics"
@@ -21,8 +21,9 @@ class Vsearch < Formula
   depends_on "bzip2" unless OS.mac?
 
   resource "manual" do
-    url "https://github.com/torognes/vsearch/releases/download/v2.3.1/vsearch_manual.pdf"
-    sha256 "efa663b84fdcf0e3c61571f5b62f7fc4e23b8af3c0ff10d9cabfcd41139f52d1"
+    url "https://github.com/torognes/vsearch/releases/download/v2.3.2/vsearch_manual.pdf"
+    version "2.3.2"
+    sha256 "f5a0cdaafb533535c43f09abec0e083d2c8d1af105c0057a4503dec7251ce040"
   end
 
   def install
