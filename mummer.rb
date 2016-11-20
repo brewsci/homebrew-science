@@ -8,11 +8,11 @@ class Mummer < Formula
   sha256 "1efad4f7d8cee0d8eaebb320a2d63745bb3a160bb513a15ef7af46f330af662f"
 
   bottle do
-    cellar :any
-    revision 2
-    sha256 "6aa44d5a02b5e39bb7858581e6380954e9ea7049a2b0767fdae6ca4069d79e16" => :yosemite
-    sha256 "bfc60ae7f0f87e56fc8cba0c50c4e93004c100f8ea51daaf941bb94ec1ed69b3" => :mavericks
-    sha256 "e7910c5501c92e38c0ccdeeb7e91984e3349e0cf9ca99f5b48a780f7d7bffd58" => :mountain_lion
+    cellar :any_skip_relocation
+    rebuild 3
+    sha256 "cb364eccca060e00b858efb9ff9d1b4fc019e75fb6547a0f678092c1f9b976c8" => :sierra
+    sha256 "379cb6612e658485c9cd3f4e8faad31f0fc4a5134e39b1eab7ed023a150ed62a" => :el_capitan
+    sha256 "e7aa1f70d35e3e4d6fb4d0192e09b6a919894a704a776ee2a1cf3bbf1d54d6b0" => :yosemite
   end
 
   # annotate conflicts with gd
