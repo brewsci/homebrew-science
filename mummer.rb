@@ -1,4 +1,5 @@
 class Mummer < Formula
+  desc "Alignment of large-scale DNA and protein sequences"
   homepage "http://mummer.sourceforge.net/"
   # doi "10.1186/gb-2004-5-2-r12"
   # tag "bioinformatics"
@@ -18,7 +19,8 @@ class Mummer < Formula
   TOOLS = %w[
     combineMUMs delta-filter dnadiff exact-tandems mapview mgaps
     mummer mummerplot nucmer promer repeat-match
-    run-mummer1 run-mummer3 show-coords show-diff show-snps show-tiling]
+    run-mummer1 run-mummer3 show-coords show-diff show-snps show-tiling
+  ].freeze
 
   def install
     prefix.install Dir["*"]
@@ -26,12 +28,12 @@ class Mummer < Formula
       system "make"
       rm_r "src"
     end
-    TOOLS.each { |tool| bin.install_symlink "../#{tool}" }
+    TOOLS.each { |tool| bin.install_symlink prefix/tool }
   end
 
   test do
     TOOLS.each do |tool|
-      system "#{bin}/#{tool} -h 2>&1 |grep -i Usage"
+      assert_match /U(sage|SAGE)/, pipe_output("#{bin}/#{tool} -h 2>&1")
     end
   end
 end
