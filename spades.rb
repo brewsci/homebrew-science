@@ -8,11 +8,11 @@ class Spades < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
+    sha256 "fe79222d79529b1db700030902500514c5e4c399b756e6d2e9466511bffc03f1" => :sierra
     sha256 "244ebfd9ed2461e003dc2ebb9030b11ef0c2e0e705b7da0fc533feb4c3b23d71" => :el_capitan
     sha256 "d807d6322131bde60c4da57bb90136f549f48532dbc1b05d7268d9cbf4dc617e" => :yosemite
     sha256 "c44b851d733c90d1109abeb8daa6cd68d66327eddf84c629494e373283fe0377" => :mavericks
-    sha256 "f7562b7fb92d4771a3cd5d3499e6cf2338581315fafef58e1ae3ed94d1b5b2f8" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
