@@ -25,6 +25,17 @@ class Spades < Formula
     cause "Compiling SPAdes requires GCC >= 4.7 for OpenMP 3.1 support"
   end
 
+  # Fix malloc: *** malloc_zone_unregister() failed for 0x7fffb1c3c000
+  # Upstream issue "jemalloc upgrade needed to fix macOS Sierra"
+  # Reported 20 Nov 2016 https://github.com/ablab/spades/issues/9
+  # Underlying jemalloc issue: https://github.com/jemalloc/jemalloc/pull/427
+  if MacOS.version >= :sierra
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/f31c35f/spades/jemalloc-sierra-fix.diff"
+      sha256 "7f362d7e60b60147a41b449f34e6210370031e974a588c51347f869559cf0775"
+    end
+  end
+
   def install
     mkdir "src/build" do
       system "cmake", "..", *std_cmake_args
@@ -33,6 +44,6 @@ class Spades < Formula
   end
 
   test do
-    system "spades.py", "--test"
+    system "#{bin}/spades.py", "--test"
   end
 end
