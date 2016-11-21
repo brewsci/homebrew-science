@@ -10,10 +10,9 @@ class Trinity < Formula
 
   bottle do
     cellar :any
-    sha256 "e0ede844281630b088be3dc1b0983e02aa9307a866ebdbc6320e1d596c142a70" => :el_capitan
-    sha256 "9a6653a4b288245afcf0e71c024a51a8a8325e5ac54e9252920ff021efa7db37" => :yosemite
-    sha256 "5902d884766d2bb88b252e64be063374b17a0d62274c7a26229d46a5e4576d65" => :mavericks
-    sha256 "ab62075292fa00b265ef44554ad015344cc8137a3859c661860c044bb57c699d" => :x86_64_linux
+    sha256 "d8a5a9052537469cb8b1de3908776ee4d51002c67817cc78c9b2b0941f14669e" => :sierra
+    sha256 "422773fbf4fa0aeeb43c3ea7fdbe925d2696f3ae78dfbbea948da1d95e688247" => :el_capitan
+    sha256 "1700f711c82f2d15a5ffa5f4132c47fab2bf96332aa7a7d9099cf77244fe7891" => :yosemite
   end
 
   depends_on "express" => :recommended
