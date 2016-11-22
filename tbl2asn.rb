@@ -18,6 +18,7 @@ class Tbl2asn < Formula
     sha256 "d1d425c14dac16911a3cd2f55968da21bea1519c305ebec58c2154ef330b4b4a" => :sierra
     sha256 "5e9baf2faa15d2a9e9eada81d4edcf09ea09e5e40952b44ed341e8e902980c8d" => :el_capitan
     sha256 "1afa149ee069a6e78b3f4c7305e1f361d44d2a97d93e7cd175e5744d44bbd70c" => :yosemite
+    sha256 "2b8f4195c4a7facfe48fc86e4c58cad36431bdcd685568790dc2baaceb35c9e1" => :x86_64_linux
   end
 
   resource "doc" do
