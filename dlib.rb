@@ -3,9 +3,8 @@ require File.expand_path("../Requirements/cuda_requirement", __FILE__)
 class Dlib < Formula
   desc "C++ library for machine learning"
   homepage "http://dlib.net/"
-  url "http://dlib.net/files/dlib-19.1.tar.bz2"
-  sha256 "242f3b8fbc857621d36b5c3f0b32659a9c9e9adccba794cd82d230aa1adb575c"
-  revision 2
+  url "http://dlib.net/files/dlib-19.2.tar.bz2"
+  sha256 "28be8f96681e0fd196a7666ad1e1fa6994e9494aef737dd7d6985a3f1620084a"
 
   head "https://github.com/davisking/dlib.git"
 
@@ -27,12 +26,6 @@ class Dlib < Formula
   depends_on :x11
 
   needs :cxx11
-
-  # remove patch at next release
-  patch do
-    url "https://github.com/davisking/dlib/commit/114d156daee8e11c7e6ebf907e4b147a998226f0.patch"
-    sha256 "18687e9078222bbb97ba5e43086707b0efddc7778d79567cc5d21faa20faceaa"
-  end unless build.head?
 
   def install
     ENV.cxx11
@@ -59,46 +52,16 @@ class Dlib < Formula
         system "make", "install"
       end
     end
+    cd "examples" do
+      system "cmake", "."
+      system "make"
+    end
     pkgshare.install "examples"
     doc.install "docs"
   end
 
   test do
-    ENV.cxx11
-    cp pkgshare/"examples/faces/2007_007763.jpg", testpath
-    (testpath/"face_detection.cpp").write <<-EOS.undent
-    #include <dlib/image_processing/frontal_face_detector.h>
-    #include <dlib/image_io.h>
-    #include <iostream>
-
-    using namespace dlib;
-    using namespace std;
-
-    int main(int argc, char** argv) {
-      frontal_face_detector detector = get_frontal_face_detector();
-
-      array2d<unsigned char> img;
-      load_image(img, argv[1]);
-      pyramid_up(img);
-      std::vector<rectangle> dets = detector(img);
-      cout << dets.size() << endl;
-    }
-    EOS
-    cxx_with_args = ENV.cxx.split + %W[
-      face_detection.cpp
-      -I#{opt_include}
-      -o face_detection
-      -L#{opt_lib} -ldlib
-    ]
-
-    # include BLAS library again to avoid undefined symbol cblas_saxpy error
-    if Tab.for_name("dlib").with?("openblas")
-      cxx_with_args << "-L#{Formula["openblas"].opt_lib}" << "-lopenblas"
-    else
-      cxx_with_args << "-lblas" << "-llapack"
-    end
-
-    system *cxx_with_args
-    assert_equal `./face_detection 2007_007763.jpg`.to_i, 7
+    cp pkgshare/"examples/kcentroid_ex", testpath
+    system "./kcentroid_ex"
   end
 end
