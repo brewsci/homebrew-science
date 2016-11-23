@@ -1,9 +1,9 @@
 class Mlpack < Formula
+  desc "Scalable C++ machine learning library"
   homepage "http://www.mlpack.org"
   # doi "arXiv:1210.6293"
-  url "http://www.mlpack.org/files/mlpack-2.0.1.tar.gz"
-  sha256 "87305f7003e060d3c93d60ce1365c4ec0fa7e827c356e857be316b0e54114f22"
-  revision 3
+  url "http://www.mlpack.org/files/mlpack-2.1.0.tar.gz"
+  sha256 "2ebe79990b6a5ec5e6e0d2de6e13ae11c8e33af16f6eeb0f9f7e1ee650c72499"
 
   bottle do
     cellar :any
@@ -16,14 +16,16 @@ class Mlpack < Formula
   needs :cxx11
   cxx11dep = MacOS.version < :mavericks ? ["c++11"] : []
 
+  deprecated_option "with-check" => "with-test"
+
+  option "with-debug", "Compile with debug options"
+  option "with-profile", "Compile with profile options"
+  option "with-test", "Run build-time tests"
+
   depends_on "cmake" => :build
   depends_on "libxml2"
   depends_on "armadillo" => ["with-hdf5"] + cxx11dep
   depends_on "boost" => cxx11dep
-
-  option "with-debug", "Compile with debug options"
-  option "with-profile", "Compile with profile options"
-  option "with-check", "Run build-time tests"
 
   def install
     ENV.cxx11
@@ -42,14 +44,14 @@ class Mlpack < Formula
     end
 
     doc.install Dir["doc/*"]
-    (share / "mlpack").install "src/mlpack/tests" # Includes test data.
+    pkgshare.install "src/mlpack/tests" # Includes test data.
   end
 
   test do
     ENV.cxx11
     cd testpath do
-      system "#{bin}/mlpack_allknn",
-        "-r", "#{share}/mlpack/tests/data/GroupLens100k.csv",
+      system "#{bin}/mlpack_knn",
+        "-r", "#{pkgshare}/tests/data/GroupLens100k.csv",
         "-n", "neighbors.csv",
         "-d", "distances.csv",
         "-k", "5", "-v"
@@ -67,8 +69,10 @@ class Mlpack < Formula
         Log::Warn << "A false alarm!" << std::endl;
       }
       EOS
-    cxx_with_flags = ENV.cxx.split + ["test.cpp", "-I#{include}", "-I#{Formula["libxml2"].opt_include}/libxml2",
-           "-L#{lib}", "-lmlpack", "-o", "test"]
+    cxx_with_flags = ENV.cxx.split + ["test.cpp", "-I#{include}",
+                                      "-I#{Formula["libxml2"].opt_include}/libxml2",
+                                      "-L#{lib}", "-lmlpack",
+                                      "-o", "test"]
     system *cxx_with_flags
     system "./test", "--verbose"
   end
