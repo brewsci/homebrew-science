@@ -20,7 +20,6 @@ class Opencascade < Formula
 
   depends_on "cmake" => :build
   depends_on "freetype"
-  depends_on "qt"
   depends_on "freeimage" => :recommended
   depends_on "gl2ps" => :recommended
   depends_on "tbb" => :recommended if OS.mac? # Couldn't make it find TBB...
