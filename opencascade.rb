@@ -6,9 +6,10 @@ class Opencascade < Formula
 
   bottle do
     cellar :any
-    sha256 "b16e151bfb2a02a838f5cb590efac280ef576ed269cfde5b1c3cc773320d8046" => :el_capitan
-    sha256 "36da0023b1acc5b7e75157a2bff84f10d4fdea19e4f88a797858a42ce04154e0" => :yosemite
-    sha256 "6034c93c5bb2d78048f00a61d27dab7001974480addbbb6893675db77e8e7e52" => :mavericks
+    rebuild 1
+    sha256 "da00932812373c97b3fd41994a1a5cfbaf405ad8d48bf9697f52b0b07371bf56" => :sierra
+    sha256 "4eb8fc77de51a75ec8c8372868fa6e1329d1ae58004fc326f8fff1d7d48b2d0d" => :el_capitan
+    sha256 "bb4455c156a0942f0def7371b10950118724235f1aeb9acf7eed2910b2f277e9" => :yosemite
   end
 
   conflicts_with "oce", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
