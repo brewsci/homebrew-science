@@ -1,10 +1,11 @@
 class Infernal < Formula
-  homepage "http://infernal.janelia.org/"
+  desc "Search DNA databases for RNA structure and sequence similarities"
+  homepage "http://eddylab.org/infernal/"
   # doi "10.1093/bioinformatics/btp157"
   # tag "bioinformatics"
 
-  url "http://eddylab.org/software/infernal/infernal-1.1.1.tar.gz"
-  sha256 "9f18ed3ce5ba738db268521c2ac9781449855687016dd50cfcb7fb479a5e319a"
+  url "http://eddylab.org/software/infernal/infernal-1.1.2.tar.gz"
+  sha256 "ac8c24f484205cfb7124c38d6dc638a28f2b9035b9433efec5dc753c7e84226b"
 
   bottle do
     cellar :any
@@ -14,18 +15,19 @@ class Infernal < Formula
     sha256 "55b4128aeb4c49f274e1d969a41e6e44d16861a1d9ca9116ee87c26ae809fa13" => :x86_64_linux
   end
 
-  deprecated_option "check" => "with-check"
+  deprecated_option "check" => "with-test"
+  deprecated_option "with-check" => "with-test"
 
-  option "with-check", "Run the test suite (`make check`). Takes a couple of minutes."
+  option "with-test", "Run the test suite (`make check`). Takes a couple of minutes."
 
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
-    system "make", "check" if build.with? "check"
+    system "make", "check" if build.with? "test"
     system "make", "install"
   end
 
   test do
-    system "cmsearch", "-h"
+    system "#{bin}/cmsearch", "-h"
   end
 end
