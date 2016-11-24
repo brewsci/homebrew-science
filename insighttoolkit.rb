@@ -4,6 +4,7 @@ class Insighttoolkit < Formula
   url "https://downloads.sourceforge.net/project/itk/itk/4.10/InsightToolkit-4.10.1.tar.gz"
   sha256 "cb1048facf2b60cebf4ea0b3f89a13a32f8036d906aab3cfafa65e94760caa7a"
   head "git://itk.org/ITK.git"
+  revision 1
 
   bottle do
     sha256 "62e93503655321f3712dcae5a105da5d4212e80bdfaab6dec8323053d6fd1402" => :sierra

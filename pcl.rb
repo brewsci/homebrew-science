@@ -6,7 +6,7 @@ class Pcl < Formula
   url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.0.tar.gz"
   sha256 "9e54b0c1b59a67a386b9b0f4acb2d764272ff9a0377b825c4ed5eedf46ebfcf4"
   head "https://github.com/PointCloudLibrary/pcl.git"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "479be6e6410f4f2564d6f73816bd5d3a6356e5d12aa9ed073c0a9fef9b0efaa2" => :el_capitan

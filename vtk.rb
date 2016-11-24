@@ -1,10 +1,9 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization."
   homepage "http://www.vtk.org"
-  url "http://www.vtk.org/files/release/7.0/VTK-7.0.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/VTK-7.0.0.tar.gz"
-  sha256 "78a990a15ead79cdc752e86b83cfab7dbf5b7ef51ba409db02570dbdd9ec32c3"
-  revision 6
+  url "http://www.vtk.org/files/release/7.1/VTK-7.1.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/VTK-7.1.0.tar.gz"
+  sha256 "5f3ea001204d4f714be972a810a62c0f2277fbb9d8d2f8df39562988ca37497a"
 
   head "https://github.com/Kitware/VTK.git"
 
@@ -221,12 +220,12 @@ class Vtk < Formula
         int main(int, char *[])
         {
           assert (vtkVersion::GetVTKMajorVersion()==7);
-          assert (vtkVersion::GetVTKMinorVersion()==0);
+          assert (vtkVersion::GetVTKMinorVersion()==1);
           return EXIT_SUCCESS;
         }
       EOS
 
-    system ENV.cxx, "Version.cpp", "-I#{opt_include}/vtk-7.0"
+    system ENV.cxx, "Version.cpp", "-I#{opt_include}/vtk-7.1"
     system "./a.out"
     system "#{bin}/vtkpython", "-c", "exit()"
   end
