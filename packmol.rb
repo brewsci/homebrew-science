@@ -1,8 +1,8 @@
 class Packmol < Formula
   desc "Packing optimization for molecular dynamics simulations"
   homepage "http://www.ime.unicamp.br/~martinez/packmol/"
-  url "http://leandro.iqm.unicamp.br/packmol/versionhistory/packmol-16.261.tar.gz"
-  sha256 "6ef74005da672743eddfb54b7c231da1b2dd0d6757fdb3ac047110bac9d884cf"
+  url "http://leandro.iqm.unicamp.br/packmol/versionhistory/packmol-16.320.tar.gz"
+  sha256 "792df9f318189df19e9281237862c3de3cf3dc8e95c130b98ff107bf097a4243"
 
   bottle do
     sha256 "b25ccbf70892ede3b1a42a85c8c3d29eb5a90552a3cfdd1b3e09626f3a85ae72" => :sierra
