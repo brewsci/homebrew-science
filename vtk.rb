@@ -8,9 +8,9 @@ class Vtk < Formula
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "4f32588c38d6660ce55ac45cfff1ddbac28ce67fc521a9bcab8e2977661e98f6" => :sierra
-    sha256 "42bd28d9d34d33a6189d456ef5b721d51189228257be8b8580580a4332345533" => :el_capitan
-    sha256 "951f121d864d579188bbf14738ea36ad031b1558131f9355a1eeeb1bbc06d95c" => :yosemite
+    sha256 "bc24f7a8136e82cb224bcb992f35e2901315bbaae21058320a96176c54d63805" => :sierra
+    sha256 "98350213326a9ddddff28109463c0567b682373c8a4411316ccb4080a9b156f6" => :el_capitan
+    sha256 "85a3ded043225d615851435744ddca403805c2279cf34a83693a89155171b540" => :yosemite
   end
 
   deprecated_option "examples" => "with-examples"
