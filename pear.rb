@@ -1,10 +1,14 @@
 class Pear < Formula
+  desc "Ultrafast, memory-efficient and highly accurate pair-end read merger"
   homepage "http://www.exelixis-lab.org/pear"
   # doi "10.1093/bioinformatics/btt593"
   # tag "bioinformatics"
 
-  url "http://sco.h-its.org/exelixis/web/software/pear/files/pear-0.9.6-src.tar.gz"
-  sha256 "f7728371e26a5b46fa928b0f7ae1b552ed6a78815b117ba48ef1af98e96c8e2b"
+  url "http://sco.h-its.org/exelixis/web/software/pear/files/pear-0.9.10.tar.gz"
+  sha256 "ebb0a1a26300b4d54e6a470b0dd17c364aedcf8d4bfab1106649a2d502a76203"
+
+  # patch needed for Yosemite, should be fixed in version > 0.9.10
+  patch :DATA
 
   bottle do
     cellar :any
@@ -14,9 +18,12 @@ class Pear < Formula
     sha256 "377d1990fe1f56ad5dcb2ea9c4729d9140fbb18ff46590874b1685ce005a4c62" => :x86_64_linux
   end
 
+  depends_on "libtool" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   def install
     system "./configure",
-      "--disable-debug",
       "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--prefix=#{prefix}"
@@ -29,3 +36,17 @@ class Pear < Formula
     system "#{bin}/pear --help 2>&1 |grep -q pear"
   end
 end
+
+__END__
+diff --git a/src/pear-pt.c b/src/pear-pt.c
+index 9cd60fa..1a458cd 100644
+--- a/src/pear-pt.c
++++ b/src/pear-pt.c
+@@ -4,6 +4,7 @@
+ #include <math.h>
+ #include <pthread.h>
+ #include <assert.h>
++#include <stdarg.h>
+ #include "args.h"
+ #include "emp.h"
+ #include "reader.h"
