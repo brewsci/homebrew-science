@@ -5,6 +5,7 @@ class CeresSolver < Formula
   # https://github.com/ceres-solver/ceres-solver/issues/240
   url "http://ceres-solver.org/ceres-solver-1.12.0rc4.tar.gz"
   sha256 "ea8f161a110dd3a0bc563f8d13e5a04a0d34867303b309e2a07c73583e59d66d"
+  revision 1
 
   bottle do
     cellar :any
