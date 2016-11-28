@@ -1,9 +1,9 @@
 class Paml < Formula
   desc "phylogenetic analysis by maximum likelihood"
   homepage "http://abacus.gene.ucl.ac.uk/software/paml.html"
-  url "http://abacus.gene.ucl.ac.uk/software/paml4.9a.tgz"
-  version "4.9a"
-  sha256 "1400b6a48aa7ba2dee637352430a1f64594674168cf7a749ac79093da9a39ef4"
+  url "http://abacus.gene.ucl.ac.uk/software/paml4.9c.tgz"
+  version "4.9c"
+  sha256 "92009a3138bdddf1c99f4756ded74c33618214450ad5ada497870e210ea141a1"
   # doi "10.1093/molbev/msm088"
   # tag "bioinformatics"
 
@@ -38,6 +38,6 @@ class Paml < Formula
 
   test do
     cp Dir[doc/"examples/DatingSoftBound/*"], testpath
-    system "infinitesites"
+    system "#{bin}/infinitesites"
   end
 end
