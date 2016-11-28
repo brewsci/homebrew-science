@@ -4,8 +4,8 @@ class Samblaster < Formula
   # doi "10.1093/bioinformatics/btu314"
   # tag "bioinformatics"
 
-  url "https://github.com/GregoryFaust/samblaster/archive/v.0.1.23.tar.gz"
-  sha256 "0d35ce629771946e3d6fc199025747054e5512bffa1ba4446ed81160fffee57a"
+  url "https://github.com/GregoryFaust/samblaster/archive/v.0.1.24.tar.gz"
+  sha256 "72c42e0a346166ba00152417c82179bd5139636fea859babb06ca855af93d11f"
   head "https://github.com/GregoryFaust/samblaster"
 
   bottle do
