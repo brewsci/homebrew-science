@@ -17,6 +17,7 @@ class Pcl < Formula
   option "with-examples", "Build pcl examples."
   option "without-tools", "Build without tools."
   option "without-apps", "Build without apps."
+  option "with-surface_on_nurbs", "Build with surface_on_nurbs."
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -48,6 +49,7 @@ class Pcl < Formula
   depends_on "openni" => :optional
   depends_on "openni2" => :optional
 
+  depends_on "XML::Parser" => :perl
 
   def install
     args = std_cmake_args + %W[
@@ -115,6 +117,12 @@ class Pcl < Formula
       args << "-DOPENNI_INCLUDE_DIR=#{Formula["openni"].opt_include}/ni"
     else
       args << "-DCMAKE_DISABLE_FIND_PACKAGE_OpenNI:BOOL=TRUE"
+    end
+
+    if build.with? "surface_on_nurbs"
+      args << "-DBUILD_surface_on_nurbs:BOOL=ON"
+    else
+      args << "-DBUILD_surface_on_nurbs:BOOL=OFF"
     end
 
     args << "-DCMAKE_DISABLE_FIND_PACKAGE_VTK:BOOL=TRUE" if build.without? "vtk"
