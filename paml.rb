@@ -12,6 +12,7 @@ class Paml < Formula
     sha256 "f29be1846d157d969d5acd700273434eb69de5629c8b7c0e6e02baf3c160ee24" => :sierra
     sha256 "1c300304f8a0b12a76dff8e8ccb4a61302e3194bb03f6417cd8c74c4a7d7384e" => :el_capitan
     sha256 "ae0795e757829c10687996d86a6aee83162103bd42b862bf79c6c392d0f93240" => :yosemite
+    sha256 "21c8e9bd97d148cea7e6c6617316bfe2c4c33d7cb130488b1a2cfdf58d24ed68" => :x86_64_linux
   end
 
   def install
