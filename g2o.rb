@@ -4,6 +4,7 @@ class G2o < Formula
   url "https://github.com/RainerKuemmerle/g2o/archive/20160424_git.tar.gz"
   version "2016-04-24"
   sha256 "31abd5f4acf8407c18318b04f3ffc867c8ea7de89f18d51f9e92eb734d523b24"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,8 +16,6 @@ class G2o < Formula
   depends_on "cmake" => :build
   depends_on "eigen"
   depends_on "suite-sparse" => :recommended
-  depends_on "qt" => :optional
-  depends_on "libqglviewer" => :optional
 
   def install
     cmake_args = ["-DBUILD_CSPARSE=" + ((build.with? "suite-sparse") ? "OFF" : "ON")]
