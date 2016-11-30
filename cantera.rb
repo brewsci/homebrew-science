@@ -1,9 +1,10 @@
 class Cantera < Formula
+  desc "chemical kinetics, thermodynamics, and transport process tool suite"
   homepage "https://github.com/Cantera/cantera"
   url "https://github.com/Cantera/cantera/archive/v2.2.1.tar.gz"
   sha256 "c7bca241848f541466f56e479402521c618410168e8983e2b54ae48888480e1e"
-  head "https://github.com/cantera/cantera.git"
   revision 1
+  head "https://github.com/cantera/cantera.git"
 
   bottle do
     sha256 "37db92af5748d559228cfb16a5a372d55229ab32e8d1dae7536395b2c0cd3a24" => :sierra
@@ -12,7 +13,8 @@ class Cantera < Formula
   end
 
   option "with-matlab=", "Path to Matlab root directory"
-  option "without-check", "Disable build-time checking (not recommended)"
+  option "without-test", "Disable build-time testing (not recommended)"
+  deprecated_option "without-check" => "without-test"
 
   depends_on "scons" => :build
   depends_on :python if OS.mac? && MacOS.version <= :snow_leopard
@@ -22,8 +24,8 @@ class Cantera < Formula
   depends_on :python3 => :optional
 
   resource "Cython" do
-    url "https://pypi.python.org/packages/source/C/Cython/cython-0.22.tar.gz"
-    sha256 "14307e7a69af9a0d0e0024d446af7e51cc0e3e4d0dfb10d36ba837e5e5844015"
+    url "https://pypi.python.org/packages/2f/ae/0bb6ca970b949d97ca622641532d4a26395322172adaf645149ebef664eb/Cython-0.25.1.tar.gz"
+    sha256 "e0941455769335ec5afb17dee36dc3833b7edc2ae20a8ed5806c58215e4b6669"
   end
 
   def install
@@ -52,8 +54,8 @@ class Cantera < Formula
     build_args << "python3_package=" + (build.with?("python3") ? "y" : "n")
 
     scons "build", *build_args
-    if build.with? "check"
-      if not matlab_path
+    if build.with? "test"
+      if !matlab_path
         scons "test"
       else
         # Matlab test stalls when run through Homebrew, so run other sub-tests explicitly
