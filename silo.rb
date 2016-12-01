@@ -9,6 +9,7 @@ class Silo < Formula
     sha256 "09452a7b97dcc356d9219ca618f8c8f9fb418e3d326ce55a383ce0f5f5669511" => :sierra
     sha256 "d96eb9b5503708030433baf27219e7a099ea79a41ead38ed8638e799ff0352be" => :el_capitan
     sha256 "21294400dfd856214a16e51fef0ea431f1cee11de5c35d64babff9fd522a0331" => :yosemite
+    sha256 "0ec04f28eb691ff1016630b9cb087e1565bd3949a34be9ee66209487a6a6a351" => :x86_64_linux
   end
 
   option "with-static", "Build as static instead of dynamic library"
