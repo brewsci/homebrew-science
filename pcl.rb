@@ -10,9 +10,9 @@ class Pcl < Formula
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   bottle do
-    sha256 "53eb77ef3d620252ae8ceb2f6e77819d6f60ff65a2ea6c2112b3d6ad38cb3590" => :sierra
-    sha256 "f3c531bdb1be21c19dc7cf954b6022021c184bbf8c84f3315c8faf15bd6a1b2f" => :el_capitan
-    sha256 "040795344d484031e59102b85f42ba391aaf2c916ea8d4a920a2dd8fdec5efd8" => :yosemite
+    sha256 "995460dd42e9e9aea53747dfa3e26766afd6b151543bb1beaa1a3a6272c32dee" => :sierra
+    sha256 "0a0a31819675e05b197b6a99f6c478dcd9e2c3b8a1b2f3d4e0ef1e929bc27b20" => :el_capitan
+    sha256 "80c134ab45d5269418e1ca91fd5321f8bf7b0684185229ba41efa600731c86f0" => :yosemite
   end
 
   option "with-examples", "Build pcl examples."
