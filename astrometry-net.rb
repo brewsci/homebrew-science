@@ -1,18 +1,16 @@
 class AstrometryNet < Formula
   desc "Automatic identification of astronomical images"
   homepage "http://astrometry.net"
-  url "http://astrometry.net/downloads/astrometry.net-0.67.tar.gz"
-  sha256 "e351c81f7787550d42d45855db394a1702fd17c249ba934bdf4b6abf56281446"
+  url "http://astrometry.net/downloads/astrometry.net-0.69.tar.gz"
+  sha256 "6a445acfd4ff3c082eb56fcba22ee626b45a98665633710a6b1d4a3edef36f3f"
+  head "https://github.com/dstndstn/astrometry.net.git"
+
   bottle do
     cellar :any
     sha256 "3b35fed63763f9906f710c293a7fbf4485c83bd275e7234799646434806866ad" => :el_capitan
     sha256 "c98c75a1dfee78fda39dfe053c009e2961ad319f4fd763c8ca3a158c26f60086" => :yosemite
     sha256 "7c8aae923454efb2082910ced5d35a0971815f6ea0e33bb3ee99472d389a548d" => :mavericks
   end
-
-  revision 2
-
-  head "https://github.com/dstndstn/astrometry.net.git"
 
   option "without-extras", "Don't try to build plotting code (actually it will still try, but homebrew won't halt the install if it fails)"
 
@@ -63,6 +61,6 @@ class AstrometryNet < Formula
   end
 
   test do
-    system "solve-field"
+    system "#{bin}/solve-field"
   end
 end
