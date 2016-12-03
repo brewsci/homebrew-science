@@ -1,15 +1,14 @@
 class Pathvisio < Formula
   desc "Extendable Pathway Analysis Toolbox"
   homepage "http://www.pathvisio.org/"
-  url "http://www.pathvisio.org/data/releases/current/pathvisio_bin-3.2.2-r4047.zip"
-  version "3.2.2"
-  sha256 "040b83694baa87e99cbe091cbc7d2e54c91fcfb4f80a3e57f20d32a7c64080e1"
+  url "https://www.pathvisio.org/data/releases/current/pathvisio_bin-3.2.4.zip"
+  sha256 "b090e801dc427f574b26973d8f5e4ad9ce6972024b0d358cec43b94e157a8071"
   # doi "10.1371/journal.pcbi.1004085"
   # tag "bioinformatics"
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on :java
 
   def install
     libexec.install "LICENSE-2.0.txt", "NOTICE.txt", "pathvisio.jar", "pathvisio.sh"
