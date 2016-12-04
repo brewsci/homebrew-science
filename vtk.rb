@@ -4,6 +4,7 @@ class Vtk < Formula
   url "http://www.vtk.org/files/release/7.1/VTK-7.1.0.tar.gz"
   mirror "https://fossies.org/linux/misc/VTK-7.1.0.tar.gz"
   sha256 "5f3ea001204d4f714be972a810a62c0f2277fbb9d8d2f8df39562988ca37497a"
+  revision 1
 
   head "https://github.com/Kitware/VTK.git"
 
@@ -82,6 +83,9 @@ class Vtk < Formula
     if build.with? "x11"
       args << "-DVTK_USE_COCOA=OFF"
       args << "-DVTK_USE_X=ON"
+      args << "-DOPENGL_INCLUDE_DIR:PATH=/usr/X11R6/include"
+      args << "-DOPENGL_gl_LIBRARY:STRING=/usr/X11R6/lib/libGL.dylib"
+      args << "-DOPENGL_glu_LIBRARY:STRING=/usr/X11R6/lib/libGLU.dylib"
     else
       args << "-DVTK_USE_COCOA=ON"
     end
