@@ -8,10 +8,9 @@ class Muscle < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "095e948e36fbdcea5dce3aa55aa7a5aa76101d41e86306b15aa15f827c70eac3" => :el_capitan
-    sha256 "2b4484979ad18f9cfaff6905925424666cdbb46972000cbd87155c24b27accd7" => :yosemite
-    sha256 "c020974f146e0b5f35c16e79aa64c00b2cd06ea3ecd16d5f39e26c11318a2e45" => :mavericks
-    sha256 "6bbc809f7436978ce1c7894b1bb266c77d2ccabdd9a702d991bb0bc0e798f352" => :x86_64_linux
+    sha256 "e772cd2b482c3fc892485504ccae0ee5a486cb00a57b8e6e154b9f20d0d201e5" => :sierra
+    sha256 "46fb3219f56a068c718f6b7f3a8d13db9a4b7c6c9483a969da16c7588e59a4e1" => :el_capitan
+    sha256 "7b9fdbd97e273d81c87881e2b58151311221aeaedca1b875c560232d831c0b30" => :yosemite
   end
 
   def install
