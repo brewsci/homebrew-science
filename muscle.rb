@@ -1,13 +1,10 @@
 class Muscle < Formula
   desc "Multiple sequence alignment program"
   homepage "http://www.drive5.com/muscle/"
+  url "http://www.drive5.com/muscle/muscle_src_3.8.1551.tar.gz"
+  sha256 "c70c552231cd3289f1bad51c9bd174804c18bb3adcf47f501afec7a68f9c482e"
   # doi "10.1093/nar/gkh340", "10.1186/1471-2105-5-113"
   # tag "bioinformatics"
-
-  url "http://www.drive5.com/muscle/downloads3.8.31/muscle3.8.31_src.tar.gz"
-  version "3.8.31"
-  sha256 "43c5966a82133bd7da5921e8142f2f592c2b5f53d802f0527a2801783af809ad"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -18,23 +15,11 @@ class Muscle < Formula
   end
 
   def install
-    # This patch makes 3.8.31 build on OSX >= Lion.
-    # It has been reported upstream but not fixed yet.
-    inreplace "src/globalsosx.cpp",
-              "#include <mach/task_info.h>",
-              "#include <mach/vm_statistics.h>\n#include <mach/task_info.h>"
+    # Fix build per Makefile instructions
+    inreplace "Makefile", "-static", ""
 
-    # This patch makes 3.8.31 build on RHEL 7.x
-    # It ONLY affects Linux (in an "if Linux" clause in the 'mk' script)
-    # It is unnecessary to create a static binary
-    inreplace "src/mk",
-              "LINK_OPTS=-static",
-              "LINK_OPTS="
-
-    cd "src" do
-      system "make"
-      bin.install "muscle"
-    end
+    system "make"
+    bin.install "muscle"
   end
 
   test do
