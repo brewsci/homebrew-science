@@ -1,11 +1,8 @@
 class CeresSolver < Formula
   desc "C++ library for large-scale optimization"
   homepage "http://ceres-solver.org/"
-  # Using the RC as stable for the sake of compatibility with the current eigen
-  # https://github.com/ceres-solver/ceres-solver/issues/240
-  url "http://ceres-solver.org/ceres-solver-1.12.0rc4.tar.gz"
-  sha256 "ea8f161a110dd3a0bc563f8d13e5a04a0d34867303b309e2a07c73583e59d66d"
-  revision 1
+  url "http://ceres-solver.org/ceres-solver-1.12.0.tar.gz"
+  sha256 "745bfed55111e086954126b748eb9efe20e30be5b825c6dec3c525cf20afc895"
 
   bottle do
     cellar :any
