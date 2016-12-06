@@ -1,8 +1,8 @@
 class Vsearch < Formula
   desc "USEARCH-compatible metagenomic sequence tool"
   homepage "https://github.com/torognes/vsearch"
-  url "https://github.com/torognes/vsearch/archive/v2.3.2.tar.gz"
-  sha256 "82f523ca697ba5fb78ca84cea5ba0a2cffc7df5d9ab0d72ae72ead441ac2362e"
+  url "https://github.com/torognes/vsearch/archive/v2.3.3.tar.gz"
+  sha256 "e2b25d89466172e6736c3a3ef19334ea75176938f83a406862257879153866b4"
   head "https://github.com/torognes/vsearch.git"
   # doi "10.5281/zenodo.31443"
   # tag "bioinformatics"
@@ -20,19 +20,12 @@ class Vsearch < Formula
   depends_on "homebrew/dupes/zlib" unless OS.mac?
   depends_on "bzip2" unless OS.mac?
 
-  resource "manual" do
-    url "https://github.com/torognes/vsearch/releases/download/v2.3.2/vsearch_manual.pdf"
-    version "2.3.2"
-    sha256 "f5a0cdaafb533535c43f09abec0e083d2c8d1af105c0057a4503dec7251ce040"
-  end
-
   def install
     system "./autogen.sh"
     system "./configure",
       "--disable-dependency-tracking",
       "--prefix=#{prefix}"
     system "make", "install"
-    doc.install resource("manual")
   end
 
   test do
