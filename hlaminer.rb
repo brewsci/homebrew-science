@@ -9,9 +9,9 @@ class Hlaminer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8b92776facda404b60f368384871a3935d96228c722bf3988f833c518f5e08d5" => :sierra
-    sha256 "dcc833826d7f20b4a6305447f9672afa8b15a210725a46a617209e7462740ded" => :el_capitan
-    sha256 "dcc833826d7f20b4a6305447f9672afa8b15a210725a46a617209e7462740ded" => :yosemite
+    sha256 "a75b67e185e84cff4dfe548c589da677498fbf8c48bae53e444ce041d3f71121" => :sierra
+    sha256 "7a81a74fdd4f2b1153cc9e714d4eaf407c8bc167300acfbafae64b16cc969c94" => :el_capitan
+    sha256 "7a81a74fdd4f2b1153cc9e714d4eaf407c8bc167300acfbafae64b16cc969c94" => :yosemite
   end
 
   depends_on "blast"
