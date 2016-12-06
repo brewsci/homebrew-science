@@ -1,6 +1,6 @@
 language: ruby
 os: linux
-rvm: system
+rvm: 2.0.0
 sudo: required
 dist: trusty
 
