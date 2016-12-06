@@ -2,7 +2,7 @@ class Hlaminer < Formula
   desc "HLA predictions from next-generation shotgun (NGS) sequence read data"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/hlaminer"
   url "http://www.bcgsc.ca/platform/bioinfo/software/hlaminer/releases/1.3.1/HLAminer_v1-3-1.tar.gz"
-  version "1.3.0"
+  version "1.3.1"
   sha256 "a009575d80484c7c1dd188f29c21419ccca3ff7feea31128d0906cfc944959fe"
   # doi "10.1186/gm396"
   # tag "bioinformatics"
