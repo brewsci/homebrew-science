@@ -30,7 +30,6 @@ class Opencv < Formula
 
   option "32-bit"
   option "with-java", "Build with Java support"
-  option "with-qt", "Build the Qt4 backend to HighGUI"
   option "with-tbb", "Enable parallel code in OpenCV using Intel TBB"
   option "without-test", "Build without accuracy & performance tests"
   option "without-opencl", "Disable GPU code in OpenCV using OpenCL"
@@ -64,7 +63,6 @@ class Opencv < Formula
   depends_on "openexr"    => :recommended
   depends_on "openni"     => :optional
   depends_on "pkg-config" => :build
-  depends_on "qt"         => :optional
   depends_on "tbb"        => :optional
   depends_on "vtk"        => :optional
 
@@ -107,7 +105,6 @@ class Opencv < Formula
     args << "-DWITH_1394="      + arg_switch("libdc1394")
     args << "-DWITH_OPENGL="    + arg_switch("opengl")
     args << "-DWITH_JASPER="    + arg_switch("jasper")
-    args << "-DWITH_QT="        + arg_switch("qt")
     args << "-DWITH_GSTREAMER=" + arg_switch("gstreamer")
     args << "-DWITH_XIMEA="     + arg_switch("ximea")
     args << "-DWITH_VTK="       + arg_switch("vtk")
