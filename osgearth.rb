@@ -20,8 +20,6 @@ class Osgearth < Formula
   depends_on "cmake" => :build
   depends_on "gdal"
   depends_on "sqlite"
-  depends_on "qt" => :recommended
-  depends_on "open-scene-graph" => (build.with? "qt") ? ["with-qt"] : []
   depends_on "minizip" => :recommended
   depends_on "v8" => :optional
   depends_on "tinyxml" => :optional
@@ -50,7 +48,7 @@ class Osgearth < Formula
       args << "-DCMAKE_OSX_ARCHITECTURES=i386"
     end
 
-    args << "-DOSGEARTH_USE_QT=OFF" if build.without? "qt"
+    args << "-DOSGEARTH_USE_QT=OFF"
     args << "-DWITH_EXTERNAL_TINYXML=ON" if build.with? "tinyxml"
 
     # v8 and minizip options should have empty values if not defined '--with'
