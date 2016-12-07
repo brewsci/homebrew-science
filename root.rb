@@ -33,13 +33,10 @@ class Root < Formula
     sha256 "6ba709de6f4f67a406ba8ebceb07830213de2538dda936e2e262a1daa72de350" => :yosemite
   end
 
-  option "with-qt", "Build with Qt graphics backend and GSI's Qt integration"
-
   depends_on "openssl"
   depends_on "xrootd" => :recommended
   depends_on "gsl" => :recommended
   depends_on "fftw" => :optional
-  depends_on "qt" => [:optional, "with-qt3support"]
   depends_on :x11 => :optional
   depends_on :python if MacOS.version <= :snow_leopard
 
@@ -74,13 +71,6 @@ class Root < Formula
     if build.with? "x11"
       args << "--disable-cocoa"
       args << "--enable-x11"
-    end
-
-    if build.with? "qt"
-      args << "--enable-qt"
-      args << "--enable-qtgsi"
-      args << "--with-qt-libdir=#{Formula["qt"].opt_lib}"
-      args << "--with-qt-incdir=#{Formula["qt"].opt_include}"
     end
 
     system "./configure", *args
