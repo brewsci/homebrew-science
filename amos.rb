@@ -16,7 +16,6 @@ class Amos < Formula
   depends_on "blat" => :optional # for minimus2-blat
   depends_on "boost" => :recommended # for Bambus 2
   depends_on "mummer" => :recommended # for minimus2
-  depends_on "qt" => [:optional, "with-qt3support"] # for AMOS GUIs
   depends_on "Statistics::Descriptive" => :perl
 
   fails_with :clang do
@@ -33,11 +32,7 @@ class Amos < Formula
     args << "--with-Boost-dir=#{Formula["boost"].opt_prefix}" if build.with? "boost"
     args << "BLAT=#{Formula["blat"].opt_bin}/blat" if build.with? "blat"
 
-    if build.with? "qt"
-      args << "--with-qmake-qt4=#{Formula["qt"].opt_bin}/qmake"
-    else
-      args << "BUILD_QT4=no"
-    end
+    args << "BUILD_QT4=no"
 
     if build.with? "mummer"
       args << "DELTAFILTER=#{Formula["mummer"].opt_libexec}/delta-filter"
