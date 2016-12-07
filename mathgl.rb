@@ -1,12 +1,4 @@
 class Mathgl < Formula
-  def self.with_qt?(version)
-    version.to_s == ARGV.value("with-qt")
-  end
-
-  def with_qt?(version)
-    self.class.with_qt? version
-  end
-
   desc "Scientific graphics library"
   homepage "http://mathgl.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/mathgl/mathgl/mathgl%202.3.5/mathgl-2.3.5.1.tar.gz"
@@ -20,7 +12,6 @@ class Mathgl < Formula
     sha256 "4abd73a027a09970f2324ad92dc31aa642346e6c600bf29cb7787bc47b451c0c" => :yosemite
   end
 
-  option "with-qt=", "Build with Qt 4 or 5 support"
   option "with-openmp", "Enable OpenMP multithreading"
 
   depends_on "cmake"   => :build
@@ -32,9 +23,13 @@ class Mathgl < Formula
   depends_on "fltk"    => :optional
   depends_on "wxmac"   => :optional
   depends_on "giflib"  => :optional
-  depends_on "qt"  if with_qt? 4
-  depends_on "qt5" if with_qt? 5
+  depends_on "qt5" => :optional
   depends_on :x11  if build.with? "fltk"
+
+  if OS.linux?
+    depends_on "linuxbrew/xorg/xorg"
+    depends_on "homebrew/x11/freeglut"
+  end
 
   needs :openmp if build.with? "openmp"
 
@@ -50,12 +45,18 @@ class Mathgl < Formula
 
     args << "-Denable-openmp=" + ((build.with? "openmp") ? "ON" : "OFF")
     args << "-Denable-pthread=" + ((build.with? "openmp") ? "OFF" : "ON")
-    args << "-Denable-qt4=ON"     if with_qt? 4
-    args << "-Denable-qt5=ON"     if with_qt? 5
+    args << "-Denable-qt5=ON"     if build.with? "qt5"
+    # the JSON samples need QtWebKit
+    args << "-Denable-json-sample=OFF" if build.with? "qt5"
     args << "-Denable-gif=ON"     if build.with? "giflib"
     args << "-Denable-hdf5_18=ON" if build.with? "hdf5"
     args << "-Denable-fltk=ON"    if build.with? "fltk"
     args << "-Denable-wx=ON"      if build.with? "wxmac"
+    # Make sure macOS's GLUT.framework is used, not XQuartz or freeglut
+    if OS.mac?
+      glut_lib = "#{MacOS.sdk_path}/System/Library/Frameworks/GLUT.framework"
+      args << "-DGLUT_glut_LIBRARY=#{glut_lib}"
+    end
     args << ".."
     mkdir "brewery" do
       system "cmake", *args
