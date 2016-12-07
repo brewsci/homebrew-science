@@ -61,7 +61,6 @@ class Opencv3 < Formula
   option "with-java", "Build with Java support"
   option "with-opengl", "Build with OpenGL support (must use --with-qt5)"
   option "with-quicktime", "Use QuickTime for Video I/O instead of QTKit"
-  option "with-qt", "Build the Qt4 backend to HighGUI"
   option "with-qt5", "Build the Qt5 backend to HighGUI"
   option "with-static", "Build static libraries"
   option "with-tbb", "Enable parallel code in OpenCV using Intel TBB"
@@ -93,7 +92,6 @@ class Opencv3 < Formula
   depends_on "openni2" => :optional
   depends_on :python => :recommended unless OS.mac? && MacOS.version > :snow_leopard
   depends_on :python3 => :optional
-  depends_on "qt" => :optional
   depends_on "qt5" => :optional
   depends_on "tbb" => :optional
   depends_on "vtk" => :optional
@@ -123,7 +121,7 @@ class Opencv3 < Formula
     ENV.cxx11 if build.cxx11?
     jpeg = Formula["jpeg"]
     dylib = OS.mac? ? "dylib" : "so"
-    with_qt = build.with?("qt") || build.with?("qt5")
+    with_qt = build.with?("qt5")
 
     args = std_cmake_args + %W[
       -DBUILD_JASPER=OFF
