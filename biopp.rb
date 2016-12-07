@@ -13,7 +13,6 @@ class Biopp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "qt" => :recommended
 
   resource "bppcore" do
     url "http://biopp.univ-montp2.fr/repos/sources/bpp-core-2.2.0.tar.gz"
