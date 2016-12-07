@@ -36,6 +36,9 @@ before_install:
   - env | grep TRAVIS | tee /tmp/travis.env
   - export HOMEBREW_DEVELOPER="1"
   - ulimit -n 1024
+  # Fix incorrect file permissions (664)
+  - chmod 0644 *.rb
+  - umask 022
 
 install:
   - pip install pysam
