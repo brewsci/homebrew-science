@@ -6,10 +6,10 @@ class Biopp < Formula
 
   bottle do
     cellar :any
-    revision 1
-    sha256 "78bfb23487417b433c6ab4cccc895e7a3b0584e96868bf59f001c22a3f715f09" => :yosemite
-    sha256 "a09ed60fc8333de3c1d9a15192d647fd02ca80e9a6fec79db8163b1ef26fbe4a" => :mavericks
-    sha256 "07026550e81a868284e88c9db44dcd34f7f0b6f1885e44a2651b7489dbd45365" => :mountain_lion
+    rebuild 2
+    sha256 "0a334099d68f8bd0edad8d0d92b1000ff966342b7916e87ddf50c327577625c3" => :sierra
+    sha256 "1f0e4aa50929c5779cc07fcbfd0f6bc65aaba413bdeeeec0422b9a7ab49cc5a2" => :el_capitan
+    sha256 "cf17b2874d780309086794cda9d5c6d16d0c95cd47013b1cc001ca5ebfade78f" => :yosemite
   end
 
   depends_on "cmake" => :build
