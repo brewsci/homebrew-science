@@ -4,14 +4,15 @@ class Libeemd < Formula
   url "https://bitbucket.org/luukko/libeemd/get/v1.4.tar.gz"
   sha256 "c484f4287f4469f3ac100cf4ecead8fd24bf43854efa63650934dd698d6b298b"
   head "https://bitbucket.org/luukko/libeemd.git"
+  # doi "10.1007/s00180-015-0603-9"
+
   bottle do
     cellar :any
     sha256 "071ec8487eb593553d0afe62e14f53f7c9c533922e520015e3bfee9f90b152cb" => :sierra
     sha256 "58ca938d5577cdedc26943d7badcdfe6c86a6e3710b0022bb9a4bdf74d6c1acb" => :el_capitan
     sha256 "003419ec5ee70b9b7aa3606b4e3199e9a6427cd20689db6995519cb0a0a38d23" => :yosemite
+    sha256 "599aa4e28bfe2136a38b3289d5254189091f856fb0d48ebf40fafaf1d578c0cb" => :x86_64_linux
   end
-
-  # doi "10.1007/s00180-015-0603-9"
 
   depends_on "gsl"
   depends_on "pkg-config" => :build
