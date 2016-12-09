@@ -1,12 +1,11 @@
 class Mrbayes < Formula
+  desc "Bayesian inference of phylogenies and evolutionary models"
   homepage "http://mrbayes.sourceforge.net/"
+  url "https://downloads.sourceforge.net/project/mrbayes/mrbayes/3.2.6/mrbayes-3.2.6.tar.gz"
+  sha256 "f8fea43b5cb5e24a203a2bb233bfe9f6e7f77af48332f8df20085467cc61496d"
+  head "https://mrbayes.svn.sourceforge.net/svnroot/mrbayes/trunk/"
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btg180"
-
-  url "https://downloads.sourceforge.net/project/mrbayes/mrbayes/3.2.5/mrbayes-3.2.5.tar.gz"
-  sha256 "31309af428fb52208af4663ddad38b6ff120fe8e7cedd75cf50818f59eb49000"
-
-  head "https://mrbayes.svn.sourceforge.net/svnroot/mrbayes/trunk/"
 
   bottle do
     cellar :any
@@ -30,7 +29,7 @@ class Mrbayes < Formula
 
   def install
     args = ["--disable-debug", "--prefix=#{prefix}"]
-    args << "--with-beagle=" + ((build.with? "beagle") ? "#{Formula["beagle"].opt_prefix}" : "no")
+    args << "--with-beagle=" + ((build.with? "beagle") ? Formula["beagle"].opt_prefix : "no")
     args << "--enable-mpi="  + ((build.with? "mpi") ? "yes" : "no")
 
     cd "src" do
