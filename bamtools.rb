@@ -4,10 +4,8 @@ class Bamtools < Formula
   # doi "10.1093/bioinformatics/btr174"
   # tag "bioinformatics"
 
-  url "https://github.com/pezmaster31/bamtools/archive/v2.4.0.tar.gz"
-  sha256 "f1fe82b8871719e0fb9ed7be73885f5d0815dd5c7277ee33bd8f67ace961e13e"
-  revision 1
-
+  url "https://github.com/pezmaster31/bamtools/archive/v2.4.1.tar.gz"
+  sha256 "933a0c1a83c88c1dac8078c0c0e82f6794c75cb927265399404bc2cc2611204b"
   head "https://github.com/pezmaster31/bamtools.git"
 
   bottle do
