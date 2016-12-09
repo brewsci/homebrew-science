@@ -30,6 +30,6 @@ class Clark < Formula
   end
 
   test do
-    assert_match "k-spectrum", shell_output("CLARK 2>&1", 255)
+    assert_match "k-spectrum", shell_output("#{bin}/CLARK 2>&1", 255)
   end
 end
