@@ -4,9 +4,9 @@ class Sratoolkit < Formula
   # doi "10.1093/nar/gkq1019"
   # tag "bioinformatics"
 
-  url "https://github.com/ncbi/sra-tools/archive/2.8.0-1.tar.gz"
-  version "2.8.0-1"
-  sha256 "86e63e8838eec08da04ed255ff36bbfcc1e60a239cb1f4b80306dfd5a99de352"
+  url "https://github.com/ncbi/sra-tools/archive/2.8.0-2.tar.gz"
+  version "2.8.0-2"
+  sha256 "ada344f4dc0bb438b9d594c3cc6abc156bd99d9a77c24932e8dbaad3d55af9c6"
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
