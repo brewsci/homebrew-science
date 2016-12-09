@@ -4,10 +4,9 @@ class Meme < Formula
   # tag "bioinformatics"
   # doi "10.1093/nar/gkp335"
 
-  url "http://meme-suite.org/meme-software/4.10.1/meme_4.10.1_3.tar.gz"
-  version "4.10.1"
-  sha256 "9ccc0cfdb7d1467d5b021328fcf1407685d63fb6e65fa34b5b5929b493a35d66"
-  revision 2
+  url "http://meme-suite.org/meme-software/4.11.2/meme_4.11.2_2.tar.gz"
+  version "4.11.2.2"
+  sha256 "377238c2a9dda64e01ffae8ecdbc1492c100df9b0f84132d50c1cf2f68921b22"
 
   bottle do
     sha256 "68ffc928fd91c265161c603799acad20bdf59e191cba44c4fee693cb060913de" => :el_capitan
@@ -32,6 +31,6 @@ class Meme < Formula
   end
 
   test do
-    system bin/"meme", doc/"tests/At.s"
+    system bin/"meme", doc/"tests/common/At.s"
   end
 end
