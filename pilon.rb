@@ -9,10 +9,9 @@ class Pilon < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f5612edbf1efa4ac46840c949f96963b8ec048a252a90b19d07de0bccc1b3d1c" => :sierra
-    sha256 "f5612edbf1efa4ac46840c949f96963b8ec048a252a90b19d07de0bccc1b3d1c" => :el_capitan
-    sha256 "f5612edbf1efa4ac46840c949f96963b8ec048a252a90b19d07de0bccc1b3d1c" => :yosemite
-    sha256 "0ca54d343873a55d5cc4039744cdfea08b1ec56d6fd39a753a8b90f2e7cc37fd" => :x86_64_linux
+    sha256 "7f7110ffce96e0450c7ff7a01b6e3cbac674279c749575da30378b9c1253fe01" => :sierra
+    sha256 "2e5982b24f64ced9fa4e4926d984a7efcbef8f827399b04e9c1f9dcd4e33acd8" => :el_capitan
+    sha256 "2e5982b24f64ced9fa4e4926d984a7efcbef8f827399b04e9c1f9dcd4e33acd8" => :yosemite
   end
 
   depends_on :java
