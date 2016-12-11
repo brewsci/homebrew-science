@@ -1,16 +1,31 @@
 class Dgtal < Formula
   desc "Digital Geometry Tools and Algorithms"
   homepage "http://dgtal.org"
-  url "http://dgtal.org/releases/DGtal-0.9.2-Source.tar.gz"
-  mirror "http://liris.cnrs.fr/dgtal/releases/DGtal-0.9.2-Source.tar.gz"
-  sha256 "ba044b7c353a8550dc740c1d80e3caf59a76d4332d956599359027f3e8e20ed9"
-  head "https://github.com/DGtal-team/DGtal.git"
+
+  stable do
+    url "http://dgtal.org/releases/DGtal-0.9.2-Source.tar.gz"
+    mirror "http://liris.cnrs.fr/dgtal/releases/DGtal-0.9.2-Source.tar.gz"
+    sha256 "ba044b7c353a8550dc740c1d80e3caf59a76d4332d956599359027f3e8e20ed9"
+
+    option "with-eigen32", "Build with eigen support"
+    deprecated_option "with-eigen" => "with-eigen32"
+
+    depends_on "homebrew/versions/eigen32" => :optional
+  end
 
   bottle do
     cellar :any
     sha256 "22e98882123ba406271a0d0a32eb2f8c84929296c7a5f2b2485242bff645e2ae" => :el_capitan
     sha256 "10ca3bd949f1f1d4e400de0ac5180ba740f12e9628c07d4a63e8e1809bc12602" => :yosemite
     sha256 "b2ef6f45cd070b340cef5ab1fa395dd8f285784c12c7b75ac2bd080f4e3ee17a" => :mavericks
+  end
+
+  head do
+    url "https://github.com/DGtal-team/DGtal.git"
+
+    deprecated_option "with-eigen32" => "with-eigen"
+
+    depends_on "eigen" => :optional
   end
 
   option "without-test", "Skip build-time tests"
@@ -22,10 +37,8 @@ class Dgtal < Formula
   depends_on "boost" => boost_args
   depends_on "gmp" => :optional
   depends_on "cairo" => :optional
-  depends_on "libqglviewer" => :optional
   depends_on "graphicsmagick" => :optional
-  depends_on "eigen" => :optional
-  depends_on "cgal" => [:optional, "with-eigen3"]
+  depends_on "cgal" => [:optional, "with-eigen"]
 
   deprecated_option "with-magick" => "with-graphicsmagick"
   deprecated_option "with-qglviewer" => "with-libqglviewer"
@@ -47,8 +60,12 @@ class Dgtal < Formula
     args << "-DWITH_GMP=true" if build.with? "gmp"
     args << "-DWITH_CAIRO=true" if build.with? "cairo"
     args << "-DWITH_QGLVIEWER=true" if build.with? "libqglviewer"
-    args << "-DWITH_EIGEN=true" if build.with? "eigen"
     args << "-DWITH_MAGICK=true" if build.with? "graphicsmagick"
+
+    if build.with?("eigen32") || build.with?("eigen")
+      args << "-DWITH_EIGEN=true"
+    end
+
     if build.with? "cgal"
       args << "-DWITH_EIGEN=true" << "-DWITH_GMP=true" << "-DWITH_CGAL=true"
     end
