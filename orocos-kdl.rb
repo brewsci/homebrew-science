@@ -6,9 +6,10 @@ class OrocosKdl < Formula
   head "https://github.com/orocos/orocos_kinematics_dynamics.git"
 
   bottle do
-    sha256 "fa61429d10a90316344c29be3d36bed614196b8728c29aaffbc8389190f1ce22" => :yosemite
-    sha256 "e86e25a9cbef11232ba463d3d69e6a406dbaffb0553ffcc04bae75e0c7080e3d" => :mavericks
-    sha256 "e5d584fc2b9cc29099291a2f4ed29ae200f9cd4ef429e39332aeef412dbffbc9" => :mountain_lion
+    cellar :any
+    sha256 "f6c826d3fd4ac6e5cf2e3850b5eaf7caccbf24f0143c6c8b9cc01ed3ed0509b6" => :sierra
+    sha256 "2dfa94597ae2f68f5796b9651277c13c30c02cbe1b5998518771fb47378ee024" => :el_capitan
+    sha256 "4dcf30a9d7864fb6366736f8b267094497177a7cc8161234e73685447b0e105c" => :yosemite
   end
 
   option "without-check", "Disable build-time checking"
