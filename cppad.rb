@@ -14,6 +14,7 @@ class Cppad < Formula
     sha256 "27925b4549da9289ed26e8be0fac4f3234e0d64cac28e757770804cd7caea78e" => :sierra
     sha256 "a962cd3acde16b1dca3359f6f80fd6a33c72cae97dd094e19f897a563b2f2c46" => :el_capitan
     sha256 "27925b4549da9289ed26e8be0fac4f3234e0d64cac28e757770804cd7caea78e" => :yosemite
+    sha256 "95a1c4adc99f87b1de56a00ac34f7e844a9c1648eceac21f9042e9be09e4c9ea" => :x86_64_linux
   end
 
   option "with-eigen32", "Build with eigen support"
