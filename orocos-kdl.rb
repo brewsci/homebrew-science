@@ -10,6 +10,7 @@ class OrocosKdl < Formula
     sha256 "f6c826d3fd4ac6e5cf2e3850b5eaf7caccbf24f0143c6c8b9cc01ed3ed0509b6" => :sierra
     sha256 "2dfa94597ae2f68f5796b9651277c13c30c02cbe1b5998518771fb47378ee024" => :el_capitan
     sha256 "4dcf30a9d7864fb6366736f8b267094497177a7cc8161234e73685447b0e105c" => :yosemite
+    sha256 "81e21e00a11b6e9a6b67361d5729da5cec76799bd700d31480bfb655ffe6c122" => :x86_64_linux
   end
 
   option "without-check", "Disable build-time checking"
