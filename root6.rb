@@ -1,12 +1,12 @@
 class Root6 < Formula
   # in order to update, simply change version number and update sha256
-  version_number = "6.08.00"
+  version_number = "6.08.02"
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
   url "https://root.cern.ch/download/root_v#{version_number}.source.tar.gz"
   mirror "https://fossies.org/linux/misc/root_v#{version_number}.source.tar.gz"
   version version_number
-  sha256 "388b4158c6e5706418031060c52c4e6b89cd8856ba06bf11c550eeb1759615d9"
+  sha256 "131c50a81e72a1cd2b2825c66dbe3916c23b28006e84f5a028baed4c72d86014"
 
   head "http://root.cern.ch/git/root.git"
 
@@ -18,9 +18,11 @@ class Root6 < Formula
 
   depends_on "cmake" => :build
   depends_on "xrootd" => :optional
+  depends_on "fftw" => :optional
   depends_on "openssl" => :recommended # use homebrew's openssl
   depends_on :python => :recommended # make sure we install pyroot
   depends_on :x11 => :recommended if OS.linux?
+  depends_on :fortran => :recommended # enabled by default since 6.08.00
   depends_on "gsl" => :recommended
   # root5 obviously conflicts, simply need `brew unlink root`
   conflicts_with "root"
@@ -50,7 +52,6 @@ class Root6 < Formula
     args = %W[
       -Dgnuinstall=ON
       -DCMAKE_INSTALL_ELISPDIR=#{share}/emacs/site-lisp/#{name}
-      -Dfortran=OFF
       -Dbuiltin_freetype=ON
       -Droofit=ON
       -Dminuit2=ON
@@ -58,6 +59,8 @@ class Root6 < Formula
       #{config_opt("ssl", "openssl")}
       #{config_opt("xrootd")}
       #{config_opt("mathmore", "gsl")}
+      #{config_opt("fortran")}
+      #{config_opt("fftw3", "fftw")}
     ]
 
     # ROOT forbids running CMake in the root of the source directory,
