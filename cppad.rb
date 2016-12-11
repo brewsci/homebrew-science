@@ -15,21 +15,23 @@ class Cppad < Formula
     sha256 "42654084feec968170f1e3a822146ebbeeb59327ae00f3ada247e49ee2e0db58" => :mavericks
   end
 
-  deprecated_option "with-check" => "with-test"
+  option "with-eigen32", "Build with eigen support"
+  option "with-openmp", "Build with OpenMP support"
+  option "with-std", "Use std test vector"
   option "with-test", "Perform comprehensive tests (very slow w/out OpenMP)"
 
-  option "with-openmp", "Build with OpenMP support"
-  needs :openmp if build.with? "openmp"
-  needs :cxx11 if build.with?("adol-c") || build.with?("ipopt")
+  deprecated_option "with-check" => "with-test"
+  deprecated_option "with-eigen" => "with-eigen32"
 
-  # Only one of --with-boost, --with-eigen and --with-std should be given.
-  option "with-std", "Use std test vector"
-  depends_on "boost" => :optional
-  depends_on "eigen" => :optional
-
+  # Only one of --with-boost, --with-eigen32 and --with-std should be given.
   depends_on "adol-c" => :optional
-  depends_on "ipopt" => :optional
+  depends_on "boost" => :optional
   depends_on "cmake" => :build
+  depends_on "homebrew/versions/eigen32" => :optional
+  depends_on "ipopt" => :optional
+
+  needs :cxx11 if build.with?("adol-c") || build.with?("ipopt")
+  needs :openmp if build.with? "openmp"
 
   fails_with :gcc do
     build 5658
@@ -50,10 +52,10 @@ class Cppad < Formula
     cppad_testvector = "cppad"
     if build.with? "boost"
       cppad_testvector = "boost"
-    elsif build.with? "eigen"
+    elsif build.with? "eigen32"
       cppad_testvector = "eigen"
-      cmake_args << "-Deigen_prefix=#{Formula["eigen"].opt_prefix}"
-      cmake_args << "-Dcppad_cxx_flags=-I#{Formula["eigen"].opt_include}/eigen3"
+      cmake_args << "-Deigen_prefix=#{Formula["eigen32"].opt_prefix}"
+      cmake_args << "-Dcppad_cxx_flags=-I#{Formula["eigen32"].opt_include}/eigen3"
     elsif build.with? "std"
       cppad_testvector = "std"
     end
@@ -94,7 +96,12 @@ class Cppad < Formula
         return static_cast<int>( ! ok );
       }
     EOS
-    cxx_compile = ENV.cxx.split + ["-c", "#{pkgshare}/example/acos.cpp", "-I#{opt_include}"]
+    ENV.cxx11
+    cxx_compile = ENV.cxx.split + ["-c", "#{pkgshare}/example/acos.cpp",
+                                   "-I#{opt_include}"]
+    if build.with? "eigen32"
+      cxx_compile << "-I#{Formula["eigen32"].opt_include}/eigen3"
+    end
     cxx_build = ENV.cxx.split + ["test.cpp", "-o", "test", "acos.o"]
     cd testpath do
       system *cxx_compile
