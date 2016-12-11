@@ -13,6 +13,7 @@ class Blast < Formula
     sha256 "4495b5f379a686f3ed89fe894a1b3c03c67720f219a049ef4f463eb4996fe5cb" => :sierra
     sha256 "8a1eda783cd2242d39acd956ff180b3d7220c93c8330826d7d75c13668ba56ec" => :el_capitan
     sha256 "9e5588eb5d9d83ead8ceb140f2479f4f6ded2ab88181d1e5c59a857e04f39ea0" => :yosemite
+    sha256 "33d69f5a77a69acabbe90ceb1114b64073aae746863c7d66f224a4420ef1b4a5" => :x86_64_linux
   end
 
   # Fix configure: error: Do not know how to build MT-safe with compiler g++-5 5.1.0
