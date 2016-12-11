@@ -2,6 +2,7 @@ class OrocosKdl < Formula
   homepage "http://www.orocos.org/kdl"
   url "https://github.com/orocos/orocos_kinematics_dynamics/archive/v1.3.0.tar.gz"
   sha256 "7be2dd5e4f4c1ceac2cdf1f4fae3d94d4ffd9fc1af8d483c05f04e80ef84b3f9"
+  revision 1
   head "https://github.com/orocos/orocos_kinematics_dynamics.git"
 
   bottle do
@@ -12,7 +13,7 @@ class OrocosKdl < Formula
 
   option "without-check", "Disable build-time checking"
 
-  depends_on "eigen"
+  depends_on "homebrew/versions/eigen32"
   depends_on "cmake"   => :build
   depends_on "cppunit" => :build
   depends_on "boost"   => :build
@@ -24,7 +25,8 @@ class OrocosKdl < Formula
       inreplace "tests/CMakeLists.txt", "ADD_TEST(solvertest solvertest)", "" if build.head?
 
       mkdir "build" do
-        args = std_cmake_args
+        eigen_include_dir = Formula["eigen32"].opt_include/"eigen3"
+        args = std_cmake_args << "-DEIGEN3_INCLUDE_DIR=#{eigen_include_dir}"
         args << "-DENABLE_TESTS=ON" if build.with? "check"
         system "cmake", "..", *args
         system "make"
