@@ -4,6 +4,7 @@ class Cmdstan < Formula
   # tag "math"
   url "https://github.com/stan-dev/cmdstan/releases/download/v2.12.0/cmdstan-2.12.0.tar.gz"
   sha256 "717fbc25fbf10db6e6315f4cdd74f38d32afaf153bbdade259bf838deb6af774"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class Cmdstan < Formula
   end
 
   depends_on "boost"
-  depends_on "eigen"
+  depends_on "homebrew/versions/eigen32"
 
   def install
     #
@@ -72,7 +73,7 @@ class Cmdstan < Formula
     cvodes = libraries.match(%r{(lib\/cvodes_([0-9\.]+))\n})[1]
     ENV["CPPFLAGS"] = %W[-I#{prefix}/stan_#{version}/src
                          -I#{math} -I#{math}/#{cvodes}/include
-                         -I#{Formula["eigen"].include/"eigen3"}].join(" ")
+                         -I#{Formula["eigen32"].opt_include/"eigen3"}].join(" ")
     system "make", "bernoulli_model.o"
   end
 end
