@@ -4,10 +4,10 @@ class Blast < Formula
   # doi "10.1016/S0022-2836(05)80360-2"
   # tag "bioinformatics"
 
-  url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.4.0/ncbi-blast-2.4.0+-src.tar.gz"
-  mirror "ftp://ftp.hgc.jp/pub/mirror/ncbi/blast/executables/blast+/2.4.0/ncbi-blast-2.4.0+-src.tar.gz"
-  version "2.4.0"
-  sha256 "ab9a35086389a6b67c777ee9f535b0eedf203b814cad5347933cc26d6694c992"
+  url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.5.0/ncbi-blast-2.5.0+-src.tar.gz"
+  mirror "ftp://ftp.hgc.jp/pub/mirror/ncbi/blast/executables/blast+/2.5.0/ncbi-blast-2.5.0+-src.tar.gz"
+  version "2.5.0"
+  sha256 "cce122a29d309127a478353856b351914232e78a9546941781ff0a4c18ec9c54"
 
   bottle do
     sha256 "c0463ad6d88ee64802b1c28f1f8779c65896d56c7cf57851bf0119f46b0e2fea" => :el_capitan
@@ -73,6 +73,9 @@ class Blast < Formula
     system "make"
 
     rm prefix/"libexec" if build.without? "static"
+
+    # Do not deliver this folder, it makes "make install fail" with "Inappropriate file type or format"
+    rm_rf buildpath/"c++/ReleaseMT/inc/common/"
 
     system "make", "install"
 
