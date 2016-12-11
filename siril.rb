@@ -3,6 +3,7 @@ class Siril < Formula
   homepage "http://free-astro.org/index.php/Siril"
   url "https://free-astro.org/download/siril-0.9.5.tar.bz2"
   sha256 "8f25a8cb8dc1f2ca9da979161a51e6aacd4059674e21ee14edcc0f299e2a7924"
+  revision 1
   head "https://free-astro.org/svn/siril/"
 
   bottle do
@@ -11,7 +12,7 @@ class Siril < Formula
     sha256 "f565dc9340c577eeb8647d821d9d0da0c986b60400ab5631300b3513f278c4d5" => :yosemite
   end
 
-  option "with-openmp", "Enable OpenMP multithreading"
+  option "without-openmp", "Disable OpenMP"
 
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
@@ -41,11 +42,9 @@ class Siril < Formula
   def install
     ENV.cxx11 if build.with? "openmp"
 
-    system "intltoolize", "-f", "-c"
-    system "autoreconf", "-fi", "-Wno-portability"
     args = ["--prefix=#{prefix}"]
     args << "--enable-openmp" if build.with? "openmp"
-    system "./configure", *args
+    system "./autogen.sh", *args
     system "make", "install"
     bin.install "src/siril"
   end
