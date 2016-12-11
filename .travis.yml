@@ -30,9 +30,6 @@ before_install:
   - mkdir -p "$(dirname "$HOMEBREW_TAP_DIR")"
   - ln -s "$PWD" "$HOMEBREW_TAP_DIR"
   - export HOMEBREW_DEVELOPER="1"
-  - for tap in homebrew/python homebrew/dupes homebrew/versions linuxbrew/xorg; do 
-      brew tap $tap;
-    done
   - env | grep TRAVIS | tee /tmp/travis.env
   - export HOMEBREW_DEVELOPER="1"
   - ulimit -n 1024
