@@ -26,4 +26,8 @@ class H5utils < Formula
                           "--without-octave"
     system "make", "install"
   end
+
+  test do
+    system bin/"h5fromtxt", "-h"
+  end
 end
