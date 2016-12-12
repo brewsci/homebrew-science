@@ -3,6 +3,7 @@ class Alpscore < Formula
   homepage "http://alpscore.org"
   url "https://github.com/ALPSCore/ALPSCore/archive/v0.5.5.tar.gz"
   sha256 "23612813734e6bf8c3fdabd58f6d71cebbe9e9cbfec80e84880099761789dbc7"
+  revision 1
   head "https://github.com/ALPSCore/ALPSCore.git"
 
   bottle do
