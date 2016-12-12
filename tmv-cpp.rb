@@ -1,8 +1,8 @@
 class TmvCpp < Formula
   desc "user-friendly C++ interface to BLAS and LAPACK"
   homepage "https://github.com/rmjarvis/tmv"
-  url "https://github.com/rmjarvis/tmv/archive/v0.73.tar.gz"
-  sha256 "6b44b89e14b9b6041af0b080ff122a5480876fdd5e5a65eaeb93ec1c98ffc582"
+  url "https://github.com/rmjarvis/tmv/archive/v0.74.tar.gz"
+  sha256 "a1e55a1b10c0bd2511593ab35b08bcc460b6b65f5d3d12fe44117dec55ce634e"
   head "https://github.com/rmjarvis/tmv.git"
 
   bottle do
