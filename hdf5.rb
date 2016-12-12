@@ -1,8 +1,8 @@
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "http://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.17/src/hdf5-1.8.17.tar.bz2"
-  sha256 "fc35dd8fd8d398de6b525b27cc111c21fc79795ad6db1b1f12cb15ed1ee8486a"
+  url "https://support.hdfgroup.org/ftp/HDF5/current18/src/hdf5-1.8.18.tar.bz2"
+  sha256 "01c6deadf4211f86922400da82c7a8b5b50dc8fc1ce0b5912de3066af316a48c"
 
   bottle do
     rebuild 1
@@ -98,7 +98,7 @@ class Hdf5 < Formula
         return 0;
       }
     EOS
-    system "h5cc", "test.c"
-    assert_match(/#{version}/, shell_output("./a.out"))
+    system "#{bin}/h5cc", "test.c"
+    assert_match version.to_s, shell_output("./a.out")
   end
 end
