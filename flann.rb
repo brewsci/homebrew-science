@@ -3,7 +3,7 @@ class Flann < Formula
   homepage "http://www.cs.ubc.ca/~mariusm/index.php/FLANN/FLANN"
   url "https://github.com/mariusmuja/flann/archive/1.9.1.tar.gz"
   sha256 "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -44,6 +44,8 @@ class Flann < Formula
       curl "-O", "http://people.cs.ubc.ca/~mariusm/uploads/FLANN/datasets/dataset.dat"
       curl "-O", "http://people.cs.ubc.ca/~mariusm/uploads/FLANN/datasets/testset.dat"
       system "#{bin}/flann_example_c"
+      curl "-O", "http://people.cs.ubc.ca/~mariusm/uploads/FLANN/datasets/dataset.hdf5"
+      system "#{bin}/flann_example_cpp"
     end
   end
 end
