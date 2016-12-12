@@ -5,7 +5,7 @@ class Kallisto < Formula
   # tag "bioinformatics"
   url "https://github.com/pachterlab/kallisto/archive/v0.43.0.tar.gz"
   sha256 "69c3ad9a58d93298bb53ecdd4b68c2c6fa65584aed108beb4cb59a4f87c32cb5"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
