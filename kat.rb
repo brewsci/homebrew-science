@@ -1,10 +1,9 @@
 class Kat < Formula
   desc "K-mer Analysis Toolkit (KAT) analyses k-mer spectra"
   homepage "https://github.com/TGAC/KAT"
-  url "https://github.com/TGAC/KAT/releases/download/Release-2.1.1/kat-2.1.1.tar.gz"
-  sha256 "bcb86a01bdd2aa01cc64c6d2f2a33fff1a71961867e45a21de8de303e6f3440d"
+  url "https://github.com/TGAC/KAT/releases/download/Release-2.3.1/kat-2.3.1.tar.gz"
+  sha256 "50db7afedf285612bb30852fb7b9465b26b356e3adf4fc82fceb788c0520a65d"
   # tag "bioinformatics"
-  revision 1
 
   bottle do
     cellar :any
@@ -16,6 +15,7 @@ class Kat < Formula
 
   head do
     url "https://github.com/TGAC/KAT.git"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
@@ -25,15 +25,24 @@ class Kat < Formula
   needs :cxx11
 
   depends_on "pkg-config" => :build
+  depends_on "sphinx-doc" => :build if build.with? "docs"
   depends_on "boost"
   depends_on "gnuplot"
-  depends_on "matplotlib" => :python
-  depends_on "numpy" => :python
-  depends_on "scipy" => :python
-  depends_on "sphinx-doc" => :python if build.with? "docs"
+
+  if OS.linux?
+    depends_on "matplotlib" => :python
+    depends_on "numpy" => :python
+    depends_on "scipy" => :python
+  else
+    depends_on :python3
+    depends_on "matplotlib" => "with-python3"
+    depends_on "numpy" => "with-python3"
+    depends_on "scipy" => "with-python3"
+  end
 
   def install
     ENV.cxx11
+    ENV["PYTHON_EXTRA_LDFLAGS"] = "-undefined dynamic_lookup"
 
     system "./autogen.sh" if build.head?
 
@@ -42,7 +51,7 @@ class Kat < Formula
       "--disable-dependency-tracking",
       "--disable-silent-rules",
       "--prefix=#{prefix}",
-      "--with-boost=#{Formula["boost"].prefix}"
+      "--with-boost=#{Formula["boost"].opt_prefix}"
 
     if build.with? "docs"
       system "make", "man"
@@ -53,7 +62,6 @@ class Kat < Formula
   end
 
   test do
-    assert_match version.to_s,
-                 shell_output("#{bin}/kat --version")
+    assert_match version.to_s, shell_output("#{bin}/kat --version")
   end
 end
