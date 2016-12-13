@@ -36,6 +36,7 @@ before_install:
   # Fix incorrect file permissions (664)
   - chmod 0644 *.rb
   - umask 022
+  - brew tap linuxbrew/xorg
 
 install:
   - pip install pysam
