@@ -8,11 +8,10 @@ class Mrbayes < Formula
   # doi "10.1093/bioinformatics/btg180"
 
   bottle do
-    cellar :any
-    sha256 "72e4f76b89c9ba2af17053982eb70ceb4be5abc08b51fc064cba29afb62eb295" => :yosemite
-    sha256 "93d5d55f6eed5e6bbeb9a1a012b33ec6901b55fb5f5187d44b4ba66070494446" => :mavericks
-    sha256 "8056f58206496186e970b1f91508fd6741dc6f8087f6ad9db50a285f333c326a" => :mountain_lion
-    sha256 "5e4a37b82821208758b0de2d71b30c6b21900939c899997c19427c89dd9d7310" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "3cff3cf3836481d517ee9fc27f76adb464acb56d24fc8bd135a72bc6d75bb606" => :sierra
+    sha256 "8daf7a5a685cacc3a389cc5c2ce5690fd70f9537caf4df469393efd9cbb9251e" => :el_capitan
+    sha256 "c26cf8600fd909c19bddefcd5abde30d8e9e3ce15e371c5f9185480e51b222ac" => :yosemite
   end
 
   option "with-beagle", "Build with BEAGLE library support"
