@@ -10,9 +10,10 @@ class Cppad < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4a51d4d59c548ce41596d562cb41dd10a4658e7470fad7b310ed1db783d49c48" => :el_capitan
-    sha256 "3da403b2951ed807817e7960a0e0fd0d67ce2365a9f1ac7fe09549e1b48f73ac" => :yosemite
-    sha256 "42654084feec968170f1e3a822146ebbeeb59327ae00f3ada247e49ee2e0db58" => :mavericks
+    rebuild 1
+    sha256 "27925b4549da9289ed26e8be0fac4f3234e0d64cac28e757770804cd7caea78e" => :sierra
+    sha256 "a962cd3acde16b1dca3359f6f80fd6a33c72cae97dd094e19f897a563b2f2c46" => :el_capitan
+    sha256 "27925b4549da9289ed26e8be0fac4f3234e0d64cac28e757770804cd7caea78e" => :yosemite
   end
 
   option "with-eigen32", "Build with eigen support"
