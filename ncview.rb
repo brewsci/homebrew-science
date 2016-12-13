@@ -23,6 +23,6 @@ class Ncview < Formula
   end
 
   test do
-    assert_match /Ncview #{version} /, shell_output("#{bin}/ncview -c 2>&1")
+    assert_match "Ncview #{version}", pipe_output("#{bin}/ncview -c 2>&1")
   end
 end
