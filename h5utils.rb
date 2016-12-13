@@ -10,6 +10,7 @@ class H5utils < Formula
     sha256 "bbdce6ed4a6a703ae178c4eb18854d0ffeb7911650510dcaedc5c40da0a1c187" => :sierra
     sha256 "7904dc446b703b96961290f5061150a3ef411dadd23c326804b5f0f1a22a7cde" => :el_capitan
     sha256 "6d669553e5e9f180624b98413c8598b75c90adc1d82b23d8993f27873624b3e2" => :yosemite
+    sha256 "6a73fa616362d914344713a318afcd0b6cdc21b25ba33797e9220f5853d15ff8" => :x86_64_linux
   end
 
   depends_on "libpng"
