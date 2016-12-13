@@ -3,7 +3,7 @@ class Hlaminer < Formula
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/hlaminer"
   url "http://www.bcgsc.ca/platform/bioinfo/software/hlaminer/releases/1.3.1/HLAminer_v1-3-1.tar.gz"
   version "1.3.1"
-  sha256 "a009575d80484c7c1dd188f29c21419ccca3ff7feea31128d0906cfc944959fe"
+  sha256 "91d510fe9d5c731e6756f6680738bc64fb61844758ede2a4160608945b6ef8cf"
   # doi "10.1186/gm396"
   # tag "bioinformatics"
 
