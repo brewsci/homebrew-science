@@ -7,6 +7,13 @@ class Biomake < Formula
   # doi "10.1101/093245"
   # tag "bioinformatics"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ceeab5810cabdad92c4a610d7b31177dc086b8dbcf076a0c54a7e2c85a45a912" => :sierra
+    sha256 "c5e69a4f25172f4a1c1148898852377e507794e48bdd1e91c46dd8a256d55e90" => :el_capitan
+    sha256 "c5e69a4f25172f4a1c1148898852377e507794e48bdd1e91c46dd8a256d55e90" => :yosemite
+  end
+
   depends_on "swi-prolog"
 
   def install
