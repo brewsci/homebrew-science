@@ -15,9 +15,10 @@ class Dgtal < Formula
 
   bottle do
     cellar :any
-    sha256 "22e98882123ba406271a0d0a32eb2f8c84929296c7a5f2b2485242bff645e2ae" => :el_capitan
-    sha256 "10ca3bd949f1f1d4e400de0ac5180ba740f12e9628c07d4a63e8e1809bc12602" => :yosemite
-    sha256 "b2ef6f45cd070b340cef5ab1fa395dd8f285784c12c7b75ac2bd080f4e3ee17a" => :mavericks
+    rebuild 1
+    sha256 "14e15ba6fae333a4cb0c5e17ff438c64f671120d1115e312825ef242581cc510" => :sierra
+    sha256 "b55814632557f0aa1b9564ac68070b846b45848c4f125c4dc901f3826cbe0a9a" => :el_capitan
+    sha256 "cebebf0357489f3a35bf45bbdcea8bba5b62b565544b605bbcdc38b9fdd693f1" => :yosemite
   end
 
   head do
