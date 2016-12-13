@@ -10,7 +10,7 @@ class Gmtk < Formula
     sha256 "c35b0c6484fe1d5f06dbdec19c0826ef2eb1bec34c725741b167164bd2fe8202" => :mavericks
   end
 
-  depends_on "homebrew/science/hdf5" => :optional
+  depends_on "hdf5" => :optional
   depends_on "wxmac" => :recommended
 
   def install
