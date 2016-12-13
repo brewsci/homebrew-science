@@ -76,6 +76,8 @@ class Sratoolkit < Formula
     rm_rf "#{bin}/ncbi"
     rm_rf "#{lib}64"
     rm_rf include.to_s
+
+    pkgshare.install share/"examples"
   end
 
   test do
