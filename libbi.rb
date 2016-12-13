@@ -42,8 +42,8 @@ class Libbi < Formula
   needs :openmp if build.with? "openmp"
 
   depends_on :perl => "5.10"
-  depends_on "homebrew/science/qrupdate"
-  depends_on "homebrew/science/netcdf"
+  depends_on "qrupdate"
+  depends_on "netcdf"
   depends_on "gsl"
   depends_on "boost"
   depends_on "automake"
