@@ -12,6 +12,7 @@ class Biomake < Formula
     sha256 "ceeab5810cabdad92c4a610d7b31177dc086b8dbcf076a0c54a7e2c85a45a912" => :sierra
     sha256 "c5e69a4f25172f4a1c1148898852377e507794e48bdd1e91c46dd8a256d55e90" => :el_capitan
     sha256 "c5e69a4f25172f4a1c1148898852377e507794e48bdd1e91c46dd8a256d55e90" => :yosemite
+    sha256 "8cc8b040fa58b8cb784e883fe3e1caa1c46b89274c829da3701082608bde0dbf" => :x86_64_linux
   end
 
   depends_on "swi-prolog"
