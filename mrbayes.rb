@@ -12,6 +12,7 @@ class Mrbayes < Formula
     sha256 "3cff3cf3836481d517ee9fc27f76adb464acb56d24fc8bd135a72bc6d75bb606" => :sierra
     sha256 "8daf7a5a685cacc3a389cc5c2ce5690fd70f9537caf4df469393efd9cbb9251e" => :el_capitan
     sha256 "c26cf8600fd909c19bddefcd5abde30d8e9e3ce15e371c5f9185480e51b222ac" => :yosemite
+    sha256 "40a093ccf6f43fcb89aa22467d8f63fb14b58456257aef50d1f774256d125c45" => :x86_64_linux
   end
 
   option "with-beagle", "Build with BEAGLE library support"
