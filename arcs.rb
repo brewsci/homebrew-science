@@ -6,6 +6,13 @@ class Arcs < Formula
   head "https://github.com/bcgsc/arcs.git"
   # tag "bioinformatics"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "f116675834ecda922c07024db1e56c6e5603204dc21795486dbfaab9e4a81673" => :sierra
+    sha256 "981dec5fe0f72a2893084e234eb786e5b1c38a67a9a14d758cb13003c532221f" => :el_capitan
+    sha256 "898af980b1167279c1780f1baed5af9b567289ac1b3a1ff60440d436a914ccc7" => :yosemite
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "boost" => :build
