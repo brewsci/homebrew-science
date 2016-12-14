@@ -1,9 +1,9 @@
 class LinksScaffolder < Formula
   desc "Long Interval Nucleotide K-mer Scaffolder"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/links"
-  url "http://www.bcgsc.ca/platform/bioinfo/software/links/releases/1.5.1/links_v1-5-1.tar.gz"
-  version "1.5.1"
-  sha256 "3f4dbcdd0fc6735ae316d7c379b038a3fada16233a120b2d6f2220d51a24a908"
+  url "http://www.bcgsc.ca/platform/bioinfo/software/links/releases/1.5.2/links_v1-5-2.tar.gz"
+  version "1.5.2"
+  sha256 "3ac4b6287896955759b03993128618616d0ab2f5535b2de91ef2b799819ad707"
   # doi "10.1186/s13742-015-0076-3"
   # tag "bioinformatics"
 
