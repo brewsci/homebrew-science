@@ -25,9 +25,9 @@ class OpengrmThrax < Formula
     # see http://www.openfst.org/twiki/bin/view/GRM/ThraxQuickTour
     cp_r share/"thrax/grammars", testpath
     cd "grammars" do
-      system "thraxmakedep", "example.grm"
+      system "#{bin}/thraxmakedep", "example.grm"
       system "make"
-      system "thraxrandom-generator", "--far=example.far",
+      system "#{bin}/thraxrandom-generator", "--far=example.far",
                                       "--rule=TOKENIZER"
     end
   end
