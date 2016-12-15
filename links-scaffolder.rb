@@ -7,6 +7,13 @@ class LinksScaffolder < Formula
   # doi "10.1186/s13742-015-0076-3"
   # tag "bioinformatics"
 
+  bottle do
+    cellar :any
+    sha256 "96396e8453cb24a5e293970d999b00f2a5b6c869893ffc17a190c7ab0b7204b1" => :sierra
+    sha256 "a1ba232d1ad697f9a3f08514c42f58b05681d61bff06e5ffcdbb888716f3c272" => :el_capitan
+    sha256 "2d1c3a69a6da22e7ccd99f9adc8ada0ab508a0db182a5fd34d47ea30db30c503" => :yosemite
+  end
+
   depends_on "swig" => :build
   depends_on "perl"
 
