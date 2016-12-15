@@ -1,39 +1,25 @@
 class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "http://libbi.org"
-  revision 1
+  head "https://github.com/libbi/LibBi.git"
 
   stable do
-    url "https://github.com/libbi/LibBi/archive/1.2.0.tar.gz"
-    sha256 "57566aff0b752dd55356c21b818295e3a54ad893bc6aff97d267ff7bcf2d0b68"
+    url "https://github.com/libbi/LibBi/archive/1.3.0.tar.gz"
+    sha256 "0dd313dd71e72b2f16ca9074800fc2fa8bf585bec3b87a750ff27e467a9826d0"
 
-    patch do
-      # patch for thrust to work in case CUDA is not installed
-      url "https://github.com/libbi/LibBi/pull/8.diff"
-      sha256 "cd3aec69ec9aa05fc5ed1d9ccaead9494f9ce4d580577c51b3e8acb63273663b"
+    if build.without? "openmp"
+      patch do
+        # disable OpenMP if it is not used
+        url "https://github.com/sbfnk/LibBi/commit/df6fbc815cc4c2c52f9a6bcbffc01bd82f9674fd.diff"
+        sha256 "7c0785c5337bcdd8dac9e90e0c37b7766d579684d48abac35974fb5fde67d6b5"
+      end
     end
-
-    patch do
-      # fix to work if CUDA_ROOT is not set
-      url "https://github.com/sbfnk/LibBi/commit/f8d31b6a7c5d3534cf3c6ff99631e2d484bcd2ff.diff"
-      sha256 "5cb89fbe1d6e522e7d27cc1de14f2f25675bdd4cf47bfa3180656dc63230dc0d"
-    end
-
-    patch do
-      # disable OpenMP if it is not used
-      url "https://github.com/sbfnk/LibBi/commit/df6fbc815cc4c2c52f9a6bcbffc01bd82f9674fd.diff"
-      sha256 "7c0785c5337bcdd8dac9e90e0c37b7766d579684d48abac35974fb5fde67d6b5"
-    end if build.without? "openmp"
   end
   bottle do
     cellar :any
     sha256 "91e73d75d7a4be9772f609e0f1d221b46e026971200a1cd7f5cfafab9ef9b7b8" => :sierra
     sha256 "dc4d64e9223d4d6bc1db73c7a5cb4dd5565aabee228ccf7b177141e46b95b247" => :el_capitan
     sha256 "221d0a9fdf8c9190519425fe6779345756eece6260e2f0b7fd62ef4c6fa9f614" => :yosemite
-  end
-
-  head do
-    url "https://github.com/libbi/LibBi.git"
   end
 
   option "without-test", "Disable build-time checking (not recommended)"
@@ -46,7 +32,7 @@ class Libbi < Formula
   depends_on "netcdf"
   depends_on "gsl"
   depends_on "boost"
-  depends_on "automake"
+  depends_on "automake" => :run
 
   resource "Getopt::ArgvFile" do
     url "http://search.cpan.org/CPAN/authors/id/J/JS/JSTENZEL/Getopt-ArgvFile-1.11.tar.gz"
