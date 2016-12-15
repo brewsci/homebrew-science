@@ -3,6 +3,7 @@ class Moose < Formula
   homepage "http://moose.ncbs.res.in"
   url "https://github.com/BhallaLab/moose-core/archive/3.1.0.tar.gz"
   sha256 "3914535e9554473ee629289de1281aab95f85cc27b6602c26f01a46f6ccec968"
+  revision 1
   head "https://github.com/BhallaLab/moose-core.git"
 
   bottle do
@@ -18,7 +19,7 @@ class Moose < Formula
   depends_on "gsl"
   depends_on "hdf5"
   depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "numpy" => :python
+  depends_on "homebrew/python/numpy"
 
   if build.with?("sbml")
     resource "sbml" do
