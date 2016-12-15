@@ -1,8 +1,8 @@
 class Fwdpp < Formula
   desc "C++ template library for forward-time population genetic simulations"
   homepage "https://molpopgen.github.io/fwdpp/"
-  url "https://github.com/molpopgen/fwdpp/archive/0.5.3.tar.gz"
-  sha256 "95f6a7f37513c5e364943347029e5813e6a8c8688ac032e4284dd62483b891aa"
+  url "https://github.com/molpopgen/fwdpp/archive/0.5.4.tar.gz"
+  sha256 "11e4592c764a6c07f83bc76e1c08197bc084570848d1919c09f5557e3600d705"
   head "https://github.com/molpopgen/fwdpp.git"
   # doi "10.1534/genetics.114.165019"
   # tag "bioinformatics"
@@ -28,7 +28,6 @@ class Fwdpp < Formula
   depends_on "boost" => :recommended
 
   def install
-    ENV.O2
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "check" if build.with? "test"
