@@ -4,6 +4,13 @@ class Beast2 < Formula
   url "https://github.com/CompEvol/beast2/archive/v2.4.4.tar.gz"
   sha256 "1346d359a141723d57c37333ce9d6cbdf0699609e337dbfdcb969ddbff8713c3"
   head "https://github.com/CompEvol/beast2.git"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "3f76a7dd57419c9172ea6e23ce691552c2fcd524343b5f640e7bea9f3236a533" => :sierra
+    sha256 "b133d0e631901ed5aa9d5fb78d42ee4fc190d05fe3e503e78fd7b1706b99b3a3" => :el_capitan
+    sha256 "42336915df95fbf81b5dd4bd4ec12e2d35607b09f07c4b27e2e71c9136f8eff0" => :yosemite
+  end
+
   # tag "bioinformatics"
   # doi "10.1371/journal.pcbi.1003537"
 
