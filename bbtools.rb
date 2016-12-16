@@ -6,11 +6,10 @@ class Bbtools < Formula
   # tag "bioinformatics"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dc6caa710db30124f9f3bc829b90e961fead12e514c6c85cf5eb02155d39e289" => :el_capitan
-    sha256 "cefdee5a7bff7cbc25583a423aeed79bd78871093d8dc796513b324c95d0b142" => :yosemite
-    sha256 "64937d61419187c1ee007a6d96deec813984ecbeec67d6088f9f34d1f5459d7b" => :mavericks
-    sha256 "c248889cd98f335fe7e251635ce86763e9b9fa77644f5c67e482fb36208f9bf0" => :x86_64_linux
+    cellar :any
+    sha256 "e23c718d29aeea4855cbdcd998de6e6dd7466bc40f8f9fdeeb7a71c64a855604" => :sierra
+    sha256 "a4f734fd6435f9c20d5877f3dd0744b7b63a3f40d18865901d6753ab7d29ec46" => :el_capitan
+    sha256 "599a320c668d1bf33a0b02a292efd2c75da111262db8bee6162da913d0dba7b0" => :yosemite
   end
 
   depends_on :java => "1.7+"
