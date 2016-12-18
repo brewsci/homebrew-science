@@ -6,9 +6,9 @@ class Xylib < Formula
 
   bottle do
     cellar :any
-    sha256 "f2a64677c28a222ce550acb82e3750f8b207d39e449f6e1e42bbf3c2043cf39c" => :el_capitan
-    sha256 "f2bc5c95286d70a8e0c4b47adc52f18ed5d689b221124fcd48d989ad4817f2ce" => :yosemite
-    sha256 "fb54f652065bffde6c8675025a18b06d54d71bb08e3acef4a6408e6799d9fa2a" => :mavericks
+    sha256 "fe85102a18963b881845cabdc317107b90b5e9388850f088e79a969817c7aa11" => :sierra
+    sha256 "edb9f67513a63c1f8f875992c6108a8018736822276a17d84ce3161d93058a38" => :el_capitan
+    sha256 "c8d27a949f49981d28118da28973aa35bc05cdf20e4e4541706d9da6cb476e34" => :yosemite
   end
 
   depends_on "boost" => :build
