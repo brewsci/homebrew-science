@@ -1,9 +1,8 @@
 class Xylib < Formula
   desc "Library for reading x-y data files"
   homepage "http://xylib.sourceforge.net"
-  url "https://github.com/wojdyr/xylib/releases/download/v1.3/xylib-1.3.tar.bz2"
-  sha256 "7047bc6730bc61f7f0be94e8872414768a94a409dcc10059556dbc25b1114426"
-  revision 1
+  url "https://github.com/wojdyr/xylib/releases/download/v1.5/xylib-1.5.tar.bz2"
+  sha256 "cdda7aa84e548e90ad1b0afd41fbee5d90232ab3da0968661a7f37f801ea53e4"
 
   bottle do
     cellar :any
@@ -13,6 +12,7 @@ class Xylib < Formula
   end
 
   depends_on "boost" => :build
+  depends_on "wxmac"
 
   def install
     system "./configure", "--disable-debug",
