@@ -9,6 +9,7 @@ class Xylib < Formula
     sha256 "fe85102a18963b881845cabdc317107b90b5e9388850f088e79a969817c7aa11" => :sierra
     sha256 "edb9f67513a63c1f8f875992c6108a8018736822276a17d84ce3161d93058a38" => :el_capitan
     sha256 "c8d27a949f49981d28118da28973aa35bc05cdf20e4e4541706d9da6cb476e34" => :yosemite
+    sha256 "edc37131aea31e51209b2c3b135220d6149064d11d14b8fdcbe4c2bb30554d13" => :x86_64_linux
   end
 
   depends_on "boost" => :build
