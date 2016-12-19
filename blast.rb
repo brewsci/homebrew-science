@@ -8,6 +8,7 @@ class Blast < Formula
   mirror "ftp://ftp.hgc.jp/pub/mirror/ncbi/blast/executables/blast+/2.5.0/ncbi-blast-2.5.0+-src.tar.gz"
   version "2.5.0"
   sha256 "cce122a29d309127a478353856b351914232e78a9546941781ff0a4c18ec9c54"
+  revision 1
 
   bottle do
     sha256 "4495b5f379a686f3ed89fe894a1b3c03c67720f219a049ef4f463eb4996fe5cb" => :sierra
@@ -18,12 +19,6 @@ class Blast < Formula
 
   # Fix configure: error: Do not know how to build MT-safe with compiler g++-5 5.1.0
   fails_with :gcc => "5"
-
-  # Due to boost 1.58
-  fails_with :llvm do
-    build 2335
-    cause "Dropped arguments to functions when linking with boost"
-  end
 
   option "with-static", "Build without static libraries and binaries"
   option "with-dll", "Build dynamic libraries"
@@ -37,6 +32,12 @@ class Blast < Formula
   depends_on :mysql => :optional
   depends_on "pcre" => :recommended
   depends_on :python if MacOS.version <= :snow_leopard
+
+  patch do
+    # Fixed upstream in future version 2.6.0
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/blast/blast-make-fix2.5.0.diff"
+    sha256 "ab6b827073df48a110e47b8de4bf137fd73f3bf1d14c242a706e89b9c4f453ae"
+  end
 
   def install
     # The libraries and headers conflict with ncbi-c++-toolkit so use libexec.
@@ -73,9 +74,6 @@ class Blast < Formula
     system "make"
 
     rm prefix/"libexec" if build.without? "static"
-
-    # Do not deliver this folder, it makes "make install fail" with "Inappropriate file type or format"
-    rm_rf buildpath/"c++/ReleaseMT/inc/common/"
 
     system "make", "install"
 
