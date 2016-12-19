@@ -7,6 +7,13 @@ class Wiggletools < Formula
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btt737"
 
+  bottle do
+    cellar :any
+    sha256 "20cdd6f7f97f118cefca6ead3cb09b3bdd27c67fe9ac505f650375bb2920d2bd" => :sierra
+    sha256 "b10bcfe2fb5c97701529566f71bfe1ca9ad221643a5f0a0a2e8a0f5e7bc7ea0f" => :el_capitan
+    sha256 "685b71b49b93f556c604b617525188c5cc658e4543e1df622be84f899d55c731" => :yosemite
+  end
+
   depends_on "htslib"
   depends_on "gsl"
 
