@@ -8,10 +8,9 @@ class Opencv < Formula
   head "https://github.com/opencv/opencv.git", :branch => "2.4"
 
   bottle do
-    rebuild 1
-    sha256 "82d779bcfb222508f4aa798510acdfcb8224fe77596f7214defd3caa1e5f60ca" => :sierra
-    sha256 "5acd7b906e5ba9ff3d10dd201f20293c86d59ee3611834bec927f2c03fa00d71" => :el_capitan
-    sha256 "7c5a86df6e270135297dd74f4218ca899a80666ed613300916011ac5a7971f7e" => :yosemite
+    sha256 "e2a48c623a1cb1d720b37faab5fb59be1bec5892d2e13d2fe4e7ccfbedb91fe7" => :sierra
+    sha256 "e07778f40191980f15877ad5a792a13a14c411827019a622a3394537f7c73f69" => :el_capitan
+    sha256 "4fd945afb4958f9e05ad6b9aad4292a081554698c7fff2dde5faeea1bec8c117" => :yosemite
   end
 
   option "with-java", "Build with Java support"
