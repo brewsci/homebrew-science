@@ -34,10 +34,13 @@ class Siril < Formula
   depends_on "gsl"
   depends_on "opencv"
 
-  patch :DATA
+  if build.with? "openmp"
+    depends_on "gcc"
+    needs :openmp
+    needs :cxx11
+  end
 
-  needs :openmp if build.with? "openmp"
-  needs :cxx11 if build.with? "openmp"
+  patch :DATA
 
   def install
     ENV.cxx11 if build.with? "openmp"
@@ -48,6 +51,7 @@ class Siril < Formula
     system "make", "install"
     bin.install "src/siril"
   end
+
   test do
     system "#{bin}/siril", "-v"
   end
