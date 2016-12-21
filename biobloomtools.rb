@@ -9,10 +9,9 @@ class Biobloomtools < Formula
 
   bottle do
     cellar :any
-    sha256 "68c125cd6e5e02b1eb2aa79e40ca6e82c2bb2ed8764f6d11445463fb460032d4" => :yosemite
-    sha256 "fcf60aca3e3326a1a422535190de56d2c8dc1d26af1cd1320f642485db7fe64c" => :mavericks
-    sha256 "0730a556dc8b5cbc99f653ab8eeb4de922875ca3b23113b9103cf42406ec6a43" => :mountain_lion
-    sha256 "96ecc7bc17de7cb5e33b68ba00eadcc249106714675190cd819fa47173f0557c" => :x86_64_linux
+    sha256 "a76acf4ac21825264ed327f06adc99cba9e343827626ba17007fbea4bdce7d19" => :sierra
+    sha256 "6f388352ca828275001592952503a874e6cbb761a2c356e18933a5e184079b6a" => :el_capitan
+    sha256 "9c01f631083ffd254cd7ebd17b8aeb05d32401898b9fd235ce302594df65ea42" => :yosemite
   end
 
   head do
