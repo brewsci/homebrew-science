@@ -12,6 +12,7 @@ class Biobloomtools < Formula
     sha256 "a76acf4ac21825264ed327f06adc99cba9e343827626ba17007fbea4bdce7d19" => :sierra
     sha256 "6f388352ca828275001592952503a874e6cbb761a2c356e18933a5e184079b6a" => :el_capitan
     sha256 "9c01f631083ffd254cd7ebd17b8aeb05d32401898b9fd235ce302594df65ea42" => :yosemite
+    sha256 "66421cc1f5ec9b5e69e5b42b620ecfd04b11fdd1bd380bf91aaa1b69cc637899" => :x86_64_linux
   end
 
   head do
