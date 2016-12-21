@@ -4,8 +4,8 @@ class Biobloomtools < Formula
   # doi "10.1093/bioinformatics/btu558"
   # tag "bioinformatics"
 
-  url "https://github.com/bcgsc/biobloom/releases/download/2.0.12/biobloomtools-2.0.12.tar.gz"
-  sha256 "13053036ca4a23032a7fb201bf22862187e4d8f584c3b1f6440d829210954a3e"
+  url "https://github.com/bcgsc/biobloom/releases/download/2.0.13/biobloomtools-2.0.13.tar.gz"
+  sha256 "2aa30b1641b58122f93fa3b6649fbe795db835b34c26f33bfed45975cba254a9"
 
   bottle do
     cellar :any
@@ -22,6 +22,9 @@ class Biobloomtools < Formula
   end
 
   depends_on "boost" => :build
+  depends_on "gcc"
+
+  needs :openmp
 
   def install
     system "./autogen.sh" if build.head?
@@ -31,7 +34,6 @@ class Biobloomtools < Formula
       "--disable-silent-rules",
       "--prefix=#{prefix}"
     system "make", "install"
-    doc.install "README.html", "README.md"
   end
 
   test do
