@@ -1,11 +1,11 @@
 class Quast < Formula
   desc "QUAST: Quality Assessment Tool for Genome Assemblies"
-  homepage "http://quast.sourceforge.net"
-  # doi "10.1093/bioinformatics/btt086", "10.1093/bioinformatics/btw379"
+  homepage "http://cab.spbu.ru/software/quast/"
+  # doi "10.1093/bioinformatics/btt086", "10.1093/bioinformatics/btv697", "10.1093/bioinformatics/btw379"
   # tag "bioinformatics"
 
-  url "https://downloads.sourceforge.net/project/quast/quast-4.2.tar.gz"
-  sha256 "fbaa1b5fe0cbbcbbedaafebce5a922250ad7b916fc7538b73cd16c3d70226db3"
+  url "http://cab.spbu.ru/wp-content/uploads/2016/04/quast-4.4.1.tar.gz"
+  sha256 "73ccf6bfc20503e6c72e0479a073aadd4319a36badba15b0810217b27e078ea3"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,8 +21,11 @@ class Quast < Formula
     # Mavericks and newer include matplotlib
     depends_on "matplotlib" => :python
   end
+  depends_on "e-mem"
 
   def install
+    # removing precompiled E-MEM binary causing troubles with brew audit
+    rm "quast_libs/E-MEM-osx/e-mem"
     prefix.install Dir["*"]
     bin.install_symlink "../quast.py", "../metaquast.py",
       "quast.py" => "quast", "metaquast.py" => "metaquast"
