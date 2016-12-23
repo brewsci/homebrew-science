@@ -4,9 +4,8 @@ class Sratoolkit < Formula
   # doi "10.1093/nar/gkq1019"
   # tag "bioinformatics"
 
-  url "https://github.com/ncbi/sra-tools/archive/2.8.0-2.tar.gz"
-  version "2.8.0-2"
-  sha256 "ada344f4dc0bb438b9d594c3cc6abc156bd99d9a77c24932e8dbaad3d55af9c6"
+  url "https://github.com/ncbi/sra-tools/archive/2.8.1.tar.gz"
+  sha256 "b000671b5664abe1dcae266d659960990cb3c45b4762ed6bd0c0aa156093bff9"
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
@@ -29,8 +28,8 @@ class Sratoolkit < Formula
   end
 
   resource "ncbi-vdb" do
-    url "https://github.com/ncbi/ncbi-vdb/archive/2.8.0.tar.gz"
-    sha256 "efa0b9b4987db7ef80e2c91ba35f5a0bab202e3a4824e8f34c51de303ca4eb17"
+    url "https://github.com/ncbi/ncbi-vdb/archive/2.8.1.tar.gz"
+    sha256 "b08ef186622790666543ed5603939479cd09161aed21f76b7e7e77964f62f93f"
   end
 
   def install
