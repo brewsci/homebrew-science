@@ -1,8 +1,8 @@
 class Igvtools < Formula
   desc "Utilities for preprocessing data files for IGV"
   homepage "https://www.broadinstitute.org/software/igv"
-  url "http://data.broadinstitute.org/igv/projects/downloads/igvtools_2.3.88.zip"
-  sha256 "ff582b775ad8da5e2e3587691f9faad26cd31c24f35a4292950346b54f785c01"
+  url "http://data.broadinstitute.org/igv/projects/downloads/igvtools_2.3.89.zip"
+  sha256 "1fc2dc426505bd3e4e96e490da91b04e733d41aee14d4803641fbf8ed11b11f3"
   # tag "bioinformatics"
 
   bottle :unneeded
