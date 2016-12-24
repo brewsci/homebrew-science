@@ -1,6 +1,13 @@
 class Impute2 < Formula
   desc "Genotype imputation and haplotype phasing program"
   homepage "https://mathgen.stats.ox.ac.uk/impute/impute_v2.html"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "e38e3291995bf7ef9ab828637d511b76a975f8690122fedc15a11d0ac9c55623" => :sierra
+    sha256 "5c10a86647eb4255cb2779916b0eaf7194f4459d80ff279a5d9ee606f3654d57" => :el_capitan
+    sha256 "5c10a86647eb4255cb2779916b0eaf7194f4459d80ff279a5d9ee606f3654d57" => :yosemite
+  end
+
   # tag "bioinformatics"
   # doi "10.1371/journal.pgen.1000529"
 
