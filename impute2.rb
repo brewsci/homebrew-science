@@ -6,6 +6,7 @@ class Impute2 < Formula
     sha256 "e38e3291995bf7ef9ab828637d511b76a975f8690122fedc15a11d0ac9c55623" => :sierra
     sha256 "5c10a86647eb4255cb2779916b0eaf7194f4459d80ff279a5d9ee606f3654d57" => :el_capitan
     sha256 "5c10a86647eb4255cb2779916b0eaf7194f4459d80ff279a5d9ee606f3654d57" => :yosemite
+    sha256 "09427253bb6726a2cbb4b1923c8680cf3f2a5187ff28a27db09666f70478480b" => :x86_64_linux
   end
 
   # tag "bioinformatics"
