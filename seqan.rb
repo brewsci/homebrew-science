@@ -4,8 +4,8 @@ class Seqan < Formula
   # doi "10.1186/1471-2105-9-11"
   # tag "bioinformatics"
 
-  url "https://github.com/seqan/seqan/releases/download/seqan-v2.3.0/seqan-library-2.3.0.tar.xz"
-  sha256 "69ce727ff40577869c247b167678d40e5bd35a93e37bc0252da9ba043b31f3dc"
+  url "https://github.com/seqan/seqan/releases/download/seqan-v2.3.1/seqan-library-2.3.1.tar.xz"
+  sha256 "79df48e97373dd8612913fe66d7aaa03288d09859dcf918bcb4a5f754ec7af7a"
   head "https://github.com/seqan/seqan.git"
 
   # seqan-library installs only header files.
