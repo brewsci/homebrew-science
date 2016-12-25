@@ -1,8 +1,8 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://andrejv.github.io/wxmaxima"
-  url "https://downloads.sourceforge.net/project/wxmaxima/wxMaxima/15.08.2/wxmaxima-15.08.2.tar.gz"
-  sha256 "7ad3f018e42d15d06bee5af10053edb72e441c1d1feee318dc6eb927db6a26c5"
+  url "https://downloads.sourceforge.net/project/wxmaxima/wxMaxima/16.12.0/wxmaxima-16.12.0.tar.gz"
+  sha256 "30d4fcf2b33349fb60d13f7efcd0d9b5460915fa7065665a2c7c291c77d26a06"
 
   bottle do
     cellar :any
@@ -11,14 +11,14 @@ class Wxmaxima < Formula
     sha256 "1d8b3865a225a7b797b28a6d41e5a8004b1e4f6f1c70f1c2d136e1b33c5e7be5" => :mavericks
   end
 
-  depends_on "wxmac"
-
   head do
     url "https://github.com/andrejv/wxmaxima.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build
   end
+
+  depends_on "wxmac"
 
   def install
     system "./bootstrap" if build.head?
