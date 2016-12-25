@@ -1,10 +1,9 @@
 class Trilinos < Formula
   desc "Solution of large-scale, multi-physics problems"
   homepage "http://trilinos.sandia.gov"
-  url "https://github.com/trilinos/Trilinos/archive/trilinos-release-12-8-1.tar.gz"
-  version "12.8.1"
-  sha256 "ea5eac8a2a64b00a18c2d3e1368e6badd7f190ad16a71acf39221528849b8184"
-  revision 1
+  url "https://github.com/trilinos/Trilinos/archive/trilinos-release-12-10-1.tar.gz"
+  version "12.10.1"
+  sha256 "395dcaab000eb675f3ec14a103cb5bbf97f1e2e0eee657afd20a9cbd089554b3"
   head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
 
   bottle do
@@ -30,7 +29,7 @@ class Trilinos < Formula
   depends_on :fortran       => :recommended
   depends_on :x11           => :recommended
   depends_on :python        => :recommended if MacOS.version <= :snow_leopard
-  depends_on "numpy"        => :python if build.with? "python"
+  depends_on "numpy"        if build.with? "python"
   depends_on "swig"         => :build if build.with? "python"
 
   depends_on "cmake"        => :build
@@ -90,7 +89,7 @@ class Trilinos < Formula
   end
 
   def onoff(s, cond)
-    s + ((cond) ? "ON" : "OFF")
+    s + (cond ? "ON" : "OFF")
   end
 
   # Kokkos, Tpetra and Sacado will be OFF without cxx11
@@ -99,6 +98,7 @@ class Trilinos < Formula
 
   def install
     ENV.cxx11
+
     # Trilinos supports only Debug or Release CMAKE_BUILD_TYPE!
     args  = %W[-DCMAKE_INSTALL_PREFIX=#{prefix} -DCMAKE_BUILD_TYPE=Release]
     args += %w[-DBUILD_SHARED_LIBS=ON
@@ -109,7 +109,8 @@ class Trilinos < Formula
                -DTrilinos_ENABLE_ALL_OPTIONAL_PACKAGES=ON
                -DTrilinos_ENABLE_EXAMPLES:BOOL=ON
                -DTrilinos_VERBOSE_CONFIGURE:BOOL=OFF
-               -DTrilinos_WARNINGS_AS_ERRORS_FLAGS=""]
+               -DTrilinos_WARNINGS_AS_ERRORS_FLAGS=""
+               -DPyTrilinos_DOCSTRINGS:BOOL=OFF]
 
     # Explicit instantiation will build object files for the Trilinos templated classes with the most common types.
     # That should speed up compilation time for librareis/driver programs which use Trilinos.
@@ -285,6 +286,7 @@ class Trilinos < Formula
       if build.with? "python"
         inreplace "#{lib}/cmake/Trilinos/TrilinosConfig.cmake" do |s|
           s.gsub! "PyTrilinos;", "" if s.include? "COMPONENTS_LIST"
+          s.gsub! "@@@@@@@@@@@", "", false # suppress audit failure
         end
       end
     end
