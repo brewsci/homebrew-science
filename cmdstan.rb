@@ -7,10 +7,9 @@ class Cmdstan < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "439e42f2d4dbc36b99cb256bc9f5758d2d37bd7d9fc6dc84bc23074fb4f94cb6" => :sierra
-    sha256 "f7f4e0b2c57a89e3e45cffae097ada883929e55f7f2b15e86fa6905dc3fadf22" => :el_capitan
-    sha256 "d6bff4220142b0cbcfe88cf7fd5d6375ef6613ec9510375432c574eeffe18771" => :yosemite
-    sha256 "52e8fca63e84a9c28e60b9cec528dc1327562c13acf337ba48cf2df8f5e0cb58" => :x86_64_linux
+    sha256 "6147aca5d02f746846628e610539b92c52fc884f55d2dff59652e572de33f541" => :sierra
+    sha256 "345273c4d9296d214b7b779dfeec351415774ad6fc43f76fc9bb781374f46e68" => :el_capitan
+    sha256 "bf4f3afa6ee2b1c01169720011b638257590e27b92e37fcd536c5dac31d2c0ed" => :yosemite
   end
 
   depends_on "boost"
