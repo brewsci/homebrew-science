@@ -2,9 +2,8 @@ class Cmdstan < Formula
   desc "Probabilistic programming for Bayesian inference"
   homepage "http://mc-stan.org/"
   # tag "math"
-  url "https://github.com/stan-dev/cmdstan/releases/download/v2.12.0/cmdstan-2.12.0.tar.gz"
-  sha256 "717fbc25fbf10db6e6315f4cdd74f38d32afaf153bbdade259bf838deb6af774"
-  revision 1
+  url "https://github.com/stan-dev/cmdstan/releases/download/v2.14.0/cmdstan-2.14.0.tar.gz"
+  sha256 "4dfe78e4682cd84d77455b150337cc96f2c911d158085e10b8b98c802cbf90e6"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +14,7 @@ class Cmdstan < Formula
   end
 
   depends_on "boost"
-  depends_on "homebrew/versions/eigen32"
+  depends_on "eigen"
 
   def install
     #
@@ -74,7 +73,7 @@ class Cmdstan < Formula
     cvodes = libraries.match(%r{(lib\/cvodes_([0-9\.]+))\n})[1]
     ENV["CPPFLAGS"] = %W[-I#{prefix}/stan_#{version}/src
                          -I#{math} -I#{math}/#{cvodes}/include
-                         -I#{Formula["eigen32"].opt_include/"eigen3"}].join(" ")
+                         -I#{Formula["eigen"].opt_include/"eigen3"}].join(" ")
     system "make", "bernoulli_model.o"
   end
 end
