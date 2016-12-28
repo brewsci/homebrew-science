@@ -6,6 +6,13 @@ class Kollector < Formula
   head "https://github.com/bcgsc/kollector.git"
   # tag "bioinformatics"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "93ef334ebe8c878898ffea334f662e9905b73327d1f9c77c2fa90c50af0f28c8" => :sierra
+    sha256 "6843361fccee9fb0770f11d636cc457046da0f3173965a1d3d9ccba61e34bf65" => :el_capitan
+    sha256 "6843361fccee9fb0770f11d636cc457046da0f3173965a1d3d9ccba61e34bf65" => :yosemite
+  end
+
   depends_on "abyss"
   depends_on "biobloomtools"
   depends_on "bwa"
