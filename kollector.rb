@@ -11,6 +11,7 @@ class Kollector < Formula
     sha256 "93ef334ebe8c878898ffea334f662e9905b73327d1f9c77c2fa90c50af0f28c8" => :sierra
     sha256 "6843361fccee9fb0770f11d636cc457046da0f3173965a1d3d9ccba61e34bf65" => :el_capitan
     sha256 "6843361fccee9fb0770f11d636cc457046da0f3173965a1d3d9ccba61e34bf65" => :yosemite
+    sha256 "36e4b146a71ef0563d83143e83bea1439d85f88698d841f9e1b376304676c67a" => :x86_64_linux
   end
 
   depends_on "abyss"
