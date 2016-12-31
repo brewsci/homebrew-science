@@ -9,6 +9,7 @@ class Wxmaxima < Formula
     sha256 "864290d79a7e640f9a8b0ad7cfc99f09ba1b621b2f8654a94aec3a732a57e43a" => :sierra
     sha256 "b963da2eb5f2140823dacc843533a5290598789c7b07010ea9064eaeb764cc02" => :el_capitan
     sha256 "0af994505af783ffa40276ce6766a786d854ed06e07af1b723c9e44f410e950a" => :yosemite
+    sha256 "85493211a9129e274928159b2b82471a231ba93a9889dbdee0fd6fa8b6537f85" => :x86_64_linux
   end
 
   head do
