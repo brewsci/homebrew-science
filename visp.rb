@@ -6,9 +6,9 @@ class Visp < Formula
   revision 2
 
   bottle do
-    sha256 "d3ade2f6f9454dad6f6c857fe82ca9c2919537fa5a9487471821542b135cba6c" => :el_capitan
-    sha256 "42d7a0f886cd8089b2a9601b47e158f8a4ace338ec7c3a46353e5fac7dbaa3e8" => :yosemite
-    sha256 "b9a5e13f4c657d994dc05226893869ff7d3a4a15f36c189c631518bab4ed87a4" => :mavericks
+    sha256 "6101dda8cfd44e9a05e47e8c5dc0865f98bfd37ed6a657be761d779c44c6209b" => :sierra
+    sha256 "f36f468573380e74ff67c798875850740294413dacc34955fe58f7251dfcf877" => :el_capitan
+    sha256 "8a0bafceec284d737747b66d1ccf5efe25c32fe1a644aba4c24786b26ef122a3" => :yosemite
   end
 
   option :cxx11
