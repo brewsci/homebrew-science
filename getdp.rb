@@ -9,6 +9,7 @@ class Getdp < Formula
   homepage "http://www.geuz.org/getdp/"
   url "http://getdp.info/src/getdp-2.10.0-source.tgz"
   sha256 "2f16b2ce9941aada75ddfef4eb5b96d0c47478e4ed82a67dc4ca8e3ff8f72599"
+  revision 1
 
   head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
 
