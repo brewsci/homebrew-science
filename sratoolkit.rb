@@ -28,7 +28,7 @@ class Sratoolkit < Formula
 
   resource "ncbi-vdb" do
     url "https://github.com/ncbi/ncbi-vdb/archive/2.8.1.tar.gz"
-    sha256 "b08ef186622790666543ed5603939479cd09161aed21f76b7e7e77964f62f93f"
+    sha256 "5e8c03adf6305090de6aeeaa8c06df0cc8ac7b7d35e3dd6462e2d0b4788c21fa"
   end
 
   def install
