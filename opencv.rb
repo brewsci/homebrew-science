@@ -94,7 +94,7 @@ class Opencv < Formula
 
     if build.with? "python"
       py_prefix = `python-config --prefix`.chomp
-      py_lib = OS.linux? ? `python-config --configdir`.chomp : "#{py_prefix}/lib"
+      py_lib = "#{py_prefix}/lib"
       args << "-DPYTHON_LIBRARY=#{py_lib}/libpython2.7.#{dylib}"
       args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python2.7"
 
