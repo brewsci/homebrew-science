@@ -3,7 +3,7 @@ class Visp < Formula
   homepage "https://visp.inria.fr"
   url "http://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.0.0.tar.gz"
   sha256 "f9fa6f16f5c06d4eaa91ed374ecd7416ad49639d9f3a1865b21933af368e720f"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "d3ade2f6f9454dad6f6c857fe82ca9c2919537fa5a9487471821542b135cba6c" => :el_capitan
@@ -20,7 +20,6 @@ class Visp < Formula
   depends_on "gsl"       => :recommended
   depends_on "zbar"      => :recommended
   depends_on :x11        => :recommended
-  option :cxx11
 
   def arg_switch(opt)
     (build.with? opt) ? "ON" : "OFF"
@@ -29,7 +28,7 @@ class Visp < Formula
   def install
     ENV.cxx11 if build.cxx11?
 
-    args = std_cmake_args + %W[
+    args = std_cmake_args + %w[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_DEMOS=OFF
       -DBUILD_EXAMPLES=OFF
