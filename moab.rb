@@ -3,6 +3,8 @@ class Moab < Formula
   homepage "http://press3.mcs.anl.gov/sigma/moab-library/"
   url "http://ftp.mcs.anl.gov/pub/fathom/moab-4.9.2.tar.gz"
   sha256 "5d79e299dd9bf76d7cade434cde478bb6dc8290e5b574b25cc30ee96f35a203d"
+  revision 1
+
   head "https://bitbucket.org/fathomteam/moab.git"
 
   bottle do
