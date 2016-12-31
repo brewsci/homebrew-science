@@ -3,6 +3,7 @@ class Nccmp < Formula
   homepage "http://nccmp.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/nccmp/nccmp-1.8.2.0.tar.gz"
   sha256 "7f5dad4e8670568a71f79d2bcebb08d95b875506d3d5faefafe1a8b3afa14f18"
+  revision 1
 
   bottle do
     sha256 "1528f282673ba7ce6d7f6466b2f26252fb93c31eb8ed608e434ccbc78cd54557" => :el_capitan
