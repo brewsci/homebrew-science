@@ -4,7 +4,7 @@ class CalculixCcx < Formula
   url "http://www.dhondt.de/ccx_2.11.src.tar.bz2"
   version "2.11"
   sha256 "11588c7a2836cadbc4c6f2b866b0daa67512eebe755887094a76a997e6dc2493"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -62,12 +62,16 @@ class CalculixCcx < Formula
     fflags << "-fopenmp" if build.with? "openmp"
     cflags = %w[-O2 -I../../spooles -DARCH=Linux -DSPOOLES -DARPACK -DMATRIXSTORAGE]
     cflags << "-DUSE_MT=1" if build.with? "openmp"
+    libs = ["$(DIR)/spooles.a", "$(shell pkg-config --libs arpack)"]
+    # ARPACK uses Accelerate on macOS and OpenBLAS on Linux
+    libs << "-framework accelerate" if OS.mac?
+    libs << "-lopenblas -pthread" if OS.linux? # OpenBLAS uses pthreads
     args = ["CC=#{ENV.cc}",
             "FC=#{ENV.fc}",
             "CFLAGS=#{cflags.join(" ")}",
             "FFLAGS=#{fflags.join(" ")}",
             "DIR=../../spooles",
-            "LIBS=$(DIR)/spooles.a $(shell pkg-config --libs arpack)"]
+            "LIBS=#{libs.join(" ")}"]
     target = Pathname.new("ccx_2.11/src/ccx_2.11")
     system "make", "-C", target.dirname, target.basename, *args
     bin.install target
@@ -81,7 +85,7 @@ class CalculixCcx < Formula
 
   test do
     cp "#{pkgshare}/spring1.inp", testpath
-    system "ccx_2.11", "spring1"
+    system "#{bin}/ccx_2.11", "spring1"
   end
 end
 
