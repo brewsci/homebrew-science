@@ -1,9 +1,14 @@
 class Gtsam < Formula
   desc "Library of C++ classes that implement SAM in robotics and vision"
-  homepage "https://collab.cc.gatech.edu/borg/gtsam/"
-  url "https://research.cc.gatech.edu/borg/sites/edu.borg/files/downloads/gtsam-3.2.1.tgz"
-  sha256 "1e9217c11d92e6838e2d0bec3a7dd0d36d2131acdf2e50264f6dc225d8ce1a97"
-  revision 1
+  homepage "https://bitbucket.org/gtborg/gtsam/"
+  revision 2
+
+  stable do
+    url "https://research.cc.gatech.edu/borg/sites/edu.borg/files/downloads/gtsam-3.2.1.tgz"
+    sha256 "1e9217c11d92e6838e2d0bec3a7dd0d36d2131acdf2e50264f6dc225d8ce1a97"
+
+    depends_on "homebrew/versions/boost157"
+  end
 
   bottle do
     cellar :any
@@ -12,12 +17,17 @@ class Gtsam < Formula
     sha256 "591a5d5c40b2561382131b5ab00707a468c813f259e5b2dfff89e605f61175d4" => :mavericks
   end
 
+  head do
+    url "https://bitbucket.org/gtborg/gtsam.git"
+
+    depends_on "homebrew/versions/boost159"
+  end
+
   option "without-test", "Run unit tests at build-time"
 
   deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
-  depends_on "homebrew/versions/boost155"
 
   def install
     mkdir "build" do
