@@ -2,7 +2,7 @@ class MadX < Formula
   desc "Methodical Accelerator Design"
   homepage "https://cern.ch/mad"
 
-  url "http://svn.cern.ch/guest/madx/tags/5.02.12/madX/"
+  url "http://svn.cern.ch/guest/madx/tags/5.02.13/madX/"
   head "http://svn.cern.ch/guest/madx/trunk/madX/"
 
   bottle do
@@ -25,23 +25,11 @@ class MadX < Formula
 
   test do
     (testpath/"hello.txt").write("option,-echo;print,text='Hello,Mad-X';stop;")
-    assert_match "Hello,Mad-X", shell_output("madx_dev < hello.txt")
+    assert_match "Hello,Mad-X", shell_output("#{bin}/madx_dev < hello.txt")
   end
 end
 
 __END__
-diff --git a/syntax/CMakeLists.txt b/syntax/CMakeLists.txt
---- a/syntax/CMakeLists.txt
-+++ b/syntax/CMakeLists.txt
-@@ -7,7 +7,7 @@
-       OPTIONAL)
-   endif()
-   install(FILES emacs/madx.el
--    DESTINATION "share/emacs/site-lisp/"
-+    DESTINATION "share/emacs/site-lisp/mad-x/"
-     OPTIONAL)
-   install(FILES vim/madx.vim
-     DESTINATION "share/vim/vimfiles/syntax/"
 diff --git a/CMakeLists.txt b/CMakeLists.txt
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
