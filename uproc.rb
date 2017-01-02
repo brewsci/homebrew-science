@@ -8,11 +8,8 @@ class Uproc < Formula
   # tag "bioinformatics"
 
   bottle do
-    cellar :any
-    sha256 "6e07dbb8062f34c6dbd5f550675371146f944579845ca172a54f9c6ba3c3a118" => :yosemite
-    sha256 "134344cdc203c2cf27b452e7920bdfa8ed127d206c203e5f96d809cdb5ff521f" => :mavericks
-    sha256 "e3396797b696c637784f3df6fab6435b0e5da41fa4cc002adee143092beae05a" => :mountain_lion
-    sha256 "3bba0f55550fe56b6b77fee676e6f75fc5969224b02cda66c7c76f5da88058d6" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "ae84e01f8936f83e8393a6b5ca4eb7ff669c6604ea27b2e5f34b47a92dc44aa4" => :x86_64_linux
   end
 
   needs :openmp # => :recommended
