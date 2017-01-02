@@ -7,9 +7,9 @@ class MadX < Formula
 
   bottle do
     cellar :any
-    sha256 "47118481abb0e82d5c1a5daf6634ff3627147536877e77c7cd0d4bfc36649fd4" => :sierra
-    sha256 "211f4542a5fd90eda1cb39d2834b8ff21384953a7bdf898f96bd8bf142759952" => :el_capitan
-    sha256 "277924e195dc4656a7735d7451145010708549f3a02f4ed14092968906d56864" => :yosemite
+    sha256 "5535734990b7d439653f2115861fa18bc8591859bf154ac8462b34855002a357" => :sierra
+    sha256 "68a7bfa5609fdfeafa3dfe6987babf759dea7ce1e5bb0df7494b246d485d5948" => :el_capitan
+    sha256 "96f07958d0a64203f6328ffd857ad3ae68bb1a8baee8bc4410c35abb0e4961b2" => :yosemite
   end
 
   depends_on "cmake" => :build
