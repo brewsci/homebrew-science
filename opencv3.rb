@@ -180,7 +180,7 @@ class Opencv3 < Formula
 
     if build.with? "python"
       py_prefix = `python-config --prefix`.chomp
-      py_lib = OS.linux? ? `python-config --configdir`.chomp : "#{py_prefix}/lib"
+      py_lib = "#{py_prefix}/lib"
       args << "-DPYTHON2_EXECUTABLE=#{which "python"}"
       args << "-DPYTHON2_LIBRARY=#{py_lib}/libpython2.7.#{dylib}"
       args << "-DPYTHON2_INCLUDE_DIR=#{py_prefix}/include/python2.7"
