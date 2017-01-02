@@ -10,6 +10,7 @@ class Netcdf < Formula
     sha256 "aa8b3032ef56fea5676e91716a19f8927c126f9f368b39c2dbc4a360181d880a" => :sierra
     sha256 "550a16b02ed74661a515b2554cda2541f9a5634ee9bd88100f9c45e11bc59aa7" => :el_capitan
     sha256 "5b9ecd71a150a1ebc645baf589a75a842ceed15993331faec06ff3bc3ee42421" => :yosemite
+    sha256 "e266ef6a5852729ef7a1aced5f8b29b6fc2ebd424810664921d0f688f4a04d49" => :x86_64_linux
   end
 
   option "without-cxx", "Don't compile C++ bindings"
