@@ -4,6 +4,7 @@ class Octave < Formula
   url "https://ftpmirror.gnu.org/octave/octave-4.2.0.tar.lz"
   mirror "https://ftp.gnu.org/gnu/octave/octave-4.2.0.tar.lz"
   sha256 "119d45c21d567c02eb0042987da4676aa25c7c2fde6e119053e0c6d779a47ba7"
+  revision 1
 
   bottle do
     sha256 "192097cc562b2033a5af222762e353413f904c4bdc2870d90e3e63142867397f" => :sierra
@@ -17,12 +18,6 @@ class Octave < Formula
     patch do
       url "http://savannah.gnu.org/bugs/download.php?file_id=32255"
       sha256 "ef83b32384a37cca13ecdd30d98dacac314b7c23f2c1df3d1113074bd1169c0f"
-    end
-    # Fixes includes "base-list.h" and "config.h" in comment-list.h and "oct.h" (bug #41027)
-    # Core developers don't like this fix, see: http://savannah.gnu.org/bugs/?41027
-    patch do
-      url "http://savannah.gnu.org/bugs/download.php?file_id=31400"
-      sha256 "efdf91390210a64e4732da15dcac576fb1fade7b85f9bacf4010d102c1974729"
     end
   end
 
