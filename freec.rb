@@ -1,10 +1,11 @@
 class Freec < Formula
+  desc "Copy number and genotype annotation in whole genome/exome sequencing data"
   homepage "http://bioinfo.curie.fr/projects/freec/"
+  url "https://github.com/BoevaLab/FREEC/archive/v10.3.tar.gz"
+  sha256 "f15b90dc0fc6629ee32f1a38d1e39f062f20089689b02429f78b585f99504e95"
+  head "https://github.com/BoevaLab/FREEC.git"
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btr670"
-  url "http://bioinfo.curie.fr/projects/freec/src/FREEC_Linux64.tar.gz"
-  sha256 "dd8c0768ea0ed5bd36169fa68f9a3f48dd6f15889b9a60c7977b27bdb6da995d"
-  version "7.2"
 
   bottle do
     cellar :any
@@ -13,16 +14,21 @@ class Freec < Formula
     sha256 "d7571b435829f2f7356cefdf542cd4563f5e0df038673ce201ab7237bc3ff73b" => :mountain_lion
   end
 
+  # Patch to fix builds on macOS. Will be present in next release (>10.3)
+  patch do
+    url "https://github.com/BoevaLab/FREEC/commit/b39300fda339bc4fd9b68727e04f99cdbcbe79b2.diff"
+    sha256 "f1ad24896f7d8b60863e7450179334287f12f9fc8ca28e474c01716925f898ca"
+  end
+
   def install
-    # FAQ #20 Mac OS X building: http://bioinfo.curie.fr/projects/freec/FAQ.html
-    if OS.mac?
-      inreplace "myFunc.cpp", "values.h", "limits.h"
+    cd "src" do
+      system "make"
+      bin.install "freec"
     end
-    system "make"
-    bin.install "freec"
+    pkgshare.install "scripts", "data"
   end
 
   test do
-    assert_match "FREEC v#{version}", shell_output("freec 2>&1")
+    assert_match "FREEC v#{version}", shell_output("#{bin}/freec 2>&1")
   end
 end
