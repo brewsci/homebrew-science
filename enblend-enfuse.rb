@@ -6,9 +6,9 @@ class EnblendEnfuse < Formula
 
   bottle do
     cellar :any
-    sha256 "e973764066c5be54a542a90a6d5c240735a353573f978c1c475dbe5d6741618f" => :sierra
-    sha256 "c21addb137d220955450f52ca1e4d1e796f2078062df684026fb8c4ea42f2dd8" => :el_capitan
-    sha256 "0ddee6656048b6e8a6fcb4e3c423bf02f016cc0dc611eefaa55afa8b4fefac7a" => :yosemite
+    sha256 "4a1697626d7ebf3d9aa825cf7241f6e67afebd6e237e96c86af120f6328938e8" => :sierra
+    sha256 "33f37ef6624d151a0973ed4cde1a0ceb6ca7843e0cc11c79c8fee1e454417f36" => :el_capitan
+    sha256 "bd324fad78e920883871789f8db41688dbef02f283eed4e25d02841f5fea5435" => :yosemite
   end
 
   option "with-gpu", "Build with GPU support"
