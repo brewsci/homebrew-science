@@ -2,8 +2,8 @@ class Mlpack < Formula
   desc "Scalable C++ machine learning library"
   homepage "http://www.mlpack.org"
   # doi "arXiv:1210.6293"
-  url "http://www.mlpack.org/files/mlpack-2.1.0.tar.gz"
-  sha256 "2ebe79990b6a5ec5e6e0d2de6e13ae11c8e33af16f6eeb0f9f7e1ee650c72499"
+  url "http://www.mlpack.org/files/mlpack-2.1.1.tar.gz"
+  sha256 "c2249bbab5686bb8658300ebcf814b81ac7b8050a10f1a517ba5530c58dbac31"
 
   bottle do
     cellar :any
@@ -22,6 +22,7 @@ class Mlpack < Formula
   option "with-test", "Run build-time tests"
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :run
   depends_on "libxml2"
   depends_on "armadillo" => ["with-hdf5"] + cxx11dep
   depends_on "boost" => cxx11dep
