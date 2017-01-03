@@ -7,10 +7,9 @@ class Netcdf < Formula
 
   bottle do
     cellar :any
-    sha256 "3d36f340ba0e51aca1a31528b351fc4420f1d8fd9efd08fafb6b901420d634a1" => :sierra
-    sha256 "c707bcaafe1b95b3ad70212b3d54bb33d3f42327f4c72a74585e16433edf17bd" => :el_capitan
-    sha256 "276d6bf376b82e7fc89097e205ee1ac173cf23f1681870e1028247366c85029e" => :yosemite
-    sha256 "71f7085b4fb4df95bd2314c733562ed77a75cf1e8754c74f19366b84cd8cb16d" => :x86_64_linux
+    sha256 "aa8b3032ef56fea5676e91716a19f8927c126f9f368b39c2dbc4a360181d880a" => :sierra
+    sha256 "550a16b02ed74661a515b2554cda2541f9a5634ee9bd88100f9c45e11bc59aa7" => :el_capitan
+    sha256 "5b9ecd71a150a1ebc645baf589a75a842ceed15993331faec06ff3bc3ee42421" => :yosemite
   end
 
   option "without-cxx", "Don't compile C++ bindings"
