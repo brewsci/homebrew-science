@@ -8,10 +8,10 @@ class Freec < Formula
   # doi "10.1093/bioinformatics/btr670"
 
   bottle do
-    cellar :any
-    sha256 "af7558fda0442a9c242abeb6a9492d82926197f14b31b3e0059a067189e1ae93" => :yosemite
-    sha256 "f02914ae0075e54a4378d771f9dd5a98aa67da035606040b707758f9ead7163d" => :mavericks
-    sha256 "d7571b435829f2f7356cefdf542cd4563f5e0df038673ce201ab7237bc3ff73b" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "176ac03b194be0da3b1403ffa9b1c877344fc7f48586296cb0f4799de2b25bb1" => :sierra
+    sha256 "40afc40855875d9f134ba5bff417ea26a245f2c6c9c402dac2909192c6ef7f09" => :el_capitan
+    sha256 "76959d16cea8df6eaf0f2c31cb46197e6f168c03a9d09535bceacea23f9b8211" => :yosemite
   end
 
   # Patch to fix builds on macOS. Will be present in next release (>10.3)
