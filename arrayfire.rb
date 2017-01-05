@@ -1,14 +1,12 @@
 class Arrayfire < Formula
   desc "General purpose GPU library"
   homepage "http://arrayfire.com"
-
-  stable do
-    url "https://github.com/arrayfire/arrayfire.git",
+  url "https://github.com/arrayfire/arrayfire.git",
       :tag => "v3.3.2",
       :revision => "f65dd9798f8efeea4d55efe34ba62f4fc3ae7ca0"
-    mirror "http://arrayfire.com/arrayfire_source/arrayfire-full-3.2.2.tar.bz2"
-    sha256 "7bcc13ff29bdfb647813ee0e9830ce8387217953427abe0d9904de671e600831"
-  end
+  mirror "http://arrayfire.com/arrayfire_source/arrayfire-full-3.2.2.tar.bz2"
+  sha256 "7bcc13ff29bdfb647813ee0e9830ce8387217953427abe0d9904de671e600831"
+  revision 1
 
   bottle do
     revision 1
@@ -31,7 +29,7 @@ class Arrayfire < Formula
   needs :cxx11
   # forge dependencies - remove once forge moves to its own formula
   depends_on "fontconfig"
-  depends_on "homebrew/versions/glfw3"
+  depends_on "glfw"
   depends_on :x11
 
   # build forge separately so we can tell it to use the system freetype
