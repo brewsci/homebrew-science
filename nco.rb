@@ -3,6 +3,7 @@ class Nco < Formula
   homepage "http://nco.sourceforge.net"
   url "https://downloads.sourceforge.net/project/nco/nco-4.6.2.tar.gz"
   sha256 "cec82e35d47a6bbf8ab9301d5ff4cf08051f489b49e8529ebf780380f2c21ed3"
+  revision 1
 
   bottle do
     cellar :any
@@ -23,7 +24,7 @@ class Nco < Formula
   depends_on "udunits"
 
   # NCO requires the C++ interface in Antlr2.
-  depends_on "homebrew/versions/antlr2"
+  depends_on "antlr@2"
 
   def install
     system "./autogen.sh" if build.head?
