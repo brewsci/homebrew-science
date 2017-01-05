@@ -1,6 +1,8 @@
 class Simpleitk < Formula
   desc "Simplified layer built on top of ITK"
   homepage "http://www.simpleitk.org"
+  version "0.10.0"
+  version_scheme 1
   url "https://downloads.sourceforge.net/project/simpleitk/SimpleITK/0.10.0/Source/SimpleITK-0.10.0-1.tar.gz"
   sha256 "e849d693d67622b0dcb1153124e38ece9256b7c4760e35fa3af3cd90b851662f"
   head "https://github.com/SimpleITK/SimpleITK.git"
