@@ -11,6 +11,7 @@ class Radx < Formula
     sha256 "4b46d8576a9f3dffd1cfb25ad236db996290a62ec19ad41b06562638031c58b1" => :sierra
     sha256 "2818bc7758febf6ae381077ff21c3ea7cbafaa4a835aca6440dbad3a7476d686" => :el_capitan
     sha256 "321a724468daf88007486b781445771d0e413f617ff40ef6eb6b85d849baf63c" => :yosemite
+    sha256 "9aa201c5d1d02874841a78662c0f02bc674420b1e326535750a2902ff5ccd41a" => :x86_64_linux
   end
 
   depends_on "hdf5"
