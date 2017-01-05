@@ -9,9 +9,9 @@ class Simpleitk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7ca52b94e8b6b8e132672b9245a1cf095fa3b7642388c8b76a2ce56f81d0b550" => :sierra
-    sha256 "4f3f4b5d2cd2a73647e830c3fc05168e0161f202374d26b07f6a85c925320531" => :el_capitan
-    sha256 "bec329ddccb5ebf26c143a477f2513fb6af498db63955507efc13cde714dcf86" => :yosemite
+    sha256 "4a0401e5e1710c25a8b372b8bbe631611343e9b2246027e9a3f2f799e33bd4b9" => :sierra
+    sha256 "9f3c22351ab13987092c40904c6a606775334413e5f0bb7a5d173bb8bfa4177b" => :el_capitan
+    sha256 "ec9626b51cdf6962d18dafbf3dff2ced29c385bb5c9205b77677915e2e4d241f" => :yosemite
   end
 
   option "with-examples", "Compile and install various examples"
