@@ -33,7 +33,7 @@ class Ogdraw < Formula
   end
 
   def install
-    system %W[perl Makefile.PL PREFIX=#{prefix}]
+    system "perl", "Makefile.PL", "PREFIX=#{prefix}"
     system "make", "pure_install"
     bin.install "irscan/bin/irscan_linux_x86" => "irscan" if OS.linux?
 
