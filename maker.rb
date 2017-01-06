@@ -3,8 +3,8 @@ class Maker < Formula
   # doi '10.1101/gr.6743907' => 'MAKER', '10.1186/1471-2105-12-491' => 'MAKER2', '10.1104/pp.113.230144' => 'MAKER-P'
   # tag "bioinformatics"
 
-  url "http://yandell.topaz.genetics.utah.edu/maker_downloads/static/maker-2.31.8.tgz"
-  sha256 "a99c7e433638979808ea3f4bcd2b6b69f4474bd898807aba4520debd58717420"
+  url "http://yandell.topaz.genetics.utah.edu/maker_downloads/static/maker-2.31.9.tgz"
+  sha256 "c92f9c8c96c6e7528d0a119224f57cf5e74fadfc5fce5f4b711d0778995cabab"
 
   depends_on "augustus" => :optional
   depends_on "blast" => :recommended
@@ -62,6 +62,6 @@ class Maker < Formula
   end
 
   test do
-    system "maker --version"
+    system "#{bin}/maker", "--version"
   end
 end
