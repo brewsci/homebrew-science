@@ -19,6 +19,7 @@ class Art < Formula
     sha256 "38e9e077cab399c9b56dda31668c6eed063207347c55cc20504286ffcc2121bd" => :sierra
     sha256 "e4818f12e81c80ad7bd3d7a4a6671395114c86527ca319d7fbe7e12a11cd19f0" => :el_capitan
     sha256 "4e2f32136949eb196314f3652d62ac274ae3a77c4d6e41b4a3c87ab46b8e284a" => :yosemite
+    sha256 "b0f77270607223e18380323f2cf32cdba80373431df203b7dc8dd7189bbaee61" => :x86_64_linux
   end
 
   depends_on "gsl"
