@@ -12,6 +12,7 @@ class Quast < Formula
     sha256 "2d3a3fc7e4840c09b9a642ae72f5435931c975bdeb5b4a959c41d287f18599fd" => :sierra
     sha256 "0804992f335212327fa1fc9674bef2ccffb294442270f12197109e4fdd6bc726" => :el_capitan
     sha256 "c29b8da6a51e654627b9df896ac36cf6fd42950cb7a4256d8b093ae3497c5faf" => :yosemite
+    sha256 "f4b54ea0477fd1d2793ec5deb824ae117e75466f1218fc4b922e77e1cbcd03d9" => :x86_64_linux
   end
 
   if OS.mac? && MacOS.version <= :mountain_lion
