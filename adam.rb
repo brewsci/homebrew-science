@@ -3,6 +3,7 @@ class Adam < Formula
   homepage "https://github.com/bigdatagenomics/adam"
   url "https://search.maven.org/remotecontent?filepath=org/bdgenomics/adam/adam-distribution-spark2_2.11/0.21.0/adam-distribution-spark2_2.11-0.21.0-bin.tar.gz"
   sha256 "6ab1cd7073a7b39034bdc342aeab2cbb84e89cfb251e7138cd9811f28fc372d3"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any_skip_relocation
