@@ -41,6 +41,7 @@ class Vtk < Formula
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "matplotlib" => :python if build.with?("matplotlib") && build.with?("python")
+  depends_on "libxml2" unless OS.mac?
 
   # If --with-qt and --with-python, then we automatically use PyQt, too!
   if build.with? "qt5"
@@ -54,6 +55,8 @@ class Vtk < Formula
   end
 
   def install
+    dylib = OS.mac? ? "dylib" : "so"
+
     args = std_cmake_args + %W[
       -DVTK_REQUIRED_OBJCXX_FLAGS=''
       -DBUILD_SHARED_LIBS=ON
@@ -130,7 +133,7 @@ class Vtk < Formula
         elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
           args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
         else
-          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.dylib'"
+          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.#{dylib}'"
         end
         # Set the prefix for the python bindings to the Cellar
         args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{py_site_packages}/'"
