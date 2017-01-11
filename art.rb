@@ -16,10 +16,9 @@ class Art < Formula
 
   bottle do
     cellar :any
-    sha256 "c811bc3baceb7c217d1096f094d97cb91a0797880897a0edaaebadd0feadfa94" => :el_capitan
-    sha256 "031f2d36aeda67a3207950bd4461435df42a8e33c6e82434e45038d787b0b912" => :yosemite
-    sha256 "22f4e0e4911921a44553ce9c1eb7e540c2eee411fb8bf65e2a6a01eb3654b6fb" => :mavericks
-    sha256 "d41660010aa415f7edfcccd22ca8df4d7cc3e671d6b037f00706109a227ed2b0" => :x86_64_linux
+    sha256 "38e9e077cab399c9b56dda31668c6eed063207347c55cc20504286ffcc2121bd" => :sierra
+    sha256 "e4818f12e81c80ad7bd3d7a4a6671395114c86527ca319d7fbe7e12a11cd19f0" => :el_capitan
+    sha256 "4e2f32136949eb196314f3652d62ac274ae3a77c4d6e41b4a3c87ab46b8e284a" => :yosemite
   end
 
   depends_on "gsl"
