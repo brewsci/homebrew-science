@@ -5,6 +5,13 @@ class Symengine < Formula
   sha256 "64d050b0b9decd12bf4ea3b7d18d3904dd7cb8baaae9fbac1b8068e3c59709be"
   head "https://github.com/symengine/symengine.git"
 
+  bottle do
+    cellar :any
+    sha256 "a37356c660c4b252db18c695a3e3016c603d4bcb7a1a46718452c66a5f0a04db" => :sierra
+    sha256 "b60d93688e3e13457051e91331f4a67a7332088575ff6d54c398c97e278a1d34" => :el_capitan
+    sha256 "dbeaa3317ec41b763eef90ee6a372a024b9d9f99bc525c0ac4e6ec8eb72e5afa" => :yosemite
+  end
+
   option "without-test", "Skip build-time tests (not recommended)"
 
   depends_on "cmake" => :build
