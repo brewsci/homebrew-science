@@ -1,9 +1,8 @@
 class Nixio < Formula
   desc "C++ library for the NIX scientific data format and model"
   homepage "http://www.g-node.org/nix"
-  url "https://github.com/G-Node/nix/archive/1.2.0.tar.gz"
-  sha256 "663da5a2b464c162979c73f28d42b08385adced70746cf78aeb1c1e26ee14272"
-  revision 2
+  url "https://github.com/G-Node/nix/archive/1.3.2.tar.gz"
+  sha256 "3611c0d4ce4feea6ecb5d104e561678aaa8eca7819f6d3356617b0217400a3c7"
   head "https://github.com/G-Node/nix.git"
 
   bottle do
