@@ -7,8 +7,8 @@ end
 class Gmsh < Formula
   desc "3D finite element grid generator with CAD engine"
   homepage "http://geuz.org/gmsh"
-  url "http://gmsh.info/src/gmsh-2.14.0-source.tgz"
-  sha256 "8b344f29ace99167578158fcc4854461630b26808cff9e2dea134ab4267991cd"
+  url "http://gmsh.info/src/gmsh-2.16.0-source.tgz"
+  sha256 "e829eaf32ea02350a385202cc749341f2a3217c464719384b18f653edd028eea"
 
   head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
 
