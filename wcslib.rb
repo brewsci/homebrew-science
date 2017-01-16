@@ -8,6 +8,7 @@ class Wcslib < Formula
     sha256 "81076955ebb0536666456bbb73bd22fde9a6a11f4016bd4ac35173fc6f8b924e" => :sierra
     sha256 "b1377f996a7f0c9c3e52d8eca95d44309dda75704297b4e3c3378be1e7d55653" => :el_capitan
     sha256 "c0ee66a5bf1d1411a5bbad81f3a4b7e3391b7bb339cf22a9cddfcd637fa17cb4" => :yosemite
+    sha256 "47c69b7144501b5ac2005bcc2fc0957f8eafe744e9e5c4c608144f8504cfd838" => :x86_64_linux
   end
 
   option "with-pgsbox", "Build PGSBOX, a general curvilinear axis drawing routine for PGPLOT"
