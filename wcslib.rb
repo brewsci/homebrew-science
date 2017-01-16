@@ -5,9 +5,9 @@ class Wcslib < Formula
 
   bottle do
     cellar :any
-    sha256 "10e40cde3232d818fa1b34428f51237f95ecb2010bbd68e8fb7d83bfe3f836f3" => :el_capitan
-    sha256 "afcd4afed0d1e3bdd2f0e3472a35031d016358ee4727c25fb2917471bf877746" => :yosemite
-    sha256 "993bb97dc1d80d63d89fdde3d944c88d251e2fc557d7001adfe853181ed96749" => :mavericks
+    sha256 "81076955ebb0536666456bbb73bd22fde9a6a11f4016bd4ac35173fc6f8b924e" => :sierra
+    sha256 "b1377f996a7f0c9c3e52d8eca95d44309dda75704297b4e3c3378be1e7d55653" => :el_capitan
+    sha256 "c0ee66a5bf1d1411a5bbad81f3a4b7e3391b7bb339cf22a9cddfcd637fa17cb4" => :yosemite
   end
 
   option "with-pgsbox", "Build PGSBOX, a general curvilinear axis drawing routine for PGPLOT"
