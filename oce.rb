@@ -1,9 +1,8 @@
 class Oce < Formula
   desc "Open CASCADE Community Edition"
   homepage "https://github.com/tpaviot/oce"
-  url "https://github.com/tpaviot/oce/archive/OCE-0.17.2.tar.gz"
-  sha256 "8d9995360cd531cbd4a7aa4ca5ed969f08ec7c7a37755e2f3d4ef832c1b2f56e"
-  revision 1
+  url "https://github.com/tpaviot/oce/archive/OCE-0.18.tar.gz"
+  sha256 "226e45e77c16a4a6e127c71fefcd171410703960ae75c7ecc7eb68895446a993"
 
   bottle do
     sha256 "e716290cc8a5990e95858acefcb83b7d135192712a4662f9ec06a889fe92f5f1" => :sierra
@@ -64,36 +63,15 @@ class Oce < Formula
 end
 
 __END__
-diff -ruN a/adm/cmake/TKernel/CMakeLists.txt b/adm/cmake/TKernel/CMakeLists.txt
---- a/adm/cmake/TKernel/CMakeLists.txt	2016-06-02 14:18:16.000000000 +0200
-+++ b/adm/cmake/TKernel/CMakeLists.txt	2016-10-05 19:25:14.000000000 +0200
-@@ -29,7 +29,7 @@
-	set(TOOLKIT_LIBS ${TOOLKIT_LIBS} ${CSF_SOCKETLibs_LIB} ${CSF_advapi32_LIB} ${CSF_gdi32_LIB} ${CSF_user32_LIB} ${CSF_kernel32_LIB} ${CSF_psapi_LIB})
- else(WIN32)
-	#  An implementation for Mac OS X has been added in src/OSD/gettime_osx.h
--	if(NOT APPLE)
-+	if(APPLE)
-		include( CheckFunctionExists )
-		check_function_exists( clock_gettime CLOCK_GETTIME_IN_LIBC )
-		if(NOT CLOCK_GETTIME_IN_LIBC)
-@@ -40,7 +40,7 @@
-			endif(NOT CLOCK_GETTIME_IN_LIBRT)
-			set(TOOLKIT_LIBS ${TOOLKIT_LIBS} rt)
-		endif(NOT CLOCK_GETTIME_IN_LIBC)
--	endif(NOT APPLE)
-+	endif(APPLE)
- endif(WIN32)
-
- # Adde-DHAVE_TBB in TKernel in order to benefit from Standard_MMgrTBBalloc
-Binary files a/src/.DS_Store and b/src/.DS_Store differ
-diff -ruN a/src/OSD/OSD_Chronometer.cxx b/src/OSD/OSD_Chronometer.cxx
---- a/src/OSD/OSD_Chronometer.cxx	2016-06-02 14:18:16.000000000 +0200
-+++ b/src/OSD/OSD_Chronometer.cxx	2016-10-05 19:26:01.000000000 +0200
+diff --git a/src/OSD/OSD_Chronometer.cxx b/src/OSD/OSD_Chronometer.cxx
+index f7374fb..63ac140 100644
+--- a/src/OSD/OSD_Chronometer.cxx
++++ b/src/OSD/OSD_Chronometer.cxx
 @@ -51,7 +51,7 @@
    #include <mach/mach.h>
  #endif
 
 -#if defined(__APPLE__) && defined(__MACH__)
-+#if defined(__OPPLE__) && defined(__MACH__)
++#if defined(__APPLE__) && !defined(__MAC_10_12)
  #include "gettime_osx.h"
  #endif
