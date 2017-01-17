@@ -20,11 +20,7 @@ class Vtk < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "20636ef668d6ce6d25913e463f3682d845baccd7433a9a513031ee4de1c7ec3e" => :sierra
-    sha256 "636d1e5b148b07e61343a47e9eb0285e094432667817b0c7a6f786085ab547ef" => :el_capitan
-    sha256 "383561803664ca88e207a8dc7f8097f28bb028d1de72b0040063fd1863c09aa2" => :yosemite
-    sha256 "9859d20c1f9773dd967ee292543a31e70b2a4eaa3162473252fdfac5820267b0" => :x86_64_linux
+    sha256 "7983c49cad6b582bf9911ec1c66189f0e2872cb1c58816f4659778f2740cd2a1" => :x86_64_linux
   end
 
   deprecated_option "examples" => "with-examples"
