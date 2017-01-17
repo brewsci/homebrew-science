@@ -1,9 +1,8 @@
 class Cantera < Formula
   desc "chemical kinetics, thermodynamics, and transport process tool suite"
   homepage "https://github.com/Cantera/cantera"
-  url "https://github.com/Cantera/cantera/archive/v2.2.1.tar.gz"
-  sha256 "c7bca241848f541466f56e479402521c618410168e8983e2b54ae48888480e1e"
-  revision 1
+  url "https://github.com/Cantera/cantera/archive/v2.3.0.tar.gz"
+  sha256 "06624f0f06bdd2acc9c0dba13443d945323ba40f68a9d422d95247c02e539b57"
   head "https://github.com/cantera/cantera.git"
 
   bottle do
@@ -17,9 +16,11 @@ class Cantera < Formula
   deprecated_option "without-check" => "without-test"
 
   depends_on "scons" => :build
+  depends_on "fmt"
+  depends_on "eigen" => :build
+  depends_on "boost" => :build
   depends_on :python if OS.mac? && MacOS.version <= :snow_leopard
-  depends_on "numpy" => :python
-  depends_on "sundials" => ["without-mpi", :recommended]
+  depends_on "homebrew/python/numpy"
   depends_on "graphviz" => :optional
   depends_on :python3 => :optional
 
@@ -28,27 +29,41 @@ class Cantera < Formula
     sha256 "e0941455769335ec5afb17dee36dc3833b7edc2ae20a8ed5806c58215e4b6669"
   end
 
+  # Matlab doesn't work with Homebrew's SUNDIALS installation, so we need to
+  # embed it instead
+  resource "sundials" do
+    url "https://computation.llnl.gov/projects/sundials/download/sundials-2.7.0.tar.gz"
+    sha256 "d39fcac7175d701398e4eb209f7e92a5b30a78358d4a0c0fcc23db23c11ba104"
+  end
+
+  resource "gtest" do
+    url "https://github.com/google/googletest/archive/release-1.7.0.tar.gz"
+    sha256 "f73a6546fdf9fce9ff93a5015e0333a8af3062a152a9ad6bcb772c96687016cc"
+  end
+
   def install
     ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python2.7/site-packages"
     resource("Cython").stage do
       system "python", *Language::Python.setup_install_args(buildpath/"cython") << "--no-cython-compile"
     end
 
+    (buildpath/"ext/sundials").install resource("sundials")
+
+    if build.with? "test"
+      (buildpath/"ext/googletest").install resource("gtest")
+    end
+
     build_args = ["prefix=#{prefix}",
                   "python_package=full",
                   "CC=#{ENV.cc}",
                   "CXX=#{ENV.cxx}",
-                  "f90_interface=n"]
+                  "f90_interface=n",
+                  "system_sundials=n",
+                  "extra_inc_dirs=#{HOMEBREW_PREFIX}/include/eigen3"]
 
     matlab_path = ARGV.value("with-matlab")
     if matlab_path
       build_args << "matlab_path=" + matlab_path
-      # Matlab doesn't play nice with system Sundials installation
-      if build.head?
-        build_args << "system_sundials=n" # Cantera 2.3+
-      else
-        build_args << "use_sundials=n" # Cantera 2.2.x
-      end
     end
 
     build_args << "python3_package=" + (build.with?("python3") ? "y" : "n")
@@ -69,12 +84,7 @@ class Cantera < Formula
     pythons = ["python"]
     pythons << "python3" if build.with? "python3"
     pythons.each do |python|
-      # Run those portions of the test suite that do not depend of data
-      # that's only available in the source tree.
-      system(python, "-m", "unittest", "-v",
-             "cantera.test.test_transport",
-             "cantera.test.test_purefluid",
-             "cantera.test.test_mixture")
+      system(python, "-m", "unittest", "-v", "cantera.test")
     end
   end
 end
