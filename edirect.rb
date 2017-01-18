@@ -11,6 +11,7 @@ class Edirect < Formula
     sha256 "3020ac2326c9f560cf62d6e29522d3d1fa8648f938535181f0eea3a751430d05" => :sierra
     sha256 "3cb6223205802f84ab23e7ded9c275c2aa3f5e4a0a6ad63fa55fa3c2f599baec" => :el_capitan
     sha256 "3cb6223205802f84ab23e7ded9c275c2aa3f5e4a0a6ad63fa55fa3c2f599baec" => :yosemite
+    sha256 "f908f5575cb894c3fa0ea2a7d2279dcdcc43ca709c5d85a7912a1076786d2f11" => :x86_64_linux
   end
 
   depends_on "HTML::Entities" => :perl
