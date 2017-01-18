@@ -1,8 +1,8 @@
 class Mbsystem < Formula
   desc "MB-System seafloor mapping software"
   homepage "http://www.mbari.org/data/mbsystem/mb-cookbook/index.html"
-  url "ftp://ftp.ldeo.columbia.edu/pub/mbsystem/mbsystem-5.5.2279.tar.gz"
-  sha256 "50b0013af2bb2d66d8278057f64ea3d3be931d23e6fb7aa0af207285b27c00f2"
+  url "ftp://ftp.ldeo.columbia.edu/pub/mbsystem/mbsystem-5.5.2284.tar.gz"
+  sha256 "62afc8bf4313720af48caa0c11d7596c4fce263420653fce90b600e99c23e709"
 
   bottle do
     sha256 "6f8bff9625cc43d4f85b29dd52ae469d666f23bcb2d77ebda27241eff56a9f31" => :sierra
