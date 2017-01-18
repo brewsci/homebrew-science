@@ -8,10 +8,9 @@ class Edirect < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5aec9857a21f73fd5c527db30cabc47222bfb7d8089cb63f10effbc407f16de4" => :el_capitan
-    sha256 "aef2d88463ff0d4974d9953f35f87ba872d4e3e52ff65e8b4778d9502b3c9bd1" => :yosemite
-    sha256 "6ce8f0cac378f0706a6c87609dd04fbe11443dc8450f221e6a308aabca309931" => :mavericks
-    sha256 "e3c4accf5971c40cce06e82cb2490d7acfbc7735f30d57a330eaf15358baca5d" => :x86_64_linux
+    sha256 "3020ac2326c9f560cf62d6e29522d3d1fa8648f938535181f0eea3a751430d05" => :sierra
+    sha256 "3cb6223205802f84ab23e7ded9c275c2aa3f5e4a0a6ad63fa55fa3c2f599baec" => :el_capitan
+    sha256 "3cb6223205802f84ab23e7ded9c275c2aa3f5e4a0a6ad63fa55fa3c2f599baec" => :yosemite
   end
 
   depends_on "HTML::Entities" => :perl
