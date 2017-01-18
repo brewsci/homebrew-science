@@ -1,9 +1,8 @@
 class Edirect < Formula
   desc "Access NCBI's databases from the shell"
   homepage "http://www.ncbi.nlm.nih.gov/books/NBK179288/"
-  url "ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/versions/2016-08-09/edirect.tar.gz"
-  version "4.80"
-  sha256 "9e3074ca7dacbfca17b8f9875467d000a52378af18127c122b2d5cb09e5fb0f7"
+  url "ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/versions/6.00.20170109/edirect.tar.gz"
+  sha256 "b0709d89394ceee1c97bfc44c993ce074181837f79def2c6958edc3e5ffa7d29"
   head "ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/versions/current/edirect.tar.gz"
   # tag "bioinformatics"
 
@@ -14,6 +13,10 @@ class Edirect < Formula
     sha256 "6ce8f0cac378f0706a6c87609dd04fbe11443dc8450f221e6a308aabca309931" => :mavericks
     sha256 "e3c4accf5971c40cce06e82cb2490d7acfbc7735f30d57a330eaf15358baca5d" => :x86_64_linux
   end
+
+  depends_on "HTML::Entities" => :perl
+  depends_on "LWP::Simple" => :perl
+  depends_on "LWP::Protocol::https" => :perl
 
   def install
     doc.install "README"
