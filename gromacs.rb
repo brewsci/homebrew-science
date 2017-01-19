@@ -1,10 +1,9 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "http://www.gromacs.org/"
-  url "ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.1.tar.gz"
-  mirror "https://fossies.org/linux/privat/gromacs-5.1.1.tar.gz"
-  sha256 "9316fd0be320e2dd8c048f905df5be115e1b230c4ca4f3a7ef5892a1fc0bc212"
-  revision 1
+  url "ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.4.tar.gz"
+  mirror "https://fossies.org/linux/privat/gromacs-5.1.4.tar.gz"
+  sha256 "0f3793d8f1f0be747cf9ebb0b588fb2b2b5dc5acc32c3046a7bee2d2c03437bc"
 
   bottle do
     sha256 "cde5058f7d151279fed145dd182b01d18559848a4adc74ce86d41e10779d708d" => :el_capitan
@@ -15,9 +14,10 @@ class Gromacs < Formula
   deprecated_option "with-x" => "with-x11"
   deprecated_option "enable-mpi" => "with-mpi"
   deprecated_option "enable-double" => "with-double"
+  deprecated_option "without-check" => "without-test"
 
   option "with-double", "Enables double precision"
-  option "without-check", "Skip build-time tests (not recommended)"
+  option "without-test", "Skip build-time tests (not recommended)"
 
   depends_on "cmake" => :build
   depends_on "fftw"
@@ -57,6 +57,6 @@ class Gromacs < Formula
   end
 
   test do
-    system "gmx", "help"
+    system "#{bin}/gmx", "help"
   end
 end
