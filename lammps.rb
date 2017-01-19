@@ -1,11 +1,12 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "http://lammps.sandia.gov"
-  url "http://lammps.sandia.gov/tars/lammps-13Oct16.tar.gz"
+  url "http://lammps.sandia.gov/tars/lammps-17Nov16.tar.gz"
   # lammps releases are named after their release date. We transform it to
-  # YYYY.MM.DD (year.month.day) so that we get a comparable version numbering (for brew outdated)
-  version "2016.10.13"
-  sha256 "ca6f7269c6b0ba739954903c3588ae168ab1320c9fc2eb8a7e3f6bf2cd0b5ee8"
+  # YYYY.MM.DD (year.month.day) so that we get a comparable version numbering (for brew outdated).
+  # We only track "stable" releases as announced on the LAMMPS homepage.
+  version "2016.11.17"
+  sha256 "559d59c1612b0db00385960a100db5554193b81ffdc23ef1883fe6178d62d645"
   head "http://git.icms.temple.edu/lammps-ro.git"
 
   bottle do
@@ -96,7 +97,7 @@ class Lammps < Formula
   end
 
   def install
-    ENV.j1 # not parallel safe (some packages have race conditions :meam:)
+    ENV.deparallelize # not parallel safe (some packages have race conditions :meam:)
 
     cd "lib/python" do
       inreplace ["Makefile.lammps", "Makefile.lammps.python2"],
@@ -235,7 +236,7 @@ class Lammps < Formula
   end
 
   test do
-    system "lammps", "-in", "#{HOMEBREW_PREFIX}/share/lammps/bench/in.lj"
+    system "#{bin}/lammps", "-in", "#{HOMEBREW_PREFIX}/share/lammps/bench/in.lj"
     system "python", "-c", "from lammps import lammps ; lammps().file('#{HOMEBREW_PREFIX}/share/lammps/bench/in.lj')"
   end
 end
