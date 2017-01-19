@@ -8,6 +8,7 @@ class DlPolyClassic < Formula
     sha256 "92d1476dd912252fc44ce90ca04eb9cd01fc3deb78c57050d8f5a10ecfc9aadb" => :sierra
     sha256 "0db5f2e24d18e791c09aa6a0b3b1638cae4096b9638dd7694ca18715fe0f2d19" => :el_capitan
     sha256 "c37f99dc9b16f0713360d03c5fc0898a7037f62ca251f53be02aa18c663e54e6" => :yosemite
+    sha256 "a94ee733cb94358f530e947e69dada28fc2c5b286aa6c1679ff7c58161a61897" => :x86_64_linux
   end
 
   depends_on :fortran
