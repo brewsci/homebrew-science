@@ -32,7 +32,6 @@ class Gmsh < Formula
   depends_on "fltk" => :optional
   depends_on "cairo" if build.with? "fltk"
 
-
   if build.with?("opencascade") && build.with?("oce")
     odie "gmsh: switches '--with-opencascade' and '--with-oce' are conflicting."
   else
