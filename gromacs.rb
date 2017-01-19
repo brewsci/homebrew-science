@@ -9,6 +9,7 @@ class Gromacs < Formula
     sha256 "d656c66147f490bfc10b9ff6614a5910a257274dd31971601692effbdf35a504" => :sierra
     sha256 "e1077fc5af5958144360b7362cc5b06ce8bdecca7c42db615479b1ea1dc88e09" => :el_capitan
     sha256 "b5d24da6150c2e44b5eb038ad623dae7a7ce4144fd1e152c1dc2db6f61c5c64a" => :yosemite
+    sha256 "0cb8624cba507f8461d08ee1309ced4a9efb7cbc71461f5234bcfe88be07f956" => :x86_64_linux
   end
 
   deprecated_option "with-x" => "with-x11"
