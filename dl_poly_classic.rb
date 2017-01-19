@@ -4,6 +4,12 @@ class DlPolyClassic < Formula
   url "https://ccpforge.cse.rl.ac.uk/gf/download/frsrelease/255/4726/dl_class_1.9.tar.gz"
   sha256 "7068a44b13cf95a0659b61a3b0e76bf469051e49cc7b70e7796a98cf0d02db9c"
 
+  bottle do
+    sha256 "92d1476dd912252fc44ce90ca04eb9cd01fc3deb78c57050d8f5a10ecfc9aadb" => :sierra
+    sha256 "0db5f2e24d18e791c09aa6a0b3b1638cae4096b9638dd7694ca18715fe0f2d19" => :el_capitan
+    sha256 "c37f99dc9b16f0713360d03c5fc0898a7037f62ca251f53be02aa18c663e54e6" => :yosemite
+  end
+
   depends_on :fortran
   depends_on :mpi => :f90
 
