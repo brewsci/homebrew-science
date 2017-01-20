@@ -7,9 +7,9 @@ class Hypre < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "af709e36228d5379fec1f036d7d5427f520958a4cfb01112cb845085ed930d0e" => :el_capitan
-    sha256 "4b432d62d12560805210f958febf3a3423cae117b303902bd230f5ac0f412ffb" => :yosemite
-    sha256 "83420dd19fa18da92767c3495048450faa6e1ac84bf09cbbff97fb7de5b2db3c" => :mavericks
+    sha256 "a7455b53dbfe681fefbf4c923d189af11143a85655fa8cf736328fded6d60d9f" => :sierra
+    sha256 "ad329a482c786acb99f799ac509f1babc15410469105085a41155ce60a94aeee" => :el_capitan
+    sha256 "a67dab6cdf0a8113eec56540bb1ab4820eb61838985cc2cd32a6f6e5dbe22321" => :yosemite
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
