@@ -14,6 +14,7 @@ class Sratoolkit < Formula
     sha256 "739a3c3bddc8cb5e3ab6be0e358e65f3f4075bcbab34d89eb7a5cf61327d8995" => :sierra
     sha256 "128216cdefa2cf357e6a813a1be0537806ab94695fc899230e95375d8de3e658" => :el_capitan
     sha256 "a36d0623d4be9e3d222ce3ecd022957948ef15810e8ebfbb04312eadc71e95d3" => :yosemite
+    sha256 "cc56ad3a7f0066b0db89ef3afb134fb259bef4269bc5651c97512c587b87de6e" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
