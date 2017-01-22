@@ -7,9 +7,9 @@ class Pcb < Formula
   head "git://git.geda-project.org/pcb.git"
 
   bottle do
-    sha256 "afffa8b991dc0d8dedeabf4d97869ef294a9a44885ffdeeaafd0da1425150d02" => :el_capitan
-    sha256 "21b557b5ec551b01f8845a9166feff7e0bef94a16d93f455f3d057c60cab9d2d" => :yosemite
-    sha256 "d83abec9b548ffb5268cfa39810ac902c9dd3daddf890f30459ab19f9078a976" => :mavericks
+    sha256 "932038a9ecc1934ae5f45d62d55a1a72bcb6f4d847ca2951866e5714983eff35" => :sierra
+    sha256 "4589108f7700ed018e9561a17d1ca34b32312be7a416449f9b824863f4eb758a" => :el_capitan
+    sha256 "22033b376c35297eb4ea8f273474bb88df516ba064e816f5b5beec4fc0a3ba50" => :yosemite
   end
 
   option "with-doc", "Build the documentation (requires LaTeX)."
