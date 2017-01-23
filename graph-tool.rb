@@ -41,9 +41,9 @@ class GraphTool < Formula
   depends_on "google-sparsehash" => cxx11 + [:recommended]
   depends_on "gtk+3" => :recommended
 
-  depends_on "homebrew/python/numpy" => [:recommended] + with_pythons
-  depends_on "homebrew/python/scipy" => [:recommended] + with_pythons
-  depends_on "homebrew/python/matplotlib" => [:recommended] + with_pythons
+  depends_on "numpy" => [:recommended] + with_pythons
+  depends_on "scipy" => [:recommended] + with_pythons
+  depends_on "matplotlib" => [:recommended] + with_pythons
 
   if build.with? "cairo"
     depends_on "py2cairo" if build.with? "python"
