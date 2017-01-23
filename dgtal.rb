@@ -1,16 +1,17 @@
 class Dgtal < Formula
   desc "Digital Geometry Tools and Algorithms"
   homepage "http://dgtal.org"
+  revision 1
 
   stable do
     url "http://dgtal.org/releases/DGtal-0.9.2-Source.tar.gz"
     mirror "http://liris.cnrs.fr/dgtal/releases/DGtal-0.9.2-Source.tar.gz"
     sha256 "ba044b7c353a8550dc740c1d80e3caf59a76d4332d956599359027f3e8e20ed9"
 
-    option "with-eigen32", "Build with eigen support"
-    deprecated_option "with-eigen" => "with-eigen32"
+    option "with-eigen@3.2", "Build with eigen support"
+    deprecated_option "with-eigen" => "with-eigen@3.2"
 
-    depends_on "homebrew/versions/eigen32" => :optional
+    depends_on "eigen@3.2" => :optional
   end
 
   bottle do
@@ -26,12 +27,17 @@ class Dgtal < Formula
     url "https://github.com/DGtal-team/DGtal.git"
 
     deprecated_option "with-eigen32" => "with-eigen"
+    deprecated_option "with-eigen@3.2" => "with-eigen"
 
     depends_on "eigen" => :optional
   end
 
   option "without-test", "Skip build-time tests"
   option "without-examples", "Don't build the examples"
+
+  deprecated_option "with-eigen32" => "with-eigen@3.2"
+  deprecated_option "with-magick" => "with-graphicsmagick"
+  deprecated_option "with-qglviewer" => "with-libqglviewer"
 
   depends_on "cmake" => :build
   boost_args = []
@@ -41,9 +47,6 @@ class Dgtal < Formula
   depends_on "cairo" => :optional
   depends_on "graphicsmagick" => :optional
   depends_on "cgal" => [:optional, "with-eigen"]
-
-  deprecated_option "with-magick" => "with-graphicsmagick"
-  deprecated_option "with-qglviewer" => "with-libqglviewer"
 
   needs :cxx11
 
@@ -64,7 +67,7 @@ class Dgtal < Formula
     args << "-DWITH_QGLVIEWER=true" if build.with? "libqglviewer"
     args << "-DWITH_MAGICK=true" if build.with? "graphicsmagick"
 
-    if build.with?("eigen32") || build.with?("eigen")
+    if build.with?("eigen@3.2") || build.with?("eigen")
       args << "-DWITH_EIGEN=true"
     end
 
