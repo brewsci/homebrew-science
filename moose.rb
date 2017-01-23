@@ -19,7 +19,7 @@ class Moose < Formula
   depends_on "gsl"
   depends_on "hdf5"
   depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "homebrew/python/numpy"
+  depends_on "numpy"
 
   if build.with?("sbml")
     resource "sbml" do
