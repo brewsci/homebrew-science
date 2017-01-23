@@ -4,6 +4,12 @@ class Cp2k < Formula
   url "https://downloads.sourceforge.net/project/cp2k/cp2k-4.1.tar.bz2"
   sha256 "4a3e4a101d8a35ebd80a9e9ecb02697fb8256364f1eccdbe4e5a85d31fe21343"
 
+  bottle do
+    sha256 "4cc1d9167370d0c3ae59ffce5be9fbdb0f7e905f448916fd5219c8ff00779d6d" => :sierra
+    sha256 "378604335f111cb66501f3465f000bce8608f577a68ce0efae2065d170b5750e" => :el_capitan
+    sha256 "f2249e0a6c7cc344855e489549ec3ce06d8d7bb0e3b7c1ac9b4cbd37409e5f4c" => :yosemite
+  end
+
   depends_on :fortran
   depends_on "gcc"
   depends_on "fftw" => "with-fortran"
