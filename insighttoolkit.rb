@@ -7,9 +7,9 @@ class Insighttoolkit < Formula
   head "git://itk.org/ITK.git"
 
   bottle do
-    sha256 "b2f7d608305f43791c9e4c5b6f3fab62a8e584f2dd811c8a1de4a7076a834bb6" => :sierra
-    sha256 "462207580976416c18829b4c4658b85dee3fc1c93e1b8a22edde5d96e06ad837" => :el_capitan
-    sha256 "8e58ec5de801dddaa7a0f6b138ff6de55f2017a6d2eb9e6aae291cf1800f0a62" => :yosemite
+    sha256 "bc3e0d52f92e3f47a44ea5d1ddc7cecde4ae6e887968b8a29412f8df238bc19b" => :sierra
+    sha256 "53f296c77dbaa367fd0635eee8682ebe896be944a0a228ca8623859471a16cd6" => :el_capitan
+    sha256 "804bb5a4fce723ded9451549112cd37fd1694f76ee5a6d4f98c7ec7bf3809329" => :yosemite
   end
 
   option :cxx11
