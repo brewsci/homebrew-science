@@ -25,7 +25,7 @@ class Iva < Formula
   depends_on "smalt"
   depends_on "trimmomatic"
   depends_on "samtools"
-  depends_on "homebrew/python/numpy" => ["with-python3"]
+  depends_on "numpy" => ["with-python3"]
 
   resource "pysam" do
     url "https://pypi.python.org/packages/source/p/pysam/pysam-0.8.3.tar.gz"
