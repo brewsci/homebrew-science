@@ -20,7 +20,7 @@ class Cantera < Formula
   depends_on "eigen" => :build
   depends_on "boost" => :build
   depends_on :python if OS.mac? && MacOS.version <= :snow_leopard
-  depends_on "homebrew/python/numpy"
+  depends_on "numpy"
   depends_on "graphviz" => :optional
   depends_on :python3 => :optional
 
