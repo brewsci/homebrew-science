@@ -40,7 +40,7 @@ class Opencv < Formula
   depends_on "eigen" => :recommended
   depends_on "openexr" => :recommended
   depends_on :python => :recommended if MacOS.version <= :snow_leopard || !OS.mac?
-  depends_on "homebrew/python/numpy" => :recommended if build.with? "python"
+  depends_on "numpy" => :recommended if build.with? "python"
   depends_on CudaRequirement => :optional
   depends_on "jasper" => :optional
   depends_on :java => :optional
