@@ -16,7 +16,7 @@ class Quast < Formula
   end
 
   if OS.mac? && MacOS.version <= :mountain_lion
-    depends_on "homebrew/python/matplotlib"
+    depends_on "matplotlib"
   else
     # Mavericks and newer include matplotlib
     depends_on "matplotlib" => :python
