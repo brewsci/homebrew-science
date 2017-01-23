@@ -78,7 +78,7 @@ class Opencv3 < Formula
 
   with_python = build.with?("python") || build.with?("python3")
   pythons = build.with?("python3") ? ["with-python3"] : []
-  depends_on "homebrew/python/numpy" => [:recommended] + pythons if with_python
+  depends_on "numpy" => [:recommended] + pythons if with_python
 
   # dependencies use fortran, which leads to spurious messages about gcc
   cxxstdlib_check :skip
