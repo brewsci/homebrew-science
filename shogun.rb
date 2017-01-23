@@ -3,7 +3,7 @@ class Shogun < Formula
   homepage "http://www.shogun-toolbox.org"
   url "http://shogun-toolbox.org/archives/shogun/releases/4.1/sources/shogun-4.1.0.tar.bz2"
   sha256 "0eb313a95606edee046768a4577d63f32f7ccce340bed7bf0ff0d69225567185"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "bb97d16ea75d013d2b28cb37810d8f751aa886dc38612a4c2daeca5b993655fc" => :sierra
@@ -22,7 +22,7 @@ class Shogun < Formula
   depends_on "json-c"
   depends_on "readline"
   depends_on "nlopt"
-  depends_on "homebrew/versions/eigen32"
+  depends_on "eigen@3.2"
   depends_on "arpack"
   depends_on "colpack"
   depends_on "glpk"
