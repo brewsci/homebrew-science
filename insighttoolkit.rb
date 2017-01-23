@@ -3,7 +3,7 @@ class Insighttoolkit < Formula
   homepage "http://www.itk.org"
   url "https://downloads.sourceforge.net/project/itk/itk/4.10/InsightToolkit-4.10.1.tar.gz"
   sha256 "cb1048facf2b60cebf4ea0b3f89a13a32f8036d906aab3cfafa65e94760caa7a"
-  revision 2
+  revision 3
   head "git://itk.org/ITK.git"
 
   bottle do
@@ -42,6 +42,8 @@ class Insighttoolkit < Formula
   end
 
   def install
+    dylib = OS.mac? ? "dylib" : "so"
+
     args = std_cmake_args + %W[
       -DBUILD_TESTING=OFF
       -DBUILD_SHARED_LIBS=ON
@@ -74,20 +76,24 @@ class Insighttoolkit < Formula
 
     mkdir "itk-build" do
       if build.with?("python") || build.with?("python3")
+        python_executable = `which python`.strip if build.with? "python"
+        python_executable = `which python3`.strip if build.with? "python3"
+
+        python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
+        python_include = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp
+        python_version = "python" + `#{python_executable} -c 'import sys;print(sys.version[:3])'`.chomp
 
         args << "-DITK_WRAP_PYTHON=ON"
-
+        args << "-DPYTHON_EXECUTABLE='#{python_executable}'"
+        args << "-DPYTHON_INCLUDE_DIR='#{python_include}'"
         # CMake picks up the system's python dylib, even if we have a brewed one.
-        if build.with? "python"
-          args << "-DPYTHON_LIBRARY='#{`python-config --prefix`.chomp}/lib/libpython2.7.dylib'"
-          args << "-DPYTHON_INCLUDE_DIR='#{`python-config --prefix`.chomp}/include/python2.7'"
-        elsif build.with? "python3"
-          ENV["PYTHONPATH"] = lib/"python3.5/site-packages"
-          args << "-DPYTHON_EXECUTABLE='#{`python3-config --prefix`.chomp}/bin/python3'"
-          args << "-DPYTHON_LIBRARY='#{`python3-config --prefix`.chomp}/lib/libpython3.5.dylib'"
-          args << "-DPYTHON_INCLUDE_DIR='#{`python3-config --prefix`.chomp}/include/python3.5m'"
+        if File.exist? "#{python_prefix}/Python"
+          args << "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
+        elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
+          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
+        else
+          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.#{dylib}'"
         end
-
       end
       system "cmake", *args
       system "make", "install"
