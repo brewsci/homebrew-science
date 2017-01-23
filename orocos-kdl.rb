@@ -7,10 +7,9 @@ class OrocosKdl < Formula
 
   bottle do
     cellar :any
-    sha256 "f6c826d3fd4ac6e5cf2e3850b5eaf7caccbf24f0143c6c8b9cc01ed3ed0509b6" => :sierra
-    sha256 "2dfa94597ae2f68f5796b9651277c13c30c02cbe1b5998518771fb47378ee024" => :el_capitan
-    sha256 "4dcf30a9d7864fb6366736f8b267094497177a7cc8161234e73685447b0e105c" => :yosemite
-    sha256 "81e21e00a11b6e9a6b67361d5729da5cec76799bd700d31480bfb655ffe6c122" => :x86_64_linux
+    sha256 "bdd3f727f1f4014d20fbe4f81e46053013acc30ec47484da177d1c9a65108e12" => :sierra
+    sha256 "a869c3845a9738c588288a98d4afee923e9f0b331b08085c1efbce90b7b50050" => :el_capitan
+    sha256 "85ace504eb2aa77cb06d0dba7cbb4e8fe166e135ee3ac4c8add779b1f0625242" => :yosemite
   end
 
   option "without-test", "Disable build-time checking"
