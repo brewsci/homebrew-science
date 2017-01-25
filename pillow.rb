@@ -5,6 +5,13 @@ class Pillow < Formula
   sha256 "0ee762ab924e004b7e69643b44e82cf65e0fa1f16862e11bd821950dbbc5f3d3"
   head "https://github.com/python-imaging/Pillow.git"
 
+  bottle do
+    cellar :any
+    sha256 "e0af236e5bc5c494056e73b3f97370f39d533ed00819778636f1f331c9eb1e59" => :sierra
+    sha256 "48806ad12659065b05a0f185adf6278f7a958f500d63aedb470b6bfdf0ed5ae6" => :el_capitan
+    sha256 "08ff7bbc836dbdf006cbf5674cb71c1559c6df1e9cdd1c927090b690dfa31f7f" => :yosemite
+  end
+
   # waiting on upstream resolution of JPEG2000 issues
   # https://github.com/python-pillow/Pillow/issues/767
   # option "with-openjpeg", "Enable JPEG2000 support"
