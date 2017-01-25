@@ -3,6 +3,8 @@ class Molden < Formula
   homepage "http://www.cmbi.ru.nl/molden/"
   url "ftp://ftp.cmbi.ru.nl/pub/molgraph/molden/molden5.7.tar.gz"
   sha256 "8c52229f1762e987995c53936f0dc2cfd086277ec777bf9083d76c0bf0483887"
+  # tag "chemistry"
+  # doi "10.1023/A:1008193805436"
 
   bottle do
     cellar :any
