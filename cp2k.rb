@@ -3,6 +3,9 @@ class Cp2k < Formula
   homepage "https://www.cp2k.org"
   url "https://downloads.sourceforge.net/project/cp2k/cp2k-4.1.tar.bz2"
   sha256 "4a3e4a101d8a35ebd80a9e9ecb02697fb8256364f1eccdbe4e5a85d31fe21343"
+  head "https://svn.code.sf.net/p/cp2k/code/trunk"
+  # tag "chemistry"
+  # doi "10.1016/j.cpc.2004.12.014"
 
   bottle do
     sha256 "4cc1d9167370d0c3ae59ffce5be9fbdb0f7e905f448916fd5219c8ff00779d6d" => :sierra
@@ -29,6 +32,9 @@ class Cp2k < Formula
       system "make"
       system "make", "install"
     end
+
+    # SVN repo has different layout than released versions
+    cd "cp2k" if build.head?
 
     # CP2K configuration is done through editing of arch files
     dflags = "-D__LIBXC -D__FFTW3 -D__LIBINT"
