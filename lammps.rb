@@ -8,6 +8,8 @@ class Lammps < Formula
   version "2016.11.17"
   sha256 "559d59c1612b0db00385960a100db5554193b81ffdc23ef1883fe6178d62d645"
   head "http://git.icms.temple.edu/lammps-ro.git"
+  # tag "chemistry"
+  # doi "10.1006/jcph.1995.1039"
 
   bottle do
     cellar :any
