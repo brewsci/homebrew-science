@@ -1,8 +1,8 @@
 class Mothur < Formula
   desc "16s analysis software"
   homepage "http://www.mothur.org"
-  url "https://github.com/mothur/mothur/archive/v1.38.1.1.tar.gz"
-  sha256 "e0c29e144a73b083e24c4138c9e7eee5969ceeddc57bcab9eb4094d48ce5bf97"
+  url "https://github.com/mothur/mothur/archive/v1.39.0.tar.gz"
+  sha256 "b72d8930c21a797cebed8267390b63efe7988fdaa3734babfcc5fb9e58a9c895"
   head "https://github.com/mothur/mothur.git"
   # tag "bioinformatics"
   # doi "10.1128/AEM.01541-09"
