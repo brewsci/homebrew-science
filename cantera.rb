@@ -4,6 +4,8 @@ class Cantera < Formula
   url "https://github.com/Cantera/cantera/archive/v2.3.0.tar.gz"
   sha256 "06624f0f06bdd2acc9c0dba13443d945323ba40f68a9d422d95247c02e539b57"
   head "https://github.com/cantera/cantera.git"
+  # tag "chemistry"
+  # doi "10.5281/zenodo.170284"
 
   bottle do
     sha256 "8e5df2d0c9e79c38653d56151d77aca0fda8bcf5fc66daab8b5008668f787a68" => :sierra
