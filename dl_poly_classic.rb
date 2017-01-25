@@ -3,6 +3,8 @@ class DlPolyClassic < Formula
   homepage "https://ccpforge.cse.rl.ac.uk/gf/project/dl_poly_classic/"
   url "https://ccpforge.cse.rl.ac.uk/gf/download/frsrelease/255/4726/dl_class_1.9.tar.gz"
   sha256 "7068a44b13cf95a0659b61a3b0e76bf469051e49cc7b70e7796a98cf0d02db9c"
+  # tag "chemistry"
+  # doi "10.1016/S0263-7855(96)00043-4"
 
   bottle do
     sha256 "92d1476dd912252fc44ce90ca04eb9cd01fc3deb78c57050d8f5a10ecfc9aadb" => :sierra
