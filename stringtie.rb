@@ -1,8 +1,8 @@
 class Stringtie < Formula
   desc "Transcript assembly and quantification for RNA-Seq"
   homepage "http://ccb.jhu.edu/software/stringtie"
-  url "http://ccb.jhu.edu/software/stringtie/dl/stringtie-1.3.1c.tar.gz"
-  sha256 "69fc957efd1832ec62640f7b4a78c052e565574f73deea93f90eb20a061f147d"
+  url "http://ccb.jhu.edu/software/stringtie/dl/stringtie-1.3.2b.tar.gz"
+  sha256 "12202e91bf8e314a59bca4b353eeb212e7e6926ea12a9ffdaedb8ee4818b5465"
   head "https://github.com/gpertea/stringtie.git"
 
   # doi "10.1038/nbt.3122"
