@@ -4,6 +4,8 @@ class Gromacs < Formula
   url "ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.4.tar.gz"
   mirror "https://fossies.org/linux/privat/gromacs-5.1.4.tar.gz"
   sha256 "0f3793d8f1f0be747cf9ebb0b588fb2b2b5dc5acc32c3046a7bee2d2c03437bc"
+  # tag "chemistry"
+  # doi "10.1016/0010-4655(95)00042-E"
 
   bottle do
     sha256 "d656c66147f490bfc10b9ff6614a5910a257274dd31971601692effbdf35a504" => :sierra
