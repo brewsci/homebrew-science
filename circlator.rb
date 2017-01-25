@@ -3,8 +3,8 @@ class Circlator < Formula
 
   desc "Tool to circularize genome assemblies"
   homepage "https://sanger-pathogens.github.io/circlator/"
-  url "https://github.com/sanger-pathogens/circlator/archive/v1.4.0.tar.gz"
-  sha256 "dfd07bed66237adc48417466f44f1953c16bf0da59a752a0ae90b9f5fdefe402"
+  url "https://github.com/sanger-pathogens/circlator/archive/v1.4.1.tar.gz"
+  sha256 "3b8af3ec459631fffb533f331a28e4390445f580712e00a4c43c586ba8cd10fa"
   head "https://github.com/sanger-pathogens/circlator.git"
 
   bottle do
@@ -35,8 +35,8 @@ class Circlator < Formula
   end
 
   resource "openpyxl" do
-    url "https://files.pythonhosted.org/packages/7e/75/9bb309f80e4f75d139ecc55e9edf65c5844336b5a84966a609267255f961/openpyxl-2.4.0.tar.gz"
-    sha256 "21c02df20d626ebd2e92b3c33066ba3ad18520a92d4b6d734f4dee99b4289283"
+    url "https://files.pythonhosted.org/packages/dc/f2/c57f9f00f8ae5e1a73cb096dbf600433724f037ffcbd51c456f89da5efd9/openpyxl-2.4.1.tar.gz"
+    sha256 "836e66578320e5871baa5a958c7acb7dcbc1b508989a675276b20ac2e1c08d82"
   end
 
   resource "pyfastaq" do
