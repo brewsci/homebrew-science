@@ -39,6 +39,13 @@ class Matplotlib < Formula
   sha256 "36cf0985829c1ab2b8b1dae5e2272e53ae681bf33ab8bedceed4f0565af5f813"
   head "https://github.com/matplotlib/matplotlib.git"
 
+  bottle do
+    cellar :any
+    sha256 "8fb917d0f590adb55da8b6ba436a39cc7f21c7e76476eb5034457cc0efc813d8" => :sierra
+    sha256 "6db57d061301b9034dea459a6d27d75436a46e9699ada6ed7da636d6062205e9" => :el_capitan
+    sha256 "5a62894589e12ff1e6a9123e959bf6a6c53f35f896344689464311d25d7f9a55" => :yosemite
+  end
+
   option "without-python", "Build without python2 support"
 
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
