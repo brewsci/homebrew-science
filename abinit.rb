@@ -3,6 +3,8 @@ class Abinit < Formula
   homepage "http://www.abinit.org"
   url "http://ftp.abinit.org/abinit-8.0.8b.tar.gz"
   sha256 "37ad5f0f215d2a36e596383cb6e54de3313842a0390ce8d6b48a423d3ee25af2"
+  # tag "chemistry"
+  # doi "10.1016/j.cpc.2009.07.007"
 
   bottle do
     cellar :any
