@@ -1,8 +1,8 @@
 class Openfst < Formula
   desc "Open-source library for working with weighted finite-state transducers."
   homepage "http://www.openfst.org/"
-  url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.5.4.tar.gz"
-  sha256 "acc115aaaa33de53de62dae44120ab368fabaea06f52606b77714081ecd32657"
+  url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.6.0.tar.gz"
+  sha256 "c03467951631af3f74a6f33ffd50f04285bc4562f79127afd95785120379d293"
 
   bottle do
     cellar :any
