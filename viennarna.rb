@@ -9,10 +9,9 @@ class Viennarna < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "379ce1c1c5cc034df6284c1643a151eba16f11305cd441341d2da61ce65a52ce" => :sierra
-    sha256 "79877f0084806c38e46488a0330086e3011587ba1fded8b0f4844c6cf1d6bd85" => :el_capitan
-    sha256 "0a2340ab9b86cfecbe7baeee8cccbd5188ab9f9e62cfd25e8e6f7e64269e95f1" => :yosemite
+    sha256 "2828a32c707dc311947d32755a609a4f2bc7c6de0254d43b94c7538944e1ce69" => :sierra
+    sha256 "b95b4f52ce14c9c4437b8305d3c8b08e2def4c822c33381953c8e79b81cdf67c" => :el_capitan
+    sha256 "71e2108defc57d61435957b55ef0c4a3a533c39b86fdc7f17c81ba013567090f" => :yosemite
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
