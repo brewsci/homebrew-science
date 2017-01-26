@@ -142,13 +142,6 @@ class Matplotlib < Formula
               "'darwin': ['/usr/local/'",
               "'darwin': ['#{HOMEBREW_PREFIX}'"
 
-    # Apple has the Frameworks (esp. Tk.Framework) in a different place
-    unless MacOS::CLT.installed?
-      inreplace "setupext.py",
-                "'/System/Library/Frameworks/',",
-                "'#{MacOS.sdk_path}/System/Library/Frameworks',"
-    end
-
     Language::Python.each_python(build) do |python, version|
       bundle_path = libexec/"lib/python#{version}/site-packages"
       bundle_path.mkpath
