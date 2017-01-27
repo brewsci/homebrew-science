@@ -2,6 +2,7 @@ class Wcslib < Formula
   homepage "http://www.atnf.csiro.au/people/mcalabre/WCS/"
   url "ftp://ftp.atnf.csiro.au/pub/software/wcslib/wcslib-5.16.tar.bz2"
   sha256 "ed031e0cf1cec0e9cabfc650423efa526fec341441865001c1e2c56bfffc99ef"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,14 +12,16 @@ class Wcslib < Formula
     sha256 "47c69b7144501b5ac2005bcc2fc0957f8eafe744e9e5c4c608144f8504cfd838" => :x86_64_linux
   end
 
-  option "with-pgsbox", "Build PGSBOX, a general curvilinear axis drawing routine for PGPLOT"
+  option "with-pgplot", "Build PGSBOX, a general curvilinear axis drawing routine for PGPLOT"
   option "with-fortran", "Build Fortran wrappers. Needed for --with-pgsbox."
   option "with-check", "Perform `make check`. Note, together --with-pgsbox it will display GUI"
 
+  deprecated_option "with-pgsbox" => "with-pgplot"
+
   depends_on "cfitsio"
-  depends_on "homebrew/x11/pgplot" if build.with? "pgsbox"
-  depends_on :x11 if build.with? "pgsbox"
-  depends_on :fortran if build.with?("fortran") || build.with?("pgsbox")
+  depends_on "pgplot" => :optional
+  depends_on :x11 if build.with? "pgplot"
+  depends_on :fortran if build.with?("fortran") || build.with?("pgplot")
 
   def install
     args = ["--disable-debug",
@@ -27,7 +30,7 @@ class Wcslib < Formula
             "--with-cfitsiolib=#{Formula["cfitsio"].opt_lib}",
             "--with-cfitsioinc=#{Formula["cfitsio"].opt_include}"]
 
-    if build.with? "pgsbox"
+    if build.with? "pgplot"
       args << "--with-pgplotlib=#{Formula["pgplot"].opt_lib}"
       args << "--with-pgplotinc=#{Formula["pgplot"].opt_include}"
     else
