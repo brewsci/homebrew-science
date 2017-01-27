@@ -3,6 +3,7 @@ class Sumo < Formula
   homepage "https://sourceforge.net/projects/sumo/"
   url "https://downloads.sourceforge.net/project/sumo/sumo/version%200.25.0/sumo-all-0.25.0.tar.gz"
   sha256 "e56552e4cd997ccab59b5c6828ca1e044e71e3ffe8c780831bf5aa18c5fdd18a"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,7 +12,9 @@ class Sumo < Formula
     sha256 "ead5586821fcf6e32a1d8bbfe040b1f6349973f7963559fb0d44321f3ed84af1" => :mavericks
   end
 
-  option "with-check", "Enable additional build-time checking"
+  option "with-test", "Enable additional build-time checking"
+
+  deprecated_option "with-check" => "with-test"
 
   depends_on :x11
   depends_on "xerces-c"
@@ -20,11 +23,11 @@ class Sumo < Formula
   depends_on "libtiff"
   depends_on "proj"
   depends_on "gdal"
-  depends_on "homebrew/x11/fox"
+  depends_on "fox"
   depends_on :python
 
   resource "gtest" do
-    url "https://googletest.googlecode.com/files/gtest-1.7.0.zip"
+    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/googletest/gtest-1.7.0.zip"
     sha256 "247ca18dd83f53deb1328be17e4b1be31514cedfc1e3424f672bf11fd7e0d60d"
   end
 
@@ -59,12 +62,14 @@ class Sumo < Formula
     system "unittest/src/sumo-unittest"
 
     # Additional tests. These take more time, and some fail on my machine...
-    if build.with? "check"
+    if build.with? "test"
       ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
       resource("TextTest").stage { Language::Python.setup_install "python", buildpath/"vendor" }
       ENV.prepend_create_path "PATH", buildpath/"vendor/bin"
       system "tests/runTests.sh", "-l", "-zen", "-b", "homebrew-compilation-check"
     end
+
+    rm bin/"sumo-unittest"
   end
 
   def caveats; <<-EOS.undent
