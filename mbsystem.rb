@@ -6,9 +6,9 @@ class Mbsystem < Formula
   revision 1
 
   bottle do
-    sha256 "e12ead181c837c4524f6d6fed2948ffe35a37bb00329addc903b670efd744253" => :sierra
-    sha256 "3fa492521e91c227d87c0dd98d42b44bb8862c50bf998533066510a3d1ba8ce6" => :el_capitan
-    sha256 "9e8ce30fbfba06ea3c9b96f894dbe14cc12e6a1461cf5b2544742e0583a99d65" => :yosemite
+    sha256 "96b15eed849a6402ac87bfa036e43d5b0950f21c294844fc466bebc4ceadcfa1" => :sierra
+    sha256 "b8088c6fc47df33be68bce4b3724549183df9ca38513cc6ba7e3b19c45f34a24" => :el_capitan
+    sha256 "60e9ef60dbfee38f8ed8839e8599ec5a3e2511f91b2b36dc03de7be0ae9ddd23" => :yosemite
   end
 
   option "without-levitus", "Don't install Levitus database (no mblevitus)"
