@@ -6,9 +6,9 @@ class Xmgredit < Formula
 
   bottle do
     cellar :any
-    sha256 "15f605a4a94ff08f818b031fdf2f07cf1a2cd480438881485a01818c73d60a6f" => :yosemite
-    sha256 "2fca016edad3a475ee4eb6e04760cd749d974dfb5dae88789c81c2e10fffa850" => :mavericks
-    sha256 "ce16e2f6905d27871f00815e0a3ff8a8fec6d178ef42acc151aebdefe1e73f5c" => :mountain_lion
+    sha256 "88a59a3beea5373c47f578b216772897939c1a2b01351bafb1a73b0c9418e5f1" => :sierra
+    sha256 "3b4dc24e8e3379e54021a2cfebb36b195b3456a10c3b645ce93a1fe79bbab61b" => :el_capitan
+    sha256 "3dcc958cb4aa0ba897ddc94e7d0d1c5c54a410d662a8128a5dadfdd2c5205d9c" => :yosemite
   end
 
   depends_on :x11
