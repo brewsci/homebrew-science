@@ -3,7 +3,7 @@ class Mathgl < Formula
   homepage "http://mathgl.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/mathgl/mathgl/mathgl%202.3.5/mathgl-2.3.5.1.tar.gz"
   sha256 "77a56936f5a763fc03480c9c1fe8ed528a949b3d63b858c91abc21c731acf0db"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 2
@@ -29,7 +29,7 @@ class Mathgl < Formula
 
   if OS.linux?
     depends_on "linuxbrew/xorg/xorg"
-    depends_on "homebrew/x11/freeglut"
+    depends_on "freeglut"
   end
 
   needs :openmp if build.with? "openmp"
