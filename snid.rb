@@ -1,8 +1,9 @@
 class Snid < Formula
+  desc "Determine redshifts, type, and age of Type Ia supernovae"
   homepage "http://people.lam.fr/blondin.stephane/software/snid"
   url "http://people.lam.fr/blondin.stephane/software/snid/snid-5.0.tar.gz"
   sha256 "22199803971fdd1bb394a550e81da661bd315224827373aae67408166873ec5c"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -11,9 +12,12 @@ class Snid < Formula
     sha256 "25102eb4a165e7fd29fb9f62ee1e614084c529f5c55fedcdcf373060268a816b" => :mavericks
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on :x11
   depends_on :fortran
-  depends_on "homebrew/x11/pgplot" => "with-button"
+  depends_on "pgplot"
 
   resource "templates" do
     url "http://people.lam.fr/blondin.stephane/software/snid/templates-2.0.tgz"
@@ -26,11 +30,23 @@ class Snid < Formula
     version "7"
   end
 
+  resource "button" do
+    url "https://github.com/nicocardiel/button.git",
+        :revision => "208b91c9f20775583128b856d5a53dcff0aa610a"
+  end
+
   # no libbutton compilation and patch for new templates
   # as per http://people.lam.fr/blondin.stephane/software/snid/README_templates-2.0
   patch :DATA
 
   def install
+    resource("button").stage do
+      system "autoreconf", "-fvi"
+      system "./configure"
+      system "make", "-C", "src", "libbutton.la"
+      (buildpath/"vendor/button/lib").install "src/.libs/libbutton.a"
+    end
+
     # new templates
     resource("templates").stage { prefix.install "../templates-2.0" }
 
@@ -48,7 +64,7 @@ class Snid < Formula
 
     ENV.append "FCFLAGS", "-O -fno-automatic"
     ENV["PGLIBS"] = "-Wl,-framework -Wl,Foundation -L#{Formula["pgplot"].opt_lib} -lpgplot"
-    system "make"
+    system "make", "BUTTLIB=-L#{buildpath}/vendor/button/lib -lbutton"
     bin.install "snid", "logwave", "plotlnw"
     prefix.install "templates", "test"
     doc.install Dir["doc/*"]
