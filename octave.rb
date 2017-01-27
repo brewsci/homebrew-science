@@ -4,7 +4,7 @@ class Octave < Formula
   url "https://ftpmirror.gnu.org/octave/octave-4.2.0.tar.lz"
   mirror "https://ftp.gnu.org/gnu/octave/octave-4.2.0.tar.lz"
   sha256 "119d45c21d567c02eb0042987da4676aa25c7c2fde6e119053e0c6d779a47ba7"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "111afdbd235cf1150aafa781986b200893010bea579be681d1d9565513fb07e2" => :sierra
@@ -49,7 +49,8 @@ class Octave < Formula
   deprecated_option "with-jit"      => "with-llvm"
   deprecated_option "with-audio"    => "with-sndfile"
   deprecated_option "without-check" => "without-test"
-  deprecated_option "without-gui"   => "without-qt5"
+  deprecated_option "without-gui"   => "without-qt@5.7"
+  deprecated_option "without-qt5"   => "without-qt@5.7"
 
   # options, enabled by default
   option "without-curl",           "Do not use cURL (urlread/urlwrite/@ftp)"
@@ -61,7 +62,7 @@ class Octave < Formula
   option "without-opengl",         "Do not use opengl"
   option "without-qhull",          "Do not use the Qhull library (delaunay,voronoi,etc.)"
   option "without-qrupdate",       "Do not use the QRupdate package (qrdelete,qrinsert,qrshift,qrupdate)"
-  option "without-qt5",            "Do not compile with qt-based graphical user interface"
+  option "without-qt@5.7",         "Do not compile with qt-based graphical user interface"
   option "without-suite-sparse",   "Do not use SuiteSparse (sparse matrix operations)"
   option "without-test",           "Do not perform build-time tests (not recommended)"
   option "without-zlib",           "Do not use zlib (compressed MATLAB file formats)"
@@ -114,10 +115,10 @@ class Octave < Formula
   depends_on "pstoedit"            if build.with? "ghostscript"
 
   # recommended qt5 dependencies
-  depends_on "qt5"                 => :recommended
-  if build.with? "qt5"
+  depends_on "qt@5.7"              => :recommended
+  if build.with? "qt@5.7"
     depends_on "qscintilla2"
-    depends_on "gnuplot" => [:recommended, "with-qt5"]
+    depends_on "gnuplot" => [:recommended, "with-qt@5.7"]
   else
     depends_on "gnuplot" => :recommended
   end
@@ -173,7 +174,7 @@ class Octave < Formula
     args << "--without-fftw3"            if build.without? "fftw"
     args << "--with-fltk-prefix=#{Formula["fltk"].opt_prefix}" if build.with? "fltk"
     args << "--without-glpk"             if build.without? "glpk"
-    args << "--without-qt"               if build.without? "qt5"
+    args << "--without-qt"               if build.without? "qt@5.7"
     args << "--without-opengl"           if build.without? "opengl"
     args << "--without-framework-opengl" if build.without? "opengl"
     args << "--without-OSMesa"           if build.without? "osmesa"
@@ -250,7 +251,7 @@ class Octave < Formula
   def caveats
     s = ""
 
-    if build.with?("qt5")
+    if build.with?("qt@5.7")
       s += <<-EOS.undent
 
       Octave is compiled with a graphical user interface. The start-up option --no-gui
@@ -265,7 +266,7 @@ class Octave < Formula
       s += <<-EOS.undent
 
       Octave's graphical user interface is disabled; compile Octave with the option
-      --with-qt5 to enable it.
+      --with-qt@5.7 to enable it.
 
       EOS
 
