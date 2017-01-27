@@ -2,7 +2,7 @@ class Xmgredit < Formula
   url "http://dl.dropbox.com/u/72178/dist/xmgredit-5.tar.gz"
   homepage "http://www.stccmop.org/~pturner/"
   sha256 "04de5d65f8332c320f346ad27f0343c1a8501838841efc0b566c168ee4558f47"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -13,8 +13,8 @@ class Xmgredit < Formula
 
   depends_on :x11
 
-  depends_on "homebrew/x11/openmotif"
   depends_on "netcdf"
+  depends_on "openmotif"
   depends_on "triangle"
 
   patch :DATA
