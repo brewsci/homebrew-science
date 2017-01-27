@@ -3,6 +3,7 @@ class Mbsystem < Formula
   homepage "http://www.mbari.org/data/mbsystem/mb-cookbook/index.html"
   url "ftp://ftp.ldeo.columbia.edu/pub/mbsystem/mbsystem-5.5.2284.tar.gz"
   sha256 "62afc8bf4313720af48caa0c11d7596c4fce263420653fce90b600e99c23e709"
+  revision 1
 
   bottle do
     sha256 "e12ead181c837c4524f6d6fed2948ffe35a37bb00329addc903b670efd744253" => :sierra
@@ -18,8 +19,8 @@ class Mbsystem < Formula
   depends_on "proj"
   depends_on "fftw"
   depends_on "gdal"
-  depends_on "homebrew/x11/gv"
-  depends_on "homebrew/x11/openmotif"
+  depends_on "gv"
+  depends_on "openmotif"
 
   resource "levitus" do
     url "ftp://ftp.ldeo.columbia.edu/pub/MB-System/annual.gz"
