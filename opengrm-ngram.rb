@@ -9,6 +9,7 @@ class OpengrmNgram < Formula
     sha256 "16f0a73b5622203eb5d7048c5f8c914dc4a36852db732d71785ff361135876ec" => :sierra
     sha256 "076aaef2d36383f006deb64418811ba9f411ba8f8f773f2b9fc2ebc15c0ffa7e" => :el_capitan
     sha256 "b29f5e270013c25e0a5f467f4580c28c7ce6ede300e480e0cb29a87befa35bac" => :yosemite
+    sha256 "b3995f40158195233df264676c03d1bc7407d47faa537380620508e254e4c1b6" => :x86_64_linux
   end
 
   depends_on "openfst"
