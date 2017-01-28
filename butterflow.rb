@@ -1,8 +1,8 @@
 class Butterflow < Formula
   desc "Makes fluid slow motion and motion interpolated videos"
   homepage "https://github.com/dthpham/butterflow"
-  url "http://srv.dthpham.me/butterflow/butterflow-0.2.1.tar.gz"
-  sha256 "66cd8964854eae5b5b66b031e2f038d87a38c9052d19793820d55e1fe6338ffe"
+  url "http://srv.dthpham.me/butterflow/butterflow-0.2.2.tar.gz"
+  sha256 "8facea495812fdc7da77c207a4adda95dabab6de36e8461e645b5aa8ea4e44ed"
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class Butterflow < Formula
   depends_on :macos => :mavericks
 
   depends_on "ffmpeg"
-  depends_on "opencv" => ["with-ffmpeg", "with-opengl"]
+  depends_on "opencv" => ["with-ffmpeg"]
 
   def install
     ENV.prepend_path "PYTHONPATH", Formula["numpy"].opt_lib/"python2.7/site-packages"
