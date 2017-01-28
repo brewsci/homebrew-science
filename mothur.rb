@@ -11,6 +11,7 @@ class Mothur < Formula
     sha256 "62d736a1aa21e1d15f7ced134c7672e12f527fd228aa73c4b9ff0fc045607e37" => :sierra
     sha256 "5af142d0c836d13e80218fec004764f64659896cd5a8792b0d885305d86cfdd6" => :el_capitan
     sha256 "a06890a543f796d9faf9b66fce1a191dbd59dabc068401a358b5d6313fa884bf" => :yosemite
+    sha256 "8f339e1bb9ee729da2fb98746309a7c95ed7dbe76ee15e271106760d876c7f76" => :x86_64_linux
   end
 
   depends_on "boost"
