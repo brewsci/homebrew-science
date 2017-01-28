@@ -1,4 +1,5 @@
 class Wcslib < Formula
+  desc "Library and utilities for the FITS World Coordinate System"
   homepage "http://www.atnf.csiro.au/people/mcalabre/WCS/"
   url "ftp://ftp.atnf.csiro.au/pub/software/wcslib/wcslib-5.16.tar.bz2"
   sha256 "ed031e0cf1cec0e9cabfc650423efa526fec341441865001c1e2c56bfffc99ef"
@@ -14,9 +15,10 @@ class Wcslib < Formula
 
   option "with-pgplot", "Build PGSBOX, a general curvilinear axis drawing routine for PGPLOT"
   option "with-fortran", "Build Fortran wrappers. Needed for --with-pgsbox."
-  option "with-check", "Perform `make check`. Note, together --with-pgsbox it will display GUI"
+  option "with-test", "Perform `make check`. Note, together --with-pgsbox it will display GUI"
 
   deprecated_option "with-pgsbox" => "with-pgplot"
+  deprecated_option "with-check" => "with-test"
 
   depends_on "cfitsio"
   depends_on "pgplot" => :optional
