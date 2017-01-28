@@ -1,11 +1,8 @@
 class GraphTool < Formula
   desc "efficient network analysis"
   homepage "http://graph-tool.skewed.de/"
-
-  stable do
-    url "https://downloads.skewed.de/graph-tool/graph-tool-2.19.tar.bz2"
-    sha256 "eba1090f94b0434890beedaf0c100dd0fc77e41ebfe29b4725d76cadb82099af"
-  end
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.20.tar.bz2"
+  sha256 "fc9df701062c556b818824aa9578368ef0faec195696b008512ee948db3ae628"
 
   bottle do
     sha256 "548cec02e9b37106c208c85f16e906ce3cc60a81b47eda960eff53515140651f" => :sierra
@@ -15,6 +12,7 @@ class GraphTool < Formula
 
   head do
     url "https://git.skewed.de/count0/graph-tool.git"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -55,9 +53,6 @@ class GraphTool < Formula
     depends_on "librsvg" => "with-gtk+3"
     depends_on "pygobject3" => with_pythons
   end
-
-  # We need a compiler with C++14 support.
-  fails_with :llvm
 
   fails_with :clang do
     cause "Older versions of clang have buggy c++14 support."
