@@ -3,7 +3,7 @@ class Dealii < Formula
   homepage "http://www.dealii.org"
   url "https://github.com/dealii/dealii/releases/download/v8.4.2/dealii-8.4.2.tar.gz"
   sha256 "ec7c00fadc9d298d1a0d16c08fb26818868410a9622c59ba624096872f3058e4"
-  revision 4
+  revision 5
 
   head "https://github.com/dealii/dealii.git"
 
