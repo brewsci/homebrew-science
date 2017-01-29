@@ -4,6 +4,7 @@ class Netcdf < Formula
   url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.4.1.1.tar.gz"
   mirror "http://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.4.1.1.tar.gz"
   sha256 "4d44c6f4d02a8faf10ea619bfe1ba8224cd993024f4da12988c7465f663c8cae"
+  revision 1
 
   bottle do
     cellar :any
@@ -22,6 +23,7 @@ class Netcdf < Formula
   deprecated_option "enable-cxx-compat" => "with-cxx-compat"
   deprecated_option "without-check" => "without-test"
 
+  depends_on "cmake" => :build
   depends_on :fortran => :optional
   depends_on "hdf5"
 
@@ -43,6 +45,7 @@ class Netcdf < Formula
   end
 
   def install
+    ENV.deparallelize
     if build.with? "fortran"
       # fix for ifort not accepting the --force-load argument, causing
       # the library libnetcdff.dylib to be missing all the f90 symbols.
@@ -51,64 +54,65 @@ class Netcdf < Formula
       ENV["lt_cv_ld_force_load"] = "no" if ENV.fc == "ifort"
     end
 
-    # Intermittent availability of the DAP endpoints tested means that sometimes
-    # a perfectly working build fails. This has been documented
-    # [by others](http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg12090.html),
-    # and distributions like PLD linux
-    # [also disable these tests](http://lists.pld-linux.org/mailman/pipermail/pld-cvs-commit/Week-of-Mon-20110627/314985.html)
-    # because of this issue.
-
-    common_args = %W[
-      --disable-dependency-tracking
-      --disable-dap-remote-tests
-      --prefix=#{prefix}
-      --enable-static
-      --enable-shared
+    common_args = std_cmake_args + %w[
+      -DBUILD_SHARED_LIBS=ON
+      -BUILD_TESTING=ON
+      -BUILD_TESTSETS=ON
     ]
 
-    args = common_args.clone
-    args << "--enable-netcdf4" << "--disable-doxygen"
+    mkdir "build" do
+      # Intermittent availability of the DAP endpoints tests means that sometimes
+      # a perfectly working build fails. This has been documented
+      # [by others](http://www.unidata.ucar.edu/support/help/MailArchives/netcdf/msg12090.html),
+      # and distributions like PLD linux
+      # [also disable these tests](http://lists.pld-linux.org/mailman/pipermail/pld-cvs-commit/Week-of-Mon-20110627/314985.html)
+      # because of this issue.
+      args = common_args.clone
+      args << "-DENABLE_DAP_AUTH_TESTS=OFF" << "-DENABLE_NETCDF_4=ON" << "-DENABLE_DOXYGEN=OFF"
+      args << ".."
 
-    system "./configure", *args
-    system "make"
-    ENV.deparallelize if build.with? "test" # Required for `make check`.
-    system "make", "check" if build.with? "test"
-    system "make", "install"
+      system "cmake", *args
+      system "make"
+      system "make", "test" if build.with? "test"
+      system "make", "install"
+    end
 
     # Add newly created installation to paths so that binding libraries can
     # find the core libs.
-    ENV.prepend_path "PATH", bin
-    ENV.prepend "CPPFLAGS", "-I#{include}"
-    ENV.prepend "LDFLAGS", "-L#{lib}"
+    args = common_args.clone
+    args << "-DNETCDF_C_LIBRARY=#{lib}"
+    args << ".."
 
     if build.with? "cxx"
       resource("cxx").stage do
-        system "./configure", *common_args
-        system "make"
-        system "make", "check" if build.with? "test"
-        system "make", "install"
+        mkdir "build-cxx" do
+          system "cmake", *args
+          system "make"
+          system "make", "test" if build.with? "test"
+          system "make", "install"
+        end
       end
     end
 
     if build.with? "cxx-compat"
       resource("cxx-compat").stage do
-        system "./configure", *common_args
-        system "make"
-        system "make", "check" if build.with? "test"
-        system "make", "install"
+        mkdir "build-cxx-compat" do
+          system "cmake", *args
+          system "make"
+          system "make", "test" if build.with? "test"
+          system "make", "install"
+        end
       end
     end
 
     if build.with? "fortran"
       resource("fortran").stage do
-        # fixes "error while loading shared libraries: libnetcdf.so.7".
-        # see https://github.com/Homebrew/homebrew-science/issues/2521#issuecomment-121851582
-        # this should theoretically be enough: ENV.prepend "LDFLAGS", "-L#{lib}", but it is not.
-        ENV.prepend "LD_LIBRARY_PATH", lib
-        system "./configure", *common_args
-        system "make"
-        system "make", "check" if build.with? "test"
-        system "make", "install"
+        mkdir "build-fortran" do
+          system "cmake", *args
+          system "make"
+          system "make", "test" if build.with? "test"
+          system "make", "install"
+        end
       end
     end
   end
