@@ -4,7 +4,7 @@ class Ncview < Formula
   url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.7.tar.gz"
   mirror "https://fossies.org/linux/misc/ncview-2.1.7.tar.gz"
   sha256 "a14c2dddac0fc78dad9e4e7e35e2119562589738f4ded55ff6e0eca04d682c82"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "699f3ffdf7ffab5ce8f8f6eb47728af1a4584600b4b1641b975592b4364430ae" => :sierra
@@ -18,6 +18,11 @@ class Ncview < Formula
   depends_on "udunits"
 
   def install
+    # put choice of compiler back in our hands
+    inreplace "configure",
+      "if test x$CC_TEST_SAME != x$NETCDF_CC_TEST_SAME; then",
+      "if test x != x; then"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
