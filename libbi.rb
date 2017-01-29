@@ -18,9 +18,9 @@ class Libbi < Formula
   end
   bottle do
     cellar :any
-    sha256 "ae98ba7d12b6927ae671e982b46c402949c4b7115769166ec9411d8220b6a4b6" => :sierra
-    sha256 "963afcda44894a6d1f35cda8e7ea9f385236e59bcce45732b4e6787ed625a6d3" => :el_capitan
-    sha256 "731a4d6072a332c8ec7ccc4fe718c2d4f51984de9ac5e54b0dbbf706a980d69e" => :yosemite
+    sha256 "f092c7e56d4202eebba795ef5941b0fc63e5dcbb5bae078e3b7264f994337aa8" => :sierra
+    sha256 "c5bf036f21ca75bd83f5a20935d9d9334b282f2a7782995797d4045ef7131fec" => :el_capitan
+    sha256 "ce6ef3a2d77d7d8d0d79fe78239d9d3132a9e5757a908a8f7d1f411461a4b662" => :yosemite
   end
 
   option "without-test", "Disable build-time checking (not recommended)"
