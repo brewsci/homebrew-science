@@ -8,9 +8,9 @@ class Libminc < Formula
 
   bottle do
     cellar :any
-    sha256 "72e256ea5677480fd5e550461cf0d80e3bf25e110cdc41160ae1fc2061a15470" => :el_capitan
-    sha256 "a831cd8f9afae60c1631d82527a7d59eabb0e37c467e4d43715fe68f5dfb9a73" => :yosemite
-    sha256 "e96e804abdb88988bd1d833352c7deea0637e17ea85cbac1c838126290956a3c" => :mavericks
+    sha256 "09c1b3d7ac4110ed65a6a66cffcccf6c0e86124de7a8a54baf67de6f38494eb6" => :sierra
+    sha256 "433683a42e968ca068bf0bf7dd09c8619455df69438a08cd4a4d9212c66f0473" => :el_capitan
+    sha256 "158311357740145fb20619791592ebbabfa811c02c67eded3ff72fb1544b74c4" => :yosemite
   end
 
   depends_on "hdf5"
