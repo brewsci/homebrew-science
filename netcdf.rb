@@ -7,9 +7,10 @@ class Netcdf < Formula
   revision 1
 
   bottle do
-    sha256 "71d54671e62356bcb8222975e77007a672872d33dc5f1ccea3075e1997d797c8" => :sierra
-    sha256 "8b5d11f39124e32a3e324218f97b35c211f06656c4e12b47909deb6ce72d953c" => :el_capitan
-    sha256 "6014370fd4e9d2f09e829233db402e1a9d34fa8c2ddafbc9d8d92def3d503d60" => :yosemite
+    rebuild 1
+    sha256 "068ca8f12b78dc56eccb404202af50474d712248c1041a3b0b6df6bb037fe251" => :sierra
+    sha256 "001024d7bd0642bba1afcc12f782096aea63630e2ae44a8722c8416d5c39eb97" => :el_capitan
+    sha256 "dac02e43ee61aa8bf59341d8a82a99c23f771cbe9705d5fbd8b577a6741abd94" => :yosemite
   end
 
   option "without-cxx", "Don't compile C++ bindings"
