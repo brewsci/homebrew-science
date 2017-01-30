@@ -8,9 +8,9 @@ class Trilinos < Formula
   head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
 
   bottle do
-    sha256 "2495a168c4b2e867098a27c976d44c71889011ec87993fd4837942089f8ee312" => :sierra
-    sha256 "7c0e79dc850a0868903dcfba2b931dc56c4df78da7b79a2abbc21a9b1b2651b3" => :el_capitan
-    sha256 "39b3d3b7d1f197419cf55118c4e79f084e1331566b2006905c2c80ed44c2f431" => :yosemite
+    sha256 "6cd8c620701af951641cf40aa4f42bb9897b31b107162a49a97f4ed49a3ffe39" => :sierra
+    sha256 "5b9adc209a05aa5fe32a5fa627cd8adaf31837ef76ac4858216f9f985851b87a" => :el_capitan
+    sha256 "cc492794d399173c824b14b5fe73593e639e4069a25c037dc6bb210451a79e34" => :yosemite
   end
 
   option "with-test", "Perform build time checks (time consuming and contains failures)"
