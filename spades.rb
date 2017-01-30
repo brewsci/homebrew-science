@@ -1,8 +1,8 @@
 class Spades < Formula
   desc "SPAdes: de novo genome assembly"
   homepage "http://bioinf.spbau.ru/spades/"
-  url "http://spades.bioinf.spbau.ru/release3.9.0/SPAdes-3.9.0.tar.gz"
-  sha256 "77436ac5945aa8584d822b433464969a9f4937c0a55c866205655ce06a72ed29"
+  url "http://cab.spbu.ru/files/release3.10.0/SPAdes-3.10.0.tar.gz"
+  sha256 "cd44686021daffb3698c85fdf292d193aee702a01ffc71346c921da1a5bd0b41"
   # tag "bioinformatics"
   # doi "10.1089/cmb.2012.0021"
 
@@ -26,18 +26,11 @@ class Spades < Formula
     cause "Compiling SPAdes requires GCC >= 4.7 for OpenMP 3.1 support"
   end
 
-  # Fix malloc: *** malloc_zone_unregister() failed for 0x7fffb1c3c000
-  # Upstream issue "jemalloc upgrade needed to fix macOS Sierra"
-  # Reported 20 Nov 2016 https://github.com/ablab/spades/issues/9
-  # Underlying jemalloc issue: https://github.com/jemalloc/jemalloc/pull/427
-  if MacOS.version >= :sierra
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/f31c35f/spades/jemalloc-sierra-fix.diff"
-      sha256 "7f362d7e60b60147a41b449f34e6210370031e974a588c51347f869559cf0775"
-    end
-  end
-
   def install
+    # Fix error "'strdup' was not declared in this scope"
+    # Reported 2 Feb 2017 https://github.com/ablab/spades/issues/12
+    inreplace "src/common/utils/autocompletion.cpp", /(#include <string>)/,
+                                                     "\\1\n#include <string.h>"
     mkdir "src/build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
