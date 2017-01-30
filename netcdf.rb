@@ -22,8 +22,8 @@ class Netcdf < Formula
   deprecated_option "without-check" => "without-test"
 
   depends_on "cmake" => :build
-  depends_on :fortran => :optional
   depends_on "hdf5"
+  depends_on :fortran => :optional
 
   resource "cxx" do
     url "https://github.com/Unidata/netcdf-cxx4/archive/v4.3.0.tar.gz"
@@ -44,19 +44,9 @@ class Netcdf < Formula
 
   def install
     ENV.deparallelize
-    if build.with? "fortran"
-      # fix for ifort not accepting the --force-load argument, causing
-      # the library libnetcdff.dylib to be missing all the f90 symbols.
-      # http://www.unidata.ucar.edu/software/netcdf/docs/known_problems.html#intel-fortran-macosx
-      # https://github.com/mxcl/homebrew/issues/13050
-      ENV["lt_cv_ld_force_load"] = "no" if ENV.fc == "ifort"
-    end
 
-    common_args = std_cmake_args + %w[
-      -DBUILD_SHARED_LIBS=ON
-      -BUILD_TESTING=ON
-      -BUILD_TESTSETS=ON
-    ]
+    common_args = std_cmake_args << "-DBUILD_SHARED_LIBS=ON"
+    common_args << "-DBUILD_TESTING=OFF" if build.without? "test"
 
     mkdir "build" do
       # Intermittent availability of the DAP endpoints tests means that sometimes
@@ -65,11 +55,12 @@ class Netcdf < Formula
       # and distributions like PLD linux
       # [also disable these tests](http://lists.pld-linux.org/mailman/pipermail/pld-cvs-commit/Week-of-Mon-20110627/314985.html)
       # because of this issue.
-      args = common_args.clone
+      args = common_args.dup
+      args << "-DENABLE_TESTS=OFF" if build.without? "test"
+      args << "-DNC_EXTRA_DEPS=-lmpi" if Tab.for_name("hdf5").with? "mpi"
       args << "-DENABLE_DAP_AUTH_TESTS=OFF" << "-DENABLE_NETCDF_4=ON" << "-DENABLE_DOXYGEN=OFF"
-      args << ".."
 
-      system "cmake", *args
+      system "cmake", "..", *args
       system "make"
       system "make", "test" if build.with? "test"
       system "make", "install"
@@ -77,25 +68,14 @@ class Netcdf < Formula
 
     # Add newly created installation to paths so that binding libraries can
     # find the core libs.
-    args = common_args.clone
-    args << "-DNETCDF_C_LIBRARY=#{lib}"
-    args << ".."
+    args = common_args.dup << "-DNETCDF_C_LIBRARY=#{lib}"
 
     if build.with? "cxx"
+      cxx_args = args.dup
+      cxx_args << "-DNCXX_ENABLE_TESTS=OFF" if build.without? "test"
       resource("cxx").stage do
         mkdir "build-cxx" do
-          system "cmake", *args
-          system "make"
-          system "make", "test" if build.with? "test"
-          system "make", "install"
-        end
-      end
-    end
-
-    if build.with? "cxx-compat"
-      resource("cxx-compat").stage do
-        mkdir "build-cxx-compat" do
-          system "cmake", *args
+          system "cmake", "..", *cxx_args
           system "make"
           system "make", "test" if build.with? "test"
           system "make", "install"
@@ -104,12 +84,29 @@ class Netcdf < Formula
     end
 
     if build.with? "fortran"
+      fortran_args = args.dup
+      fortran_args << "-DENABLE_TESTS=OFF" if build.without? "test"
       resource("fortran").stage do
         mkdir "build-fortran" do
-          system "cmake", *args
+          system "cmake", "..", *fortran_args
           system "make"
           system "make", "test" if build.with? "test"
           system "make", "install"
+        end
+      end
+    end
+
+    if build.with? "cxx-compat"
+      ENV.prepend "CPPFLAGS", "-I#{include}"
+      ENV.prepend "LDFLAGS", "-L#{lib}"
+      resource("cxx-compat").stage do
+        system "./configure", "--disable-dependency-tracking",
+                              "--prefix=#{prefix}"
+        system "make"
+        system "make", "install"
+        if build.with? "test"
+          cp Dir["#{lib}/*.dylib"], "cxx/.libs/"
+          system "make", "check"
         end
       end
     end
