@@ -3,8 +3,8 @@ class Mlst < Formula
   homepage "https://github.com/tseemann/mlst"
   # tag "bioinformatics"
 
-  url "https://github.com/tseemann/mlst/archive/v2.6.tar.gz"
-  sha256 "711bff24ce0873ab911cd43a17be3b805dd7bde7918f96401ce40e423f8de836"
+  url "https://github.com/tseemann/mlst/archive/2.7.tar.gz"
+  sha256 "b98b7812fd16dea36451bc23f907e2fbde2168ea55f4cc57cfc26662ce171c64"
 
   bottle do
     cellar :any_skip_relocation
