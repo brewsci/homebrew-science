@@ -6,10 +6,9 @@ class Nccmp < Formula
   revision 2
 
   bottle do
-    sha256 "da48d31b9afab5d9105ea8404354d89a3353d20f80f40d915e0185cba03343d0" => :sierra
-    sha256 "557bca5b30058bb1c1beb8d2728ed67c89ae0ba66b425278ed9f0d6890406cde" => :el_capitan
-    sha256 "71db607bfa55acc366f701c93a0eef7da9bba783562edd9a2ba279a722d2c50b" => :yosemite
-    sha256 "23abd74e4ff06706bd993f270476ddb172ab6e6cf6bb5609db0143c86c6aba87" => :x86_64_linux
+    sha256 "d1dde0ba629c06c3094e5d7ef4a6664315e1e7fb949180d16ac55e7b6b21b67a" => :sierra
+    sha256 "2b2728d28f2aa1c045ec9c3e3893af999177ce34ce8abdf62485703f18b36c35" => :el_capitan
+    sha256 "8153f73249ae1cc36d4327e7379696a0b32bbd465ef124c465c26d7dddb2485f" => :yosemite
   end
 
   depends_on "netcdf"
