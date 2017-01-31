@@ -5,6 +5,13 @@ class Anvio < Formula
   url "https://pypi.python.org/packages/83/14/763c5ea56342005ddf24a03973ca32e5636a3cebaaacebc75116e93a9ad1/anvio-2.1.0.tar.gz"
   sha256 "4b21457130275bbede9ae21651fad1f56e38935f2f4bf1d8046350fe6e4f9a62"
   head "https://github.com/merenlab/anvio.git"
+  bottle do
+    cellar :any
+    sha256 "e2958a9fcd66a670e85ca844fa2e3ec6828c89d669a5dc399fc75c573b79e158" => :sierra
+    sha256 "251a3071888df4a3e223db0405a1d1a745451f8c22ff75e96b7b57a12972182f" => :el_capitan
+    sha256 "08b0671d60ff1670a42ebadf9f47eede218eaf9a4fcb619cbcf1c2c3c17dd1ff" => :yosemite
+  end
+
   # doi "10.7717/peerj.1319"
   # tag "bioinformatics"
 
