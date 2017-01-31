@@ -5,9 +5,9 @@ class Fgsl < Formula
   sha256 "00fd467af2bb778e8d15ac8c27ddc7b9024bb8fa2f950a868d9d24b6086e5ca7"
 
   bottle do
-    sha256 "95cc9ed9c5adbf9d1c265c997f66b2f59ba39dfb74a97b8204cf1b81f177f2e0" => :el_capitan
-    sha256 "15c17c47e769cd38aaaf16e3a53f42ac1925205af0ed9d1a16d240ad8cc3b9ca" => :yosemite
-    sha256 "b2dcdaca96d46f3079cf266617e6a84f7d0072c72537788bdcf77cec14641f44" => :mavericks
+    sha256 "b499806aac9c077261cca80d999e1d8a7c3f82de01d42d6b8740eae82b923691" => :sierra
+    sha256 "c3116bc6bcf13b3a478d7cf0299cdb52fa3d275c1c2ed8fdac61feb21590654d" => :el_capitan
+    sha256 "182bafda04a6356cb68c3d5f52d85e044c78c7a0e2b6a518cb046350f5044e60" => :yosemite
   end
 
   depends_on "pkg-config" => :build
