@@ -8,6 +8,7 @@ class Fgsl < Formula
     sha256 "b499806aac9c077261cca80d999e1d8a7c3f82de01d42d6b8740eae82b923691" => :sierra
     sha256 "c3116bc6bcf13b3a478d7cf0299cdb52fa3d275c1c2ed8fdac61feb21590654d" => :el_capitan
     sha256 "182bafda04a6356cb68c3d5f52d85e044c78c7a0e2b6a518cb046350f5044e60" => :yosemite
+    sha256 "66740e57ff0f722085588d3d92ea2949068f944552897eed97b8f3446faf0e4b" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
