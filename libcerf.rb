@@ -6,9 +6,9 @@ class Libcerf < Formula
 
   bottle do
     cellar :any
-    sha256 "16372609c0c725e5ea4ee9c43ef5c8d99623f60bbd5571947b49a4382f20034b" => :yosemite
-    sha256 "c327717cdb1e4ac087f227d9452efc826ddfe5d2eaf14a5e8d1e4d3e65f93fd6" => :mavericks
-    sha256 "80f1af3717b8ca7ea6387e0e065eb7bd8a83a0b0c41793f07ddcfc80588b398d" => :mountain_lion
+    sha256 "5f83e48ae2d92abbfc75d8807944371c926f3fe3c991c119e3243bd14cf1481f" => :sierra
+    sha256 "9bd8e5eda457b6ce7e78bdd56bb50e8d4185747d024c0d1973bb00f5dc01a800" => :el_capitan
+    sha256 "91a46dd259e87aa1f803e62b15fe760498b03010662bfaa57d2e5a71a82b5063" => :yosemite
   end
 
   option "without-test", "Disable build-time testing (not recommended)"
