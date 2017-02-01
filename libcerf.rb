@@ -9,6 +9,7 @@ class Libcerf < Formula
     sha256 "5f83e48ae2d92abbfc75d8807944371c926f3fe3c991c119e3243bd14cf1481f" => :sierra
     sha256 "9bd8e5eda457b6ce7e78bdd56bb50e8d4185747d024c0d1973bb00f5dc01a800" => :el_capitan
     sha256 "91a46dd259e87aa1f803e62b15fe760498b03010662bfaa57d2e5a71a82b5063" => :yosemite
+    sha256 "5a562cb94015f3a4d75a9caae77d36e4072ade6e5a58b41bbbb588769d8f43dc" => :x86_64_linux
   end
 
   option "without-test", "Disable build-time testing (not recommended)"
