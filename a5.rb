@@ -14,11 +14,9 @@ class A5 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5694a2ae1e9cf95c9c4fdcc2dcb23069c89fc305a05e18f4c3f759caa56c2124" => :sierra
-    sha256 "712a52ae946e36d3410f6ea98425605aceffebaa738a397e6721100de6474e12" => :el_capitan
-    sha256 "589bb490b43853bd8bbb0817018141efd3e65794844fbcfaf950d6ea55d4d7bb" => :yosemite
-    sha256 "c6ae86aad65c91dbcf2b647acdbd25ac5672f8c04f34e7aa9fb991992d9e8fbd" => :mavericks
-    sha256 "174ba48713d53b612375e2ac4b850455625a276a9078edb53f9e02882b11bfc4" => :x86_64_linux
+    sha256 "c212fd42f487bfa10b4d8c7d39fc22838590db1340cb1c799e760dbacb282e7a" => :sierra
+    sha256 "fcf4927415227a5fe49b6d88f089c4c026862d37ead5ce4a2c4d17ac4c6dbd1f" => :el_capitan
+    sha256 "c212fd42f487bfa10b4d8c7d39fc22838590db1340cb1c799e760dbacb282e7a" => :yosemite
   end
 
   def install
