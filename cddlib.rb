@@ -1,8 +1,10 @@
 class Cddlib < Formula
+  desc "Double description method for general polyhedral cones"
   homepage "http://www.inf.ethz.ch/personal/fukudak/cdd_home/"
-  url "ftp://ftp.ifor.math.ethz.ch/pub/fukuda/cdd/cddlib-094g.tar.gz"
-  mirror "http://www.mirrorservice.org/sites/distfiles.finkmirrors.net/cddlib-094g.tar.gz"
-  sha256 "af1b81226514abf731800e2e104def8a7274817d7e645693f8b99fc2b1432155"
+  url "ftp://ftp.math.ethz.ch/users/fukudak/cdd/cddlib-094h.tar.gz"
+  sha256 "fe6d04d494683cd451be5f6fe785e147f24e8ce3ef7387f048e739ceb4565ab5"
+  # doi "math"
+  # doi "10.1007/3-540-61576-8_77"
 
   bottle do
     cellar :any
@@ -19,5 +21,9 @@ class Cddlib < Formula
     system "make", "install"
     doc.install Dir["doc/*"]
     pkgshare.install Dir["examples*"]
+  end
+
+  test do
+    system "#{bin}/testshoot"
   end
 end
