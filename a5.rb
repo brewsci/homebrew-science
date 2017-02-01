@@ -5,11 +5,11 @@ class A5 < Formula
   # tag "bioinformatics"
 
   if OS.mac?
-    url "https://downloads.sourceforge.net/project/ngopt/a5_miseq_macOS_20150522.tar.gz"
-    sha256 "f7e2c42538fc16e3bd43623a74f1557af26d8864bd18041ab42c5477d3d78421"
+    url "https://downloads.sourceforge.net/project/ngopt/a5_miseq_macOS_20160825.tar.gz"
+    sha256 "e89b2c3b6d1fe030c82cce4089023fee8320297c9bf251d49d6bc6a5210f8350"
   elsif OS.linux?
-    url "https://downloads.sourceforge.net/project/ngopt/a5_miseq_linux_20150522.tar.gz"
-    sha256 "1b8ccfceec78436ecf9f2e27998a7b91050d4a7f46918ef48b7de5d3aa4a8e5b"
+    url "https://downloads.sourceforge.net/project/ngopt/a5_miseq_linux_20160825.tar.gz"
+    sha256 "76a2798d617d45f4539e73ef2df5f899503ac4a54c3a406faf37db6282127fe9"
   end
 
   bottle do
