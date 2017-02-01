@@ -11,6 +11,7 @@ class Cddlib < Formula
     sha256 "6ea3afa298bb082bf41e0bfd90759b4b4f0ee02736473d0c08a3ee8f211179e4" => :sierra
     sha256 "74ba8c0e0191e3f26d3d5bf8b28c0fabddeffade51a4ae8b07df5e0d72c144c4" => :el_capitan
     sha256 "831968c40009b3450ceffe1c4abd2734e566a724ff6795265db7719cf6ea596b" => :yosemite
+    sha256 "1359fc080fedfb2f956bb5114a47749031d3bdfbbd978edc119ebdeca1eb7507" => :x86_64_linux
   end
 
   depends_on "gmp"
