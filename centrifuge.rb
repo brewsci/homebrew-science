@@ -5,6 +5,13 @@ class Centrifuge < Formula
   version "1.0.3-beta"
   sha256 "9561f0b106f66e966b10e5add1ffe4507eb02a65a69741e07b0f6f24a240ccea"
   head "https://github.com/infphilo/centrifuge"
+  bottle do
+    cellar :any
+    sha256 "0b69a0571a51bddf3de99a5c857c4852ab61fcaede4be4bca70fe58455c04403" => :sierra
+    sha256 "1da9c688f9f1feb05deb7a8617b633c73869c3d32befaba4636af3b6984c57da" => :el_capitan
+    sha256 "67b8a286a21f829914255d5ce7ad3f36d98471e4751f5951211ae3c89fc886ec" => :yosemite
+  end
+
   # doi "10.1101/054965"
   # tag "bioinformatics"
 
