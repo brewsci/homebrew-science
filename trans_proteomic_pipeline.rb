@@ -5,6 +5,12 @@ class TransProteomicPipeline < Formula
   version "4.8.0"
   sha256 "2f500c867e86eee16e8be1c91a97d1c4e51cfba65a1a3b3fa2327e2731f28d80"
 
+  bottle do
+    sha256 "f698520c827c0abb483f98f73ec6efdd277cb03e90d6ececd4159f0152e71d32" => :sierra
+    sha256 "70ced32bd83184dd748702a9513ecf497c414bb351a632d6d1b21c85771a3918" => :el_capitan
+    sha256 "bd472cae9ceee14834b7d12ac9c3fd142389c7cbb9b9eb182371d0d84e7987a8" => :yosemite
+  end
+
   # doi "10.1007/978-1-60761-444-9_15"
   # tag "bioinformatics"
 
