@@ -1,8 +1,8 @@
 class Beast2 < Formula
   desc "Bayesian evolutionary analysis by sampling trees"
   homepage "http://www.beast2.org/"
-  url "https://github.com/CompEvol/beast2/archive/v2.4.4.tar.gz"
-  sha256 "1346d359a141723d57c37333ce9d6cbdf0699609e337dbfdcb969ddbff8713c3"
+  url "https://github.com/CompEvol/beast2/archive/v2.4.5.tar.gz"
+  sha256 "e2ff7c36ad9c216f76c01d0b7181b90d48fd4a7bd16668245fe6b49483c777bf"
   head "https://github.com/CompEvol/beast2.git"
   # tag "bioinformatics"
   # doi "10.1371/journal.pcbi.1003537"
@@ -55,7 +55,7 @@ class Beast2 < Formula
     # Run fewer generations to speed up tests
     inreplace "testCalibration.xml", "10000000", "1000000"
 
-    system "#{bin}/beast-2", "-seed", "1000", "testCalibration.xml"
+    system "#{bin}/beast-2", "-java", "-seed", "1000", "testCalibration.xml"
     system "#{bin}/treeannotator-2", "test.1000.trees", "out.tre"
     system "#{bin}/loganalyser-2", "test.1000.log"
   end
