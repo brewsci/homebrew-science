@@ -23,10 +23,15 @@ class Superlu < Formula
 
   depends_on :fortran
 
-  # Accelerate single precision is buggy and causes certain single precision
-  # tests to fail.
-  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
-  depends_on "veclibfort" if (build.without? "openblas") && OS.mac?
+  if OS.mac?
+    # Accelerate single precision is buggy and causes certain single precision
+    # tests to fail.
+    depends_on "openblas" => :optional
+    depends_on "veclibfort" if build.without? "openblas"
+  else
+    depends_on "openblas" => :recommended
+    depends_on "tcsh" => :build
+  end
 
   needs :openmp if build.with? "openmp"
 
@@ -76,7 +81,7 @@ class Superlu < Formula
     prefix.install "make.inc"
     File.open(prefix/"make_args.txt", "w") do |f|
       make_args.each do |arg|
-        var, val = arg.split("=")
+        var, val = arg.split("=", 2)
         f.puts "#{var}=\"#{val}\"" # Record options passed to make, preserve spaces.
       end
     end
