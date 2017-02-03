@@ -1,8 +1,8 @@
 class Libsbol < Formula
   desc "Read and write files in the Synthetic Biology Open Language (SBOL)"
   homepage "https://synbiodex.github.io/libSBOL"
-  url "https://github.com/SynBioDex/libSBOL/archive/v2.1.1.tar.gz"
-  sha256 "66bb18d752f98f4ea53f774de7d28dfea41b8c8896bd01bce1ee1231f9cc7249"
+  url "https://github.com/SynBioDex/libSBOL/archive/v2.1.1.1.tar.gz"
+  sha256 "76a9895e779bca91a617af885de7b411d4203f571306c3a69942913e1bdaf3ac"
 
   bottle do
     cellar :any
