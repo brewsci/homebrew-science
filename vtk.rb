@@ -1,7 +1,7 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization."
   homepage "http://www.vtk.org"
-  revision 3
+  revision 4
   head "https://github.com/Kitware/VTK.git"
 
   stable do
@@ -38,6 +38,7 @@ class Vtk < Formula
   option "without-legacy",  "Disable legacy APIs"
   option "without-python",  "Build without python2 support"
 
+  depends_on "netcdf"
   depends_on "cmake" => :build
   depends_on :x11 => :optional
   depends_on "qt@5.7" => :optional
@@ -76,6 +77,7 @@ class Vtk < Formula
       -DVTK_USE_SYSTEM_EXPAT=ON
       -DVTK_USE_SYSTEM_LIBXML2=ON
       -DVTK_USE_SYSTEM_ZLIB=ON
+      -DVTK_USE_SYSTEM_NETCDF=ON
     ]
 
     args << "-DBUILD_EXAMPLES=" + ((build.with? "examples") ? "ON" : "OFF")

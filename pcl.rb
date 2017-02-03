@@ -5,7 +5,7 @@ class Pcl < Formula
   homepage "http://www.pointclouds.org/"
   url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.0.tar.gz"
   sha256 "9e54b0c1b59a67a386b9b0f4acb2d764272ff9a0377b825c4ed5eedf46ebfcf4"
-  revision 4
+  revision 5
 
   head "https://github.com/PointCloudLibrary/pcl.git"
 
