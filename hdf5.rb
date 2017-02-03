@@ -6,11 +6,9 @@ class Hdf5 < Formula
   sha256 "f772264dd853dceb18855418a81c63c9cdcca7bcd075b9c54eb516af006fdfba"
 
   bottle do
-    rebuild 1
-    sha256 "fa9f4a985cd6ad85fc8ad12816476298cd0ff29952d781bcbe63a0746028d6c6" => :sierra
-    sha256 "07043fcf3040d9d6ba44444c40a6a87c8f5184c4f4e839f5bd9a84b5cd1d29a2" => :el_capitan
-    sha256 "2a099c9eebdd90629d4c6f16e43282a1894a792ae0b43d00e8597584fb1f0f7c" => :yosemite
-    sha256 "dac5fa5c4796fda82b2f60f7a5f8da9792fabae354d68f29c8f4cce5727058bf" => :x86_64_linux
+    sha256 "163b5ff7743239a061377686f6e0849daa72b25bafd71743ec51b6b4ef235a05" => :sierra
+    sha256 "a7b1fb7401c57cef52ca62579854c9145a6931b052f5947cfa1a9966e72ad940" => :el_capitan
+    sha256 "8fc3fdc3dcf31ed75089844e827c0c24d799b4afb9e30e777dcdfea8b3781c27" => :yosemite
   end
 
   deprecated_option "enable-fortran" => "with-fortran"
