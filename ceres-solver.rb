@@ -10,6 +10,7 @@ class CeresSolver < Formula
     sha256 "ab01549df7967f1f822b581cb16e2af38923e107e9c31c9004424e4dd72efc18" => :sierra
     sha256 "9127384c1310f8c5832abcf3addfbd26d8e6bc668b2ee5acc208d0611899c553" => :el_capitan
     sha256 "e96100d7e42a1d37dc8558ca8085155ff350fc45dfa4ace3bab772a626edaec4" => :yosemite
+    sha256 "578c3c3e7c1cd57c43e84d18eabfc304e57b3ba0a8bc9ad6910b041b15f16850" => :x86_64_linux
   end
 
   head do
