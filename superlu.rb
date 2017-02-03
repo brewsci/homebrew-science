@@ -11,6 +11,7 @@ class Superlu < Formula
     sha256 "b2abb4ce19cdd2970686ca1121646027e3e4ac2661a67f7139ee68421c063e65" => :el_capitan
     sha256 "7d4246588947079e777286ddca9808655f51bc6a8b2c46f394663bccb339e84c" => :yosemite
     sha256 "43ccc7838aad7afa3ee77415b1d05d1a636efc1c39daaab485dfbf08cca7f512" => :mavericks
+    sha256 "02185af2ac6c3b27cc38519d941be04e218ef35d8194505bbbb07f55487969fa" => :x86_64_linux
   end
 
   deprecated_option "without-check" => "without-test"
