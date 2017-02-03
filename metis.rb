@@ -10,6 +10,7 @@ class Metis < Formula
     sha256 "2823ed824da175fb8f09a26b59cafa57cc2f52c5052bff57ed454888a4d1ba86" => :sierra
     sha256 "40ab306bef9447b8d35eff4b7193a3795c627b40f1baf5a9372a3eb4509c60d4" => :el_capitan
     sha256 "e38752a78e5a6d873dddb4b4c9f87d77bd9cec6c4b9efc8f9fd7367aecc0cfbb" => :yosemite
+    sha256 "cc3234cdf81523fb08b714112d987f9cecfcc449cce9bd1176ad20ae292aa963" => :x86_64_linux
   end
 
   option :universal
