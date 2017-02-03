@@ -4,7 +4,7 @@ class Radx < Formula
   url "https://www.eol.ucar.edu/system/files/software/radx/all-oss/radx-20160809.src_.tgz"
   version "20160809"
   sha256 "a071146df16b8abf926d35be4bc7d06b9204feeba8bbc8772858a7805bc5b92a"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -15,7 +15,7 @@ class Radx < Formula
 
   depends_on "hdf5"
   depends_on "udunits"
-  depends_on "netcdf" => "with-cxx-compat"
+  depends_on "netcdf"
   depends_on "fftw"
 
   # Prevents build failure on Mac OS X 10.8 and below
