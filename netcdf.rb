@@ -4,7 +4,7 @@ class Netcdf < Formula
   url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.4.1.1.tar.gz"
   mirror "http://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.4.1.1.tar.gz"
   sha256 "4d44c6f4d02a8faf10ea619bfe1ba8224cd993024f4da12988c7465f663c8cae"
-  revision 2
+  revision 1
 
   bottle do
     rebuild 1
@@ -13,13 +13,18 @@ class Netcdf < Formula
     sha256 "dac02e43ee61aa8bf59341d8a82a99c23f771cbe9705d5fbd8b577a6741abd94" => :yosemite
   end
 
+  option "without-cxx", "Don't compile C++ bindings"
+  option "with-cxx-compat", "Compile C++ bindings for compatibility"
   option "without-test", "Disable checks (not recommended)"
 
+  deprecated_option "enable-fortran" => "with-fortran"
+  deprecated_option "disable-cxx" => "without-cxx"
+  deprecated_option "enable-cxx-compat" => "with-cxx-compat"
   deprecated_option "without-check" => "without-test"
 
   depends_on "cmake" => :build
   depends_on "hdf5"
-  depends_on :fortran
+  depends_on :fortran => :optional
 
   resource "cxx" do
     url "https://github.com/Unidata/netcdf-cxx4/archive/v4.3.0.tar.gz"
@@ -66,38 +71,44 @@ class Netcdf < Formula
     # find the core libs.
     args = common_args.dup << "-DNETCDF_C_LIBRARY=#{lib}"
 
-    cxx_args = args.dup
-    cxx_args << "-DNCXX_ENABLE_TESTS=OFF" if build.without? "test"
-    resource("cxx").stage do
-      mkdir "build-cxx" do
-        system "cmake", "..", *cxx_args
-        system "make"
-        system "make", "test" if build.with? "test"
-        system "make", "install"
+    if build.with? "cxx"
+      cxx_args = args.dup
+      cxx_args << "-DNCXX_ENABLE_TESTS=OFF" if build.without? "test"
+      resource("cxx").stage do
+        mkdir "build-cxx" do
+          system "cmake", "..", *cxx_args
+          system "make"
+          system "make", "test" if build.with? "test"
+          system "make", "install"
+        end
       end
     end
 
-    fortran_args = args.dup
-    fortran_args << "-DENABLE_TESTS=OFF" if build.without? "test"
-    resource("fortran").stage do
-      mkdir "build-fortran" do
-        system "cmake", "..", *fortran_args
-        system "make"
-        system "make", "test" if build.with? "test"
-        system "make", "install"
+    if build.with? "fortran"
+      fortran_args = args.dup
+      fortran_args << "-DENABLE_TESTS=OFF" if build.without? "test"
+      resource("fortran").stage do
+        mkdir "build-fortran" do
+          system "cmake", "..", *fortran_args
+          system "make"
+          system "make", "test" if build.with? "test"
+          system "make", "install"
+        end
       end
     end
 
-    ENV.prepend "CPPFLAGS", "-I#{include}"
-    ENV.prepend "LDFLAGS", "-L#{lib}"
-    resource("cxx-compat").stage do
-      system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}"
-      system "make"
-      system "make", "install"
-      if build.with? "test"
-        cp Dir["#{lib}/*.dylib"], "cxx/.libs/"
-        system "make", "check"
+    if build.with? "cxx-compat"
+      ENV.prepend "CPPFLAGS", "-I#{include}"
+      ENV.prepend "LDFLAGS", "-L#{lib}"
+      resource("cxx-compat").stage do
+        system "./configure", "--disable-dependency-tracking",
+                              "--prefix=#{prefix}"
+        system "make"
+        system "make", "install"
+        if build.with? "test"
+          cp Dir["#{lib}/*.dylib"], "cxx/.libs/"
+          system "make", "check"
+        end
       end
     end
   end
