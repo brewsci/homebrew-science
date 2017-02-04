@@ -3,6 +3,7 @@ class Concorde < Formula
   homepage "http://www.math.uwaterloo.ca/tsp/concorde/index.html"
   url "http://www.math.uwaterloo.ca/tsp/concorde/downloads/codes/src/co031219.tgz"
   sha256 "c3650a59c8d57e0a00e81c1288b994a99c5aa03e5d96a314834c2d8f9505c724"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -29,6 +30,14 @@ class Concorde < Formula
           ln_s "#{cplex_path}/lib/x86-32_osx/static_pic/libcplex.a", "."
         end
       end
+      # CPX_PARAM_FASTMIP is not defined in the latest versions of CPLEX
+      fastmip_replace = <<-EOS.undent
+        #ifndef CPX_PARAM_FASTMIP
+        #define CPX_PARAM_FASTMIP 1017
+        #endif
+        #endif  /* __MACHDEFS_H */
+      EOS
+      inreplace "INCLUDE/machdefs.h", "#endif  /* __MACHDEFS_H */", fastmip_replace
       args << "--with-cplex=#{buildpath}/cplex_files"
     else
       args << "--with-qsopt=#{Formula["qsopt"].opt_lib}"
@@ -50,6 +59,6 @@ class Concorde < Formula
   end
 
   test do
-    system "concorde", "-s", "99", "-k", "100"
+    system "#{bin}/concorde", "-s", "99", "-k", "100"
   end
 end
