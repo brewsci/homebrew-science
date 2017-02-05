@@ -31,7 +31,7 @@ class Cufflinks < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make"
-    ENV.j1
+    ENV.deparallelize
     system "make", "install"
   end
 

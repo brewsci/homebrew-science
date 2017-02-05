@@ -13,7 +13,7 @@ class Sfscode < Formula
   end
 
   def install
-    ENV.j1
+    ENV.deparallelize
     system "make", "CC=#{ENV.cc}", "EXEDIR=#{bin}"
     doc.install "doc/SFS_CODE_doc.pdf"
   end

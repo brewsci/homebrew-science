@@ -9,7 +9,7 @@ class RmlMmc < Formula
   depends_on "smlnj"
 
   def install
-    ENV.j1
+    ENV.deparallelize
     ENV["SMLNJ_HOME"] = Formula["smlnj"].opt_prefix/"SMLNJ_HOME"
 
     system "./configure", "--prefix=#{prefix}"

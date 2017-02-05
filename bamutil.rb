@@ -15,7 +15,7 @@ class Bamutil < Formula
   end
 
   def install
-    ENV.j1
+    ENV.deparallelize
     system "make", "cloneLib" if build.head?
     system "make", "install", "INSTALLDIR=#{bin}"
   end

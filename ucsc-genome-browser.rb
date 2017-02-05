@@ -24,7 +24,7 @@ class UcscGenomeBrowser < Formula
   depends_on "openssl"
 
   def install
-    ENV.j1
+    ENV.deparallelize
 
     # Fix build error caused by curling to a nonexistant site
     inreplace "src/hg/hgMirror/makefile", "curl", "#curl"

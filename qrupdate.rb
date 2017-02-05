@@ -19,7 +19,7 @@ class Qrupdate < Formula
   depends_on "veclibfort" if build.without?("openblas") && OS.mac?
 
   def install
-    ENV.j1
+    ENV.deparallelize
     if build.with? "openblas"
       blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       lapack = blas
