@@ -3,6 +3,7 @@ class Gnudatalanguage < Formula
   homepage "http://gnudatalanguage.sourceforge.net"
   url "https://downloads.sourceforge.net/project/gnudatalanguage/gdl/0.9.7/gdl-0.9.7.tgz"
   sha256 "2b5945d06e4d95f01cb70a3c432ac2fa4c81e1b3ac7c02687a6704ab042a7e21"
+  revision 1
 
   bottle do
     sha256 "17a2442e77ddfed4031e203b1ccbf1203997a1589de48eb4a802a2fcc5bd5079" => :sierra
