@@ -7,10 +7,9 @@ class Flann < Formula
 
   bottle do
     cellar :any
-    sha256 "43b078abc69b5a504a4b363096873a74a739fbde53770ee4375262a874dd4603" => :sierra
-    sha256 "7ed4462ab4e5d934e4215676737059b827332dca97102ff2337074de07aa1435" => :el_capitan
-    sha256 "009143678d2a847c34fce8d77d3abf3e7aa80b05dffbae71d649beacca412a0d" => :yosemite
-    sha256 "68c5f1861d2771e71df196a18a10584af2a852889e84cb786cd2d18e06e44b79" => :x86_64_linux
+    sha256 "aeadbb05ccb6517389e4602faf1c36985187e048bcd4a893a666f69c861f4911" => :sierra
+    sha256 "ba0efa21f283c43fd41ba5e2f82eb6ceff2ec492c5c2d3725b3df21dedd1c88e" => :el_capitan
+    sha256 "a3916f128bed42f5daa868608f4c20cd8fb5dc256690b612ea9792dc09f80b6a" => :yosemite
   end
 
   deprecated_option "enable-matlab" => "with-octave"
