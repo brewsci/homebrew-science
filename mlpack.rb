@@ -4,6 +4,7 @@ class Mlpack < Formula
   # doi "arXiv:1210.6293"
   url "http://www.mlpack.org/files/mlpack-2.1.1.tar.gz"
   sha256 "c2249bbab5686bb8658300ebcf814b81ac7b8050a10f1a517ba5530c58dbac31"
+  revision 1
 
   bottle do
     cellar :any
