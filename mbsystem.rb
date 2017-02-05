@@ -3,7 +3,7 @@ class Mbsystem < Formula
   homepage "http://www.mbari.org/data/mbsystem/mb-cookbook/index.html"
   url "ftp://ftp.ldeo.columbia.edu/pub/mbsystem/mbsystem-5.5.2284.tar.gz"
   sha256 "62afc8bf4313720af48caa0c11d7596c4fce263420653fce90b600e99c23e709"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "656404da7e5e7e029b34634fbbfbe3dbbe7cd7bf6b38bdfa14caee5aa3fc6a26" => :sierra
