@@ -23,6 +23,7 @@ class Nanopolish < Formula
     sha256 "8a002b4ee81454a639a29b73c323f66304a2d44937deb9d9dddb8424e0d27710" => :sierra
     sha256 "714685c444d682963a03fd88a5afe757ea34d964640dd56311e1810ce939fc63" => :el_capitan
     sha256 "30a3bd018ed65ac58a3c345c357d5f3f4af88af4ca3ab09a0fb82f2b60b6ac38" => :yosemite
+    sha256 "420e75e483e0a0117cc81f6124b50a2497a23346bb104eb73e09c8e18faf8f17" => :x86_64_linux
   end
 
   needs :cxx11
