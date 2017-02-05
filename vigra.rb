@@ -1,7 +1,8 @@
 class Vigra < Formula
   desc "Image processing and analysis library"
   homepage "https://ukoethe.github.io/vigra/"
-  url "https://github.com/ukoethe/vigra/releases/download/Version-1-11-0/vigra-1.11.0-src.tar.gz"
+  url "https://github.com/ukoethe/vigra.git", :revision => "ee6b17e4efc91cba6d3e350f98a5c4f9db6e9514"
+  version "1.11.0.1-alpha1"
   sha256 "68617de347eae7d4700a8f66cd59ce31d6cd92ffb4a235b4df34c688673af5cb"
   head "https://github.com/ukoethe/vigra.git"
 
