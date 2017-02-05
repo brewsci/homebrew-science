@@ -19,9 +19,9 @@ class Vtk < Formula
   end
 
   bottle do
-    sha256 "d557fd3cc0e3561828f86aa04fd93d3eeef15111a26d74f3ed448a02ed879ba7" => :sierra
-    sha256 "e9a3391390f07b3bfd19bbe2f3dc7d8503ea11c2c24177808ac1977d3d0a3bb9" => :el_capitan
-    sha256 "4bb9cf0c98c96f7820530a78097132fabb6b01c239ac56281373440fb7a9f62c" => :yosemite
+    sha256 "c0fa68f83a97342b2c7e9989153ea1213224d712174d8b1088aebd4693e36bda" => :sierra
+    sha256 "87eae8b1b0eec3db468828de6a55971b650bb7d634cb6dbb622cb1fcb4e66a7f" => :el_capitan
+    sha256 "32a900b048101d5577c231b42f5baa1c64f90598167c4ce33625546a4ecfb0ba" => :yosemite
   end
 
   deprecated_option "examples" => "with-examples"
