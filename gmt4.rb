@@ -4,7 +4,7 @@ class Gmt4 < Formula
   url "ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.15-src.tar.bz2"
   mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-4.5.15-src.tar.bz2"
   sha256 "f0646402858559ea07a3d51f5029a0b43e7af7547ab79c3064cce3f899ad6626"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "3c02698c9d4a9c216744270487fb8a6a357da9f90b38f2add08c6902278c7162" => :sierra
