@@ -4,7 +4,7 @@ class Libminc < Formula
   url "https://github.com/BIC-MNI/libminc/archive/libminc-2-3-00.tar.gz"
   version "2.3.00"
   sha256 "8c00e0383575ace1f941a5b35b99678db2a0dd5e023f8671d25debc949c7cf12"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
