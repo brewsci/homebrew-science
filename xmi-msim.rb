@@ -6,9 +6,9 @@ class XmiMsim < Formula
   revision 8
 
   bottle do
-    sha256 "7409671b13b958c79162c68700b8cdfb7121a804ae06b96b7dc39b3b53e23faf" => :sierra
-    sha256 "677a2eca555023dfcff957d71d2c48d7cfb27762896f2ed9daa6a5c73336c1b5" => :el_capitan
-    sha256 "18afecf62c549b2c7d0ad6d71193290cf53de9d08975bd03159a26798b537c67" => :yosemite
+    sha256 "68903bf3ed8dcc8ab417856f8290055ce5f553f974599391a8be5ed50cc15947" => :sierra
+    sha256 "34088fa97e1506d3634fdfc381af85406aaba717aedc0a5c3518c34813b35075" => :el_capitan
+    sha256 "b758c6b4c9e779910ac37984ff1169d8b8f6ffed8fe43768d10a7b53e58a854a" => :yosemite
   end
 
   depends_on :fortran
