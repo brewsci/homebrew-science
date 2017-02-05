@@ -8,9 +8,9 @@ class Radx < Formula
 
   bottle do
     cellar :any
-    sha256 "87897b7163a8631fac0b7835b4c5037f07020e973ee3f926d818ac878920d486" => :sierra
-    sha256 "b4088ca2baf6dfc0f9393773a985e132ff0baf213a31a26fadc06848f3a7c163" => :el_capitan
-    sha256 "59714fab0a332d7f5963a8f1a3a7ad6a1af01e83af3010e50b10d8d78e653ee5" => :yosemite
+    sha256 "ce5104158b0bfd5feb81b6ff57ca9b45e43f6e70634837d821979cb74311df21" => :sierra
+    sha256 "bbd4d6270ef58c00aa66ac4567a621419db98bc24345d8e34eba27edb5255837" => :el_capitan
+    sha256 "2853715e744da2b615636fdb485fc6d2eacaaabd93cbb991e0f6b8ac700d03d6" => :yosemite
   end
 
   depends_on "hdf5"
