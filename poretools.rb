@@ -8,7 +8,7 @@ class Poretools < Formula
 
   url "https://github.com/arq5x/poretools/archive/v0.6.0.tar.gz"
   sha256 "64d22ac045bf4b424bd709abb07fcdb6ef4d198a76213183de166a307646b9fa"
-  revision 2
+  revision 3
   head "https://github.com/arq5x/poretools.git"
 
   bottle do
