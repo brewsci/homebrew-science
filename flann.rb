@@ -10,6 +10,7 @@ class Flann < Formula
     sha256 "aeadbb05ccb6517389e4602faf1c36985187e048bcd4a893a666f69c861f4911" => :sierra
     sha256 "ba0efa21f283c43fd41ba5e2f82eb6ceff2ec492c5c2d3725b3df21dedd1c88e" => :el_capitan
     sha256 "a3916f128bed42f5daa868608f4c20cd8fb5dc256690b612ea9792dc09f80b6a" => :yosemite
+    sha256 "0cd9472adcb7afa235356c1a161a660d220dacec0e1d017a5e445793c26c9a19" => :x86_64_linux
   end
 
   deprecated_option "enable-matlab" => "with-octave"
