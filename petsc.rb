@@ -20,9 +20,9 @@ class Petsc < Formula
   head "https://bitbucket.org/petsc/petsc", :using => :git
 
   bottle do
-    sha256 "c140772d4583834cb9509907697b078699395bbe9aa2dad71b611f9ee9c0ee89" => :sierra
-    sha256 "3cfac975add0e25d5defd596cff65378bc70244a247eec639475460b2d56676d" => :el_capitan
-    sha256 "4e152897a0b399382965a5a5c6c40bfd4b9b1d5178560e44986f339bc723d825" => :yosemite
+    sha256 "b02d22f72dcefbc1ac86abf1f0e406b7ed8500cd67725c4da9766b71f6feabc5" => :sierra
+    sha256 "5e7cf4da5f8a19c7c92f1dea56d7877ec5a7371fc5e2cd7679c0ebc26553bbd9" => :el_capitan
+    sha256 "36d7c3296eaa9c5fac1f270a8cd2f3cb27a627fbb402caae7ffdf41b9f12da04" => :yosemite
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
