@@ -3,6 +3,7 @@ class Alembic < Formula
   homepage "http://alembic.io"
   url "https://github.com/alembic/alembic/archive/1.7.0.tar.gz"
   sha256 "05d7128f55c3f8846f69e346e824112b0dff8200e83758d2e0b70887f030bffa"
+  revision 1
   head "https://github.com/alembic/alembic.git"
 
   bottle do
