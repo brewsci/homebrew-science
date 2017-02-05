@@ -12,9 +12,9 @@ class Poretools < Formula
   head "https://github.com/arq5x/poretools.git"
 
   bottle do
-    sha256 "d1e8388dd9419c71899751d28df408ab2b8d52c89265c39fbbe16de3c3c177ef" => :sierra
-    sha256 "3b5b248fe3129928e97bee412a989d7b2ae1efa047d80548d217052bbbdbb5f7" => :el_capitan
-    sha256 "018bae2017a0c54bf9c50d12101a83a401713f67b24df63a894fc9bf94a0b53d" => :yosemite
+    sha256 "327bf557c92bb1094a2a5576c0373b3465e016cf75a7ac2d83b23a98a72704cd" => :sierra
+    sha256 "78977ad070c500e052f6a94862aefe5617b289e169ad54087ecb722ff51936de" => :el_capitan
+    sha256 "5b656812672a9ea86fb0b182d661f3c3ac796f85da8f9ca754bb2a4e2daf1e42" => :yosemite
   end
 
   depends_on "pkg-config" => :build # for h5py
