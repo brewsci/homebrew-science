@@ -10,6 +10,7 @@ class Nexusformat < Formula
     sha256 "eb21d5fbded7b42933c1a66b193ecd563085b87a06aaf3944a3990d4f9463896" => :sierra
     sha256 "8c3c4f6319d53dd7dd54a7225efc2d605b3cf9e57e0c2abfe414c541e10c2552" => :el_capitan
     sha256 "d5a5c89ad5dd6fb00ec7b965a10f9ce8d8d0c67d1ac0d4d4e735d003f0b7eced" => :yosemite
+    sha256 "591a26f9ac595a88651d2ef429c823c735a16e24ddcf07b7800957bfd629ca25" => :x86_64_linux
   end
 
   option :cxx11
