@@ -11,6 +11,7 @@ class Vigra < Formula
     sha256 "48e9b5c24627169645de6b69eb7afa4e75e19ce81800f4b1753f37865f486caf" => :sierra
     sha256 "61e16f74e6d9c110135ecd9e9de7ab889b8d1029b09b3590e7a3e64cab29719e" => :el_capitan
     sha256 "0dedb6e0afa4e0cd1d0955ff3b356f35c13527934ec2593db9141576617209b4" => :yosemite
+    sha256 "062d1a6b326086d1b603f25cf82b0008998a732e9b9c6358e2265a2506beae1f" => :x86_64_linux
   end
 
   option :cxx11
