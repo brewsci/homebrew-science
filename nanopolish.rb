@@ -3,6 +3,7 @@ class Nanopolish < Formula
   homepage "https://github.com/jts/nanopolish"
   # doi "10.1038/nmeth.3444"
   # tag "bioinformatics"
+  revision 1
   head "https://github.com/jts/nanopolish.git"
 
   stable do
