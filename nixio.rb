@@ -11,6 +11,7 @@ class Nixio < Formula
     sha256 "9e44a40e24854d7c8a68738774fc212981317527ad98e92848c12a1b7e65cfe1" => :sierra
     sha256 "719f880d2fa12f670097d6d0f7d991ed47e6530d6cb65e5ef4e8f7d740b94c2d" => :el_capitan
     sha256 "02a8fd8144a9d37d3f9143cba399ef4470ef0af5cf694a02dcfe2962f6afabb8" => :yosemite
+    sha256 "8a1a493db650abed35b88d9636a3ef0007831c967047762f1f954279e31afc23" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
