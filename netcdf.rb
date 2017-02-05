@@ -7,10 +7,10 @@ class Netcdf < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 "068ca8f12b78dc56eccb404202af50474d712248c1041a3b0b6df6bb037fe251" => :sierra
-    sha256 "001024d7bd0642bba1afcc12f782096aea63630e2ae44a8722c8416d5c39eb97" => :el_capitan
-    sha256 "dac02e43ee61aa8bf59341d8a82a99c23f771cbe9705d5fbd8b577a6741abd94" => :yosemite
+    rebuild 2
+    sha256 "c8c7d60ce50d6af7d17122784f03396b85e70fd8a4dd14260ef79a043156d8b2" => :sierra
+    sha256 "55757134f743263e28ca881a3b03bcacfe6af408785196034cb7cdc930338008" => :el_capitan
+    sha256 "4c31f4391b95c8e3be88dc7da05403c3ddfdc711d9b38587f36368b4947d1ec6" => :yosemite
   end
 
   option "without-test", "Disable checks (not recommended)"
