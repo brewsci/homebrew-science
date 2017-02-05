@@ -12,10 +12,9 @@ class Dextractor < Formula
 
   bottle do
     cellar :any
-    sha256 "6d1925f18492d7cd01bec5bbdd73b2cc078b87ef371d3e0503eff8c8f61a3951" => :el_capitan
-    sha256 "4ff0ca86c904a2d6e6046c519ab928b9f8bb1a72568bd4da9b37a14fbd3afd44" => :yosemite
-    sha256 "1637264ec2a73e57f7d019497a319bc28f4518bcaab6d0b2c257a8990e2cbec1" => :mavericks
-    sha256 "2c26f359eedd68a1b62476f0a64e323f45f629f65b3cedb89713bb7616d23946" => :x86_64_linux
+    sha256 "946a3809d00028ffa2ac2ffbbfa6b16467deb5d0ad3035b68b1c1b72d4deef94" => :sierra
+    sha256 "115769b29aa34f741e75195548cec5db072c51603b8e3f95851fd8e29b3bddef" => :el_capitan
+    sha256 "946cbd098a294c8d2d752409d81112b8b183b4a51b497275dbae052c01234275" => :yosemite
   end
 
   depends_on "hdf5"
