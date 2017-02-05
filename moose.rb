@@ -11,6 +11,7 @@ class Moose < Formula
     sha256 "3e0760f180d56f0bf9f60b35ca33c27e912da88484a3ac2a21375dc22d6f603e" => :sierra
     sha256 "2a88097a951e0d23ff0b26cd527bfcd85323bb75c3eb03b18966805c67ac1a5b" => :el_capitan
     sha256 "a1e5033f49aaa7031a4daea53c71251276dbde71d06f593866a18444469c008d" => :yosemite
+    sha256 "cc0865d1640966e7ba4b31cdcf57391399e4866d1aed5fcb480b8da040224018" => :x86_64_linux
   end
 
   option "with-sbml", "Enable sbml support"
