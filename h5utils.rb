@@ -6,11 +6,9 @@ class H5utils < Formula
   revision 5
 
   bottle do
-    rebuild 1
-    sha256 "bbdce6ed4a6a703ae178c4eb18854d0ffeb7911650510dcaedc5c40da0a1c187" => :sierra
-    sha256 "7904dc446b703b96961290f5061150a3ef411dadd23c326804b5f0f1a22a7cde" => :el_capitan
-    sha256 "6d669553e5e9f180624b98413c8598b75c90adc1d82b23d8993f27873624b3e2" => :yosemite
-    sha256 "6a73fa616362d914344713a318afcd0b6cdc21b25ba33797e9220f5853d15ff8" => :x86_64_linux
+    sha256 "5c79ffbd0c9b8d29331a5e5069dffd96a7e2e2ccad4c53b3366c9863905bf961" => :sierra
+    sha256 "7338ea86c1a485288bae837ba8deb84420b7f03a1241e4952c97d14847e81d4a" => :el_capitan
+    sha256 "08070af5d7ee84bf3f90559b8c2a3e66a59ec8000486f593501d0c3d43ca1936" => :yosemite
   end
 
   depends_on "libpng"
