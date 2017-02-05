@@ -6,9 +6,9 @@ class Cgns < Formula
   revision 2
 
   bottle do
-    sha256 "3ddff2804faa0daa2c85eae4339c56c1793d1c905c50a29f2e4ae2a58a793d7f" => :el_capitan
-    sha256 "ece482f160568064a21223b6a5d4881306c69f6069503813d25146dc60bdb7cd" => :yosemite
-    sha256 "6925f42ae86b056704be41aa4d8991a329f9def1837c772c6182dfd7a8b84573" => :mavericks
+    sha256 "56b4c2e1fe21338cc491adcecab518f24a214746f11325557b0928754e78785e" => :sierra
+    sha256 "32f2005f6c3475461812d9c994037b2f20b8fc08af96ce46141d94a29b8508a6" => :el_capitan
+    sha256 "4906b8c27515a71e93877cd7cfd247af7f2248d67975ef3feef817da362977d7" => :yosemite
   end
 
   depends_on :fortran => :optional
