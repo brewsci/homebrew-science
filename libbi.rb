@@ -1,7 +1,7 @@
 class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "http://libbi.org"
-  revision 1
+  revision 2
   head "https://github.com/libbi/LibBi.git"
 
   stable do
