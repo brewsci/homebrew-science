@@ -3,7 +3,7 @@ class XmiMsim < Formula
   homepage "https://github.com/tschoonj/xmimsim"
   url "https://xmi-msim.tomschoonjans.eu/xmimsim-5.0.tar.gz"
   sha256 "3503b56bb36ec555dc941b958308fde9f4e550ba3de4af3b6913bc29c2c0c9f1"
-  revision 7
+  revision 8
 
   bottle do
     sha256 "7409671b13b958c79162c68700b8cdfb7121a804ae06b96b7dc39b3b53e23faf" => :sierra
