@@ -1,8 +1,8 @@
 class Trinity < Formula
   desc "RNA-Seq de novo assembler"
   homepage "https://trinityrnaseq.github.io"
-  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/Trinity-v2.3.2.tar.gz"
-  sha256 "21421f846b4a3d3ebe69fe30d51819b32c5940a20bd4337dd98a2c8bd36a2ac3"
+  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/Trinity-v2.4.0.tar.gz"
+  sha256 "2e91ed242923205b060164398aa325e5fe824040732d86c74ece4f98d7a6f220"
   head "https://github.com/trinityrnaseq/trinityrnaseq.git"
 
   # doi "10.1038/nbt.1883"
@@ -28,10 +28,6 @@ class Trinity < Formula
 
   needs :openmp
 
-  fails_with :llvm do
-    cause 'error: unrecognized command line option "-std=c++0x"'
-  end
-
   def install
     # Fix IRKE.cpp:89:62: error: 'omp_set_num_threads' was not declared in this scope
     ENV.append_to_cflags "-fopenmp" if OS.linux?
@@ -43,8 +39,7 @@ class Trinity < Formula
       s.gsub! "CC=gcc CXX=g++", "CC=#{ENV.cc} CXX=#{ENV.cxx}"
       s.gsub! /(trinity_essentials.*) jellyfish/, "\\1"
       s.gsub! /(trinity_essentials.*) trimmomatic_target/, "\\1"
-      s.gsub! /(trinity_essentials.*) samtools/, "\\1"
-      s.gsub! "scaffold_iworm_contigs_target: htslib_target", "scaffold_iworm_contigs_target:"
+      s.gsub! /(trinity_essentials.*) samtools_target/, "\\1"
     end
 
     inreplace "Trinity" do |s|
@@ -60,7 +55,6 @@ class Trinity < Formula
 
     inreplace "galaxy-plugin/old/GauravGalaxy/Trinity", "$ROOTDIR/trinity-plugins/jellyfish", Formula["jellyfish"].opt_prefix
     inreplace "galaxy-plugin/old/Trinity", "$ROOTDIR/trinity-plugins/jellyfish", Formula["jellyfish"].opt_prefix
-    inreplace "trinity-plugins/collectl/Tests.py", "/N/dc2/scratch/befulton/TrinityMason/trinityrnaseq_r20140717/trinity-plugins/jellyfish/bin/jellyfish", Formula["jellyfish"].opt_prefix
     inreplace "util/insilico_read_normalization.pl", "$ROOTDIR/trinity-plugins/jellyfish", Formula["jellyfish"].opt_prefix
     inreplace "util/misc/run_jellyfish.pl", '$JELLYFISH_DIR = $FindBin::RealBin . "/../../trinity-plugins/jellyfish-1.1.3";',
                                             "$JELLYFISH_DIR = \"#{Formula["jellyfish"].opt_prefix}\";"
