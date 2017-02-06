@@ -11,9 +11,9 @@ class Dynare < Formula
   end
 
   bottle do
-    sha256 "6887489415e9c9acaa87775135cb206f1fc1b7f6b12481ebec2af3ad5beadfbe" => :sierra
-    sha256 "d15c9302cbc673570209e11c7886d6ff50184b39713d70b66117698dc7920c9a" => :el_capitan
-    sha256 "17e5bb1ea770227c15c5bed2534b4a5e595ba6a991c834b9e9a361bb848ed456" => :yosemite
+    sha256 "21c5c8e62fa8c5762c12228067e1ab886d209168d88221eb67ecf4ae1a8a5ea6" => :sierra
+    sha256 "17a032015a47f1eff65faad09e698ff752fb190d68dcdb55ae0ee8b047844c3e" => :el_capitan
+    sha256 "5bd3b2f339c69e4e0aa0b9d61156a14dffcbd8de7dedb49f4cefc76f62b28636" => :yosemite
   end
 
   head do
