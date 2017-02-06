@@ -1,8 +1,8 @@
 class Openfst < Formula
   desc "Open-source library for working with weighted finite-state transducers."
   homepage "http://www.openfst.org/"
-  url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.6.0.tar.gz"
-  sha256 "c03467951631af3f74a6f33ffd50f04285bc4562f79127afd95785120379d293"
+  url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.6.1.tar.gz"
+  sha256 "5245af8ebccb96208eec2dfe3b3a81143d3565a4d41220bff299287fb3333f7d"
 
   bottle do
     cellar :any
@@ -26,7 +26,8 @@ class Openfst < Formula
                           "--enable-lookahead-fsts",
                           "--enable-mpdt",
                           "--enable-ngram-fsts",
-                          "--enable-pdt"
+                          "--enable-pdt",
+                          "--enable-special"
     system "make", "install"
   end
 
