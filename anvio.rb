@@ -9,9 +9,9 @@ class Anvio < Formula
 
   bottle do
     cellar :any
-    sha256 "e2958a9fcd66a670e85ca844fa2e3ec6828c89d669a5dc399fc75c573b79e158" => :sierra
-    sha256 "251a3071888df4a3e223db0405a1d1a745451f8c22ff75e96b7b57a12972182f" => :el_capitan
-    sha256 "08b0671d60ff1670a42ebadf9f47eede218eaf9a4fcb619cbcf1c2c3c17dd1ff" => :yosemite
+    sha256 "9583eda899ba9da9dbaca3c41a6364507f7c35c2146ef546a87f8643e96a4576" => :sierra
+    sha256 "9ee4a6e2c9cfd49bc12f58b84fb825fd8de33380dd2b7862738f9ec47db56322" => :el_capitan
+    sha256 "fcf9b0a97e50dfe6e901c900ecc9de34dd6f3554b9794f0011319bcc243f6d52" => :yosemite
   end
 
   # doi "10.7717/peerj.1319"
