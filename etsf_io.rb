@@ -10,6 +10,7 @@ class EtsfIo < Formula
     sha256 "e62f892c31970d03b4cc44739e7bd85a253436cc2f39fb6a7c27e9d3f0f32fff" => :sierra
     sha256 "1ceea6758e69576bee533d43ca3637e53164c8d7acb8cc44a4c13ca7d6fea225" => :el_capitan
     sha256 "eb5dcfe3b05474ee21edc23882d7aa524a9dda0d9ed15108a5ebc4106c9c92e6" => :yosemite
+    sha256 "86e59c28432e1b710b48663ebe2309a81f03f1cdc11394962402d28435bc6a82" => :x86_64_linux
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
