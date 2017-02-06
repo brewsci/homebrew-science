@@ -3,7 +3,7 @@ class Insighttoolkit < Formula
   homepage "http://www.itk.org"
   url "https://downloads.sourceforge.net/project/itk/itk/4.11/InsightToolkit-4.11.0.tar.gz"
   sha256 "26f63efa290a86f10a3686cf3fa2aa3ef7420f3dc33112e2900b7dc8f9a50afe"
-  revision 1
+  revision 2
   head "git://itk.org/ITK.git"
 
   bottle do
@@ -32,6 +32,7 @@ class Insighttoolkit < Formula
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "gdcm" => [:optional] + cxx11dep
+  depends_on "expat" unless OS.mac?
 
   if build.with? "python3"
     depends_on "vtk" => [:build, "with-python3", "without-python"] + cxx11dep
@@ -47,10 +48,10 @@ class Insighttoolkit < Formula
     args = std_cmake_args + %W[
       -DBUILD_TESTING=OFF
       -DBUILD_SHARED_LIBS=ON
-      -DITK_USE_GPU=ON
       -DITK_USE_64BITS_IDS=ON
       -DITK_USE_STRICT_CONCEPT_CHECKING=ON
       -DITK_USE_SYSTEM_ZLIB=ON
+      -DITK_USE_SYSTEM_EXPAT=ON
       -DCMAKE_INSTALL_RPATH:STRING=#{lib}
       -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
       -DModule_SCIFIO=ON
@@ -70,6 +71,7 @@ class Insighttoolkit < Formula
     args << "-DModule_ITKLevelSetsv4Visualization=ON"
     args << "-DModule_ITKReview=ON"
     args << "-DModule_ITKVtkGlue=ON"
+    args << "-DITK_USE_GPU=" + (OS.mac? ? "ON" : "OFF")
 
     args << "-DVCL_INCLUDE_CXX_0X=ON" if build.cxx11?
     ENV.cxx11 if build.cxx11?
@@ -91,8 +93,12 @@ class Insighttoolkit < Formula
           args << "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
         elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
           args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
-        else
+        elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.#{dylib}"
           args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.#{dylib}'"
+        elsif File.exist? "#{python_prefix}/lib/x86_64-linux-gnu/lib#{python_version}.#{dylib}"
+          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/x86_64-linux-gnu/lib#{python_version}.#{dylib}'"
+        else
+          odie "No libpythonX.Y.{dylib|so|a} file found!"
         end
       end
       system "cmake", *args
