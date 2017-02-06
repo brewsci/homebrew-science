@@ -3,6 +3,7 @@ class Abinit < Formula
   homepage "http://www.abinit.org"
   url "http://ftp.abinit.org/abinit-8.0.8b.tar.gz"
   sha256 "37ad5f0f215d2a36e596383cb6e54de3313842a0390ce8d6b48a423d3ee25af2"
+  revision 1
   # tag "chemistry"
   # doi "10.1016/j.cpc.2009.07.007"
 
@@ -25,7 +26,6 @@ class Abinit < Formula
   depends_on "veclibfort"
   depends_on "scalapack" => :recommended
   depends_on "fftw" => ["with-mpi", "with-fortran", :recommended]
-  depends_on "libxc" => :recommended
   depends_on "netcdf" => ["with-fortran", :recommended]
   depends_on "etsf_io" => :recommended
   depends_on "gsl" => :recommended
@@ -48,10 +48,10 @@ class Abinit < Formula
       --with-mpi-prefix=#{HOMEBREW_PREFIX}
       --enable-optim=safe
       --enable-gw-dpc
+      --with-dft-flavor=none
     ]
     args << ("--enable-openmp=" + (build.with?("openmp") ? "yes" : "no"))
 
-    dft_flavor = "none"
     trio_flavor = "none"
 
     if build.with? "scalapack"
@@ -81,12 +81,6 @@ class Abinit < Formula
       args << "--with-math-libs=-L#{Formula["gsl"].opt_lib} -lgsl"
     end
 
-    if build.with? "libxc"
-      dft_flavor = "libxc"
-      args << "--with-libxc-incs=-I#{Formula["libxc"].opt_include}"
-      args << "--with-libxc-libs=-L#{Formula["libxc"].opt_lib} -lxc -lxcf90"
-    end
-
     # need to link against single precision as well, see https://trac.macports.org/ticket/45617 and http://forum.abinit.org/viewtopic.php?f=3&t=2631
     if build.with? "fftw"
       args << "--with-fft-flavor=fftw3"
@@ -94,7 +88,6 @@ class Abinit < Formula
       args << "--with-fft-libs=-L#{Formula["fftw"].opt_lib} -lfftw3 -lfftw3f -lfftw3_mpi -lfftw3f_mpi"
     end
 
-    args << "--with-dft-flavor=#{dft_flavor}"
     args << "--with-trio-flavor=#{trio_flavor}"
 
     system "./configure", *args
