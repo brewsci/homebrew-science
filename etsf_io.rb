@@ -7,9 +7,9 @@ class EtsfIo < Formula
   # doi "10.1016/j.cpc.2008.05.007"
 
   bottle do
-    sha256 "8c1b67b178286f5e780c07f170593a6036dddf1733771a4ce72d94c437c123ef" => :el_capitan
-    sha256 "f0115fa7db2c4d5a27afaa8c7e6db275b3aa1dd143baf62df48984cc34e0e315" => :yosemite
-    sha256 "3e35f91bf47ee55f0b9a7b5e394942a264d5dd3e5e8edf03aaa8ccc8dba66434" => :mavericks
+    sha256 "e62f892c31970d03b4cc44739e7bd85a253436cc2f39fb6a7c27e9d3f0f32fff" => :sierra
+    sha256 "1ceea6758e69576bee533d43ca3637e53164c8d7acb8cc44a4c13ca7d6fea225" => :el_capitan
+    sha256 "eb5dcfe3b05474ee21edc23882d7aa524a9dda0d9ed15108a5ebc4106c9c92e6" => :yosemite
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
