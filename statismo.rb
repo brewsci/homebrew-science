@@ -11,6 +11,7 @@ class Statismo < Formula
     sha256 "d4423108dae87f2b48042ff0ade06ee6f516a6338ae519f465a57d4e04cd14ca" => :sierra
     sha256 "db01686061a8f625f179eba918ca149e4368223e40e28b86263748cec72426de" => :el_capitan
     sha256 "9765569d539d532ee54c0b9acf4b602c62b03fadbc96896060227a613f970f2c" => :yosemite
+    sha256 "a3d0613b204d731ad06c9e5bdd6625a998c851ffb53a22689c1bb1c74403290c" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
