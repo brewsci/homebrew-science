@@ -8,9 +8,9 @@ class Statismo < Formula
 
   bottle do
     cellar :any
-    sha256 "3c140bebc87ef6559aac876d7fb2f72f235473ee0985f17a3d03c717f39f9065" => :sierra
-    sha256 "102ffa4727c020ca5924ff3796afbeba33ec01f983cad3e088a7f840003926f5" => :el_capitan
-    sha256 "c4f255f3d9556d695b3eb3c87501460102a96c4bd2c82063d63fa4a62ac75101" => :yosemite
+    sha256 "13dfd48c58fb42406fb40679f15ca1d60a1a76d01aad268b6cdf94c5d04937df" => :sierra
+    sha256 "bb219c06f93368192f51b7ec7ceb1a244195e26cff57891c9d539e7d567e4952" => :el_capitan
+    sha256 "0e5d938a43370f1d0d64040705efefd5ffdca224df9db39eb16b5c15fe3139bf" => :yosemite
   end
 
   depends_on "cmake" => :build
