@@ -146,8 +146,12 @@ class Vtk < Formula
           args << "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
         elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
           args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
-        else
+        elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.#{dylib}"
           args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.#{dylib}'"
+        elsif File.exist? "#{python_prefix}/lib/x86_64-linux-gnu/lib#{python_version}.#{dylib}"
+          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/x86_64-linux-gnu/lib#{python_version}.so'"
+        else
+          odie "No libpythonX.Y.{dylib|so|a} file found!"
         end
         # Set the prefix for the python bindings to the Cellar
         args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{py_site_packages}/'"
@@ -183,15 +187,6 @@ class Vtk < Formula
       EOS
     end
 
-    if build.with? "python"
-      s += <<-EOS.undent
-
-        VTK was linked against #{Formula["python"].linked_keg.exist? ? "Homebrew's" : "your system"} copy of Python.
-        If you later decide to change Python installations, relink VTK with:
-
-          brew postinstall vtk
-      EOS
-    end
     s.empty? ? nil : s
   end
 
