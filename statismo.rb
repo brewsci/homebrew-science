@@ -22,7 +22,7 @@ class Statismo < Formula
   depends_on "insighttoolkit"
 
   def install
-    args = std_cmake_args + %W[
+    args = std_cmake_args + %w[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTING=OFF
       -DBUILD_EXAMPLES=ON
