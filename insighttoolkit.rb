@@ -121,15 +121,16 @@ class Insighttoolkit < Formula
       }
     EOS
 
+    dylib = OS.mac? ? "1.dylib" : "so.1"
     v=version.to_s.split(".")[0..1].join(".")
     # Build step
     system ENV.cxx, "-isystem", "#{include}/ITK-#{v}", "-o", "test.cxx.o", "-c", "test.cxx"
     # Linking step
     system ENV.cxx, "test.cxx.o", "-o", "test",
-                    "#{lib}/libITKCommon-#{v}.1.dylib",
-                    "#{lib}/libITKVNLInstantiation-#{v}.1.dylib",
-                    "#{lib}/libitkvnl_algo-#{v}.1.dylib",
-                    "#{lib}/libitkvnl-#{v}.1.dylib"
+                    "#{lib}/libITKCommon-#{v}.#{dylib}",
+                    "#{lib}/libITKVNLInstantiation-#{v}.#{dylib}",
+                    "#{lib}/libitkvnl_algo-#{v}.#{dylib}",
+                    "#{lib}/libitkvnl-#{v}.#{dylib}"
     system "./test"
   end
 end
