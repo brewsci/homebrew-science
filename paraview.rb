@@ -3,6 +3,7 @@ class Paraview < Formula
   homepage "http://paraview.org"
   url "http://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v5.2&type=source&os=all&downloadFile=ParaView-v5.2.0.tar.gz"
   sha256 "894e42ef8475bb49e4e7e64f4ee2c37c714facd18bfbb1d6de7f69676b062c96"
+  revision 1
 
   head "git://paraview.org/ParaView.git"
 
@@ -15,20 +16,21 @@ class Paraview < Formula
   depends_on "cmake" => :build
 
   depends_on "boost" => :recommended
-  depends_on "cgns" => :recommended
   depends_on "ffmpeg" => :recommended
   depends_on "qt5" => :recommended
   depends_on :mpi => [:cc, :cxx, :optional]
   depends_on :python => :recommended
 
   depends_on "freetype"
-  depends_on "hdf5"
+  depends_on "hdf5@1.8"
   depends_on "jpeg"
   depends_on "libtiff"
   depends_on "fontconfig"
   depends_on "libpng"
 
   def install
+    dylib = OS.mac? ? "dylib" : "so"
+
     args = std_cmake_args + %W[
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTING=OFF
@@ -49,7 +51,6 @@ class Paraview < Formula
     args << "-DPARAVIEW_USE_MPI:BOOL=ON" if build.with? "mpi"
     args << "-DPARAVIEW_ENABLE_FFMPEG:BOOL=ON" if build.with? "ffmpeg"
     args << "-DPARAVIEW_USE_VISITBRIDGE:BOOL=ON" if build.with? "boost"
-    args << "-DVISIT_BUILD_READER_CGNS:BOOL=ON" if build.with? "cgns"
     args << "-DPARAVIEW_ENABLE_PYTHON:BOOL=" + ((build.with? "python") ? "ON" : "OFF")
 
     mkdir "build" do
@@ -68,8 +69,12 @@ class Paraview < Formula
           args << "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
         elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
           args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
+        elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.#{dylib}"
+          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.#{dylib}'"
+        elsif File.exist? "#{python_prefix}/lib/x86_64-linux-gnu/lib#{python_version}.#{dylib}"
+          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/x86_64-linux-gnu/lib#{python_version}.so'"
         else
-          args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.dylib'"
+          odie "No libpythonX.Y.{dylib|so|a} file found!"
         end
       end
       args << ".."
