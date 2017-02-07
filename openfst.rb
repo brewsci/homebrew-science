@@ -9,6 +9,7 @@ class Openfst < Formula
     sha256 "4b0e12fbc1e4fc1b54757cc87a3757e517186e95f8db6917b96966fd805dba6f" => :sierra
     sha256 "0969ec5732bf52d43e05e0813c834a539fc25db981502088e12ee5ff9a272467" => :el_capitan
     sha256 "9b77ae1524ca836cb4c0ea65e76ad27e54d6db70045ba3518698120922b354ce" => :yosemite
+    sha256 "89232dd56bc8e8610523c935e946e42b79f4cabfb619f965aef3cfb77779db16" => :x86_64_linux
   end
 
   needs :cxx11
