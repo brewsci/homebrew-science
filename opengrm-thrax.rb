@@ -7,10 +7,9 @@ class OpengrmThrax < Formula
 
   bottle do
     cellar :any
-    sha256 "4758541a70673c2b50a1745a99de161fcc56879660ddd726af36e27b10b01f0d" => :sierra
-    sha256 "769a364203257d8a5859e97c47c2cb7cf46ece5da5de8bd212626187e3cacf3e" => :el_capitan
-    sha256 "6099dbafc20f24d00915767da4ed48f3ea193f1a954cc7e3e66e3d83a9a17bec" => :yosemite
-    sha256 "22b78b68c53d351afbd1c740aace41fafc828a5e4ceb2a9513bbf0774a419eab" => :x86_64_linux
+    sha256 "77c822ef900109767aa57a361150b15ba4d135462b8f5796a5844d795f03f8ba" => :sierra
+    sha256 "03d906c22157ecf2c31d4d7f865be93ba099a013d8e6bbaa8c1b8cd207b5969f" => :el_capitan
+    sha256 "51fb9e88d762a04e37cd285fdb9d040746e8abea6a774e5b8e44724790d9d7aa" => :yosemite
   end
 
   depends_on "openfst"
