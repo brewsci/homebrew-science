@@ -9,10 +9,9 @@ class Libsequence < Formula
 
   bottle do
     cellar :any
-    sha256 "20d0a5c889514a6aeacee6e81b857bb42f9a03533a5d3294e3ca510df19aa218" => :el_capitan
-    sha256 "1cb31354055aedf42c1013880137df170460a5170634ec32b6130f70c84cafff" => :yosemite
-    sha256 "590b3e6113be8d67d1c1cfec48d92337f6736f69ae03c3e138cb9ad70bb39980" => :mavericks
-    sha256 "de3d4025d3516cc0efe10bf96fb13813ebccabefe6e7bf52ba07614964b7f178" => :x86_64_linux
+    sha256 "36ba91dc8ab3b26cf47ec93146a8cfbe9c76a01e209c534c50d5f7be2808da75" => :sierra
+    sha256 "3822cf2d95528eed3082c578954c221fc62460ed656ef4b0e2a1eb4bca1088bf" => :el_capitan
+    sha256 "e8dafaaf0a02f854cb369b67cda8a8e9149424a3e61bd482bc285d8c33566b1a" => :yosemite
   end
 
   cxx11 = OS.linux? || MacOS.version > :mountain_lion ? [] : ["c++11"]
