@@ -3,10 +3,9 @@ class Libsequence < Formula
   homepage "https://molpopgen.github.io/libsequence/"
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btg316"
-  url "https://github.com/molpopgen/libsequence/archive/1.8.4.tar.gz"
-  sha256 "f45a04ae03d8fa6f2eae0a3cec72686028071c851c355e4aab84859bb2cb394a"
+  url "https://github.com/molpopgen/libsequence/archive/1.9.0.tar.gz"
+  sha256 "3b0a700d8dbfc1bff445c3e94310d2e073789151d38a5813e193f045158fec2c"
   head "https://github.com/molpopgen/libsequence.git"
-  revision 1
 
   bottle do
     cellar :any
@@ -20,6 +19,7 @@ class Libsequence < Formula
 
   depends_on "boost" => cxx11
   depends_on "gsl"
+  depends_on "tbb"
 
   needs :cxx11
 
@@ -31,7 +31,7 @@ class Libsequence < Formula
                           "--disable-dependency-tracking",
                           "--disable-silent-rules"
     system "make"
-    system "make", "check"
+    ENV.deparallelize { system "make", "check" }
     system "make", "install"
   end
 end
