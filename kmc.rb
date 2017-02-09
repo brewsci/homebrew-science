@@ -4,8 +4,8 @@ class Kmc < Formula
   # doi "10.1093/bioinformatics/btv022"
   # tag "bioinformatics"
 
-  url "https://github.com/marekkokot/KMC/archive/2.3.tar.gz"
-  sha256 "829fd983db883f09c07e533292e0452d79256a76b5dc9ca2be2392368358eafe"
+  url "https://github.com/marekkokot/KMC/archive/v3.0.1.tar.gz"
+  sha256 "0dbc9254f95541a060d94076d2aa03bb57eb2da114895848f65af0db1e4f8b67"
 
   head "https://github.com/marekkokot/KMC.git"
 
@@ -20,14 +20,12 @@ class Kmc < Formula
     cause "error: 'ext/algorithm' file not found"
   end
 
-  needs :cxx11
+  needs :cxx14
   needs :openmp
 
   def install
-    system "make", "CC=#{ENV.cxx}",
+    system "make", "CC=#{ENV.cxx}", "KMC_BIN_DIR=#{bin}",
       OS.mac? ? "-fmakefile_mac" : "-fmakefile"
-    bin.install "bin/kmc", "bin/kmc_dump"
-    doc.install "README.md", "readme.txt"
   end
 
   test do
