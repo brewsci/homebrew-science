@@ -12,6 +12,7 @@ class Vsearch < Formula
     sha256 "28aa1ff8bfe2fac10b4dcd22222ef15f6a7b44466f122cdb3fcf88fd2f79bd06" => :sierra
     sha256 "28aa1ff8bfe2fac10b4dcd22222ef15f6a7b44466f122cdb3fcf88fd2f79bd06" => :el_capitan
     sha256 "d91b3bda2579749ba71471bfbf9517bced4e8f9566130f089af8c63c09258e3e" => :yosemite
+    sha256 "41d71eb0d5e1fbed47672239c24d52f52aefba7416600d2237f5c6719a128373" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
