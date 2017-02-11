@@ -7,9 +7,9 @@ class G2o < Formula
   revision 2
 
   bottle do
-    sha256 "99f76190dede20cc71932e7839968f93f2d2bc013a38a7da20e2751e97f9809c" => :sierra
-    sha256 "becd7cd3f246ca0b3c57d85e593e60ce25e65612d5780671ca3a96a94bc9e261" => :el_capitan
-    sha256 "9a18728b140b1b8229e0c74931dad900c749b34c0351cfaf2d73cb8af38811f8" => :yosemite
+    sha256 "f9ff7fa45de9e01f08f562e9e2af1acd135c22e40076fab94a383642827e0b46" => :sierra
+    sha256 "368e47a06a7b29f060faa3900965501b3b280868e59760f2bb58d3e080429f18" => :el_capitan
+    sha256 "9115f1664d6788cf549ff5540792deebc1870fb1e3afd6e280295d91e20c9b83" => :yosemite
   end
 
   depends_on "cmake" => :build
