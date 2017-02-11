@@ -4,7 +4,7 @@ class G2o < Formula
   url "https://github.com/RainerKuemmerle/g2o/archive/20160424_git.tar.gz"
   version "2016-04-24"
   sha256 "31abd5f4acf8407c18318b04f3ffc867c8ea7de89f18d51f9e92eb734d523b24"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "99f76190dede20cc71932e7839968f93f2d2bc013a38a7da20e2751e97f9809c" => :sierra
