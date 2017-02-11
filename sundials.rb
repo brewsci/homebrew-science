@@ -16,7 +16,7 @@ class Sundials < Formula
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
   url "http://computation.llnl.gov/projects/sundials/download/sundials-2.7.0.tar.gz"
   sha256 "d39fcac7175d701398e4eb209f7e92a5b30a78358d4a0c0fcc23db23c11ba104"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -35,6 +35,7 @@ class Sundials < Formula
   depends_on "cmake"
   depends_on "petsc" => :optional
   depends_on "superlu_mt" => :optional
+  depends_on "suite-sparse" => :recommended
 
   depends_on "openblas" => (OS.mac? ? :optional : :recommended)
   depends_on "veclibfort" if (build.without? "openblas") && OS.mac?
@@ -72,6 +73,12 @@ class Sundials < Formula
       args << "-DSUPERLUMT_LIBRARY_DIR=#{Formula["superlu_mt"].opt_lib}"
       args << "-DSUPERLUMT_INCLUDE_DIR=#{Formula["superlu_mt"].opt_include}"
       args << ("-DSUPERLUMT_THREAD_TYPE=" + ((Tab.for_name("superlu_mt").with? "openmp") ? "OpenMP" : "Pthread"))
+    end
+
+    if build.with? "suite-sparse"
+      args << "-DKLU_ENABLE=ON"
+      args << "-DKLU_LIBRARY_DIR=#{Formula["suite-sparse"].opt_lib}"
+      args << "-DKLU_INCLUDE_DIR=#{Formula["suite-sparse"].opt_include}"
     end
 
     mkdir "build" do
