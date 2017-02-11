@@ -1,7 +1,7 @@
 class Dynare < Formula
   desc "Platform for economic models, particularly DSGE and OLG models"
   homepage "http://www.dynare.org"
-  revision 4
+  revision 5
 
   stable do
     url "https://www.dynare.org/release/source/dynare-4.4.3.tar.xz"
