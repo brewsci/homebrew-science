@@ -8,10 +8,9 @@ class GmapGsnap < Formula
   # tag "bioinformatics"
 
   bottle do
-    sha256 "95b512e5a55f7c1f911a82c8954a0e0e02c76f96783c04f8f0de38b808896927" => :el_capitan
-    sha256 "fec1f896a363ecc185f3977f7fb75a903d7f15176c784690464d870156bb6255" => :yosemite
-    sha256 "a149666b5f7b162da16dcdddf18d08603306ad65f7a3ab74402d59c49392e883" => :mavericks
-    sha256 "ec9e4f302f91d53f446ee6b261425ad5d638eb67351e9a227aac47f7afdb8066" => :x86_64_linux
+    sha256 "8f3a579e7c037de3423b298be933ddcc33a88cfc2d81279b5e8eb942243cb2e6" => :sierra
+    sha256 "6e4004bd20a29eb92ef7ca79a61de90a1a828a94390d0186d9f824c147066b66" => :el_capitan
+    sha256 "45a1783741299e4ef20326f4d92e1847d036418316616e9f0401712a4d707dcf" => :yosemite
   end
 
   depends_on "samtools"
