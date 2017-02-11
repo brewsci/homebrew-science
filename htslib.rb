@@ -1,11 +1,10 @@
 class Htslib < Formula
   desc "C library for high-throughput sequencing data formats"
   homepage "http://www.htslib.org/"
-  # tag "bioinformatics"
-
-  url "https://github.com/samtools/htslib/archive/1.3.1.tar.gz"
-  sha256 "3bbd04f9a0c4c301abd5d19a81920894ac2ee5e86e8aa977e8c2035e01d93ea7"
+  url "https://github.com/samtools/htslib/releases/download/1.3.2/htslib-1.3.2.tar.bz2"
+  sha256 "b9b19e6164769449adf8d050f8976f6265dc844f17a11ff2dca5e821385d0347"
   head "https://github.com/samtools/htslib.git"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any
@@ -23,10 +22,10 @@ class Htslib < Formula
 
   test do
     sam = pkgshare/"test/ce#1.sam"
-    assert_match "SAM", shell_output("htsfile #{sam}")
-    system "bgzip -c #{sam} > sam.gz"
+    assert_match "SAM", shell_output("#{bin}/htsfile #{sam}")
+    system "#{bin}/bgzip -c #{sam} > sam.gz"
     assert File.exist?("sam.gz")
-    system "tabix", "-p", "sam", "sam.gz"
+    system "#{bin}/tabix", "-p", "sam", "sam.gz"
     assert File.exist?("sam.gz.tbi")
   end
 end
