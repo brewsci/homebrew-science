@@ -9,6 +9,7 @@ class Opencascade < Formula
     sha256 "e033e4dc3416bf3992b37a4c2e81272480d2c6efc20ea06d1780c0808febddc7" => :sierra
     sha256 "df45859263aed9c1105d3d423588ce13f779d1eccb19f7b434d651cdff4cf9a9" => :el_capitan
     sha256 "6e9d59f26278cebde3e025fde9b60311ef2bab3bba15d3a1c42d0e4808449489" => :yosemite
+    sha256 "91e48bf559b6a3fcb1476524adee806f73865f5a5ba3b53a58931b1601e43d86" => :x86_64_linux
   end
 
   option "without-opencl", "Build without OpenCL support" if OS.mac?
