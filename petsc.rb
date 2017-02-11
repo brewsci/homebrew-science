@@ -14,9 +14,8 @@ end
 class Petsc < Formula
   desc "Scalable solution of models that use partial differential equations"
   homepage "http://www.mcs.anl.gov/petsc/index.html"
-  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.7.4.tar.gz"
-  sha256 "92aab64b7fd9c8491eefffd4ccebe5c8a0ba90a464e766db453e8fe96fd332e9"
-  revision 4
+  url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.7.5.tar.gz"
+  sha256 "d67781eafc80a72982b2710c72250726c8799fc18798338238de376f142de3a6"
   head "https://bitbucket.org/petsc/petsc", :using => :git
 
   bottle do
