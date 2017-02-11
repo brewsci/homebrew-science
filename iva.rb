@@ -9,10 +9,9 @@ class Iva < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
-    sha256 "fa873a566f7430fcd1e5b070e52a69526a81378876aa47d1cbc6f107ceaa2842" => :el_capitan
-    sha256 "19220ffeb3f2eecd8d42d81cb5449bbc9f9ede57facd805423d94f8ce257a927" => :yosemite
-    sha256 "c53d8c24c4d8b6f97319f485efc03c7380d253134ebe36e3815631c0e57b0a84" => :mavericks
+    sha256 "4f71ba608c1ea1364c143a1fef869b752caad534ac766c7b5b92dd1b01900b4a" => :sierra
+    sha256 "2f191856e88f22840e5709706cedbe5d7103a97a8bca06bda399d122ee3190ca" => :el_capitan
+    sha256 "64314710471dc79b3424f4fde9926f841ce63dea8a46d39992d23e8a91195484" => :yosemite
   end
 
   depends_on :python3
