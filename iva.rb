@@ -1,9 +1,8 @@
 class Iva < Formula
   desc "Iterative Virus Assembler"
   homepage "https://github.com/sanger-pathogens/iva"
-  url "https://github.com/sanger-pathogens/iva/archive/v1.0.0.tar.gz"
-  sha256 "c2054b7e922accf03e038d5f128b1e2f96c6cabc92c8a67a3b01e0412c29b7d3"
-  revision 1
+  url "https://github.com/sanger-pathogens/iva/archive/v1.0.8.tar.gz"
+  sha256 "20cac9b6683a2a33dc8cf790287f0eb8c3b4d02a287a380a071d821c1e0f1040"
   head "https://github.com/sanger-pathogens/iva.git"
   # doi "10.1093/bioinformatics/btv120"
   # tag "bioinformatics"
@@ -15,9 +14,6 @@ class Iva < Formula
     sha256 "19220ffeb3f2eecd8d42d81cb5449bbc9f9ede57facd805423d94f8ce257a927" => :yosemite
     sha256 "c53d8c24c4d8b6f97319f485efc03c7380d253134ebe36e3815631c0e57b0a84" => :mavericks
   end
-
-  # tag "bioinformatics"
-  # doi "10.1093/bioinformatics/btv120"
 
   depends_on :python3
   depends_on "kmc"
@@ -64,6 +60,6 @@ class Iva < Formula
   end
 
   test do
-    assert_match "-f reads_fwd -r reads_rev", shell_output("iva -h 2>&1", 0)
+    assert_match "-f reads_fwd -r reads_rev", shell_output("#{bin}/iva -h 2>&1", 0)
   end
 end
