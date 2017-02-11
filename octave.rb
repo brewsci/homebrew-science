@@ -1,10 +1,20 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftpmirror.gnu.org/octave/octave-4.2.0.tar.lz"
-  mirror "https://ftp.gnu.org/gnu/octave/octave-4.2.0.tar.lz"
-  sha256 "119d45c21d567c02eb0042987da4676aa25c7c2fde6e119053e0c6d779a47ba7"
-  revision 3
+  revision 4
+
+  stable do
+    url "https://ftpmirror.gnu.org/octave/octave-4.2.0.tar.lz"
+    mirror "https://ftp.gnu.org/gnu/octave/octave-4.2.0.tar.lz"
+    sha256 "119d45c21d567c02eb0042987da4676aa25c7c2fde6e119053e0c6d779a47ba7"
+
+    # Fix bug #49053: retina scaling of figures
+    # see https://savannah.gnu.org/bugs/?49053
+    resource "retina-scaling-patch" do
+      url "https://savannah.gnu.org/support/download.php?file_id=38902"
+      sha256 "d56eff94f9f811845ba3b0897b70cba43c0715a0102b1c79852b72ab10d24e6c"
+    end
+  end
 
   bottle do
     sha256 "4e3d513c81a031dc16b8b2805110ca3e1a8323cb56feb282976b7109a9e5d835" => :sierra
@@ -63,6 +73,7 @@ class Octave < Formula
   option "without-qhull",          "Do not use the Qhull library (delaunay,voronoi,etc.)"
   option "without-qrupdate",       "Do not use the QRupdate package (qrdelete,qrinsert,qrshift,qrupdate)"
   option "without-qt@5.7",         "Do not compile with qt-based graphical user interface"
+  option "without-sundials",       "Do not use SUNDIALS library"
   option "without-suite-sparse",   "Do not use SuiteSparse (sparse matrix operations)"
   option "without-test",           "Do not perform build-time tests (not recommended)"
   option "without-zlib",           "Do not use zlib (compressed MATLAB file formats)"
@@ -129,13 +140,6 @@ class Octave < Formula
   depends_on "portaudio"           => :optional
   depends_on :java                 => ["1.6+", :optional]
 
-  # Fix bug #49053: retina scaling of figures
-  # see https://savannah.gnu.org/bugs/?49053
-  resource "retina-scaling-patch" do
-    url "https://savannah.gnu.org/support/download.php?file_id=38902"
-    sha256 "d56eff94f9f811845ba3b0897b70cba43c0715a0102b1c79852b72ab10d24e6c"
-  end
-
   # If GraphicsMagick was built from source, it is possible that it was
   # done to change quantum depth. If so, our Octave bottles are no good.
   # https://github.com/Homebrew/homebrew-science/issues/2737
@@ -152,12 +156,14 @@ class Octave < Formula
     ENV.prepend_path "PATH", Formula["texinfo"].bin
     ENV["FONTCONFIG_PATH"] = "/opt/X11/lib/X11/fontconfig"
 
-    resource("retina-scaling-patch").stage do
-      inreplace "download.php" do |s|
-        s.gsub! "#include <QApplication.h>", "#include <QApplication>"
-        s.gsub! "__fontsize_points__", "fontsize_points" if build.stable?
+    if build.stable?
+      resource("retina-scaling-patch").stage do
+        inreplace "download.php" do |s|
+          s.gsub! "#include <QApplication.h>", "#include <QApplication>"
+          s.gsub! "__fontsize_points__", "fontsize_points" if build.stable?
+        end
+        system "patch", "-p1", "-i", Pathname.pwd/"download.php", "-d", buildpath
       end
-      system "patch", "-p1", "-i", Pathname.pwd/"download.php", "-d", buildpath
     end
 
     # basic arguments
@@ -229,7 +235,10 @@ class Octave < Formula
       args << "--with-blas=-lblas -llapack"
     end
 
-    system "./bootstrap" if build.head?
+    if build.head?
+      args << "--disable-64"
+      system "./bootstrap"
+    end
 
     # the Mac build configuration passes all linker flags to mkoctfile to
     # be inserted into every oct/mex build. This is actually unnecessary and
