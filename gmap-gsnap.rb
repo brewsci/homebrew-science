@@ -1,12 +1,11 @@
 class GmapGsnap < Formula
   desc "Genomic Mapping & Alignment Program for RNA/EST/Short-read sequences"
   homepage "http://research-pub.gene.com/gmap/"
+  version "2017-01-14"
+  url "http://research-pub.gene.com/gmap/src/gmap-gsnap-#{version}.tar.gz"
+  sha256 "f3eca0b66ff9770c5965d43b3532e59d839e593de00fa3550141527f3c7f1d2c"
   # doi "10.1093/bioinformatics/btq057"
   # tag "bioinformatics"
-
-  version "2016-05-01"
-  url "http://research-pub.gene.com/gmap/src/gmap-gsnap-#{version}.tar.gz"
-  sha256 "ab13a849613c978a6fd584908f758db599143fe5f9e8910e4904c1dea9dfcb8e"
 
   bottle do
     sha256 "95b512e5a55f7c1f911a82c8954a0e0e02c76f96783c04f8f0de38b808896927" => :el_capitan
