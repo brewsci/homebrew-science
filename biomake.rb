@@ -1,8 +1,8 @@
 class Biomake < Formula
   desc "GNU-Make-like utility for managing builds and complex workflows"
   homepage "https://github.com/evoldoers/biomake"
-  url "https://github.com/evoldoers/biomake/archive/v0.1.0.tar.gz"
-  sha256 "fc82ca41449b39ecb124928f630a6e65e36250a7dcd4b978729310b3c21e640f"
+  url "https://github.com/evoldoers/biomake/archive/v0.1.1.tar.gz"
+  sha256 "9e31b5033b71f1d8defb77163107560263786797d5a692802dba962f50185ca5"
   head "https://github.com/evoldoers/biomake.git"
   # doi "10.1101/093245"
   # tag "bioinformatics"
@@ -18,8 +18,8 @@ class Biomake < Formula
   depends_on "swi-prolog"
 
   def install
-    inreplace "bin/biomake", "$PATH_TO_ME/swipl", "swipl"
-    rm ["bin/swipl", "Makefile"]
+    inreplace "bin/biomake", "$PATH_TO_ME/swipl_wrap", "swipl"
+    rm ["bin/swipl_wrap", "Makefile"]
     rm_r "t"
     prefix.install Dir["*"]
   end
