@@ -1,13 +1,12 @@
 class Mfem < Formula
   desc "Free, lightweight, scalable C++ library for FEM."
   homepage "http://www.mfem.org"
-  url "http://goo.gl/Y9T75B"
-  version "3.2"
-  sha256 "2938c3deed4ec4f7fd5b5f5cfe656845282e86e2dcd477d292390058b7b94340"
+  url "http://goo.gl/Vrpsns"
+  version "3.3"
+  sha256 "b17bd452593aada93dc0fee748fcfbbf4f04ce3e7d77fdd0341cc9103bcacd0b"
 
   bottle do
     cellar :any_skip_relocation
-    revision 3
     sha256 "2447f727b783d261bc4650465f4994c68b58c159f6eb97f2223ad5cb4b6585f4" => :el_capitan
     sha256 "0a2f8112b7da2a29ead821d93d0bd1f747a5b6f202b0ad6beae7d0846518dbf6" => :yosemite
     sha256 "f013052f81c317d2e71c8b8e359c820f2ca7e21314821145f804ec26aa222f6d" => :mavericks
@@ -114,7 +113,7 @@ class Mfem < Formula
     cp_r "#{Formula["mfem"].opt_pkgshare}/examples", "./"
     cd "examples" do
       cp "#{Formula["mfem"].opt_pkgshare}/data/star.mesh", "./"
-      system "make", "all", "MFEM_DIR=#{Formula["mfem"].opt_prefix}", "CONFIG_MK=$(MFEM_DIR)/config.mk", "TEST_MK=#{pkgshare}/config/test.mk"
+      system "make", "all", "MFEM_DIR=#{Formula["mfem"].opt_prefix}", "CONFIG_MK=$(MFEM_DIR)/config.mk", "TEST_MK=$(MFEM_DIR)/test.mk", "MFEM_LIB_FILE=$(MFEM_DIR)/lib/libmfem.a", "SRC="
       args = ["-m", "star.mesh", "--no-visualization"]
       if Tab.for_name("mfem").with? "mpi"
         system "mpirun", "-np", "4", "./ex1p", *args
