@@ -32,7 +32,7 @@ class Sundials < Formula
   depends_on :fortran => :optional
   depends_on :mpi => [:cc, :f77, :recommended]
 
-  depends_on "cmake"
+  depends_on "cmake" => :run
   depends_on "petsc" => :optional
   depends_on "superlu_mt" => :optional
   depends_on "suite-sparse" => :recommended
