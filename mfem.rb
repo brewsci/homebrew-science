@@ -10,6 +10,7 @@ class Mfem < Formula
     sha256 "35e84e4e8ba4fda6a97f6ced36ac561902488ca716bb88c3a3dc7a4cc23d835a" => :sierra
     sha256 "58714c6611442447e0f8ef57f6fbb2b812e43d76e3525915144a4115563aa605" => :el_capitan
     sha256 "71941bca57236fec5493dd7e0bd40563cc3a52daf0a5fcc279fc29c254ed709e" => :yosemite
+    sha256 "05341892c5f4530c5edead5b496894c2a6276c16dc4c3dd1febc2e1dd4faa478" => :x86_64_linux
   end
 
   option "with-mpi", "Build with mpi support (implies --with-hypre --with-metis)"
