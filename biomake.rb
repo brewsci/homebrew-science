@@ -9,10 +9,9 @@ class Biomake < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ceeab5810cabdad92c4a610d7b31177dc086b8dbcf076a0c54a7e2c85a45a912" => :sierra
-    sha256 "c5e69a4f25172f4a1c1148898852377e507794e48bdd1e91c46dd8a256d55e90" => :el_capitan
-    sha256 "c5e69a4f25172f4a1c1148898852377e507794e48bdd1e91c46dd8a256d55e90" => :yosemite
-    sha256 "8cc8b040fa58b8cb784e883fe3e1caa1c46b89274c829da3701082608bde0dbf" => :x86_64_linux
+    sha256 "f59ee70969d5a46cca2965f364f47a22e0b847379fa230b5c936a7cfc2eaa287" => :sierra
+    sha256 "f59ee70969d5a46cca2965f364f47a22e0b847379fa230b5c936a7cfc2eaa287" => :el_capitan
+    sha256 "f59ee70969d5a46cca2965f364f47a22e0b847379fa230b5c936a7cfc2eaa287" => :yosemite
   end
 
   depends_on "swi-prolog"
