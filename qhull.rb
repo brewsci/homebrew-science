@@ -10,6 +10,7 @@ class Qhull < Formula
     sha256 "0d2b4fad052a8b7d0200771c63066cbccaf9b0223972e52037944923ef1121d2" => :el_capitan
     sha256 "ac762982b59d0cf4e76ad68c9aec65c8d6f52dc18c0cac8b128c1292fded4b33" => :yosemite
     sha256 "65af0f0db6e96fb60705d384c155807d9bde4defa7aec6fe1b82e7c0faacbf40" => :mavericks
+    sha256 "66b588503c3dc0c5ce9c6fc61b58672c8cad2e41532f8faba1d8205f7e5187a7" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
