@@ -7,9 +7,9 @@ class Healpix < Formula
 
   bottle do
     cellar :any
-    sha256 "2e1fd73dea22bec133fdae9611b87620dd4620998e798578e385400ef76c5d2b" => :el_capitan
-    sha256 "a19acb47d7c6f83d19828b99fe190da5309cf148113f6ccea351f7fcb5a627b5" => :yosemite
-    sha256 "ba491c231f7e086b2d3a59d391687abbe2052f6f87b788ae3447b74dfa01ba6d" => :mavericks
+    sha256 "704b58888fc0cef220f3ff38a18d5d48625c95dc1666e69cf87d7770a9527739" => :sierra
+    sha256 "255c7bd9ef31f1ffbbd79dccaa9055e64c42e287faea57a1922f4973b49940a8" => :el_capitan
+    sha256 "103d92efc27fde3cdeef9a6b01e7693182082d126bb352009dfeec336736df67" => :yosemite
   end
 
   depends_on "cfitsio"
