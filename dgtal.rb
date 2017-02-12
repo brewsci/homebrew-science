@@ -1,18 +1,10 @@
 class Dgtal < Formula
   desc "Digital Geometry Tools and Algorithms"
   homepage "http://dgtal.org"
-  revision 1
-
-  stable do
-    url "http://dgtal.org/releases/DGtal-0.9.2-Source.tar.gz"
-    mirror "http://liris.cnrs.fr/dgtal/releases/DGtal-0.9.2-Source.tar.gz"
-    sha256 "ba044b7c353a8550dc740c1d80e3caf59a76d4332d956599359027f3e8e20ed9"
-
-    option "with-eigen@3.2", "Build with eigen support"
-    deprecated_option "with-eigen" => "with-eigen@3.2"
-
-    depends_on "eigen@3.2" => :optional
-  end
+  url "http://dgtal.org/releases/DGtal-0.9.3-Source.tar.gz"
+  mirror "http://liris.cnrs.fr/dgtal/releases/DGtal-0.9.3-Source.tar.gz"
+  sha256 "6ade39b5bf12b8da9b26df340830136d423fc4558b51ae5608cdac40e0fc1744"
+  head "https://github.com/DGtal-team/DGtal.git"
 
   bottle do
     cellar :any
@@ -21,26 +13,18 @@ class Dgtal < Formula
     sha256 "3056f1b0a5aabce26dba1bbbfb15a1323106a6a3847fcc7c617299e38a218bb5" => :yosemite
   end
 
-  head do
-    url "https://github.com/DGtal-team/DGtal.git"
-
-    deprecated_option "with-eigen32" => "with-eigen"
-    deprecated_option "with-eigen@3.2" => "with-eigen"
-
-    depends_on "eigen" => :optional
-  end
-
   option "without-test", "Skip build-time tests"
   option "without-examples", "Don't build the examples"
 
-  deprecated_option "with-eigen32" => "with-eigen@3.2"
+  deprecated_option "with-eigen@3.2" => "with-eigen"
+  deprecated_option "with-eigen32" => "with-eigen"
   deprecated_option "with-magick" => "with-graphicsmagick"
-  deprecated_option "with-qglviewer" => "with-libqglviewer"
 
   depends_on "cmake" => :build
   boost_args = []
   boost_args << "c++11" if MacOS.version < "10.9"
   depends_on "boost" => boost_args
+  depends_on "eigen" => :optional
   depends_on "gmp" => :optional
   depends_on "cairo" => :optional
   depends_on "graphicsmagick" => :optional
@@ -60,14 +44,10 @@ class Dgtal < Formula
     args = std_cmake_args
     args << "-DBUILD_TESTING=ON" if build.with? "test"
     args << "-DBUILD_EXAMPLES=OFF" if build.without? "examples"
+    args << "-DWITH_EIGEN=true" if build.with? "eigen"
     args << "-DWITH_GMP=true" if build.with? "gmp"
     args << "-DWITH_CAIRO=true" if build.with? "cairo"
-    args << "-DWITH_QGLVIEWER=true" if build.with? "libqglviewer"
     args << "-DWITH_MAGICK=true" if build.with? "graphicsmagick"
-
-    if build.with?("eigen@3.2") || build.with?("eigen")
-      args << "-DWITH_EIGEN=true"
-    end
 
     if build.with? "cgal"
       args << "-DWITH_EIGEN=true" << "-DWITH_GMP=true" << "-DWITH_CGAL=true"
