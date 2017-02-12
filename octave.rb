@@ -118,7 +118,13 @@ class Octave < Formula
   depends_on "fltk"                => :recommended
   depends_on "gl2ps"               => :recommended
   depends_on "glpk"                => :recommended
-  depends_on "graphicsmagick"      => :recommended # imread/imwrite
+
+  if OS.linux?
+    depends_on "graphicsmagick"    => :optional # imread/imwrite
+  else
+    depends_on "graphicsmagick"    => :recommended # imread/imwrite
+  end
+
   depends_on "hdf5"                => :recommended
   depends_on "qhull"               => :recommended
   depends_on "qrupdate"            => :recommended
