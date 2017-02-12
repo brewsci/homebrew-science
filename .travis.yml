@@ -42,6 +42,8 @@ install:
   - pip install pysam
 
 script:
+  - brew tap homebrew/dupes
+  - brew tap linuxbrew/xorg
   - brew test-bot
 
 notifications:
