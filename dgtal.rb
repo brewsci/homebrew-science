@@ -11,6 +11,7 @@ class Dgtal < Formula
     sha256 "9c6d1bb2288293b05c358d61430aa2601f18fe7fa5325abc94e88a996ed0f208" => :sierra
     sha256 "0656f0b97eba0b96b2b6ab3ef4502fe5aa80291e27ee1d6927e3e682e9dad029" => :el_capitan
     sha256 "246322b089bae74da52c0aaee21f4ee87b98a7674c80c5c69bcbe208042e603b" => :yosemite
+    sha256 "1d9f34962be2a13cf128917586b2c6349f73fbb6469ad3052bd76a9015389e64" => :x86_64_linux
   end
 
   option "without-test", "Skip build-time tests"
