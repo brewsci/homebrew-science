@@ -1,9 +1,9 @@
 class Healpix < Formula
   desc "Hierarchical Equal Area isoLatitude Pixelization of a sphere"
   homepage "http://healpix.jpl.nasa.gov"
-  url "https://downloads.sourceforge.net/project/healpix/Healpix_3.30/Healpix_3.30_2015Oct08.tar.gz"
-  version "3.30"
-  sha256 "efcc8ff9775f393bd3e7e9d36202126e34e5c762ee568495a728329fa6650bfb"
+  url "https://downloads.sourceforge.net/project/healpix/Healpix_3.31/Healpix_3.31_2016Aug26.tar.gz"
+  version "3.31"
+  sha256 "ddf437442b6d5ae7d75c9afaafc4ec43921f903c976e25db3c5ed5185a181542"
 
   bottle do
     cellar :any
@@ -36,5 +36,27 @@ class Healpix < Formula
       system "./configure", *configure_args
       system "make", "install"
     end
+  end
+
+  test do
+    (testpath/"test.cxx").write <<-EOS
+      #include <math.h>
+      #include <stdio.h>
+      #include "chealpix.h"
+
+      int main(void) {
+        long   nside, npix, pp, ns1;
+        nside = 1024;
+
+        for (pp = 0; pp < 14; pp++) {
+          nside = pow(2, pp);
+          npix = nside2npix(nside);
+          ns1  = npix2nside(npix);
+        }
+      };
+    EOS
+    # Build step
+    system ENV.cxx, "-o", "test", "test.cxx", "-L#{lib}", "-lchealpix"
+    system "./test"
   end
 end
