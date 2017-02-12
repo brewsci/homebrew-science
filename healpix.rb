@@ -10,6 +10,7 @@ class Healpix < Formula
     sha256 "704b58888fc0cef220f3ff38a18d5d48625c95dc1666e69cf87d7770a9527739" => :sierra
     sha256 "255c7bd9ef31f1ffbbd79dccaa9055e64c42e287faea57a1922f4973b49940a8" => :el_capitan
     sha256 "103d92efc27fde3cdeef9a6b01e7693182082d126bb352009dfeec336736df67" => :yosemite
+    sha256 "2fcb7b8a7df2e54b6e1cf4430fffda652469418f303b114800674a774a685fb8" => :x86_64_linux
   end
 
   depends_on "cfitsio"
