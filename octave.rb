@@ -59,8 +59,11 @@ class Octave < Formula
   deprecated_option "with-jit"      => "with-llvm"
   deprecated_option "with-audio"    => "with-sndfile"
   deprecated_option "without-check" => "without-test"
-  deprecated_option "without-gui"   => "without-qt@5.7"
-  deprecated_option "without-qt5"   => "without-qt@5.7"
+
+  unless OS.linux?
+    deprecated_option "without-gui" => "without-qt@5.7"
+    deprecated_option "without-qt5" => "without-qt@5.7"
+  end
 
   # options, enabled by default
   option "without-curl",           "Do not use cURL (urlread/urlwrite/@ftp)"
@@ -72,6 +75,12 @@ class Octave < Formula
   option "without-opengl",         "Do not use opengl"
   option "without-qhull",          "Do not use the Qhull library (delaunay,voronoi,etc.)"
   option "without-qrupdate",       "Do not use the QRupdate package (qrdelete,qrinsert,qrshift,qrupdate)"
+  if OS.linux?
+    option "with-qt@5.7",          "Compile with qt-based graphical user interface"
+  else
+    option "without-qt@5.7",       "Do not compile with qt-based graphical user interface"
+  end
+
   option "without-qt@5.7",         "Do not compile with qt-based graphical user interface"
   option "without-sundials",       "Do not use SUNDIALS library"
   option "without-suite-sparse",   "Do not use SuiteSparse (sparse matrix operations)"
@@ -126,7 +135,12 @@ class Octave < Formula
   depends_on "pstoedit"            if build.with? "ghostscript"
 
   # recommended qt5 dependencies
-  depends_on "qt@5.7"              => :recommended
+  if OS.linux?
+    depends_on "qt@5.7"            => :optional
+  else
+    depends_on "qt@5.7"            => :recommended
+  end
+
   if build.with? "qt@5.7"
     depends_on "qscintilla2"
     depends_on "gnuplot" => [:recommended, "with-qt@5.7"]
