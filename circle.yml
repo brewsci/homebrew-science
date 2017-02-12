@@ -36,6 +36,7 @@ dependencies:
         libtinfo-dev
         libwebp-dev
         libwmf-dev
+        libx11-dev
         libxml2-dev
         llvm-3.4
         mysql-common
