@@ -16,6 +16,7 @@ class Kmerstream < Formula
   end
 
   needs :openmp
+  depends_on "scipy"
 
   def install
     system "make"
