@@ -12,6 +12,7 @@ class Jellyfish < Formula
     sha256 "049f8c9ef83d50316ab48e2833802231bed433e4819184c857b7b1f58649db32" => :sierra
     sha256 "4cd8f5c06f7a0363a6fb0eccac6b98c2313eed960877758db994ceba434a7a1c" => :el_capitan
     sha256 "7cab6af560dba76d8dced0d0f082db78600413a61bc223cf817f28021ed573f9" => :yosemite
+    sha256 "381dcbf181c66cd3692ead8e1a8748f73227d54b2755618f2b45e526509a5397" => :x86_64_linux
   end
 
   head do
