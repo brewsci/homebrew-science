@@ -9,10 +9,9 @@ class Jellyfish < Formula
 
   bottle do
     cellar :any
-    sha256 "634c642f093e0dad9112b527588a87a6313fb2cb12ce3c09ce67f4f749d373d1" => :el_capitan
-    sha256 "5be96154d0ee630a904748790afb65316ac65744473b4d71e0f7a3e65e9d55c5" => :yosemite
-    sha256 "02dacc8d217f7d281723a829b26cb4c5458e2796c8d9ea343bfd5efa40844785" => :mavericks
-    sha256 "3bf6d0e34823ffac8e9e41d0b155561a600e68e46449ae609a393499f3c22969" => :x86_64_linux
+    sha256 "049f8c9ef83d50316ab48e2833802231bed433e4819184c857b7b1f58649db32" => :sierra
+    sha256 "4cd8f5c06f7a0363a6fb0eccac6b98c2313eed960877758db994ceba434a7a1c" => :el_capitan
+    sha256 "7cab6af560dba76d8dced0d0f082db78600413a61bc223cf817f28021ed573f9" => :yosemite
   end
 
   head do
