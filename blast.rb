@@ -4,11 +4,10 @@ class Blast < Formula
   # doi "10.1016/S0022-2836(05)80360-2"
   # tag "bioinformatics"
 
-  url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.5.0/ncbi-blast-2.5.0+-src.tar.gz"
-  mirror "ftp://ftp.hgc.jp/pub/mirror/ncbi/blast/executables/blast+/2.5.0/ncbi-blast-2.5.0+-src.tar.gz"
-  version "2.5.0"
-  sha256 "cce122a29d309127a478353856b351914232e78a9546941781ff0a4c18ec9c54"
-  revision 2
+  url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.6.0/ncbi-blast-2.6.0+-src.tar.gz"
+  mirror "ftp://ftp.hgc.jp/pub/mirror/ncbi/blast/executables/blast+/2.6.0/ncbi-blast-2.6.0+-src.tar.gz"
+  version "2.6.0"
+  sha256 "0510e1d607d0fb4389eca50d434d5a0be787423b6850b3a4f315abc2ef19c996"
 
   bottle do
     sha256 "82bbd6d497b5164f3f8492e4ca6c8f6210f2bdcb1b89a3fa013bd83635ec1560" => :sierra
@@ -34,7 +33,7 @@ class Blast < Formula
   depends_on :python if MacOS.version <= :snow_leopard
 
   patch do
-    # Fixed upstream in future version 2.6.0
+    # Fixed upstream in future version > 2.6
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/blast/blast-make-fix2.5.0.diff"
     sha256 "ab6b827073df48a110e47b8de4bf137fd73f3bf1d14c242a706e89b9c4f453ae"
   end
