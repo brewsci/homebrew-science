@@ -16,6 +16,8 @@ addons:
     - python-sphinx
 
 before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y libxml-parser-perl libxml-sax-perl
   - export TRAVIS_COMMIT="$(git rev-parse --verify -q HEAD)"
   - if [ -f ".git/shallow" ]; then
       travis_retry git fetch --unshallow;
