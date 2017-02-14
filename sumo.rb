@@ -1,9 +1,8 @@
 class Sumo < Formula
   desc "Simulation of Urban Mobility"
   homepage "https://sourceforge.net/projects/sumo/"
-  url "https://downloads.sourceforge.net/project/sumo/sumo/version%200.25.0/sumo-all-0.25.0.tar.gz"
-  sha256 "e56552e4cd997ccab59b5c6828ca1e044e71e3ffe8c780831bf5aa18c5fdd18a"
-  revision 2
+  url "https://downloads.sourceforge.net/project/sumo/sumo/version%200.28.0/sumo-all-0.28.0.tar.gz"
+  sha256 "46b3bd1e3a580f6c09eb1aa8f3097639d75603d736168235838c51d19b698567"
 
   bottle do
     cellar :any
@@ -16,6 +15,9 @@ class Sumo < Formula
 
   deprecated_option "with-check" => "with-test"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on :x11
   depends_on "xerces-c"
   depends_on "libpng"
@@ -27,8 +29,8 @@ class Sumo < Formula
   depends_on :python
 
   resource "gtest" do
-    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/googletest/gtest-1.7.0.zip"
-    sha256 "247ca18dd83f53deb1328be17e4b1be31514cedfc1e3424f672bf11fd7e0d60d"
+    url "https://github.com/google/googletest/archive/release-1.7.0.tar.gz"
+    sha256 "f73a6546fdf9fce9ff93a5015e0333a8af3062a152a9ad6bcb772c96687016cc"
   end
 
   resource "TextTest" do
@@ -38,20 +40,21 @@ class Sumo < Formula
 
   def install
     resource("gtest").stage do
+      system "autoreconf", "-fvi"
       system "./configure"
       system "make"
-      buildpath.install "../gtest-1.7.0"
+      buildpath.install "../googletest-release-1.7.0"
     end
 
     ENV["LDFLAGS"] = "-lpython" # My compilation fails without this flag, despite :python dependency.
-    ENV.append_to_cflags "-I#{buildpath}/gtest-1.7.0/include"
+    ENV.append_to_cflags "-I#{buildpath}/googletest-release-1.7.0/include"
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--with-python",
-                          "--with-gtest-config=gtest-1.7.0/scripts/gtest-config"
+                          "--with-gtest-config=googletest-release-1.7.0/scripts/gtest-config"
 
     system "make", "install"
 
