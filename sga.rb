@@ -3,6 +3,7 @@ class Sga < Formula
   homepage "https://github.com/jts/sga"
   url "https://github.com/jts/sga/archive/v0.10.14.tar.gz"
   sha256 "763c011b302e1085048c93d917f081ea9348a8470e222dfd369064548e8b3994"
+  revision 1
   head "https://github.com/jts/sga.git"
   # doi "10.1101/gr.126953.111"
   # tag "bioinformatics"
