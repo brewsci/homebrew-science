@@ -7,7 +7,7 @@ class Augustus < Formula
   url "http://bioinf.uni-greifswald.de/augustus/binaries/augustus-3.2.2.tar.gz"
   mirror "http://bioinf.uni-greifswald.de/augustus/binaries/old/augustus-3.2.2.tar.gz"
   sha256 "bb36fcaaaab32920908e794d04e6cb57a0c61d689bfbd31b9b6315233ea3559e"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "40e3004de6efeab4b5c51a8cdcd550da16e67c9e7d88c303bb9ad0c5ea28c858" => :el_capitan
