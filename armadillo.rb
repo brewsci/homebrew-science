@@ -3,6 +3,7 @@ class Armadillo < Formula
   homepage "http://arma.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/arma/armadillo-7.700.0.tar.xz"
   sha256 "f9029490f7edfb7029e117961db6307c2c3ee368691ed15e4fc58d06c9115d94"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,6 +18,7 @@ class Armadillo < Formula
   option "with-hdf5", "Enable the ability to save and load matrices stored in the HDF5 format"
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "arpack"
   depends_on "superlu"
   depends_on "hdf5" => :optional
