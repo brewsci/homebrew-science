@@ -20,10 +20,11 @@ class Hdf5 < Formula
   deprecated_option "with-check" => "with-test"
 
   option "with-test", "Run build-time tests"
-  option "with-threadsafe", "Trade performance for C API thread-safety"
+  option "with-threadsafe", "Trade performance for C API thread-safety (requires --without-cxx and --without-hl)"
   option "with-fortran2003", "Compile Fortran 2003 bindings (requires --with-fortran)"
   option "with-mpi", "Compile with parallel support (unsupported with thread-safety)"
   option "without-cxx", "Disable the C++ interface"
+  option "without-hl", "Compile without high-level library"
   option "with-unsupported", "Allow unsupported combinations of configure options"
   option :cxx11
 
@@ -56,6 +57,7 @@ class Hdf5 < Formula
     ]
     args << "--enable-unsupported" if build.with? "unsupported"
     args << "--enable-threadsafe" << "--with-pthread=/usr" if build.with? "threadsafe"
+    args << "--disable-hl" if build.without? "hl"
 
     if build.with?("cxx") && build.without?("mpi")
       args << "--enable-cxx"
