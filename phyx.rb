@@ -4,6 +4,13 @@ class Phyx < Formula
   url "https://github.com/FePhyFoFum/phyx/archive/v0.9.tar.gz"
   sha256 "99f467539e5289da3362fbd8a60c6ea16da33da4f050542eba422b794dd028f6"
   head "https://github.com/FePhyFoFum/phyx.git"
+  bottle do
+    cellar :any
+    sha256 "a77ee41a84d4e80be7df6b59f48d8b43c76c90402b419cdae5968647e5c6b9de" => :sierra
+    sha256 "d0c143dcb36c75d2204c2b6911f9098bf766f3fbcd85bdc102d0d482cf7ff66f" => :el_capitan
+    sha256 "00d93d800fdb860a0c86d204b54a69243d6398c9877d96a66a821cd429715c0d" => :yosemite
+  end
+
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btx063"
 
