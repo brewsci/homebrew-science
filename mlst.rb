@@ -8,9 +8,9 @@ class Mlst < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "05bba00de429533482f29877e6d01644a2c1809f8cd5a191533241aa8c50dad6" => :sierra
-    sha256 "2d7313e302742957e968acda005197e73a8354153057b895e29aa4c61694e42c" => :el_capitan
-    sha256 "2d7313e302742957e968acda005197e73a8354153057b895e29aa4c61694e42c" => :yosemite
+    sha256 "17f7c1db160eb35474095cdab63b3b4ec5469824b35445119f6b8a125f11b89f" => :sierra
+    sha256 "17f7c1db160eb35474095cdab63b3b4ec5469824b35445119f6b8a125f11b89f" => :el_capitan
+    sha256 "17f7c1db160eb35474095cdab63b3b4ec5469824b35445119f6b8a125f11b89f" => :yosemite
   end
 
   depends_on "blast"
