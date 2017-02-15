@@ -9,6 +9,7 @@ class Libmatio < Formula
     sha256 "65febf628ca9bd6a04f060f8279d5abd568daf9e1b17ec84dbfa8ee3825d7fff" => :sierra
     sha256 "3062b7b996e230517d31621c97815f83e9b0adce3adc466c88a68caa9878479f" => :el_capitan
     sha256 "0a42d84e71a5a47036b6e7fa6ae1dccc6fc1d5ec9bfb8c696e162192a2c9605e" => :yosemite
+    sha256 "177f242f7d4647e523081e52709cf559569f944fd0ef400f2a8a48d82c8c9296" => :x86_64_linux
   end
 
   option "with-hdf5", "Enable support for newer MAT files that use the HDF5-format"
