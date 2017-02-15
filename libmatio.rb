@@ -6,9 +6,9 @@ class Libmatio < Formula
 
   bottle do
     cellar :any
-    sha256 "ab1aa055754832ce6f463b2b124fe3abc136eca2d7f64cc48ef1ae5f44c7fc56" => :sierra
-    sha256 "1a81abaf92d0376ec33b5d2aa42a863e7fb5d265eb832f30153f0175f59274f4" => :el_capitan
-    sha256 "278c2144cc32fe4e93363d500f80fc427d24a7162c6320cf1774450d66b8a6af" => :yosemite
+    sha256 "65febf628ca9bd6a04f060f8279d5abd568daf9e1b17ec84dbfa8ee3825d7fff" => :sierra
+    sha256 "3062b7b996e230517d31621c97815f83e9b0adce3adc466c88a68caa9878479f" => :el_capitan
+    sha256 "0a42d84e71a5a47036b6e7fa6ae1dccc6fc1d5ec9bfb8c696e162192a2c9605e" => :yosemite
   end
 
   option "with-hdf5", "Enable support for newer MAT files that use the HDF5-format"
