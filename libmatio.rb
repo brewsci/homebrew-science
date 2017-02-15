@@ -1,8 +1,8 @@
 class Libmatio < Formula
   desc "C library for reading and writing MATLAB MAT files"
-  homepage "http://matio.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/matio/matio/1.5.9/matio-1.5.9.tar.gz"
-  sha256 "beb7f965831ec5b4ef43f8830ee1ef1c121cd98e11b0f6e1d98713d9f860c05c"
+  homepage "https://matio.sourceforge.io/"
+  url "https://downloads.sourceforge.net/project/matio/matio/1.5.10/matio-1.5.10.tar.gz"
+  sha256 "41209918cebd8cc87a4aa815fed553610911be558f027aee54af8b599c78b501"
 
   bottle do
     cellar :any
@@ -11,7 +11,6 @@ class Libmatio < Formula
     sha256 "278c2144cc32fe4e93363d500f80fc427d24a7162c6320cf1774450d66b8a6af" => :yosemite
   end
 
-  option :universal
   option "with-hdf5", "Enable support for newer MAT files that use the HDF5-format"
 
   depends_on "hdf5" => :optional
@@ -23,7 +22,6 @@ class Libmatio < Formula
   end
 
   def install
-    ENV.universal_binary if build.universal?
     args = %W[
       --prefix=#{prefix}
       --with-zlib=/usr
