@@ -1,8 +1,8 @@
 class Pymol < Formula
   desc "OpenGL based molecular visualization system"
   homepage "http://pymol.org"
-  url "https://downloads.sourceforge.net/project/pymol/pymol/1.8/pymol-v1.8.2.1.tar.bz2"
-  sha256 "fc5d33d7e36364567462cee19b9b132530a83cbab3fafcf373f2a17f127b3f4e"
+  url "https://downloads.sourceforge.net/project/pymol/pymol/1.8/pymol-v1.8.4.0.tar.bz2"
+  sha256 "b6147befe74844dd23550461b831b2fa6d170d4456f0059cf93fb1e8cb43d279"
   head "https://svn.code.sf.net/p/pymol/code/trunk/pymol"
 
   bottle do
