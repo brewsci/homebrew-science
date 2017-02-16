@@ -1,9 +1,9 @@
 class Des < Formula
   desc "Datalog Educational System"
-  homepage "http://des.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/des/des/des4.1/DES4.1ACIDE0.17UnixesSWI.zip"
-  version "4.1"
-  sha256 "dbc128a9b1b6a5e443a86bbdfb6ec6c8c748e888f574d22061098279f235aeea"
+  homepage "https://des.sourceforge.io"
+  url "https://downloads.sourceforge.net/project/des/des/des4.2/DES4.2ACIDE0.17UnixesSWI.zip"
+  version "4.2"
+  sha256 "186d93b7c06f4dbe95ba46121464f3de013ee03d27f739b75322e7ba0df91fed"
 
   bottle do
     cellar :any_skip_relocation
