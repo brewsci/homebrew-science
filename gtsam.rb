@@ -12,9 +12,9 @@ class Gtsam < Formula
 
   bottle do
     cellar :any
-    sha256 "546a54313aad31fddb4eaa1bf80a966fa89f6483f85cb1d606e5f0a054cd688d" => :sierra
-    sha256 "7c5907a4b57879ddc140ff7850ede98a535f21796eeff0bf0bd73bd0785ce02c" => :el_capitan
-    sha256 "b2a280029778cad66e92b2a580fc68c893892923a7768bac53ef1c854a691ab3" => :yosemite
+    sha256 "d809f1c070f1b326e2279406e20eaf27b3199e606f30222a7b9515a9c5cd7691" => :sierra
+    sha256 "5790db55fcabe88b8817e89b5585bda3b271f38f949caee5162cf1b297716952" => :el_capitan
+    sha256 "17705911a2080389e8889fcf511c6671e5025fcfe8c963f657f5e9b334bec5d4" => :yosemite
   end
 
   head do
