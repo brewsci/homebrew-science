@@ -7,9 +7,9 @@ class Pymol < Formula
 
   bottle do
     cellar :any
-    sha256 "0fa0705a99781f94a1178110e8398caa2c5f47a1c3618c966cd558fe5c0e53bb" => :el_capitan
-    sha256 "8fc26c4981fb1b503c22d2513d926a15ef7c33abe4a8b1d53cf546c5b7e9c3b6" => :yosemite
-    sha256 "417e7c64a6a55057c3e2aa396be60e6c8b305f7ec83d2fa2ad845a4590ca4f14" => :mavericks
+    sha256 "360f9b56c4d7b424d467fac925591ac059380d4257d1d61c6f6af46b8d6689e4" => :sierra
+    sha256 "6808607ebd79f398f42bc479d6b48697bad55289f0b52df0af2f5b3ff9404bab" => :el_capitan
+    sha256 "217df24e99b9b96b13a9b33b137bb3ba811c407d79896091e1ef443074030df6" => :yosemite
   end
 
   depends_on "glew"
