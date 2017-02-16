@@ -10,10 +10,9 @@ class Stringtie < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9244ffbf95592cee071e659f11effaffc514812f9f38b97ba62f7b2c2891f3b6" => :sierra
-    sha256 "1babb96c5541ad62dfd0dde657a9000817df6caef7a198885904fe7d4726ed6b" => :el_capitan
-    sha256 "6ef20717d38394466a4b594a9c9466a984fa4452189a4782c9c75309facc5e60" => :yosemite
-    sha256 "525658d8a6e69a25b7071611ecd55ef03274e731f97d4003985e0b55aa19cf5a" => :x86_64_linux
+    sha256 "a4d882fcf75d0a17434834df2006526e6474c689d6a5ec129e4622af22457257" => :sierra
+    sha256 "65bf922dbb1ff8ee9df0b52c116c345ea056b3c17f326e398cf0d06e9b620710" => :el_capitan
+    sha256 "97361a509577b7b1a9ebb1c5211daeb870c28f1a372a8b5353ea2049ae6c3ffa" => :yosemite
   end
 
   def install
