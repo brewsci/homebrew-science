@@ -1,10 +1,10 @@
 class Hisat2 < Formula
   desc "graph-based alignment to a population of genomes"
   homepage "http://ccb.jhu.edu/software/hisat2/"
+  url "ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/downloads/hisat2-2.0.5-source.zip"
+  sha256 "ef74e2ab828aff8fd8a6320feacc8ddb030b58ecbc81c095609acb3851b6dc53"
   # tag "bioinformatics"
-
-  url "ftp://ftp.ccb.jhu.edu/pub/infphilo/hisat2/downloads/hisat2-2.0.1-beta-source.zip"
-  sha256 "0203f84abef4a3af92b53e070bee2da2d1ebab7570dedab432dcc0a11c051824"
+  # doi "10.1038/nmeth.3317"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,6 +21,6 @@ class Hisat2 < Formula
   end
 
   test do
-    assert_match "HISAT2", shell_output("hisat2 2>&1", 1)
+    assert_match "HISAT2", shell_output("#{bin}/hisat2 2>&1", 1)
   end
 end
