@@ -8,10 +8,9 @@ class Hisat2 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a1ec8f813add57678fd30638d5f06e9b6c23d6bb1d46f7d040f4c893ca0b1c84" => :el_capitan
-    sha256 "fdb6a45ba3f6ef5902ab1c340277c448b70279d9ddf485a1e3a51cc310edfd4e" => :yosemite
-    sha256 "853345f116daf23c4b6ea5dae1bab4a3559d8c32e763c49f929ed1e4a0f4a7db" => :mavericks
-    sha256 "ebdfe7bee0d774749fe726c3da2061f052bd13c9e6ae0a5fc9ac20cb6046dd3c" => :x86_64_linux
+    sha256 "dd3713455f92812d02e6285cb0fc2bf23faaea1834cb8f67678603a6e4d800ea" => :sierra
+    sha256 "39313553a9dc3313a5115193d85ad177feb1d4a9540b4021ccbf47db5d159565" => :el_capitan
+    sha256 "a89563bef8fc8d785b8d93b409c3b5ed44c4e6010f35868bdb4d8c893002c2b2" => :yosemite
   end
 
   def install
