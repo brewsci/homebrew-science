@@ -12,7 +12,7 @@ class Cufflinks < Formula
   end
 
   if OS.mac? && MacOS.version == :mavericks
-    depends_on "homebrew/versions/boost155"
+    depends_on "boost@1.55"
   else
     depends_on "boost"
   end
