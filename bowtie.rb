@@ -1,12 +1,11 @@
 class Bowtie < Formula
   desc "Ultrafast memory-efficient short read aligner"
-  homepage "http://bowtie-bio.sourceforge.net/index.shtml"
+  homepage "https://bowtie-bio.sourceforge.io/"
   # doi "10.1186/gb-2009-10-3-r25"
   # tag "bioinformatics"
 
-  url "https://github.com/BenLangmead/bowtie/archive/v1.1.2.tar.gz"
-  sha256 "717145f12d599e9b3672981f5444fbbdb8e02bfde2a80eba577e28baa4125ba7"
-  revision 1
+  url "https://github.com/BenLangmead/bowtie/archive/v1.2.0.tar.gz"
+  sha256 "dc4e7951b8eca56ce7714c47fd4e84f72badd5312ee9546c912af1963570f894"
   head "https://github.com/BenLangmead/bowtie.git"
 
   bottle do
@@ -17,15 +16,35 @@ class Bowtie < Formula
     sha256 "daa8a6c051d309add874342e2358c3427db7c21915eb9b7e204a829a08f9d527" => :x86_64_linux
   end
 
-  # Upstream PR that fixes stdout when building with clang on OS X. gcc
-  # doesn't need the patch, but it seems to do no harm. Resolves test
-  # failure for both this formula and Trinity.
-  patch do
-    url "https://github.com/BenLangmead/bowtie/pull/25.patch"
-    sha256 "8c92549b7fde12ca2493f3454fb6a1df0c42b5a9eb2dbcf24418ac04fc5125d4"
+  depends_on "tbb"
+
+  if OS.linux?
+    # Needed for the test
+    resource "Perl::Clone" do
+      url "https://cpan.metacpan.org/authors/id/G/GA/GARU/Clone-0.38.tar.gz"
+      mirror "http://search.cpan.org/CPAN/authors/id/G/GA/GARU/Clone-0.38.tar.gz"
+      sha256 "9fb0534bb7ef6ca1f6cc1dc3f29750d6d424394d14c40efdc77832fad3cebde8"
+    end
+    resource "Test::Deep" do
+      url "https://cpan.metacpna.org/authors/id/R/RJ/RJBS/Test-Deep-1.126.tar.gz"
+      mirror "http://search.cpan.org/CPAN/authors/id/R/RJ/RJBS/Test-Deep-1.126.tar.gz"
+      sha256 "159b42451e4018d9da97994f4ac46d5166abf9b6f343db30071c8fd1cfe0c7c2"
+    end
   end
 
   def install
+    if OS.linux?
+      # Needed for the test
+      resource("Perl::Clone").stage do
+        system "perl", "Makefile.PL", "LIB=#{libexec}/PerlLib", "PREFIX=#{libexec}/vendor"
+        system "make", "install"
+      end
+      resource("Test::Deep").stage do
+        system "perl", "Makefile.PL", "LIB=#{libexec}/PerlLib", "PREFIX=#{libexec}/vendor"
+        system "make", "install"
+      end
+    end
+
     system "make", "install", "prefix=#{prefix}"
 
     doc.install "MANUAL", "NEWS", "TUTORIAL"
@@ -34,10 +53,12 @@ class Bowtie < Formula
     inreplace pkgshare/"scripts/test/simple_tests.pl" do |s|
       s.gsub! "$bowtie = \"\"", "$bowtie = \"#{bin}/bowtie\""
       s.gsub! "$bowtie_build = \"\"", "$bowtie_build = \"#{bin}/bowtie-build\""
+      s.gsub! "--debug", ""
     end
   end
 
   test do
+    ENV.prepend_path "PERL5LIB", "#{libexec}/PerlLib" unless OS.mac?
     system "perl", pkgshare/"scripts/test/simple_tests.pl"
   end
 end
