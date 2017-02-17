@@ -8,10 +8,10 @@ class Vcfanno < Formula
   head "https://github.com/brentp/vcfanno.git"
 
   bottle do
-    cellar :any
-    sha256 "f347d7e77234ce7119789ccf4c9d67375edb46f67bf59123ac99d8cb6f754964" => :yosemite
-    sha256 "55c7e64a989303207b4663edcaed598b4414a3c9460211ca2fc7e6eea7a4af7a" => :mavericks
-    sha256 "fa722c41b7602e55cef998ecddd0a66cbf08fda2beea9e2bc07d573e5a91c929" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "086c916ed8c112cf0fa4272253439ab057d250f249dfaf97ee6ff52237951d40" => :sierra
+    sha256 "4e7287fd6e85766c8d4822827c5a0b5aadd9be1e6bf0ea06a1e59c1d1883532e" => :el_capitan
+    sha256 "5ea9cd3d6148e49c8397d773ff4eb1cb2a8133646914ad666f654c5550d2e285" => :yosemite
   end
 
   depends_on "go" => :build
