@@ -7,9 +7,7 @@ machine:
 checkout:
   post:
     - git remote set-url origin $CIRCLE_REPOSITORY_URL
-    - git fetch origin
-    - git checkout master
-    - git reset --hard origin/master
+    - git fetch --unshallow origin
     - git config user.name LinuxbrewTestBot
     - git config user.email testbot@linuxbrew.sh
     - sudo mkdir /home/linuxbrew
