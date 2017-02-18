@@ -10,10 +10,9 @@ class Samblaster < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4137edc9cfa83df097dc67c317dec52c3a782d74d5727540119be4208622f040" => :sierra
-    sha256 "b590cc9c46e59698c39d7ed144435d69b778fea516e69975820a49bc890ba6d5" => :el_capitan
-    sha256 "4083347ced3f2a97d54bc03136a3eb1466d29023e81f33dd03c3adc578acbd0c" => :yosemite
-    sha256 "276c523c8272bf832ca82f2553c6fb758155e989cdc67610cf808eebed940fdd" => :x86_64_linux
+    sha256 "74c3db0157feee98c2b8eba2b641e14aa9e6ced1f580e26f347176bfd28f2c64" => :sierra
+    sha256 "e9eb9875554987fc79f630f473bea38fe291c09e7dcd4ad19de80a220e0ebf45" => :el_capitan
+    sha256 "9d84519d0bdf7ad62d1b8177446067ea00fb991e30602ed2c865ea80b8310330" => :yosemite
   end
 
   def install
