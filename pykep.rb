@@ -22,6 +22,7 @@ class Pykep < Formula
     sha256 "cb2d8391863a88b706302e6df25b6c5e37a27e80815b5c5515b76100b0b14d09" => :sierra
     sha256 "e8e5333cd59c99fa90b7b4289d30384dc2b12dbbe03121382102fe5c38890b42" => :el_capitan
     sha256 "0afc43401b85d180f874ccb7fabcbd05217ca4625cc2cf6674b6cb84e30da640" => :yosemite
+    sha256 "8fd2c13f7babf75f300c307aa0efab464e6bd7ba2a67392416a553a251430c92" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
