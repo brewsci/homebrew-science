@@ -19,9 +19,9 @@ class Pykep < Formula
 
   bottle do
     cellar :any
-    sha256 "424c98063780416f22766c88dde90f0ebb073e7ab90da6cfcc5f767c5977110a" => :el_capitan
-    sha256 "7fb75ed46eaee27e90768fae8ac68a22f6cb0452327d7b91ee5ac205d639684f" => :yosemite
-    sha256 "6f78d58b1fa7234d8d241ebab7e6ed470da79f4353f1a1cd7b91fe6a7f3fb6d2" => :mavericks
+    sha256 "cb2d8391863a88b706302e6df25b6c5e37a27e80815b5c5515b76100b0b14d09" => :sierra
+    sha256 "e8e5333cd59c99fa90b7b4289d30384dc2b12dbbe03121382102fe5c38890b42" => :el_capitan
+    sha256 "0afc43401b85d180f874ccb7fabcbd05217ca4625cc2cf6674b6cb84e30da640" => :yosemite
   end
 
   depends_on "cmake" => :build
