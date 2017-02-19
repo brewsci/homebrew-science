@@ -17,9 +17,9 @@ class Paraview < Formula
   end
 
   bottle do
-    sha256 "120f2bbf4ca46df7405556512651ae59439d6f9e9a686cb147fb71fa9eb88d69" => :sierra
-    sha256 "6e04e207aa8c6e8bff3b3855609b9c5159455b9daf2426271232ce0af59fa3d2" => :el_capitan
-    sha256 "591c0a3211fff26b302fcc6476748bea1dbceed6226b5d544fe22c1d6eec1c21" => :yosemite
+    sha256 "4895939a08df32c6f52c675b0f55cfbb01677fceaef5738f49830bce3516e04b" => :sierra
+    sha256 "d77a3b99beab3d9f775f7fd976a672ba4358a8eeb0d5ba0fe9956d37ed75fa74" => :el_capitan
+    sha256 "a7273ba7b89a227acadb9e1307c36fd03a9399878bf69689b75526e90c1e51bf" => :yosemite
   end
 
   depends_on "cmake" => :build
