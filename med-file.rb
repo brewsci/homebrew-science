@@ -9,6 +9,7 @@ class MedFile < Formula
     sha256 "dcf654be1b4a2465b9499304e97e0a9219bda76ff313e099669d405039554425" => :sierra
     sha256 "8a6b484c712b37c888c1343b029e2dda5f55eaf6345f5a31eb855083c89f1115" => :el_capitan
     sha256 "40d8d84eb6ff3ea04fcb7e8dff7ac2c0c8834c6358ba06af8ed5430a3e3a308e" => :yosemite
+    sha256 "45ccb6b13378590b70399e770255618318ea667bfc0dd114ed671531542a7c9e" => :x86_64_linux
   end
 
   option "with-fortran",   "Install Fortran bindings"
