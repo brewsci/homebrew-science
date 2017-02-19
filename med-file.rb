@@ -4,6 +4,13 @@ class MedFile < Formula
   url "http://files.salome-platform.org/Salome/other/med-3.2.0.tar.gz"
   sha256 "d52e9a1bdd10f31aa154c34a5799b48d4266dc6b4a5ee05a9ceda525f2c6c138"
 
+  bottle do
+    cellar :any
+    sha256 "dcf654be1b4a2465b9499304e97e0a9219bda76ff313e099669d405039554425" => :sierra
+    sha256 "8a6b484c712b37c888c1343b029e2dda5f55eaf6345f5a31eb855083c89f1115" => :el_capitan
+    sha256 "40d8d84eb6ff3ea04fcb7e8dff7ac2c0c8834c6358ba06af8ed5430a3e3a308e" => :yosemite
+  end
+
   option "with-fortran",   "Install Fortran bindings"
   option "without-python", "Do not install Python bindings"
   option "with-test",      "Install tests"
