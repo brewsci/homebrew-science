@@ -1,11 +1,20 @@
 class Paraview < Formula
   desc "Multi-platform data analysis and visualization application"
   homepage "http://paraview.org"
-  url "http://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v5.2&type=source&os=all&downloadFile=ParaView-v5.2.0.tar.gz"
-  sha256 "894e42ef8475bb49e4e7e64f4ee2c37c714facd18bfbb1d6de7f69676b062c96"
-  revision 1
+  revision 2
 
   head "git://paraview.org/ParaView.git"
+
+  stable do
+    url "http://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v5.2&type=source&os=all&downloadFile=ParaView-v5.2.0.tar.gz"
+    sha256 "894e42ef8475bb49e4e7e64f4ee2c37c714facd18bfbb1d6de7f69676b062c96"
+
+    # Patch for hdf5 1.10.0
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/ac788d655f19ab08ba10e7ee82ed28689831cf48/paraview/paraview-5.2.0-hdf5.diff"
+      sha256 "ca2cc4befaabaf3daad32129414364fea7b09cb5292d12d92bc1f683131b9e74"
+    end
+  end
 
   bottle do
     sha256 "120f2bbf4ca46df7405556512651ae59439d6f9e9a686cb147fb71fa9eb88d69" => :sierra
@@ -22,7 +31,7 @@ class Paraview < Formula
   depends_on :python => :recommended
 
   depends_on "freetype"
-  depends_on "hdf5@1.8"
+  depends_on "hdf5"
   depends_on "jpeg"
   depends_on "libtiff"
   depends_on "fontconfig"
@@ -45,6 +54,7 @@ class Paraview < Formula
       -DVTK_USE_SYSTEM_PNG:BOOL=ON
       -DVTK_USE_SYSTEM_TIFF:BOOL=ON
       -DVTK_USE_SYSTEM_ZLIB:BOOL=ON
+      -DVTK_USE_SYSTEM_ZLIB:BOOL=NETCDF
     ]
 
     args << "-DPARAVIEW_BUILD_QT_GUI:BOOL=OFF" if build.without? "qt5"
