@@ -42,9 +42,9 @@ class Matplotlib < Formula
 
   bottle do
     cellar :any
-    sha256 "8fb917d0f590adb55da8b6ba436a39cc7f21c7e76476eb5034457cc0efc813d8" => :sierra
-    sha256 "6db57d061301b9034dea459a6d27d75436a46e9699ada6ed7da636d6062205e9" => :el_capitan
-    sha256 "5a62894589e12ff1e6a9123e959bf6a6c53f35f896344689464311d25d7f9a55" => :yosemite
+    sha256 "3732a83c29bf1135ffed62e95c87a28c3d0ca0dc7e415a2f37a00ef92ccd1cc2" => :sierra
+    sha256 "ff17d5c289928084f5e82189c721fc4416e2630326380aed186769184bd1bb5a" => :el_capitan
+    sha256 "98597dcc558540bf12f3f056b3c36ee023dc4a4b39ea4fe41da89783fa31a831" => :yosemite
   end
 
   option "without-python", "Build without python2 support"
