@@ -13,6 +13,7 @@ class Barrnap < Formula
     sha256 "a247a3d654a6a7a707150c40d25979bd27bec2dbd8359e73a3d83382d3230c06" => :sierra
     sha256 "a247a3d654a6a7a707150c40d25979bd27bec2dbd8359e73a3d83382d3230c06" => :el_capitan
     sha256 "a247a3d654a6a7a707150c40d25979bd27bec2dbd8359e73a3d83382d3230c06" => :yosemite
+    sha256 "daa585fcad3dbc827970f30ff093d51842a20b231358aad77b4b2a0aa472f045" => :x86_64_linux
   end
 
   depends_on "hmmer"
