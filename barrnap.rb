@@ -9,11 +9,10 @@ class Barrnap < Formula
   head "https://github.com/tseemann/barrnap.git"
 
   bottle do
-    cellar :any
-    sha256 "fec76972178844abb223274fc4a3c45b987168d2163c4074998100d688a97e6a" => :yosemite
-    sha256 "3d84c1dfdac365506270abd6df0e0c451ef43df9039829d52eefe7b59ada2b14" => :mavericks
-    sha256 "362da60326bfc61270f00879a30ecfb97e423893c210612c292f6c0e51ec4d81" => :mountain_lion
-    sha256 "a26f2a63f43fecac5a5bdead99174288a207075c60f278b7bcea7cbb3c708dad" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "a247a3d654a6a7a707150c40d25979bd27bec2dbd8359e73a3d83382d3230c06" => :sierra
+    sha256 "a247a3d654a6a7a707150c40d25979bd27bec2dbd8359e73a3d83382d3230c06" => :el_capitan
+    sha256 "a247a3d654a6a7a707150c40d25979bd27bec2dbd8359e73a3d83382d3230c06" => :yosemite
   end
 
   depends_on "hmmer"
