@@ -3,8 +3,8 @@ class Barrnap < Formula
   homepage "https://github.com/tseemann/barrnap"
   # tag "bioinformatics"
 
-  url "https://github.com/tseemann/barrnap/archive/0.7.tar.gz"
-  sha256 "ef2173e250f06cca7569c03404c9d4ab6a908ef7643e28901fbe9a732d20c09b"
+  url "https://github.com/tseemann/barrnap/archive/0.8.tar.gz"
+  sha256 "82004930767e92b61539c0de27ff837b8b7af01236e565f1473c63668cf0370f"
 
   head "https://github.com/tseemann/barrnap.git"
 
@@ -23,8 +23,8 @@ class Barrnap < Formula
   end
 
   test do
-    assert_match "##gff-version", shell_output("barrnap -q #{prefix}/examples/nohits.fna")
-    assert_match "Name=16S_rRNA", shell_output("barrnap -q #{prefix}/examples/small.fna")
-    assert_match "Name=16S_rRNA", shell_output("barrnap -q --kingdom mito #{prefix}/examples/mitochondria.fna")
+    assert_match "##gff-version", shell_output("#{bin}/barrnap -q #{prefix}/examples/nohits.fna")
+    assert_match "Name=16S_rRNA", shell_output("#{bin}/barrnap -q #{prefix}/examples/small.fna")
+    assert_match "Name=16S_rRNA", shell_output("#{bin}/barrnap -q --kingdom mito #{prefix}/examples/mitochondria.fna")
   end
 end
