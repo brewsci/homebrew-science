@@ -9,11 +9,10 @@ class Bowtie < Formula
   head "https://github.com/BenLangmead/bowtie.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3ca85697662a314603274a984ae8b407216f89de01c0b6b95103ab8ba923c904" => :el_capitan
-    sha256 "3a0c43fe5cd607245ebee54771d404c0ca61b3145ba3c658e4644ed752bd585f" => :yosemite
-    sha256 "d631a95fc614fcddf0c3b6ed940e773e19038156cce4d886f60349c20f980b31" => :mavericks
-    sha256 "daa8a6c051d309add874342e2358c3427db7c21915eb9b7e204a829a08f9d527" => :x86_64_linux
+    cellar :any
+    sha256 "73df585d60aaae9619f9e701b482d3415bf5f68d3ba10c88b273f39282d159c7" => :sierra
+    sha256 "75f6a82b0dfab633523558a22f976781cfd89c6ea9fa1c7a11f1f749dcf52d00" => :el_capitan
+    sha256 "63211bbe99c6dff70eafb3da17e0a169ed90a74db879fa71e43a83741e9a84cf" => :yosemite
   end
 
   depends_on "tbb"
