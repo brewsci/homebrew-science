@@ -37,6 +37,7 @@ class Matplotlib < Formula
   homepage "http://matplotlib.org"
   url "https://files.pythonhosted.org/packages/79/a9/db688816150a6ef91fd9ce284c828467f7271c7dd5982753a73a8e1aaafa/matplotlib-2.0.0.tar.gz"
   sha256 "36cf0985829c1ab2b8b1dae5e2272e53ae681bf33ab8bedceed4f0565af5f813"
+  revision 1
   head "https://github.com/matplotlib/matplotlib.git"
 
   bottle do
@@ -100,11 +101,6 @@ class Matplotlib < Formula
   resource "functools32" do
     url "https://files.pythonhosted.org/packages/c5/60/6ac26ad05857c601308d8fb9e87fa36d0ebf889423f47c3502ef034365db/functools32-3.2.3-2.tar.gz"
     sha256 "f6253dfbe0538ad2e387bd8fdfd9293c925d63553f5813c4e587745416501e6d"
-  end
-
-  resource "numpy" do
-    url "https://files.pythonhosted.org/packages/b7/9d/8209e555ea5eb8209855b6c9e60ea80119dab5eff5564330b35aa5dc4b2c/numpy-1.12.0.zip"
-    sha256 "ff320ecfe41c6581c8981dce892fe6d7e69806459a899e294e4bf8229737b154"
   end
 
   resource "pyparsing" do
