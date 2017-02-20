@@ -10,6 +10,7 @@ class Libbigwig < Formula
     sha256 "42ecdb4ce86c0c36b8ee6cf7a051fa4e7883a5c75788646dd6543333be20cf8a" => :sierra
     sha256 "84b47d8d8be71bec626d67cffd0fb8703d1849e26a02bd4badd99c76734e0ad3" => :el_capitan
     sha256 "355801a6ac75813749d9a83b72d53c4ddd25b21457420f28cacec8510a35585f" => :yosemite
+    sha256 "772303baa558556305b4b4cb3212c0c85c2e5927a010e5726d73dbb7c7b1cc0d" => :x86_64_linux
   end
 
   depends_on "curl"
