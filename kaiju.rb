@@ -1,8 +1,8 @@
 class Kaiju < Formula
   desc "Fast taxonomic classification of metagenomic sequencing reads"
   homepage "http://kaiju.binf.ku.dk/"
-  url "https://github.com/bioinformatics-centre/kaiju/archive/v1.4.2.tar.gz"
-  sha256 "cf18a12a9ae5a5a37532c80928f0dea8d08d2f99295123d2d1937d278ab9d137"
+  url "https://github.com/bioinformatics-centre/kaiju/archive/v1.5.0.tar.gz"
+  sha256 "7a36b9eab08f2e0b288245fe1b34472168f856825962cbe74ac327eea872cb29"
   head "https://github.com/bioinformatics-centre/kaiju.git"
   # tag "bioinformatics"
   # doi "10.1038/ncomms11257"
@@ -24,6 +24,6 @@ class Kaiju < Formula
   end
 
   test do
-    system "#{bin}/kaiju", "-h"
+    system "#{bin}/mkbwt", "-h"
   end
 end
