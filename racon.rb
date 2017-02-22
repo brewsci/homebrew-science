@@ -8,6 +8,7 @@ class Racon < Formula
     sha256 "4e0064b7bbbbe9d0b2a48483cd6dbc6628125ef7aaf3353cc2b7c442cc38c334" => :sierra
     sha256 "05fa8ab4a53f66f2f03e3ff13445b3d3a8237524c85f3aa87f3514066a26b2ec" => :el_capitan
     sha256 "2180eb1ef4474e637ffb73c38307899f009203ba29d137a80f0a38d57d9efd0d" => :yosemite
+    sha256 "70751396400020dae47ea26c15a6043472dad23cc764decb50cd999a60afb072" => :x86_64_linux
   end
 
   # doi "10.1101/gr.214270.116"
