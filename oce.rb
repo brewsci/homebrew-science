@@ -6,9 +6,9 @@ class Oce < Formula
   revision 1
 
   bottle do
-    sha256 "bdffb0c0b9af50f6753aba25846a6e3e72a9a4d51555fab5a64b90b1869148c4" => :sierra
-    sha256 "db6c72406e3e979f607437450d8605780ea7a8fa7d42d71f3f8139121d23dd4a" => :el_capitan
-    sha256 "8973f8f194e1deef3fb0e30d3cf24d4cac7934e096b831ac278fd7b5172ea77d" => :yosemite
+    sha256 "783d30afc83420341cc9298c8b3b07fc7b1ceba05c2e0db361a028ffc6dc70f6" => :sierra
+    sha256 "fba2c96ed92617615c8c5800bae7cc5f6d6778f43b04feb991bfe949e9302df4" => :el_capitan
+    sha256 "c2f69670afefb111c2cadae608f9c2ce3cd9acddb73cf7d74125918fcc4f4096" => :yosemite
   end
 
   option "without-opencl", "Build without OpenCL support"
