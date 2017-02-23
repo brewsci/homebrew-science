@@ -6,9 +6,9 @@ class Madlib < Formula
   head "https://github.com/apache/incubator-madlib.git"
 
   bottle do
-    sha256 "71f051842a24ba554179392c649e0f0bf8f6ba2d86a384a02f030beac833c5d8" => :el_capitan
-    sha256 "58e344a0e6ce85c91f0449108fda4b162771ac180dd3f603f1309aab7fde1a73" => :yosemite
-    sha256 "f3055c16600f8e90932783bd0ae7cde57e104619e241d6ea5245f227ba06f95d" => :mavericks
+    sha256 "5f29f29d2c1d606e7cb4e65b95d6930331ea304a846d396053278629c0a93229" => :sierra
+    sha256 "5da005c7eca05cb3fc087761be7cae549093d8309c506fc0f4b23c929c67cb30" => :el_capitan
+    sha256 "bb1dc58315be82716ae719f61194c4c8fcdb6ae41ed197b0aab19568a221568e" => :yosemite
   end
 
   boost_opts = []
