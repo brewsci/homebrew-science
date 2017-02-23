@@ -7,10 +7,9 @@ class Nglib < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "89dcf7bde5bec5a03f8c6810cfb5848082c64f68bcdd816714f0f925b98fd3b5" => :sierra
-    sha256 "6eb7f3cf7a00c68f351816970408f780264855d7d86365a427d19c81e803d606" => :el_capitan
-    sha256 "60161c1f084017f4ff9ece29807988924137150e979f176d2ad4ebad3e0fd64c" => :yosemite
+    sha256 "b196f891e9ee6bcbde3da4bed5b94ba5e781e41d229ec6086770ce17dcaf4481" => :sierra
+    sha256 "b5c8261d19aa2f1f9c12a852329f914e6f870a951a91f46559c8ebcaa423e398" => :el_capitan
+    sha256 "d83be6b9c3c153c1ef4c806be4013fe076cc34beb46a3ef671efc79dac728f30" => :yosemite
   end
 
   # These two conflict with each other, so we'll have at most one.
