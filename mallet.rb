@@ -6,6 +6,7 @@ class Mallet < Formula
     sha256 "da32cef7b10fcbfc1f5fc7878f779a5000d88f3363342b6c9ff1830f29d85803" => :sierra
     sha256 "f870d8dac822eeda26296f069d488547cb415c2eaaeb0fd0e822595308c0b390" => :el_capitan
     sha256 "f870d8dac822eeda26296f069d488547cb415c2eaaeb0fd0e822595308c0b390" => :yosemite
+    sha256 "d2556a240155cfc90259839cb5861d7c4d1e8e58d3210b934bbd5b1cf5897495" => :x86_64_linux
   end
 
   # tag "machine learning"
