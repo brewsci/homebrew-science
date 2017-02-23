@@ -55,4 +55,4 @@ test:
     - mv *bottle*.json *.tar.gz $CIRCLE_ARTIFACTS/ || true
 notify:
   webhooks:
-    - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/LinuxbrewTestBot
+    - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/ci-upload
