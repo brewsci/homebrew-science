@@ -4,7 +4,7 @@ class Netcdf < Formula
   url "ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-4.4.1.1.tar.gz"
   mirror "http://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.4.1.1.tar.gz"
   sha256 "4d44c6f4d02a8faf10ea619bfe1ba8224cd993024f4da12988c7465f663c8cae"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "4d9dccf8c350f5e97448713c83084c08501cb1047672c811ea1a15711811f6a9" => :sierra
@@ -101,6 +101,16 @@ class Netcdf < Formula
       if build.with? "test"
         cp Dir["#{lib}/*.dylib"], "cxx/.libs/"
         system "make", "check"
+      end
+    end
+
+    # SIP causes system Python not to play nicely with @rpath
+    if OS.mac?
+      %w[libnetcdf-cxx4.dylib libnetcdf_c++.dylib].each do |f|
+        macho = MachO.open("#{lib}/#{f}")
+        macho.change_dylib("@rpath/libnetcdf.11.dylib",
+                           "#{lib}/libnetcdf.11.dylib")
+        macho.write!
       end
     end
   end
