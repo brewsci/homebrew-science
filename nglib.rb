@@ -10,6 +10,7 @@ class Nglib < Formula
     sha256 "b196f891e9ee6bcbde3da4bed5b94ba5e781e41d229ec6086770ce17dcaf4481" => :sierra
     sha256 "b5c8261d19aa2f1f9c12a852329f914e6f870a951a91f46559c8ebcaa423e398" => :el_capitan
     sha256 "d83be6b9c3c153c1ef4c806be4013fe076cc34beb46a3ef671efc79dac728f30" => :yosemite
+    sha256 "7ef9d64db91c761ab96a348a12290b7f4ea05009405a35775af0850616fea956" => :x86_64_linux
   end
 
   # These two conflict with each other, so we'll have at most one.
