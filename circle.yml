@@ -29,6 +29,9 @@ dependencies:
         libxml-sax-perl
         make
         python-dev
+        python-matplotlib
+        python-numpy
+        python-scipy
         ruby2.0
         ruby2.0-dev
         subversion
