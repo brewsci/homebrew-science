@@ -9,6 +9,7 @@ class Madlib < Formula
     sha256 "5f29f29d2c1d606e7cb4e65b95d6930331ea304a846d396053278629c0a93229" => :sierra
     sha256 "5da005c7eca05cb3fc087761be7cae549093d8309c506fc0f4b23c929c67cb30" => :el_capitan
     sha256 "bb1dc58315be82716ae719f61194c4c8fcdb6ae41ed197b0aab19568a221568e" => :yosemite
+    sha256 "9975854d050e15f4e5713868f655cf5286c38b7c0480b004d9db47e6f7652b7f" => :x86_64_linux
   end
 
   boost_opts = []
