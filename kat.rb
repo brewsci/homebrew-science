@@ -9,6 +9,7 @@ class Kat < Formula
     sha256 "e4e71ec5c25cdce5485125f0cc250ea70b0b3c919c65137094aac2b1ecc1524d" => :sierra
     sha256 "7021ffc35cf101a0f59f7a038761ed3fd519f76ffade8fb5ee68691f8d94a048" => :el_capitan
     sha256 "ed765c79b89a0b392ff368a82b6807a03945c8d76d2245f6556036fbcf6f94bc" => :yosemite
+    sha256 "69161ef955046e0b80ab02ff0ff0dc04b69676c52274da94dcb2d9126a1a1a27" => :x86_64_linux
   end
 
   head do
