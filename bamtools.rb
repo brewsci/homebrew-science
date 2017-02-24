@@ -13,6 +13,7 @@ class Bamtools < Formula
     sha256 "e5abdc25d558b613464e597cf22d7c091ff4b5a6e7e39e8b519eff5cdb8771f6" => :sierra
     sha256 "dac25299b7679ed5e5286d20da0a03dd0d2f97fb7742bb45a838edc5982a607f" => :el_capitan
     sha256 "b46516a39fc2a220499236541ea44b4e00382c43441c030d0304bbf24c3f3680" => :yosemite
+    sha256 "497b05bfa96a7dccce145faeb40998f711c1be240135d6cad72f30b547a6919b" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
