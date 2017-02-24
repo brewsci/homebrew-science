@@ -17,8 +17,10 @@ class Vsearch < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "homebrew/dupes/zlib" unless OS.mac?
-  depends_on "bzip2" unless OS.mac?
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "zlib"
+  end
 
   def install
     system "./autogen.sh"
