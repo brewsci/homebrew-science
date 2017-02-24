@@ -107,13 +107,24 @@ class Opencv3 < Formula
       -DBUILD_JASPER=OFF
       -DBUILD_JPEG=OFF
       -DBUILD_TIFF=OFF
-      -DBUILD_OPENEXR=OFF
       -DBUILD_PNG=OFF
       -DBUILD_ZLIB=OFF
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DJPEG_INCLUDE_DIR=#{jpeg.opt_include}
       -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.#{dylib}
     ]
+
+    # cf https://github.com/Homebrew/homebrew-science/pull/5185
+    args << "-DBUILD_OPENEXR=" + (OS.linux? ? "ON" : "OFF")
+
+    if OS.linux?
+      # http://answers.opencv.org/question/121651/fata-error-lapacke_h_path-notfound-when-building-opencv-32/
+      args << "-DWITH_LAPACK=OFF"
+
+      # avoid error: '_mm_cvtps_ph' was not declared in this scope; cf https://github.com/RoboSherlock/robosherlock/issues/78#issuecomment-274469830
+      args << "-DOPENCV_EXTRA_CXX_FLAGS='-march=core-avx2'"
+    end
+
     args << "-DBUILD_opencv_java=" + arg_switch("java")
     args << "-DBUILD_opencv_python2=" + arg_switch("python")
     args << "-DBUILD_opencv_python3=" + arg_switch("python3")
