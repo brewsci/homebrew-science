@@ -71,12 +71,14 @@ class Opencv < Formula
       -DBUILD_ZLIB=OFF
       -DBUILD_TIFF=OFF
       -DBUILD_PNG=OFF
-      -DBUILD_OPENEXR=OFF
       -DBUILD_JASPER=OFF
       -DBUILD_JPEG=OFF
       -DJPEG_INCLUDE_DIR=#{jpeg.opt_include}
       -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.#{dylib}
     ]
+
+    args << "-DBUILD_OPENEXR=" + (OS.linux? ? "ON" : "OFF")
+
     args << "-DBUILD_TESTS=OFF" << "-DBUILD_PERF_TESTS=OFF" if build.without? "test"
     args << "-DBUILD_opencv_python=" + arg_switch("python")
     args << "-DBUILD_opencv_java=" + arg_switch("java")
