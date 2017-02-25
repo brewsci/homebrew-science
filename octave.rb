@@ -16,10 +16,9 @@ class Octave < Formula
   end
 
   bottle do
-    sha256 "0a0ea5171586dc7f232e5f95f766773e99f79d1c7d8742dcb9b1aedb2bc348ed" => :sierra
-    sha256 "17baa64fb2d4da8a7f1d315fb96a9fe0c5b7a7bae966ed7482dea473b4ce9b93" => :el_capitan
-    sha256 "3ca2abf97bf7f48d203a0f9dd1b7a9733e4bd5a00b5a1cae4b046a273ca683a5" => :yosemite
-    sha256 "4d49c5fbcaec2baa1ee21abe992ecc13fad05839690e916e486e148dbdd1f15f" => :x86_64_linux
+    sha256 "6d86c8b0f2cb5caf9b450a4b84127658d2bcafff7c361080036824ab6d0c7000" => :sierra
+    sha256 "2609a3b625af47268b5c55ee012672d7b624eb1cd0524c881b420619d502878d" => :el_capitan
+    sha256 "0f902c66f9d7cf70d7cb64b9f78bcc3695af653651ef127468c147c21f826d09" => :yosemite
   end
 
   if OS.mac? && DevelopmentTools.clang_version < "7.0"
