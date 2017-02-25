@@ -1,41 +1,39 @@
 class Openni2 < Formula
-  homepage "http://structure.io/openni"
-  url "https://github.com/occipital/OpenNI2/archive/2.2-beta2.tar.gz"
-  version "2.2.0.33"
-  sha256 "28302633ddfbcba5fc1ea82737e783fe031714ef49fbbee78ee4309171b7c5f7"
+  desc "Open source natural interaction library, version 2"
+  homepage "https://structure.io/openni"
+  url "https://github.com/occipital/OpenNI2/archive/v2.2.0-debian.tar.gz"
+  version "2.2.0-debian"
+  sha256 "08f6842f20d1098ab2ebafadaac0130ffae5abd34cdf464bb6100cbe01ed95a8"
+  version_scheme 1
   head "https://github.com/occipital/OpenNI2.git"
 
-  option :universal
   option "with-docs", "Build documentation using javadoc (might fail with Java 1.8)"
+  option "with-samples", "Install Samples"
 
   depends_on :python
+  depends_on :java
   depends_on "libusb"
   depends_on "doxygen" => :build if build.with? "docs"
-
-  patch :DATA if build.without? "docs"
-
-  stable do
-    patch do
-      url "https://github.com/occipital/OpenNI2/pull/18.patch"
-      sha256 "7bcf6a66c28d7385e3cd11755642ca8394e39b63d144b2a6724cf731b6020e18"
-    end
-  end
+  depends_on "linuxbrew/xorg/mesa" unless OS.mac?
+  depends_on "freeglut" unless OS.mac?
 
   def install
-    ENV.universal_binary if build.universal?
+    if OS.mac?
+      inreplace "source/Tools/NiViewer/Draw.h", "#include <GL/gl.h>", "#include <OpenGL/gl.h>"
+    end
 
     system "make", "all"
     system "make", "doc" if build.with? "docs"
+    inreplace "Packaging/Harvest.py", "self.copyDocumentation(docDir)", "" if build.without? "docs"
     mkdir "out"
-    arch = (MacOS.version <= :leopard && !build.universal?) ? "x86" : "x64"
-    system "python", "Packaging/Harvest.py", "out", arch
+    system "python", "Packaging/Harvest.py", "out", "x64"
 
     cd "out"
 
     (lib+"ni2").install Dir["Redist/*"]
     (include+"ni2").install Dir["Include/*"]
-    (share+"openni2/tools").install Dir["Tools/*"]
-    (share+"openni2/samples").install Dir["Samples/*"]
+    (pkgshare+"tools").install Dir["Tools/*"]
+    (pkgshare+"samples").install Dir["Samples/*"] if build.with? "samples"
     doc.install "Documentation" if build.with? "docs"
   end
 
@@ -49,18 +47,3 @@ class Openni2 < Formula
     EOS
   end
 end
-
-__END__
-diff --git a/Packaging/Harvest.py b/Packaging/Harvest.py
-index 4ce9ed2..fad7017 100755
---- a/Packaging/Harvest.py
-+++ b/Packaging/Harvest.py
-@@ -312,7 +312,7 @@ $(OUTPUT_FILE): copy-redist
-         
-         # Documentation
-         docDir = os.path.join(self.outDir, 'Documentation')
--        self.copyDocumentation(docDir)
-+        #self.copyDocumentation(docDir)
-         
-         # Include
-         shutil.copytree(os.path.join(rootDir, 'Include'), os.path.join(self.outDir, 'Include'))
