@@ -1,12 +1,11 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  revision 4
 
   stable do
-    url "https://ftpmirror.gnu.org/octave/octave-4.2.0.tar.lz"
-    mirror "https://ftp.gnu.org/gnu/octave/octave-4.2.0.tar.lz"
-    sha256 "119d45c21d567c02eb0042987da4676aa25c7c2fde6e119053e0c6d779a47ba7"
+    url "https://ftpmirror.gnu.org/octave/octave-4.2.1.tar.gz"
+    mirror "https://ftp.gnu.org/gnu/octave/octave-4.2.1.tar.gz"
+    sha256 "80c28f6398576b50faca0e602defb9598d6f7308b0903724442c2a35a605333b"
 
     # Fix bug #49053: retina scaling of figures
     # see https://savannah.gnu.org/bugs/?49053
@@ -46,6 +45,7 @@ class Octave < Formula
     depends_on "autoconf"      => :build
     depends_on "automake"      => :build
     depends_on "icoutils"      => :build
+    depends_on "librsvg"       => :build
   end
 
   # build the pdf docs
@@ -178,6 +178,13 @@ class Octave < Formula
     ENV["FONTCONFIG_PATH"] = "/opt/X11/lib/X11/fontconfig"
 
     if build.stable?
+      # Remove for > 4.2.1
+      # Remove inline keyword on file_stat destructor which breaks macOS
+      # compilation (bug #50234).
+      # Upstream commit from 24 Feb 2017 http://hg.savannah.gnu.org/hgweb/octave/rev/a6e4157694ef
+      inreplace "liboctave/system/file-stat.cc",
+        "inline file_stat::~file_stat () { }", "file_stat::~file_stat () { }"
+
       resource("retina-scaling-patch").stage do
         inreplace "download.php" do |s|
           s.gsub! "#include <QApplication.h>", "#include <QApplication>"
