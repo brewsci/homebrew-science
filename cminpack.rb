@@ -7,9 +7,9 @@ class Cminpack < Formula
 
   bottle do
     cellar :any
-    sha256 "7106b511d0a7c2331f5d48fce34405f1e3bb290a06920f554fef1f290f849b78" => :yosemite
-    sha256 "a97298ee71603be4b8f67122b0652b43bf694fbc7c0f0780e2433e0f3ce22217" => :mavericks
-    sha256 "89476a80b512c3b64d0a2785ce1508c7f3b58370530ffe4c711f57029b790af2" => :mountain_lion
+    sha256 "4f5232111d1ff92aa9798b46adf94ffe7add2f9c24739b84b3bc1a1f7e0ca220" => :sierra
+    sha256 "1aecfdfb060db51bf4c053095b53c6d2fd28f9d473a3fd705741dfd72f22799d" => :el_capitan
+    sha256 "5bc9046f3c4987025e273aac525342bda48fae68c651038dceebae88c4e4296b" => :yosemite
   end
 
   depends_on "cmake" => :build
