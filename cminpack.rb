@@ -1,7 +1,8 @@
 class Cminpack < Formula
+  desc "Solves nonlinear equations and nonlinear least squares problems"
   homepage "http://devernay.free.fr/hacks/cminpack/cminpack.html"
-  url "http://devernay.free.fr/hacks/cminpack/cminpack-1.3.4.tar.gz"
-  sha256 "3b517bf7dca68cc9a882883db96dac0a0d37d72aba6dfb0c9c7e78e67af503ca"
+  url "https://github.com/devernay/cminpack/archive/v1.3.6.tar.gz"
+  sha256 "3c07fd21308c96477a2c900032e21d937739c233ee273b4347a0d4a84a32d09f"
   head "https://github.com/devernay/cminpack.git"
 
   bottle do
@@ -14,11 +15,7 @@ class Cminpack < Formula
   depends_on "cmake" => :build
 
   def install
-    # https://github.com/devernay/cminpack/pull/4
-    # https://github.com/Homebrew/homebrew-science/issues/2696
-    inreplace "cmake/CMakeLists.txt", "${CMAKE_ROOT}", "share/cmake" unless head?
-
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "make", "install"
 
     man3.install Dir["doc/*.3"]
