@@ -1,8 +1,8 @@
 class GraphTool < Formula
   desc "efficient network analysis"
   homepage "http://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.20.tar.bz2"
-  sha256 "fc9df701062c556b818824aa9578368ef0faec195696b008512ee948db3ae628"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.21.tar.bz2"
+  sha256 "483c6faefd3db4988482c560e6f9e5aeccc658dbd85ff0252b806ca8caf1da45"
 
   bottle do
     sha256 "7c3dc659d868e4423cb14278741f6d6c9bfc701496f46ba5c624c1111e9bcf75" => :sierra
