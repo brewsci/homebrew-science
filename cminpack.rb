@@ -13,6 +13,7 @@ class Cminpack < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "openblas" unless OS.mac?
 
   def install
     system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
@@ -21,11 +22,14 @@ class Cminpack < Formula
     man3.install Dir["doc/*.3"]
     doc.install Dir["doc/*"]
     pkgshare.install "examples"
+
+    lib64 = Pathname.new "#{lib}64"
+    mv lib64, lib if lib64.directory?
   end
 
   test do
     cp pkgshare/"examples/thybrdc.c", testpath
-    system ENV.cc, "-o", testpath/"thybrdc", "-I#{include}/cminpack-1", "thybrdc.c", "-L#{lib}", "-lcminpack"
+    system ENV.cc, "-o", testpath/"thybrdc", "-I#{include}/cminpack-1", "thybrdc.c", "-L#{lib}", "-lcminpack", "-lm"
     system testpath/"thybrdc"
   end
 end
