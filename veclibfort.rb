@@ -1,3 +1,11 @@
+class MacOSRequirement < Requirement
+  fatal true
+  satisfy(build_env: false) { OS.mac? }
+  def message
+    "macOS is required."
+  end
+end
+
 class Veclibfort < Formula
   desc "GNU Fortran compatibility for Apple's vecLib"
   homepage "https://github.com/mcg1969/vecLibFort"
@@ -14,10 +22,10 @@ class Veclibfort < Formula
     sha256 "34fc5eda407df36135633d678adc813890d291f77132118ff98756944edc0819" => :mavericks
   end
 
+  depends_on MacOSRequirement
   depends_on :fortran
 
   def install
-    odie "Use openblas instead of veclibfort on Linux" if OS.linux?
     ENV.m64 if MacOS.prefer_64_bit?
     system "make", "all"
     system "make", "PREFIX=#{prefix}", "install"
