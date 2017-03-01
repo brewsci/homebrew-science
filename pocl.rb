@@ -1,5 +1,5 @@
 class Pocl < Formula
-  homepage "http://pocl.sourceforge.net"
+  homepage "https://pocl.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/pocl/pocl-0.10.tar.gz"
   sha256 "e9c38f774a77e61f66d850b705a5ba42d49356c40e75733db4c4811e091e5088"
 
