@@ -1,8 +1,8 @@
 class Spades < Formula
   desc "SPAdes: de novo genome assembly"
   homepage "http://bioinf.spbau.ru/spades/"
-  url "http://cab.spbu.ru/files/release3.10.0/SPAdes-3.10.0.tar.gz"
-  sha256 "cd44686021daffb3698c85fdf292d193aee702a01ffc71346c921da1a5bd0b41"
+  url "http://cab.spbu.ru/files/release3.10.1/SPAdes-3.10.1.tar.gz"
+  sha256 "d49dd9eb947767a14a9896072a1bce107fb8bf39ed64133a9e2f24fb1f240d96"
   # tag "bioinformatics"
   # doi "10.1089/cmb.2012.0021"
 
@@ -25,10 +25,6 @@ class Spades < Formula
   end
 
   def install
-    # Fix error "'strdup' was not declared in this scope"
-    # Reported 2 Feb 2017 https://github.com/ablab/spades/issues/12
-    inreplace "src/common/utils/autocompletion.cpp", /(#include <string>)/,
-                                                     "\\1\n#include <string.h>"
     mkdir "src/build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
