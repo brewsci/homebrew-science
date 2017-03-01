@@ -1,6 +1,6 @@
 class Wcalc < Formula
   desc "Tool for the analysis and synthesis of transmission line structures."
-  homepage "http://wcalc.sourceforge.net"
+  homepage "https://wcalc.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/wcalc/wcalc/wcalc-1.1/wcalc-1.1.tar.gz"
   sha256 "7f9a06a66560cd6b21358b964bb4378a2f6016a4ec0582f37ddbb20aded83b5e"
 
