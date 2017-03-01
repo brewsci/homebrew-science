@@ -1,5 +1,5 @@
 class Mrfast < Formula
-  homepage "http://mrfast.sourceforge.net/"
+  homepage "https://mrfast.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/mrfast/mrfast/mrfast-2.6.1.0.tar.gz"
   sha256 "dc040b1517945f900cbc9d69ed4528573f681bf723ccd1431b47cb5c22b2cdef"
 
