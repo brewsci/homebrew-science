@@ -1,5 +1,5 @@
 class CeleraAssembler < Formula
-  homepage "http://wgs-assembler.sourceforge.net/"
+  homepage "https://wgs-assembler.sourceforge.io/"
   # doi "myers2000whole" => "10.1126/science.287.5461.2196",
   #   "levy2007diploid" => "10.1371/journal.pbio.0050254",
   #   "miller2008aggressive" => "10.1093/bioinformatics/btn548"
