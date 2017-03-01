@@ -8,7 +8,7 @@ class Openblas < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
     sha256 "617d14f7d52b594bcd0cc9bf9e1b32a61b9854c3f2245d9aa9671e8b9fbb3563" => :el_capitan
     sha256 "302263ab9802a45e8a50da29181b397f538959c9fd103a81a65ad5b13be12fe5" => :yosemite
     sha256 "a7b6354036ed34040d64d382d208fb7293369767806a78238bb29c60858f0bd4" => :mavericks
