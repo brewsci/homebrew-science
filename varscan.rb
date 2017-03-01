@@ -1,6 +1,6 @@
 class Varscan < Formula
   desc "Variant detection in massively parallel sequencing data"
-  homepage "http://varscan.sourceforge.net/"
+  homepage "https://varscan.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/varscan/VarScan.v2.3.7.jar"
   sha256 "1060f823fc82a182fcc4ae5824a3639b35ff6d969657c536f709f24b2324ed12"
   # doi "10.1101/gr.129684.111"
