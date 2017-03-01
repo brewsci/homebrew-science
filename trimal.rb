@@ -10,7 +10,7 @@ class Trimal < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
     sha256 "76b6694d725d1f3a65bd4d1f775dc237da52bd8f2a5262ff2f9072e16f8b13e2" => :yosemite
     sha256 "16ce4cf3b913dce9483a546a9c5d72c773055c9761dc4335bf50d6c3e4c1a144" => :mavericks
     sha256 "6bd8489fb354901de7a24ea46267d5d2011690b420561fded76277fd73694eea" => :mountain_lion
