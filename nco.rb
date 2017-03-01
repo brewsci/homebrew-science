@@ -1,6 +1,6 @@
 class Nco < Formula
   desc "Command-line operators for netCDF and HDF files"
-  homepage "http://nco.sourceforge.net"
+  homepage "https://nco.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/nco/nco-4.6.4.tar.gz"
   sha256 "1c2ab906fc81f91bf8aff3e6da27ae7a4c89821c5836d787188fff5262418062"
 
