@@ -20,7 +20,8 @@ class Root6 < Formula
   depends_on "xrootd" => :optional
   depends_on "fftw" => :optional
   depends_on "openssl" => :recommended # use homebrew's openssl
-  depends_on :python => :recommended # make sure we install pyroot
+  depends_on :python => :recommended
+  depends_on :python3 => :optional
   depends_on :x11 => :recommended if OS.linux?
   depends_on :fortran => :recommended # enabled by default since 6.08.00
   depends_on "gsl" => :recommended
@@ -34,6 +35,8 @@ class Root6 < Formula
   end
 
   def install
+    dylib = OS.mac? ? "dylib" : "so"
+
     # brew audit doesn't like non-executables in bin
     # so we will move {thisroot,setxrd}.{c,}sh to libexec
     # (and change any references to them)
@@ -55,13 +58,41 @@ class Root6 < Formula
       -Dbuiltin_freetype=ON
       -Droofit=ON
       -Dminuit2=ON
-      #{config_opt("python")}
       #{config_opt("ssl", "openssl")}
       #{config_opt("xrootd")}
       #{config_opt("mathmore", "gsl")}
       #{config_opt("fortran")}
       #{config_opt("fftw3", "fftw")}
     ]
+
+    if build.with?("python3") && build.with?("python")
+      # Root6 Does not support building both python 2 and 3 versions
+      odie "Root6: Does not support building both python 2 and 3 wrappers"
+    elsif build.with?("python") || build.with?("python3")
+      python_executable = `which python`.strip if build.with? "python"
+      python_executable = `which python3`.strip if build.with? "python3"
+      python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
+      python_include = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp
+      python_version = "python" + `#{python_executable} -c 'import sys;print(sys.version[:3])'`.chomp
+
+      # CMake picks up the system's python dylib, even if we have a brewed one.
+      if File.exist? "#{python_prefix}/Python"
+        python_library = "#{python_prefix}/Python"
+      elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
+        python_library = "#{python_prefix}/lib/lib#{python_version}.a"
+      elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.#{dylib}"
+        python_library = "#{python_prefix}/lib/lib#{python_version}.#{dylib}"
+      elsif File.exist? "#{python_prefix}/lib/x86_64-linux-gnu/lib#{python_version}.#{dylib}"
+        python_library = "#{python_prefix}/lib/x86_64-linux-gnu/lib#{python_version}.so"
+      else
+        odie "No libpythonX.Y.{dylib|so|a} file found!"
+      end
+      args << "-DPYTHON_EXECUTABLE='#{python_executable}'"
+      args << "-DPYTHON_INCLUDE_DIR='#{python_include}'"
+      args << "-DPYTHON_LIBRARY='#{python_library}'"
+    end
+    args << "-Dpython=" + ((build.with? "python") ? "ON" : "OFF")
+    args << "-Dpython3=" + ((build.with? "python3") ? "ON" : "OFF")
 
     # ROOT forbids running CMake in the root of the source directory,
     # so run in a subdirectory (there's already one called `build`)
