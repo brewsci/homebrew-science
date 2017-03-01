@@ -1,6 +1,6 @@
 class Maxima < Formula
   desc "Computer algebra system"
-  homepage "http://maxima.sourceforge.net/"
+  homepage "https://maxima.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.38.1-source/maxima-5.38.1.tar.gz"
   sha256 "0e866536ab5847ec045ba013570f80f36206ca6ce07a5d13987010bcb321c6dc"
 
