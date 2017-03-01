@@ -1,6 +1,6 @@
 class Mummer < Formula
   desc "Alignment of large-scale DNA and protein sequences"
-  homepage "http://mummer.sourceforge.net/"
+  homepage "https://mummer.sourceforge.io/"
   # doi "10.1186/gb-2004-5-2-r12"
   # tag "bioinformatics"
 
