@@ -1,5 +1,5 @@
 class EnblendEnfuse < Formula
-  homepage "http://enblend.sourceforge.net/"
+  homepage "https://enblend.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/enblend/enblend-enfuse/enblend-enfuse-4.1/enblend-enfuse-4.1.1.tar.gz"
   sha256 "9d0947633ebaa0dc1211331b31009408de6fe2108751ad4190760e3a9f181bc9"
   revision 4
