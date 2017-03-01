@@ -8,7 +8,7 @@ class Einspline < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
     sha256 "f66a26ba0e61f0787e41f2a35e3b8a71f408a1c8e755e27f14c777102ca1f4bc" => :el_capitan
     sha256 "1200fc9020a7df9d4179b72c309bf1ee12c130140699f1c65762c3f59b611817" => :yosemite
     sha256 "825439011bdb1fa953863b8b5a6af0b4faa328d1661c051946029e8ca7b9441a" => :mavericks
