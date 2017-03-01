@@ -1,6 +1,6 @@
 class Ray < Formula
   desc "Parallel genome assemblies for parallel DNA sequencing"
-  homepage "http://denovoassembler.sourceforge.net"
+  homepage "https://denovoassembler.sourceforge.io/"
   bottle do
     cellar :any
     sha256 "d7619f3b6326643113fabfcbfe2c2ed6db57c8748e6679491050b1bdecadcb01" => :el_capitan
