@@ -1,6 +1,6 @@
 class Bbtools < Formula
   desc "suite of Brian Bushnell's tools for manipulating reads"
-  homepage "http://bbmap.sourceforge.net/"
+  homepage "https://bbmap.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/bbmap/BBMap_36.71.tar.gz"
   sha256 "663d8e2ab16560f86017bed623934beb043038f88fdf6d2350c43577b650dd8b"
   # tag "bioinformatics"
