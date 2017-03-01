@@ -1,6 +1,6 @@
 class Snpeff < Formula
   desc "Genetic variant annotation and effect prediction toolbox"
-  homepage "http://snpeff.sourceforge.net/"
+  homepage "https://snpeff.sourceforge.io/"
   # tag "bioinformatics"
   # doi "10.4161/fly.19695"
 
