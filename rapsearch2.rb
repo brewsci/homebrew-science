@@ -1,6 +1,6 @@
 class Rapsearch2 < Formula
   desc "Reduced Alphabet based Protein similarity Search"
-  homepage "http://rapsearch2.sourceforge.net/"
+  homepage "https://rapsearch2.sourceforge.io/"
   bottle do
     sha256 "9ac3cea477b5f6cb59f355527e0087abdfc8d9f79cdf8338a32e7dfcc109368a" => :el_capitan
     sha256 "f0ca7688f5aac5f23995b99c7f975770fbd74ce5033d23f23b44a9ac62a8ae77" => :yosemite
