@@ -8,7 +8,7 @@ class Geneid < Formula
 
   bottle do
     cellar :any_skip_relocation
-    revision 1
+    rebuild 1
     sha256 "b6004ab561a4abb8989ff842059c0d69c86b3aa65a496fb2d2ab73f584dfa290" => :el_capitan
     sha256 "8343b87beee45227edcd3f7b523ae84773cc713f73e6e651ccba445cc223160b" => :yosemite
     sha256 "2f9ac83038dc708ec3cb2503e5e7b62c33151206b2996e7f5c82595be435a531" => :mavericks
