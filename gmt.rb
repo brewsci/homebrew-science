@@ -1,12 +1,11 @@
 class Gmt < Formula
   desc "Tools for processing and displaying xy and xyz datasets"
   homepage "http://gmt.soest.hawaii.edu/"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.3.1-src.tar.xz"
-  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-5.3.1-src.tar.xz"
-  mirror "ftp://gd.tuwien.ac.at/pub/gmt/gmt-5.3.1-src.tar.xz"
-  mirror "ftp://ftp.iris.washington.edu/pub/gmt/gmt-5.3.1-src.tar.xz"
-  sha256 "e46934c356561b15e81f6b766723a577f0c476b685a307d2a351b8569ac350a2"
-  revision 3
+  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.3.2-src.tar.xz"
+  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-5.3.2-src.tar.xz"
+  mirror "ftp://gd.tuwien.ac.at/pub/gmt/gmt-5.3.2-src.tar.xz"
+  mirror "ftp://ftp.iris.washington.edu/pub/gmt/gmt-5.3.2-src.tar.xz"
+  sha256 "b2a14bae9e50375ff06770ba2db0db2cc98baaf15d77eaf89f3d44692cb11880"
 
   bottle do
     sha256 "51c921372c8863cebe59ad16cfef00081afe406ac2c22fd510438361ca7507d9" => :sierra
