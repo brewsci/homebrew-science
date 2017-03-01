@@ -8,7 +8,7 @@ class Ncl < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
     sha256 "ae9815430b8e5f3f13f15aa7a7721cded1418983207f19f6e42d39ee0fa732e3" => :yosemite
     sha256 "ce0281513cf22d3c6dd7e419ced8f672fd649bb32ca57ed6de5872b292c8ddea" => :mavericks
     sha256 "f800df10f205f1fe880877e18bcd7dee1c383b9e7b071f62484ea3c14404fb69" => :mountain_lion
