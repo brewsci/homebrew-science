@@ -1,5 +1,5 @@
 class Vcake < Formula
-  homepage "http://vcake.sourceforge.net/"
+  homepage "https://vcake.sourceforge.io/"
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btm451"
 
