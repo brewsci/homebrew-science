@@ -2,7 +2,7 @@ require File.expand_path("../Requirements/cuda_requirement", __FILE__)
 
 class Einspline < Formula
   desc "C library for cubic B-splines in 1, 2 and 3D"
-  homepage "http://einspline.sourceforge.net"
+  homepage "https://einspline.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/einspline/einspline-0.9.2.tar.gz"
   sha256 "fc9ec0475f7711ef711c8b6ea28d3dd11a173adaa381df80c2df4c5cc22d4afe"
 
