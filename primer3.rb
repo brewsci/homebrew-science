@@ -1,6 +1,6 @@
 class Primer3 < Formula
   desc "Program for designing PCR primers"
-  homepage "http://primer3.sourceforge.net/"
+  homepage "https://primer3.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/primer3/primer3/2.3.7/primer3-2.3.7.tar.gz"
   sha256 "9e37a301d2ca9e5034c9a9d4afcb3e90041f6cc44c658b63598d0ccfcb176e5e"
 
