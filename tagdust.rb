@@ -1,6 +1,6 @@
 class Tagdust < Formula
   desc "Generic method to extract reads from sequencing data"
-  homepage "http://tagdust.sourceforge.net"
+  homepage "https://tagdust.sourceforge.io/"
   url "https://downloads.sourceforge.net/tagdust/files/tagdust-2.33.tar.gz"
   sha256 "8825e2975eae11e19033f233b5951517b5126bd19e049a500b1e048eaa215f84"
   bottle do
