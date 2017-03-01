@@ -1,6 +1,6 @@
 class Ncl < Formula
   desc "A C++ library for parsing NEXUS files"
-  homepage "http://ncl.sourceforge.net/"
+  homepage "https://ncl.sourceforge.io/"
   # doi "10.1093/bioinformatics/btg319"
   # tag "bioinformatics"
   url "https://downloads.sourceforge.net/project/ncl/NCL/ncl-2.1.18/ncl-2.1.18.tar.gz"
