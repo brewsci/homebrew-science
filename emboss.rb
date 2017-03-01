@@ -1,5 +1,5 @@
 class Emboss < Formula
-  homepage "http://emboss.sourceforge.net/"
+  homepage "https://emboss.sourceforge.io/"
   url "ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz"
   mirror "http://mirrors.mit.edu/gentoo-distfiles/distfiles/EMBOSS-6.6.0.tar.gz"
   mirror "http://science-annex.org/pub/emboss/EMBOSS-6.6.0.tar.gz"
