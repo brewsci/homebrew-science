@@ -1,5 +1,5 @@
 class Samtools01 < Formula
-  homepage "http://samtools.sourceforge.net/"
+  homepage "https://samtools.sourceforge.io/"
   # doi "10.1093/bioinformatics/btp352"
   # tag "bioinformatics"
 
