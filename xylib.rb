@@ -1,6 +1,6 @@
 class Xylib < Formula
   desc "Library for reading x-y data files"
-  homepage "http://xylib.sourceforge.net"
+  homepage "https://xylib.sourceforge.io/"
   url "https://github.com/wojdyr/xylib/releases/download/v1.5/xylib-1.5.tar.bz2"
   sha256 "cdda7aa84e548e90ad1b0afd41fbee5d90232ab3da0968661a7f37f801ea53e4"
 
