@@ -97,7 +97,7 @@ class GraphTool < Formula
       config_args_x = ["PYTHON=#{python}"]
       if OS.mac?
         config_args_x << "PYTHON_LDFLAGS=-undefined dynamic_lookup"
-        config_args_x << "PYTHON_EXTRA_LDFLAGS=-undefined dynamic_lookup"
+        config_args_x << "PYTHON_EXTRA_LIBS=-undefined dynamic_lookup"
       end
       config_args_x << "--with-python-module-path=#{lib}/python#{version}/site-packages"
 
