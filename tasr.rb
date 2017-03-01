@@ -4,10 +4,9 @@ class Tasr < Formula
   # doi "10.1371/journal.pone.0019816"
   # tag "bioinformatics"
 
-  url "http://www.bcgsc.ca/platform/bioinfo/software/tasr/releases/1.5.1/tasr_v1-5-1.tar.gz"
-  version "1.5.1"
-  sha256 "2101283f6a58b1ce83d29f09ac55d52a6ac863170ebafb3b4844be33a87cbcc1"
-  revision 1
+  url "http://www.bcgsc.ca/platform/bioinfo/software/tasr/releases/1.6.2/tasr_v1-6-2.tar.gz"
+  version "1.6.2"
+  sha256 "8e92f58a4f0a5b986f581299b81c9447a2805b3da2a7b8afa1f5254ba8126207"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,8 +18,9 @@ class Tasr < Formula
 
   def install
     bin.install "TASR"
-    doc.install "TASR.readme"
-    pkgshare.install %W[test tools]
+    bin.install "TASR-Bloom"
+    doc.install "TASR-readme.txt"
+    pkgshare.install %w[test tools lib]
   end
 
   test do
