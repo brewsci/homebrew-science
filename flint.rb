@@ -8,7 +8,7 @@ class Flint < Formula
   head "https://github.com/wbhart/flint2.git", :branch => "trunk"
 
   bottle do
-    revision 1
+    rebuild 1
     sha256 "c1f138713448831b1c0b7139f8b5f6e5db1efa24ea36e362fa034b7583b4dfd2" => :el_capitan
     sha256 "7d9eb3063db06aeba1e2f56dc996f18ec956ac5cebb119b0f3b731f616d87158" => :yosemite
     sha256 "698ffed40c561b5235aff6e4fd577786ceb28b0c0de3fb5a708401ad0dc1bba4" => :mavericks
