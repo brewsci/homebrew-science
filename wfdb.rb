@@ -6,7 +6,7 @@ class Wfdb < Formula
   head "https://github.com/bemoody/wfdb.git"
 
   bottle do
-    revision 1
+    rebuild 1
     sha256 "c33ed3f0cf3d7a1fd01e4906c29300657709231bdd8b036e01ec2c4bb7853716" => :yosemite
     sha256 "76a857947309a59644fef27374218e1e0f587412802f3f15c58550d70304a45c" => :mavericks
     sha256 "cb0b49a7d841be2c4600339aabb48ee02b605c77197d873b7054b794c0cd3c90" => :mountain_lion
