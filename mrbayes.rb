@@ -1,6 +1,6 @@
 class Mrbayes < Formula
   desc "Bayesian inference of phylogenies and evolutionary models"
-  homepage "http://mrbayes.sourceforge.net/"
+  homepage "https://mrbayes.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/mrbayes/mrbayes/3.2.6/mrbayes-3.2.6.tar.gz"
   sha256 "f8fea43b5cb5e24a203a2bb233bfe9f6e7f77af48332f8df20085467cc61496d"
   head "https://mrbayes.svn.sourceforge.net/svnroot/mrbayes/trunk/"
