@@ -1,5 +1,5 @@
 class Maq < Formula
-  homepage "http://maq.sourceforge.net/"
+  homepage "https://maq.sourceforge.io/"
   # tag "bioinformatics"
   # doi "10.1101/gr.078212.108"
 
