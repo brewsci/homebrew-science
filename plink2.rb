@@ -12,7 +12,7 @@ class Plink2 < Formula
 
   bottle do
     cellar :any
-    revision 1
+    rebuild 1
     sha256 "02fcc689eaa65c3a2125ae9431c8c023856a17a39c0df8b10d073aca31019ded" => :yosemite
     sha256 "90b3d7eb2189afc68c05764cc88c826b5cd72386fa0e66b779ce439fb052c7e5" => :mavericks
     sha256 "912423fe36c51e093ee43ae8d35382a1ebdff619ce197a88ff0193498f27e85b" => :mountain_lion
