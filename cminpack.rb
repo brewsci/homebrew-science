@@ -10,6 +10,7 @@ class Cminpack < Formula
     sha256 "4f5232111d1ff92aa9798b46adf94ffe7add2f9c24739b84b3bc1a1f7e0ca220" => :sierra
     sha256 "1aecfdfb060db51bf4c053095b53c6d2fd28f9d473a3fd705741dfd72f22799d" => :el_capitan
     sha256 "5bc9046f3c4987025e273aac525342bda48fae68c651038dceebae88c4e4296b" => :yosemite
+    sha256 "586c972d0d2858762d914557cb35114bd25060b352fd16b1c2e55139bcc01fd3" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
