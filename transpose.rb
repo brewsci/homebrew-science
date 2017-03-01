@@ -1,6 +1,6 @@
 class Transpose < Formula
   desc "Fast efficient tranpose of plain text matrix data"
-  homepage "http://transpose.sourceforge.net/"
+  homepage "https://transpose.sourceforge.io/"
 
   url "https://downloads.sourceforge.net/project/transpose/transpose/transpose-2.0/2.0/transpose-2.0.zip"
   sha256 "cc287954901364e6a4e4e2fd41eef74550a1b5cb2649d09dd2f3f2ac99fc009e"
