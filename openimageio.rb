@@ -1,8 +1,8 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "http://openimageio.org"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-1.7.11.tar.gz"
-  sha256 "52992720488fe255f77a6fdbc44d716e3b0db922e741fa4d13ac15841dc8331d"
+  url "https://github.com/OpenImageIO/oiio/archive/Release-1.7.12.tar.gz"
+  sha256 "7da061f0308d5135ea944dbbf88968e0e834cdd50263f9cd594bec97e694a70d"
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
@@ -68,7 +68,7 @@ class Openimageio < Formula
   end
 
   resource "openexrimages" do
-    url "http://download.savannah.nongnu.org/releases/openexr/openexr-images-1.7.0.tar.gz"
+    url "https://download.savannah.nongnu.org/releases/openexr/openexr-images-1.7.0.tar.gz"
     sha256 "99e3fabef4672f62f4a10a470eea4a161026d488cabc418fff619638deacf807"
   end
 
