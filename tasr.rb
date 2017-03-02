@@ -10,10 +10,9 @@ class Tasr < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6ace4ae6c67642df9f438b036bb165f7401a4eb527be28f8134b344e40992ada" => :el_capitan
-    sha256 "6c683e53fb273c4d463370bbdcdabe3d88b29eb49445b4c1e0bf660c24bb01a6" => :yosemite
-    sha256 "f84b4a6362d2a4b795ece3a6d67faab21f482be64535bd2dac24f164dd225dbc" => :mavericks
-    sha256 "20946e2ba76babddeda1f5024bc461c876351e8f22130ecb24c1f55f5730a323" => :x86_64_linux
+    sha256 "b146f9a09e036d98838511d022bdf7c5d8be7da715ec2b0fb28b4737ca191a6a" => :sierra
+    sha256 "d1cafc9e722f0a11c0a3779f34beba08c0da433cefa203b1d0375a2a93195077" => :el_capitan
+    sha256 "d1cafc9e722f0a11c0a3779f34beba08c0da433cefa203b1d0375a2a93195077" => :yosemite
   end
 
   def install
