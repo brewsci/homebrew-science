@@ -1,6 +1,7 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
+  revision 1
 
   stable do
     url "https://ftpmirror.gnu.org/octave/octave-4.2.1.tar.gz"
@@ -12,6 +13,11 @@ class Octave < Formula
     resource "retina-scaling-patch" do
       url "https://savannah.gnu.org/support/download.php?file_id=38902"
       sha256 "d56eff94f9f811845ba3b0897b70cba43c0715a0102b1c79852b72ab10d24e6c"
+    end
+
+    resource "qscintilla2" do
+      url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10/QScintilla_gpl-2.10.tar.gz"
+      sha256 "16be30577bc178470936c458551f2512cc068aff6e7a7de6ed244e28c045f6ec"
     end
   end
 
@@ -149,7 +155,6 @@ class Octave < Formula
   end
 
   if build.with? "qt@5.7"
-    depends_on "qscintilla2"
     depends_on "gnuplot" => [:recommended, "with-qt@5.7"]
   else
     depends_on "gnuplot" => :recommended
@@ -191,6 +196,38 @@ class Octave < Formula
           s.gsub! "__fontsize_points__", "fontsize_points" if build.stable?
         end
         system "patch", "-p1", "-i", Pathname.pwd/"download.php", "-d", buildpath
+      end
+
+      if build.with? "qt@5.7"
+        libexec_qsci = libexec/"qscintilla2"
+        libexec_qsci.mkpath
+        resource("qscintilla2").stage do
+          qsci_spec = ENV.compiler == :clang && MacOS.version >= :mavericks ? "macx-clang" : "macx-g++"
+          qsci_args = %W[-config release -spec #{qsci_spec} PREFIX=#{libexec_qsci}]
+
+          cd "Qt4Qt5" do
+            inreplace "qscintilla.pro" do |s|
+              s.gsub! "$$[QT_INSTALL_LIBS]", libexec_qsci/"lib"
+              s.gsub! "$$[QT_INSTALL_HEADERS]", libexec_qsci/"include"
+              s.gsub! "$$[QT_INSTALL_TRANSLATIONS]", libexec_qsci/"trans"
+              s.gsub! "$$[QT_INSTALL_DATA]", libexec_qsci/"data"
+              s.gsub! "$$[QT_HOST_DATA]", libexec_qsci/"data"
+            end
+
+            inreplace "features/qscintilla2.prf" do |s|
+              s.gsub! "$$[QT_INSTALL_LIBS]", libexec_qsci/"lib"
+              s.gsub! "$$[QT_INSTALL_HEADERS]", libexec_qsci/"include"
+            end
+
+            system "#{Formula["qt@5.7"].opt_bin}/qmake", "qscintilla.pro", *qsci_args
+            system "make"
+            system "make", "install"
+          end
+          libexec_qsci.install "Changelog", "LICENSE", "NEWS", "README"
+        end
+        # fix up lib ID, which has no path
+        MachO::Tools.change_dylib_id("#{libexec_qsci}/lib/libqscintilla2_qt5.dylib",
+                                     "#{opt_libexec}/qscintilla2/lib/libqscintilla2_qt5.dylib")
       end
     end
 
@@ -273,9 +310,17 @@ class Octave < Formula
     # can cause linking problems.
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
 
-    # Octave does strict assumptions on the name of qscintilla2
-    # see http://savannah.gnu.org/bugs/?48773
-    inreplace "configure", "qscintilla2-qt5 qt5scintilla2", "qscintilla2-qt5 qt5scintilla2 qscintilla2"
+    if build.with? "qt@5.7"
+      # Octave does strict assumptions on the name of qscintilla2
+      # see http://savannah.gnu.org/bugs/?48773
+      # Also, add support for QScintilla2 2.10's libqscintilla2_qt5
+      inreplace "configure", "qscintilla2-qt5 qt5scintilla2", "qscintilla2_qt5 qscintilla2-qt5 qt5scintilla2 qscintilla2"
+
+      # Add vendored prefix to flags
+      libexec_qsci = libexec/"qscintilla2"
+      ENV.append "CPPFLAGS", "-I#{libexec_qsci}/include"
+      ENV.append "LDFLAGS", "-L#{libexec_qsci}/lib"
+    end
 
     system "./configure", *args
     system "make", "all"
