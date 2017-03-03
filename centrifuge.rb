@@ -10,6 +10,7 @@ class Centrifuge < Formula
     sha256 "0b69a0571a51bddf3de99a5c857c4852ab61fcaede4be4bca70fe58455c04403" => :sierra
     sha256 "1da9c688f9f1feb05deb7a8617b633c73869c3d32befaba4636af3b6984c57da" => :el_capitan
     sha256 "67b8a286a21f829914255d5ce7ad3f36d98471e4751f5951211ae3c89fc886ec" => :yosemite
+    sha256 "049d0280cc9a694280433e0f3d358e326c264f12508f0d7dbd64cc93e3c34176" => :x86_64_linux
   end
 
   # doi "10.1101/054965"
