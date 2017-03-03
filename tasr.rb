@@ -13,6 +13,7 @@ class Tasr < Formula
     sha256 "b146f9a09e036d98838511d022bdf7c5d8be7da715ec2b0fb28b4737ca191a6a" => :sierra
     sha256 "d1cafc9e722f0a11c0a3779f34beba08c0da433cefa203b1d0375a2a93195077" => :el_capitan
     sha256 "d1cafc9e722f0a11c0a3779f34beba08c0da433cefa203b1d0375a2a93195077" => :yosemite
+    sha256 "5429552c804c0ac15a386cea6b50490316d25dd7dbf205958269ffe2ffc25d79" => :x86_64_linux
   end
 
   def install
