@@ -44,7 +44,7 @@ class Zoltan < Formula
     end
   end
 
-  def caveats;<<-EOS.undent
+  def caveats; <<-EOS.undent
     To link against Zoltan, add
       #{opt_include}
     to the search path for includes and
