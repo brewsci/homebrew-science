@@ -3,7 +3,8 @@ class Spaced < Formula
   homepage "http://spaced.gobics.de/"
   url "http://spaced.gobics.de/content/spaced.tar.gz"
   version "20160804"
-  sha256 "016e9b565dc7189a69bd87e34b0df2f8a85831bd7f765b4f43b5612a2cff5fb1"
+  sha256 "3edbd66dc14054d3001dbe3cb6dd4f437f4c6738e1f7d3393bfac9e444410215"
+  revision 1
   # doi "10.1186/s13015-015-0032-x"
   # tag "bioinformatics"
 
