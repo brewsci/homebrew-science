@@ -4,6 +4,13 @@ class M4ri < Formula
   url "https://bitbucket.org/malb/m4ri/downloads/m4ri-20140914.tar.gz"
   sha256 "4bc3f53a5116e1ff0720c08f34ce415c88e2fb503437abfd15e196792ec6d5aa"
 
+  bottle do
+    cellar :any
+    sha256 "19c8d8d8965ce7925f043f61bf87adb29ac3018a62f26ae8534c744817fa6aec" => :sierra
+    sha256 "ce8d2f41a7abd3eb38b2b3fbe113d176dbc9925c56899000ae8142e9611ccf6a" => :el_capitan
+    sha256 "8e7b50f2cd13755157be2464e47777dc5103a1aa98478d04ab00f48d7d9c1b9f" => :yosemite
+  end
+
   option "without-test", "Skip build-time tests (not recommended)"
 
   depends_on "libpng" => :recommended
