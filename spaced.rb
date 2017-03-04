@@ -13,6 +13,7 @@ class Spaced < Formula
     sha256 "226ae5554d19478f42ef93243edc23c51d8a14d392cf38ae4dc636cfe83fca77" => :sierra
     sha256 "c3c437713efc321bf373579effdbdfe41f180310555dcee9f3255dc0909eab5f" => :el_capitan
     sha256 "081b68362c87edd54abe102fdcc0b6f8b48f2c1512d653501332529875014e83" => :yosemite
+    sha256 "6362837ffb2f8bd05dda5e1b1c4af1ef42bf3838bb9aa3d0e1dd8aaf3c7329bf" => :x86_64_linux
   end
 
   needs :cxx11
