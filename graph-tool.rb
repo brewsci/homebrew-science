@@ -1,8 +1,8 @@
 class GraphTool < Formula
   desc "efficient network analysis"
-  homepage "http://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.21.tar.bz2"
-  sha256 "483c6faefd3db4988482c560e6f9e5aeccc658dbd85ff0252b806ca8caf1da45"
+  homepage "https://graph-tool.skewed.de/"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.22.tar.bz2"
+  sha256 "57121b562763c79c138b3a385b8cddb59e7dec375c61e00ca7e9e96fd1a5e080"
 
   bottle do
     sha256 "b2e0c77712af06c2888dc9dc7ea4aeec033302259f27b8f32a864c0da02cf2d5" => :sierra
@@ -97,6 +97,7 @@ class GraphTool < Formula
       config_args_x = ["PYTHON=#{python}"]
       if OS.mac?
         config_args_x << "PYTHON_LDFLAGS=-undefined dynamic_lookup"
+        config_args_x << "PYTHON_LIBS=-undefined dynamic_lookup"
         config_args_x << "PYTHON_EXTRA_LIBS=-undefined dynamic_lookup"
       end
       config_args_x << "--with-python-module-path=#{lib}/python#{version}/site-packages"
