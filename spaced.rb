@@ -10,9 +10,9 @@ class Spaced < Formula
 
   bottle do
     cellar :any
-    sha256 "e788d0a55ed9021c4c64b5775b63bce95b6d2703a2a7491989c804bd86989b99" => :el_capitan
-    sha256 "e2a00ae89014cbbcb3c1e1ef1d7b0320646faa19be2413af70acc77c2f4d9074" => :yosemite
-    sha256 "807752981616621375d085b40475814ef58478127fb5717afe0ea7d99aa36b58" => :mavericks
+    sha256 "226ae5554d19478f42ef93243edc23c51d8a14d392cf38ae4dc636cfe83fca77" => :sierra
+    sha256 "c3c437713efc321bf373579effdbdfe41f180310555dcee9f3255dc0909eab5f" => :el_capitan
+    sha256 "081b68362c87edd54abe102fdcc0b6f8b48f2c1512d653501332529875014e83" => :yosemite
   end
 
   needs :cxx11
