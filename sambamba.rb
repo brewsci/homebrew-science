@@ -16,10 +16,9 @@ class Sambamba < Formula
   end
 
   bottle do
-    sha256 "18d33a5ff6dad35ac79bc360f23623ccc910f28b41073e9e1dcd92538f454615" => :sierra
-    sha256 "93eb5f7159b8c271985705abf7894dd4651bfa13063aca2f593a4518fdcdf101" => :el_capitan
-    sha256 "1d69b9413a45c367c404393ce6ad4881382479c8dd14e3451744dd7fb0a9b666" => :yosemite
-    sha256 "ce148c414ef8312b5d76445aa22692b3d2b97bb6cb1b4a06cf73dfcdb22ad8b4" => :x86_64_linux
+    sha256 "a318c66f32dc429455d9ff113d17a23bcb3d631460f8e843395b01bd02bb9b7d" => :sierra
+    sha256 "5fc0ff69ace3b2e0eab82440f1ba7bcfc669b0a06ceda4c34674bb2a41204773" => :el_capitan
+    sha256 "d6a0041d900da0d3c27ad2ee9807c6ab909d541b0d833948b538d5d064ca0459" => :yosemite
   end
 
   head do
