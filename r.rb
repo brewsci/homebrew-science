@@ -7,9 +7,8 @@ end
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.rstudio.com/src/base/R-3/R-3.3.2.tar.gz"
-  mirror "https://cran.r-project.org/src/base/R-3/R-3.3.2.tar.gz"
-  sha256 "d294ad21e9f574fb4828ebb3a94b8cb34f4f304a41687a994be00dd41a4e514c"
+  url "https://cran.rstudio.com/src/base/R-3/R-3.3.3.tar.gz"
+  sha256 "5ab768053a275084618fb669b4fbaadcc39158998a87e8465323829590bcfc6c"
 
   # Do not remove executable permission from these scripts.
   # See https://github.com/Linuxbrew/linuxbrew/issues/614
