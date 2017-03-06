@@ -7,9 +7,9 @@ class Xcdf < Formula
 
   bottle do
     cellar :any
-    sha256 "ad83615a6d90b1c6d8e9bf53ec615fad0e5803f055bf234e103356f6adc2f50a" => :el_capitan
-    sha256 "84d224c1bc39bb28549ad8e4c08f0d457fbd3fce472132be95fe71e9fabc05ad" => :yosemite
-    sha256 "223d55367d2891499e9f5b0deeb0b63f6ef9ec61d0a953912b8fc4388c205104" => :mavericks
+    sha256 "33c2a71a6883c7c0be0059e0abce648ccb8419234d2c5794abe7d885a9b75d69" => :sierra
+    sha256 "ae3983be7f420ca2814f0db1390c6ce22bbcf47b6f456f8dde294fe86019abbf" => :el_capitan
+    sha256 "1dee657b4db2a0e0dfaeba574588d5cebace9fa26726bb54c6a65c09e0e89cc6" => :yosemite
   end
 
   depends_on "cmake" => :build
