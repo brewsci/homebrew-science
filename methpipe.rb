@@ -1,9 +1,7 @@
 class Methpipe < Formula
   homepage "http://smithlabresearch.org/software/methpipe/"
-  url "http://smithlabresearch.org/downloads/methpipe-3.4.2.tar.bz2"
-  sha256 "9dab70723f71af815a058d38abc963dcb43b2e25968e12dbcf17413512ededf7"
-  revision 1
-
+  url "http://smithlabresearch.org/downloads/methpipe-3.4.3.tar.bz2"
+  sha256 "56716370211a7b45b0a3a2994afb64d64c15dd362028f9ecd8a0551a6e6d65c3"
   head "https://github.com/smithlabcode/methpipe.git"
 
   bottle do
