@@ -2,9 +2,8 @@ class Anvio < Formula
   include Language::Python::Virtualenv
   desc "Analysis and visualization platform for ‘omics data."
   homepage "http://merenlab.org/projects/anvio/"
-  url "https://pypi.python.org/packages/83/14/763c5ea56342005ddf24a03973ca32e5636a3cebaaacebc75116e93a9ad1/anvio-2.1.0.tar.gz"
-  sha256 "4b21457130275bbede9ae21651fad1f56e38935f2f4bf1d8046350fe6e4f9a62"
-  revision 1
+  url "https://pypi.python.org/packages/2f/2a/d89cabfc28119f06d992b7b2101f5c77a75f447f7a74eac14a80ec4e8fd8/anvio-2.2.2.tar.gz"
+  sha256 "d794f168df8b069b0b42067d37cb1802a828f6e01333ce887a481a3d8b373cef"
   head "https://github.com/merenlab/anvio.git"
 
   bottle do
@@ -17,7 +16,7 @@ class Anvio < Formula
   # doi "10.7717/peerj.1319"
   # tag "bioinformatics"
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on :python3
   depends_on :fortran
   depends_on "prodigal"
   depends_on "hmmer"
@@ -28,8 +27,8 @@ class Anvio < Formula
   depends_on "mcl"
   depends_on "muscle"
   depends_on "blast"
-  depends_on "scipy"
-  depends_on "numpy"
+  depends_on "numpy" => "with-python3"
+  depends_on "scipy" => "with-python3"
 
   resource "bottle" do
     url "https://pypi.python.org/packages/a1/f6/0db23aeeb40c9a7c5d226b1f70ce63822c567178eee5b623bca3e0cc3bef/bottle-0.12.11.tar.gz"
@@ -37,13 +36,13 @@ class Anvio < Formula
   end
 
   resource "pysam" do
-    url "https://pypi.python.org/packages/40/15/20b22dc3d017ec123e533d062b982b111b0214168905de3221b5caf5f766/pysam-0.9.1.tar.gz"
-    sha256 "2969e080d435c62c4dd497294dfdb36eb92cd31f551c1030c0159481a5ef101e"
+    url "https://pypi.python.org/packages/de/03/02934438b204565bc5231f38a11da840a3c3e4b2beac8c8770d675770668/pysam-0.9.1.4.tar.gz"
+    sha256 "56ee7f8d07fa9d78b5c00dfbf335c95edbfed1518a2c14f8f108e58599922dc4"
   end
 
-  resource "ete2" do
-    url "https://pypi.python.org/packages/60/50/0287c4a6cd11bd62fe3bcaa859bbbc18b48bb71b92dc027d439451fe10c1/ete2-2.3.10.tar.gz"
-    sha256 "fc48a46976128c1d6610338cc8426974773796150dd99f3efd660facf32de2a1"
+  resource "ete3" do
+    url "https://pypi.python.org/packages/f0/c5/e1bb20c02f0e7cd924eab783901b4e2acf8fda79c0f7c7303b740bf7b98e/ete3-3.0.0b35.tar.gz"
+    sha256 "f9f055f5865d00afb8882e0ea128dea2df6fba2e31e3486392a282a2aa90dc18"
   end
 
   resource "scikit-learn" do
@@ -67,13 +66,18 @@ class Anvio < Formula
   end
 
   resource "cherrypy" do
-    url "https://pypi.python.org/packages/c8/c5/f8b8c7f17b5b55a0506a1e3b2e6fce7a727905bdfe05b3ef0c797c5235ff/CherryPy-8.1.3.tar.gz"
-    sha256 "e75d94393ef24a47e70fb7539c07abac11be7cb76780c3151f94f6a9f5b2c3da"
+    url "https://pypi.python.org/packages/56/aa/91005730bdc5c0da8291a2f411aacbc5c3729166c382e2193e33f28044a3/CherryPy-8.9.1.tar.gz"
+    sha256 "dfad2f34e929836d016ae79f9e27aff250a8a71df200bf87c3e9b23541e091c5"
   end
 
   resource "requests" do
     url "https://pypi.python.org/packages/5b/0b/34be574b1ec997247796e5d516f3a6b6509c4e064f2885a96ed885ce7579/requests-2.12.4.tar.gz"
     sha256 "ed98431a0631e309bb4b63c81d561c1654822cb103de1ac7b47e45c26be7ae34"
+  end
+
+  resource "psutil" do
+    url "https://pypi.python.org/packages/78/0a/aa90434c6337dd50d182a81fe4ae4822c953e166a163d1bf5f06abb1ac0b/psutil-5.1.3.tar.gz"
+    sha256 "959bd58bdc8152b0a143cb3bd822d4a1b8f7230617b0e3eb2ff6e63812120f2b"
   end
 
   def install
