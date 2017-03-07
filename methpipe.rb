@@ -6,9 +6,9 @@ class Methpipe < Formula
 
   bottle do
     cellar :any
-    sha256 "dedef344060bdab246e7e4eb5f029ce893ee35e9b5d18fc1ec2d5e3108197321" => :el_capitan
-    sha256 "29b86e612cff2f85b44f32cc23f64852174a5d5714c0dbdc44e198ed60ddd74a" => :yosemite
-    sha256 "50d0dbec1ca1b6d5dca2743322788e4e1a5f9b9b101855d30295a61e78b860d7" => :mavericks
+    sha256 "642416ae7b961600aebe2c6a3d335df8dc15b0c010fd0452a4f84d7f22ec6978" => :sierra
+    sha256 "ba868cf1ced91981626ebd4b5dfd99d8ed51c633a71289a4bb6f64c80afdb563" => :el_capitan
+    sha256 "7fc5cc9b9bd26c2f7c2d9275cd940722b701275088a4c4791a5f0d71f4d6d88e" => :yosemite
   end
 
   depends_on "gsl"
