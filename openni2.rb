@@ -4,6 +4,13 @@ class Openni2 < Formula
   url "https://github.com/occipital/OpenNI2/archive/v2.2.0-debian.tar.gz"
   version "2.2.0-debian"
   sha256 "08f6842f20d1098ab2ebafadaac0130ffae5abd34cdf464bb6100cbe01ed95a8"
+  bottle do
+    cellar :any
+    sha256 "4dcec1c28ee906abb3a40f9bb38825861f10fdf34f634581302ef5b87a75f3f0" => :sierra
+    sha256 "4e8c80ba349f4bd832b9b5914d400a80bcebed7568b75c5d9677768fe2713e4c" => :el_capitan
+    sha256 "61c2acca469ce9081de24c3b0cace215c0c6b248f50215aa0a2374edc070e8db" => :yosemite
+  end
+
   version_scheme 1
   head "https://github.com/occipital/OpenNI2.git"
 
