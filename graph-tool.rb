@@ -19,6 +19,11 @@ class GraphTool < Formula
     depends_on "libtool" => :build
   end
 
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3b7bcf4f4a71d8f0b3062c08c378cc20089d6b4b/graph-tool/chrono-disambiguation.diff"
+    sha256 "1c1a8b8bcb3f67856d45f2707ac3924e68ecddffee909a88c8a74a547ffe43df"
+  end
+
   option "without-cairo", "Build without cairo support for plotting"
   option "without-gtk+3", "Build without gtk+3 support for interactive plotting"
   option "without-matplotlib", "Use a matplotlib you've installed yourself instead of a Homebrew-packaged matplotlib"
