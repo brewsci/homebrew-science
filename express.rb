@@ -9,8 +9,6 @@ class Express < Formula
   # doi "10.1038/nmeth.2251"
   # tag "bioinformatics"
 
-  bottle :disable, "Work around 'Illegal instruction: 4' during CI" if OS.mac?
-
   depends_on "bamtools"
   depends_on "boost"
   depends_on "cmake" => :build
