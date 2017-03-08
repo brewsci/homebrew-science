@@ -9,6 +9,13 @@ class Express < Formula
   # doi "10.1038/nmeth.2251"
   # tag "bioinformatics"
 
+  bottle do
+    cellar :any
+    sha256 "e44cf3534d38541e34b24d4ee71a24e8003eeb8d843e1428f4e09af64967245a" => :sierra
+    sha256 "8fd9d0d653f6da2bbfddad1718697b9b588d663a7b562174b52ef03edeafdbd6" => :el_capitan
+    sha256 "73389dbec6e88bb833b282dc7f908356e7e58487b6418623815e03dc20cfd520" => :yosemite
+  end
+
   depends_on "bamtools"
   depends_on "boost"
   depends_on "cmake" => :build
