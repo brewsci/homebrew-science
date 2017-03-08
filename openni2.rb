@@ -9,6 +9,7 @@ class Openni2 < Formula
     sha256 "4dcec1c28ee906abb3a40f9bb38825861f10fdf34f634581302ef5b87a75f3f0" => :sierra
     sha256 "4e8c80ba349f4bd832b9b5914d400a80bcebed7568b75c5d9677768fe2713e4c" => :el_capitan
     sha256 "61c2acca469ce9081de24c3b0cace215c0c6b248f50215aa0a2374edc070e8db" => :yosemite
+    sha256 "8dc5bfebb5041f53bb58782c6c83a9c7bcc0df3c16bc034f98ed1b286f912424" => :x86_64_linux
   end
 
   version_scheme 1
