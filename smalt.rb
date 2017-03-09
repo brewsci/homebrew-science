@@ -29,6 +29,6 @@ class Smalt < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("smalt version")
+    assert_match version.to_s, shell_output("#{bin}/smalt version")
   end
 end
