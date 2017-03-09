@@ -1,7 +1,7 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization."
   homepage "http://www.vtk.org"
-  revision 5
+  revision 6
   head "https://github.com/Kitware/VTK.git"
 
   stable do
@@ -29,7 +29,7 @@ class Vtk < Formula
   deprecated_option "qt-extern" => "with-qt-extern"
   deprecated_option "tcl" => "with-tcl"
   deprecated_option "remove-legacy" => "without-legacy"
-  deprecated_option "with-qt5" => "with-qt@5.7"
+  deprecated_option "with-qt@5.7" => "with-qt5"
 
   option :cxx11
   option "with-examples",   "Compile and install various examples"
@@ -42,7 +42,7 @@ class Vtk < Formula
   depends_on "netcdf"
   depends_on "cmake" => :build
   depends_on :x11 => :optional
-  depends_on "qt@5.7" => :optional
+  depends_on "qt5" => :optional
 
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
@@ -57,7 +57,7 @@ class Vtk < Formula
   depends_on "libxml2" unless OS.mac?
 
   # If --with-qt and --with-python, then we automatically use PyQt, too!
-  if build.with? "qt@5.7"
+  if build.with? "qt5"
     if build.with? "python"
       depends_on "sip"
       depends_on "pyqt5" => ["with-python", "without-python3"]
@@ -89,7 +89,7 @@ class Vtk < Formula
       args << "-DBUILD_TESTING=OFF"
     end
 
-    if build.with? "qt@5.7"
+    if build.with? "qt5"
       args << "-DVTK_QT_VERSION:STRING=5"
       args << "-DVTK_Group_Qt=ON"
     end
@@ -157,7 +157,7 @@ class Vtk < Formula
         args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{py_site_packages}/'"
       end
 
-      if build.with? "qt@5.7"
+      if build.with? "qt5"
         args << "-DVTK_WRAP_PYTHON_SIP=ON"
         args << "-DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'"
       end
@@ -174,7 +174,7 @@ class Vtk < Formula
   def caveats
     s = ""
     s += <<-EOS.undent
-        Even without the --with-qt@5.7 option, you can display native VTK render windows
+        Even without the --with-qt5 option, you can display native VTK render windows
         from python. Alternatively, you can integrate the RenderWindowInteractor
         in PyQt4, Tk or Wx at runtime. Read more:
             import vtk.qt5; help(vtk.qt5) or import vtk.wx; help(vtk.wx)
