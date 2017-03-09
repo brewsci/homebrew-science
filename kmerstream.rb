@@ -10,10 +10,9 @@ class Kmerstream < Formula
 
   bottle do
     cellar :any
-    sha256 "1da47f8ed39381d7ac8c79a72e91f4fc898d9013e13c835a0eb5e630893f6784" => :el_capitan
-    sha256 "f8528a7f5a74c25f549544b08b08d17d5cc2febb57932e473e0cff37b3a66ecc" => :yosemite
-    sha256 "0362b9af59d217c164cf036d77ce2c157124bdef1c76852229bde8c5faccce90" => :mavericks
-    sha256 "dfe473f73af618cedb1003c6d0d67f82592fc6297bd64e6b711153c688d4647d" => :x86_64_linux
+    sha256 "ae57c28ea2005478bb32f78448d239e53ab0b4be50635086ee3753ee52256f69" => :sierra
+    sha256 "800c38f604b71b2048ff252168305be3855f9767b7dd183a487701707a7e2226" => :el_capitan
+    sha256 "67af773688af575858ceee55a5d6b008b347f9c3101e63cb2e406bfb023b924b" => :yosemite
   end
 
   needs :openmp
