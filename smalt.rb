@@ -9,6 +9,7 @@ class Smalt < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "40f0219a724800d75095d5fa9493ce11c710ea8ad69190bbaf3e3aeced4df7eb" => :sierra
     sha256 "e3116e41fa4f33637c9dcf5305cf94e3f3e236d5d5636fd3b76dab1b29bdd914" => :el_capitan
     sha256 "78168b0c7f00afbabbdfc782308e80a6396cdec58a648b98d9a1bb236ca509a3" => :yosemite
     sha256 "2f89e72d483b039dd6096a801e86e999062999541a0fe3a0e0f6c42744ee657f" => :mavericks
