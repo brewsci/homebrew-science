@@ -1,8 +1,8 @@
 class Gdcm < Formula
   desc "Grassroots DICOM library and utilities for medical files"
-  homepage "http://sourceforge.net/projects/gdcm/"
-  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.6.6/gdcm-2.6.6.tar.bz2"
-  sha256 "ff793355283744df49760852c81d0435b0f9a93b0b235b82ae90f01e4534fee6"
+  homepage "https://sourceforge.net/projects/gdcm/"
+  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.6.7/gdcm-2.6.7.tar.bz2"
+  sha256 "773aeeea8a3ffdfee38346940b5720ce2e4cd1ac27eeed4851609c8fbb01a1ac"
 
   bottle do
     sha256 "c8ba651056019504f7df1716252f9e55a730d7fdf010c582d336c2fdf598c50a" => :sierra
@@ -11,6 +11,8 @@ class Gdcm < Formula
   end
 
   option "with-check", "Run the GDCM test suite"
+  option "with-manpages", "Build man pages from XML docbook"
+
   depends_on :python => :optional
   depends_on :python3 => :optional
   depends_on "openssl" => :optional
@@ -65,6 +67,7 @@ class Gdcm < Formula
       args << "-DGDCM_BUILD_EXAMPLES=ON"
       args << "-DGDCM_BUILD_SHARED_LIBS=ON"
       args << "-DGDCM_BUILD_TESTING=ON" if build.with? "check"
+      args << "-DGDCM_BUILD_DOCBOOK_MANPAGES=OFF" if build.without? "manpages"
       args << "-DGDCM_USE_VTK=ON" if build.with? "vtk"
       args << "-DGDCM_USE_SYSTEM_OPENSSL=ON" if build.with? "openssl"
       args << sourcedir
