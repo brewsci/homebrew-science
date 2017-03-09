@@ -3,6 +3,7 @@ class Kmerstream < Formula
   homepage "https://github.com/pmelsted/KmerStream"
   url "https://github.com/pmelsted/KmerStream/archive/v1.1.tar.gz"
   sha256 "cf5de6224a0dd40e30af4ccc464bb749d20d393a7d4d3fceafab5f3d75589617"
+  revision 1
   head "https://github.com/pmelsted/KmerStream.git"
   # doi "10.1093/bioinformatics/btu713"
   # tag "bioinformatics"
