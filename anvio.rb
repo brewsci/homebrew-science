@@ -4,6 +4,7 @@ class Anvio < Formula
   homepage "http://merenlab.org/projects/anvio/"
   url "https://pypi.python.org/packages/2f/2a/d89cabfc28119f06d992b7b2101f5c77a75f447f7a74eac14a80ec4e8fd8/anvio-2.2.2.tar.gz"
   sha256 "d794f168df8b069b0b42067d37cb1802a828f6e01333ce887a481a3d8b373cef"
+  revision 1
   head "https://github.com/merenlab/anvio.git"
 
   bottle do
