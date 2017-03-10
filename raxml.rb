@@ -1,8 +1,8 @@
 class Raxml < Formula
   desc "maximum likelihood analysis of large phylogenies"
   homepage "http://sco.h-its.org/exelixis/web/software/raxml/index.html"
-  url "https://github.com/stamatak/standard-RAxML/archive/v8.2.9.tar.gz"
-  sha256 "c7e12c8a4437e006b574d40520c8169f4bdcf7eda732e2930ac21fe39db868df"
+  url "https://github.com/stamatak/standard-RAxML/archive/v8.2.10.tar.gz"
+  sha256 "48f9f4e6bcdcdae59ce6c895abfe35dadbbf4d0faf71ebb532d9b1e6ae56478f"
   head "https://github.com/stamatak/standard-RAxML.git"
   # doi "10.1093/bioinformatics/btu033"
   # tag "bioinformatics"
@@ -61,7 +61,9 @@ class Raxml < Formula
       Frog      ATGGCACACCCATCACAATTAGGTTTTCAAGACGCAGCCTCTCCAATTATAGAAGAATTA
     EOS
 
-    system *%W[#{bin}/raxmlHPC-PTHREADS -f a -m GTRGAMMA -p 12345 -x 12345 -N 100 -s aln.phy -n test -T 2]
+    system "#{bin}/raxmlHPC-PTHREADS", "-f", "a", "-m", "GTRGAMMA", "-p",
+                                       "12345", "-x", "12345", "-N", "100",
+                                       "-s", "aln.phy", "-n", "test", "-T", "2"
     assert File.exist?("RAxML_bipartitions.test"), "Failed to create RAxML_bipartitions.test!"
   end
 end
