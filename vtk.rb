@@ -53,7 +53,11 @@ class Vtk < Formula
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "matplotlib" => :python if build.with?("matplotlib") && build.with?("python")
-  depends_on "libxml2" unless OS.mac?
+
+  unless OS.mac?
+    depends_on "libxml2"
+    depends_on "linuxbrew/xorg/mesa"
+  end
 
   # If --with-qt and --with-python, then we automatically use PyQt, too!
   if build.with? "qt5"
