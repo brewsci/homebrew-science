@@ -9,9 +9,9 @@ class Libpll < Formula
 
   bottle do
     cellar :any
-    sha256 "6d4886d7286af7ba1c7f4615bd1aab9af0a87a72d72767d8659b836649059a10" => :yosemite
-    sha256 "0f9f835ab42cace506d68c8e90e47d5a558a0387297672592a1736057666c6bd" => :mavericks
-    sha256 "7b0a93079fdbb1f063c940cb054dbba66267c06e6238fa40b5d96bbe67d77201" => :mountain_lion
+    sha256 "673e8b127b98f71bce9b864f7457ca499d9a205d2fe5c0c1fbb7e29a764634f8" => :sierra
+    sha256 "6bb3ef91248dc9c94d4d27eb065d362780200f1fe79a8f6e8e07e020d52c80f3" => :el_capitan
+    sha256 "991e9528193e5fabb3911b6262a973ebf448a5625bcdde56b7e736329fe55798" => :yosemite
   end
 
   option "without-test", "Disable build-time checking (not recommended)"
