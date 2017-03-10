@@ -12,6 +12,7 @@ class Libpll < Formula
     sha256 "673e8b127b98f71bce9b864f7457ca499d9a205d2fe5c0c1fbb7e29a764634f8" => :sierra
     sha256 "6bb3ef91248dc9c94d4d27eb065d362780200f1fe79a8f6e8e07e020d52c80f3" => :el_capitan
     sha256 "991e9528193e5fabb3911b6262a973ebf448a5625bcdde56b7e736329fe55798" => :yosemite
+    sha256 "68006ec1a0965cf49051b6a6d24e9aaef5e96b03c24be6316716aa85039e4e09" => :x86_64_linux
   end
 
   option "without-test", "Disable build-time checking (not recommended)"
