@@ -10,6 +10,7 @@ class Concorde < Formula
     sha256 "42ee02ecbd03e629acd5e4edf8acac452dacacb21909daa00e7aecdface139cb" => :sierra
     sha256 "6162a9d151beece4ac7b1b988be0ea04231616b3d2072f6f1d3fcffadf9b25b9" => :el_capitan
     sha256 "2c48410d2ecf1de6fd3e6ffd3bd35dc7bd9554bf1f7750b5ae5d48a93f1fe170" => :yosemite
+    sha256 "51ca9d88aeae6a716853a94e13e7f3db391961a864a2a6633c3ed77d3a4e0d59" => :x86_64_linux
   end
 
   option "with-cplex=", "Compile with CPLEX bindings, you must install CPLEX beforehand and pass the CPLEX installation directory. For example, with version 12.6.3 Community, the default installation directory is /Users/username/Applications/IBM/ILOG/CPLEX_Studio_Community1263/cplex"
