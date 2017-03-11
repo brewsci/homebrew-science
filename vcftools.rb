@@ -4,8 +4,8 @@ class Vcftools < Formula
   # doi "10.1093/bioinformatics/btr330"
   # tag "bioinformatics"
 
-  url "https://github.com/vcftools/vcftools/archive/v0.1.13.tar.gz"
-  sha256 "0e241da57bc7048161d3751a1be842ad36e6a43f803c91cc9ef18aa15b3fc85e"
+  url "https://github.com/vcftools/vcftools/archive/v0.1.14.tar.gz"
+  sha256 "ba440584645e9901c1eeb6b769ccd828591f0575c73349072cde3efa77da6fdf"
 
   head "https://github.com/vcftools/vcftools.git"
 
@@ -17,20 +17,25 @@ class Vcftools < Formula
     sha256 "234317e7c4c761970c12f21229d103c15f04dadf3beaca319c786e0bdbb62f44" => :x86_64_linux
   end
 
-  depends_on "homebrew/dupes/zlib" => :optional
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "htslib" => :run
+  depends_on "homebrew/dupes/zlib" => :optional if OS.mac?
+  depends_on "zlib" if OS.linux?
 
   def install
-    args = %W[PREFIX=#{prefix} CPP=#{ENV.cxx}]
+    args = ["--prefix=#{prefix}"]
 
-    if build.with? "zlib"
+    if build.with? "zlib" || OS.linux?
       zlib = Formula["zlib"]
       args << "LIB=-lz -L#{zlib.opt_lib} -I#{zlib.opt_include}"
     end
 
-    system "make", "install", *args
-
-    # Fix Non-executables were installed to bin
-    (share/"man").install bin/"man1"
+    system "./autogen.sh"
+    system "./configure", *args
+    system "make"
+    system "make", "install"
   end
 
   def caveats; <<-EOS.undent
