@@ -10,11 +10,10 @@ class Vcftools < Formula
   head "https://github.com/vcftools/vcftools.git"
 
   bottle do
-    cellar :any
-    sha256 "c23bd10a337957be077c646d09b8300dca5775108f00c6bfbffe6d21d7b24f57" => :yosemite
-    sha256 "b5ef3582f162ed1a5be8eb93b1033d2bca429839842aad25c2dc36c6ec6dbe39" => :mavericks
-    sha256 "3e55f4cdeeaa33e626076d05f0ded4633d295281acc78f5f05984648885415ee" => :mountain_lion
-    sha256 "234317e7c4c761970c12f21229d103c15f04dadf3beaca319c786e0bdbb62f44" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "bc4ca5a97ad13c32a834e0bfcfc01f40a09f4802238435ebdc1efea80ef06fd1" => :sierra
+    sha256 "1532aae5e450649328a8110ad22669c11a53551b41e03c1c0e7a14a427b8d37c" => :el_capitan
+    sha256 "b381ea5c00f2f1e3d7284a8d37a7ae86bdc169225683b7af7196ac551c150bec" => :yosemite
   end
 
   depends_on "autoconf" => :build
