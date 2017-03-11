@@ -9,10 +9,9 @@ class Raxml < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1b56bcbb1ec4bdaf975abaff4d882a63b116092c6be1ce4bc689f1c264f42901" => :el_capitan
-    sha256 "f9147f80719097fa89861303f2c56364dbe0ab1073fcd72664c9d08773d00a11" => :yosemite
-    sha256 "a0dc1c7055d184a3aca26f9a3dbbd922877347200968ac90b4a4f79196956b57" => :mavericks
-    sha256 "9dd4021dcd5ea7c9edcb8ebd419649814d9c22ec3cb7e07155821913b15362ba" => :x86_64_linux
+    sha256 "6e24a50402bed191bc6408684d49f549fe3b123df3bbfdeea38f71294bf108db" => :sierra
+    sha256 "a952899dd6895562b04933bd36f949ed6a2f6b0adac81dd73d6d5b0b8c729901" => :el_capitan
+    sha256 "5bbefd6686b30e50d7eef66a9f5cc59de7cd873666c6fd5eb9bffab46e719e01" => :yosemite
   end
 
   depends_on :fortran
