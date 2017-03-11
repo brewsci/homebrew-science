@@ -14,6 +14,7 @@ class Vcftools < Formula
     sha256 "bc4ca5a97ad13c32a834e0bfcfc01f40a09f4802238435ebdc1efea80ef06fd1" => :sierra
     sha256 "1532aae5e450649328a8110ad22669c11a53551b41e03c1c0e7a14a427b8d37c" => :el_capitan
     sha256 "b381ea5c00f2f1e3d7284a8d37a7ae86bdc169225683b7af7196ac551c150bec" => :yosemite
+    sha256 "bd6ef34ac092daa94d54c4fb67d9791fa5419176654f9a9cafdce08d7b86c9da" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
