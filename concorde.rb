@@ -7,9 +7,9 @@ class Concorde < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "69213d208d41cfe56c6f2bb4caffa7583623dcec6e5ffa5566b154bd677425ef" => :el_capitan
-    sha256 "332061dd4741b3e1311dfae6319fd40617b62b0dfa1b9fe4e850bc5a6e103e3e" => :yosemite
-    sha256 "f7c2e151c88272a9fdbe8e5f48748825496c790297f3a77c47332fcf0691ef9c" => :mavericks
+    sha256 "42ee02ecbd03e629acd5e4edf8acac452dacacb21909daa00e7aecdface139cb" => :sierra
+    sha256 "6162a9d151beece4ac7b1b988be0ea04231616b3d2072f6f1d3fcffadf9b25b9" => :el_capitan
+    sha256 "2c48410d2ecf1de6fd3e6ffd3bd35dc7bd9554bf1f7750b5ae5d48a93f1fe170" => :yosemite
   end
 
   option "with-cplex=", "Compile with CPLEX bindings, you must install CPLEX beforehand and pass the CPLEX installation directory. For example, with version 12.6.3 Community, the default installation directory is /Users/username/Applications/IBM/ILOG/CPLEX_Studio_Community1263/cplex"
