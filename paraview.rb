@@ -1,20 +1,10 @@
 class Paraview < Formula
   desc "Multi-platform data analysis and visualization application"
   homepage "http://paraview.org"
-  revision 2
+  url "http://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v5.3&type=source&os=all&downloadFile=ParaView-v5.3.0.tar.gz"
+  sha256 "046631bbf00775edc927314a3db207509666c9c6aadc7079e5159440fd2f88a0"
 
   head "git://paraview.org/ParaView.git"
-
-  stable do
-    url "http://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v5.2&type=source&os=all&downloadFile=ParaView-v5.2.0.tar.gz"
-    sha256 "894e42ef8475bb49e4e7e64f4ee2c37c714facd18bfbb1d6de7f69676b062c96"
-
-    # Patch for hdf5 1.10.0
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/ac788d655f19ab08ba10e7ee82ed28689831cf48/paraview/paraview-5.2.0-hdf5.diff"
-      sha256 "ca2cc4befaabaf3daad32129414364fea7b09cb5292d12d92bc1f683131b9e74"
-    end
-  end
 
   bottle do
     sha256 "4895939a08df32c6f52c675b0f55cfbb01677fceaef5738f49830bce3516e04b" => :sierra
