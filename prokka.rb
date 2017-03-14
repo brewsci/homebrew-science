@@ -1,13 +1,11 @@
 class Prokka < Formula
   desc "Rapid annotation of prokaryotic genomes"
   homepage "http://www.vicbioinformatics.com/software.prokka.shtml"
-  desc "Prokka: rapid annotation of prokaryotic genomes"
   # doi "10.1093/bioinformatics/btu153"
   # tag "bioinformatics"
 
-  url "http://www.vicbioinformatics.com/prokka-1.11.tar.gz"
-  sha256 "ee18146c768fe6ac8e6c9e28bb35f686a5b79d5d5362c4b7665f6a33978101ae"
-  revision 1
+  url "https://github.com/tseemann/prokka/archive/v1.12.tar.gz"
+  sha256 "845e46c9db167fb1fc9d16c934b7cfd89ddfeb6cd44bd8f42204ae7b4e87adba"
 
   head "https://github.com/tseemann/prokka.git"
 
@@ -36,6 +34,6 @@ class Prokka < Formula
   end
 
   test do
-    system "#{bin}/prokka", "--version"
+    assert_match "locustag", shell_output("#{bin}/prokka --help 2>&1", 1)
   end
 end
