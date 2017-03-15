@@ -9,10 +9,9 @@ class Samtools < Formula
 
   bottle do
     cellar :any
-    sha256 "a00c0988740cfca3ab5c6320022e0be1040b388657e49392dda21991e0dd863d" => :el_capitan
-    sha256 "7c0706b65c5675889a355c3d0ca544ff9f8f22e9401b7270c2a42486b780da99" => :yosemite
-    sha256 "a7450a2071e194b8d53ca269279e875debce2167436b4e7d6e1cccb334a97f9f" => :mavericks
-    sha256 "fb76b53c76435522541953727533afda8d95a848bc4c8754022c6c4e7c194dca" => :x86_64_linux
+    sha256 "2527bc30f37e6c98bfdeb11d887608267a081435b0b0a5fd20d5cca7a5834297" => :sierra
+    sha256 "9a477c72d577d8b6ccb5f12b5e013acb89b75adde132cb3b5a4c7a1f88fe9467" => :el_capitan
+    sha256 "e3e1351c23fd49095ce6cc91e8f3f47731d27d4de827e07ca82ca0f3613e5af1" => :yosemite
   end
 
   depends_on "htslib"
