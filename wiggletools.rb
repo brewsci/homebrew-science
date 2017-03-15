@@ -3,6 +3,7 @@ class Wiggletools < Formula
   homepage "https://github.com/Ensembl/WiggleTools"
   url "https://github.com/Ensembl/WiggleTools/archive/v1.2.1.tar.gz"
   sha256 "906d32e281fe234b3eacbe569c21e68d61aca3d0ef2eec501e4efd61799be4ee"
+  revision 1
   head "https://github.com/Ensembl/WiggleTools.git"
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btt737"
