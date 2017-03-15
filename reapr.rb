@@ -1,6 +1,6 @@
 class Reapr < Formula
   desc "Evaluates accuracy of a genome assembly using mapped paired end reads"
-  homepage "http://www.sanger.ac.uk/science/tools/reapr"
+  homepage "https://www.sanger.ac.uk/science/tools/reapr"
   # doi "10.1186/gb-2013-14-5-r47"
   # tag "bioinformatics"
   url "ftp://ftp.sanger.ac.uk/pub/resources/software/reapr/Reapr_1.0.18.tar.gz"
@@ -34,6 +34,14 @@ class Reapr < Formula
     sha256 "2063656dcd38bade43dc7f1e2ef5f1b6a8086c2f15d37b334189bd2a28e8ffeb"
   end
 
+  # Fix "Undefined symbol error for "___ks_insertsort_heap"
+  # Upstream SAMtools commit from 10 Dec 2012 "ksort.h: declared
+  # __ks_insertsort_##name as static to compile with C99."
+  resource "samtools_patch" do
+    url "https://github.com/samtools/samtools/commit/64275b4.patch"
+    sha256 "daa4d7050b56e089e3016aeb8fec9187c7e8f3bc1164d4d0c8aab1f61efe8b89"
+  end
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
 
@@ -47,6 +55,11 @@ class Reapr < Formula
       inreplace "third_party/snpomatic/src/snpomatic.h",
         "using namespace std ;",
         "using namespace std ;\n#define ulong u_long"
+    end
+
+    resource("samtools_patch").stage do
+      system "patch", "-p1", "-i", Pathname.pwd/"64275b4.patch", "-d",
+                      buildpath/"third_party/samtools-0.1.18"
     end
 
     # use the vendored samtools-0.1 to avoid CI conflicts
@@ -79,7 +92,7 @@ class Reapr < Formula
       libexec.install %w[samtools razip]
       (libexec/"share/man/man1").install "samtools.1"
     end
-    cd "third_party/samtools/bcftools"  do
+    cd "third_party/samtools/bcftools" do
       libexec.install %w[bcftools vcfutils.pl]
       (libexec/"share/doc/bcftools").install "bcf.tex"
     end
