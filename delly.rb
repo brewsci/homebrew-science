@@ -9,10 +9,9 @@ class Delly < Formula
   # tag "bioinformatics"
 
   bottle do
-    sha256 "c6478c7dc9388998b1c5123d465e179d93f74545c63dcac2b5136a9ffe0320b2" => :sierra
-    sha256 "87fe6a00d909fc35acd6aa7aaa9b45ee17359012569a2a9fdee07faf9fc73a5e" => :el_capitan
-    sha256 "1dff37e02abeb42c449f465d24cca8629517dcc6d5284e7d5072113a30b1b970" => :yosemite
-    sha256 "3e03ea87d7069b018342c926e70e0692d0afae139c673059721ef44dd5e6c7d9" => :x86_64_linux
+    sha256 "804c4abe4f148e882ff20fe957eb7960d36d19f3f9a6bd9ee390a837f608b56c" => :sierra
+    sha256 "aba6e25f0d705541eb26b046a0158fa6817e8f8475c46e7e5ef6756738c2e3ec" => :el_capitan
+    sha256 "955763136bc7bfdcafe3074f3edc6e544460275f2947866079eb15a7645953f9" => :yosemite
   end
 
   option "with-binary", "Install a statically linked binary for 64-bit Linux" if OS.linux?
