@@ -17,6 +17,7 @@ class Wiggletools < Formula
 
   depends_on "htslib"
   depends_on "gsl"
+  depends_on "curl" unless OS.mac?
 
   resource "libbigwig" do
     url "https://github.com/dpryan79/libBigWig/archive/0.3.0.tar.gz"
