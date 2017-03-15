@@ -12,6 +12,7 @@ class Samtools < Formula
     sha256 "2527bc30f37e6c98bfdeb11d887608267a081435b0b0a5fd20d5cca7a5834297" => :sierra
     sha256 "9a477c72d577d8b6ccb5f12b5e013acb89b75adde132cb3b5a4c7a1f88fe9467" => :el_capitan
     sha256 "e3e1351c23fd49095ce6cc91e8f3f47731d27d4de827e07ca82ca0f3613e5af1" => :yosemite
+    sha256 "43e53ad5cc3c5919c0a5568f9dbf4e728aab91a6713c713495611e32bb52e67a" => :x86_64_linux
   end
 
   depends_on "htslib"
