@@ -10,10 +10,9 @@ class Snpeff < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f0103663f65d35f02fc49c38201947bfd11b0dcd9fab2eb33f9cb90c0724f064" => :el_capitan
-    sha256 "740d12347a796f3f09419adf61a0d348684cd877a4ca079059dcb3135fc20664" => :yosemite
-    sha256 "5fee025eae06b67c9eeb3e09a2105edf4e01eb7126216761183cfd0ef54d5266" => :mavericks
-    sha256 "e349272665f4be6cb103b9b27c6e5bd366ef6d3735fa2543bff013be3c1606d3" => :x86_64_linux
+    sha256 "2e9ebb430ee2bcc71831ce17889447b097c5f501a0d3b240d59fb3fed255d962" => :sierra
+    sha256 "2e9ebb430ee2bcc71831ce17889447b097c5f501a0d3b240d59fb3fed255d962" => :el_capitan
+    sha256 "2e9ebb430ee2bcc71831ce17889447b097c5f501a0d3b240d59fb3fed255d962" => :yosemite
   end
 
   depends_on :java => "1.7+"
