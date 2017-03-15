@@ -5,7 +5,7 @@ class Reapr < Formula
   # tag "bioinformatics"
   url "ftp://ftp.sanger.ac.uk/pub/resources/software/reapr/Reapr_1.0.18.tar.gz"
   sha256 "6d691b5b49c58aef332e771d339e32097a7696e9c68bd8f16808b46d648b6660"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
