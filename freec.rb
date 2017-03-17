@@ -1,8 +1,8 @@
 class Freec < Formula
   desc "Copy number and genotype annotation in whole genome/exome sequencing data"
   homepage "http://bioinfo.curie.fr/projects/freec/"
-  url "https://github.com/BoevaLab/FREEC/archive/v10.4.tar.gz"
-  sha256 "d01f44c42318f251c24717b864ef624427e1361069f8fb694f5c52884276fca8"
+  url "https://github.com/BoevaLab/FREEC/archive/v10.5.tar.gz"
+  sha256 "b2841691193a3d03b93318caac7e20f42e820f5033bc13e9bce6307b173cc57c"
   head "https://github.com/BoevaLab/FREEC.git"
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btr670"
