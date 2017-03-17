@@ -4,9 +4,9 @@ class RnaStar < Formula
   # doi "10.1093/bioinformatics/bts635"
   # tag "bioinformatics"
 
-  url "https://github.com/alexdobin/STAR/archive/2.5.2b.tar.gz"
-  version "2.5.2b"
-  sha256 "f88b992740807ab10f2ac3b83781bf56951617f210001fab523f6480d0b546d9"
+  url "https://github.com/alexdobin/STAR/archive/2.5.3a.tar.gz"
+  version "2.5.3a"
+  sha256 "2a258e77cda103aa293e528f8597f25dc760cba188d0a7bc7c9452f4698e7c04"
   head "https://github.com/alexdobin/STAR.git"
 
   bottle do
