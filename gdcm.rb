@@ -5,9 +5,9 @@ class Gdcm < Formula
   sha256 "773aeeea8a3ffdfee38346940b5720ce2e4cd1ac27eeed4851609c8fbb01a1ac"
 
   bottle do
-    sha256 "c8ba651056019504f7df1716252f9e55a730d7fdf010c582d336c2fdf598c50a" => :sierra
-    sha256 "a6378c98638e45f9e9de60ffb10b09aec49686b967972d4714bdb82c3afd811b" => :el_capitan
-    sha256 "13745595134c9638152b4686d3312b3815980509382115b4d575726686f37efb" => :yosemite
+    sha256 "1d6019ae868515bc471a679bb35f363541709567a2210fc8c0c724d62aae1816" => :sierra
+    sha256 "e8f8f322297986bd28c4cb40583df11453b9d5aaac608019c259faffc8b493a6" => :el_capitan
+    sha256 "633950b04ded8ddc2e0a71b3baa1a21c167c4b275c609343b50d224c717805a7" => :yosemite
   end
 
   option "with-check", "Run the GDCM test suite"
