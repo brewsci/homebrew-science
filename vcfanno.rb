@@ -3,8 +3,8 @@ require "language/go"
 class Vcfanno < Formula
   desc "Annotates a VCF with sorted and tabixed input BED, BAM, and VCF files"
   homepage "https://github.com/brentp/vcfanno"
-  url "https://github.com/brentp/vcfanno/archive/v0.1.0.tar.gz"
-  sha256 "36086400e0774cbeb03db39e45ba33471bf225f6c703783799d06cd4b3809fb2"
+  url "https://github.com/brentp/vcfanno/archive/v0.2.3.tar.gz"
+  sha256 "3c47c76a8a7e6c7dbe253e68e04e65617fd8f4c57ddf8669cbf23aac497f4bf0"
   head "https://github.com/brentp/vcfanno.git"
 
   bottle do
@@ -19,7 +19,7 @@ class Vcfanno < Formula
 
   go_resource "github.com/BurntSushi/toml" do
     url "https://github.com/BurntSushi/toml.git",
-        :revision => "99064174e013895bbd9b025c31100bd1d9b590ca"
+        :revision => "e643e9ef00b049d75de26e61109c5ea01885cd21"
   end
 
   go_resource "github.com/biogo/hts" do
@@ -29,7 +29,7 @@ class Vcfanno < Formula
 
   go_resource "github.com/brentp/bix" do
     url "https://github.com/brentp/bix.git",
-        :revision => "80f233091d396e7c7096de3251d994e84d16216a"
+        :revision => "e129d0a707dc833ba36d1b875336914a3025fc50"
   end
 
   go_resource "github.com/brentp/goluaez" do
@@ -59,12 +59,12 @@ class Vcfanno < Formula
 
   go_resource "github.com/yuin/gopher-lua" do
     url "https://github.com/yuin/gopher-lua.git",
-        :revision => "eed1c7917d2f4a7bbed5e9bf6a0ce64cbd2918c5"
+        :revision => "65fb8eeb2aa6d29a7b654d61afd1a07ce3897cc9"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "b4690f45fa1cafc47b1c280c2e75116efe40cc13"
+        :revision => "a6577fac2d73be281a500b310739095313165611"
   end
 
   def install
