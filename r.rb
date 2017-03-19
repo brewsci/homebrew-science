@@ -9,6 +9,7 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.rstudio.com/src/base/R-3/R-3.3.3.tar.gz"
   sha256 "5ab768053a275084618fb669b4fbaadcc39158998a87e8465323829590bcfc6c"
+  revision 1
 
   # Do not remove executable permission from these scripts.
   # See https://github.com/Linuxbrew/linuxbrew/issues/614
@@ -111,8 +112,8 @@ class R < Formula
     args << "--without-tcltk" if build.without? "tcltk"
     args << "--without-x" if build.without? "x11"
 
-    # Help CRAN packages find gettext, readline, and openssl
-    %w[gettext readline openssl].each do |f|
+    # Help CRAN packages find gettext and readline
+    %w[gettext readline].each do |f|
       ENV.append "CPPFLAGS", "-I#{Formula[f].opt_include}"
       ENV.append "LDFLAGS", "-L#{Formula[f].opt_lib}"
     end
