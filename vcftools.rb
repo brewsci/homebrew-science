@@ -6,6 +6,7 @@ class Vcftools < Formula
 
   url "https://github.com/vcftools/vcftools/archive/v0.1.14.tar.gz"
   sha256 "ba440584645e9901c1eeb6b769ccd828591f0575c73349072cde3efa77da6fdf"
+  revision 1
 
   head "https://github.com/vcftools/vcftools.git"
 
@@ -25,7 +26,7 @@ class Vcftools < Formula
   depends_on "zlib" if OS.linux?
 
   def install
-    args = ["--prefix=#{prefix}"]
+    args = ["--prefix=#{prefix}", "--with-pmdir=#{lib}/perl5/site_perl"]
 
     if build.with? "zlib" || OS.linux?
       zlib = Formula["zlib"]
@@ -36,6 +37,8 @@ class Vcftools < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+
+    bin.env_script_all_files(libexec/"bin", :PERL5LIB => lib/"perl5/site_perl")
   end
 
   def caveats; <<-EOS.undent
