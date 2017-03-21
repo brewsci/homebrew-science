@@ -3,9 +3,8 @@ class Kallisto < Formula
   homepage "https://pachterlab.github.io/kallisto/"
   # doi "10.1038/nbt.3519"
   # tag "bioinformatics"
-  url "https://github.com/pachterlab/kallisto/archive/v0.43.0.tar.gz"
-  sha256 "69c3ad9a58d93298bb53ecdd4b68c2c6fa65584aed108beb4cb59a4f87c32cb5"
-  revision 3
+  url "https://github.com/pachterlab/kallisto/archive/v0.43.1.tar.gz"
+  sha256 "7baef1b3b67bcf81dc7c604db2ef30f5520b48d532bf28ec26331cb60ce69400"
 
   bottle do
     cellar :any
