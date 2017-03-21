@@ -15,13 +15,11 @@ class Hdf5 < Formula
   deprecated_option "enable-fortran" => "with-fortran"
   deprecated_option "enable-threadsafe" => "with-threadsafe"
   deprecated_option "enable-parallel" => "with-mpi"
-  deprecated_option "enable-fortran2003" => "with-fortran2003"
   deprecated_option "enable-cxx" => "with-cxx"
   deprecated_option "with-check" => "with-test"
 
   option "with-test", "Run build-time tests"
   option "with-threadsafe", "Trade performance for C API thread-safety (requires --without-cxx and --without-hl)"
-  option "with-fortran2003", "Compile Fortran 2003 bindings (requires --with-fortran)"
   option "with-mpi", "Compile with parallel support (unsupported with thread-safety)"
   option "without-cxx", "Disable the C++ interface"
   option "without-hl", "Compile without high-level library"
@@ -67,7 +65,6 @@ class Hdf5 < Formula
 
     if build.with? "fortran"
       args << "--enable-fortran"
-      args << "--enable-fortran2003" if build.with? "fortran2003"
     else
       args << "--disable-fortran"
     end
