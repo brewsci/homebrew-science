@@ -1,13 +1,12 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization."
   homepage "http://www.vtk.org"
-  revision 6
   head "https://github.com/Kitware/VTK.git"
 
   stable do
-    url "http://www.vtk.org/files/release/7.1/VTK-7.1.0.tar.gz"
-    sha256 "5f3ea001204d4f714be972a810a62c0f2277fbb9d8d2f8df39562988ca37497a"
-    mirror "https://fossies.org/linux/misc/VTK-7.1.0.tar.gz"
+    url "http://www.vtk.org/files/release/7.1/VTK-7.1.1.tar.gz"
+    mirror "https://fossies.org/linux/misc/VTK-7.1.1.tar.gz"
+    sha256 "2d5cdd048540144d821715c718932591418bb48f5b6bb19becdae62339efa75a"
     patch do
       # Fixes python linking. This is a modified version of
       # https://github.com/Kitware/VTK/commit/5668595ea778e81acaed451ae4dc1125a43a8aa0
