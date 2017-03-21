@@ -2,8 +2,8 @@ class Nest < Formula
   desc "The Neural Simulation Tool"
   homepage "http://www.nest-simulator.org/"
   url "https://github.com/nest/nest-simulator/releases/download/v2.12.0/nest-2.12.0.tar.gz"
-  sha256 "6b5ca7680f758bdd44047e23faea5708b2de2e253574807b1ba98dbcdf1ea813"
-  revision 1
+  sha256 "bac578f38bb0621618ee9d5f2f1febfee60cddc000ff32e51a5f5470bb3df40d"
+  revision 2
   head "https://github.com/nest/nest-simulator.git"
 
   bottle do
@@ -33,10 +33,10 @@ class Nest < Formula
 
   depends_on :python3 => :optional
   if build.with? "python3"
-    depends_on "numpy"
-    depends_on "scipy"
-    depends_on "matplotlib"
     depends_on "cython" => [:python3, :build]
+    depends_on "numpy" => "with-python3"
+    depends_on "scipy" => "with-python3"
+    depends_on "matplotlib" => "with-python3"
     depends_on "nose" => :python3
   end
 
