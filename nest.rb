@@ -7,10 +7,9 @@ class Nest < Formula
   head "https://github.com/nest/nest-simulator.git"
 
   bottle do
-    sha256 "d3bbd61af1d42ecd02e6d00cad49083003e14f4b3b017381120e48271e944b62" => :sierra
-    sha256 "e6936bb40ba34cfa36d4b7ae796f4478aeb380b08f34d5f5fd4e3635b8fed9b3" => :el_capitan
-    sha256 "536875e5baedb4d36889af07b1506ce4c53fd33952304ffaaa4ced624e287165" => :yosemite
-    sha256 "da0ab6647b52dbd1c075a578ea0f83acd79ac2aff5360b4ad2d6de23f5e78d2e" => :x86_64_linux
+    sha256 "f42ee31af3192a861fdae4b89529b01be87f3e799031c16ea9c6d530c7c5f874" => :sierra
+    sha256 "3e57652f4c9b5b9060406731953a4522839c93eab0c9ef1f3bbcd15dd4b958d2" => :el_capitan
+    sha256 "ac249cdb725be9233fb1d0339dcf1cd119d657e64816b58bffaa5265918d1eb4" => :yosemite
   end
 
   option "with-python", "Build Python2 bindings (PyNEST)."
