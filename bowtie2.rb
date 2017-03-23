@@ -37,7 +37,7 @@ class Bowtie2 < Formula
              "EXTRA_FLAGS=-L #{HOMEBREW_PREFIX}/lib",
              "INC=-I #{HOMEBREW_PREFIX}/include", "prefix=#{prefix}"
     else
-      system "make", "install", "prefix=#{prefix}"
+      system "make", "install", "prefix=#{prefix}", "NO_TBB=1"
     end
     pkgshare.install "example", "scripts"
   end
