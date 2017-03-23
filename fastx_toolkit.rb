@@ -2,6 +2,7 @@ class FastxToolkit < Formula
   desc "Process short-read FASTA/FASTQ sequencing files"
   homepage "http://hannonlab.cshl.edu/fastx_toolkit/"
   # tag "bioinformatics"
+  revision 1
 
   stable do
     url "https://github.com/agordon/fastx_toolkit/releases/download/0.0.14/fastx_toolkit-0.0.14.tar.bz2"
@@ -61,6 +62,10 @@ class FastxToolkit < Formula
     system "./configure", "--disable-dependency-tracking",
       "--prefix=#{prefix}", "PKG_CONFIG_PATH=#{lib}/pkgconfig"
     system "make", "install"
+    # Hack to fix conflicts with autoconf-archive. See:
+    # https://github.com/Homebrew/homebrew-science/issues/5267
+    # https://github.com/agordon/fastx_toolkit/issues/6
+    rm_rf share
   end
 
   test do
