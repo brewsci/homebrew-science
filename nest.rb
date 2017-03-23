@@ -21,19 +21,22 @@ class Nest < Formula
   depends_on "gsl" => :recommended
   depends_on :mpi => [:optional, :cc, :cxx]
 
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
+    sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
+  end
+
   # Any Python >= 2.7 < 3.x is okay (either from macOS or brewed)
   depends_on :python => :optional
   if build.with? "python"
     depends_on "numpy"
     depends_on "scipy"
     depends_on "matplotlib"
-    depends_on "cython" => [:python, :build]
     depends_on "nose" => :python
   end
 
   depends_on :python3 => :optional
   if build.with? "python3"
-    depends_on "cython" => [:python3, :build]
     depends_on "numpy" => "with-python3"
     depends_on "scipy" => "with-python3"
     depends_on "matplotlib" => "with-python3"
@@ -62,6 +65,15 @@ class Nest < Formula
 
     if build.with? "python3"
       args << "-Dwith-python=3"
+
+      # Add local build resource Cython residing in buildpath to paths, with correct python version
+      pyver = Language::Python.major_minor_version "python3"
+      ENV.prepend_create_path "PATH", buildpath/"cython/bin"
+      ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python#{pyver}/site-packages"
+
+      resource("Cython").stage do
+        system "python3", *Language::Python.setup_install_args(buildpath/"cython")
+      end
     elsif build.with? "python"
       dylib = OS.mac? ? "dylib" : "so"
       py_prefix = `python-config --prefix`.chomp
@@ -70,6 +82,14 @@ class Nest < Formula
       args << "-Dwith-python=2"
       args << "-DPYTHON_LIBRARY=#{py_lib}/libpython2.7.#{dylib}"
       args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python2.7"
+
+      pyver = Language::Python.major_minor_version "python"
+      ENV.prepend_create_path "PATH", buildpath/"cython/bin"
+      ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python#{pyver}/site-packages"
+
+      resource("Cython").stage do
+        system "python", *Language::Python.setup_install_args(buildpath/"cython")
+      end
     else
       args << "-Dwith-python=OFF"
     end
