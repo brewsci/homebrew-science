@@ -19,6 +19,7 @@ class FastxToolkit < Formula
     sha256 "cf10cdcfe2c2bc0adbf9a2c07ed23d5135486ab5ab55aebc96801d894261165f" => :sierra
     sha256 "f3dbac857c75c60929ff580dc54de8469cb86f368806b2234f8bb656bd4288ad" => :el_capitan
     sha256 "ba43d2da9dbde551ddb2e1dddee3ac0aad224fa78df3de739a246bceb378eab4" => :yosemite
+    sha256 "ebaee0cba18ef482fe4ed0045b36c721335c77fbc82cfcd0101cad589c143059" => :x86_64_linux
   end
 
   head do
