@@ -16,10 +16,9 @@ class FastxToolkit < Formula
 
   bottle do
     cellar :any
-    sha256 "16a206dd63204c3e4df48dea0cd0fe66fdd523eefc896906a88a62c74c5b4049" => :sierra
-    sha256 "0281c815a83cf3656e2e54d2f11fa7a7416938e3e0f4f558408db611ac18c42a" => :el_capitan
-    sha256 "58b8c0df75f64dae6649f0a67f4aa8cfcb5512f5da763fdb0075a950bd5d0d2b" => :yosemite
-    sha256 "fa884833f4065ceb7193be4d74639e66caa187b9986a9d4606877b1ed8bfa209" => :x86_64_linux
+    sha256 "cf10cdcfe2c2bc0adbf9a2c07ed23d5135486ab5ab55aebc96801d894261165f" => :sierra
+    sha256 "f3dbac857c75c60929ff580dc54de8469cb86f368806b2234f8bb656bd4288ad" => :el_capitan
+    sha256 "ba43d2da9dbde551ddb2e1dddee3ac0aad224fa78df3de739a246bceb378eab4" => :yosemite
   end
 
   head do
