@@ -1,8 +1,8 @@
 class Phyx < Formula
   desc "Command-line tools for phylogenetic analyses"
   homepage "https://github.com/FePhyFoFum/phyx"
-  url "https://github.com/FePhyFoFum/phyx/archive/v0.9.tar.gz"
-  sha256 "99f467539e5289da3362fbd8a60c6ea16da33da4f050542eba422b794dd028f6"
+  url "https://github.com/FePhyFoFum/phyx/archive/v0.99.tar.gz"
+  sha256 "6c767b2b2a9666849c3035e479a2135734fccf882d4957f69ea251632d7ed010"
   head "https://github.com/FePhyFoFum/phyx.git"
   bottle do
     cellar :any
