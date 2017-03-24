@@ -4,8 +4,8 @@ class Pandaseq < Formula
   # doi "10.1186/1471-2105-13-31"
   # tag "bioinformatics"
 
-  url "https://github.com/neufeld/pandaseq/archive/v2.10.tar.gz"
-  sha256 "93cd34fc26a7357e14e386b9c9ba9b28361cf4da7cf62562dc8501e220f9a561"
+  url "https://github.com/neufeld/pandaseq/archive/v2.11.tar.gz"
+  sha256 "6e3e35d88c95f57d612d559e093656404c1d48c341a8baa6bef7bb0f09fc8f82"
 
   head "https://github.com/neufeld/pandaseq.git"
 
