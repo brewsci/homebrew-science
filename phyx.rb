@@ -6,10 +6,9 @@ class Phyx < Formula
   head "https://github.com/FePhyFoFum/phyx.git"
   bottle do
     cellar :any
-    sha256 "a77ee41a84d4e80be7df6b59f48d8b43c76c90402b419cdae5968647e5c6b9de" => :sierra
-    sha256 "d0c143dcb36c75d2204c2b6911f9098bf766f3fbcd85bdc102d0d482cf7ff66f" => :el_capitan
-    sha256 "00d93d800fdb860a0c86d204b54a69243d6398c9877d96a66a821cd429715c0d" => :yosemite
-    sha256 "95cad8538d94472e8b1f889b91a1b8e22c1fc148b57303d0ab50112b2587ac33" => :x86_64_linux
+    sha256 "328cd6df7545795c70f1e33cfd5fd8ff5449cabfedd0e44f02c8ecc9637edee9" => :sierra
+    sha256 "e333c9a1994e15fe74c66f5d0e4a624c854f15a073c03333422075ed2a23e375" => :el_capitan
+    sha256 "b0c2413bb9807240c8a5f2fbe1bd1970f48adc0429b6ff89906e39c18fffd593" => :yosemite
   end
 
   # tag "bioinformatics"
