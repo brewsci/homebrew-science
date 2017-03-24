@@ -9,10 +9,9 @@ class Swarm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e9210c40ca8298f48a6e199f4f0d653b5aa20a804c6981acbaeb7a1f7b3f040b" => :el_capitan
-    sha256 "a4063aa6d1255a498e1c010489a38011f37c5454bd84ff39d41668e8e142c44f" => :yosemite
-    sha256 "3f46038c3334df0db03ac85a8ba573c099d8d2bbfd3313e358664095c85560cb" => :mavericks
-    sha256 "0309262e98ab2e87cf3f5d582e7a450e65ca1ec9442e7a74483a931c444c1c68" => :x86_64_linux
+    sha256 "010055733aceedc5180a5c9b8f32c0060a6292bcd109ab861d72807033f8e603" => :sierra
+    sha256 "161cb94c5a8837b505c539b6f7448ae24ec4c23c460f73db8d6d7e78740cee75" => :el_capitan
+    sha256 "0788d7520dfac293d8ea8967b3856f229ea403b886a9fcdd82c520154b173c61" => :yosemite
   end
 
   def install
