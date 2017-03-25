@@ -2,9 +2,8 @@ class Freebayes < Formula
   desc "Bayesian variant discovery and genotyping"
   homepage "https://github.com/ekg/freebayes"
   url "https://github.com/ekg/freebayes.git",
-    :tag => "v1.0.2",
-    :revision => "0cb269728b2db6307053cafe6f913a8b6fa1331e"
-  revision 1
+      :tag => "v1.1.0",
+      :revision => "39e5e4bcb801556141f2da36aba1df5c5c60701f"
   head "https://github.com/ekg/freebayes.git"
   # doi "arXiv:1207.3907v2"
   # tag "bioinformatics"
@@ -23,11 +22,10 @@ class Freebayes < Formula
   depends_on "vcflib" => :recommended
 
   def install
+    ENV.deparallelize
+
     # Build fix: https://github.com/chapmanb/homebrew-cbl/issues/14
     inreplace "vcflib/smithwaterman/Makefile", "-Wl,-s", "" if OS.mac?
-
-    # Use brewed python
-    inreplace "scripts/fasta_generate_regions.py", "#!/usr/bin/python", "#!/usr/bin/env python"
 
     system "make"
 
