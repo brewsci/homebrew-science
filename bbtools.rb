@@ -7,10 +7,9 @@ class Bbtools < Formula
 
   bottle do
     cellar :any
-    sha256 "e23c718d29aeea4855cbdcd998de6e6dd7466bc40f8f9fdeeb7a71c64a855604" => :sierra
-    sha256 "a4f734fd6435f9c20d5877f3dd0744b7b63a3f40d18865901d6753ab7d29ec46" => :el_capitan
-    sha256 "599a320c668d1bf33a0b02a292efd2c75da111262db8bee6162da913d0dba7b0" => :yosemite
-    sha256 "9f910f03dbc7a1127c912bf462d58fd0affc6d6b8b32a3b22b494c8a7e9116cc" => :x86_64_linux
+    sha256 "1094614ff2647ea6d0f72fecc08f6101704c95658713d1a9a4fcbc3822c5132c" => :sierra
+    sha256 "58f7446c90e121ac8d187b2708016ba9ed7d953737dcd4069e091de0c015a904" => :el_capitan
+    sha256 "7db32828cb0b94cc497223a5e1262e6abc2a3d4e6a2de617e88261975ac97e31" => :yosemite
   end
 
   depends_on :java => "1.7+"
