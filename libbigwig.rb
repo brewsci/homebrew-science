@@ -1,8 +1,8 @@
 class Libbigwig < Formula
   desc "C library for processing the big UCSC fomats"
   homepage "https://github.com/dpryan79/libBigWig"
-  url "https://github.com/dpryan79/libBigWig/archive/0.3.0.tar.gz"
-  sha256 "221002fe249e8099009f0790f44bfe991e85cb23763cf5fc494e745c0160edc2"
+  url "https://github.com/dpryan79/libBigWig/archive/0.3.2.tar.gz"
+  sha256 "e4eb96b357d39bb2587f7f0714f19b9193a53925e85555d4b3030cc0b3439882"
   # tag "bioinformatics"
 
   bottle do
