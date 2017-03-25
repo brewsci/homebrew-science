@@ -9,10 +9,9 @@ class Breseq < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "780ba849d784e3ff5fd5ae0a0906c5108fd50ad30c2a257f60465633919333ee" => :el_capitan
-    sha256 "c4a40aa8d7fb673a65c51627a7e48ccf4f5821e99e01001d9fe98cfd9525f763" => :yosemite
-    sha256 "e4d5b3c2dc68a539c00fbae40bf7eab32131d1bf4113f3159b10c97fedd44def" => :mavericks
-    sha256 "6d370e68d3cbddc76d078fb9129ebe4211cbb6b1454cce5759458bdf8e9bb873" => :x86_64_linux
+    sha256 "a6617f4a6035dd722b869a5a0c68ba3db5cdaeb2f848c6e21543b3655d49813c" => :sierra
+    sha256 "694d27222c7418bf3093ec45b1fe74a4235fab6da09c669ec3d96ce0a7c30eab" => :el_capitan
+    sha256 "9fd77fef27a79d8cf3530814eba451ed226249c3204a583f326c8cd67ee2c99e" => :yosemite
   end
 
   depends_on "autoconf" => :build
