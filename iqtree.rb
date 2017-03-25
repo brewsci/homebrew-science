@@ -4,8 +4,8 @@ class Iqtree < Formula
   # doi "10.1093/molbev/mst024", "10.1093/molbev/msu300", "10.1093/sysbio/syw037"
   # tag "bioinformatics"
 
-  url "https://github.com/Cibiv/IQ-TREE/archive/v1.4.3.tar.gz"
-  sha256 "bb4fd712aac74cfbd5a1ebef294f7513b9b27c2d8a5bac7d9828a1b7cb8fb743"
+  url "https://github.com/Cibiv/IQ-TREE/archive/v1.5.3.tar.gz"
+  sha256 "d288302c1fcb19e41b99c9048645f2d921463337b2bb189e4c654b4202230e21"
 
   needs :openmp
 
