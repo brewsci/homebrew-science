@@ -1,8 +1,8 @@
 class Bbtools < Formula
   desc "suite of Brian Bushnell's tools for manipulating reads"
   homepage "https://bbmap.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/bbmap/BBMap_36.71.tar.gz"
-  sha256 "663d8e2ab16560f86017bed623934beb043038f88fdf6d2350c43577b650dd8b"
+  url "https://downloads.sourceforge.net/project/bbmap/BBMap_37.02.tar.gz"
+  sha256 "f0af3c27ee93ea89625d227b6c0c3eb9e1bca427f0f8ca9085f691f5dd8835c2"
   # tag "bioinformatics"
 
   bottle do
@@ -25,7 +25,7 @@ class Bbtools < Formula
     prefix.install %w[current jni resources]
     # shell scripts look for ./{current,jni,resources} files, so keep shell scripts
     # in ./#{prefix} but place symlinks in the ../bin dir for brew to export #{bin}
-    mkdir "#{bin}"
+    bin.mkpath
     prefix.install Dir["*.sh"]
     bin.install_symlink Dir["#{prefix}/*.sh"]
     doc.install %w[license.txt README.md docs/changelog.txt docs/Legal.txt docs/readme.txt docs/ToolDescriptions.txt]
