@@ -1,9 +1,8 @@
 class Moose < Formula
   desc "Multiscale Object Oriented Simulation Environment"
   homepage "http://moose.ncbs.res.in"
-  url "https://github.com/BhallaLab/moose-core/archive/3.1.0.tar.gz"
-  sha256 "3914535e9554473ee629289de1281aab95f85cc27b6602c26f01a46f6ccec968"
-  revision 2
+  url "https://github.com/BhallaLab/moose-core/archive/3.1.1.tar.gz"
+  sha256 "d86710e77973b020a6889526418128893b4173cbc665df693dfdc1e27594b90e"
   head "https://github.com/BhallaLab/moose-core.git"
 
   bottle do
@@ -30,6 +29,7 @@ class Moose < Formula
   end
 
   def install
+    (buildpath/"VERSION").write("#{version}\n")
     # FindHDF5.cmake needs a little help
     ENV.prepend "LDFLAGS", "-lhdf5 -lhdf5_hl"
 
@@ -48,7 +48,7 @@ class Moose < Formula
 
     args << "-DCMAKE_SKIP_RPATH=ON"
     mkdir "_build" do
-      system "cmake", "..", *args
+      system "cmake", "..", "-DPYTHON_EXECUTABLE:FILEPATH=#{which("python")}", *args
       system "make"
     end
 
