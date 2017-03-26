@@ -1,6 +1,7 @@
 {
   "asl": "ampl-mp",
   "gal-sim": "galsim",
+  "hdf@4": "hdf4",
   "snp_sites": "snp-sites",
   "geant": "geant4"
 }
