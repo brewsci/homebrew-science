@@ -3,7 +3,9 @@ class Sollya < Formula
   homepage "http://sollya.gforge.inria.fr/"
   url "https://gforge.inria.fr/frs/download.php/file/36271/sollya-6.0.tar.bz2"
   sha256 "05321581ba47f5e0804b712157dfc5343a268ca6c1983dce48fdd1e91d5b0a1f"
+  revision 1
   head "https://scm.gforge.inria.fr/anonscm/git/sollya/sollya.git"
+
   bottle do
     cellar :any
     sha256 "f91eef8bbf199d0d8303b84ad048892ccbf48f20ab3c5bdff345f863d2a56e34" => :sierra
