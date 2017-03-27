@@ -8,9 +8,9 @@ class Sollya < Formula
 
   bottle do
     cellar :any
-    sha256 "f91eef8bbf199d0d8303b84ad048892ccbf48f20ab3c5bdff345f863d2a56e34" => :sierra
-    sha256 "3b7031eb8f5217cbeddee252819708ad50f81bd15c811726188c2aa91dee254d" => :el_capitan
-    sha256 "62f084ab101dbed39a6b459b26762670cf78393b1bfbde381eb0efb1831d6ee8" => :yosemite
+    sha256 "d2e5ae23df8d9e925ab8c2c56aad8f3a65926d8bf6dc25971489214df1e8533e" => :sierra
+    sha256 "e980793eaf0ac50c9c1eb6a55a21874548640050654967adebab6dcaa6bf93d2" => :el_capitan
+    sha256 "0ec4e40f3df62541fda9b3270d4969997797e9b7c970b55e69863d8ff41e3677" => :yosemite
   end
 
   # doi "10.1007/978-3-642-15582-6_5"
