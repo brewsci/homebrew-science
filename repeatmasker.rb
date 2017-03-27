@@ -1,9 +1,10 @@
 class Repeatmasker < Formula
+  desc "Program that screens DNA sequences for interspersed repeats"
   homepage "http://www.repeatmasker.org/"
   # tag "bioinformatics"
 
-  version "4.0.5"
   url "http://www.repeatmasker.org/RepeatMasker-open-4-0-5.tar.gz"
+  version "4.0.5"
   sha256 "e4c15c64b90d57ce2448df4c49c37529eeb725e97f3366cc90f794a4c0caeef7"
 
   bottle do
@@ -55,7 +56,11 @@ class Repeatmasker < Formula
       N
       5
       EOS
-    system "cd #{libexec} && ./configure <config.txt" if build.with? "configure"
+    if build.with? "configure"
+      Dir.chdir libexec.to_s do
+        system "./configure <config.txt"
+      end
+    end
   end
 
   def caveats; <<-EOS.undent
@@ -78,6 +83,6 @@ class Repeatmasker < Formula
   end
 
   test do
-    system "RepeatMasker"
+    system "#{bin}/RepeatMasker"
   end
 end
