@@ -10,6 +10,7 @@ class Hdf4 < Formula
     sha256 "62b3ff43680a0e8c9a0a4ea6882b71b061f7f0a6e7cc2fb1be855fa366217973" => :sierra
     sha256 "260fb928fdf309391a79755d3fe70d510c712193ea8e9aa6a585ffe8745eec6b" => :el_capitan
     sha256 "fccc9f325d2e532efcc512c5c425efaa21803dedb57ebc95c5069dd7bdb6019f" => :yosemite
+    sha256 "556d2115f449ddda4c48c67149597d14abe3fd3319c791fb08d7877eea595557" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
