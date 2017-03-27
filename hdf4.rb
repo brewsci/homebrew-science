@@ -5,6 +5,13 @@ class Hdf4 < Formula
   sha256 "bb0e900b8cc6bc89a5730abc97e654e7705e8e1fbc4e0d4477f417822428d99b"
   revision 2
 
+  bottle do
+    cellar :any
+    sha256 "62b3ff43680a0e8c9a0a4ea6882b71b061f7f0a6e7cc2fb1be855fa366217973" => :sierra
+    sha256 "260fb928fdf309391a79755d3fe70d510c712193ea8e9aa6a585ffe8745eec6b" => :el_capitan
+    sha256 "fccc9f325d2e532efcc512c5c425efaa21803dedb57ebc95c5069dd7bdb6019f" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "szip"
