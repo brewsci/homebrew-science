@@ -12,6 +12,7 @@ class Vcfanno < Formula
     sha256 "6b104d7ad7ce260939f5bca4ec93dcc0365fe17a76e90531c45fe75d5f7a09dc" => :sierra
     sha256 "0067e172e03faf22651cc052e4b6d498b3df5d5926bc21c2f99493ff86c56f33" => :el_capitan
     sha256 "58e09cf98f8e2cc0dbb094f5f4e56afdbe8d6ff8cd726eea2b9ff3fc4f670a95" => :yosemite
+    sha256 "8005ea465ce7549ee0ec21bb35d14e20cf599c11c4115d8c148c0ac856e68ba6" => :x86_64_linux
   end
 
   depends_on "go" => :build
