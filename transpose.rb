@@ -23,6 +23,6 @@ class Transpose < Formula
        1	2
        3	4
     EOS
-    assert_match "1\t3\n2\t4\n", shell_output("transpose -t #{testpath}/test.tab")
+    assert_match "1\t3\n2\t4\n", shell_output("#{bin}/transpose -t #{testpath}/test.tab")
   end
 end
