@@ -1,4 +1,5 @@
 class Phylip < Formula
+  desc "Package of programs for inferring phylogenies"
   homepage "http://evolution.genetics.washington.edu/phylip.html"
   # tag "bioinformatics"
   # doi "10.1007/BF01734359"
@@ -16,8 +17,8 @@ class Phylip < Formula
 
   def install
     cd "src" do
-      system "make -f Makefile.unx all"
-      system "make -f Makefile.unx put EXEDIR=#{libexec}"
+      system "make", "-f", "Makefile.unx", "all"
+      system "make", "-f", "Makefile.unx", "put", "EXEDIR=#{libexec}"
     end
 
     rm Dir["#{libexec}/font*"]
@@ -45,6 +46,6 @@ class Phylip < Formula
     EOF
     expected = "(((Epsilon:0.00,Delta:3.00):2.00,Gamma1:0.00):1.00,(Beta2:0.00,Beta1:0.00):2.00,Alpha2:0.00,Alpha1:0.00);"
     system "echo 'Y' | #{bin}/pars"
-    assert File.read("outtree").include?(expected)
+    assert_match expected, File.read("outtree")
   end
 end
