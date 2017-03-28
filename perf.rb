@@ -1,11 +1,12 @@
 class Perf < Formula
+  desc "Program to measure the performance of the predictions you submit"
   homepage "http://osmot.cs.cornell.edu/kddcup/software.html"
   url "http://osmot.cs.cornell.edu/kddcup/perf/perf.src.tar.gz"
-  sha256 "61b8d7adecc069e46c4fe9882350c69a0007c2f706be469458a9b41de0f65942"
   version "5.11"
+  sha256 "61b8d7adecc069e46c4fe9882350c69a0007c2f706be469458a9b41de0f65942"
 
   def install
-    system "rm perf"
+    File.delete "perf"
     system "make"
     bin.install "perf"
   end
