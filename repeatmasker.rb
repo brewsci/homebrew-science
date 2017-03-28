@@ -8,6 +8,8 @@ class Repeatmasker < Formula
   sha256 "e4c15c64b90d57ce2448df4c49c37529eeb725e97f3366cc90f794a4c0caeef7"
 
   bottle do
+    sha256 "9bcfb35a7d4f2e10ee0cf174987656cccd4ce1db0d7f69115b86e2dcc8b2fc31" => :sierra
+    sha256 "e207beda7decf6fb0580d569d604f7dfbd966109b8116a84eb2ad1c5fa5be031" => :el_capitan
     sha256 "32acef0307f30cc3d20eca9e1eb7c3f485369bdcf5ac6bc6f25ebce2e257f521" => :yosemite
     sha256 "acc0c2ea5291b32f3165bd1ff097d0efb8d42bac4e80b7a2952157ecdcb3bb84" => :mavericks
     sha256 "2ebf7447cc0d9902df64fa6f292f2b1754118601455bf1889808b69eb5f3bf73" => :mountain_lion
