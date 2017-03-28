@@ -10,6 +10,7 @@ class Perf < Formula
     sha256 "bf28fc7f7acd7c56aca805479d272f2ac2733036088071825ad337c152db077e" => :sierra
     sha256 "cbd2ecc8b489cec088d5d0d25cd6d9832f2a03a62ebbca65cc1c9b406954720c" => :el_capitan
     sha256 "6e43efcca9ceb7fc63ff4e034d9fd141173931aae3a36304ea0ac708394b55d3" => :yosemite
+    sha256 "dd4fde86f5340be9b277290b2d7af12cef8ce2d6897b84a568f9e58d5a3b1f0c" => :x86_64_linux
   end
 
   def install
