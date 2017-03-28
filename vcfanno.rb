@@ -3,8 +3,8 @@ require "language/go"
 class Vcfanno < Formula
   desc "Annotates a VCF with sorted and tabixed input BED, BAM, and VCF files"
   homepage "https://github.com/brentp/vcfanno"
-  url "https://github.com/brentp/vcfanno/archive/v0.2.3.tar.gz"
-  sha256 "3c47c76a8a7e6c7dbe253e68e04e65617fd8f4c57ddf8669cbf23aac497f4bf0"
+  url "https://github.com/brentp/vcfanno/archive/v0.2.4.tar.gz"
+  sha256 "c96c549f09971a6d0726ebc3854cda34bb8742d36e8e3ece3ac855844e7cf6d3"
   head "https://github.com/brentp/vcfanno.git"
 
   bottle do
@@ -19,7 +19,7 @@ class Vcfanno < Formula
 
   go_resource "github.com/BurntSushi/toml" do
     url "https://github.com/BurntSushi/toml.git",
-        :revision => "e643e9ef00b049d75de26e61109c5ea01885cd21"
+        :revision => "b26d9c308763d68093482582cea63d69be07a0f0"
   end
 
   go_resource "github.com/biogo/hts" do
@@ -29,7 +29,7 @@ class Vcfanno < Formula
 
   go_resource "github.com/brentp/bix" do
     url "https://github.com/brentp/bix.git",
-        :revision => "e129d0a707dc833ba36d1b875336914a3025fc50"
+        :revision => "e172ae451bd7ece7caff135e75ac6000e7b9a02c"
   end
 
   go_resource "github.com/brentp/goluaez" do
@@ -64,7 +64,7 @@ class Vcfanno < Formula
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "a6577fac2d73be281a500b310739095313165611"
+        :revision => "6c23252515492caf9b228a9d5cabcdbde29f7f82"
   end
 
   def install
