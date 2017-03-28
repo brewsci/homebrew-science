@@ -10,10 +10,9 @@ class Freebayes < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "299858bffe93d8b1952d20b597e91a2d22a78d7001e3855272b20db018e2b715" => :el_capitan
-    sha256 "303723bb1b6fba6a009198ffa956d6bd7b6d4a2acaddc6933714554a9dc6bfb4" => :yosemite
-    sha256 "23201ee36b507225d714a70f1bf9b2fa9a9a92a315cb23b61ebc3f289f012bc1" => :mavericks
-    sha256 "ce016dab3a80a5d96aba85c3267ba3954c2ff56b57a002715a93825b26f39aa6" => :x86_64_linux
+    sha256 "08b1ecf44cd48df30e4153c316d5243a74ab031437e9b1c345d4a28ffa113924" => :sierra
+    sha256 "5e29543bbfc45f511940b79caa2cd9b8eb87b8beaf0e4d73659f25015c41b582" => :el_capitan
+    sha256 "89bb6104d99f6923b621f43a75347b244c984097d2a87673405beb26f93e3e94" => :yosemite
   end
 
   depends_on "cmake" => :build
