@@ -9,10 +9,9 @@ class Vcfanno < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "10c7408b0f053a2563ac7410233d06b699fb47fbab1a686a4ae3cd8bbceb86d3" => :sierra
-    sha256 "67f20cb6c9dd5f19934017584cc935764e402d79cd30848df31be061ee5ee0a4" => :el_capitan
-    sha256 "a71d3d66d4a5e41262f0eb7a1ad637d1c4c4ae3b8057faddd27c646568ba3a1c" => :yosemite
-    sha256 "9144ccc473182415da5657d726ee57846c806706d4f5561bd54f101b75fede00" => :x86_64_linux
+    sha256 "6b104d7ad7ce260939f5bca4ec93dcc0365fe17a76e90531c45fe75d5f7a09dc" => :sierra
+    sha256 "0067e172e03faf22651cc052e4b6d498b3df5d5926bc21c2f99493ff86c56f33" => :el_capitan
+    sha256 "58e09cf98f8e2cc0dbb094f5f4e56afdbe8d6ff8cd726eea2b9ff3fc4f670a95" => :yosemite
   end
 
   depends_on "go" => :build
