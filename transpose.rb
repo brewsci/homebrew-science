@@ -7,6 +7,8 @@ class Transpose < Formula
 
   bottle do
     cellar :any
+    sha256 "ac6fda93b14a381dacff88622faa85270952a60bdd13f12661791708c7075080" => :sierra
+    sha256 "5881277a918b9deeb74df9eaf1b8136b3b09a7d0c93ae96c077a2a6826cc64b5" => :el_capitan
     sha256 "cbc7684f60be84826b10ede4017a99fa285f74e336acb17ef58a6503cf35a89d" => :yosemite
     sha256 "1f96e5d4c395b4014b6b03f1504ca34f8caedf90358b3414e59989a3c0f2a74e" => :mavericks
     sha256 "670ca6ed3cbef04b3f4e4763527568a7206c5d2418d7bbe529e80ec14fc39e69" => :mountain_lion
