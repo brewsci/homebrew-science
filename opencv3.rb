@@ -75,6 +75,7 @@ class Opencv3 < Formula
   depends_on "qt5" => :optional
   depends_on "tbb" => :optional
   depends_on "vtk" => :optional
+  depends_on "openblas" unless OS.mac?
 
   with_python = build.with?("python") || build.with?("python3")
   pythons = build.with?("python3") ? ["with-python3"] : []
@@ -116,15 +117,6 @@ class Opencv3 < Formula
 
     # cf https://github.com/Homebrew/homebrew-science/pull/5185
     args << "-DBUILD_OPENEXR=" + (OS.linux? ? "ON" : "OFF")
-
-    if OS.linux?
-      # http://answers.opencv.org/question/121651/fata-error-lapacke_h_path-notfound-when-building-opencv-32/
-      args << "-DWITH_LAPACK=OFF"
-
-      # avoid error: '_mm_cvtps_ph' was not declared in this scope; cf https://github.com/RoboSherlock/robosherlock/issues/78#issuecomment-274469830
-      args << "-DOPENCV_EXTRA_CXX_FLAGS='-march=core-avx2'"
-    end
-
     args << "-DBUILD_opencv_java=" + arg_switch("java")
     args << "-DBUILD_opencv_python2=" + arg_switch("python")
     args << "-DBUILD_opencv_python3=" + arg_switch("python3")
@@ -137,7 +129,7 @@ class Opencv3 < Formula
     args << "-DWITH_JASPER=" + arg_switch("jasper")
     args << "-DWITH_OPENEXR=" + arg_switch("openexr")
     args << "-DWITH_OPENGL=" + arg_switch("opengl")
-    args << "-DWITH_QUICKTIME=" + arg_switch("quicktime")
+    args << "-DWITH_QUICKTIME=" + arg_switch("quicktime") if OS.mac?
     args << "-DWITH_QT=" + (with_qt ? "ON" : "OFF")
     args << "-DWITH_TBB=" + arg_switch("tbb")
     args << "-DWITH_VTK=" + arg_switch("vtk")
@@ -212,7 +204,12 @@ class Opencv3 < Formula
       args << "-DENABLE_SSE41=ON" if Hardware::CPU.sse4?
       args << "-DENABLE_SSE42=ON" if Hardware::CPU.sse4_2?
       args << "-DENABLE_AVX=ON" if Hardware::CPU.avx?
+      args << "-DENABLE_AVX2=ON" if Hardware::CPU.avx2?
     end
+
+    # avoid error: '_mm_cvtps_ph' was not declared in this scope; cf https://github.com/RoboSherlock/robosherlock/issues/78#issuecomment-274469830
+    # https://github.com/Homebrew/homebrew-science/issues/5336
+    args << "-DCMAKE_CXX_FLAGS='-march=core2'" if OS.linux? && build.bottle?
 
     inreplace buildpath/"3rdparty/ippicv/downloader.cmake",
       "${OPENCV_ICV_PLATFORM}-${OPENCV_ICV_PACKAGE_HASH}",
