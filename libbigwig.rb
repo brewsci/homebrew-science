@@ -7,10 +7,9 @@ class Libbigwig < Formula
 
   bottle do
     cellar :any
-    sha256 "36f6af76053d6bd6effdcf66d7aa43dfc917d3159fa75e48e62d322dfada6214" => :sierra
-    sha256 "26d58767f5ef9ffd62a45c855e283c22814ca8498ad032bf0e0dcd295bb61166" => :el_capitan
-    sha256 "3633758b145f1d4c30136717a2683ed86b9542fd39bf1388f335cf78e22a3b9a" => :yosemite
-    sha256 "6cada92988c8402c3b02e1ddc53726fa2b9e2b607851b2365562185a8cb6908e" => :x86_64_linux
+    sha256 "adf5d1e84f5fc696194caaa3a4f44902c35c69cb8a63f0c049e1bae786671bab" => :sierra
+    sha256 "b1efca94cc405e840a50ef67f8737a0b4e4d195133b8cff57cf6a69ecf660b87" => :el_capitan
+    sha256 "f5b1be46498fd1d89995d36e72a62ade524b00adab054ddbe4a440738f26033e" => :yosemite
   end
 
   depends_on "curl"
