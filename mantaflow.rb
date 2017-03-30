@@ -10,6 +10,7 @@ class Mantaflow < Formula
     sha256 "ad355d211ffb8c2dcfead2cc2b21f893131091f07e75ef9474e4160938c3fa10" => :sierra
     sha256 "acdf534da3b63b86efe5ef35fa820bf909ee8eb6a40e5379ebc77324be14ac31" => :el_capitan
     sha256 "541acdf33fbdbcb57df0d439de413db475c2073d30509715960c63c143c18790" => :yosemite
+    sha256 "b7b594c99940e2494e61d8b872a4626e0f4a22822c044e127b674314ae847b8e" => :x86_64_linux
   end
 
   option "with-openmp", "Build with OpenMP support"
