@@ -1,8 +1,8 @@
 class Mantaflow < Formula
   desc "Open computer graphics fluid simulation framework"
   homepage "http://mantaflow.com/"
-  url "http://mantaflow.com/download/manta-src-0.9.tar"
-  sha256 "f55298f10650b35454f3134d2d0e265b19c24c3c68991e4bbedf5a460be67077"
+  url "http://mantaflow.com/download/manta-src-0.10.tar"
+  sha256 "cab98dd38ded26a65ad151ce1cd2dafd93be8f94b3668e873cbfca73748fdc57"
   head "https://bitbucket.org/mantaflow/manta.git"
 
   bottle do
