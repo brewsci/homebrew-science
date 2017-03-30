@@ -2,9 +2,8 @@ class Mlpack < Formula
   desc "Scalable C++ machine learning library"
   homepage "http://www.mlpack.org"
   # doi "arXiv:1210.6293"
-  url "http://www.mlpack.org/files/mlpack-2.1.1.tar.gz"
-  sha256 "c2249bbab5686bb8658300ebcf814b81ac7b8050a10f1a517ba5530c58dbac31"
-  revision 1
+  url "http://mlpack.org/files/mlpack-2.2.0.tar.gz"
+  sha256 "31c3a14d5bdf34e7fdca57e589f363461cb328b0e58922b28e1a389aa1671bc1"
 
   bottle do
     cellar :any
