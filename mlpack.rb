@@ -7,9 +7,9 @@ class Mlpack < Formula
 
   bottle do
     cellar :any
-    sha256 "20879f51300f225c67be143a14d14588ef6afe042a5845a35a960edbb6aec080" => :sierra
-    sha256 "91564a59e76878351a96aef5a879fb6f9759c17679d96aac95ff6f334247eea3" => :el_capitan
-    sha256 "28a65845fc0f94230af2e257679d4572925479048ea00900d07aabeaad37035e" => :yosemite
+    sha256 "5a1edf145db1f1dcceb855a0082cfe56920e0d37b2c58fff2f5c3aa3ade4a9e7" => :sierra
+    sha256 "838049510eccc58c97cf3e5e9d68d738b78859d6b166b0fb77850c08eeefd509" => :el_capitan
+    sha256 "5ce985b5e38c6e659067839d768fcb6226895c288aad6d0a106157a7bec6f505" => :yosemite
   end
 
   needs :cxx11
