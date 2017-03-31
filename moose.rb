@@ -7,10 +7,9 @@ class Moose < Formula
 
   bottle do
     cellar :any
-    sha256 "3e0760f180d56f0bf9f60b35ca33c27e912da88484a3ac2a21375dc22d6f603e" => :sierra
-    sha256 "2a88097a951e0d23ff0b26cd527bfcd85323bb75c3eb03b18966805c67ac1a5b" => :el_capitan
-    sha256 "a1e5033f49aaa7031a4daea53c71251276dbde71d06f593866a18444469c008d" => :yosemite
-    sha256 "cc0865d1640966e7ba4b31cdcf57391399e4866d1aed5fcb480b8da040224018" => :x86_64_linux
+    sha256 "6f273d1a88615ec7a9d08a061a6d8daa888abf510268f7ff13485e9817a132b4" => :sierra
+    sha256 "8c88f0b75ab84c53d2ddbc24dc115fa52b59d9ecc863056f2b9f30b16351e862" => :el_capitan
+    sha256 "7ea57a76d11c6346fb9e077e77771488bad45c12f9f71df50aae8183636f065e" => :yosemite
   end
 
   option "with-sbml", "Enable sbml support"
