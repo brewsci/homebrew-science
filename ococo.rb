@@ -7,10 +7,10 @@ class Ococo < Formula
   head "https://github.com/karel-brinda/ococo.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2708bd14a7ee3339a7934de5c98b6c1050d3384aaaae070e254ddb9c2b290379" => :el_capitan
-    sha256 "48fe3507e28ecb56300e576c7ee9b7f89bb9b3f8eddd0f1690cec2c049d41992" => :yosemite
-    sha256 "6035fc4acf5ae5591e8bfb18d6c2b7f4e23849ade637f1a58c0410d83ff37543" => :mavericks
+    cellar :any
+    sha256 "b9145919260ca03c415fc0da4902427f9eed390e16856a21aec8615df44232d7" => :sierra
+    sha256 "4eabdc5d8bbc2701a955221621ab39a369ddfea15d3e610cc0be832f1b81ce32" => :el_capitan
+    sha256 "5faaaa13bfb44ab4f2bbf45592158939fb54c5589488817e43c5815f114e7a20" => :yosemite
   end
 
   depends_on "htslib"
