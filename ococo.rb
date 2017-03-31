@@ -17,8 +17,8 @@ class Ococo < Formula
   depends_on "xz"
 
   def install
-    inreplace "Makefile", /^(LIBS +)( =.*)/, "\\1\\2\n\\1+= -llzma -lbz2"
-    system "make", "HTSLIBINCLUDE=#{Formula["htslib"].opt_include}", "HTSLIB=#{Formula["htslib"].opt_lib}/libhts.a"
+    dylib = OS.mac? ? "dylib" : "so"
+    system "make", "HTSLIBINCLUDE=#{Formula["htslib"].opt_include}", "HTSLIB=#{Formula["htslib"].opt_lib}/libhts.#{dylib}"
     bin.install "ococo"
     man1.install "ococo.1"
   end
