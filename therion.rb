@@ -5,11 +5,7 @@ class Therion < Formula
   sha256 "73cda5225725d3e8cadd6fada9e506ab94b093d4e7a9fc90eaf23f8c7be6eb85"
   revision 1
 
-  bottle do
-    sha256 "2fdfda472c2801fa18be77cd43ed67934b39c672883b8d6203fa16964459b5f4" => :sierra
-    sha256 "8fca10ca748ea930a6b6df78e9fc5390df335c8b7fc56ce3b4d9ae932b010c11" => :el_capitan
-    sha256 "321034c5344cc8fb7dbe34781c1bb75f8c791821c438c7aefeccb06f944e27b6" => :yosemite
-  end
+  bottle :disable, "homebrew/dupes/tcl-tk dependency causes CI to fail for VTK"
 
   option "with-tex", "Build documentation"
 
