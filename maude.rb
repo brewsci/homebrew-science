@@ -7,9 +7,9 @@ class Maude < Formula
 
   bottle do
     cellar :any
-    sha256 "4483de1d92e6eadfac788f22bd6fcb2eb29161b2de9f4debafde0572bd8be542" => :el_capitan
-    sha256 "ba6cf045460330fd734a17f6a9eab4fef171ff4f3ce7985a258d974d374f05d0" => :yosemite
-    sha256 "56aac9af714615769ca7c06ceb738f11050b7c38e70f1e47675e900984be90e9" => :mavericks
+    sha256 "952d23e1f143bfb62e21fb4b0e1b440dcfc431cc7250f458c4c1ecf7234fea5e" => :sierra
+    sha256 "042a617f84cacfdd0d8f441fcf1209fe6bef76483b0cf848bded5dc378f82bc6" => :el_capitan
+    sha256 "8bb72b9a8f9097656ffb4f70f7b7addb2ba2a888134af1bd96b488340d25aadc" => :yosemite
   end
 
   depends_on "gmp"
