@@ -3,6 +3,7 @@ class Maude < Formula
   homepage "http://maude.cs.illinois.edu"
   url "http://maude.cs.illinois.edu/w/images/d/d8/Maude-2.7.1.tar.gz"
   sha256 "b1887c7fa75e85a1526467727242f77b5ec7cd6a5dfa4ceb686b6f545bb1534b"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,6 +16,7 @@ class Maude < Formula
   depends_on "libbuddy"
   depends_on "libsigsegv"
   depends_on "libtecla"
+  depends_on "flex" unless OS.mac?
 
   def install
     ENV.deparallelize
@@ -34,7 +36,7 @@ class Maude < Formula
       set show command off .
       reduce in STRING : "hello" + " " + "world" .
     EOS
-    expect = %(Maude> result String: "hello world"\nMaude> Bye.\n)
+    expect = %Q(Maude> result String: "hello world"\nMaude> Bye.\n)
     output = pipe_output("#{bin/"maude"} -no-banner", input)
     assert_equal expect, output
   end
