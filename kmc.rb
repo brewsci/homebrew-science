@@ -13,6 +13,7 @@ class Kmc < Formula
     sha256 "95d5fed8eeaca93180909abd67bd0ee6306aad77795884114ac948fe0292adb0" => :sierra
     sha256 "cb509c126499a5b3156131042472688faafba4499246940d3ca270340b659572" => :el_capitan
     sha256 "de1beeb4921a7a75b316dd2b100346ed396dfe765a72b114027dbfd231c1a9f5" => :yosemite
+    sha256 "1a060f43cfad928c66b84358b05f4edafdd7697366402d6ea376e6ff7e9f4eae" => :x86_64_linux
   end
 
   fails_with :clang do
