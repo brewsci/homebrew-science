@@ -3,10 +3,9 @@ class Nxtrim < Formula
   homepage "https://github.com/sequencing/NxTrim"
   # doi "10.1101/007666"
   # tag "bioinformatics"
-  revision 1
 
-  url "https://github.com/sequencing/NxTrim/archive/v0.4.0.tar.gz"
-  sha256 "aaa2dafefa1c0cca5966d8290eef758cfcca87426a2ba019506c4f38309161ea"
+  url "https://github.com/sequencing/NxTrim/archive/v0.4.1.tar.gz"
+  sha256 "7168196d8175e1f11e08112a522a01f5860ad0f31f8cfd0d9c7aae60649cfe33"
   head "https://github.com/sequencing/NxTrim.git"
 
   bottle do
@@ -22,7 +21,6 @@ class Nxtrim < Formula
   def install
     system "make", "BOOST_ROOT=#{Formula["boost"].prefix}"
     bin.install "nxtrim", "mergeReads"
-    doc.install "Changelog", "LICENSE.txt", "README.md"
   end
 
   test do
