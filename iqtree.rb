@@ -1,6 +1,12 @@
 class Iqtree < Formula
   desc "Efficient phylogenomic software by maximum likelihood"
   homepage "http://www.iqtree.org/"
+  # doi "10.1093/molbev/mst024", "10.1093/molbev/msu300", "10.1093/sysbio/syw037"
+  # tag "bioinformatics"
+
+  url "https://github.com/Cibiv/IQ-TREE/archive/v1.5.4.tar.gz"
+  sha256 "f26be486180291404b056a950b62fcb29a8344d3acd4204bef543c18d1229612"
+
   bottle do
     cellar :any
     sha256 "12b58df62c8739f9d8e1d344b212d3950b33747b0cc2b790a8f01ac8f087ba7e" => :sierra
@@ -9,18 +15,18 @@ class Iqtree < Formula
     sha256 "4aeacfec24bc050d41ae6c4455fb2d497ad62633657e045cec61da0ffea59e36" => :x86_64_linux
   end
 
-  # doi "10.1093/molbev/mst024", "10.1093/molbev/msu300", "10.1093/sysbio/syw037"
-  # tag "bioinformatics"
-
-  url "https://github.com/Cibiv/IQ-TREE/archive/v1.5.3.tar.gz"
-  sha256 "d288302c1fcb19e41b99c9048645f2d921463337b2bb189e4c654b4202230e21"
-
   needs :openmp
 
   depends_on "cmake" => :build
   depends_on "eigen"
 
   def install
+    if OS.mac?
+      inreplace "CMakeLists.txt",
+        "${CMAKE_EXE_LINKER_FLAGS_RELEASE} -Wl,--gc-sections",
+        "${CMAKE_EXE_LINKER_FLAGS_RELEASE}"
+    end
+
     mkdir "build" do
       system "cmake", "..", "-DIQTREE_FLAGS=omp", *std_cmake_args
       system "make"
