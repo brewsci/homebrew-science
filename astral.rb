@@ -12,7 +12,7 @@ class Astral < Formula
   bottle :unneeded
 
   depends_on :java
-  depends_on "homebrew/dupes/unzip" => :build unless OS.mac?
+  depends_on "unzip" => :build unless OS.mac?
 
   def install
     safe_system "unzip", "Astral.#{version}.zip"
