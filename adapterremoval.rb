@@ -13,8 +13,8 @@ class Adapterremoval < Formula
     sha256 "71c311b9d04c31e82a71a4fc4b4b748afd3ddb06881cbef4ad3e5cd3bd19410d" => :yosemite
   end
 
-  depends_on "homebrew/dupes/bzip2" => :recommended
-  depends_on "homebrew/dupes/zlib" => :recommended
+  depends_on "bzip2" => :recommended
+  depends_on "zlib" => :recommended
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
