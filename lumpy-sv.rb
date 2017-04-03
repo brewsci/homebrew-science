@@ -1,7 +1,8 @@
 class LumpySv < Formula
+  desc "General probabilistic framework for structural variant discovery"
   homepage "https://github.com/arq5x/lumpy-sv"
-  url "https://github.com/arq5x/lumpy-sv/archive/0.2.11.tar.gz"
-  sha256 "ce2d8d6353cbce1c83a0aaa25a5bd9238f0ebaa8253b873b01bd446290e54379"
+  url "https://github.com/arq5x/lumpy-sv/archive/0.2.13.tar.gz"
+  sha256 "3672b86ef0190ebe520648a6140077ee9f15b0549cb233dca18036e63bbf6375"
   # doi "10.1186/gb-2014-15-6-r84"
   # tag "bioinformatics"
 
@@ -20,8 +21,8 @@ class LumpySv < Formula
   depends_on "bwa" => :optional
 
   resource "bamkit" do
-    url "https://github.com/cc2qe/bamkit/archive/6b8c20.tar.gz"
-    sha256 "98d8180f4b7f5e32deb531cc3562cd3eeed0d2377ca539230f43806281393513"
+    url "https://github.com/cc2qe/bamkit.git",
+        :revision => "148ef1d3ac05ef7a033ed5ef42749c21956718d6"
   end
 
   def install
