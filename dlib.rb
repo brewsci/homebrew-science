@@ -3,8 +3,8 @@ require File.expand_path("../Requirements/cuda_requirement", __FILE__)
 class Dlib < Formula
   desc "C++ library for machine learning"
   homepage "http://dlib.net/"
-  url "http://dlib.net/files/dlib-19.2.tar.bz2"
-  sha256 "28be8f96681e0fd196a7666ad1e1fa6994e9494aef737dd7d6985a3f1620084a"
+  url "http://dlib.net/files/dlib-19.4.tar.bz2"
+  sha256 "003f0508fe605cf397ad678c6976e5ec7db8472faabf06508d16ead205571372"
 
   head "https://github.com/davisking/dlib.git"
 
@@ -15,6 +15,7 @@ class Dlib < Formula
     sha256 "0da49a88691ebf762626c0475de0e3a569851a92ef010646cfeb1d9f4b671f6b" => :yosemite
   end
 
+  depends_on :macos => :el_capitan # needs thread-local storage
   depends_on CudaRequirement => :optional
 
   depends_on "cmake" => :build
