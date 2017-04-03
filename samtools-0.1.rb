@@ -17,7 +17,7 @@ class Samtools01 < Formula
   option "with-dwgsim", "Build with 'Whole Genome Simulation'"
   option "without-bcftools", "Do not install BCFtools"
 
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   conflicts_with "samtools"
   conflicts_with "bcftools"
