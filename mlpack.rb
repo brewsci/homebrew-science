@@ -4,6 +4,7 @@ class Mlpack < Formula
   # doi "arXiv:1210.6293"
   url "http://mlpack.org/files/mlpack-2.2.0.tar.gz"
   sha256 "31c3a14d5bdf34e7fdca57e589f363461cb328b0e58922b28e1a389aa1671bc1"
+  revision 1
 
   bottle do
     cellar :any
@@ -28,6 +29,9 @@ class Mlpack < Formula
   depends_on "boost" => cxx11dep
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
+
     ENV.cxx11
     dylib = OS.mac? ? "dylib" : "so"
     cmake_args = std_cmake_args
@@ -36,6 +40,7 @@ class Mlpack < Formula
     cmake_args << "-DBOOST_ROOT=#{Formula["boost"].opt_prefix}"
     cmake_args << "-DARMADILLO_INCLUDE_DIR=#{Formula["armadillo"].opt_include}"
     cmake_args << "-DARMADILLO_LIBRARY=#{Formula["armadillo"].opt_lib}/libarmadillo.#{dylib}"
+    cmake_args << "-DCMAKE_CXX_FLAGS=-fext-numeric-literals" unless ENV.compiler == :clang
 
     mkdir "build" do
       system "cmake", "..", *cmake_args
