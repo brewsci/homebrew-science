@@ -16,7 +16,7 @@ class Samtools < Formula
   end
 
   depends_on "htslib"
-  depends_on "homebrew/dupes/ncurses" unless OS.mac?
+  depends_on "ncurses" unless OS.mac?
 
   def install
     system "./configure", "--with-htslib=#{Formula["htslib"].opt_prefix}"
