@@ -8,7 +8,7 @@ class Plink2 < Formula
 
   depends_on :fortran
   depends_on "openblas" => :optional
-  depends_on "homebrew/dupes/zlib"
+  depends_on "zlib"
 
   bottle do
     cellar :any
