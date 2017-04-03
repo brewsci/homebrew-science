@@ -1,10 +1,11 @@
 class MirPrefer < Formula
+  desc "MicroRNA prediction from small RNA-seq data"
   homepage "https://github.com/hangelwen/miR-PREFeR"
-  head "https://github.com/hangelwen/miR-PREFeR.git"
-  url "https://github.com/hangelwen/miR-PREFeR/archive/v0.19.tar.gz"
-  sha256 "e71baa5b8ed3db89e4bf15ecbe639ee2116dc7328d75b92e49829240f75c9daa"
   # doi "10.1093/bioinformatics/btu380"
   # tag "bioinformatics"
+  url "https://github.com/hangelwen/miR-PREFeR/archive/v0.24.tar.gz"
+  sha256 "457545478e2d3bc7497d350f3972cf0855b82fa7cb0263a6d91756732f487faf"
+  head "https://github.com/hangelwen/miR-PREFeR.git"
 
   depends_on "samtools"
   depends_on "viennarna"
@@ -15,6 +16,6 @@ class MirPrefer < Formula
   end
 
   test do
-    system "python #{bin}/miR_PREFeR.py -h"
+    system "python", "#{bin}/miR_PREFeR.py", "-h"
   end
 end
