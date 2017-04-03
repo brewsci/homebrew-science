@@ -1,8 +1,8 @@
 class Pillow < Formula
   desc "Python Imaging Library fork"
   homepage "https://github.com/python-imaging/Pillow"
-  url "https://github.com/python-pillow/Pillow/archive/3.4.2.tar.gz"
-  sha256 "0ee762ab924e004b7e69643b44e82cf65e0fa1f16862e11bd821950dbbc5f3d3"
+  url "https://github.com/python-pillow/Pillow/archive/4.1.0.tar.gz"
+  sha256 "93bf698eca91fc895c3f4871cf3af089d217f533bdf7dfc9b21dcdad2229d480"
   head "https://github.com/python-imaging/Pillow.git"
 
   bottle do
@@ -64,6 +64,7 @@ class Pillow < Formula
 
   test do
     cp_r prefix/"Tests", testpath
+    rm Dir["Tests/test_file_{fpx,mic}.py"] # require olefile
     Language::Python.each_python(build) do |python, _version|
       system "#{python} -m nose Tests/test_*"
     end
