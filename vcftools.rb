@@ -22,7 +22,7 @@ class Vcftools < Formula
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "htslib" => :run
-  depends_on "homebrew/dupes/zlib" => :optional if OS.mac?
+  depends_on "zlib" => :optional if OS.mac?
   depends_on "zlib" if OS.linux?
 
   def install
