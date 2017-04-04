@@ -1,3 +1,11 @@
+class MacOSRequirement < Requirement
+  fatal true
+  satisfy(build_env: false) { OS.mac? }
+  def message
+    "macOS is required."
+  end
+end
+
 class RGui < Formula
   desc "R.app Cocoa GUI for the R Programming Language"
   homepage "https://cran.r-project.org/bin/macosx/"
@@ -13,6 +21,7 @@ class RGui < Formula
     sha256 "1ca074f212f3901bd57da0ba6ab35cc78b0cbf3f28796aec2487ad89a43b8c97" => :yosemite
   end
 
+  depends_on MacOSRequirement
   depends_on :xcode => :build
   depends_on :macos => :snow_leopard
   depends_on :arch => :x86_64
