@@ -11,6 +11,7 @@ class Mlpack < Formula
     sha256 "f98a9f38b8d9ad064151619c126795882a3fb1aaeafde53742b6447f86a3710b" => :sierra
     sha256 "7eb8f31e85e953ac0732bafbc23f81c30a6b4403e04fd6abfa732761cc47c505" => :el_capitan
     sha256 "0519e0d42ce99f7b2a5f4f531bc4b6de37323baf68872bf6bf4b81b5eecdceb2" => :yosemite
+    sha256 "ee7cf775d2024b7d6e2c8307eefcfa4712244d742cf0a5e89697bc62f5ff1555" => :x86_64_linux
   end
 
   needs :cxx11
