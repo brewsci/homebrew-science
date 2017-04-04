@@ -15,6 +15,8 @@ class Mummer < Formula
     sha256 "e7aa1f70d35e3e4d6fb4d0192e09b6a919894a704a776ee2a1cf3bbf1d54d6b0" => :yosemite
   end
 
+  depends_on "tcsh" unless OS.mac?
+
   # annotate conflicts with gd
   TOOLS = %w[
     combineMUMs delta-filter dnadiff exact-tandems mapview mgaps
