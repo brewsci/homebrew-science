@@ -8,11 +8,9 @@ class LumpySv < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "1f571d7d8757b2daadb579f6de1c450b55ccded198ff839eb3cb666706c93113" => :el_capitan
-    sha256 "47909b1938634e7649094958d04ca3e9253d62ec75d75cdb4ed02a54d9777d6f" => :yosemite
-    sha256 "2c7698685d3a58d1c594bc1b318b18f864af2c7d5969440c5a03978107761d04" => :mavericks
-    sha256 "eb106f5abe0c4940959cf6746e55ccad69c138d61dcf31aef933776cb09a2b4b" => :x86_64_linux
+    sha256 "712abc8add7fb030e08ed367b0c752ba5c33631e047926346f2e79653e84e9cb" => :sierra
+    sha256 "344c9e24aa37ddd01a012a30aad17fa92780739e926ff5e65b1bcb5ac45d87c5" => :el_capitan
+    sha256 "225cb0dd852ebb98579f0c72f7f4b48e295e06e9182d4f32f5d05048ba42c15d" => :yosemite
   end
 
   depends_on "samblaster" => :optional
