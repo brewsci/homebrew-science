@@ -10,6 +10,7 @@ class Adam < Formula
     sha256 "beb29a0f019c560cd50fc88181a718af15a0ada2d4edcb6ee9cd7ee445cf5351" => :sierra
     sha256 "b2eff2fa6902d8b88f897916211bb430b38357547eff380b7c6052602674f458" => :el_capitan
     sha256 "b2eff2fa6902d8b88f897916211bb430b38357547eff380b7c6052602674f458" => :yosemite
+    sha256 "05fa62cf881fbd25653a38d7c73aa497101f86f0317ddb75151bfe512a2fc662" => :x86_64_linux
   end
 
   head do
