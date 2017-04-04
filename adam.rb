@@ -1,8 +1,8 @@
 class Adam < Formula
   desc "Genomics analysis platform built on Apache Avro, Apache Spark and Parquet"
   homepage "https://github.com/bigdatagenomics/adam"
-  url "https://search.maven.org/remotecontent?filepath=org/bdgenomics/adam/adam-distribution-spark2_2.11/0.21.0/adam-distribution-spark2_2.11-0.21.0-bin.tar.gz"
-  sha256 "6ab1cd7073a7b39034bdc342aeab2cbb84e89cfb251e7138cd9811f28fc372d3"
+  url "https://search.maven.org/remotecontent?filepath=org/bdgenomics/adam/adam-distribution-spark2_2.11/0.22.0/adam-distribution-spark2_2.11-0.22.0-bin.tar.gz"
+  sha256 "31624954eb473f2ec24354af7e6303a47887cf2ca4076bb71f54618aef59e15b"
   # tag "bioinformatics"
 
   bottle do
