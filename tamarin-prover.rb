@@ -11,6 +11,7 @@ class TamarinProver < Formula
     sha256 "efcddecba5a44614f4432e0559feb17e343717543c6338adab1e9a1d87cf24ef" => :sierra
     sha256 "1daceba42bff6d839fbf6a5b7c045e074f66a369400d6f4a2084a7a639b5dd5c" => :el_capitan
     sha256 "8a39f8e710df32565883a36214302b235f1e5a219a70b4bb7816e2a4e326aff0" => :yosemite
+    sha256 "945abac8994c7c98c165247a638207b319952fe7fb372e79a00138d7e291a12a" => :x86_64_linux
   end
 
   depends_on "haskell-stack" => :build
