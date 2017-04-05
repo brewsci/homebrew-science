@@ -1,8 +1,8 @@
 class Varscan < Formula
   desc "Variant detection in massively parallel sequencing data"
-  homepage "https://varscan.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/varscan/VarScan.v2.3.7.jar"
-  sha256 "1060f823fc82a182fcc4ae5824a3639b35ff6d969657c536f709f24b2324ed12"
+  homepage "https://dkoboldt.github.io/varscan/"
+  url "https://github.com/dkoboldt/varscan/raw/master/VarScan.v2.4.3.jar"
+  sha256 "dc0e908ebe6a429fdd2d0f80f26c428cfc71f65429dc1816d41230b649168ff3"
   # doi "10.1101/gr.129684.111"
   # tag "bioinformatics"
 
@@ -11,7 +11,7 @@ class Varscan < Formula
   depends_on :java
 
   def install
-    jar = "VarScan.v2.3.7.jar"
+    jar = "VarScan.v#{version}.jar"
     java = share/"java"
     java.install jar
     bin.write_jar_script java/jar, "varscan"
