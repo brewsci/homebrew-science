@@ -8,9 +8,9 @@ class TamarinProver < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0cbaf97d5446ddb0f3201cad497cc2cb93a9a8bc662d16c45f0f69c784ab2531" => :sierra
-    sha256 "3614cdaf2f05d9d2d0a4a892116f77c84a593a7239146d510c20c50d269338ad" => :el_capitan
-    sha256 "2b2cee8f7439698171ecc1fc31e171439a711e7831aad035be64e34adb478e91" => :yosemite
+    sha256 "efcddecba5a44614f4432e0559feb17e343717543c6338adab1e9a1d87cf24ef" => :sierra
+    sha256 "1daceba42bff6d839fbf6a5b7c045e074f66a369400d6f4a2084a7a639b5dd5c" => :el_capitan
+    sha256 "8a39f8e710df32565883a36214302b235f1e5a219a70b4bb7816e2a4e326aff0" => :yosemite
   end
 
   depends_on "haskell-stack" => :build
