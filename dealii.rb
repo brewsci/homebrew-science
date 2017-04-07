@@ -1,10 +1,8 @@
 class Dealii < Formula
   desc "open source finite element library"
-  homepage "http://www.dealii.org"
-  url "https://github.com/dealii/dealii/releases/download/v8.4.2/dealii-8.4.2.tar.gz"
-  sha256 "ec7c00fadc9d298d1a0d16c08fb26818868410a9622c59ba624096872f3058e4"
-  revision 8
-
+  homepage "https://www.dealii.org"
+  url "https://github.com/dealii/dealii/releases/download/v8.5.0/dealii-8.5.0.tar.gz"
+  sha256 "e6913ff6f184d16bc2598c1ba31f879535b72b6dff043e15aef048043ff1d779"
   head "https://github.com/dealii/dealii.git"
 
   bottle do
