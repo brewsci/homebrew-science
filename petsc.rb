@@ -20,7 +20,7 @@ class Petsc < Formula
   head "https://bitbucket.org/petsc/petsc", :using => :git
 
   bottle do
-    sha256 "3de7fa80b993aa2b509bf430d19029e4e6cb82c79ca4fb13346b80b5df27a535" => :el_capitan
+    sha256 "3de7fa80b993aa2b509bf430d19029e4e6cb82c79ca4fb13346b80b5df27a535" => :el_capitan_or_later
     sha256 "5fb9338c1d54a31cd269c87735855558cb2714f87ded344caef54c9d07b7cad0" => :yosemite
   end
 
