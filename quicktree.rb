@@ -1,11 +1,18 @@
 class Quicktree < Formula
-  url "ftp://ftp.sanger.ac.uk/pub/resources/software/quicktree/quicktree.tar.gz"
-  version "1.1"
-  homepage "http://www.sanger.ac.uk/resources/software/quicktree/"
-  sha256 "3b5986a8d7b8e59ad5cdc30bd7c7d91431909c25230e8fed13494f21337da6ef"
+  desc "Phylogenetic neighbor-joining tree builder"
+  homepage "https://www.sanger.ac.uk/resources/software/quicktree/"
+
+  url "https://github.com/khowe/quicktree/archive/v2.0.tar.gz"
+  sha256 "e47680b69d411602c2fd1bc166f1564ebfc64b49f7be5e083f7e03ed4f72f94e"
+
+  head "https://github.com/khowe/quicktree.git"
 
   def install
     system "make"
-    bin.install "bin/quicktree"
+    bin.install "quicktree"
+  end
+
+  test do
+    assert_match "UPGMA", shell_output("#{bin}/quicktree -h 2>&1", 0)
   end
 end
