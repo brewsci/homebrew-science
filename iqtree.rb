@@ -9,10 +9,9 @@ class Iqtree < Formula
 
   bottle do
     cellar :any
-    sha256 "12b58df62c8739f9d8e1d344b212d3950b33747b0cc2b790a8f01ac8f087ba7e" => :sierra
-    sha256 "d26c7c16dd99407f6e2f5f9b5e6f218b6a4cc02baf14d585c08cf2e20e815d16" => :el_capitan
-    sha256 "9624ac5393fac9a4aa3c6eb398cf5ef9aa73c27b9142dcec3bd4e4b68eeab44d" => :yosemite
-    sha256 "4aeacfec24bc050d41ae6c4455fb2d497ad62633657e045cec61da0ffea59e36" => :x86_64_linux
+    sha256 "6fa110388cf28b533e629779e6515f370e82a409317dd72160ab99aabad9c9c9" => :sierra
+    sha256 "d7e478b051b1fa15adbaabdbee3ba86a2dabd4c231ee2252b3d2e53978db66ba" => :el_capitan
+    sha256 "4dfef3abfbb77ca19827cdecaf01d23feb599504df965112afa5c1fc72ffe86b" => :yosemite
   end
 
   needs :openmp
