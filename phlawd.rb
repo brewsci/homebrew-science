@@ -30,6 +30,7 @@ class Phlawd < Formula
 
   needs :openmp
 
+  depends_on "gcc" if OS.mac?
   depends_on "wget"
   depends_on "mafft"
   depends_on "muscle"
