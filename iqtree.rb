@@ -12,6 +12,7 @@ class Iqtree < Formula
     sha256 "6fa110388cf28b533e629779e6515f370e82a409317dd72160ab99aabad9c9c9" => :sierra
     sha256 "d7e478b051b1fa15adbaabdbee3ba86a2dabd4c231ee2252b3d2e53978db66ba" => :el_capitan
     sha256 "4dfef3abfbb77ca19827cdecaf01d23feb599504df965112afa5c1fc72ffe86b" => :yosemite
+    sha256 "6ada9566c85c6f9c1768be6cb1c99654f93f2bd1c51785dd4ad8a9e987f6f6ec" => :x86_64_linux
   end
 
   needs :openmp
