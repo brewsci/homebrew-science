@@ -1,9 +1,8 @@
 class Delly < Formula
   desc "Structural variant discovery by paired-end and split-read analysis"
   homepage "https://github.com/tobiasrausch/delly"
-  url "https://github.com/tobiasrausch/delly/archive/v0.7.6.tar.gz"
-  sha256 "fab273f17dacde4e15e18a187bfe47826a1b8396a8aa40b44a68c56f059f79b5"
-  revision 1
+  url "https://github.com/tobiasrausch/delly/archive/v0.7.7.tar.gz"
+  sha256 "72298ef36be82fa0bd83c77c9c38d5bac48c9219595f1a206c26d6eeeff07c36"
   head "https://github.com/tobiasrausch/delly.git"
   # doi "10.1093/bioinformatics/bts378"
   # tag "bioinformatics"
