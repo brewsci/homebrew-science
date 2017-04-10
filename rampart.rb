@@ -7,10 +7,10 @@ class Rampart < Formula
   sha256 "0dc1e71c40bc141aebfdf6c93960d119ecb19e64758b157320be29329acb0b9f"
 
   bottle do
-    cellar :any
-    sha256 "654066a36c0df63e9955f7a105cac906cbbe78d55bc3f3e4de46b6bec29171c3" => :yosemite
-    sha256 "b694c65ccac7ff4aed57d2e4823150d08acf9db6fbc51e24ca559b671462a21d" => :mavericks
-    sha256 "810d7b76559426a412b7ab83f270475f26eef4cf652b6b17716291e6d5b2d7ca" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "75891f2b1b8f591b13876b7f7efed3485d9acf1cf4d40dac60bcdf4fd4ab382c" => :sierra
+    sha256 "d4f35d3f07cf0f38d5cb812611b3366803eed0b24e83fbde7cb3201256c03913" => :el_capitan
+    sha256 "d4f35d3f07cf0f38d5cb812611b3366803eed0b24e83fbde7cb3201256c03913" => :yosemite
   end
 
   head do
