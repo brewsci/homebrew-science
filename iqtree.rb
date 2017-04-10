@@ -19,6 +19,7 @@ class Iqtree < Formula
 
   depends_on "cmake" => :build
   depends_on "eigen"
+  depends_on "zlib" unless OS.mac?
 
   def install
     if OS.mac?
