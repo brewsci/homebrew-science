@@ -1,7 +1,7 @@
 class Nextflow < Formula
   desc "Data-driven computational pipelines"
   homepage "https://www.nextflow.io/"
-  # doi "10.6084/m9.figshare.1254958"
+  # doi "10.1038/nbt.3820"
   # tag "bioinformatics"
 
   url "https://www.nextflow.io/releases/v0.24.2/nextflow"
