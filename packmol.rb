@@ -11,6 +11,7 @@ class Packmol < Formula
     sha256 "d8ac60326c0a8ccde27e1705af846491aa7fb3de2cee87732c3b66b3a18c67ac" => :sierra
     sha256 "fbb2be0fafc1509369a3fcd146eda943c88f5710cf57dfa9f49dd0ba9ff298a4" => :el_capitan
     sha256 "e3a0c637a2d5d7331440cef080595137682f3d85a80fac0d978d22eb9f385e51" => :yosemite
+    sha256 "e76dc292bdf73cecd882e786800105ea980508aff4be8c0a3cc4ecf032caadd8" => :x86_64_linux
   end
 
   depends_on :fortran
