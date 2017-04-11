@@ -1,9 +1,8 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "http://www.openblas.net/"
-  url "https://github.com/xianyi/OpenBLAS/archive/v0.2.18.tar.gz"
-  sha256 "7d9f8d4ea4a65ab68088f3bb557f03a7ac9cb5036ef2ba30546c3a28774a4112"
-  revision 2
+  url "https://github.com/xianyi/OpenBLAS/archive/v0.2.19.tar.gz"
+  sha256 "9c40b5e4970f27c5f6911cb0a28aa26b6c83f17418b69f8e5a116bb983ca8557"
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
@@ -17,6 +16,13 @@ class Openblas < Formula
 
   # OS X provides the Accelerate.framework, which is a BLAS/LAPACK impl.
   keg_only :provided_by_osx
+
+  patch do
+    # Change file comments to work around clang 3.9 assembler bug
+    # https://github.com/xianyi/OpenBLAS/pull/982
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9c8a1cc/openblas/openblas0.2.19.diff"
+    sha256 "3ddabb73abf3baa4ffba2648bf1d9387bbc6354f94dd34eeef942f1b3e25c29a"
+  end
 
   option "with-openmp", "Do parallel computation with OpenMP"
   needs :openmp if build.with? "openmp"
