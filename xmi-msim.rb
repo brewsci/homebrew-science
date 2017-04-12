@@ -8,6 +8,7 @@ class XmiMsim < Formula
     sha256 "de36351cb8eca8086c1d8a56ed2233260adc937eb0b2cf8297ede219685f7483" => :sierra
     sha256 "678abfd88503f0579d3932b5e6a3cfc5204e9de0c765d36b1d516e2b99455437" => :el_capitan
     sha256 "884a274b5853c4466c7fa6490b89182e5dbbdb2efdfc37ffbeade59a2f96184c" => :yosemite
+    sha256 "bf694dd48ee2fc03f5fd9ef2e6f68d819744642ba2454273e5014fb449369260" => :x86_64_linux
   end
 
   depends_on :fortran
