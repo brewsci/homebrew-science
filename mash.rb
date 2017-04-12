@@ -21,9 +21,9 @@ class Mash < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-
   depends_on "capnp"
   depends_on "gsl"
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "./bootstrap.sh"
