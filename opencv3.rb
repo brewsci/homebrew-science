@@ -33,15 +33,16 @@ class Opencv3 < Formula
 
   deprecated_option "without-tests" => "without-test"
   deprecated_option "32-bit" => "with-32-bit"
+  deprecated_option "with-qt5" => "with-qt"
 
   option "with-contrib", 'Build "extra" contributed modules'
   option "with-cuda", "Build with CUDA v7.0+ support"
   option "with-examples", "Install C and python examples (sources)"
   option "with-java", "Build with Java support"
   option "with-nonfree", "Enable non-free algorithms"
-  option "with-opengl", "Build with OpenGL support (must use --with-qt5)"
+  option "with-opengl", "Build with OpenGL support (must use --with-qt)"
   option "with-quicktime", "Use QuickTime for Video I/O instead of QTKit"
-  option "with-qt5", "Build the Qt5 backend to HighGUI"
+  option "with-qt", "Build the Qt backend to HighGUI"
   option "with-static", "Build static libraries"
   option "with-tbb", "Enable parallel code in OpenCV using Intel TBB"
   option "without-numpy", "Use a numpy you've installed yourself instead of a Homebrew-packaged numpy"
@@ -72,7 +73,7 @@ class Opencv3 < Formula
   depends_on "openni2" => :optional
   depends_on :python => :recommended unless OS.mac? && MacOS.version > :snow_leopard
   depends_on :python3 => :optional
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
   depends_on "tbb" => :optional
   depends_on "vtk" => :optional
   depends_on "openblas" unless OS.mac?
@@ -102,7 +103,7 @@ class Opencv3 < Formula
     ENV.cxx11 if build.cxx11?
     jpeg = Formula["jpeg"]
     dylib = OS.mac? ? "dylib" : "so"
-    with_qt = build.with?("qt5")
+    with_qt = build.with?("qt")
 
     args = std_cmake_args + %W[
       -DBUILD_JASPER=OFF
@@ -190,6 +191,8 @@ class Opencv3 < Formula
     end
 
     if build.with? "python3"
+      # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
+      ENV["PYTHONPATH"] = ""
       py3_config = `python3-config --configdir`.chomp
       py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
       py3_version = Language::Python.major_minor_version "python3"
