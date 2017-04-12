@@ -4,6 +4,7 @@ class Dwgsim < Formula
     :tag => "dwgsim.0.1.11",
     :revision => "49aa199775e0d8bc1fee79aec7117a7fde8cb2bf"
   head "https://github.com/nh13/DWGSIM.git"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any
