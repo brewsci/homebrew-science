@@ -10,6 +10,7 @@ class Openblas < Formula
     sha256 "58d25ac37a97f1dcb68aa250794de9f1282367b51affd4d712fa82de6ac6712d" => :sierra
     sha256 "ec1643981131ee4ee94d32e800b1c0f5ae6969ca0e0a5bc46fde414d032e6330" => :el_capitan
     sha256 "3e38ba0140b24f8e2679f132a15d04a413cf946abe6319b94b856048af493031" => :yosemite
+    sha256 "93142a6108fc0118a770ff3750dd5e9196dee9b68b106a0ffbc007e8a550e0bf" => :x86_64_linux
   end
 
   # OS X provides the Accelerate.framework, which is a BLAS/LAPACK impl.
