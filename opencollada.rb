@@ -6,9 +6,9 @@ class Opencollada < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb4c22b978a051c241267962db0b22403bb8b5249c601d0b0f4258fe5c6c57c8" => :sierra
-    sha256 "872e6494bb893d0f65399e533e9bf6b6f9e8d0e91d7c6b659c7d01d532b3d982" => :el_capitan
-    sha256 "704c4dceb39d20e4cc8b6db5706a378430f23c447481763ecef18552fde010a0" => :yosemite
+    sha256 "7f2215f4660a10569ef82434a74cab25acb9b2d69cd07d12046455ad01aec3d0" => :sierra
+    sha256 "2e25fb5385e49cc22e06bafe77e0f52cfa548e36f525c4da3a53f1841b4ef0bf" => :el_capitan
+    sha256 "db7f3e295124e70acbffc775f86714ca5c66a17355c0cba4e0139a74686f1ac9" => :yosemite
   end
 
   depends_on "cmake" => :build
