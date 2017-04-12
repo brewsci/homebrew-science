@@ -19,6 +19,6 @@ class Dwgsim < Formula
   end
 
   test do
-    assert shell_output("#{bin}/dwgsim -h 2>&1", 1).include?(version.to_s)
+    assert_match "Usage", shell_output("#{bin}/dwgsim -h 2>&1", 1)
   end
 end
