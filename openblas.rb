@@ -7,11 +7,9 @@ class Openblas < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "617d14f7d52b594bcd0cc9bf9e1b32a61b9854c3f2245d9aa9671e8b9fbb3563" => :el_capitan
-    sha256 "302263ab9802a45e8a50da29181b397f538959c9fd103a81a65ad5b13be12fe5" => :yosemite
-    sha256 "a7b6354036ed34040d64d382d208fb7293369767806a78238bb29c60858f0bd4" => :mavericks
-    sha256 "52ed6d2b81d70c9db8d85db53de64ec2b9cf0ad3ab05cbc3f5c214dfab54a740" => :x86_64_linux
+    sha256 "58d25ac37a97f1dcb68aa250794de9f1282367b51affd4d712fa82de6ac6712d" => :sierra
+    sha256 "ec1643981131ee4ee94d32e800b1c0f5ae6969ca0e0a5bc46fde414d032e6330" => :el_capitan
+    sha256 "3e38ba0140b24f8e2679f132a15d04a413cf946abe6319b94b856048af493031" => :yosemite
   end
 
   # OS X provides the Accelerate.framework, which is a BLAS/LAPACK impl.
