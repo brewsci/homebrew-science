@@ -13,6 +13,12 @@ class Dwgsim < Formula
     sha256 "db114d69ac843ee4d3bc4e1d599091cc691b0a945252c1a429987a3802c2a61c" => :mountain_lion
   end
 
+  unless OS.mac?
+    # dwgsim builds a vendored copy of samtools, which requires ncurses.
+    depends_on "ncurses" => :build
+    depends_on "zlib"
+  end
+
   def install
     system "make"
     bin.install "dwgsim", "dwgsim_eval"
