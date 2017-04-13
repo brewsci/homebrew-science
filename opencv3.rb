@@ -39,6 +39,7 @@ class Opencv3 < Formula
   option "with-cuda", "Build with CUDA v7.0+ support"
   option "with-examples", "Install C and python examples (sources)"
   option "with-java", "Build with Java support"
+  option "with-jpeg-turbo", "Build with libjpeg-turbo instead of libjpeg"
   option "with-nonfree", "Enable non-free algorithms"
   option "with-opengl", "Build with OpenGL support (must use --with-qt)"
   option "with-quicktime", "Use QuickTime for Video I/O instead of QTKit"
@@ -65,6 +66,7 @@ class Opencv3 < Formula
   depends_on "jasper" => :optional
   depends_on :java => :optional
   depends_on "jpeg"
+  depends_on "jpeg-turbo" => :optional
   depends_on "libdc1394" => :optional
   depends_on "libpng"
   depends_on "libtiff"
@@ -101,7 +103,7 @@ class Opencv3 < Formula
 
   def install
     ENV.cxx11 if build.cxx11?
-    jpeg = Formula["jpeg"]
+    jpeg = Formula[(build.with? "jpeg-turbo")? "jpeg-turbo" : "jpeg"]
     dylib = OS.mac? ? "dylib" : "so"
     with_qt = build.with?("qt")
 
