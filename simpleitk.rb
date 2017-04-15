@@ -1,10 +1,9 @@
 class Simpleitk < Formula
   desc "Simplified layer built on top of ITK"
   homepage "http://www.simpleitk.org"
-  version "0.10.0"
+  url "https://downloads.sourceforge.net/project/simpleitk/SimpleITK/1.0.0/Source/SimpleITK-1.0.0.tar.gz"
+  sha256 "e3988e8b9db28615faecdecb3e703f54ef67a20be3391d91869f84713f90a414"
   version_scheme 1
-  url "https://downloads.sourceforge.net/project/simpleitk/SimpleITK/0.10.0/Source/SimpleITK-0.10.0-1.tar.gz"
-  sha256 "e849d693d67622b0dcb1153124e38ece9256b7c4760e35fa3af3cd90b851662f"
   head "https://github.com/SimpleITK/SimpleITK.git"
 
   bottle do
@@ -31,20 +30,31 @@ class Simpleitk < Formula
   depends_on "lua" => :optional
 
   def install
+    # Reduce memory usage below 4 GB for Linux CI
+    ENV["MAKEFLAGS"] = "-j1" if OS.linux? && build.bottle?
+
     ENV.delete("PYTHONPATH")
 
-    args = std_cmake_args + %w[
+    # Remove the CMAKE_INSTALL_PREFIX. The SuperBuild used here will install
+    # a bunch of files which we are not interested in. This reduces the binaries
+    # siwe. We only need the output of the setupegg.py call at the end
+    # of the installation.
+    args = std_cmake_args.delete_if { |x| x.include?("CMAKE_INSTALL_PREFIX") }
+
+    args += %w[
       -DBUILD_TESTING=OFF
-      -DUSE_SYSTEM_SWIG=ON
+      -DSimpleITK_USE_SYSTEM_SWIG=ON
+      -DSimpleITK_EXPLICIT_INSTANTIATION=OFF
     ]
-    args << "-DBUILD_EXAMPLES=" + ((build.include? "examples") ? "ON" : "OFF")
+    args << "-DSWIG_EXECUTABLE=#{Formula["swig"].opt_bin}/swig" unless OS.mac?
+    args << "-DBUILD_EXAMPLES=" + (build.include?("examples") ? "ON" : "OFF")
     args << "-DWRAP_PYTHON=ON"
-    args << "-DWRAP_CSHARP=" + ((build.with? "csharp") ? "ON" : "OFF")
-    args << "-DWRAP_JAVA=" + ((build.with? "java") ? "ON" : "OFF")
-    args << "-DWRAP_LUA=" + ((build.with? "lua") ? "ON" : "OFF")
-    args << "-DWRAP_R=" + ((build.with? "r") ? "ON" : "OFF")
-    args << "-DWRAP_RUBY=" + ((build.with? "ruby") ? "ON" : "OFF")
-    args << "-DWRAP_TCL=" + ((build.with? "tcl") ? "ON" : "OFF")
+    args << "-DWRAP_CSHARP=" + (build.with?("csharp") ? "ON" : "OFF")
+    args << "-DWRAP_JAVA=" + (build.with?("java") ? "ON" : "OFF")
+    args << "-DWRAP_LUA=" + (build.with?("lua") ? "ON" : "OFF")
+    args << "-DWRAP_R=" + (build.with?("r") ? "ON" : "OFF")
+    args << "-DWRAP_RUBY=" + (build.with?("ruby") ? "ON" : "OFF")
+    args << "-DWRAP_TCL=" + (build.with?("tcl") ? "ON" : "OFF")
 
     # Superbuild does only work in an out-of-source build, create a new folder
     mkdir "sitk-build" do
