@@ -18,6 +18,7 @@ class GmapGsnap < Formula
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
+    ENV.deparallelize
     system "make", "check"
     system "make", "install"
   end
