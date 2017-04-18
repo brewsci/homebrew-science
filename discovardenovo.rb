@@ -30,6 +30,11 @@ class Discovardenovo < Formula
       "--disable-silent-rules",
       "--prefix=#{prefix}"
     system "make", "install"
+
+    if OS.linux?
+      # Strip the binaries to reduce their size.
+      system "strip", *Dir[bin/"*"].select { |f| Pathname.new(f).elf? }
+    end
   end
 
   test do
