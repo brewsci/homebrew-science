@@ -1,6 +1,6 @@
 class Discovardenovo < Formula
   desc "Large genome assembler"
-  homepage "http://www.broadinstitute.org/software/discovar/blog/"
+  homepage "https://www.broadinstitute.org/software/discovar/blog/"
   url "ftp://ftp.broadinstitute.org/pub/crd/DiscovarDeNovo/latest_source_code/discovardenovo-52488.tar.gz"
   sha256 "445445a3b75e17e276a6119434f13784a5a661a9c7277f5e10f3b6b3b8ac5771"
   # tag "bioinformatics"
