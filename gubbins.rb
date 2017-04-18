@@ -22,9 +22,12 @@ class Gubbins < Formula
   depends_on :python3
   depends_on "numpy" => ["with-python3", "without-python"]
   depends_on "pillow" => ["with-python3", "without-python"]
-  depends_on "zlib" unless OS.mac?
   depends_on "raxml"
   depends_on "fasttree" => ["with-double", :recommended]
+  unless OS.mac?
+    depends_on "pkg-config" => :build
+    depends_on "zlib"
+  end
 
   resource "biopython" do
     url "https://files.pythonhosted.org/packages/72/6c/e1e13b9df73f9c2539b67d12bc22be6b19779230cadbed04c24f3f3e5ef4/biopython-1.68.tar.gz"
