@@ -17,6 +17,7 @@ class Pillow < Formula
 
   option "without-python", "Build without python2 support"
 
+  depends_on :python unless OS.mac?
   depends_on :python3 => :optional
   depends_on "freetype"
   depends_on "jpeg"
