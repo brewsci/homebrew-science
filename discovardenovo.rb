@@ -12,9 +12,9 @@ class Discovardenovo < Formula
     cause "error: reference to 'align' is ambiguous. See https://groups.google.com/a/broadinstitute.org/forum/?hl=en&fromgroups=#!topic/discovar-user-forum/zuqNcaRUetA"
   end
 
-  conflicts_with "allpaths-lg", :because => "Both install bin/MakeLookupTable"
-
   depends_on "jemalloc"
+
+  conflicts_with "allpaths-lg", :because => "Both install bin/MakeLookupTable"
 
   def install
     odie "DISCOVAR fails to build on Mac OS. See https://groups.google.com/a/broadinstitute.org/forum/?hl=en&fromgroups=#!topic/discovar-user-forum/zuqNcaRUetA" if OS.mac?
