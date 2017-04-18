@@ -8,10 +8,10 @@ class Canu < Formula
   # tag "bioinformatics"
 
   bottle do
-    sha256 "c6eeb78964accfa52f5df247cc07e1ae724a25388897c4cab1cba3039fbe033d" => :sierra
-    sha256 "b0aefbb7564f24f07d85557422b709c19ec29c4e491ce0be3415ef08a7a7e290" => :el_capitan
-    sha256 "84f57a36a73a45ad302b324d70ce629da0623c97244d296f7a9936b57f349303" => :yosemite
-    sha256 "e3e2e9dcf6661e53567bdff4c7cd5404652ad5572a47a0edf7d307badab3eca4" => :x86_64_linux
+    cellar :any
+    sha256 "7cfb7f33ab82cf1a13871259978ef78f7ef622b8554b59ed2f1a07020a328f5c" => :sierra
+    sha256 "0728bf784eea0d77446f88f87c6a74b8e8aa39ac9c22d0429e9c362a9e6ea310" => :el_capitan
+    sha256 "56606b88230256f75b78802727f51447b7b0d3b385c2bc032818880ad8f06f69" => :yosemite
   end
 
   # Fix fatal error: 'omp.h' file not found
