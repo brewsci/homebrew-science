@@ -3,8 +3,8 @@ class Libsequence < Formula
   homepage "https://molpopgen.github.io/libsequence/"
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btg316"
-  url "https://github.com/molpopgen/libsequence/archive/1.9.0.tar.gz"
-  sha256 "3b0a700d8dbfc1bff445c3e94310d2e073789151d38a5813e193f045158fec2c"
+  url "https://github.com/molpopgen/libsequence/archive/1.9.1.tar.gz"
+  sha256 "4432b50c63ff8fa05b39500ac7708276ccb6d30abfb5ea43d1c602108ff28733"
   head "https://github.com/molpopgen/libsequence.git"
 
   bottle do
