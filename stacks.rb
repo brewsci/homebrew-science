@@ -1,12 +1,11 @@
 class Stacks < Formula
   desc "Pipeline for building loci from short-read sequences"
-  homepage "http://creskolab.uoregon.edu/stacks/"
+  homepage "https://creskolab.uoregon.edu/stacks/"
   # doi "10.1111/mec.12354"
   # tag "bioinformatics
 
-  url "http://creskolab.uoregon.edu/stacks/source/stacks-1.37.tar.gz"
-  sha256 "11be4417504e4f14d64d0c022e1a9c7ced822ce529f251defbd1b83b34fc288d"
-
+  url "http://catchenlab.life.illinois.edu/stacks/source/stacks-1.46.tar.gz"
+  sha256 "45a0725483dc0c0856ad6b1f918e65d91c1f0fe7d8bf209f76b93f85c29ea28a"
   bottle do
     cellar :any_skip_relocation
     rebuild 1
@@ -24,15 +23,21 @@ class Stacks < Formula
     depends_on "google-sparsehash" => :recommended
   end
 
+  # Fix error: 'tr1/functional' file not found
+  patch :DATA
+
   needs :cxx11
+  fails_with :gcc => "4.8"
 
   def install
     ENV.libcxx
 
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
     args << "--enable-sparsehash" if build.with? "google-sparsehash"
+    args << " --disable-openmp" if build.without? "openmp"
 
     system "./configure", *args
+    system "make"
     system "make", "install"
   end
 
@@ -50,3 +55,27 @@ class Stacks < Formula
     system "#{bin}/ustacks", "--version"
   end
 end
+
+__END__
+diff --git a/src/DNANSeq.h b/src/DNANSeq.h
+index 62b5d91..9c2ff12 100644
+--- a/src/DNANSeq.h
++++ b/src/DNANSeq.h
+@@ -25,7 +25,7 @@
+ #include <limits.h>
+
+ #include <functional> //std::hash
+-#ifdef HAVE_SPARSEHASH
++#if 0
+ #include <tr1/functional>
+ #endif
+
+@@ -115,7 +115,7 @@ struct hash<DNANSeq> {
+     }
+ };
+
+-#ifdef HAVE_SPARSEHASH
++#if 0
+ namespace tr1 {
+ template<>
+ struct hash<DNANSeq> {
