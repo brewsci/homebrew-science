@@ -11,6 +11,7 @@ class RGui < Formula
   homepage "https://cran.r-project.org/bin/macosx/"
   url "https://cran.r-project.org/bin/macosx/Mac-GUI-1.68.tar.gz"
   sha256 "7dff17659a69e3c492fdfc3fb765e3c9537157d50b6886236bee7ad873eb416d"
+  revision 1
 
   head "https://svn.r-project.org/R-packages/trunk/Mac-GUI"
 
@@ -34,9 +35,12 @@ class RGui < Formula
 
     r_opt_prefix = Formula["r"].opt_prefix
 
+    # xcodebuild must be fed with MACOSX_DEPLOYMENT_TARGET when SDK is not
+    # available for the installed system version
     xcodebuild "-target", "R", "-configuration", "Release", "SYMROOT=build",
                "HEADER_SEARCH_PATHS=#{r_opt_prefix}/R.framework/Headers",
-               "OTHER_LDFLAGS=-F#{r_opt_prefix}"
+               "OTHER_LDFLAGS=-F#{r_opt_prefix}",
+               "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
 
     prefix.install "build/Release/R.app"
   end
