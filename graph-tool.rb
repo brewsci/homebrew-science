@@ -3,7 +3,7 @@ class GraphTool < Formula
   homepage "https://graph-tool.skewed.de/"
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.22.tar.bz2"
   sha256 "57121b562763c79c138b3a385b8cddb59e7dec375c61e00ca7e9e96fd1a5e080"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "27fa68852bf74462908e94117df0d4fadd2d81d04266ff023097622e100623c2" => :sierra
@@ -32,17 +32,18 @@ class GraphTool < Formula
   option "without-scipy", "Use a scipy you've installed yourself instead of a Homebrew-packaged scipy"
   option "with-openmp", "Enable OpenMP multithreading"
 
-  cxx11 = MacOS.version < :mavericks ? ["c++11"] : []
+  # Yosemite build fails with Boost >=1.64.0 due to thread-local storage error
+  depends_on :macos => :el_capitan
 
   depends_on :python3 => :optional
   with_pythons = build.with?("python3") ? ["with-python3"] : []
 
   depends_on "pkg-config" => :build
-  depends_on "boost" => cxx11
-  depends_on "boost-python" => cxx11 + with_pythons
+  depends_on "boost"
+  depends_on "boost-python" => with_pythons
   depends_on "cairomm" if build.with? "cairo"
-  depends_on "cgal" => cxx11
-  depends_on "google-sparsehash" => cxx11 + [:recommended]
+  depends_on "cgal"
+  depends_on "google-sparsehash" => :recommended
   depends_on "gtk+3" => :recommended
 
   depends_on "numpy" => [:recommended] + with_pythons
@@ -60,11 +61,6 @@ class GraphTool < Formula
     depends_on "pygobject3" => with_pythons
   end
 
-  fails_with :clang do
-    cause "Older versions of clang have buggy c++14 support."
-    build 699
-  end
-
   fails_with :gcc => "4.8" do
     cause "We need GCC 5.0 or above for sufficient c++14 support"
   end
@@ -72,19 +68,9 @@ class GraphTool < Formula
     cause "We need GCC 5.0 or above for sufficient c++14 support"
   end
 
-  if MacOS.version == :mavericks
-    fails_with :gcc => "6" do
-      cause "GCC 6 fails with 'Internal compiler error' on Mavericks. You should install GCC 5 instead with 'brew tap homebrew/versions; brew install gcc5"
-    end
-  end
-
   needs :openmp if build.with? "openmp"
 
   def install
-    if MacOS.version == :mavericks && (Tab.for_name("boost").stdlib == "libcxx" || Tab.for_name("boost-python").stdlib == "libcxx")
-      odie "boost and boost-python must be built against libstdc++ on Mavericks. One way to achieve this, is to use GCC to compile both libraries."
-    end
-
     system "./autogen.sh" if build.head?
 
     config_args = %W[
