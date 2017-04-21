@@ -17,9 +17,9 @@ class Stacks < Formula
   depends_on "htslib"
 
   if MacOS.version < :mavericks
-    depends_on "google-sparsehash" => [:recommended, "c++11"]
+    depends_on "google-sparsehash" => [:build, :recommended, "c++11"]
   else
-    depends_on "google-sparsehash" => :recommended
+    depends_on "google-sparsehash" => [:build, :recommended]
   end
 
   # Fix error: 'tr1/functional' file not found
