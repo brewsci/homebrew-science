@@ -8,11 +8,9 @@ class Stacks < Formula
   sha256 "45a0725483dc0c0856ad6b1f918e65d91c1f0fe7d8bf209f76b93f85c29ea28a"
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "d091ee248b6b9c6c7b1373af824c1a2cf16830c64960463bfaaf8052b2b7b37a" => :el_capitan
-    sha256 "b266a452669b9913a95c1df9663fbd850a62199f5a0e275d6caa6f59d82e7fb4" => :yosemite
-    sha256 "2529637a4469483d6799290cde83d7415859db21a0f9a487b1ddc5d8c18cb4c8" => :mavericks
-    sha256 "b6bba95f5d975d17490bef25e88d52f709bdff5278b92401354025cef1cf4e86" => :x86_64_linux
+    sha256 "0cf5db2f8aa026d172d3b15dc219febab62361b5257890be02be6b5d216545a8" => :sierra
+    sha256 "f333436bf678e1122276b4d3de7c47c399cf26c4ae120f3cfbc1be550a5db06b" => :el_capitan
+    sha256 "99474e4f01966e2faf92c43cb20db1fe451fbe5d57a0c9d2b6c4a77dfd85e673" => :yosemite
   end
 
   depends_on "htslib"
