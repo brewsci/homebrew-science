@@ -7,12 +7,9 @@ class Analysis < Formula
   # tag "bioinformatics"
 
   bottle do
-    cellar :any
-    sha256 "2b2535fef27da3832bab9bbaf1a37bcb94425e805a4df47a82aab951b240e28d" => :sierra
-    sha256 "af40b85ef8127d3331f2ae094144c0809df5029677af0a011058f37987acd2c5" => :el_capitan
-    sha256 "283af443fdf89ac7de6653eb6f984283e7898089a0bcbe38323524998fcc1368" => :yosemite
-    sha256 "3d8fda086feb222987f4fd7febdfa737f6d99779fea36f1e007abfc5236cc2b4" => :mavericks
-    sha256 "c8d48239a4a097b76510bf6b2ee093f6f519e4fb179d768953d3956ef05614c1" => :x86_64_linux
+    sha256 "2dcdbb025d1a1c68d6ec551bf1a6a6af663c0e94e19ff1faacea2f106bc7a790" => :sierra
+    sha256 "825c7efb29eb13e9d85a4841a7f16788e1aa7d6eec92c43c47f943216ec181c3" => :el_capitan
+    sha256 "a8fb8144516347f9722b79044108e41a668152fc6649b01dcb02efff2fc1a2e0" => :yosemite
   end
 
   depends_on "gsl"
