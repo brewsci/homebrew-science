@@ -8,10 +8,10 @@ class Circlator < Formula
   head "https://github.com/sanger-pathogens/circlator.git"
 
   bottle do
-    sha256 "ef3eddc4206cc2ebd3dc0ef25ba2f4f2ad0c3e0e6c2a8a6bde1b7edb725fc3a8" => :sierra
-    sha256 "976cd9551cb976807878f78bc63038c00ad3fd7ba3fead18e0237b9360a8db8b" => :el_capitan
-    sha256 "093c58d660e63479e0c50ee92ed275a832bf3441ba4cef16fde16b0965cb1470" => :yosemite
-    sha256 "baae41fc313639af61ff2290def1ea3d1355b8ee2316624fe294e8f8e910e33b" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "48e4a02b6543b48fc13ccad7ec9e73829c495edd90d09299d6b89628ce4418b5" => :sierra
+    sha256 "8fc96e889494fb8bba2d164c439626dddef52bdaa618039106aa06e93675fe45" => :el_capitan
+    sha256 "255dad19161ed4e9d982b31337845e34b7b4ef34f296078579a982ac55087404" => :yosemite
   end
 
   # tag "bioinformatics"
