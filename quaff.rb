@@ -4,6 +4,7 @@ class Quaff < Formula
   url "https://github.com/ihh/quaff/archive/v0.1-alpha.1.tar.gz"
   version "0.1.1"
   sha256 "dc46b8c2fafcd6c5d2322006b47fda7d1877f9ea3a105d2ecaf4ab178d8eb8dd"
+  revision 1
   head "https://github.com/ihh/quaff.git"
   # tag "bioinformatics"
 
