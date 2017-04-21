@@ -1,8 +1,8 @@
 class BoostCompute < Formula
   desc "C++ GPU Computing Library for OpenCL"
   homepage "https://boostorg.github.io/compute"
-  url "https://github.com/boostorg/compute/archive/boost-1.63.0.tar.gz"
-  sha256 "a483dc993316b4423f506b8b7ef51f037133e52a565c2e4b60d2e1d31addb2f9"
+  url "https://github.com/boostorg/compute/archive/boost-1.64.0.tar.gz"
+  sha256 "75c76789775c2b0a4efee642d174e687146adb03e1206839db74f858ef52b971"
 
   bottle do
     cellar :any_skip_relocation
