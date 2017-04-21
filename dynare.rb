@@ -19,6 +19,7 @@ class Dynare < Formula
   head do
     url "https://github.com/DynareTeam/dynare.git"
 
+    depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "bison" => :build
     depends_on "flex" => :build
