@@ -12,6 +12,7 @@ class Littler < Formula
     sha256 "6279bb41b4f233398a464c72d0331a3c0bfd78c730c3d074cfffb9e3d6071603" => :sierra
     sha256 "62643d78cb708851f97fba73c374f8f45098bf73caadfbe2b47140d255312192" => :el_capitan
     sha256 "a70127a8f65bfad52f306270509642408f0bfe4406bcacc046c7598131cd4c22" => :yosemite
+    sha256 "cf2d969e02024732cde4a8d0cb3ec24c900972740c243a9ba14e4dcb6962f97e" => :x86_64_linux
   end
 
   depends_on "r"
