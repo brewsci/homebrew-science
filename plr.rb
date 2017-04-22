@@ -1,10 +1,9 @@
 class Plr < Formula
   desc "PL/R - R Procedural Language for PostgreSQL"
-  homepage "http://www.joeconway.com/plr/"
-  url "https://github.com/jconway/plr/archive/REL8_3_0_16.tar.gz"
-  sha256 "57e2384f7b51328c9e6d92a40039cae7ac3e187ece03a1d33985b751f24bfe18"
-  head "https://github.com/jconway/plr.git"
-  revision 1
+  homepage "https://www.joeconway.com/plr.html"
+  url "https://github.com/postgres-plr/plr/archive/REL8_3_0_17.tar.gz"
+  sha256 "256ed6666ec93d6bd5c166904a3233dd4b872bb1652db5c3abbea714ad7f2d77"
+  head "https://github.com/postgres-plr/plr.git"
 
   bottle do
     sha256 "d922fd96dfd7a57f3eda499e1a7429ce3b35a181a639ccfd5b91f992c5eb1ac8" => :el_capitan
