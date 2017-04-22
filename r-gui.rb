@@ -17,9 +17,9 @@ class RGui < Formula
 
   bottle do
     cellar :any
-    sha256 "4f687e5d127ec617aad99cda323022ac99b798f016d487f2d0b5f7eaa4476370" => :sierra
-    sha256 "9a007116440b26de83a304e0bccf75d27303a9fab772aae6ccc6aaee1c9cd466" => :el_capitan
-    sha256 "0cc30cd89420a725d599046b2898d625047af60749246b00339799bf2b164b85" => :yosemite
+    sha256 "ea2b260b7642e6de76bf61afcdc64741af951a5ef0de9c77ab0cdbb326bf3202" => :sierra
+    sha256 "879940986dd6a2ae34aaeae1197dfe427c96aa3dcc920332aa13fce230292204" => :el_capitan
+    sha256 "ec7c83daca3da5f6b418ce983f7d2250ac0ff24f8a60949f29f9d641fa03bb37" => :yosemite
   end
 
   depends_on MacOSRequirement
