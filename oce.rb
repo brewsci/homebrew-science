@@ -3,7 +3,7 @@ class Oce < Formula
   homepage "https://github.com/tpaviot/oce"
   url "https://github.com/tpaviot/oce/archive/OCE-0.18.tar.gz"
   sha256 "226e45e77c16a4a6e127c71fefcd171410703960ae75c7ecc7eb68895446a993"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "783d30afc83420341cc9298c8b3b07fc7b1ceba05c2e0db361a028ffc6dc70f6" => :sierra
@@ -23,7 +23,7 @@ class Oce < Formula
   depends_on :macos => :snow_leopard
 
   unless OS.mac?
-    depends_on "homebrew/dupes/tcl-tk"
+    depends_on "tcl-tk"
   end
 
   conflicts_with "opencascade", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
