@@ -9,9 +9,9 @@ class Quaff < Formula
   # tag "bioinformatics"
 
   bottle do
-    sha256 "3f413816fddd91a49b47f9a04e3afdc4556147c07dfcc24f622914b2b1f5b500" => :el_capitan
-    sha256 "98b3ed8fc748ad7ae9dea576831e4c3228635f35929dd9258f8c4c30c5eb9117" => :yosemite
-    sha256 "2a7f6e1dfa6dd01fc96e904a84e285bec9db8338a873e9412a46fe82f6c45bca" => :mavericks
+    sha256 "fecf7c9febbc1e297a34478efffecf14cb7feffea7ede8581e12b81320875128" => :sierra
+    sha256 "862e1835bbb3323c660f967c4eff050218e3af3bc2bf83e68b67fce7a174aecd" => :el_capitan
+    sha256 "d2285c4d9423cc1cf0b4260e1f39dbbbf417622296062af529ceed30d643be7c" => :yosemite
   end
 
   depends_on "zlib" unless OS.mac?
