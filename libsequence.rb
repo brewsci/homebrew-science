@@ -12,6 +12,7 @@ class Libsequence < Formula
     sha256 "736edbd7f8aca2418adf0194e4af7aca768c3e15485b9d7e82a11bcef49eb2dc" => :sierra
     sha256 "6aed56c425e88cbba004c429cf0faa66a1cf45bca6f311a4f2bc16e7ee4b751e" => :el_capitan
     sha256 "7dc7bc5f458a6bd23f5ff8dc6d07b317d292432187dc25292500a2482395219e" => :yosemite
+    sha256 "3bb378ef36ee025be3cee58aeadb446f69096166e44ff04e42d945ea47a2cefc" => :x86_64_linux
   end
 
   cxx11 = OS.linux? || MacOS.version > :mountain_lion ? [] : ["c++11"]
