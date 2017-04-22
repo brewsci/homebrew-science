@@ -6,9 +6,9 @@ class Plr < Formula
   head "https://github.com/postgres-plr/plr.git"
 
   bottle do
-    sha256 "d922fd96dfd7a57f3eda499e1a7429ce3b35a181a639ccfd5b91f992c5eb1ac8" => :el_capitan
-    sha256 "0cbedc73f64d238609f07859ad25c50157ccc603b597e0a2d12aca917a96e355" => :yosemite
-    sha256 "c50f1945d374f35c94d832946f7a77db99de89fda1e86a81dcd4c4d91a76fe55" => :mavericks
+    sha256 "f0523bd627bd88289063e126e11550dd1886c33a53c7e4d5a125325f01f06262" => :sierra
+    sha256 "d4fad1caca9998ca0f9f5daf34b26d6861e3f2b62e36dcaf4a07fd84a49a8aae" => :el_capitan
+    sha256 "e003f96fd5bb30bbd6d751eb18c233805d06fec61506aba7d6eb7c67d7a77007" => :yosemite
   end
 
   depends_on "pkg-config" => :build
