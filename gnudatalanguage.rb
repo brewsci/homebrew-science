@@ -14,12 +14,11 @@ class Gnudatalanguage < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "plplot" => "with-x11"
   depends_on "gsl"
   depends_on "readline"
   depends_on "graphicsmagick"
   depends_on "netcdf"
-  depends_on "homebrew/versions/hdf4" => :optional
+  depends_on "homebrew/science/hdf4" => :optional
   depends_on "hdf5"
   depends_on "libpng"
   depends_on "udunits"
@@ -29,6 +28,12 @@ class Gnudatalanguage < Formula
   depends_on :x11
   depends_on :python => :optional
 
+  # Supplementary dependencies for plplot
+  depends_on "cairo"
+  depends_on "pango"
+  depends_on "freetype"
+  depends_on "libtool" => :run
+
   # Support HDF5 1.10. See https://bugs.debian.org/841971
   patch do
     url "https://gist.githubusercontent.com/sjackman/00fb95e10b7775d16924efb6faf462f6/raw/71ed3e05138a20b824c9e68707e403afc0f92c98/gnudatalanguage-hdf5-1.10.patch"
@@ -37,7 +42,37 @@ class Gnudatalanguage < Formula
 
   patch :DATA if build.with? "hdf4"
 
+  resource "plplot-x11" do
+    url "https://downloads.sourceforge.net/project/plplot/plplot/5.12.0%20Source/plplot-5.12.0.tar.gz"
+    sha256 "8dc5da5ef80e4e19993d4c3ef2a84a24cc0e44a5dade83201fca7160a6d352ce"
+  end
+
   def install
+    resource("plplot-x11").stage do
+      args = std_cmake_args
+      args << "-DPLD_xwin=ON"
+      args += %w[
+        -DENABLE_ada=OFF
+        -DENABLE_d=OFF
+        -DENABLE_qt=OFF
+        -DENABLE_lua=OFF
+        -DENABLE_tk=OFF
+        -DENABLE_python=OFF
+        -DENABLE_tcl=OFF
+        -DPLD_xcairo=OFF
+        -DPLD_wxwidgets=OFF
+        -DENABLE_wxwidgets=OFF
+        -DENABLE_java=OFF
+        -DENABLE_f95=OFF
+      ]
+
+      mkdir "plplot-build" do
+        system "cmake", "..", *args
+        system "make"
+        system "make", "install"
+      end
+    end
+
     mkdir "build" do
       args = std_cmake_args
       args << "-DHDF=OFF" if build.without?("hdf4")
