@@ -19,6 +19,7 @@ class R < Formula
     sha256 "5be360f3a0fe4136f151e1b5b1505497ae2b096415f429ef78e7e93440629f51" => :sierra
     sha256 "c94b189ead01677ba7216ddc7729a72228213a54daf938ace41c1430d6417c34" => :el_capitan
     sha256 "cc82852000ad32702a3bd810a331458a3efac40c1fd0035a51a49c1c3ae4cc7d" => :yosemite
+    sha256 "38355f6d2da08759c3e9599cb26757052d4b6e49b47794ffea2a891379c41710" => :x86_64_linux
   end
 
   option "without-accelerate", "Build without the Accelerate framework (use Rblas)"
