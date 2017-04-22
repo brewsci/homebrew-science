@@ -34,10 +34,10 @@ end
 
 class Matplotlib < Formula
   desc "Python 2D plotting library"
-  homepage "http://matplotlib.org"
+  homepage "https://matplotlib.org"
   url "https://files.pythonhosted.org/packages/79/a9/db688816150a6ef91fd9ce284c828467f7271c7dd5982753a73a8e1aaafa/matplotlib-2.0.0.tar.gz"
   sha256 "36cf0985829c1ab2b8b1dae5e2272e53ae681bf33ab8bedceed4f0565af5f813"
-  revision 1
+  revision 2
   head "https://github.com/matplotlib/matplotlib.git"
 
   bottle do
@@ -60,6 +60,7 @@ class Matplotlib < Formula
 
   option "with-cairo", "Build with cairo backend support"
   option "with-pygtk", "Build with pygtk backend support (python2 only)"
+  option "with-tex", "Build with tex support"
   deprecated_option "with-gtk3" => "with-gtk+3"
 
   depends_on NoExternalPyCXXPackage => :build
@@ -69,7 +70,7 @@ class Matplotlib < Formula
   depends_on "libpng"
   depends_on "numpy" => requires_py3
   depends_on "ghostscript" => :optional
-  depends_on "homebrew/dupes/tcl-tk" => :optional
+  depends_on "tcl-tk" => :optional
 
   if build.with? "cairo"
     depends_on "py2cairo" if build.with? "python"
@@ -82,9 +83,8 @@ class Matplotlib < Formula
   depends_on "pygtk" => :optional
   depends_on "pygobject" if build.with? "pygtk"
 
-  depends_on "pyqt5" => [:optional] + requires_py2
+  depends_on "pyqt" => [:optional] + requires_py2
 
-  depends_on :tex => :optional
   depends_on DvipngRequirement if build.with? "tex"
 
   cxxstdlib_check :skip
