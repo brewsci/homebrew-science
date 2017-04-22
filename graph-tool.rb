@@ -6,9 +6,8 @@ class GraphTool < Formula
   revision 2
 
   bottle do
-    sha256 "27fa68852bf74462908e94117df0d4fadd2d81d04266ff023097622e100623c2" => :sierra
-    sha256 "e91e4a25690ff2f1e1a01a48278786b7fb7e5b2d2da62324d095f2b5d835cb99" => :el_capitan
-    sha256 "ad6492f9181745696bba0e91251985f5ea74e50e63a591d4a9ad60499dfa8d6f" => :yosemite
+    sha256 "ada3dc63452d56a205a1a35f2233f579908d62eb549553d9f28de78c59c99a11" => :sierra
+    sha256 "e8401ad908c6dc4a251535a4d4dc1b75b2b9d45d542cf504375ebf455ef565c7" => :el_capitan
   end
 
   head do
