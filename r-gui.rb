@@ -11,7 +11,7 @@ class RGui < Formula
   homepage "https://cran.r-project.org/bin/macosx/"
   url "https://cran.r-project.org/bin/macosx/Mac-GUI-1.68.tar.gz"
   sha256 "7dff17659a69e3c492fdfc3fb765e3c9537157d50b6886236bee7ad873eb416d"
-  revision 1
+  revision 2
 
   head "https://svn.r-project.org/R-packages/trunk/Mac-GUI"
 
