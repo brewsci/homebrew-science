@@ -7,9 +7,9 @@ end
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.rstudio.com/src/base/R-3/R-3.3.3.tar.gz"
-  sha256 "5ab768053a275084618fb669b4fbaadcc39158998a87e8465323829590bcfc6c"
-  revision 1
+  url "https://cran.rstudio.com/src/base/R-3/R-3.4.0.tar.gz"
+  sha256 "288e9ed42457c47720780433b3d5c3c20983048b789291cc6a7baa11f9428b91"
+  head "https://svn.r-project.org/R/trunk", :using => RDownloadStrategy
 
   # Do not remove executable permission from these scripts.
   # See https://github.com/Linuxbrew/linuxbrew/issues/614
@@ -20,11 +20,6 @@ class R < Formula
     sha256 "930d83627abdc749dd8ada293b8b9fb6e7a386dd682041debde3a7e560eb2092" => :el_capitan
     sha256 "7628f2573375628c343a38b2436707f5e31d7a223bc5935ba3af28d4c01cee5b" => :yosemite
     sha256 "f3cc9018bcddbd966c545afcd5bf898b41e866ae69a69973e2684d3c61b749fb" => :x86_64_linux
-  end
-
-  head do
-    url "https://svn.r-project.org/R/trunk", :using => RDownloadStrategy
-    depends_on :tex
   end
 
   option "without-accelerate", "Build without the Accelerate framework (use Rblas)"
@@ -176,6 +171,21 @@ class R < Formula
     ln_s site_library, cellar_site_library
   end
 
+  def installed_short_version
+    old_rhome = ENV.delete "R_HOME" # Rscript prints garbage if R_HOME is set
+    `#{bin}/Rscript -e 'cat(as.character(getRversion()[1,1:2]))'`.strip
+  ensure
+    ENV["R_HOME"] = old_rhome
+  end
+
+  def r_home
+    OS.mac? ? (prefix/"R.framework/Resources") : (prefix/"lib/R")
+  end
+
+  def site_library
+    HOMEBREW_PREFIX/"lib/R/#{installed_short_version}/site-library"
+  end
+
   def caveats
     if build.without? "librmath-only" then <<-EOS.undent
       To enable rJava support, run the following command:
@@ -193,21 +203,6 @@ class R < Formula
       system bin/"Rscript", "-e", "print(1+1)"
       system bin/"Rscript", "-e", "quit('no', capabilities('cairo')[['cairo']] != TRUE)" if OS.mac?
     end
-  end
-
-  def installed_short_version
-    old_rhome = ENV.delete "R_HOME" # Rscript prints garbage if R_HOME is set
-    `#{bin}/Rscript -e 'cat(as.character(getRversion()[1,1:2]))'`.strip
-  ensure
-    ENV["R_HOME"] = old_rhome
-  end
-
-  def r_home
-    OS.mac? ? (prefix/"R.framework/Resources") : (prefix/"lib/R")
-  end
-
-  def site_library
-    HOMEBREW_PREFIX/"lib/R/#{installed_short_version}/site-library"
   end
 end
 
