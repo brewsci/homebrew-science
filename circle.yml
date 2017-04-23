@@ -39,6 +39,7 @@ dependencies:
     - printf "yes\nlocal::lib\nyes\nyes\no conf prerequisites_policy follow\no conf build_requires_install_policy yes\no conf commit\n" | cpan # https://github.com/Linuxbrew/homebrew-core/pull/1621#issue-202644521
     - DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge
         libblas-dev
+        libbz2-dev
         libfreetype6-dev
         libicu-dev
         libidn11-dev
@@ -56,7 +57,6 @@ dependencies:
         llvm-3.4
         mysql-common
         zlib1g-dev
-        libbz2-dev
     - sudo ln -sf ruby2.0 /usr/bin/ruby
     - sudo ln -sf gem2.0 /usr/bin/gem
     - sudo ln -sf /usr/lib/x86_64-linux-gnu/libruby-2.0.so /usr/lib/x86_64-linux-gnu/libruby.so
