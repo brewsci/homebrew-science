@@ -1,8 +1,8 @@
 class RstudioServer < Formula
   desc "Integrated development environment (IDE) for R"
-  homepage "http://www.rstudio.com"
-  url "https://github.com/rstudio/rstudio/archive/v1.0.44.tar.gz"
-  sha256 "43ece6cfdd1a13ac0e17f2a50154a30a1a14ad6c1b3cf381cc6007988ce44a0f"
+  homepage "https://www.rstudio.com"
+  url "https://github.com/rstudio/rstudio/archive/v1.0.143.tar.gz"
+  sha256 "8ae88731b4474e5e2ff9030aa14e168903fe3a7ffc4fa716f497084a86801062"
   head "https://github.com/rstudio/rstudio.git"
 
   bottle do
@@ -15,6 +15,13 @@ class RstudioServer < Formula
   depends_on "ant" => :build
   depends_on "cmake" => :build
   depends_on "r" => :recommended
+  if OS.linux?
+    depends_on "linuxbrew/extra/linux-pam" => :recommended
+    depends_on "libuuid" => :recommended
+    depends_on "libffi" => :recommended
+    depends_on "jdk" => :recommended
+    depends_on "patchelf"
+  end
   depends_on "boost"
   depends_on "openssl"
 
@@ -48,6 +55,11 @@ class RstudioServer < Formula
     sha256 "5bf42fd9bcc45d45b54a0f59d5839feb454f39fd14170b8fab7f59bf59b1af64"
   end
 
+  resource "chromedriver-linux" do
+    url "https://s3.amazonaws.com/rstudio-buildtools/chromedriver-linux"
+    sha256 "1ff3e9fc17e456571c440ab160f25ee451b2a4d36e61c8e297737cff7433f48c"
+  end
+
   resource "dictionaries" do
     url "https://s3.amazonaws.com/rstudio-dictionaries/core-dictionaries.zip"
     sha256 "4341a9630efb9dcf7f215c324136407f3b3d6003e1c96f2e5e1f9f14d5787494"
@@ -73,11 +85,29 @@ class RstudioServer < Formula
     sha256 "0b8f54c8d278dd5cd2fb3ec6f43e9ea1bfc9e8d595ff88127073d46550e88a74"
   end
 
-  # RStudio assumes that boost is linked against libstdc++,
-  # however homebrew/boost is linked against libc++
-  # https://support.rstudio.com/hc/en-us/community/posts/211702327-Build-RStudio-against-libc-
-  # https://github.com/rstudio/rstudio/commit/a07274ed4ef1b9eae3bfe672f3de1ff25b5b0856
-  patch :DATA
+  if build.head?
+    resource "rsconnect" do
+      url "https://github.com/rstudio/rsconnect.git", :branch => "master"
+    end
+
+    resource "rmarkdown" do
+      url "https://github.com/rstudio/rmarkdown.git", :branch => "master"
+    end
+  end
+
+  unless build.head?
+    # this piece of code has been removed from RStudio master as R API has changed.
+    patch :DATA
+  end
+
+  def which_linux_distribution
+    if File.exist?("/etc/redhat-release") || File.exist?("/etc/centos-release")
+      distritbuion = "rpm"
+    else
+      distritbuion = "debian"
+    end
+    distritbuion
+  end
 
   def install
     unless build.head?
@@ -92,99 +122,124 @@ class RstudioServer < Formula
     gwt_lib.install resource("junit")
     (gwt_lib/"selenium/2.37.0").install resource("selenium")
     (gwt_lib/"selenium/2.37.0").install resource("selenium-server")
-    (gwt_lib/"selenium/chromedriver/2.7").install resource("chromedriver-mac")
+    if OS.linux?
+      (gwt_lib/"selenium/chromedriver/2.7").install resource("chromedriver-linux")
+    elsif OS.mac?
+      (gwt_lib/"selenium/chromedriver/2.7").install resource("chromedriver-mac")
+    end
 
     common_dir = buildpath/"dependencies/common"
 
     (common_dir/"dictionaries").install resource("dictionaries")
     (common_dir/"mathjax-26").install resource("mathjax")
 
+    if build.head?
+      (common_dir/"rsconnect").install resource("rsconnect")
+      (common_dir/"rmarkdown").install resource("rmarkdown")
+    end
+
     resource("pandoc").stage do
-      (common_dir/"pandoc/1.17.2/").install "mac/pandoc"
-      (common_dir/"pandoc/1.17.2/").install "mac/pandoc-citeproc"
+      if OS.linux?
+        arch = Hardware::CPU.is_64_bit? ? "x86_64" : "i686"
+
+        (common_dir/"pandoc/1.17.2/").install "linux/#{which_linux_distribution}/#{arch}/pandoc"
+        (common_dir/"pandoc/1.17.2/").install "linux/#{which_linux_distribution}/#{arch}/pandoc-citeproc"
+      elsif OS.mac?
+        (common_dir/"pandoc/1.17.2/").install "mac/pandoc"
+        (common_dir/"pandoc/1.17.2/").install "mac/pandoc-citeproc"
+      end
     end
 
     resource("libclang").stage do
-      (common_dir/"libclang/3.5/").install "mac/x86_64/libclang.dylib"
+      (common_dir/"libclang/3.5/").install OS.linux? ? "linux/x86_64/libclang.so" : "mac/x86_64/libclang.dylib"
     end
 
     (common_dir/"libclang/builtin-headers").install resource("libclang-builtin-headers")
 
     mkdir "build" do
-      system "cmake", "..",
-        "-DRSTUDIO_TARGET=Server",
-        "-DCMAKE_BUILD_TYPE=Release",
-        "-DBOOST_ROOT=#{Formula["boost"].opt_prefix}",
-        "-DBOOST_INCLUDEDIR=#{Formula["boost"].opt_include}",
-        "-DCMAKE_INSTALL_PREFIX=#{prefix}/rstudio-server",
-        "-DCMAKE_EXE_LINKER_FLAGS=-L#{Formula["openssl"].opt_lib} -L#{Formula["boost"].opt_lib}",
-        "-DCMAKE_CXX_FLAGS=-I#{Formula["openssl"].opt_include}"
+      args = ["-DRSTUDIO_TARGET=Server", "-DCMAKE_BUILD_TYPE=Release"]
+      args << "-DRSTUDIO_USE_LIBCXX=Yes"
+      args << "-DRSTUDIO_USE_SYSTEM_BOOST=Yes"
+      args << "-DBOOST_ROOT=#{Formula["boost"].opt_prefix}"
+      args << "-DBOOST_INCLUDEDIR=#{Formula["boost"].opt_include}"
+      args << "-DBOOST_LIBRARYDIR=#{Formula["boost"].opt_lib}"
+      args << "-DCMAKE_INSTALL_PREFIX=#{prefix}/rstudio-server"
+      args << "-DCMAKE_CXX_FLAGS=-I#{Formula["openssl"].opt_include}"
+
+      linkerflags = "-DCMAKE_EXE_LINKER_FLAGS=-L#{Formula["openssl"].opt_lib} -L#{Formula["boost"].opt_lib}"
+      if OS.linux?
+        linkerflags += " -L#{Formula["linux-pam"].opt_lib}" if build.with? "linux-pam"
+      end
+      args << linkerflags
+
+      args << "-DPAM_INCLUDE_DIR=#{Formula["linux-pam"].opt_include}" if build.with? "linux-pam"
+
+      system "cmake", "..", *args
       system "make", "install"
     end
-
-    (bin/"rserver").write <<-EOS.undent
-        #!/usr/bin/env bash -l
-        export LANG=${LANG:-en_US.UTF-8}
-        exec #{opt_prefix}/rstudio-server/bin/rserver "$@"
-    EOS
-
+    bin.install_symlink prefix/"rstudio-server/bin/rserver"
     bin.install_symlink prefix/"rstudio-server/bin/rstudio-server"
-    share.install_symlink prefix/"rstudio-server/extras/launchd/com.rstudio.launchd.rserver.plist"
+    prefix.install_symlink prefix/"rstudio-server/extras"
+  end
+
+  def post_install
     # patch path to rserver
-    inreplace "#{bin}/rstudio-server", "/rstudio-server/bin/rserver", "/bin/rserver"
-    inreplace "#{share}/com.rstudio.launchd.rserver.plist", "/rstudio-server/bin/rserver", "/bin/rserver"
+    Dir.glob(prefix/"extras/**/*") do |f|
+      if File.file?(f) && !File.readlines(f).grep(%r{#{prefix/"rstudio-server/bin/rserver"}}).empty?
+        inreplace f, %r{#{prefix/"rstudio-server/bin/rserver"}}, opt_bin/"rserver"
+      end
+    end
+    if OS.linux?
+      # brew patchelf rstudio-server
+      keg = Keg.new(prefix)
+      keg.relocate_dynamic_linkage Keg::Relocation.new(
+        :old_prefix => Keg::PREFIX_PLACEHOLDER,
+        :old_cellar => Keg::CELLAR_PLACEHOLDER,
+        :old_repository => Keg::REPOSITORY_PLACEHOLDER,
+        :new_prefix => HOMEBREW_PREFIX.to_s,
+        :new_cellar => HOMEBREW_CELLAR.to_s,
+        :new_repository => HOMEBREW_REPOSITORY.to_s,
+      )
+    end
   end
 
   def caveats
+    if OS.linux?
+      if which_linux_distribution == "rpm"
+        daemon = <<-EOS
+              sudo cp #{opt_prefix}/extras/systemd/rstudio-server.redhat.service /etc/systemd/system/
+        EOS
+      else
+        daemon = <<-EOS
+              sudo cp #{opt_prefix}/extras/systemd/rstudio-server.service /etc/systemd/system/
+        EOS
+      end
+    elsif OS.mac?
+      daemon = <<-EOS
+              If it is an upgrade or the plist file exists, unload the plist first
+              sudo launchctl unload -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
+
+              sudo cp #{opt_prefix}/extras/launchd/com.rstudio.launchd.rserver.plist /Library/LaunchDaemons/
+              sudo launchctl load -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
+      EOS
+    end
     <<-EOS.undent
       - To test run RStudio Server,
+          sudo #{opt_bin}/rserver --server-daemonize=0
 
-        sudo #{opt_bin}/rserver --server-daemonize=0
+      - To complete the installation of RStudio Server
+          1. register RStudio daemon
+#{daemon}
+          2. install the PAM configuration
+              sudo cp #{opt_prefix}/extras/pam/rstudio /etc/pam.d/
 
-      - To install the launching daemon of RStudio Server,
+          3. sudo rstudio-server start
 
-          sudo cp #{opt_share}/com.rstudio.launchd.rserver.plist \\
-                /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
-          sudo launchctl load -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
+      - In default, only users with id >1000 are allowed to login. To relax
+        requirement, add the following option to the configuration file located
+        in `/etc/rstudio/rserver.conf`
 
-        If you have ever installed the daemon, you should reload the service
-
-          sudo launchctl unload -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
-          sudo launchctl load -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
-
-      - To start/stop the launching daemon,
-
-          sudo rstudio-server start
-          sudo rstudio-server stop
-
-      - To launch RStudio Server at boot, you could edit the plist file
-        `/Library/LaunchDaemons/com.rstudio.launchd.rserver.plist`
-        and change the value of `RunAtLoad` to `<true/>`.
-
-      - To remove the launching daemon,
-
-          sudo launchctl unload -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
-          sudo rm /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
-
-      - If \"Invalid username/password\" error occurs, try installing rstudio PAM by
-
-          sudo cp /etc/pam.d/ftpd /etc/pam.d/rstudio
-
-      - In default, only users with id >1000 are allowed to login. You could relax this
-        requirement by modifiying the `ProgramArguments` section of the file
-        `/Library/LaunchDaemons/com.rstudio.launchd.rserver.plist`
-
-          <key>ProgramArguments</key>
-          <array>
-                  <string>#{opt_bin}/rserver</string>
-                  <string>--server-daemonize=0</string>
-                  <string>--auth-minimum-user-id=500</string>
-          </array>
-
-        and then reload the service
-
-          sudo launchctl unload -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
-          sudo launchctl load -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
+          auth-minimum-user-id=500
     EOS
   end
 
@@ -194,15 +249,19 @@ class RstudioServer < Formula
 end
 
 __END__
-diff --git a/src/cpp/CMakeLists.txt b/src/cpp/CMakeLists.txt
-index 94fd99c..6f68f7e 100644
---- a/src/cpp/CMakeLists.txt
-+++ b/src/cpp/CMakeLists.txt
-@@ -69,8 +69,6 @@ if(UNIX)
-       EXECUTE_PROCESS(COMMAND /usr/bin/sw_vers -productVersion OUTPUT_VARIABLE MACOSX_VERSION OUTPUT_STRIP_TRAILING_WHITESPACE)
-       message(STATUS "Mac OS X version: ${MACOSX_VERSION}")
-       if(NOT(${MACOSX_VERSION} VERSION_LESS "10.9"))
--         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libstdc++")
--         set(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} -stdlib=libstdc++")
-       endif()
-    endif()
+diff --git a/src/cpp/r/RRoutines.cpp b/src/cpp/r/RRoutines.cpp
+--- a/src/cpp/r/RRoutines.cpp
++++ b/src/cpp/r/RRoutines.cpp
+@@ -54,14 +54,6 @@ void registerAll()
+    R_CMethodDef* pCMethods = NULL;
+    if (s_cMethods.size() > 0)
+    {
+-      R_CMethodDef nullMethodDef ;
+-      nullMethodDef.name = NULL ;
+-      nullMethodDef.fun = NULL ;
+-      nullMethodDef.numArgs = 0 ;
+-      nullMethodDef.types = NULL;
+-      nullMethodDef.styles = NULL;
+-      s_cMethods.push_back(nullMethodDef);
+-      pCMethods = &s_cMethods[0];
+    }
