@@ -1,7 +1,8 @@
 class Libsbml < Formula
+  desc "Systems Biology Markup Language (SBML)"
   homepage "http://sbml.org/Software/libSBML"
-  url "https://downloads.sourceforge.net/project/sbml/libsbml/5.11.4/stable/libSBML-5.11.4-core-plus-packages-src.tar.gz"
-  sha256 "6429188b689b331b0b8f2c8b55b3f2339196ccd4c93191648fa767e1d02152a3"
+  url "https://downloads.sourceforge.net/project/sbml/libsbml/5.15.0/stable/libSBML-5.15.0-core-plus-packages-src.tar.gz"
+  sha256 "c779c2a8a97c5480fe044028099d928a327261fb68cf08657ec8d4f3b3fc0a21"
 
   bottle do
     cellar :any
@@ -18,7 +19,9 @@ class Libsbml < Formula
     "perl" => "Perl",
     "ruby" => "Ruby",
     "python" => "Python",
-  }
+    "r" => "R",
+  }.freeze
+
   LANGUAGES_OPTIONAL.each do |opt, lang|
     option "with-#{opt}", "generate #{lang} interface library [default=no]"
   end
@@ -48,6 +51,7 @@ class Libsbml < Formula
       args << "-DWITH_OCTAVE=ON" if build.with? "octave"
       args << "-DWITH_PERL=ON" if build.with? "perl"
       args << "-DWITH_RUBY=ON" if build.with? "ruby"
+      args << "-DWITH_R=ON" if build.with? "r"
 
       system "cmake", "..", *args
       system "make", "install"
@@ -58,7 +62,7 @@ class Libsbml < Formula
     (testpath/"test.c").write <<-EOS.undent
       #include <sbml/SBMLTypes.h>
       int main() {
-        SBMLDocument_t *d = SBMLDocument_createWithLevelAndVersion(3, 1);
+        SBMLDocument_t *d = SBMLDocument_createWithLevelAndVersion(3, 2);
         SBMLDocument_free(d);
         return 0;
       }
