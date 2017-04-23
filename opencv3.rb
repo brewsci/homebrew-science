@@ -184,6 +184,11 @@ class Opencv3 < Formula
       ENV["OPENNI2_REDIST"] ||= "#{Formula["openni2"].opt_lib}/ni2"
     end
 
+    if build.with?("python3") && build.with?("python")
+      # Opencv3 Does not support building both Python 2 and 3 versions
+      odie "opencv3: Does not support building both Python 2 and 3 wrappers"
+    end
+
     if build.with? "python"
       py_prefix = `python-config --prefix`.chomp
       py_lib = "#{py_prefix}/lib"
