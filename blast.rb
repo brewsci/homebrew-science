@@ -17,9 +17,6 @@ class Blast < Formula
     sha256 "00049c074bb65f23cf2d384d702ab2a060ed31436b7f2772c05b0314b59619ae" => :x86_64_linux
   end
 
-  # Fix configure: error: Do not know how to build MT-safe with compiler g++-5 5.1.0
-  fails_with :gcc => "5"
-
   option "with-static", "Build without static libraries and binaries"
   option "with-dll", "Build dynamic libraries"
 
