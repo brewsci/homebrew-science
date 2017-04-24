@@ -15,9 +15,9 @@ class Xraylib < Formula
   option "with-perl", "Build with perl support"
   option "with-ruby", "Build with ruby support"
 
+  depends_on :fortran => :recommended
   depends_on :python => :recommended
   depends_on :python3 => :optional
-  depends_on :fortran => :optional
   depends_on "lua" => :optional
   depends_on "fpc" => :optional
 
