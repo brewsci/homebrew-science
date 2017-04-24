@@ -3,7 +3,7 @@ class GedaGaf < Formula
   homepage "http://www.geda-project.org/"
   url "http://ftp.geda-project.org/geda-gaf/stable/v1.8/1.8.2/geda-gaf-1.8.2.tar.gz"
   sha256 "bbf4773aef1b5a51a8d6f4c3fa288c047340cc62dd6e14d7928fcc6e4051b721"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "7d3fb8d1db90b65a695bc75538eacac8f5d6a11b0a89ef8e569607b5944089ba" => :el_capitan
@@ -19,7 +19,7 @@ class GedaGaf < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gtk+"
-  depends_on "guile"
+  depends_on "guile@2.0"
   depends_on "gawk"
 
   def install
@@ -47,7 +47,7 @@ class GedaGaf < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gmp = Formula["gmp"]
-    guile = Formula["guile"]
+    guile = Formula["guile@2.0"]
     libpng = Formula["libpng"]
     readline = Formula["readline"]
     flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
