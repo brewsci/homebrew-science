@@ -9,6 +9,7 @@ class Oce < Formula
     sha256 "95b2fe2ee8e109a3a367d6c385a05b2fd1ab9cf6375a2f446427adc4588280d6" => :sierra
     sha256 "371b8ce925904138c013dd6fbf9b750e290dee7968a1424908387a85df7022b8" => :el_capitan
     sha256 "18a247ef0da6668452a160548db5aea464c4f147ae52b00000b496336490351e" => :yosemite
+    sha256 "80881db2fb51be4b5fba7387b497fc84888a8d8e76913a99a1a14109d06a4804" => :x86_64_linux
   end
 
   option "without-opencl", "Build without OpenCL support"
