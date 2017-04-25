@@ -6,9 +6,9 @@ class GedaGaf < Formula
   revision 2
 
   bottle do
-    sha256 "7d3fb8d1db90b65a695bc75538eacac8f5d6a11b0a89ef8e569607b5944089ba" => :el_capitan
-    sha256 "afbc92df8c10e4c0516732f0d1625273490cdb86448bc67e5b7aabfca2aad933" => :yosemite
-    sha256 "9637b73920afbaaa1a92d0b8c852d5ff2ed435122a755ee8ad2fe1cc142bbcda" => :mavericks
+    sha256 "66d413cea61d456320f304f145115c841a68e0f4edcd21562ad3827314121576" => :sierra
+    sha256 "2e98acffbbd3920cd66eab256e3ceace0e2337a7a61eaa504a48cf58e6a206df" => :el_capitan
+    sha256 "37b19c3e1b3ee996f9162519dbc078f1d46939e5d7afcff966db05a1ba97ab7c" => :yosemite
   end
 
   devel do
