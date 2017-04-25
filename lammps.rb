@@ -1,12 +1,12 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "http://lammps.sandia.gov"
-  url "http://lammps.sandia.gov/tars/lammps-17Nov16.tar.gz"
+  url "http://lammps.sandia.gov/tars/lammps-31Mar17.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY.MM.DD (year.month.day) so that we get a comparable version numbering (for brew outdated).
   # We only track "stable" releases as announced on the LAMMPS homepage.
-  version "2016.11.17"
-  sha256 "559d59c1612b0db00385960a100db5554193b81ffdc23ef1883fe6178d62d645"
+  version "2017.03.31"
+  sha256 "c90158833f99a823ce81b24d88abef2336a79e4966bd789443d2aa22cbb81cb9"
   head "http://git.icms.temple.edu/lammps-ro.git"
   # tag "chemistry"
   # doi "10.1006/jcph.1995.1039"
@@ -34,11 +34,13 @@ class Lammps < Formula
   # kim requires openkim software, which is not currently in homebrew.
   # user-atc would not install without mpi and then would not link to blas-lapack
   # user-omp requires gcc dependency (tricky). clang does not have OMP support, yet.
+  # mscg needs https://github.com/uchicago-voth/MSCG-release
   DISABLED_PACKAGES = %w[
     gpu
     kim
     user-omp
     kokkos
+    mscg
   ].freeze
   DISABLED_USER_PACKAGES = %w[
     user-atc
@@ -53,10 +55,12 @@ class Lammps < Formula
 
   depends_on "fftw"
   depends_on "jpeg"
+  depends_on "libpng"
   depends_on "voro++"
+  depends_on "zlib" unless OS.mac?
   depends_on :mpi => [:cxx, :f90, :recommended] # dummy MPI library provided in src/STUBS
   depends_on :fortran
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on :python
 
   def build_lib(comp, lmp_lib, opts = {})
     change_compiler_var = opts[:change_compiler_var] # a non-standard compiler name to replace
@@ -101,13 +105,15 @@ class Lammps < Formula
   def install
     ENV.deparallelize # not parallel safe (some packages have race conditions :meam:)
 
-    cd "lib/python" do
-      inreplace ["Makefile.lammps", "Makefile.lammps.python2"],
-        "python_SYSLIB = $(shell which python2-config > /dev/null 2>&1 && python2-config --ldflags || python-config --ldflags)",
-        "python_SYSLIB = -ldl -framework CoreFoundation -undefined dynamic_lookup"
-      inreplace "Makefile.lammps.python2.7",
-        "python_SYSLIB = -lpython2.7 -lnsl -ldl -lreadline -ltermcap -lpthread -lutil -lm -Xlinker -export-dynamic",
-        "python_SYSLIB = -undefined dynamic_lookup -lnsl -ldl -lreadline -ltermcap -lpthread -lutil -lm -Xlinker -export-dynamic"
+    if OS.mac?
+      cd "lib/python" do
+        inreplace ["Makefile.lammps", "Makefile.lammps.python2"],
+          "python_SYSLIB = $(shell which python2-config > /dev/null 2>&1 && python2-config --ldflags || python-config --ldflags)",
+          "python_SYSLIB = -ldl -framework CoreFoundation -undefined dynamic_lookup"
+        inreplace "Makefile.lammps.python2.7",
+          "python_SYSLIB = -lpython2.7 -lnsl -ldl -lreadline -ltermcap -lpthread -lutil -lm -Xlinker -export-dynamic",
+          "python_SYSLIB = -undefined dynamic_lookup -lnsl -ldl -lreadline -ltermcap -lpthread -lutil -lm -Xlinker -export-dynamic"
+      end
     end
 
     # make sure to optimize the installation
@@ -134,14 +140,23 @@ class Lammps < Formula
     libgfortran = `$FC --print-file-name libgfortran.a`.chomp
     ENV.append "LDFLAGS", "-L#{File.dirname libgfortran} -lgfortran"
 
+    # Locate zlib library for Linux
+    ENV.append "LDFLAGS", "-lz -L#{Formula["zlib"].opt_prefix}/lib" unless OS.mac?
+
     inreplace "lib/voronoi/Makefile.lammps" do |s|
       s.change_make_var! "voronoi_SYSINC", "-I#{Formula["voro++"].opt_include}/voro++"
+    end
+
+    if OS.mac?
+      makefile = "MAKE/MACHINES/Makefile.mac"
+    else
+      makefile = "MAKE/MACHINES/Makefile.ubuntu"
     end
 
     # build the lammps program and library
     cd "src" do
       # setup the make file variabls for fftw, jpeg, and mpi
-      inreplace "MAKE/MACHINES/Makefile.mac" do |s|
+      inreplace makefile do |s|
         # We will stick with "make mac" type and forget about
         # "make mac_mpi" because it has some unnecessary
         # settings. We get a nice clean slate with "mac"
@@ -159,9 +174,9 @@ class Lammps < Formula
         s.change_make_var! "FFT_PATH", "-L#{Formula["fftw"].opt_prefix}/lib"
         s.change_make_var! "FFT_LIB",  "-lfftw3"
 
-        s.change_make_var! "JPG_INC",  "-DLAMMPS_JPEG -I#{Formula["jpeg"].opt_prefix}/include"
-        s.change_make_var! "JPG_PATH", "-L#{Formula["jpeg"].opt_prefix}/lib"
-        s.change_make_var! "JPG_LIB",  "-ljpeg"
+        s.change_make_var! "JPG_INC",  "-DLAMMPS_JPEG -I#{Formula["jpeg"].opt_prefix}/include -DLAMMPS_PNG -I#{Formula["libpng"].opt_prefix}/include"
+        s.change_make_var! "JPG_PATH", "-L#{Formula["jpeg"].opt_prefix}/lib -L#{Formula["libpng"].opt_prefix}/lib"
+        s.change_make_var! "JPG_LIB",  "-ljpeg -lpng"
 
         s.change_make_var! "CCFLAGS",  ENV["CFLAGS"]
         s.change_make_var! "LIB",      ENV["LDFLAGS"]
@@ -186,9 +201,9 @@ class Lammps < Formula
       end
 
       # build the lammps executable and library
-      system "make", "mac"
-      system "make", "mac", "mode=shlib"
-      mv "lmp_mac", "lammps" # rename it to make it easier to find
+      system "make", OS.mac? ? "mac" : "ubuntu"
+      system "make", OS.mac? ? "mac" : "ubuntu", "mode=shlib"
+      mv OS.mac? ? "lmp_mac" : "lmp_ubuntu", "lammps" # rename it to make it easier to find
     end
 
     # install the python module
@@ -202,8 +217,8 @@ class Lammps < Formula
     end
 
     bin.install "src/lammps"
-    lib.install "src/liblammps_mac.so"
-    lib.install "src/liblammps.so" # this is just a soft-link to liblamps_mac.so
+    lib.install OS.mac? ? "src/liblammps_mac.so" : "src/liblammps_ubuntu.so"
+    lib.install "src/liblammps.so" # this is just a soft-link to liblamps_mac|ubuntu.so
     pkgshare.install(%w[doc potentials tools bench examples])
   end
 
