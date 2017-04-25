@@ -7,10 +7,9 @@ class Opencascade < Formula
 
   bottle do
     cellar :any
-    sha256 "e033e4dc3416bf3992b37a4c2e81272480d2c6efc20ea06d1780c0808febddc7" => :sierra
-    sha256 "df45859263aed9c1105d3d423588ce13f779d1eccb19f7b434d651cdff4cf9a9" => :el_capitan
-    sha256 "6e9d59f26278cebde3e025fde9b60311ef2bab3bba15d3a1c42d0e4808449489" => :yosemite
-    sha256 "91e48bf559b6a3fcb1476524adee806f73865f5a5ba3b53a58931b1601e43d86" => :x86_64_linux
+    sha256 "e817f05ac747235d8453a2d15fb076f90f87b30a872ff6944cc5487f05058cbe" => :sierra
+    sha256 "9be44acf5036801dda4981b48693312f7cba3daffa73e80c50ea207a9da7407e" => :el_capitan
+    sha256 "790964a5e17e0021228f03b32bdabdc1657aa89aa56f668d8b998ec5f1ce42bc" => :yosemite
   end
 
   option "without-opencl", "Build without OpenCL support" if OS.mac?
