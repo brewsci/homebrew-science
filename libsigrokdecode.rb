@@ -26,7 +26,6 @@ class Libsigrokdecode < Formula
     sha256 "286e5f39380dc99e8b5bcdad75a44b1d50f8f6d1cbc86734bbfab25993fc1324" => :sierra
     sha256 "c59683f5fca7bea78843c31a623e25d60318e780fefaf3e2c6b28b7fb78d0acc" => :el_capitan
     sha256 "1beaf120f2a5be8d30e8096b53f4952e24d5e3443c0c0be17846f81541f7f5d8" => :yosemite
-    sha256 "69c1b175edcc9d785e254147a98c4739d70d84df5596446deb4cf3c7eb61c79e" => :x86_64_linux
   end
 
   head do
