@@ -9,42 +9,64 @@ addons:
     - csh
     - cython
     - python-astropy
-    - python-matplotlib
     - python-nose
     - python-pip
-    - python-scipy
     - python-sphinx
 
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libxml-parser-perl libxml-sax-perl
+  - DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge
+      libblas-dev
+      libbz2-dev
+      libfreetype6-dev
+      libgdbm-dev
+      libicu-dev
+      libidn11-dev
+      libjasper-dev
+      libjbig-dev
+      libkrb5-dev
+      liblzma-dev
+      libncurses5-dev
+      libpcre3-dev
+      libtinfo-dev
+      libwebp-dev
+      libwmf-dev
+      libx11-dev
+      libxml2-dev
+      llvm-3.4
+      mysql-common
+      zlib1g-dev
+  - git config --global user.name "Travis CI"
+  - git config --global user.email "travis-ci@linuxbrew.sh"
   - export TRAVIS_COMMIT="$(git rev-parse --verify -q HEAD)"
   - if [ -f ".git/shallow" ]; then
       travis_retry git fetch --unshallow;
     fi
-  - sudo mkdir -p /home/linuxbrew
-  - sudo chown "$USER" /home/linuxbrew
-  - LINUXBREW=/home/linuxbrew/.linuxbrew
+  - HOME=/home/linuxbrew
+  - sudo mkdir $HOME
+  - sudo chown "$USER:" $HOME
+  - LINUXBREW=$HOME/.linuxbrew
   - git clone --depth=1 https://github.com/Linuxbrew/brew.git "$LINUXBREW"
-  - export PATH="$LINUXBREW/bin:$PATH"
+  - export PATH="$LINUXBREW/bin:$LINUXBREW/sbin:$PATH"
   - HOMEBREW_TAP_DIR="$(brew --repo "$TRAVIS_REPO_SLUG")"
   - rm -rf "$HOMEBREW_TAP_DIR"
   - mkdir -p "$(dirname "$HOMEBREW_TAP_DIR")"
   - ln -s "$PWD" "$HOMEBREW_TAP_DIR"
-  - export HOMEBREW_DEVELOPER="1"
-  - env | grep TRAVIS | tee /tmp/travis.env
-  - export HOMEBREW_DEVELOPER="1"
-  - ulimit -n 1024
-  # Fix incorrect file permissions (664)
+  # Fix error: Incorrect file permissions (664)
   - chmod 0644 *.rb
   - umask 022
+  - export HOMEBREW_DEVELOPER=1
+  - export HOMEBREW_NO_AUTO_UPDATE=1
+  - export HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1
+  - env | grep TRAVIS | tee /tmp/travis.env
+  - ulimit -n 1024
   - brew tap linuxbrew/xorg
 
 install:
   - pip install pysam
 
 script:
-  - brew tap homebrew/dupes
   - brew tap linuxbrew/xorg
   - brew test-bot
 
