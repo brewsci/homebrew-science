@@ -1,9 +1,8 @@
 class Hwloc < Formula
   desc "Portable abstraction of the hierarchical topology of modern architectures"
   homepage "https://www.open-mpi.org/projects/hwloc/"
-  url "https://www.open-mpi.org/software/hwloc/v1.11/downloads/hwloc-1.11.6.tar.bz2"
-  sha256 "7685f7b96c7c79412c494633862612b36f8745f05f84d35ab495d38b456d87fa"
-  revision 1
+  url "https://www.open-mpi.org/software/hwloc/v1.11/downloads/hwloc-1.11.7.tar.bz2"
+  sha256 "ab6910e248eed8c85d08b529917a6aae706b32b346e886ba830895e36a809729"
 
   bottle do
     cellar :any
