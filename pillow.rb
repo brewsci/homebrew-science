@@ -1,8 +1,8 @@
 class Pillow < Formula
   desc "Python Imaging Library fork"
   homepage "https://github.com/python-imaging/Pillow"
-  url "https://github.com/python-pillow/Pillow/archive/4.1.0.tar.gz"
-  sha256 "93bf698eca91fc895c3f4871cf3af089d217f533bdf7dfc9b21dcdad2229d480"
+  url "https://github.com/python-pillow/Pillow/archive/4.1.1.tar.gz"
+  sha256 "606eca4a0801461e34d3bb4eb94df28fab5b3f6702eac8d1840d2da6a6d5d970"
   head "https://github.com/python-imaging/Pillow.git"
 
   bottle do
