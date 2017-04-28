@@ -9,6 +9,7 @@ class Pillow < Formula
     sha256 "48f02b50a25d74e86ebded01cf8f04468ef5958258bf64b561e1d6c4b5077902" => :sierra
     sha256 "bda0bc8a0c19db21505009fc574e80b4e4a16713048c4b9a614ce8568132d75b" => :el_capitan
     sha256 "5411dc446010193d4a9105399c9d8d31e33e2d4dc2d031012d0122cee9e3bbdf" => :yosemite
+    sha256 "ad2935ff738de4833a21671372e36737adeae9f73263d01d62860fa66f977f29" => :x86_64_linux
   end
 
   # waiting on upstream resolution of JPEG2000 issues
