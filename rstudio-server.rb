@@ -3,6 +3,7 @@ class RstudioServer < Formula
   homepage "https://www.rstudio.com"
   url "https://github.com/rstudio/rstudio/archive/v1.0.143.tar.gz"
   sha256 "8ae88731b4474e5e2ff9030aa14e168903fe3a7ffc4fa716f497084a86801062"
+  revision 1
   head "https://github.com/rstudio/rstudio.git"
 
   bottle do
@@ -83,6 +84,11 @@ class RstudioServer < Formula
   resource "libclang-builtin-headers" do
     url "https://s3.amazonaws.com/rstudio-buildtools/libclang-builtin-headers.zip"
     sha256 "0b8f54c8d278dd5cd2fb3ec6f43e9ea1bfc9e8d595ff88127073d46550e88a74"
+  end
+
+  resource "rstudio-pam" do
+    url "https://raw.githubusercontent.com/rstudio/rstudio/4ad9b3fed9c5f3596503e8a97194bcb473c605db/src/cpp/server/extras/pam/mac/rstudio"
+    sha256 "eda59b6baf1279f15ca10ead75d35d54fd88e488e1fcffba2ee8ea115cf753ed"
   end
 
   if build.head?
@@ -177,6 +183,14 @@ class RstudioServer < Formula
       system "cmake", "..", *args
       system "make", "install"
     end
+    if OS.mac? && !build.head?
+      # it should not be needed for future version of RStudio.
+      # https://github.com/rstudio/rstudio/commit/5284e2ac85f0071d21c0ff42d802804ea9e6c596
+      # move the pam file in place
+      resource("rstudio-pam").stage do
+        (prefix/"rstudio-server/extras/pam").install "rstudio"
+      end
+    end
     bin.install_symlink prefix/"rstudio-server/bin/rserver"
     bin.install_symlink prefix/"rstudio-server/bin/rstudio-server"
     prefix.install_symlink prefix/"rstudio-server/extras"
@@ -185,8 +199,8 @@ class RstudioServer < Formula
   def post_install
     # patch path to rserver
     Dir.glob(prefix/"extras/**/*") do |f|
-      if File.file?(f) && !File.readlines(f).grep(%r{#{prefix/"rstudio-server/bin/rserver"}}).empty?
-        inreplace f, %r{#{prefix/"rstudio-server/bin/rserver"}}, opt_bin/"rserver"
+      if File.file?(f) && !File.readlines(f).grep(/#{prefix/"rstudio-server/bin/rserver"}/).empty?
+        inreplace f, /#{prefix/"rstudio-server/bin/rserver"}/, opt_bin/"rserver"
       end
     end
     if OS.linux?
