@@ -1,9 +1,8 @@
 class Xrmc < Formula
   desc "Monte Carlo simulation of X-ray imaging and spectroscopy experiments"
   homepage "https://github.com/golosio/xrmc"
-  url "https://xrmc.tomschoonjans.eu/xrmc-6.5.0.tar.gz"
-  sha256 "4995eaaf3b4583d443d0cf2003d73d1855b443938e431a4f758a607f540e026a"
-  revision 2
+  url "https://xrmc.tomschoonjans.eu/xrmc-6.6.0.tar.gz"
+  sha256 "89c2ca22c44ddb3bb15e1ce7a497146722e3f5a0c294618cae930a254cbbbb65"
 
   bottle do
     sha256 "8f0b3aa1e710873206b538625507233be81295c853d8d0aeb936ffc2491eea3b" => :el_capitan
@@ -19,20 +18,8 @@ class Xrmc < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "xraylib"
   depends_on "xmi-msim" => :optional
-
-  if build.with? "xmi-msim"
-    depends_on "xraylib" => "with-fortran"
-  else
-    depends_on "xraylib"
-  end
-
-  fails_with :llvm do
-    cause <<-EOS.undent
-    llvm-gcc's OpenMP does not support the collapse statement,
-    required to build xrmc
-    EOS
-  end
 
   def install
     inreplace Dir.glob("{examples,test}/*/Makefile.am"),
