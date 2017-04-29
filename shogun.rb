@@ -8,6 +8,7 @@ class Shogun < Formula
     sha256 "06aafb46d4cd4e53ebed6f8bb32e1279b5a8b5de9aae2359261cee9de87fc2ca" => :sierra
     sha256 "e5dd5b447ef40488fb32fa36e2eb943975a6b28db8ae27859e39cb8a87a077a9" => :el_capitan
     sha256 "b3d320d345da09b55ffb98a59f4fac3b2f6c2672fcbcda693fe0e7a9ee4795a3" => :yosemite
+    sha256 "dfbd03cba5e1a134a520d6c06aceaa3c5143cad638fc208150d980a44e5252cf" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
