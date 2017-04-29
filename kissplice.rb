@@ -6,17 +6,14 @@ class KisspliceDownloadStrategy < CurlDownloadStrategy
 end
 
 class Kissplice < Formula
+  desc "Local transcriptome assembler for SNPs, indels and AS events"
   homepage "http://kissplice.prabi.fr"
-  url "ftp://pbil.univ-lyon1.fr/pub/logiciel/kissplice/download/kissplice-2.2.1.tar.gz",
+  url "ftp://pbil.univ-lyon1.fr/pub/logiciel/kissplice/download/kissplice-2.4.0-p1.tar.gz",
     :using => KisspliceDownloadStrategy
-  sha256 "229b92d66d96f81f1f7800a7db6317c461e068784e9e48378863479a5634ec47"
+  sha256 "f4569b444cd0b10eba2a5c3f883d3fcbaf092201a9ebdc4d4c0030b4641676f7"
 
   depends_on "cmake" => :build
-
-  fails_with :clang do
-    build 600
-    cause "error: use of undeclared identifiers"
-  end
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -24,6 +21,6 @@ class Kissplice < Formula
   end
 
   test do
-    system "kissplice --version"
+    system "#{bin}/kissplice", "--version"
   end
 end
