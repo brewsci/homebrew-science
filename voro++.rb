@@ -7,9 +7,9 @@ class Voroxx < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2109a6a57ad40d0575f2c6e6c96ba9e6da212d6555199e31fb82bbdc64efebc8" => :sierra
-    sha256 "05fe4c7cbb294617e6ff928e3e2f703b60009d0b1937e0d87518bfda30b6c0e0" => :el_capitan
-    sha256 "ee5cf53ab32d84e795f3850b39121b40c1eb37a453153daf6905b826887031c2" => :yosemite
+    sha256 "7e392a773ec9a1b57db1f1ca6ab507275e67b9915a57406061c8596828720bc6" => :sierra
+    sha256 "ddc5e74203da094994e301bfb799a419b6683b6818943b90fe8e9acbb1cc199b" => :el_capitan
+    sha256 "8790ee943b4ea54d0847938f3cf0ef746589c55dfcea6e78cd9432d38a036ad3" => :yosemite
   end
 
   # tag "math"
