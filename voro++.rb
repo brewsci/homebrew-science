@@ -3,7 +3,8 @@ class Voroxx < Formula
   homepage "http://math.lbl.gov/voro++"
   url "http://math.lbl.gov/voro++/download/dir/voro++-0.4.6.tar.gz"
   sha256 "ef7970071ee2ce3800daa8723649ca069dc4c71cc25f0f7d22552387f3ea437e"
-  head "https://codeforge.lbl.gov/anonscm/voro/trunk", :using => :svn
+  revision 1
+
   bottle do
     cellar :any_skip_relocation
     sha256 "2109a6a57ad40d0575f2c6e6c96ba9e6da212d6555199e31fb82bbdc64efebc8" => :sierra
@@ -14,8 +15,10 @@ class Voroxx < Formula
   # tag "math"
   # doi "10.1063/1.3215722"
 
+  depends_on "patchelf" unless OS.mac?
+
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}", "CFLAGS=#{ENV.cflags} -fPIC"
     pkgshare.install("examples")
     mv prefix / "man", share / "man"
   end
