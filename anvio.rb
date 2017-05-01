@@ -2,9 +2,8 @@ class Anvio < Formula
   include Language::Python::Virtualenv
   desc "Analysis and visualization platform for ‘omics data."
   homepage "http://merenlab.org/projects/anvio/"
-  url "https://pypi.python.org/packages/2f/2a/d89cabfc28119f06d992b7b2101f5c77a75f447f7a74eac14a80ec4e8fd8/anvio-2.2.2.tar.gz"
-  sha256 "d794f168df8b069b0b42067d37cb1802a828f6e01333ce887a481a3d8b373cef"
-  revision 1
+  url "https://pypi.python.org/packages/4b/b0/28e526dd0473c45235da36d3d24943f1f6f8d33d232d69b337c4f5ed4955/anvio-2.3.1.tar.gz"
+  sha256 "d37cd3a4af1f91260e02e8457e995d588fb011541c9032352d5c2c9facee4de0"
   head "https://github.com/merenlab/anvio.git"
 
   bottle do
@@ -27,8 +26,16 @@ class Anvio < Formula
   depends_on "mcl"
   depends_on "muscle"
   depends_on "blast"
-  depends_on "numpy" => "with-python3"
-  depends_on "scipy" => "with-python3"
+
+  resource "numpy" do
+    url "https://pypi.python.org/packages/a5/16/8a678404411842fe02d780b5f0a676ff4d79cd58f0f22acddab1b392e230/numpy-1.12.1.zip"
+    sha256 "a65266a4ad6ec8936a1bc85ce51f8600634a31a258b722c9274a80ff189d9542"
+  end
+
+  resource "scipy" do
+    url "https://pypi.python.org/packages/e5/93/9a8290e7eb5d4f7cb53b9a7ad7b92b9827ecceaddfd04c2a83f195d8767d/scipy-0.19.0.zip"
+    sha256 "4190d34bf9a09626cd42100bbb12e3d96b2daf1a8a3244e991263eb693732122"
+  end
 
   resource "bottle" do
     url "https://pypi.python.org/packages/a1/f6/0db23aeeb40c9a7c5d226b1f70ce63822c567178eee5b623bca3e0cc3bef/bottle-0.12.11.tar.gz"
@@ -36,8 +43,8 @@ class Anvio < Formula
   end
 
   resource "pysam" do
-    url "https://pypi.python.org/packages/de/03/02934438b204565bc5231f38a11da840a3c3e4b2beac8c8770d675770668/pysam-0.9.1.4.tar.gz"
-    sha256 "56ee7f8d07fa9d78b5c00dfbf335c95edbfed1518a2c14f8f108e58599922dc4"
+    url "https://pypi.python.org/packages/be/70/16cdd6c5ef799b2db2af4fd5f9720df0f3206b0a06ed40e03692aa80ae25/pysam-0.11.1.tar.gz"
+    sha256 "fbc710f82cb4334b3b88be9b7a9781547456fdcb2135755b68e041e96fc28de1"
   end
 
   resource "ete3" do
@@ -78,6 +85,11 @@ class Anvio < Formula
   resource "psutil" do
     url "https://pypi.python.org/packages/78/0a/aa90434c6337dd50d182a81fe4ae4822c953e166a163d1bf5f06abb1ac0b/psutil-5.1.3.tar.gz"
     sha256 "959bd58bdc8152b0a143cb3bd822d4a1b8f7230617b0e3eb2ff6e63812120f2b"
+  end
+
+  resource "mistune" do
+    url "https://pypi.python.org/packages/25/a4/12a584c0c59c9fed529f8b3c47ca8217c0cf8bcc5e1089d3256410cfbdbc/mistune-0.7.4.tar.gz"
+    sha256 "8517af9f5cd1857bb83f9a23da75aa516d7538c32a2c5d5c56f3789a9e4cd22f"
   end
 
   def install
