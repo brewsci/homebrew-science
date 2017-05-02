@@ -3,6 +3,7 @@ class ParallelNetcdf < Formula
   homepage "https://trac.mcs.anl.gov/projects/parallel-netcdf"
   url "http://cucis.ece.northwestern.edu/projects/PnetCDF/Release/parallel-netcdf-1.7.0.tar.gz"
   sha256 "52f0d106c470a843c6176318141f74a21e6ece3f70ee8fe261c6b93e35f70a94"
+  revision 1
 
   bottle do
     sha256 "b92b5215732879b47567fdaf624389f3ffa0de15139894987142c52bdc6b6474" => :el_capitan
@@ -24,12 +25,8 @@ class ParallelNetcdf < Formula
     ENV["CXX"] = ENV["MPICXX"]
     ENV["FC"] = ENV["MPIFC"]
 
-    if build.without? "fortran"
-      args << "--disable-fortran"
-    end
-    if build.without? "cxx"
-      args << "--disable-cxx"
-    end
+    args << "--disable-fortran" if build.without? "fortran"
+    args << "--disable-cxx" if build.without? "cxx"
 
     system "./configure", *args
     system "make"
@@ -157,6 +154,6 @@ class ParallelNetcdf < Formula
     system "mpicc", "test_mpi.c", "-L#{lib}", "-I#{include}", "-lpnetcdf", "-o", "test"
     system "mpiexec", "-n", "4", "./test", "output.nc"
     assert File.exist?("output.nc")
-    assert_match shell_output("ncmpidump output.nc > output.ncdump"), shell_output("cat output.expected")
+    assert_match shell_output("#{bin}/ncmpidump output.nc > output.ncdump"), shell_output("cat output.expected")
   end
 end
