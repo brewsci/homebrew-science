@@ -1,16 +1,10 @@
-class GmshSvnStrategy < SubversionDownloadStrategy
-  def quiet_safe_system(*args)
-    super *args + ["--username", "gmsh", "--password", "gmsh"]
-  end
-end
-
 class Gmsh < Formula
   desc "3D finite element grid generator with CAD engine"
-  homepage "http://geuz.org/gmsh"
+  homepage "http://gmsh.info/"
   url "http://gmsh.info/src/gmsh-2.16.0-source.tgz"
   sha256 "e829eaf32ea02350a385202cc749341f2a3217c464719384b18f653edd028eea"
-
-  head "https://geuz.org/svn/gmsh/trunk", :using => GmshSvnStrategy
+  revision 1
+  head "http://gitlab.onelab.info/gmsh/gmsh.git"
 
   bottle do
     cellar :any
@@ -31,6 +25,7 @@ class Gmsh < Formula
   depends_on "slepc" => :optional
   depends_on "fltk" => :optional
   depends_on "cairo" if build.with? "fltk"
+  depends_on "openblas" unless OS.mac?
 
   if build.with?("opencascade") && build.with?("oce")
     odie "gmsh: switches '--with-opencascade' and '--with-oce' are conflicting."
