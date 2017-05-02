@@ -3,6 +3,7 @@ class Salt < Formula
   url "http://supernovae.in2p3.fr/salt/lib/exe/fetch.php?media=snfit-2.4.0.tar.gz"
   sha256 "c38bbf8765aadf321ee138457544264b9f3f5e33c0b178dd5f079d117a2befb8"
   version "2.4"
+  revision 1
 
   depends_on :fortran
 
