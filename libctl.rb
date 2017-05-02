@@ -8,7 +8,7 @@ class Libctl < Formula
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}", "LIBS=-lm"
     system "make", "install"
   end
 end
