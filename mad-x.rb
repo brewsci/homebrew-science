@@ -3,6 +3,7 @@ class MadX < Formula
   homepage "https://cern.ch/mad"
 
   url "http://svn.cern.ch/guest/madx/tags/5.02.13/madX/"
+  revision 1
   head "http://svn.cern.ch/guest/madx/trunk/madX/"
 
   bottle do
@@ -16,6 +17,7 @@ class MadX < Formula
   depends_on "cmake" => :build
   depends_on :fortran
   depends_on :x11
+  depends_on "openblas" unless OS.mac?
 
   patch :DATA
 
