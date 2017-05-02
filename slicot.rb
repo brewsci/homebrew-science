@@ -3,7 +3,7 @@ class Slicot < Formula
   url "http://ftp.de.debian.org/debian/pool/main/s/slicot/slicot_5.0+20101122.orig.tar.gz"
   version "5.0+20101122"
   sha256 "fa80f7c75dab6bfaca93c3b374c774fd87876f34fba969af9133eeaea5f39a3d"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
