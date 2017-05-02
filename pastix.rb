@@ -3,7 +3,7 @@ class Pastix < Formula
   homepage "http://pastix.gforge.inria.fr"
   url "https://gforge.inria.fr/frs/download.php/file/35070/pastix_5.2.2.22.tar.bz2"
   sha256 "30f771a666719e6b116f549a6e4da451beabab99c2ecabc0745247c3654acbed"
-  revision 2
+  revision 3
 
   head "git://scm.gforge.inria.fr/ricar/ricar.git"
 
