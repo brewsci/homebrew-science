@@ -3,7 +3,7 @@ class Plasma < Formula
   homepage "http://icl.cs.utk.edu/plasma"
   url "http://icl.cs.utk.edu/projectsfiles/plasma/pubs/plasma_2.8.0.tar.gz"
   sha256 "b2f2226c275c6a26ba15f040816cc25b6849134a65563e04d38b9144070230d3"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
