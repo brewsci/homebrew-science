@@ -9,6 +9,7 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.rstudio.com/src/base/R-3/R-3.4.0.tar.gz"
   sha256 "288e9ed42457c47720780433b3d5c3c20983048b789291cc6a7baa11f9428b91"
+  revision 1
   head "https://svn.r-project.org/R/trunk", :using => RDownloadStrategy
 
   # Do not remove executable permission from these scripts.
