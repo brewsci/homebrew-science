@@ -4,6 +4,7 @@ class Mumps < Formula
   url "http://mumps.enseeiht.fr/MUMPS_5.0.2.tar.gz"
   mirror "http://graal.ens-lyon.fr/MUMPS/MUMPS_5.0.2.tar.gz"
   sha256 "77292b204942640256097a3da482c2abcd1e0d5a74ecd1d4bab0f5ef6e60fe45"
+  revision 1
 
   bottle do
     cellar :any
