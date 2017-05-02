@@ -4,7 +4,7 @@ class CalculixCcx < Formula
   url "http://www.dhondt.de/ccx_2.11.src.tar.bz2"
   version "2.11"
   sha256 "11588c7a2836cadbc4c6f2b866b0daa67512eebe755887094a76a997e6dc2493"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
