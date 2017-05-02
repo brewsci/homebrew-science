@@ -3,7 +3,7 @@ class QrMumps < Formula
   homepage "http://buttari.perso.enseeiht.fr/qr_mumps"
   url "http://buttari.perso.enseeiht.fr/qr_mumps/releases/1.2/qr_mumps-1.2.tgz"
   sha256 "6aacdab63c4d4160998f47ac736d4665f0dd5deb6002eeb2aa59de6eb274c337"
-  revision 1
+  revision 2
   head "https://wwwsecu.irit.fr/svn/qr_mumps/tags/1.2", :using => :svn
 
   bottle do
