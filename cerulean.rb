@@ -1,6 +1,7 @@
 class Cerulean < Formula
+  desc "Extend contigs assembled using short reads using long reads"
   homepage "https://sourceforge.net/projects/ceruleanassembler/"
-  # doi "arXiv:1307.7933"
+  # doi "10.1007/978-3-642-40453-5_27"
   # tag "bioinformatics"
 
   url "https://downloads.sourceforge.net/project/ceruleanassembler/Cerulean_v_0_1.tar.gz"
@@ -12,7 +13,7 @@ class Cerulean < Formula
   end
 
   depends_on "abyss" => :recommended
-  depends_on "numpy" => :python
+  depends_on "numpy"
 
   def install
     doc.install "README"
