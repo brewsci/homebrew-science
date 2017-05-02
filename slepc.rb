@@ -3,7 +3,7 @@ class Slepc < Formula
   homepage "http://www.grycap.upv.es/slepc"
   url "http://slepc.upv.es/download/download.php?filename=slepc-3.7.3.tar.gz"
   sha256 "3ef9bcc645a10c1779d56b3500472ceb66df692e389d635087d30e7c46424df9"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "f661085a8f5fe7ef644042069e5f717ffab0471e815181a6c4746fe900e754c6" => :sierra
