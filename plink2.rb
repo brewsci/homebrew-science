@@ -5,6 +5,7 @@ class Plink2 < Formula
   # tag "bioinformatics"
   homepage "https://www.cog-genomics.org/plink2"
   sha256 "2f4afc193c288b13af4410e4587358ee0a6f76ed7c98dd77ca1317aac28adf0d"
+  revision 1
 
   depends_on :fortran
   depends_on "openblas" => :optional
