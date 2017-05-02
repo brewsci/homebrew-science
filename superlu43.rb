@@ -3,7 +3,7 @@ class Superlu43 < Formula
   homepage "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
   url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_4.3.tar.gz"
   sha256 "169920322eb9b9c6a334674231479d04df72440257c17870aaa0139d74416781"
-  revision 1
+  revision 3
 
   bottle do
     cellar :any
