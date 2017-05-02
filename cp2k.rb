@@ -3,6 +3,7 @@ class Cp2k < Formula
   homepage "https://www.cp2k.org"
   url "https://downloads.sourceforge.net/project/cp2k/cp2k-4.1.tar.bz2"
   sha256 "4a3e4a101d8a35ebd80a9e9ecb02697fb8256364f1eccdbe4e5a85d31fe21343"
+  revision 1
   head "https://svn.code.sf.net/p/cp2k/code/trunk"
   # tag "chemistry"
   # doi "10.1016/j.cpc.2004.12.014"
