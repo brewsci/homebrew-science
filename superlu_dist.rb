@@ -3,7 +3,7 @@ class SuperluDist < Formula
   homepage "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
   url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_dist_5.1.0.tar.gz"
   sha256 "30ac554a992441e6041c6fb07772da4fa2fa6b30714279de03573c2cad6e4b60"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
