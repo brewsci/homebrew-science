@@ -3,6 +3,7 @@ class Arpack < Formula
   homepage "https://github.com/opencollab/arpack-ng"
   url "https://github.com/opencollab/arpack-ng/archive/3.4.0.tar.gz"
   sha256 "69e9fa08bacb2475e636da05a6c222b17c67f1ebeab3793762062248dd9d842f"
+  revision 1
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
