@@ -4,6 +4,7 @@ class Omcompiler < Formula
   url "https://github.com/OpenModelica/OMCompiler.git",
       :tag => "v1.9.6",
       :revision => "d3c35c90b382998275f42eb5da05c0f25e6b63a8"
+  revision 1
 
   bottle do
     sha256 "f0f61fb5c79d1ec1262abbd705752612cd06bb702d8ec43ac7529893dd3f37b2" => :sierra
