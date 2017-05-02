@@ -3,7 +3,9 @@ class Phyx < Formula
   homepage "https://github.com/FePhyFoFum/phyx"
   url "https://github.com/FePhyFoFum/phyx/archive/v0.99.tar.gz"
   sha256 "6c767b2b2a9666849c3035e479a2135734fccf882d4957f69ea251632d7ed010"
+  revision 1
   head "https://github.com/FePhyFoFum/phyx.git"
+
   bottle do
     cellar :any
     sha256 "328cd6df7545795c70f1e33cfd5fd8ff5449cabfedd0e44f02c8ecc9637edee9" => :sierra
