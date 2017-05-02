@@ -4,7 +4,7 @@ class R8s < Formula
   url "http://ceiba.biosci.arizona.edu/r8s/r8s.dist.tgz"
   version "1.8"
   sha256 "3b70c86c5aeff52b42598bd48777881b22104c1c1c4658ebcf96d2da9d9521b4"
-  revision 1
+  revision 2
   # doi "10.1093/bioinformatics/19.2.301"
   # tag "bioinformatics
 
