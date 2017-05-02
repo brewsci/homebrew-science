@@ -3,6 +3,7 @@ class Fgsl < Formula
   homepage "http://www.lrz.de/services/software/mathematik/gsl/fortran/"
   url "http://www.lrz.de/services/software/mathematik/gsl/fortran/download/fgsl-1.2.0.tar.gz"
   sha256 "00fd467af2bb778e8d15ac8c27ddc7b9024bb8fa2f950a868d9d24b6086e5ca7"
+  revision 1
 
   bottle do
     sha256 "b499806aac9c077261cca80d999e1d8a7c3f82de01d42d6b8740eae82b923691" => :sierra
