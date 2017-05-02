@@ -4,6 +4,7 @@ class Hypre < Formula
   url "http://ftp.mcs.anl.gov/pub/petsc/externalpackages/hypre-2.11.1.tar.gz"
   mirror "http://computation.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods/download/hypre-2.11.1.tar.gz"
   sha256 "6bb2ff565ff694596d0e94d0a75f0c3a2cd6715b8b7652bc71feb8698554db93"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
