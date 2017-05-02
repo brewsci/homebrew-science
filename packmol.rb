@@ -3,6 +3,7 @@ class Packmol < Formula
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
   url "https://github.com/leandromartinez98/packmol/archive/17.099.tar.gz"
   sha256 "3ca76cd6cad933a33e2c60a956c3b21c1e9087c88daa4ab5c358b5dba67527ae"
+  revision 1
   head "https://github.com/leandromartinez98/packmol.git"
   # tag "chemistry"
   # doi "10.1002/jcc.21224"
@@ -23,6 +24,8 @@ class Packmol < Formula
 
   def install
     system "./configure"
+    # Reported upstream: https://github.com/leandromartinez98/packmol/issues/5
+    inreplace "random.f90", "seed(12)", "seed(33)"
     system "make"
     bin.install("packmol")
     pkgshare.install "solvate.tcl"
