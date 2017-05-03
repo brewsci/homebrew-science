@@ -1,4 +1,5 @@
 class Mira < Formula
+  desc "Sequence assembler and sequence mapping for sequencing data"
   homepage "https://sourceforge.net/projects/mira-assembler"
   # doi "10.1101/gr.1917404"
   # tag "bioinformatics"
@@ -35,7 +36,7 @@ class Mira < Formula
                       "--with-boost-filesystem=boost_filesystem-mt",
                       "--with-boost-iostreams=boost_iostreams-mt"]
     configure_args += ["--with-tcmalloc",
-                       "--with-tcmalloc-dir=#{Formula["google-perftools"].opt_prefix}/lib"] if build.with?("google-perftools")
+                       "--with-tcmalloc-dir=#{Formula["gperftools"].opt_prefix}/lib"] if build.with?("gperftools")
 
     system "./configure", *configure_args
 
