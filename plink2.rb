@@ -13,10 +13,9 @@ class Plink2 < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "02fcc689eaa65c3a2125ae9431c8c023856a17a39c0df8b10d073aca31019ded" => :yosemite
-    sha256 "90b3d7eb2189afc68c05764cc88c826b5cd72386fa0e66b779ce439fb052c7e5" => :mavericks
-    sha256 "912423fe36c51e093ee43ae8d35382a1ebdff619ce197a88ff0193498f27e85b" => :mountain_lion
+    sha256 "61fba0c9016731531eaab1e88f1fc01d0ccbf41119c084e257e3f999fe8be0ad" => :sierra
+    sha256 "87ef1226f0fd076e0683e2b30c006489cb76f2a44b241949cd44beec549a3126" => :el_capitan
+    sha256 "540b6a0f57c322040f1338655456a32c7971a3320fdc17d09fba582930c5722e" => :yosemite
   end
 
   def install
