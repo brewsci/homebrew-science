@@ -16,10 +16,9 @@ class Veclibfort < Formula
 
   bottle do
     cellar :any
-    sha256 "35872b8c1c96cd85647519ffbaaf7e4e5601c096dc6befbfcbe9c3ed60a768cc" => :sierra
-    sha256 "065dfb03b655a4d6b5db5014d98ddcbbdd692faafe8e5e3d0a3fa16eb892b7a0" => :el_capitan
-    sha256 "2f260ba95aa1d80b7fb50dcae7de87e6e662c173e0a28a8306c45ea8c716d0bd" => :yosemite
-    sha256 "34fc5eda407df36135633d678adc813890d291f77132118ff98756944edc0819" => :mavericks
+    sha256 "3e787cb188aa824e2541c58ece4e8c02c61b0e6025646765495392ea5019fa8d" => :sierra
+    sha256 "9cf0fa95441309c52caae5886182c244cc05449c08cfa102decfc1c63d266e42" => :el_capitan
+    sha256 "e4a6cb9d134ab7d182a8eaf7dec32df3d31ff42afe3e30a7c12bd4335c6c897f" => :yosemite
   end
 
   depends_on MacOSRequirement
