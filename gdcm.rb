@@ -1,8 +1,8 @@
 class Gdcm < Formula
   desc "Grassroots DICOM library and utilities for medical files"
   homepage "https://sourceforge.net/projects/gdcm/"
-  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.6.7/gdcm-2.6.7.tar.bz2"
-  sha256 "773aeeea8a3ffdfee38346940b5720ce2e4cd1ac27eeed4851609c8fbb01a1ac"
+  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.6.8/gdcm-2.6.8.tar.bz2"
+  sha256 "c9b0773313d57871a81277cd3c2fd00f4dd58f9482e165797808c07345fd2a54"
 
   bottle do
     sha256 "1d6019ae868515bc471a679bb35f363541709567a2210fc8c0c724d62aae1816" => :sierra
@@ -11,7 +11,8 @@ class Gdcm < Formula
     sha256 "10187a123fea71dfb28bf042dff7db0de23c6eb1d4e240a2b7c3f32a0e2f958e" => :x86_64_linux
   end
 
-  option "with-check", "Run the GDCM test suite"
+  deprecated_option "with-check" => "with-test"
+  option "with-test", "Run build-time tests"
   option "with-manpages", "Build man pages from XML docbook"
 
   depends_on :python => :optional
@@ -19,7 +20,7 @@ class Gdcm < Formula
   depends_on "openssl" => :optional
 
   option :cxx11
-  cxx11dep = (build.cxx11?) ? ["c++11"] : []
+  cxx11dep = build.cxx11? ? ["c++11"] : []
 
   depends_on "cmake" => :build
   depends_on "vtk" => [:optional] + cxx11dep
@@ -67,7 +68,7 @@ class Gdcm < Formula
       args << "-DGDCM_BUILD_APPLICATIONS=ON"
       args << "-DGDCM_BUILD_EXAMPLES=ON"
       args << "-DGDCM_BUILD_SHARED_LIBS=ON"
-      args << "-DGDCM_BUILD_TESTING=ON" if build.with? "check"
+      args << "-DGDCM_BUILD_TESTING=ON" if build.with? "test"
       args << "-DGDCM_BUILD_DOCBOOK_MANPAGES=OFF" if build.without? "manpages"
       args << "-DGDCM_USE_VTK=ON" if build.with? "vtk"
       args << "-DGDCM_USE_SYSTEM_OPENSSL=ON" if build.with? "openssl"
@@ -76,7 +77,7 @@ class Gdcm < Formula
       system "cmake", *args
 
       system "make"
-      system "make", "test" if build.with? "check"
+      system "make", "test" if build.with? "test"
       system "make", "install"
     end
   end
