@@ -7,10 +7,9 @@ class P4est < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "2b0996c9004c063cf4ef66974a89cc64e407fcb516e50b1da4930f4745c1c108" => :el_capitan
-    sha256 "02f1cdc1676238fc7095802cdb982a52f8d9c42df37878373a52114f417946b6" => :yosemite
-    sha256 "373ab802626785b1f17fdda807ef094cb2e4f654fe3d99318ebbed30823a6d15" => :mavericks
+    sha256 "aba9783575d362edd2338b6ebb2deed97b11161d64f31dd113181442e0c81b9a" => :sierra
+    sha256 "c74738baef581cb75e2cbc2eb228c2fc9f2a1cbeeadf587516a5da61fea65838" => :el_capitan
+    sha256 "de7896b3b2eb9a4a0957209e80dcfab1370f2250c2527d1b74eb7f9a5580735f" => :yosemite
   end
 
   head do
