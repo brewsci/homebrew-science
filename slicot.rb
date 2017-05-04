@@ -6,10 +6,10 @@ class Slicot < Formula
   revision 2
 
   bottle do
-    cellar :any
-    sha256 "96e0edf82f910089e19ecedd8b4c68c233cfb505e14f1f93d63d3474ccee7f81" => :yosemite
-    sha256 "850b2352c760558f54833101524127ab14ee928a3e844224e888d9893f991b68" => :mavericks
-    sha256 "af13b9a9543b1a2f6d74aa1776dd1d3b72a2a28e7112098300c93c176a92dc10" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "f1f15e77810feb5452feb299e69e5c36c668c8a173fd345b06021c9028982e07" => :sierra
+    sha256 "5a9e100e70b5e39998b1773bdbdf2f9afed90af4d3424b776a0016b726297e39" => :el_capitan
+    sha256 "c9da0de7bd4de0c8e9cb030c64bf492de7b16365dbdeb11fdad3b2e900faeca3" => :yosemite
   end
 
   option "with-default-integer-8", "Build with 8-byte-wide integer type"
