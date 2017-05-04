@@ -9,9 +9,9 @@ class Pastix < Formula
 
   bottle do
     cellar :any
-    sha256 "8cabeb3fa4157bda56c4895212feb6b15c10e9996388180fe9c3f9703143e463" => :el_capitan
-    sha256 "a9ce2368273b3d5fbddb9db328d0b5b91337325e89032be718b425d1d48129ea" => :yosemite
-    sha256 "52d8bc960f44d3a9a40e35ebaf05748f052ebb8102e66623deff2969f148d937" => :mavericks
+    sha256 "5d4efdf6c44e99be2ecc7897d31ee4706a3f0c3f161ca360c97691e9c547a444" => :sierra
+    sha256 "4d0228cb9418de5972ea750f3a47b64d98f9b8eb057875a72aa69850e9378b65" => :el_capitan
+    sha256 "adb96aee31c3186d70ee57dbf40039414cb685dc033785dd69713dee7e48d171" => :yosemite
   end
 
   depends_on "scotch"
