@@ -6,10 +6,9 @@ class Silo < Formula
   revision 3
 
   bottle do
-    sha256 "52251fed40a781df40d04b7efc5918f43deb09af9f76e818a041a3ee3cc2b4c9" => :sierra
-    sha256 "f3025dab277f25067a8f26e597a5fe69784c691be9e5f18ab31125cd761d2058" => :el_capitan
-    sha256 "f79c0a4b060e3b03be87a8085e733ef2827f3cf76a43f9804ea6ec39d804cfc2" => :yosemite
-    sha256 "aee0a0c7cabc601af2cb863519f77b41056cabb84cb2a41fd3a393369c9ab4e3" => :x86_64_linux
+    sha256 "931334c521e0bb2ccb81c1ce086470b68ddda93c60999d09f58801f023451e97" => :sierra
+    sha256 "0f41222ff5fe4668240ff388eed231af86c759c0c2ad1212b7ebdf8c3587e703" => :el_capitan
+    sha256 "8fc2c164980f53e19c059f6feb0c5110c8dbfcd0f7c70eef87a70aeec6ba2686" => :yosemite
   end
 
   option "with-static", "Build as static instead of dynamic library"
