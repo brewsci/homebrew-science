@@ -7,9 +7,9 @@ class QrMumps < Formula
   head "https://wwwsecu.irit.fr/svn/qr_mumps/tags/1.2", :using => :svn
 
   bottle do
-    sha256 "9f0000e98be58f64151f24532fb7ac1994442bef69b662c6628ada21f66987c7" => :el_capitan
-    sha256 "df870729c429d767ccaa5538aadc203d7c0d49328e8b2d75a5e55a2ae00be697" => :yosemite
-    sha256 "4b2c17f103f6b00c86c19954deb50b6bf84cb8052ab1dcb398ea6ecafcc949b6" => :mavericks
+    sha256 "974dae7681a0dfbbf6c41bbba0d4d7d300de6db6f78f742ebb5e4301848653e9" => :sierra
+    sha256 "aa3033e9fd661e18c05e607e96154d1895264aa8b0956137f610213bc0b325f0" => :el_capitan
+    sha256 "b3a0b07ef14ba110550215308e21206f1d26ad1e13b300494a83534b50c79e50" => :yosemite
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
