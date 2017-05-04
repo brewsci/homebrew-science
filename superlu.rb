@@ -10,6 +10,7 @@ class Superlu < Formula
     sha256 "1f925499746d691d068b422b5fd6465d57774240565bdbcd7d2ccc31e9df2310" => :sierra
     sha256 "1cc4138decb972d8b961e4f0c3af079885718f98a86895a37fd22e798fdb5501" => :el_capitan
     sha256 "92f8168ff72f32e7fd9f0d93af62a63720e99ccff68091f6f8d1881d5a80ba18" => :yosemite
+    sha256 "5f68e63705446d53d8dca9b8eb0305696f6ce5a4bd592a32894272770adf90b0" => :x86_64_linux
   end
 
   deprecated_option "without-check" => "without-test"
