@@ -7,9 +7,9 @@ class Omcompiler < Formula
   revision 1
 
   bottle do
-    sha256 "f0f61fb5c79d1ec1262abbd705752612cd06bb702d8ec43ac7529893dd3f37b2" => :sierra
-    sha256 "8f90e485a4f2b477d6cb3ec75a907698c0825f753de76e7664bc5a4dd8729a44" => :el_capitan
-    sha256 "290c67df15a0e1eea8913c07ffeac6f5dcce01c1d0505fd91a9a7e4d9ff3ebae" => :yosemite
+    sha256 "ad536caec332f444d77712cd5de788bf09f86cf35fc6014a3e8c7b4170447cdf" => :sierra
+    sha256 "0da439596e39213f1a020f38cf8233b91aa093c40557bd038461d40467cfe4d3" => :el_capitan
+    sha256 "6c9c499a9841599ca824e8609adfee75d2d2f63c69c27d93e5b66c60a26707aa" => :yosemite
   end
 
   # Build dependencies
