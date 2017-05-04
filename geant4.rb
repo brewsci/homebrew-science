@@ -1,9 +1,9 @@
 class Geant4 < Formula
   desc "Simulation toolkit for particle transport through matter"
   homepage "http://geant4.cern.ch"
-  url "http://geant4.cern.ch/support/source/geant4.10.03.tar.gz"
-  version "10.3.0"
-  sha256 "7da84f3d7ddea31db2130c4769a474a7bd387839cc9c04d3081408a7004cb73b"
+  url "http://geant4.cern.ch/support/source/geant4.10.03.p01.tar.gz"
+  version "10.3.1"
+  sha256 "78edab8298789b2bac4189f0864a2fb65f66ffdc50b7cb3335fafe2b1e70fd7d"
 
   bottle do
     cellar :any
@@ -20,8 +20,9 @@ class Geant4 < Formula
 
   depends_on "cmake" => :run
   depends_on :x11
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
   depends_on "xerces-c" if build.with? "gdml"
+  depends_on "linuxbrew/xorg/glu" unless OS.mac?
 
   resource "G4NEUTRONHPDATA" do
     url "http://geant4.cern.ch/support/source/G4NDL.4.5.tar.gz"
@@ -34,13 +35,13 @@ class Geant4 < Formula
   end
 
   resource "G4LEVELGAMMADATA" do
-    url "http://geant4.cern.ch/support/source/G4PhotonEvaporation.4.3.tar.gz"
-    sha256 "1a8d0b4ee60dfbbca38fb313e70508dde3a2ec0f34af59baedd37cb9ae68427e"
+    url "http://geant4.cern.ch/support/source/G4PhotonEvaporation.4.3.2.tar.gz"
+    sha256 "d4641a6fe1c645ab2a7ecee09c34e5ea584fb10d63d2838248bfc487d34207c7"
   end
 
   resource "G4RADIOACTIVEDATA" do
-    url "http://geant4.cern.ch/support/source/G4RadioactiveDecay.5.1.tar.gz"
-    sha256 "f30ed6efcde0d8554559a30a23cf17881565d50fdb2c30d2c36983434b1bfcc6"
+    url "http://geant4.cern.ch/support/source/G4RadioactiveDecay.5.1.1.tar.gz"
+    sha256 "f7a9a0cc998f0d946359f2cb18d30dff1eabb7f3c578891111fc3641833870ae"
   end
 
   resource "G4NEUTRONXSDATA" do
@@ -93,7 +94,7 @@ class Geant4 < Formula
         -DGEANT4_BUILD_EXAMPLE=ON
       ]
 
-      args << "-DGEANT4_USE_QT=ON" if build.with? "qt5"
+      args << "-DGEANT4_USE_QT=ON" if build.with? "qt"
       args << "-DGEANT4_USE_G3TOG4=ON" if build.with? "g3tog4"
       args << "-DGEANT4_USE_GDML=ON" if build.with? "gdml"
       args << "-DGEANT4_USE_USOLIDS=ON" if build.with? "usolids"
