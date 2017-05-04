@@ -6,10 +6,9 @@ class SuperluDist < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 "2c6577bcf69fdc17fce4cd136773a34527f0bbb9f149090c5cfd3cd769b634d4" => :sierra
-    sha256 "1a97d5838c71422d1a4545684c1a6e6accf0306924bf32ae7045425cd34d715d" => :el_capitan
-    sha256 "82c1a6f39857a82cd568b4d818d2596d4355298fddf61456e24b261eb7717a2f" => :yosemite
+    sha256 "cd577c006da8f90d6835fbe6351fcd8027dcbd7270bb870434a2e2b1350232e4" => :sierra
+    sha256 "d96ec784ec58b0b40ba07ed784301d2d5bed4b9323eecc50aae06fc8ed6647be" => :el_capitan
+    sha256 "93998ea9efe9b1bbc48adcd839936790f2970788848ed4e94214cfdd66d1ac9a" => :yosemite
   end
 
   option "without-test", "skip build-time tests (not recommended)"
