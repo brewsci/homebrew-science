@@ -10,9 +10,9 @@ class R8s < Formula
 
   bottle do
     cellar :any
-    sha256 "af4d814ddb768aab29200dfbd843e9dfbf927c8aa16b36c5f4a9b8467e1803b6" => :el_capitan
-    sha256 "5f04f77efd7469738c9f82390b83807487f9cccc204017473df13f0babfe8010" => :yosemite
-    sha256 "25350b1b9e43062e3f391feacdd38b3e748a6805fd378f7952aed1b7e5410e39" => :mavericks
+    sha256 "06758a254dd487b553e17ad60b3a2bb4757ea2e9e2b76c42770cc25bffe55967" => :sierra
+    sha256 "c7d9568771b00aceef1c14d526df4f741ac88eb7dc867b2edb4198b8b909f909" => :el_capitan
+    sha256 "12765e243211314bcc0e5f8eed2757aa9ae8990b6fb778e3f494060471c59d00" => :yosemite
   end
 
   depends_on :fortran
