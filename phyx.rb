@@ -8,10 +8,9 @@ class Phyx < Formula
 
   bottle do
     cellar :any
-    sha256 "328cd6df7545795c70f1e33cfd5fd8ff5449cabfedd0e44f02c8ecc9637edee9" => :sierra
-    sha256 "e333c9a1994e15fe74c66f5d0e4a624c854f15a073c03333422075ed2a23e375" => :el_capitan
-    sha256 "b0c2413bb9807240c8a5f2fbe1bd1970f48adc0429b6ff89906e39c18fffd593" => :yosemite
-    sha256 "b868b45bd947c354501753fec93751c2b68012b8dbf5767315bbe14062416a4e" => :x86_64_linux
+    sha256 "fcd1b54a0e6a48e66b0ed159027f5066238dc5095144f812c7aec3caed210155" => :sierra
+    sha256 "f40c1d91df0c64c08644d7ebe05b667729763442ed6bc3d3f12eb40db123ba76" => :el_capitan
+    sha256 "383caf7c3a87f84ec17f4d2525a2e838f04616ed80d04d428a71738ea9adb403" => :yosemite
   end
 
   # tag "bioinformatics"
