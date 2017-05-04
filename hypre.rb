@@ -11,6 +11,7 @@ class Hypre < Formula
     sha256 "f2f018dee8eeea05ab15053d7bcb3ecf4dd6d0a2870cd18900299dabed095490" => :sierra
     sha256 "634f134b061305f57d073a2af21bef388bf72829a357d90b586ca02d14bbb16d" => :el_capitan
     sha256 "36268e378afff5a353f9a502321191a31871e4d603dd0b8641850c7b084f2c99" => :yosemite
+    sha256 "40906736eaf4e6ba9f28c0cf83ff9149c81699400222e937226ed77aac7aa642" => :x86_64_linux
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
