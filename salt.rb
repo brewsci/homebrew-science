@@ -5,6 +5,13 @@ class Salt < Formula
   version "2.4"
   revision 1
 
+  bottle do
+    cellar :any
+    sha256 "23fbf4a3c5c15634f415157979aee92c9eaf20cf435c59266c8361f458361fa1" => :sierra
+    sha256 "7b43e7bb615bfa9105a306c5410d0997036ada34259b9d465ff7a876225ba3ef" => :el_capitan
+    sha256 "51e4079277a0068c0a14622297e59ee4db6b645b93068eeb2514ffeab03e0a47" => :yosemite
+  end
+
   depends_on :fortran
 
   conflicts_with "fastbit", :because => "both install `include/filter.h`"
