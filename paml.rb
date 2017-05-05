@@ -1,9 +1,9 @@
 class Paml < Formula
   desc "phylogenetic analysis by maximum likelihood"
   homepage "http://abacus.gene.ucl.ac.uk/software/paml.html"
-  url "http://abacus.gene.ucl.ac.uk/software/paml4.9c.tgz"
-  version "4.9c"
-  sha256 "92009a3138bdddf1c99f4756ded74c33618214450ad5ada497870e210ea141a1"
+  url "http://abacus.gene.ucl.ac.uk/software/paml4.9e.tgz"
+  version "4.9e"
+  sha256 "460fabe0c8be9e572e755061abe915449bdc7ee806400119e4f0e1e81234ee8f"
   # doi "10.1093/molbev/msm088"
   # tag "bioinformatics"
 
@@ -16,6 +16,9 @@ class Paml < Formula
   end
 
   def install
+    # Restore permissions, as some are wrong in the tarball archives
+    chmod_R "u+rw", "."
+
     cd "src" do
       system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
       bin.install %w[baseml basemlg chi2 codeml evolver infinitesites mcmctree pamp yn00]
@@ -37,7 +40,7 @@ class Paml < Formula
   end
 
   test do
-    cp Dir[doc/"examples/DatingSoftBound/*"], testpath
+    cp Dir[doc/"examples/DatingSoftBound/*.*"], testpath
     system "#{bin}/infinitesites"
   end
 end
