@@ -8,6 +8,7 @@ class Gdcm < Formula
     sha256 "44b6728faf957bd891f399f112f1a19b56ed9d351e3de024febe2a3c2cb25de6" => :sierra
     sha256 "9a8190a7371ff6353e830ec6264b0aec0699cbcfeb2ec35c9718bba887bce876" => :el_capitan
     sha256 "a32339df85328b79aecd158f1765f1ee1db2675b94dcf7c6596f0c2fb0f57bef" => :yosemite
+    sha256 "ebac309114f9866004cf2dee51af0f2ed0a513569e5928c065579937efd6526e" => :x86_64_linux
   end
 
   deprecated_option "with-check" => "with-test"
