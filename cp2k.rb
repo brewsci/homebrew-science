@@ -9,9 +9,9 @@ class Cp2k < Formula
   # doi "10.1016/j.cpc.2004.12.014"
 
   bottle do
-    sha256 "4cc1d9167370d0c3ae59ffce5be9fbdb0f7e905f448916fd5219c8ff00779d6d" => :sierra
-    sha256 "378604335f111cb66501f3465f000bce8608f577a68ce0efae2065d170b5750e" => :el_capitan
-    sha256 "f2249e0a6c7cc344855e489549ec3ce06d8d7bb0e3b7c1ac9b4cbd37409e5f4c" => :yosemite
+    sha256 "fd3f23fa319c2f618f6f9839207f2cfd9fd2797a0d82c97c06e79e336aa8566e" => :sierra
+    sha256 "37033a97490fd6c2bc445d55bbf15ca17d2e4f618a7df6fe649b002040996416" => :el_capitan
+    sha256 "8da49755bd2b933cdbaf18207c1b05c84d0fc25b19952130edeafc353ab665c7" => :yosemite
   end
 
   depends_on :fortran
