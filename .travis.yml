@@ -26,8 +26,10 @@ before_install:
       libjasper-dev
       libjbig-dev
       libkrb5-dev
+      liblapack-dev
       liblzma-dev
       libncurses5-dev
+      libopenblas-dev
       libpcre3-dev
       libtinfo-dev
       libwebp-dev
