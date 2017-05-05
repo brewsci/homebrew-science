@@ -10,6 +10,7 @@ class Lis < Formula
     sha256 "bb451fc407949d90b2bc87bdf23285c9f8137d1a8711d163b7fda0079717c9f3" => :sierra
     sha256 "f710200b217fb5d19a2070733df3395228c1da4c732cf1327b80b58357cd17df" => :el_capitan
     sha256 "b188ef17d4204081f7579578a7197c5b138791de355a094e79612dab4bb92adc" => :yosemite
+    sha256 "8b2935abf0c48ae8687f7f64e035d840b2e20d8f5e1c9960c054b35ee4da5bc8" => :x86_64_linux
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
