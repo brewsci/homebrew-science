@@ -4,8 +4,8 @@ class Octave < Formula
   revision 2
 
   stable do
-    url "https://ftpmirror.gnu.org/octave/octave-4.2.1.tar.gz"
-    mirror "https://ftp.gnu.org/gnu/octave/octave-4.2.1.tar.gz"
+    url "https://ftp.gnu.org/gnu/octave/octave-4.2.1.tar.gz"
+    mirror "https://ftpmirror.gnu.org/octave/octave-4.2.1.tar.gz"
     sha256 "80c28f6398576b50faca0e602defb9598d6f7308b0903724442c2a35a605333b"
 
     # Fix bug #49053: retina scaling of figures
@@ -54,14 +54,6 @@ class Octave < Formula
     depends_on "librsvg"       => :build
   end
 
-  # build the pdf docs
-  if build.with? "docs"
-    depends_on :tex             => :build
-    depends_on "librsvg"        => :build
-  end
-
-  skip_clean "share/info" # Keep the docs
-
   # deprecated options
   deprecated_option "with-jit"      => "with-llvm"
   deprecated_option "with-audio"    => "with-sndfile"
@@ -95,7 +87,6 @@ class Octave < Formula
   option "without-zlib",           "Do not use zlib (compressed MATLAB file formats)"
 
   # options, disabled by default
-  option "with-docs",              "Compile and install documentation"
   option "with-java",              "Use Java, requires Java 6 from https://support.apple.com/kb/DL1572"
   option "with-llvm",              "Use the experimental just-in-time compiler (not recommended)"
   option "with-openblas",          "Use OpenBLAS instead of native LAPACK/BLAS"
@@ -237,11 +228,11 @@ class Octave < Formula
     args << "--enable-link-all-dependencies"
     args << "--enable-shared"
     args << "--disable-static"
+    args << "--disable-docs"
     args << "--with-x=no" if OS.mac? # We don't need X11 for Mac at all
 
     # arguments for options enabled by default
     args << "--without-curl"             if build.without? "curl"
-    args << "--disable-docs"             if build.without? "docs"
     args << "--without-fftw3"            if build.without? "fftw"
     args << "--with-fltk-prefix=#{Formula["fltk"].opt_prefix}" if build.with? "fltk"
     args << "--without-glpk"             if build.without? "glpk"
