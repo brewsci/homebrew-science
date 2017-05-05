@@ -7,11 +7,9 @@ class Arpack < Formula
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
-    rebuild 1
-    sha256 "1dc2e654743752805c212f8c624b4392891176ff216d633daf4d44a97128a0dc" => :sierra
-    sha256 "ece580b9a167720f57d13c16fa452ff1583eda615fbcacfd25afe03c801565b5" => :el_capitan
-    sha256 "37882bb51410da6602c2660f894de3adcbf7b1c24d82b73c25aafe9a9776fbbd" => :yosemite
-    sha256 "e50bde7d894a31f92aa7f9e23bd798b6bc4805ea9549e80a540a9c99a44af275" => :x86_64_linux
+    sha256 "68ce3848fa53eaf40ce74767dda5ab9cf7a052644ea49bed3e34d5b876132f6f" => :sierra
+    sha256 "2e042c4787184ba0c04e4bbb9417e5c0b4e93f2f5873f398525e3919b15d33e3" => :el_capitan
+    sha256 "179d8b3f9c929c2cd5418db41f500614967bca33b7d7ba778975a67b825f7cac" => :yosemite
   end
 
   depends_on "autoconf" => :build
