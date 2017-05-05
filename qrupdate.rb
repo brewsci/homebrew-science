@@ -9,6 +9,7 @@ class Qrupdate < Formula
     sha256 "99c8dbcb91c73e66d2df381c33e02b18186c5ed2879ae53bb9b3295abfd5f7ac" => :sierra
     sha256 "85aa980364e2554129866ff522d6a183c94c5dae6541756b7d210e7ae2e4c8ee" => :el_capitan
     sha256 "e4d535b72e716f0816b6a926f0e0e207f2f0e8e17082856c978544b47d99802e" => :yosemite
+    sha256 "61bc45e6ff0ca192e1dbf03d5f450b7fc873675a65f05b8c4cc947e5a10ee8fc" => :x86_64_linux
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
