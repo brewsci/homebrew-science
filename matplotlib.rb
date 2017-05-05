@@ -35,9 +35,8 @@ end
 class Matplotlib < Formula
   desc "Python 2D plotting library"
   homepage "https://matplotlib.org"
-  url "https://files.pythonhosted.org/packages/79/a9/db688816150a6ef91fd9ce284c828467f7271c7dd5982753a73a8e1aaafa/matplotlib-2.0.0.tar.gz"
-  sha256 "36cf0985829c1ab2b8b1dae5e2272e53ae681bf33ab8bedceed4f0565af5f813"
-  revision 2
+  url "https://files.pythonhosted.org/packages/8f/d5/1488c5d7690fd95f91934cdce74292473e760a8dd0d8bf263fd9305728f1/matplotlib-2.0.1.tar.gz"
+  sha256 "1422aa2bb4ce4da310f5d24097a48b171139a1007f1a6af3e9fd2c34d22e2bf8"
   head "https://github.com/matplotlib/matplotlib.git"
 
   bottle do
@@ -49,6 +48,9 @@ class Matplotlib < Formula
   end
 
   option "without-python", "Build without python2 support"
+  option "with-cairo", "Build with cairo backend support"
+  option "with-pygtk", "Build with pygtk backend support (python2 only)"
+  option "with-tex", "Build with tex support"
 
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
@@ -58,9 +60,6 @@ class Matplotlib < Formula
   requires_py3 = []
   requires_py3 << "with-python3" if build.with? "python3"
 
-  option "with-cairo", "Build with cairo backend support"
-  option "with-pygtk", "Build with pygtk backend support (python2 only)"
-  option "with-tex", "Build with tex support"
   deprecated_option "with-gtk3" => "with-gtk+3"
 
   depends_on NoExternalPyCXXPackage => :build
