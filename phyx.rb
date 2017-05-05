@@ -11,6 +11,7 @@ class Phyx < Formula
     sha256 "fcd1b54a0e6a48e66b0ed159027f5066238dc5095144f812c7aec3caed210155" => :sierra
     sha256 "f40c1d91df0c64c08644d7ebe05b667729763442ed6bc3d3f12eb40db123ba76" => :el_capitan
     sha256 "383caf7c3a87f84ec17f4d2525a2e838f04616ed80d04d428a71738ea9adb403" => :yosemite
+    sha256 "43a2917b0e5bc8bc440008386c676a69bd90225c0c03c9954a64fff66ece53e3" => :x86_64_linux
   end
 
   # tag "bioinformatics"
