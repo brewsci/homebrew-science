@@ -7,9 +7,9 @@ class Superlu43 < Formula
 
   bottle do
     cellar :any
-    sha256 "4b99c09b1f09394d4a3fe6cf8a768a2b25ae97de5652eeefa26855886cb8ed7b" => :el_capitan
-    sha256 "5172668ed872337bf5ce2650f35d518593cc32488c450505b708a513989a0e54" => :yosemite
-    sha256 "b1d997c0ebed6661e2937af2bb15937a3b8fa0a03ae853c63acae4cd5ff772ec" => :mavericks
+    sha256 "3eef95c5de9ff87d3f459028b0f3227aa8be75b2e27ccb528722f12957cd77f5" => :sierra
+    sha256 "42eb444b9180d20c567af8e1ef745771ea7e04440b961694b1892f1e745d6d59" => :el_capitan
+    sha256 "5a379f864a3d041f034501bffba8d1266a5571498284aa241a9f43aad79a619e" => :yosemite
   end
 
   keg_only "Conflicts with superlu"
