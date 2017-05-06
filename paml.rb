@@ -9,10 +9,9 @@ class Paml < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f29be1846d157d969d5acd700273434eb69de5629c8b7c0e6e02baf3c160ee24" => :sierra
-    sha256 "1c300304f8a0b12a76dff8e8ccb4a61302e3194bb03f6417cd8c74c4a7d7384e" => :el_capitan
-    sha256 "ae0795e757829c10687996d86a6aee83162103bd42b862bf79c6c392d0f93240" => :yosemite
-    sha256 "21c8e9bd97d148cea7e6c6617316bfe2c4c33d7cb130488b1a2cfdf58d24ed68" => :x86_64_linux
+    sha256 "9ef1f19920c6625ce662882107030b542ed5afc6d9caddaa1b01cf7dfba51c47" => :sierra
+    sha256 "2821220a2b3a8ab458870ffba34b8b32140550130b6a229d5245763ea09be5e3" => :el_capitan
+    sha256 "8b0dda43814741d20fb05e27ab458b92ed48d554a24ea7b24e64c189570b4382" => :yosemite
   end
 
   def install
