@@ -3,8 +3,8 @@ require "language/go"
 class Vcfanno < Formula
   desc "Annotates a VCF with sorted and tabixed input BED, BAM, and VCF files"
   homepage "https://github.com/brentp/vcfanno"
-  url "https://github.com/brentp/vcfanno/archive/v0.2.4.tar.gz"
-  sha256 "c96c549f09971a6d0726ebc3854cda34bb8742d36e8e3ece3ac855844e7cf6d3"
+  url "https://github.com/brentp/vcfanno/archive/v0.2.6.tar.gz"
+  sha256 "c7340f2d776ab5de2ad05b80c88014036788a373d4826c84d2483e81a20631ac"
   head "https://github.com/brentp/vcfanno.git"
 
   bottle do
@@ -24,12 +24,12 @@ class Vcfanno < Formula
 
   go_resource "github.com/biogo/hts" do
     url "https://github.com/biogo/hts.git",
-        :revision => "a19f56e744d183b33995e495f7697666bfa96bc4"
+        :revision => "8593c335ea5b4d03af84f1710cabb37aa24d5f0e"
   end
 
   go_resource "github.com/brentp/bix" do
     url "https://github.com/brentp/bix.git",
-        :revision => "e172ae451bd7ece7caff135e75ac6000e7b9a02c"
+        :revision => "630987373507c5d03349e90da1fba4789e495f03"
   end
 
   go_resource "github.com/brentp/goluaez" do
@@ -44,12 +44,17 @@ class Vcfanno < Formula
 
   go_resource "github.com/brentp/vcfgo" do
     url "https://github.com/brentp/vcfgo.git",
-        :revision => "62b853e9b91e9545641c002a1fce3ab95c6f8f72"
+        :revision => "3160d9c2041417583f253eea20749b4d43def57f"
   end
 
   go_resource "github.com/brentp/xopen" do
     url "https://github.com/brentp/xopen.git",
-        :revision => "688f4ede9a8e4275e6de15040dc234a6bfe75d2b"
+        :revision => "83f195adad83cdc80142215b0d73b557b49b585c"
+  end
+
+  go_resource "github.com/pkg/errors" do
+    url "https://github.com/pkg/errors.git",
+        :revision => "c605e284fe17294bda444b34710735b29d1a9d90"
   end
 
   go_resource "github.com/yuin/gluare" do
@@ -59,12 +64,12 @@ class Vcfanno < Formula
 
   go_resource "github.com/yuin/gopher-lua" do
     url "https://github.com/yuin/gopher-lua.git",
-        :revision => "65fb8eeb2aa6d29a7b654d61afd1a07ce3897cc9"
+        :revision => "b402f3114ec730d8bddb074a6c137309f561aa78"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "6c23252515492caf9b228a9d5cabcdbde29f7f82"
+        :revision => "feeb485667d1fdabe727840fe00adc22431bc86e"
   end
 
   def install
