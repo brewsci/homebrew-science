@@ -4,6 +4,13 @@ class Tensorflow < Formula
   url "https://github.com/tensorflow/tensorflow/archive/v1.0.1.tar.gz"
   sha256 "deea3c65e0703da96d9c3f1162e464c51d37659dd129396af134e9e8f1ea8c05"
 
+  bottle do
+    cellar :any
+    sha256 "8b60294e0e81cdbe2e7736efff8ad6db13d66208c6c7b926e52800d603ae094c" => :sierra
+    sha256 "3c87aaac1251d2a553076a7df18eedba5ade42dc745aa0a7c11fedbc397a1d72" => :el_capitan
+    sha256 "7bc95ec4cab4cf17124621141d1f1828185aac0404ca87f2d242b7e1756b5132" => :yosemite
+  end
+
   option "with-xla", "Enable XLA just-in-time compiler (experimental)"
   option "without-python", "Build without python2 support"
 
