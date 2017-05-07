@@ -7,10 +7,9 @@ class Geant4 < Formula
 
   bottle do
     cellar :any
-    sha256 "e2527a24c5e676d2aed83e0d22b11d42d480faefacd664413f953b202b717632" => :sierra
-    sha256 "9224f1386741784204d3e171b9d4f25500bd54c5f95717884cdc0501832871d8" => :el_capitan
-    sha256 "115fd866c35c07e12e3cf5f03333c42c37646c9122caa3c4e94b152756ac2bc4" => :yosemite
-    sha256 "1d6445145533902bf759553f9485fff19c27d66a58812e09e5ef8277a2a4ebbd" => :x86_64_linux
+    sha256 "b0bab9c38689f6b4b0ef9fbbce33d0e004dea936fa89e46de61c3f4deef4a6f4" => :sierra
+    sha256 "7f506130046f21d7a135d1db4f19646028992e8e7d4a2d53fd482c4171ddcf5e" => :el_capitan
+    sha256 "5b66fc8fd0efeaf54f498ab1b9b70b7f9ba21c843e56b753d5456f6889acf603" => :yosemite
   end
 
   option "with-g3tog4", "Use G3toG4 Library"
