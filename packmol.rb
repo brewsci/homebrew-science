@@ -8,10 +8,9 @@ class Packmol < Formula
   # doi "10.1002/jcc.21224"
 
   bottle do
-    sha256 "3ba0083a74c29c1249db44e5973af7add12974d6bb78951e70a54c719d19eb73" => :sierra
-    sha256 "712b961a3b8f0cef6ca91ab8d3adfe6ec3e4d4205b1bda6a886393745b429a35" => :el_capitan
-    sha256 "e958358ded4d70bd1483fb5f4cf5f1bff3bc6d4723c279c90505f4724c454b41" => :yosemite
-    sha256 "97bc16e187a26329812dbcfdb86a0297a9b1b37900d67d47810672fc65ecdb16" => :x86_64_linux
+    sha256 "8235ca0aa507410b8e040e27cc689fcdb03f0418882a48d3aac9f466bcdcb58b" => :sierra
+    sha256 "86490ceaa2d2283872a9abd757411148ad387c6ae557b1e9924c5acde422b569" => :el_capitan
+    sha256 "21df19c44008faca50f92b756783569cb0606fca7e753d660a814103b230b8ef" => :yosemite
   end
 
   depends_on :fortran
