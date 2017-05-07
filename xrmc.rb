@@ -8,6 +8,7 @@ class Xrmc < Formula
     sha256 "3c98fe0a3b3e5ee6214c8dd7f2f5198db6b3551bab582869767824842fd385d9" => :sierra
     sha256 "b4c39cabc73c192a5d602147309a973ed4cd2d92fb6a22ec0f4fc4665d18f7e1" => :el_capitan
     sha256 "ae287f540f1925817c8b2be79b0ac1fa27853a58fef3393640494471ae711f1a" => :yosemite
+    sha256 "afbf7d38ce4db9fb9f4322b27ffbdd99486e786d4d93553fc05d295e67f8e221" => :x86_64_linux
   end
 
   option "without-test", "Don't run build-time tests (may take a long time)"
