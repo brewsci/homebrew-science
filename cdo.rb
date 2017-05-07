@@ -29,7 +29,7 @@ class Cdo < Formula
 
   def install
     args = ["--disable-debug", "--disable-dependency-tracking",
-            "--prefix=#{prefix}",
+            "--prefix=#{prefix}", "LIBS=-lhdf5",
             "--with-netcdf=#{Formula["netcdf"].opt_prefix}",
             "--with-hdf5=#{Formula["hdf5"].opt_prefix}",
             "--with-szlib=#{Formula["szip"].opt_prefix}"]
