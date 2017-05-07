@@ -6,9 +6,9 @@ class Tensorflow < Formula
 
   bottle do
     cellar :any
-    sha256 "8b60294e0e81cdbe2e7736efff8ad6db13d66208c6c7b926e52800d603ae094c" => :sierra
-    sha256 "3c87aaac1251d2a553076a7df18eedba5ade42dc745aa0a7c11fedbc397a1d72" => :el_capitan
-    sha256 "7bc95ec4cab4cf17124621141d1f1828185aac0404ca87f2d242b7e1756b5132" => :yosemite
+    sha256 "661e95754cfa35533f68af32701a70a72c0f732daa805e9a8f11434f70870840" => :sierra
+    sha256 "7c8aa18046b2b203a00600e7e42efd01d515055764fa5b76bd29d14efc7a01a7" => :el_capitan
+    sha256 "3c0af03fdef73be0482c0cb08fcdef3f9d69fce85b484e0d42e67aecc286dc87" => :yosemite
   end
 
   option "with-xla", "Enable XLA just-in-time compiler (experimental)"
