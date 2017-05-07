@@ -9,6 +9,7 @@ class XmiMsim < Formula
     sha256 "096aa4292f71062cdac8baa71c4c6c57c60bc3e2fa9ae61a1c8af4984f5faa78" => :sierra
     sha256 "0c19899c102da6c683cae24c359d2babbaa44f0861a21bd0da0e3b1d0eb770a8" => :el_capitan
     sha256 "41127390bbaf61f53f1637316e4e8acb1802305ec9f99acb9ac04925f8c3d487" => :yosemite
+    sha256 "3e71528e917cbd50acfbf9299d80c265d6dd034718ca01a91e5af354b239c56b" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
