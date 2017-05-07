@@ -1,8 +1,13 @@
 class Clonalframeml < Formula
-  homepage "https://code.google.com/p/clonalframeml/"
+  desc "Efficient Inference of Recombination in Bacterial Genomes"
+  homepage "https://github.com/xavierdidelot/ClonalFrameML"
   # tag "bioinformatics"
   # doi "10.1371/journal.pcbi.1004041"
-  version "1.7"
+
+  url "https://github.com/xavierdidelot/ClonalFrameML/archive/v1.11.tar.gz"
+  sha256 "395e2f14a93aa0b999fa152d25668b42450c712f3f4ca305b34533317e81cc84"
+
+  head "https://github.com/xavierdidelot/ClonalFrameML.git"
 
   bottle do
     cellar :any
@@ -12,23 +17,17 @@ class Clonalframeml < Formula
     sha256 "bbd38c6efff78aff6e692d996aff80f4b978f9fabd0519986d529622fdbf2b96" => :x86_64_linux
   end
 
-  if OS.mac?
-    url "https://drive.google.com/uc?id=0B4J1jPwfCMKYREVEcU1MeVk5RWs&export=download",
-      :using => NoUnzipCurlDownloadStrategy
-    sha256 "fc95a31b2d77aa520aaf662a54d5059a4b6dad22af6895ab86776c2c99c8abc4"
-  elsif OS.linux?
-    url "https://drive.google.com/uc?id=0B4J1jPwfCMKYQnpEWkp2X0lBN28&export=download",
-      :using => NoUnzipCurlDownloadStrategy
-    sha256 "01fbb108f4036e728e3e56bcdd157da344bdad3a5240910767a47fb16a564108"
-  else
-    raise "Unsupported operating system"
-  end
-
   def install
-    bin.install "uc" => "ClonalFrameML"
+    cd "src" do
+      exe = "ClonalFrameML"
+      # https://github.com/xavierdidelot/ClonalFrameML/issues/56
+      File.write("version.h", "#define ClonalFrameML_GITRevision #{version}\n")
+      system ENV.cxx, "-O3", "main.cpp", "-o", exe, "-I.", "-Imyutils", "-Icoalesce"
+      bin.install exe
+    end
   end
 
   test do
-    assert_match "recombination", shell_output("ClonalFrameML 2>&1", 13)
+    assert_match "recombination", shell_output("#{bin}/ClonalFrameML -h 2>&1", 13)
   end
 end
