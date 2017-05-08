@@ -4,8 +4,8 @@ class Samtools < Formula
   # doi "10.1093/bioinformatics/btp352"
   # tag "bioinformatics"
 
-  url "https://github.com/samtools/samtools/releases/download/1.4/samtools-1.4.tar.bz2"
-  sha256 "9aae5bf835274981ae22d385a390b875aef34db91e6355337ca8b4dd2960e3f4"
+  url "https://github.com/samtools/samtools/releases/download/1.4.1/samtools-1.4.1.tar.bz2"
+  sha256 "d3d2228c3e3f341f49f33103b11d890cf84b3033d1427334d123a8f5808556fa"
 
   bottle do
     cellar :any
