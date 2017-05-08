@@ -1,8 +1,8 @@
 class Symengine < Formula
   desc "Symbolic manipulation library, written in C++"
   homepage "https://github.com/symengine/symengine"
-  url "https://github.com/symengine/symengine/archive/v0.2.0.tar.gz"
-  sha256 "64d050b0b9decd12bf4ea3b7d18d3904dd7cb8baaae9fbac1b8068e3c59709be"
+  url "https://github.com/symengine/symengine/archive/v0.3.0.tar.gz"
+  sha256 "591463cb9e741d59f6dfd39a7943e3865d3afe9eac47d1a9cbf5ca74b9c49476"
   head "https://github.com/symengine/symengine.git"
 
   bottle do
