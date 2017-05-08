@@ -9,9 +9,9 @@ class Molden < Formula
 
   bottle do
     cellar :any
-    sha256 "52ef22a806997d35e9d981c1b779ed9c0834eba9e3b9d9c32741b990cab59959" => :sierra
-    sha256 "c4a03bcfac4651420a5a626b95b962333045904c91379fe41f3acd88a8660299" => :el_capitan
-    sha256 "792ce5702cf158143210a46cde9d15e8301cc8005f27daf4010efc774497b85f" => :yosemite
+    sha256 "7090e6426c40c0a4adb6ec5f5ded9872b2df113d5405b81c835894f564700d2c" => :sierra
+    sha256 "c90a972af21039dc32134854a1623379fd5f805a72db4a325246ad4f0baf70dd" => :el_capitan
+    sha256 "ae95c0cad20b100600b9ba8271ed1d572e47a5896bede7c39315586e7ed8383b" => :yosemite
   end
 
   depends_on :x11
