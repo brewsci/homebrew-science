@@ -7,10 +7,9 @@ class Symengine < Formula
 
   bottle do
     cellar :any
-    sha256 "a37356c660c4b252db18c695a3e3016c603d4bcb7a1a46718452c66a5f0a04db" => :sierra
-    sha256 "b60d93688e3e13457051e91331f4a67a7332088575ff6d54c398c97e278a1d34" => :el_capitan
-    sha256 "dbeaa3317ec41b763eef90ee6a372a024b9d9f99bc525c0ac4e6ec8eb72e5afa" => :yosemite
-    sha256 "aaad7b244f7a1e2b1eb0319fbf24c6cf9efaf0ffd49da2eff5bdf46819954bf0" => :x86_64_linux
+    sha256 "6e223e1128ccb85adcb29786f486647e6b67e007185e289912496a416a3b139c" => :sierra
+    sha256 "2a4a25ee3df6baf76ebfcaeb11736a823ce162183b1a6efa935e8ef1fe5a2468" => :el_capitan
+    sha256 "0ef7fa831900d49bebc874eaf464d6aa422245720079dcef2967816a105e00e8" => :yosemite
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
