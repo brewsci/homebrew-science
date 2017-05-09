@@ -3,6 +3,7 @@ class Spades < Formula
   homepage "http://bioinf.spbau.ru/spades/"
   url "http://cab.spbu.ru/files/release3.10.1/SPAdes-3.10.1.tar.gz"
   sha256 "d49dd9eb947767a14a9896072a1bce107fb8bf39ed64133a9e2f24fb1f240d96"
+  revision 1
   # tag "bioinformatics"
   # doi "10.1089/cmb.2012.0021"
 
@@ -25,6 +26,9 @@ class Spades < Formula
   end
 
   def install
+    inreplace "src/common/utils/segfault_handler.hpp",
+              /(#include <signal.h>)/, "\\1\n#include <functional>"
+
     mkdir "src/build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
