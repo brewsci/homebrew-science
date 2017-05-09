@@ -1,9 +1,8 @@
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "http://www.hdfgroup.org/HDF5"
-  url "https://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.0-patch1/src/hdf5-1.10.0-patch1.tar.bz2"
-  version "1.10.0-patch1"
-  sha256 "f772264dd853dceb18855418a81c63c9cdcca7bcd075b9c54eb516af006fdfba"
+  url "https://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.1/src/hdf5-1.10.1.tar.bz2"
+  sha256 "9c5ce1e33d2463fb1a42dd04daacbc22104e57676e2204e3d66b1ef54b88ebf2"
 
   bottle do
     sha256 "163b5ff7743239a061377686f6e0849daa72b25bafd71743ec51b6b4ef235a05" => :sierra
@@ -36,11 +35,10 @@ class Hdf5 < Formula
   depends_on "libtool" => :build
 
   def install
-    inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in tools/misc/h5cc.in],
+    inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in tools/src/misc/h5cc.in],
       "${libdir}/libhdf5.settings", "#{pkgshare}/libhdf5.settings"
 
-    inreplace "src/Makefile.am", "settingsdir=$(libdir)",
-                                 "settingsdir=#{pkgshare}"
+    inreplace "src/Makefile.am", "settingsdir=$(libdir)", "settingsdir=#{pkgshare}"
 
     system "autoreconf", "-fiv"
 
@@ -93,6 +91,6 @@ class Hdf5 < Formula
       }
     EOS
     system "#{bin}/h5cc", "test.c"
-    assert_equal "1.10.0", shell_output("./a.out").chomp
+    assert_equal "1.10.1", shell_output("./a.out").chomp
   end
 end
