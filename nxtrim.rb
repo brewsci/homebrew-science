@@ -4,8 +4,8 @@ class Nxtrim < Formula
   # doi "10.1101/007666"
   # tag "bioinformatics"
 
-  url "https://github.com/sequencing/NxTrim/archive/v0.4.1.tar.gz"
-  sha256 "7168196d8175e1f11e08112a522a01f5860ad0f31f8cfd0d9c7aae60649cfe33"
+  url "https://github.com/sequencing/NxTrim/archive/v0.4.2.tar.gz"
+  sha256 "851dc82e1e503485ae70ea0770563b977a15d7b4dd29c4ca318bec4323355c19"
   head "https://github.com/sequencing/NxTrim.git"
 
   bottle do
