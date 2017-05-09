@@ -3,6 +3,7 @@ class Trinity < Formula
   homepage "https://trinityrnaseq.github.io"
   url "https://github.com/trinityrnaseq/trinityrnaseq/archive/Trinity-v2.4.0.tar.gz"
   sha256 "2e91ed242923205b060164398aa325e5fe824040732d86c74ece4f98d7a6f220"
+  revision 1
   head "https://github.com/trinityrnaseq/trinityrnaseq.git"
 
   # doi "10.1038/nbt.1883"
@@ -31,6 +32,7 @@ class Trinity < Formula
   def install
     # Fix IRKE.cpp:89:62: error: 'omp_set_num_threads' was not declared in this scope
     ENV.append_to_cflags "-fopenmp" if OS.linux?
+    ENV.append "CPPFLAGS", "-I#{buildpath}/Chrysalis"
 
     inreplace "Makefile",
       "cd Chrysalis && $(MAKE)", "cd Chrysalis && $(MAKE) CC=#{ENV.cc} CXX=#{ENV.cxx}"
