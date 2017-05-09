@@ -1,9 +1,9 @@
 class Tophat < Formula
   desc "Spliced read mapper for RNA-Seq"
-  homepage "http://ccb.jhu.edu/software/tophat"
-  url "http://ccb.jhu.edu/software/tophat/downloads/tophat-2.1.1.tar.gz"
+  homepage "https://ccb.jhu.edu/software/tophat"
+  url "https://ccb.jhu.edu/software/tophat/downloads/tophat-2.1.1.tar.gz"
   sha256 "37840b96f3219630082b15642c47f5ef95d14f6ee99c06a369b08b3d05684da5"
-  revision 3
+  revision 4
   # doi "10.1093/bioinformatics/btp120"
   # tag "bioinformatics"
 
@@ -23,7 +23,7 @@ class Tophat < Formula
   patch :p0, :DATA
 
   resource "test" do
-    url "http://ccb.jhu.edu/software/tophat/downloads/test_data.tar.gz"
+    url "https://ccb.jhu.edu/software/tophat/downloads/test_data.tar.gz"
     sha256 "18840bd020dd23f4fe298d935c82f4b8ef7974de62ff755c21d7f88dc40054e1"
   end
 
