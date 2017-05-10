@@ -1,17 +1,18 @@
 class Igvtools < Formula
   desc "Utilities for preprocessing data files for IGV"
   homepage "https://www.broadinstitute.org/software/igv"
-  url "http://data.broadinstitute.org/igv/projects/downloads/igvtools_2.3.91.zip"
-  sha256 "328abce867bf9ee2620cc995d94d51dd90cc9e60b2caea1d1032679874b78637"
+  url "https://github.com/igvteam/igv/archive/v2.3.92.tar.gz"
+  sha256 "b1e3202df340d7bff25f044c97063b7a33a81f5ca7be0bd4306f80c93349a7ce"
+  head "https://github.com/igvteam/igv.git"
   # tag "bioinformatics"
 
-  bottle :unneeded
+  depends_on "ant" => :build
+  depends_on :java
 
   def install
-    java = share/"java"
-    java.install "igvtools.jar"
-    bin.write_jar_script java/"igvtools.jar", "igvtools"
-    doc.install "igvtools_readme.txt"
+    system "ant", "-lib", "ant/bcel-5.2.jar", "-buildfile", "scripts/build-tools.xml", "-Dversion=#{version}"
+    libexec.install "igvtools-dist/igvtools.jar"
+    bin.write_jar_script libexec/"igvtools.jar", "igvtools"
     pkgshare.install "genomes"
   end
 
