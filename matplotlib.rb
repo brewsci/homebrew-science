@@ -44,6 +44,7 @@ class Matplotlib < Formula
     sha256 "97b822dbe3417a1691ec5e860a14ccba1ae0f788ce626a593da7a68cf41000a1" => :sierra
     sha256 "a2f6b36ae060e24938a148070e715233bd09e7e4c7a1e70b439644971d5c96fb" => :el_capitan
     sha256 "f7d4d75e8ea183133455921114d2ba0428719aa2ffd90f25195c175a7308b1a6" => :yosemite
+    sha256 "2528cb7bc7d34ee17334194e5a9c6f7003e6e995a077f0de297b7b289169d0cb" => :x86_64_linux
   end
 
   option "without-python", "Build without python2 support"
