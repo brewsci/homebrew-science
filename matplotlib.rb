@@ -35,8 +35,8 @@ end
 class Matplotlib < Formula
   desc "Python 2D plotting library"
   homepage "https://matplotlib.org"
-  url "https://files.pythonhosted.org/packages/8f/d5/1488c5d7690fd95f91934cdce74292473e760a8dd0d8bf263fd9305728f1/matplotlib-2.0.1.tar.gz"
-  sha256 "1422aa2bb4ce4da310f5d24097a48b171139a1007f1a6af3e9fd2c34d22e2bf8"
+  url "https://files.pythonhosted.org/packages/f5/f0/9da3ef24ea7eb0ccd12430a261b66eca36b924aeef06e17147f9f9d7d310/matplotlib-2.0.2.tar.gz"
+  sha256 "0ffbc44faa34a8b1704bc108c451ecf87988f900ef7ce757b8e2e84383121ff1"
   head "https://github.com/matplotlib/matplotlib.git"
 
   bottle do
