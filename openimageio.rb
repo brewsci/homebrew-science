@@ -1,9 +1,8 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "http://openimageio.org"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-1.7.13.tar.gz"
-  sha256 "d9ffed79180232636ebed670233666ec7f05eb05fa24e12519b28d042b673b36"
-  revision 1
+  url "https://github.com/OpenImageIO/oiio/archive/Release-1.7.14.tar.gz"
+  sha256 "5d205cc9baccf9ae3f46a589a656e308d89f7d7f93f2586ed20b9acea8a27f4c"
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
