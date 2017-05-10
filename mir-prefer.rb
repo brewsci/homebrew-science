@@ -13,6 +13,7 @@ class MirPrefer < Formula
     sha256 "7d0744718b793452895b9bca665b6971abc782dc7e21801a30c1fe929d84a558" => :sierra
     sha256 "056724ad2e506db2cf73c467c37cb96d49e0af66756386c86214e0d260295b25" => :el_capitan
     sha256 "056724ad2e506db2cf73c467c37cb96d49e0af66756386c86214e0d260295b25" => :yosemite
+    sha256 "49b5825f5cf2ba0550b741e5436da8461bce49e768dd2bf40a1aa465b40f03c5" => :x86_64_linux
   end
 
   depends_on "samtools"
