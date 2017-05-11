@@ -3,7 +3,7 @@ class Therion < Formula
   homepage "https://therion.speleo.sk"
   url "https://therion.speleo.sk/downloads/therion-5.3.16.tar.gz"
   sha256 "73cda5225725d3e8cadd6fada9e506ab94b093d4e7a9fc90eaf23f8c7be6eb85"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "216b16038889a32efa33f2907ad8192d57be7edcac41f5f904447233c749df57" => :sierra
@@ -31,7 +31,7 @@ class Therion < Formula
     etc.mkpath
     bin.mkpath
 
-    system "make", "config-macosx"
+    system "make", OS.mac? ? "config-macosx" : "config-linux"
     system "make"
     system "make", "install"
   end
