@@ -3,7 +3,7 @@ class EtsfIo < Formula
   homepage "http://www.etsf.eu/resources/software/libraries_and_tools"
   url "http://www.etsf.eu/system/files/etsf_io-1.0.4.tar.gz"
   sha256 "3140c2cde17f578a0e6b63acb27a5f6e9352257a1371a17b9c15c3d0ef078fa4"
-  revision 4
+  revision 5
   # doi "10.1016/j.cpc.2008.05.007"
 
   bottle do
