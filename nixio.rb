@@ -3,7 +3,7 @@ class Nixio < Formula
   homepage "http://www.g-node.org/nix"
   url "https://github.com/G-Node/nix/archive/1.3.2.tar.gz"
   sha256 "3611c0d4ce4feea6ecb5d104e561678aaa8eca7819f6d3356617b0217400a3c7"
-  revision 2
+  revision 3
   head "https://github.com/G-Node/nix.git"
 
   bottle do
