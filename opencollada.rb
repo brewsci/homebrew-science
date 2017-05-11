@@ -12,6 +12,10 @@ class Opencollada < Formula
   end
 
   depends_on "cmake" => :build
+  unless OS.mac?
+    depends_on "libxml2"
+    depends_on "pcre"
+  end
 
   def install
     mkdir "build" do
