@@ -3,6 +3,7 @@ class MedFile < Formula
   homepage "http://www.salome-platform.org"
   url "http://files.salome-platform.org/Salome/other/med-3.2.0.tar.gz"
   sha256 "d52e9a1bdd10f31aa154c34a5799b48d4266dc6b4a5ee05a9ceda525f2c6c138"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,12 +14,11 @@ class MedFile < Formula
   end
 
   option "with-fortran",   "Install Fortran bindings"
-  option "without-python", "Do not install Python bindings"
   option "with-test",      "Install tests"
   option "with-docs",      "Install documentation"
 
   depends_on "cmake"  => :build
-  depends_on :python  => :build if build.with? "python"
+  depends_on :python  => :recommended
   depends_on "swig"   => :build if build.with? "python"
   depends_on :fortran => :build if build.with? "fortran"
   depends_on "homebrew/science/hdf5"
