@@ -10,6 +10,7 @@ class Netcdf < Formula
     sha256 "c974bc7e3d4b9c777293ec90fb4207f26f7a3aa6a02fb47b43124531003c153f" => :sierra
     sha256 "ac49c64d2687d69638a416cd6174d44b3a652989e11f447543c14456ff7b3327" => :el_capitan
     sha256 "a212ca879f65d174f85024acd59debc7b525e1ee79e9b483c0fb9c2cf44a45f2" => :yosemite
+    sha256 "ae829185dd793487162cb2b46e536f39f9f3f7ea1eb1c0a3b53431a2fbfa912c" => :x86_64_linux
   end
 
   option "without-test", "Disable checks (not recommended)"
