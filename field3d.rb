@@ -8,9 +8,9 @@ class Field3d < Formula
 
   bottle do
     cellar :any
-    sha256 "32677f52e969b9535c977e5b1578c1816242546067448ad3015febd5edcfdc16" => :sierra
-    sha256 "cd099d0f6c6cf138fdca86ae8c3b013034282a744d73f518bee7603880998ccd" => :el_capitan
-    sha256 "9d38fee813b42a2e944eaaffcc177e14961581af7eaa16f85bb35ebd874217d9" => :yosemite
+    sha256 "16ecdc09a0cce2f65f84f8811c89ae6d7c2435ffcb2dfc32eb27643de8a1928e" => :sierra
+    sha256 "34345c087122237ef4cbccf0a491731c06d310ef3050c5039e1ae16b0bfbd789" => :el_capitan
+    sha256 "ec737d80aef0a54dd21290d1b4759f67b96947e2f309d8006cbf32b4a6ee1d7d" => :yosemite
   end
 
   depends_on "scons" => :build
