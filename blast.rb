@@ -11,10 +11,9 @@ class Blast < Formula
   revision 1
 
   bottle do
-    sha256 "85b389e546ec0e1c6f4648a17b9984d8945f54199e186d8a1e96c1193ee28451" => :sierra
-    sha256 "55e5bb96654f69af5a25b92dd16f3da39c1392037a73d101376b50e63df1ae03" => :el_capitan
-    sha256 "712744f25117caefca5cbd78108efb2e934c7aaaed23999fb97dcb2b242bb3b7" => :yosemite
-    sha256 "415693fb56a4d249155a7b797753f01f72534be7db3cad273cd80b6f3754d467" => :x86_64_linux
+    sha256 "de27d2b417b3a87eb297286b3c73baa0e0cdc169daa6d4e5cf87c3f005e1bdb3" => :sierra
+    sha256 "25b4750230f42ea305dd24040d2c0fb69a69f5cbf96ffd658a195f10df1e68c2" => :el_capitan
+    sha256 "395eccf79bf1d5becb44f30ef5487312b2cd824db5c31e7c5ee9d4595ad1d04d" => :yosemite
   end
 
   # Fix configure: error: Do not know how to build MT-safe with compiler g++-5 5.1.0
