@@ -3,7 +3,7 @@ class H5utils < Formula
   homepage "http://ab-initio.mit.edu/wiki/index.php/H5utils"
   url "http://ab-initio.mit.edu/h5utils/h5utils-1.12.1.tar.gz"
   sha256 "7290290ca5d5d4451d757a70c86baaa70d23a28edb09c951b6b77c22b924a38d"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "5c79ffbd0c9b8d29331a5e5069dffd96a7e2e2ccad4c53b3366c9863905bf961" => :sierra
