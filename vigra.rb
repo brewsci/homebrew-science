@@ -1,9 +1,9 @@
 class Vigra < Formula
+  include Language::Python::Virtualenv
   desc "Image processing and analysis library"
   homepage "https://ukoethe.github.io/vigra/"
-  url "https://github.com/ukoethe/vigra.git", :revision => "ee6b17e4efc91cba6d3e350f98a5c4f9db6e9514"
-  version "1.11.0.1-alpha1"
-  sha256 "68617de347eae7d4700a8f66cd59ce31d6cd92ffb4a235b4df34c688673af5cb"
+  url "https://github.com/ukoethe/vigra/releases/download/Version-1-11-1/vigra-1.11.1-src.tar.gz"
+  sha256 "a5564e1083f6af6a885431c1ee718bad77d11f117198b277557f8558fa461aaf"
   head "https://github.com/ukoethe/vigra.git"
 
   bottle do
@@ -20,7 +20,6 @@ class Vigra < Formula
   deprecated_option "without-check" => "without-test"
 
   depends_on :python => :optional
-  depends_on "numpy" => :python if build.with? :python
   depends_on "cmake" => :build
   depends_on "jpeg"
   depends_on "libpng"
@@ -28,6 +27,11 @@ class Vigra < Formula
   depends_on "hdf5" => :recommended
   depends_on "fftw" => :recommended
   depends_on "openexr" => :optional
+
+  resource "numpy" do
+    url "https://pypi.python.org/packages/a5/16/8a678404411842fe02d780b5f0a676ff4d79cd58f0f22acddab1b392e230/numpy-1.12.1.zip"
+    sha256 "a65266a4ad6ec8936a1bc85ce51f8600634a31a258b722c9274a80ff189d9542"
+  end
 
   # vigra python bindings requires boost-python
   # see http://packages.ubuntu.com/saucy/python-vigra
@@ -40,6 +44,11 @@ class Vigra < Formula
   end
 
   def install
+    if build.with? "python"
+      venv = virtualenv_create(libexec)
+      venv.pip_install resources
+    end
+
     ENV.cxx11 if build.cxx11?
     ENV.append "CXXFLAGS", "-ftemplate-depth=512" if build.cxx11?
     cmake_args = std_cmake_args
