@@ -1,10 +1,9 @@
 class Radx < Formula
   desc "Software package for radial radar data"
   homepage "https://www.ral.ucar.edu/projects/titan/docs/radial_formats/radx.html"
-  url "https://www.eol.ucar.edu/system/files/software/radx/all-oss/radx-20160809.src_.tgz"
-  version "20160809"
-  sha256 "a071146df16b8abf926d35be4bc7d06b9204feeba8bbc8772858a7805bc5b92a"
-  revision 5
+  url "https://github.com/NCAR/lrose-core/releases/download/radx-20170315/radx-20170315.src.tgz"
+  version "20170315"
+  sha256 "2ee2cd5ca6254c6c92df144feca4f4cee6504d1f68c014fbad753cf8324655a2"
 
   bottle do
     cellar :any
@@ -14,19 +13,29 @@ class Radx < Formula
     sha256 "c3d6699f94686d562fb1cc01bfec85bcbc09b0e8c2f8e9910e91351c247d7eed" => :x86_64_linux
   end
 
+  depends_on "pkg-config" => :build
+  depends_on "libtool" => :build
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
   depends_on "hdf5"
   depends_on "udunits"
   depends_on "netcdf"
   depends_on "fftw"
+  depends_on "bzip2" unless OS.mac?
 
-  # Prevents build failure on Mac OS X 10.8 and below
-  # FIXME: Remove when it gets fixed upstream (reported)
   patch do
-    url "https://gist.githubusercontent.com/tomyun/ee3a910e07c9ccc4610e/raw/3b151798488c5dc7091506a25ac704dad6687e97/radx-fix-sockutil-mac.diff"
-    sha256 "19d55b7beb985a6facc75a02a92739c3a4208797eea2cbd0f2353a86c7aa90db"
+    # Fixes compilation with hdf5 1.10.0
+    # Reported https://github.com/NCAR/lrose-core/issues/8
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3124ede999c9ffd700652d20f0455c97512f84a3/radx/radx-hdf5-20170315.diff?full_index=1"
+    sha256 "2d4e424fbe43d776e13a2f3506773145e6947be546a2b50df480b1c594aadcbb"
   end
 
   def install
+    cd "codebase"
+    system "glibtoolize"
+    system "aclocal"
+    system "autoconf"
+    system "automake", "--add-missing"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
