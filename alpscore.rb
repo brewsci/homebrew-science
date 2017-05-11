@@ -8,9 +8,9 @@ class Alpscore < Formula
 
   bottle do
     cellar :any
-    sha256 "0de13bb097d1ca2c04fe0c5bb7b5cb1a83c9de028ea3a0521b81852037f17867" => :sierra
-    sha256 "54473d533ea9f159e2bf9e639f1ff9d70dcb7f9731f503b642011db45eb7b805" => :el_capitan
-    sha256 "d487ac892facfd0244b50ff252cc9c9ffbcc42ce5bd9c83c02ca1c2910e8d386" => :yosemite
+    sha256 "372982d70c8888e5b9ca08a0604a161afee562b14e39cf3885bdba79eebb8106" => :sierra
+    sha256 "888dd120ce82409038b4fb2583cdbdf2d9795766d9f2cf171406fb69c74c0263" => :el_capitan
+    sha256 "be350fadc9fe9dc9372bde185d5243757068ed4a0d62abb51d4dceb4a1bb0866" => :yosemite
   end
 
   option :cxx11
