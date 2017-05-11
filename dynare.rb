@@ -1,7 +1,7 @@
 class Dynare < Formula
   desc "Platform for economic models, particularly DSGE and OLG models"
-  homepage "http://www.dynare.org"
-  revision 7
+  homepage "https://www.dynare.org"
+  revision 8
 
   stable do
     url "https://www.dynare.org/release/source/dynare-4.4.3.tar.xz"
@@ -27,9 +27,6 @@ class Dynare < Formula
 
   option "with-matlab=", "Path to Matlab root directory (to build mex files)"
   option "with-matlab-version=", "Matlab version, e.g., 8.2 (to build mex files)"
-  option "with-tex", "Build documentation"
-
-  deprecated_option "with-doc" => "with-tex"
 
   depends_on "boost" => :build
   depends_on "cweb" => :build
@@ -41,18 +38,10 @@ class Dynare < Formula
   depends_on "libmatio"
   depends_on "metis"
   depends_on "readline"
-  depends_on "veclibfort"
+  depends_on "veclibfort" if OS.mac?
   depends_on "octave" => :recommended
   depends_on "slicot" => "with-default-integer-8" if build.with? "matlab="
   depends_on "suite-sparse"
-  depends_on :tex => [:build, :optional]
-
-  if build.with? "tex"
-    depends_on "doxygen" => :build
-    depends_on "latex2html" => :build
-    depends_on "texi2html" => :build
-    depends_on "texinfo" => :build
-  end
 
   needs :cxx11
 
@@ -105,17 +94,8 @@ class Dynare < Formula
 
     system "./configure", *args
 
-    if build.with?("tex") && OS.mac?
-      inreplace "doc/Makefile",
-        "$(TEXI2PDF) $(AM_V_texinfo) --build-dir=$(@:.pdf=.t2p) -o $@ $(AM_V_texidevnull)",
-        "$(TEXI2PDF) $(AM_V_texinfo) --build-dir=$(@:.pdf=.t2p) $(AM_V_texidevnull)"
-    end
-
     system "make"
-    system "make", "pdf" if build.with? "tex"
     system "make", "install"
-
-    doc.install Dir.glob("doc/**/*.pdf")
 
     if build.with? "matlab="
       (prefix/"matlab.config").write <<-EOS.undent
