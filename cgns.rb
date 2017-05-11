@@ -3,7 +3,7 @@ class Cgns < Formula
   homepage "http://cgns.org/"
   url "https://github.com/CGNS/CGNS/archive/v3.3.0.tar.gz"
   sha256 "8422c67994f8dc6a2f201523a14f6c7d7e16313bdd404c460c16079dbeafc662"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "56b4c2e1fe21338cc491adcecab518f24a214746f11325557b0928754e78785e" => :sierra
@@ -55,7 +55,10 @@ class Cgns < Formula
       }
     EOS
     compiler = Tab.for_name("cgns").with?("hdf5") ? "h5cc" : ENV.cc
-    system compiler, "-I#{opt_include}", "-L#{opt_lib}", "-lcgns", testpath/"test.c"
+    # The rpath to szip needs to be passed explicitely here because the
+    # compiler may be h5cc (std env is not supported in that case)
+    rpath = OS.mac? ? "" : "-Wl,-rpath=#{Formula["szip"].opt_lib}"
+    system compiler, "-I#{opt_include}", testpath/"test.c", "-L#{opt_lib}", "-lcgns", *rpath
     assert_match(/#{version}/, shell_output("./a.out"))
   end
 end
