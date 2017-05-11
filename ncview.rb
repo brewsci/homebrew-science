@@ -4,7 +4,7 @@ class Ncview < Formula
   url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.7.tar.gz"
   mirror "https://fossies.org/linux/misc/ncview-2.1.7.tar.gz"
   sha256 "a14c2dddac0fc78dad9e4e7e35e2119562589738f4ded55ff6e0eca04d682c82"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "95451965c790c62b6a061f15adf3d9025a715f9c98bba2434f80cd7340c0cdf6" => :sierra
@@ -16,6 +16,7 @@ class Ncview < Formula
   depends_on :x11
   depends_on "netcdf"
   depends_on "udunits"
+  depends_on "curl" unless OS.mac?
 
   def install
     # put choice of compiler back in our hands
