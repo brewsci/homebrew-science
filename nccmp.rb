@@ -9,6 +9,7 @@ class Nccmp < Formula
     sha256 "3ffbd2f51e9af9bb5ac351f8c1bdbb77bd5314ac86a15744806e0c3567a3e754" => :sierra
     sha256 "1150fd5daeeca93bd19ba0d9f675b840cbceee7e06289b01ae9cbb6b356401e2" => :el_capitan
     sha256 "05180490d4f52a5ba395fbe1638783859755f445f4c8ceadae62dd8ec63aa98a" => :yosemite
+    sha256 "a192c3521fccbe56e446e9be36eb4ef6622906c203ce3a80d74ad69c5aa799b8" => :x86_64_linux
   end
 
   depends_on "netcdf"
