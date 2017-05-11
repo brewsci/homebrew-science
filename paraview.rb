@@ -3,6 +3,7 @@ class Paraview < Formula
   homepage "http://paraview.org"
   url "http://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v5.3&type=source&os=all&downloadFile=ParaView-v5.3.0.tar.gz"
   sha256 "046631bbf00775edc927314a3db207509666c9c6aadc7079e5159440fd2f88a0"
+  revision 1
 
   head "git://paraview.org/ParaView.git"
 
@@ -16,7 +17,7 @@ class Paraview < Formula
 
   depends_on "boost" => :recommended
   depends_on "ffmpeg" => :recommended
-  depends_on "qt5" => :recommended
+  depends_on "qt" => :recommended
   depends_on :mpi => [:cc, :cxx, :optional]
   depends_on :python => :recommended
 
@@ -47,7 +48,7 @@ class Paraview < Formula
       -DVTK_USE_SYSTEM_ZLIB:BOOL=NETCDF
     ]
 
-    args << "-DPARAVIEW_BUILD_QT_GUI:BOOL=OFF" if build.without? "qt5"
+    args << "-DPARAVIEW_BUILD_QT_GUI:BOOL=OFF" if build.without? "qt"
     args << "-DPARAVIEW_USE_MPI:BOOL=ON" if build.with? "mpi"
     args << "-DPARAVIEW_ENABLE_FFMPEG:BOOL=ON" if build.with? "ffmpeg"
     args << "-DPARAVIEW_USE_VISITBRIDGE:BOOL=ON" if build.with? "boost"
