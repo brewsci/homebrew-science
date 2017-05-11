@@ -20,7 +20,11 @@ class Iva < Formula
   depends_on "smalt"
   depends_on "trimmomatic"
   depends_on "samtools"
-  depends_on "numpy" => ["with-python3"]
+
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/a5/16/8a678404411842fe02d780b5f0a676ff4d79cd58f0f22acddab1b392e230/numpy-1.12.1.zip"
+    sha256 "a65266a4ad6ec8936a1bc85ce51f8600634a31a258b722c9274a80ff189d9542"
+  end
 
   resource "pysam" do
     url "https://pypi.python.org/packages/source/p/pysam/pysam-0.8.3.tar.gz"
@@ -47,7 +51,7 @@ class Iva < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{version}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{version}/site-packages"
 
-    %w[pysam pyfastaq decorator networkx].each do |r|
+    %w[numpy pysam pyfastaq decorator networkx].each do |r|
       resource(r).stage do
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
