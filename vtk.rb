@@ -16,6 +16,7 @@ class Vtk < Formula
       sha256 "b243eb77567f822540e299a9ee44f4fd646abb6fa3b8e889af3e69f97ff3993e"
     end
   end
+  revision 1
 
   bottle do
     sha256 "1e78888db71fa591cddabc3672ca649af85afcbdb48d6dd4bb7c28d460128fcd" => :sierra
