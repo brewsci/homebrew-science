@@ -1,7 +1,7 @@
 class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "http://libbi.org"
-  revision 2
+  revision 3
   head "https://github.com/libbi/LibBi.git"
 
   stable do
@@ -38,8 +38,8 @@ class Libbi < Formula
   depends_on "automake" => :run
 
   resource "Test::Simple" do
-    url "http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Test-Simple-1.302075.tar.gz"
-    sha256 "86f2205498f96302e00331ac586bf366547e946e8637ad208d6317a2097d40b7"
+    url "http://search.cpan.org/CPAN/authors/id/E/EX/EXODIST/Test-Simple-1.302085.tar.gz"
+    sha256 "4fa8ffa0b797f0f22fb8745469f8a99c333f46897c171fb762434f3dea221fb2"
   end
 
   resource "Getopt::ArgvFile" do
