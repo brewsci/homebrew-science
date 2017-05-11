@@ -1,22 +1,13 @@
 class Nanopolish < Formula
   desc "Signal-level algorithms for MinION data"
   homepage "https://github.com/jts/nanopolish"
-  # doi "10.1038/nmeth.3444"
-  # tag "bioinformatics"
-  revision 1
+  url "https://github.com/jts/nanopolish.git",
+        :tag => "v0.6.0",
+        :revision => "bcb46f0ec4d7c60054fad1aeb1028159e0292005"
   head "https://github.com/jts/nanopolish.git"
 
-  stable do
-    url "https://github.com/jts/nanopolish.git",
-        :tag => "v0.5.0",
-        :revision => "758d81a330860e82a24570ef5e6005982b095b49"
-
-    # upstream commit "remove unused function, closes #57"
-    patch do
-      url "https://github.com/jts/nanopolish/commit/c4ada9f.patch"
-      sha256 "d427641e4007fcc78013ffc170be68a6158674bf2d313c9a5547242ffee9c6de"
-    end
-  end
+  # doi "10.1038/nmeth.3444"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any
@@ -32,8 +23,16 @@ class Nanopolish < Formula
   depends_on "hdf5"
   depends_on "eigen" => :build
 
+  # Fails to build under yosemite
+  depends_on MinimumMacOSRequirement => :el_capitan
+
   # use Homebrew eigen not the one upstream wants to fetch with wget
   patch :DATA
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/325c6b2390888d6e98083c3e01e961a135092302/nanopolish/nanopolish.patch"
+    sha256 "10afe036f2f9919508c8c55c27d756cf4771e7c9f8307aa14e4c71ed3aed8645"
+  end
 
   def install
     ln_s Formula["eigen"].opt_include/"eigen3", "eigen"
