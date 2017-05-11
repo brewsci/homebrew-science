@@ -6,6 +6,7 @@ class Gmt < Formula
   mirror "ftp://gd.tuwien.ac.at/pub/gmt/gmt-5.3.2-src.tar.xz"
   mirror "ftp://ftp.iris.washington.edu/pub/gmt/gmt-5.3.2-src.tar.xz"
   sha256 "b2a14bae9e50375ff06770ba2db0db2cc98baaf15d77eaf89f3d44692cb11880"
+  revision 1
 
   bottle do
     sha256 "cd0411e03cb3d57cfb63137fc8ddfa47a7925ab417d7e23bf03686eeda34e479" => :sierra
