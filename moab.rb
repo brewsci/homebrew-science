@@ -9,9 +9,9 @@ class Moab < Formula
 
   bottle do
     cellar :any
-    sha256 "7c2e3687d5eae344e97807cbba5c5ce45e55671422586730f2fa79e2d5596c48" => :sierra
-    sha256 "db8c6d0f08777fadff0881946331f25c307a49d4d4ed5fb068b8fb656f757677" => :el_capitan
-    sha256 "1a76abbd366116a969f96ba212502ba32942b312ce7688adbfbd71670bf2cc37" => :yosemite
+    sha256 "157b0599a9f0bc0122888d889a5d74fe23956b06a39931f60a8b56ea53953057" => :sierra
+    sha256 "152853885760446f16699d590c1d6dca70ff1f604241fbcc226c8b58ba47faad" => :el_capitan
+    sha256 "fc037f88f1c7bc2d0a9737e720abb5b452121214c5c27d38a5bbea240dc7dd8c" => :yosemite
   end
 
   depends_on "autoconf" => :build
