@@ -9,7 +9,7 @@ class Getdp < Formula
   homepage "http://www.geuz.org/getdp/"
   url "http://getdp.info/src/getdp-2.11.0-source.tgz"
   sha256 "fc3b51e50357466849dbd07656107c8ac9d01c294b04c4801d2c227c1b1273eb"
-  revision 4
+  revision 5
   head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
 
   bottle do
@@ -21,26 +21,26 @@ class Getdp < Formula
   option "without-test", "skip build-time tests (not recommended)"
   deprecated_option "without-check" => "without-test"
 
-  depends_on "cmake"    => :build
+  depends_on "cmake" => :build
   depends_on :fortran
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
   if build.with? "mpi"
-    depends_on "arpack"   => [:recommended, "with-mpi"]
+    depends_on "arpack" => [:recommended, "with-mpi"]
   else
     depends_on "arpack" => :recommended
   end
-  depends_on "gmsh"     => :recommended
-  depends_on "gsl"      => :recommended
-  depends_on "hdf5"     => :recommended
+  depends_on "gmsh" => :recommended
+  depends_on "gsl" => :recommended
+  depends_on "hdf5" => :recommended
   if build.with? "mpi"
-    depends_on "hdf5"   => [:recommended, "with-mpi"]
+    depends_on "hdf5" => [:recommended, "with-mpi"]
   else
     depends_on "hdf5" => :recommended
   end
-  depends_on "metis"    => :recommended
-  depends_on "mumps"    => :recommended
-  depends_on "petsc"    => :recommended
-  depends_on "slepc"    => :recommended
+  depends_on "metis" => :recommended
+  depends_on "mumps" => :recommended
+  depends_on "petsc" => :recommended
+  depends_on "slepc" => :recommended
 
   def install
     args = std_cmake_args
