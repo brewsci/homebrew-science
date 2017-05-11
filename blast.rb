@@ -8,6 +8,7 @@ class Blast < Formula
   mirror "ftp://ftp.hgc.jp/pub/mirror/ncbi/blast/executables/blast+/2.6.0/ncbi-blast-2.6.0+-src.tar.gz"
   version "2.6.0"
   sha256 "0510e1d607d0fb4389eca50d434d5a0be787423b6850b3a4f315abc2ef19c996"
+  revision 1
 
   bottle do
     sha256 "85b389e546ec0e1c6f4648a17b9984d8945f54199e186d8a1e96c1193ee28451" => :sierra
