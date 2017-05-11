@@ -1,9 +1,8 @@
 class Abinit < Formula
   desc "Atomic-scale first-principles simulation software"
   homepage "http://www.abinit.org"
-  url "http://ftp.abinit.org/abinit-8.0.8b.tar.gz"
-  sha256 "37ad5f0f215d2a36e596383cb6e54de3313842a0390ce8d6b48a423d3ee25af2"
-  revision 1
+  url "http://ftp.abinit.org/abinit-8.4.2.tar.gz"
+  sha256 "cadf062ec9778f23d715ce62eee9954aabfacce2fe5814ff1d3545a4dc4dcbb0"
   # tag "chemistry"
   # doi "10.1016/j.cpc.2009.07.007"
 
@@ -22,16 +21,25 @@ class Abinit < Formula
 
   depends_on :mpi => [:cc, :cxx, :f77, :f90]
   depends_on :fortran
-  depends_on "veclibfort"
-  depends_on "scalapack" => :recommended
   depends_on "fftw" => ["with-mpi", "with-fortran", :recommended]
   depends_on "netcdf" => ["with-fortran", :recommended]
-  depends_on "etsf_io" => :recommended
   depends_on "gsl" => :recommended
+  if OS.mac?
+    depends_on "veclibfort"
+    depends_on "scalapack" => :recommended
+  end
 
   needs :openmp if build.with? "openmp"
 
   def install
+    if OS.mac?
+      # call random_seed(put=seed)
+      # Error: Size of 'put' argument of 'random_seed' intrinsic at (1) too small (12/33)
+      # Reported upstream: https://forum.abinit.org/viewtopic.php?f=3&t=3615
+      inreplace "src/67_common/m_vcoul.F90", "integer :: seed(12)=0", "integer :: seed(33)=0"
+      inreplace "src/67_common/m_vcoul.F90", "do i1=1,12", "do i1=1,33"
+    end
+
     # Environment variables CC, CXX, etc. will be ignored.
     ENV.delete "CC"
     ENV.delete "CXX"
@@ -53,22 +61,19 @@ class Abinit < Formula
 
     trio_flavor = "none"
 
-    if build.with? "scalapack"
-      args << "--with-linalg-flavor=custom+scalapack"
-      args << "--with-linalg-libs=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort -L#{Formula["scalapack"].opt_lib} -lscalapack"
+    if OS.mac?
+      if build.with? "scalapack"
+        args << "--with-linalg-flavor=custom+scalapack"
+        args << "--with-linalg-libs=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort -L#{Formula["scalapack"].opt_lib} -lscalapack"
+      else
+        args << "--with-linalg-flavor=custom"
+        args << "--with-linalg-libs=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
+      end
     else
-      args << "--with-linalg-flavor=custom"
-      args << "--with-linalg-libs=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
+      args << "--with-linalg-flavor=none"
     end
 
-    if build.with? "etsf_io"
-      raise "Building with etsf_io support requires netcdf" if build.without? "netcdf"
-      trio_flavor = "netcdf+etsf_io"
-      args << "--with-etsf-io-incs=-I#{Formula["etsf_io"].opt_include}"
-      args << "--with-etsf-io-libs=-L#{Formula["etsf_io"].opt_lib} -letsf_io_low_level -letsf_io_utils -letsf_io"
-      args << "--with-netcdf-incs=-I#{Formula["netcdf"].opt_include}"
-      args << "--with-netcdf-libs=-L#{Formula["netcdf"].opt_lib} -lnetcdff -lnetcdf"
-    elsif build.with? "netcdf"
+    if build.with? "netcdf"
       trio_flavor = "netcdf"
       args << "--with-netcdf-incs=-I#{Formula["netcdf"].opt_include}"
       args << "--with-netcdf-libs=-L#{Formula["netcdf"].opt_lib} -lnetcdff -lnetcdf"
