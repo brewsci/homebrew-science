@@ -11,6 +11,7 @@ class Libminc < Formula
     sha256 "ecf42daf4604e9d779d1c233821d1e9c13cea9491033e783c715c87d21b28b94" => :sierra
     sha256 "81890255c7249f4a9dac832f5d818abdcf3bc93af5953a2b2523b9ada1ed1ab7" => :el_capitan
     sha256 "b1a8d51dd768d4d3f37cbdd7e516b1b461d726bf966f094f8fb5d57c71caf8ac" => :yosemite
+    sha256 "35a463f75f1db1473ad9504cc5152c1fa8d5129002ac72e8ba4f4d826ff7b39c" => :x86_64_linux
   end
 
   depends_on "hdf5"
