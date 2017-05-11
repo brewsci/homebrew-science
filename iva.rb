@@ -8,10 +8,10 @@ class Iva < Formula
   # tag "bioinformatics"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4f71ba608c1ea1364c143a1fef869b752caad534ac766c7b5b92dd1b01900b4a" => :sierra
-    sha256 "2f191856e88f22840e5709706cedbe5d7103a97a8bca06bda399d122ee3190ca" => :el_capitan
-    sha256 "64314710471dc79b3424f4fde9926f841ce63dea8a46d39992d23e8a91195484" => :yosemite
+    rebuild 1
+    sha256 "9bcc18b7dbc779714def1347b7b76bcdffa2fd3db6fce0c08ead2fa03260711f" => :sierra
+    sha256 "1ec35ab8439d88dc0e6287493b691d564d073e785f85274f6b810a2a37e715ab" => :el_capitan
+    sha256 "891e1a44af5d9150f49d795b33a7bd09579cfa92425e8f6cc0b860b6d0b22870" => :yosemite
   end
 
   depends_on :python3
