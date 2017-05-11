@@ -1,8 +1,8 @@
 class Kat < Formula
   desc "K-mer Analysis Toolkit (KAT) analyses k-mer spectra"
   homepage "https://github.com/TGAC/KAT"
-  url "https://github.com/TGAC/KAT/releases/download/Release-2.3.3/kat-2.3.3.tar.gz"
-  sha256 "e15c2039cb7ebd77a0af440c6fca9a4e6f3b78c8c541ab9abc91928ba345c630"
+  url "https://github.com/TGAC/KAT/releases/download/Release-2.3.4/kat-2.3.4.tar.gz"
+  sha256 "40ac5e1ea310b4dac35620f74e489a749c355b41d850d297a06c3822f58295e1"
   # tag "bioinformatics"
 
   bottle do
