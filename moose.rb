@@ -3,6 +3,7 @@ class Moose < Formula
   homepage "http://moose.ncbs.res.in"
   url "https://github.com/BhallaLab/moose-core/archive/3.1.1.tar.gz"
   sha256 "d86710e77973b020a6889526418128893b4173cbc665df693dfdc1e27594b90e"
+  revision 1
   head "https://github.com/BhallaLab/moose-core.git"
 
   bottle do
