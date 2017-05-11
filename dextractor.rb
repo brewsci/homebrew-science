@@ -15,6 +15,7 @@ class Dextractor < Formula
     sha256 "da723458ae41c38318d09f70d72caade2ca997eb714a53b7631c3469e9c00e3a" => :sierra
     sha256 "d269e8f8e1c7fb1cb9b3c1ebcad2fbf02ed207e9ee77fbff7a0dc45c9f6c0089" => :el_capitan
     sha256 "aa4d5bbf96dcace4d0173ef7345a00ff53f06f3b7eff0dea5e10bc04b3dfb516" => :yosemite
+    sha256 "4da648a7b6463be7f11f7618cb9507722ae96e99de483958a7b677e62d98336f" => :x86_64_linux
   end
 
   depends_on "hdf5"
