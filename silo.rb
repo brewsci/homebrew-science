@@ -3,7 +3,7 @@ class Silo < Formula
   homepage "https://wci.llnl.gov/simulation/computer-codes/silo"
   url "https://wci.llnl.gov/content/assets/docs/simulation/computer-codes/silo/silo-4.10.2/silo-4.10.2-bsd.tar.gz"
   sha256 "4b901dfc1eb4656e83419a6fde15a2f6c6a31df84edfad7f1dc296e01b20140e"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "931334c521e0bb2ccb81c1ce086470b68ddda93c60999d09f58801f023451e97" => :sierra
