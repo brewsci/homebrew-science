@@ -12,6 +12,7 @@ class Iva < Formula
     sha256 "9bcc18b7dbc779714def1347b7b76bcdffa2fd3db6fce0c08ead2fa03260711f" => :sierra
     sha256 "1ec35ab8439d88dc0e6287493b691d564d073e785f85274f6b810a2a37e715ab" => :el_capitan
     sha256 "891e1a44af5d9150f49d795b33a7bd09579cfa92425e8f6cc0b860b6d0b22870" => :yosemite
+    sha256 "85a3539747ae1b226d5e05ba5f1b6f4df77c5ae334bccc73a68eff6dd307677e" => :x86_64_linux
   end
 
   depends_on :python3
