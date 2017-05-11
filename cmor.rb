@@ -1,8 +1,9 @@
 class Cmor < Formula
   desc "Climate Model Output Rewriter for producing CF-compliant netCDF files"
-  homepage "http://cmor.llnl.gov/"
+  homepage "https://cmor.llnl.gov/"
   url "https://github.com/PCMDI/cmor/archive/CMOR-3.2.3.tar.gz"
-  sha256 "4f1039ddb3fe2237404a3a18ae018e2df49c3cdee736ca44c7a91b4b4147944d"
+  sha256 "e4dcd7e16f6bce5817470e628ae9ba7cb51d7f5cd9e2e3ba86b26ee6a9a916bf"
+  revision 1
   # doi "10.5281/zenodo.61943"
 
   bottle do
