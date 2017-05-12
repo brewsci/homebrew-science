@@ -6,10 +6,9 @@ class Kat < Formula
   # tag "bioinformatics"
 
   bottle do
-    sha256 "0891a085c65f09354faf23641d98ff91a241364241c0de5b6715231f1343957f" => :sierra
-    sha256 "29fda52b621aaef8e46b70aa1b6014943d1ce2dda8b37234ee183eff02128cde" => :el_capitan
-    sha256 "8779698d17a29c7d22e715a68ea2b17d371388e08700b5c36c5fd0159d6f3071" => :yosemite
-    sha256 "8bcb9bae59b687c7ea1a81b8be6f1137d29ff00c77905febc39d319acb910389" => :x86_64_linux
+    sha256 "deb09b42ee6918c5d085ce5a71128907cc66590a525edc7683ddbf3a81a9ca58" => :sierra
+    sha256 "fcf3aa5a7a062d651fd2d5917e245c03605f79fca6fc500451ec1ca004efaa97" => :el_capitan
+    sha256 "3fde5dfe54fd12fe189ff7bc593a4c8a9100119efc5990f2d9df263b19323d27" => :yosemite
   end
 
   head do
