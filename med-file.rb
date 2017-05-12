@@ -7,10 +7,9 @@ class MedFile < Formula
 
   bottle do
     cellar :any
-    sha256 "dcf654be1b4a2465b9499304e97e0a9219bda76ff313e099669d405039554425" => :sierra
-    sha256 "8a6b484c712b37c888c1343b029e2dda5f55eaf6345f5a31eb855083c89f1115" => :el_capitan
-    sha256 "40d8d84eb6ff3ea04fcb7e8dff7ac2c0c8834c6358ba06af8ed5430a3e3a308e" => :yosemite
-    sha256 "45ccb6b13378590b70399e770255618318ea667bfc0dd114ed671531542a7c9e" => :x86_64_linux
+    sha256 "7306f7b36ada75fc21fd9ff9763ef9a1d1cf9c0d874aab06c1513a20fb6a66c5" => :sierra
+    sha256 "75313479ba3d7b238b3eef2979ee78fed583fb5be5902f337f72269bafa26879" => :el_capitan
+    sha256 "f082a9d31d2ba6caa98f34e16212aa8e0e22154efe3b4fd86933f324ddc642a9" => :yosemite
   end
 
   option "with-fortran",   "Install Fortran bindings"
