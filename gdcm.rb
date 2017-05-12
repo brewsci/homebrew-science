@@ -14,6 +14,7 @@ class Gdcm < Formula
   deprecated_option "with-check" => "with-test"
   option "with-test", "Run build-time tests"
   option "with-manpages", "Build man pages from XML docbook"
+  option "with-static", "Build static instead of shared libraries"
 
   depends_on :python => :optional
   depends_on :python3 => :optional
@@ -67,7 +68,7 @@ class Gdcm < Formula
 
       args << "-DGDCM_BUILD_APPLICATIONS=ON"
       args << "-DGDCM_BUILD_EXAMPLES=ON"
-      args << "-DGDCM_BUILD_SHARED_LIBS=ON"
+      args << "-DGDCM_BUILD_SHARED_LIBS=ON" if build.without? "static"
       args << "-DGDCM_BUILD_TESTING=ON" if build.with? "test"
       args << "-DGDCM_BUILD_DOCBOOK_MANPAGES=OFF" if build.without? "manpages"
       args << "-DGDCM_USE_VTK=ON" if build.with? "vtk"
