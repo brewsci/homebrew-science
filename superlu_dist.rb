@@ -9,6 +9,7 @@ class SuperluDist < Formula
     sha256 "cd577c006da8f90d6835fbe6351fcd8027dcbd7270bb870434a2e2b1350232e4" => :sierra
     sha256 "d96ec784ec58b0b40ba07ed784301d2d5bed4b9323eecc50aae06fc8ed6647be" => :el_capitan
     sha256 "93998ea9efe9b1bbc48adcd839936790f2970788848ed4e94214cfdd66d1ac9a" => :yosemite
+    sha256 "d188e92bd33981ecbbea58b75c1b044dbcd574e195507c8409a2ebd075f297be" => :x86_64_linux
   end
 
   option "without-test", "skip build-time tests (not recommended)"
