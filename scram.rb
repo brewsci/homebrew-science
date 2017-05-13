@@ -5,9 +5,9 @@ class Scram < Formula
   sha256 "01c4c3cd98e4a197e2b71b85f3953896e75030f5b70970b65fa5a67dbbdc532a"
 
   bottle do
-    sha256 "42623f102a91c5253080664d53f3b54cde1f92a56e524b85a0bb5ef1f8f564b9" => :sierra
-    sha256 "21c99f723de2fa25850b1aaf4cc17640170d5cead1b9858ead3bb376fd28610a" => :el_capitan
-    sha256 "308d9f66e32bf77b36afbc7e77893a05f2ae5b4e67b46867a3582015055e5947" => :yosemite
+    sha256 "3a501818b0ae9f7a5a749be8ee6038c9f7b769a6f3bb9172b108b7c52630ad18" => :sierra
+    sha256 "59693ed39449963019c66edbbb8f3bee91a3962dc4dd75c88e62806f09ca8deb" => :el_capitan
+    sha256 "ae0066756d3473adf4ea5939f0da0717ba4fc03162a907d696d56ea065162c9b" => :yosemite
   end
 
   needs :cxx14
