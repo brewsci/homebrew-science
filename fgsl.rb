@@ -6,10 +6,9 @@ class Fgsl < Formula
   revision 2
 
   bottle do
-    sha256 "bba80c3e3daf5f89ab054b65e271e7813a57c3fac1e691c7bff67ed9eecba739" => :sierra
-    sha256 "1d6330984c0a307f074b954ae1095ff80c827df2b5b7e89679fd5857c4e00f49" => :el_capitan
-    sha256 "1413cf925afd495793f057ae666cb6b0d88121aafcf09042fbf32b39d3d4475f" => :yosemite
-    sha256 "231da62572cce81380c9e2589cd1557f56421c46f277a4cc39086472b58a0d2e" => :x86_64_linux
+    sha256 "16c3313848afc30d4926abdc248d46eb2a2d12ae4363b88b595f4f1780d50591" => :sierra
+    sha256 "c69725dca9c2803c57b095ac779bf160d4f0069e4c8368503b31444a5c116a27" => :el_capitan
+    sha256 "d1b375f6c8e045bc33205647fd4c26d2511ec961295ab2ab5dac5ba5c6f676ff" => :yosemite
   end
 
   depends_on "pkg-config" => :build
