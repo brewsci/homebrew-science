@@ -40,9 +40,16 @@ dependencies:
     - DEBIAN_FRONTEND=noninteractive sudo apt-get autoremove -y --purge
         libblas-dev
         libbz2-dev
+        libexpat1-dev
         libfreetype6-dev
+        libgl1-mesa-dev
+        libgdbm-dev
         libicu-dev
         libidn11-dev
+        libjack-dev
+        libjack-jackd2-0
+        libjack-jackd2-dev
+        libjack0
         libjasper-dev
         libjbig-dev
         libkrb5-dev
@@ -51,6 +58,8 @@ dependencies:
         libncurses5-dev
         libopenblas-dev
         libpcre3-dev
+        libopenblas-dev
+        libpq-dev
         libtinfo-dev
         libwebp-dev
         libwmf-dev
