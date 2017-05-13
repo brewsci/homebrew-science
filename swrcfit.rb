@@ -12,6 +12,7 @@ class Swrcfit < Formula
     sha256 "038ee703eb781065e3cd83ca746752031f827c2a43bdb2ebd80f2e199bd42263" => :sierra
     sha256 "32186215c39d14fd7df94bdacc45660d82c8d33ac1af9002d58f7090d291a896" => :el_capitan
     sha256 "7226e41b1f331e743c5c532e181e01a38603f574052250a17f4fc7f76c03271f" => :yosemite
+    sha256 "bd544dae66dad4077e6f9c7b0c91f989c20f5e4d6302bb7850e6e4b42575cebb" => :x86_64_linux
   end
 
   depends_on "octave"
