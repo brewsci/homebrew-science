@@ -9,9 +9,9 @@ class Swrcfit < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3fb985388df4be9c1b59b9d12490163c5a0c41c07c1562a235442226f28d1a57" => :sierra
-    sha256 "17e55b8bc2e6e12225cb30ca0743f4f1e90f5c9bf5fb15209411e9685392dcb6" => :el_capitan
-    sha256 "7d2f1cf07961151d9ceeec57194efd3a5a3fb5e6226b14187e1936f8def33869" => :yosemite
+    sha256 "038ee703eb781065e3cd83ca746752031f827c2a43bdb2ebd80f2e199bd42263" => :sierra
+    sha256 "32186215c39d14fd7df94bdacc45660d82c8d33ac1af9002d58f7090d291a896" => :el_capitan
+    sha256 "7226e41b1f331e743c5c532e181e01a38603f574052250a17f4fc7f76c03271f" => :yosemite
   end
 
   depends_on "octave"
