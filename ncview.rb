@@ -10,6 +10,7 @@ class Ncview < Formula
     sha256 "b92e78e1d9cedd16eaf1aa393b20d962faec9a7c5da21f38acbfc39c1e49af43" => :sierra
     sha256 "c49c2f89c2eff5e0d6a04a7f85bfc9f4fa1c8c206b1e6aafd68b75ee2bdb3b2e" => :el_capitan
     sha256 "5389ddaafe7a642c4d9a3fbfe78e788a69e2d29cb2fc3b3fff8769f28efd4c7d" => :yosemite
+    sha256 "802f5b11496a4b5687ea95615ffa3ec4e883ea3c3f7e8215c2491f6f39c8ea80" => :x86_64_linux
   end
 
   depends_on :x11
