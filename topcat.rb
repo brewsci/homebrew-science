@@ -1,10 +1,11 @@
 class Topcat < Formula
+  desc "Interactive graphical viewer and editor for tabular data"
   homepage "http://www.star.bris.ac.uk/~mbt/topcat/"
-  url "https://downloads.sourceforge.net/project/hongpublicfiles/topcat/topcat-4.0-1.tar.gz"
-  sha256 "fbd1fbc46c8f5ae8036251367debd6d228d0b69084578d08bf1deff7818be1b5"
+  url "http://www.star.bris.ac.uk/~mbt/topcat/topcat-full.jar"
+  version "4.4"
+  sha256 "debc7a3bb245d4651ef9f5321e620763b11d8524eed8efd3c086a9d2c9f47441"
 
   def install
-    bin.install "topcat"
     (share+"java").install "topcat-full.jar"
   end
 
