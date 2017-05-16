@@ -1,18 +1,18 @@
 class Lastz < Formula
-  homepage "http://www.bx.psu.edu/~rsharris/lastz/"
-  url "http://www.bx.psu.edu/miller_lab/dist/lastz-1.02.00.tar.gz"
-  sha256 "054515f27fdf9392f3d2e84ca421103b5e5575ba7a1979addf3c277212114a21"
-  devel do
-    url "http://www.bx.psu.edu/~rsharris/lastz/newer/lastz-1.03.34.tar.gz"
-    sha256 "b831cfb7dabf85e2f9bf33a76641481ede0d18a941c3a72d57d373b018232fbf"
-  end
+  desc "Align DNA sequences, a pairwise aligner"
+  homepage "https://www.bx.psu.edu/~rsharris/lastz/"
+  url "https://www.bx.psu.edu/~rsharris/lastz/lastz-1.04.00.tar.gz"
+  sha256 "dd2e417c088a794532125d4c3e83a2c4ce39e6d287ed69312fb8c665f885ed52"
+  head "https://github.com/lastz/lastz"
+  # tag "bioinformatics"
 
   def install
-    system "make definedForAll=-Wall"
-    bin.install %w[src/lastz src/lastz_D]
+    system "make", "definedForAll=-Wall"
+    bin.install "src/lastz", "src/lastz_D"
+    prefix.install "README.lastz.html", "test_data", "tools"
   end
 
   test do
-    system "lastz --help |grep -q lastz"
+    assert_match "NOTE", shell_output("#{bin}/lastz --help", 1)
   end
 end
