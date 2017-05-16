@@ -5,6 +5,13 @@ class Topcat < Formula
   version "4.4"
   sha256 "debc7a3bb245d4651ef9f5321e620763b11d8524eed8efd3c086a9d2c9f47441"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "f93af9fc7e095325b815be10eda702dfddc9e1f263ce6074b8c82c388bbcd2e8" => :sierra
+    sha256 "9523448a70b5b0ce08d679a067cfc4ea57ff1001a4c60b7fb2bb018a12d2c99e" => :el_capitan
+    sha256 "9523448a70b5b0ce08d679a067cfc4ea57ff1001a4c60b7fb2bb018a12d2c99e" => :yosemite
+  end
+
   def install
     (share+"java").install "topcat-full.jar"
   end
