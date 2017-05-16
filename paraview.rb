@@ -8,9 +8,9 @@ class Paraview < Formula
   head "git://paraview.org/ParaView.git"
 
   bottle do
-    sha256 "1bb4ae85f43786f22f8bc46516dd7b7f1e4ed65e9aae304ff3725e4530bd90ee" => :sierra
-    sha256 "ffbd361ba23bba9a58c18de73d6f4c1cb4e475a96af89eff5bbadcfb965d028f" => :el_capitan
-    sha256 "a34aedee4f5cf17eaaee1111078199c15deebeaeb2ba0dac71a587bf8d64c80a" => :yosemite
+    sha256 "0068f85750ff6276b849f1dc6a27be59c5dfd92395645d0707fbbe8d66d96a6f" => :sierra
+    sha256 "fa7464d763f332551bbd20fe3cddd7ed472c2ecab71162e97fb011782a4754a7" => :el_capitan
+    sha256 "c84ebd4494e40a6acc82320414975bdd98397d883e9b540cc2130292cf6af7a4" => :yosemite
   end
 
   depends_on "cmake" => :build
