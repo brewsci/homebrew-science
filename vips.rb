@@ -8,6 +8,7 @@ class Vips < Formula
     sha256 "45580247d4eb1ac4a278e7a95e2297ff841c13ffb7dc26900d5d6302712b12af" => :sierra
     sha256 "b1a4a1e2fc0aee874e439c4f8c1fec6c888a7776b1f6819c4b425eb224ce8dbb" => :el_capitan
     sha256 "53f49bc0507c73b73553b6ecb1517d2defe1a17bce0a6371b8f96f0f5bb5af76" => :yosemite
+    sha256 "984254d1c5fc8f1537d447e5ceaa6b752828188ce0235e09ed19785dd4c8ed48" => :x86_64_linux
   end
 
   option "without-test", "Disable build time checks (not recommended)"
