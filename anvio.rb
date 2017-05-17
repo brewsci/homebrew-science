@@ -2,9 +2,8 @@ class Anvio < Formula
   include Language::Python::Virtualenv
   desc "Analysis and visualization platform for ‘omics data."
   homepage "http://merenlab.org/projects/anvio/"
-  url "https://pypi.python.org/packages/4b/b0/28e526dd0473c45235da36d3d24943f1f6f8d33d232d69b337c4f5ed4955/anvio-2.3.1.tar.gz"
-  sha256 "d37cd3a4af1f91260e02e8457e995d588fb011541c9032352d5c2c9facee4de0"
-  revision 1
+  url "https://pypi.python.org/packages/1c/cc/b5bbcad11401d79e9e7b1eb521f063ca319d48d0ccfb1e40968ca9cdbcc7/anvio-2.3.2.tar.gz"
+  sha256 "052f43aacdee2b477118eb8c02b0c03793b453ae98acf882e40f83f9f2079c80"
   head "https://github.com/merenlab/anvio.git"
 
   bottle do
