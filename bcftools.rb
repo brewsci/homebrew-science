@@ -3,8 +3,8 @@ class Bcftools < Formula
   homepage "http://www.htslib.org/"
   # tag "bioinformatics"
 
-  url "https://github.com/samtools/bcftools/releases/download/1.4/bcftools-1.4.tar.bz2"
-  sha256 "8fb1b0a47ed4e1f9d7c70129d7993aa650da1688fd931b10646d1c4707ae234d"
+  url "https://github.com/samtools/bcftools/releases/download/1.4.1/bcftools-1.4.1.tar.bz2"
+  sha256 "d7d0871846005c653f5e2e78e434f7f9b846ab245ab5c1cd4224ecbf52d99d08"
 
   bottle do
     sha256 "141a227a417c9b0fbf77757aa88f66cf90cc8ed3b6f2bc74e144a79fab7ca91b" => :sierra
@@ -20,6 +20,7 @@ class Bcftools < Formula
   depends_on "xz"
   depends_on "samtools" => :recommended
   depends_on "gsl" => :optional
+  depends_on "bzip2" unless OS.mac?
 
   def install
     args = build.with?("gsl") ? "USE_GPL=1" : []
