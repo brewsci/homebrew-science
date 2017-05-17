@@ -1,9 +1,8 @@
 class Hypre < Formula
   desc "Library featuring parallel multigrid methods for grid problems"
   homepage "http://computation.llnl.gov/casc/hypre/software.html"
-  url "https://computation.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods/download/hypre-2.11.1.tar.gz"
-  sha256 "6bb2ff565ff694596d0e94d0a75f0c3a2cd6715b8b7652bc71feb8698554db93"
-  revision 1
+  url "https://computation.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods/download/hypre-2.11.2.tar.gz"
+  sha256 "25b6c1226411593f71bb5cf3891431afaa8c3fd487bdfe4faeeb55c6fdfb269e"
   head "https://github.com/LLNL/hypre.git"
 
   bottle do
