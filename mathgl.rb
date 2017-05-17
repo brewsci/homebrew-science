@@ -22,7 +22,7 @@ class Mathgl < Formula
   depends_on "fltk"    => :optional
   depends_on "wxmac"   => :optional
   depends_on "giflib"  => :optional
-  depends_on "qt5" => :optional
+  depends_on "qt"      => :optional
   depends_on :x11 if build.with? "fltk"
 
   if OS.linux?
@@ -44,9 +44,9 @@ class Mathgl < Formula
 
     args << "-Denable-openmp=" + ((build.with? "openmp") ? "ON" : "OFF")
     args << "-Denable-pthread=" + ((build.with? "openmp") ? "OFF" : "ON")
-    args << "-Denable-qt5=ON"     if build.with? "qt5"
+    args << "-Denable-qt5=ON"     if build.with? "qt"
     # the JSON samples need QtWebKit
-    args << "-Denable-json-sample=OFF" if build.with? "qt5"
+    args << "-Denable-json-sample=OFF" if build.with? "qt"
     args << "-Denable-gif=ON"     if build.with? "giflib"
     args << "-Denable-hdf5_18=ON" if build.with? "hdf5"
     args << "-Denable-fltk=ON"    if build.with? "fltk"
