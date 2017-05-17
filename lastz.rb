@@ -11,6 +11,7 @@ class Lastz < Formula
     sha256 "38c011278d0409f81be589f7e4e98ef72c41dc0cfca818c6048dfd5e47daee43" => :sierra
     sha256 "987bffa2f0c375cf8f96ec8d3f19119643a41fa90a8cca5dc20d4b4482d2a387" => :el_capitan
     sha256 "54ceb61339174bedfc87aca62f4a02600e1213c8ed694ae578d2978393f38a53" => :yosemite
+    sha256 "5220ba48703d01622327476e831b79b0007147eeb14646778e0ef1c942543918" => :x86_64_linux
   end
 
   def install
