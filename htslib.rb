@@ -1,8 +1,8 @@
 class Htslib < Formula
   desc "C library for high-throughput sequencing data formats"
   homepage "http://www.htslib.org/"
-  url "https://github.com/samtools/htslib/releases/download/1.4/htslib-1.4.tar.bz2"
-  sha256 "5cfc8818ff45cd6e924c32fec2489cb28853af8867a7ee8e755c4187f5883350"
+  url "https://github.com/samtools/htslib/releases/download/1.4.1/htslib-1.4.1.tar.bz2"
+  sha256 "85d2dd59ffa614a307d64e9f74a9f999f0912661a8b802ebcc95f537d39933b3"
   head "https://github.com/samtools/htslib.git"
   # tag "bioinformatics"
 
@@ -15,6 +15,10 @@ class Htslib < Formula
   end
 
   depends_on "xz"
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "zlib"
+  end
 
   def install
     system "make", "install", "prefix=#{prefix}"
