@@ -9,10 +9,9 @@ class Wiggletools < Formula
 
   bottle do
     cellar :any
-    sha256 "9f6500335040898f1f7db2466d209fb974d0cf947a30ff35e0af69a4cffa07d6" => :sierra
-    sha256 "3e39c9ffafb0e06f67d9c1a12c8e0c9ec4927c6dbb84e6faf0e221a0a53ab982" => :el_capitan
-    sha256 "19c386d78ae9b362a242abcc791f438660e9cf73e9a815cea819163f0bba8178" => :yosemite
-    sha256 "febac21f09147b0d8191a3136714874111fb35b0ec5a2f12af7dcbb4eba5ae3a" => :x86_64_linux
+    sha256 "cc1cf9094b43d9dd6a1cbd7d197122dae92e9e405bf2240481ac320d42d46222" => :sierra
+    sha256 "6b9e8b7572086b797009999007acbcfeee1d0b2ce8e093b0ff88e7812133306b" => :el_capitan
+    sha256 "d6a873265cbf99d142902e6c7d5b67cc59a85ae35585c90db87a87c2c5c41323" => :yosemite
   end
 
   depends_on "htslib"
