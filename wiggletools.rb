@@ -12,6 +12,7 @@ class Wiggletools < Formula
     sha256 "cc1cf9094b43d9dd6a1cbd7d197122dae92e9e405bf2240481ac320d42d46222" => :sierra
     sha256 "6b9e8b7572086b797009999007acbcfeee1d0b2ce8e093b0ff88e7812133306b" => :el_capitan
     sha256 "d6a873265cbf99d142902e6c7d5b67cc59a85ae35585c90db87a87c2c5c41323" => :yosemite
+    sha256 "e088b11a3150b631e80534a5fb77637f6a5889e1559d617976b81a2001fc2753" => :x86_64_linux
   end
 
   depends_on "htslib"
