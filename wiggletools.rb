@@ -1,9 +1,8 @@
 class Wiggletools < Formula
   desc "Compute genome-wide statistics with composable iterators"
   homepage "https://github.com/Ensembl/WiggleTools"
-  url "https://github.com/Ensembl/WiggleTools/archive/v1.2.1.tar.gz"
-  sha256 "906d32e281fe234b3eacbe569c21e68d61aca3d0ef2eec501e4efd61799be4ee"
-  revision 1
+  url "https://github.com/Ensembl/WiggleTools/archive/v1.2.2.tar.gz"
+  sha256 "e9e75b09bcc8aeb012c49937c543e2b05379d3983ba8f6798ca8d6a4171702d9"
   head "https://github.com/Ensembl/WiggleTools.git"
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btt737"
@@ -21,8 +20,8 @@ class Wiggletools < Formula
   depends_on "curl" unless OS.mac?
 
   resource "libbigwig" do
-    url "https://github.com/dpryan79/libBigWig/archive/0.3.0.tar.gz"
-    sha256 "221002fe249e8099009f0790f44bfe991e85cb23763cf5fc494e745c0160edc2"
+    url "https://github.com/dpryan79/libBigWig/archive/0.3.3.tar.gz"
+    sha256 "85b5c930bedf9eef84e44c8d4faec28bcffc74362ad56ac3d4321f0e1b532199"
   end
 
   def install
