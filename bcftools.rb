@@ -7,10 +7,9 @@ class Bcftools < Formula
   sha256 "d7d0871846005c653f5e2e78e434f7f9b846ab245ab5c1cd4224ecbf52d99d08"
 
   bottle do
-    sha256 "141a227a417c9b0fbf77757aa88f66cf90cc8ed3b6f2bc74e144a79fab7ca91b" => :sierra
-    sha256 "ebb0b0c0b1054176fe2f10473add3c8076ae777f26f2a6b81089dca4d21f1afc" => :el_capitan
-    sha256 "679e25baca499bde02c11ed993a9eca1b7738f3f21804e9f817c63ddb06d3386" => :yosemite
-    sha256 "bfa3c9e18c5915b2af83a9b16c2277b6bfa2229ae37183dbd14e60ca61729ffe" => :x86_64_linux
+    sha256 "1ff54e0673300dd10e955f506c72d95d230977799156929b22c24889080b1401" => :sierra
+    sha256 "27d79f1244ec79a028c9a8432def58ad906fc8ff3661c72f51d5d8d8808db11a" => :el_capitan
+    sha256 "bba50d9490ae5f7b671ef24ee0bf11a41b858d0642aad31d644b4291fa4c94f6" => :yosemite
   end
 
   option "with-gsl", "Enable polysomy command. Makes licence GPL3 not MIT/Expat."
