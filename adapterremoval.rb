@@ -9,9 +9,9 @@ class Adapterremoval < Formula
 
   bottle do
     cellar :any
-    sha256 "df8e67f8518c8bf15ffe93b644b5fd77dfadfd686d7cdc9eb096ca88176cbc2f" => :sierra
-    sha256 "710e9ecdabfff6400c2059415505a77aea67eb15076ddadf63f76b54e7505a26" => :el_capitan
-    sha256 "71c311b9d04c31e82a71a4fc4b4b748afd3ddb06881cbef4ad3e5cd3bd19410d" => :yosemite
+    sha256 "a80659b06804bcced83f8987f2911070ca32e45591b3f777a632a4db9bea46b2" => :sierra
+    sha256 "ec63493a169d2b49cd323742d18841dd1f5412cdae35f084ea1ced19516a8fb0" => :el_capitan
+    sha256 "1804750cf4c2b0eef95f132fc0523b8c1fa17faa741a8becdb98de59d4cb48bb" => :yosemite
   end
 
   depends_on "bzip2" => :recommended
