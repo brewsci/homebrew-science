@@ -4,6 +4,7 @@ class Htslib < Formula
   url "https://github.com/samtools/htslib/releases/download/1.4.1/htslib-1.4.1.tar.bz2"
   sha256 "85d2dd59ffa614a307d64e9f74a9f999f0912661a8b802ebcc95f537d39933b3"
   head "https://github.com/samtools/htslib.git"
+  revision 1
   # tag "bioinformatics"
 
   bottle do
@@ -18,9 +19,11 @@ class Htslib < Formula
   unless OS.mac?
     depends_on "bzip2"
     depends_on "zlib"
+    depends_on "curl"
   end
 
   def install
+    system "./configure", "--enable-libcurl"
     system "make", "install", "prefix=#{prefix}"
     pkgshare.install "test"
   end
