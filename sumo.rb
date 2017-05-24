@@ -1,8 +1,8 @@
 class Sumo < Formula
   desc "Simulation of Urban Mobility"
   homepage "https://sourceforge.net/projects/sumo/"
-  url "https://downloads.sourceforge.net/project/sumo/sumo/version%200.29.0/sumo-all-0.29.0.tar.gz"
-  sha256 "e6ba07ea9fdd93505e42e135a15ffc6727b877be02d649b7f31d102551155e65"
+  url "https://downloads.sourceforge.net/project/sumo/sumo/version%200.30.0/sumo-src-0.30.0.tar.gz"
+  sha256 "2f0825507d756979658061847f47c5d91ec2e5c07e7ebd8839a31ab08ecde742"
 
   bottle do
     cellar :any
