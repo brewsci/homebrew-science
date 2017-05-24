@@ -1,4 +1,5 @@
-class Samtools01 < Formula
+class SamtoolsAT01 < Formula
+  desc "Tools for manipulating next-generation sequencing data"
   homepage "https://samtools.sourceforge.io/"
   # doi "10.1093/bioinformatics/btp352"
   # tag "bioinformatics"
@@ -14,13 +15,15 @@ class Samtools01 < Formula
     sha256 "f23f37c4afe69f7516cd3d1630ec50478e651bdc29ef5cefe1ee910d3575e308" => :x86_64_linux
   end
 
+  keg_only :versioned_formula
+
   option "with-dwgsim", "Build with 'Whole Genome Simulation'"
   option "without-bcftools", "Do not install BCFtools"
 
-  depends_on "ncurses" unless OS.mac?
-
-  conflicts_with "samtools"
-  conflicts_with "bcftools"
+  unless OS.mac?
+    depends_on "ncurses"
+    depends_on "zlib"
+  end
 
   resource "dwgsim" do
     # http://sourceforge.net/apps/mediawiki/dnaa/index.php?title=Whole_Genome_Simulation
