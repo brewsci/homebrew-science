@@ -6,9 +6,9 @@ class Therion < Formula
   revision 3
 
   bottle do
-    sha256 "216b16038889a32efa33f2907ad8192d57be7edcac41f5f904447233c749df57" => :sierra
-    sha256 "4d7569ce586aaccd35a9a4f2e0037c7dd8c8c7acb020cf3fe211a4589adc7536" => :el_capitan
-    sha256 "bdff18440f953e05e71fff399c40d24b5e3ed05e1a3fc733a5471f1b6f3214eb" => :yosemite
+    sha256 "0007c14f7f19f1b6397fe58c367548b18ee27519b20820d53076f1453d3b0dee" => :sierra
+    sha256 "452c8adc1c96ca72e660c155ae84817b7f277567b72a9c3df29b4afa73267009" => :el_capitan
+    sha256 "065654456caef31f092baddccad66f9af6c420f3175cc065f97fd6e1d18c18cd" => :yosemite
   end
 
   depends_on "freetype"
