@@ -1,9 +1,9 @@
 class Snid < Formula
   desc "Determine redshifts, type, and age of Type Ia supernovae"
-  homepage "http://people.lam.fr/blondin.stephane/software/snid"
-  url "http://people.lam.fr/blondin.stephane/software/snid/snid-5.0.tar.gz"
+  homepage "https://people.lam.fr/blondin.stephane/software/snid"
+  url "https://people.lam.fr/blondin.stephane/software/snid/snid-5.0.tar.gz"
   sha256 "22199803971fdd1bb394a550e81da661bd315224827373aae67408166873ec5c"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
@@ -20,12 +20,12 @@ class Snid < Formula
   depends_on "pgplot"
 
   resource "templates" do
-    url "http://people.lam.fr/blondin.stephane/software/snid/templates-2.0.tgz"
+    url "https://people.lam.fr/blondin.stephane/software/snid/templates-2.0.tgz"
     sha256 "c4bbe8795bd48dc21d707bfcb84e09ca5dca84034e54659523478a61571663db"
   end
 
   resource "bsnip_templates" do
-    url "http://hercules.berkeley.edu/database/BSNIPI/bsnip_v7_snid_templates.tar.gz"
+    url "http://heracles.astro.berkeley.edu/sndb/static/BSNIPI/bsnip_v7_snid_templates.tar.gz"
     sha256 "e3db3a08667c9adc4ab826b2a10f0d2a48010b81cb9418875df5f23c0cba9605"
     version "7"
   end
