@@ -6,10 +6,9 @@ class Snid < Formula
   revision 5
 
   bottle do
-    cellar :any
-    sha256 "24e4392dd655d944865613096e83a84e930636e365af4dda7504113369a33e98" => :sierra
-    sha256 "e1700f150593fd016cd5d2bc7e685f0a00459ab6685885c46f93c3c0cf61671a" => :el_capitan
-    sha256 "6e1be072e6f208049b604eaa7afc398e76a127f96fff28326a4a3ebfc4a4ac16" => :yosemite
+    sha256 "bc293aec48202ceee8a75a9b833251c0fbd7664ef749d5e732e452c2f0c95905" => :sierra
+    sha256 "92d0fe0aebc1635bba087ba2b11afbc0bc0cb75ee97c33134009432fcda04c91" => :el_capitan
+    sha256 "f97167fc4bc13827338ef498d44655c8b96c01c1a65186086d4bcbabadc0d169" => :yosemite
   end
 
   depends_on "autoconf" => :build
