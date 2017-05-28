@@ -4,10 +4,9 @@ class Swetest < Formula
   sha256 "e2e3ac2cee53b38865b071f6d86ae0a05e0f608fbf3acc569104589d5a23576f"
 
   bottle do
-    rebuild 1
-    sha256 "976eac94471025db6abbe500edb9a98eb17e903632794620a8a97a2ba6059bf5" => :yosemite
-    sha256 "5fac3c730b4c69804fb54198a513067c83a51d080a5d8e6e243e3169b8e10d9c" => :mavericks
-    sha256 "705b0a2d4d7c3fbfaccad6bcb6137eafe4360464b028ebe0eb4aab8ca945bb1f" => :mountain_lion
+    sha256 "9f4505f1cad7674e45f4e01f7a8897ae82f876cd99e93519a9c11f424c598e3e" => :sierra
+    sha256 "0a0448ef411bf683adcb425a8abfae4c2d5c10ef788c4ee6b6835672313490e5" => :el_capitan
+    sha256 "0224a908fb30d63663c06e73be5b2040802982c0c07005adf1b955664e60856e" => :yosemite
   end
 
   resource "seasnam" do
