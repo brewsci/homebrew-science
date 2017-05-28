@@ -6,6 +6,7 @@ class Diamond < Formula
 
   url "https://github.com/bbuchfink/diamond/archive/v0.9.2.tar.gz"
   sha256 "f22e68c5672f249ed5632ac0c9689e05db3af9e778b5aabf70e6e5da42a8aa0d"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +17,6 @@ class Diamond < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "boost"
   depends_on "zlib" unless OS.mac?
 
   def install
