@@ -7,6 +7,7 @@ class Swetest < Formula
     sha256 "9f4505f1cad7674e45f4e01f7a8897ae82f876cd99e93519a9c11f424c598e3e" => :sierra
     sha256 "0a0448ef411bf683adcb425a8abfae4c2d5c10ef788c4ee6b6835672313490e5" => :el_capitan
     sha256 "0224a908fb30d63663c06e73be5b2040802982c0c07005adf1b955664e60856e" => :yosemite
+    sha256 "c40f2e402aa625e66eeffb520c079bb2313f330e61404a592fa08977eada5782" => :x86_64_linux
   end
 
   resource "seasnam" do
