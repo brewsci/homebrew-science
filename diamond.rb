@@ -4,9 +4,8 @@ class Diamond < Formula
   # doi "10.1038/nmeth.3176"
   # tag "bioinformatics"
 
-  url "https://github.com/bbuchfink/diamond/archive/v0.9.2.tar.gz"
-  sha256 "f22e68c5672f249ed5632ac0c9689e05db3af9e778b5aabf70e6e5da42a8aa0d"
-  revision 1
+  url "https://github.com/bbuchfink/diamond/archive/v0.9.3.tar.gz"
+  sha256 "43d385e494944f4a498d5360742795035f06112f83529e5e731b14d5368d45bb"
 
   bottle do
     cellar :any_skip_relocation
