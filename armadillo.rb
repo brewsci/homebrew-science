@@ -1,8 +1,8 @@
 class Armadillo < Formula
   desc "C++ linear algebra library"
   homepage "https://arma.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-7.900.1.tar.xz"
-  sha256 "33eec7013990b5477ccc5ad3abc68bc2326c7a7a2790014d625cfcf37c0e07d3"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-7.950.0.tar.xz"
+  sha256 "da89281959d48c60ce546dd370ef712ec1e24714e1e9afadad17dd2fbbc5876e"
 
   bottle do
     cellar :any
