@@ -15,25 +15,12 @@ class Wiggletools < Formula
     sha256 "e088b11a3150b631e80534a5fb77637f6a5889e1559d617976b81a2001fc2753" => :x86_64_linux
   end
 
-  depends_on "htslib"
-  depends_on "gsl"
   depends_on "curl" unless OS.mac?
-
-  resource "libbigwig" do
-    url "https://github.com/dpryan79/libBigWig/archive/0.3.3.tar.gz"
-    sha256 "85b5c930bedf9eef84e44c8d4faec28bcffc74362ad56ac3d4321f0e1b532199"
-  end
+  depends_on "gsl"
+  depends_on "htslib"
+  depends_on "libbigwig"
 
   def install
-    resource("libbigwig").stage do
-      system "make", "install", "prefix=#{prefix}"
-      include.install "bigWig.h"
-      lib.install "libBigWig.a", "libBigWig.so"
-    end
-
-    cp Dir.glob(include/"*.h"), "src"
-    mkdir_p "lib"
-    cp lib/"libBigWig.a", "lib"
     system "make"
     pkgshare.install "test"
     lib.install "lib/libwiggletools.a"
