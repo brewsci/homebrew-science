@@ -9,10 +9,9 @@ class Kaiju < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "499974be14c54c90110e2a83a739ebb9eab04c2c9ea826079c13320aad51c27e" => :sierra
-    sha256 "7f153714f6ca82b32ece4d1204aa7e625c777a5929cccf1e575916dfcf2f6e7c" => :el_capitan
-    sha256 "02ffa74401420205885e4433db256a45033d2a642942c0d87df4f19155591da3" => :yosemite
-    sha256 "b9fa0b040e3659fb5239306ddaef027060d030935befbc9a2920d67482118c07" => :x86_64_linux
+    sha256 "83d0ca10f86875d29fc6312b17b012d12c10f3af6dab1b61b2e832f87651aed7" => :sierra
+    sha256 "5143dbaaea8fe258c67cf19a17cbe958c3eef2fbd38bb224036acba9bfb3c089" => :el_capitan
+    sha256 "11ccc63d76f9e131aa600a291eff87e4ded5a9d6bf0812081843fed161c1b977" => :yosemite
   end
 
   def install
