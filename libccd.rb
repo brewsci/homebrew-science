@@ -3,7 +3,7 @@ class Libccd < Formula
   url "https://github.com/danfis/libccd/archive/v2.0.tar.gz"
   sha256 "1b4997e361c79262cf1fe5e1a3bf0789c9447d60b8ae2c1f945693ad574f9471"
   head "https://github.com/danfis/libccd.git"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -12,10 +12,20 @@ class Libccd < Formula
     sha256 "9ad6f74a1906d1bbfbc9730a48736f453d016464c977432d0101ae4bc357bc93" => :mavericks
   end
 
+  option "with-single-precision", "Use single precision"
+
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args
+
+    if build.with? "single-precision"
+      args << "-DCCD_SINGLE=True"
+    else
+      args << "-DCCD_DOUBLE=True"
+    end
+
+    system "cmake", ".", *args
     system "make", "install"
   end
 
