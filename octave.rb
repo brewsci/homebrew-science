@@ -214,7 +214,7 @@ class Octave < Formula
             system "make"
             system "make", "install"
           end
-          libexec_qsci.install "Changelog", "LICENSE", "NEWS", "README"
+          libexec_qsci.install "ChangeLog", "LICENSE", "NEWS", "README"
         end
         # fix up lib ID, which has no path
         MachO::Tools.change_dylib_id("#{libexec_qsci}/lib/libqscintilla2_qt5.dylib",
