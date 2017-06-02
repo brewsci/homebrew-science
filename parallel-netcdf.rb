@@ -6,9 +6,9 @@ class ParallelNetcdf < Formula
   revision 1
 
   bottle do
-    sha256 "b92b5215732879b47567fdaf624389f3ffa0de15139894987142c52bdc6b6474" => :el_capitan
-    sha256 "9236dcb918df510933bcca44a10372a28c109c2fe6f1f30fc060b1e36b9a6dc5" => :yosemite
-    sha256 "80b2151a528e52322f657b122b14e380dc3080bba30fe34eb8f9bc2e15515ce6" => :mavericks
+    sha256 "4602d7625d9dba89adac1d1fbce53853f2a7c8cd3bf628008c9696512cd11e69" => :sierra
+    sha256 "26b180d67bf32881e36f5a076cf678f8634bf2633cf8f7057ca68c78c2c76d0c" => :el_capitan
+    sha256 "20dd9e6b5aaccffe892a65debd87550326a8c1b180e4355d0ed1a295d033323d" => :yosemite
   end
 
   option "without-cxx", "Don't compile C++ bindings"
