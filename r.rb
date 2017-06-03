@@ -93,7 +93,7 @@ class R < Formula
 
     if build.with? "valgrind"
       args << "--with-valgrind-instrumentation=2"
-      ENV.Og
+      ENV.O0
     end
 
     if build.with? "openblas"
