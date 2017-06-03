@@ -7,9 +7,9 @@ class Libccd < Formula
 
   bottle do
     cellar :any
-    sha256 "d23aeb24c111b74c1fa0bd0baddecdae3cf47e8e1a4c90e84373f7d5f2ef5ffe" => :el_capitan
-    sha256 "336624be19dfcd178a5ca2aaaeaf2ac959c50cb3acd2e5239a00d204a232b553" => :yosemite
-    sha256 "9ad6f74a1906d1bbfbc9730a48736f453d016464c977432d0101ae4bc357bc93" => :mavericks
+    sha256 "042f76f2faba70f4afd7772865014acf1e18b4596e55cbca4be4414bfdd7d7c5" => :sierra
+    sha256 "73dc3083059a205688fc3edf3c49a5277fdb3566b0d0a2e3217d43b79b14093c" => :el_capitan
+    sha256 "52cc90f9245c514ab30cf1b5d5af292dfd014c804556b0fd0f07afe431c7bf87" => :yosemite
   end
 
   option "with-single-precision", "Use single precision"
