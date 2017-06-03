@@ -1,7 +1,9 @@
 class Biopieces < Formula
   desc "Bioinformatic framework"
   homepage "https://github.com/maasha/biopieces"
-  url "https://github.com/maasha/biopieces/archive/2.0.tar.gz"
+  url "https://github.com/maasha/biopieces.git",
+    :tag => "2.0",
+    :revision => "982f80f7c55e2cae67737d80fe35a4e784762856"
   sha256 "484877c4a844ed1e6c70594248c44b9f19a6e7a1fd08456e28f2cc83425151e8"
   head "https://github.com/maasha/biopieces.git"
   # tag "bioinformatics"
