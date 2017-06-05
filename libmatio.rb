@@ -3,6 +3,7 @@ class Libmatio < Formula
   homepage "https://matio.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/matio/matio/1.5.10/matio-1.5.10.tar.gz"
   sha256 "41209918cebd8cc87a4aa815fed553610911be558f027aee54af8b599c78b501"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,13 +13,9 @@ class Libmatio < Formula
     sha256 "177f242f7d4647e523081e52709cf559569f944fd0ef400f2a8a48d82c8c9296" => :x86_64_linux
   end
 
-  option "with-hdf5", "Enable support for newer MAT files that use the HDF5-format"
-
-  depends_on "hdf5" => :optional
-
   # sample MATLAB file from http://web.uvic.ca/~monahana/eos225/matlab_tutorial/tutorial_5/working_with_data.html
   resource "test_mat_file" do
-    url "http://web.uvic.ca/~monahana/eos225/poc_data.mat.sfx"
+    url "https://web.uvic.ca/~monahana/eos225/poc_data.mat.sfx"
     sha256 "a29df222605476dcfa660597a7805176d7cb6e6c60413a3e487b62b6dbf8e6fe"
   end
 
@@ -27,13 +24,9 @@ class Libmatio < Formula
       --prefix=#{prefix}
       --with-zlib=/usr
       --enable-extended-sparse=yes
+      --with-hdf5=#{Formula["hdf5"].opt_prefix}
+      --enable-mat73=yes
     ]
-
-    if build.with? "hdf5"
-      args << "--with-hdf5=#{HOMEBREW_PREFIX}" << "--enable-mat73=yes"
-    else
-      args << "--with-hdf5=no"
-    end
 
     system "./configure", *args
     system "make"
