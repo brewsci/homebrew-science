@@ -7,10 +7,9 @@ class Libmatio < Formula
 
   bottle do
     cellar :any
-    sha256 "65febf628ca9bd6a04f060f8279d5abd568daf9e1b17ec84dbfa8ee3825d7fff" => :sierra
-    sha256 "3062b7b996e230517d31621c97815f83e9b0adce3adc466c88a68caa9878479f" => :el_capitan
-    sha256 "0a42d84e71a5a47036b6e7fa6ae1dccc6fc1d5ec9bfb8c696e162192a2c9605e" => :yosemite
-    sha256 "177f242f7d4647e523081e52709cf559569f944fd0ef400f2a8a48d82c8c9296" => :x86_64_linux
+    sha256 "4ddf545b7d22fbe06f87781d41c5133f08e5f445079ae49778257884693291f1" => :sierra
+    sha256 "8f282fcfc63bb6816e17c687f45db8be5887ea371cad9bc10308c84092b2ed21" => :el_capitan
+    sha256 "bbd4fa83a5d321555452ea243e826ec1812348e1e504d50558b8407b887b0287" => :yosemite
   end
 
   # sample MATLAB file from http://web.uvic.ca/~monahana/eos225/matlab_tutorial/tutorial_5/working_with_data.html
