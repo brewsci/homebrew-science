@@ -1,9 +1,8 @@
 class Insighttoolkit < Formula
   desc "ITK is a toolkit for performing registration and segmentation"
   homepage "https://www.itk.org"
-  url "https://downloads.sourceforge.net/project/itk/itk/4.11/InsightToolkit-4.11.1.tar.gz"
-  sha256 "ac7cf8f1cc98fb65b563dae66548b620a5a2d97f898ec03125cc0c92c714b8a5"
-  revision 1
+  url "https://downloads.sourceforge.net/project/itk/itk/4.12/InsightToolkit-4.12.0.tar.gz"
+  sha256 "fd9d2a5df6795e52824f1fc158d7532fdadc0031302c29e5d593ada147bf337a"
   head "git://itk.org/ITK.git"
 
   bottle do
@@ -58,9 +57,9 @@ class Insighttoolkit < Formula
       -DModule_SCIFIO=ON
     ]
     args << ".."
-    args << "-DBUILD_EXAMPLES=" + ((build.include? "examples") ? "ON" : "OFF")
-    args << "-DModule_ITKVideoBridgeOpenCV=" + ((build.with? "opencv") ? "ON" : "OFF")
-    args << "-DITKV3_COMPATIBILITY:BOOL=" + ((build.with? "itkv3-compatibility") ? "ON" : "OFF")
+    args << "-DBUILD_EXAMPLES=" + (build.include?("examples") ? "ON" : "OFF")
+    args << "-DModule_ITKVideoBridgeOpenCV=" + (build.with?("opencv") ? "ON" : "OFF")
+    args << "-DITKV3_COMPATIBILITY:BOOL=" + (build.with?("itkv3-compatibility") ? "ON" : "OFF")
 
     args << "-DITK_USE_SYSTEM_FFTW=ON" << "-DITK_USE_FFTWF=ON" << "-DITK_USE_FFTWD=ON" if build.with? "fftw"
     args << "-DITK_USE_SYSTEM_HDF5=ON" if build.with? "hdf5"
