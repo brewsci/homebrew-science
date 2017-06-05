@@ -10,6 +10,7 @@ class Libmatio < Formula
     sha256 "4ddf545b7d22fbe06f87781d41c5133f08e5f445079ae49778257884693291f1" => :sierra
     sha256 "8f282fcfc63bb6816e17c687f45db8be5887ea371cad9bc10308c84092b2ed21" => :el_capitan
     sha256 "bbd4fa83a5d321555452ea243e826ec1812348e1e504d50558b8407b887b0287" => :yosemite
+    sha256 "51c3bc63f74da9aaf32452689952a1670e8bd1c587f42c4f9c205fc775523980" => :x86_64_linux
   end
 
   # sample MATLAB file from http://web.uvic.ca/~monahana/eos225/matlab_tutorial/tutorial_5/working_with_data.html
