@@ -7,6 +7,13 @@ class Openmeeg < Formula
 
   head "https://github.com/openmeeg/openmeeg.git"
 
+  bottle do
+    cellar :any
+    sha256 "f1dabe4afb7c10db77e35f1f6545ca92c00f02fda62727e076cd3340154a5fe0" => :sierra
+    sha256 "d15f2a93dfd57aa840377e4406e733c9b845af509b1ec0b5f877b375aebf6f80" => :el_capitan
+    sha256 "8cd1e3c19bcb20cb728d20e69450b9309e4f26dd8655f1ac161f0a8a55b0cfa8" => :yosemite
+  end
+
   depends_on "cmake" => :build
   depends_on "hdf5"
   depends_on "libmatio"
