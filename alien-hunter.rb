@@ -1,6 +1,13 @@
 class AlienHunter < Formula
   desc "Identification of Horizontally Acquired DNA"
   homepage "https://www.sanger.ac.uk/science/tools/alien-hunter"
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "d2bb9e4c3ca641bbdef8233e69eb5b36effd844cdeff6946dbc3dedd58e9632e" => :sierra
+    sha256 "7095286b88c0b90a47d675ba2704bddc6092bb5bc9a8c43c1c8b576619242187" => :el_capitan
+    sha256 "7095286b88c0b90a47d675ba2704bddc6092bb5bc9a8c43c1c8b576619242187" => :yosemite
+  end
+
   # doi "10.1093/bioinformatics/btl369"
   # tag "bioinformatics"
 
