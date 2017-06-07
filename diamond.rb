@@ -4,8 +4,8 @@ class Diamond < Formula
   # doi "10.1038/nmeth.3176"
   # tag "bioinformatics"
 
-  url "https://github.com/bbuchfink/diamond/archive/v0.9.4.tar.gz"
-  sha256 "74eaa16ff95051f11d4c30cf425c35e577093843f105f10909b22d7610fccf32"
+  url "https://github.com/bbuchfink/diamond/archive/v0.9.6.tar.gz"
+  sha256 "1e71a2a50aca46c46f1ac1647bbf8ec7b5c59b3c488b398f7dfb966416080af9"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,6 +17,11 @@ class Diamond < Formula
 
   depends_on "cmake" => :build
   depends_on "zlib" unless OS.mac?
+
+  patch do
+    url "https://github.com/bbuchfink/diamond/commit/0b15aa3.patch"
+    sha256 "0c78f66bd115783d5f8f86e21e958d3b84c05c225dcaed05d942e0e74ac2c22e"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args
