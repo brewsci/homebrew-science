@@ -9,11 +9,9 @@ class Mummer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 3
-    sha256 "cb364eccca060e00b858efb9ff9d1b4fc019e75fb6547a0f678092c1f9b976c8" => :sierra
-    sha256 "379cb6612e658485c9cd3f4e8faad31f0fc4a5134e39b1eab7ed023a150ed62a" => :el_capitan
-    sha256 "e7aa1f70d35e3e4d6fb4d0192e09b6a919894a704a776ee2a1cf3bbf1d54d6b0" => :yosemite
-    sha256 "4ab33bf5a4da3559d4ab5f2e26ff0e5cb38069169697519d73e3d953b94cc748" => :x86_64_linux
+    sha256 "92a632236c115bb1b36f18e1a1eda4e7c654b634fa3f1c3efbc3d0d4628ab399" => :sierra
+    sha256 "f959fe1436ab925952dcc51854fc1954e145305895a28268bf0bd894a098ed8f" => :el_capitan
+    sha256 "7820dd18cb5b874424d5227e4ab3504e451268894846be3e1be49020f83337e7" => :yosemite
   end
 
   conflicts_with "gd", :because => "/usr/local/bin/annotate is a symlink belonging to gd"
