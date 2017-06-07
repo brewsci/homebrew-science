@@ -3,7 +3,7 @@ class Libmatio < Formula
   homepage "https://matio.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/matio/matio/1.5.10/matio-1.5.10.tar.gz"
   sha256 "41209918cebd8cc87a4aa815fed553610911be558f027aee54af8b599c78b501"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -12,6 +12,8 @@ class Libmatio < Formula
     sha256 "bbd4fa83a5d321555452ea243e826ec1812348e1e504d50558b8407b887b0287" => :yosemite
     sha256 "51c3bc63f74da9aaf32452689952a1670e8bd1c587f42c4f9c205fc775523980" => :x86_64_linux
   end
+
+  depends_on "hdf5"
 
   # sample MATLAB file from http://web.uvic.ca/~monahana/eos225/matlab_tutorial/tutorial_5/working_with_data.html
   resource "test_mat_file" do
