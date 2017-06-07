@@ -1,11 +1,11 @@
 class Mummer < Formula
   desc "Alignment of large-scale DNA and protein sequences"
   homepage "https://mummer.sourceforge.io/"
-  # doi "10.1186/gb-2004-5-2-r12"
-  # tag "bioinformatics"
-
   url "https://downloads.sourceforge.net/project/mummer/mummer/3.23/MUMmer3.23.tar.gz"
   sha256 "1efad4f7d8cee0d8eaebb320a2d63745bb3a160bb513a15ef7af46f330af662f"
+  revision 1
+  # doi "10.1186/gb-2004-5-2-r12"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,13 +16,14 @@ class Mummer < Formula
     sha256 "4ab33bf5a4da3559d4ab5f2e26ff0e5cb38069169697519d73e3d953b94cc748" => :x86_64_linux
   end
 
+  conflicts_with "gd", :because => "/usr/local/bin/annotate is a symlink belonging to gd"
+
   depends_on "tcsh" unless OS.mac?
 
-  # annotate conflicts with gd
   TOOLS = %w[
-    combineMUMs delta-filter dnadiff exact-tandems mapview mgaps
-    mummer mummerplot nucmer promer repeat-match
-    run-mummer1 run-mummer3 show-coords show-diff show-snps show-tiling
+    annotate combineMUMs delta-filter dnadiff exact-tandems gaps mapview mgaps
+    mummer mummerplot nucmer nucmer2xfig promer repeat-match
+    run-mummer1 run-mummer3 show-aligns show-coords show-diff show-snps show-tiling
   ].freeze
 
   def install
@@ -36,6 +37,8 @@ class Mummer < Formula
 
   test do
     TOOLS.each do |tool|
+      # Skip two tools that do not have a help flag
+      next if ["gaps", "nucmer2xfig"].include?(tool.to_s)
       assert_match /U(sage|SAGE)/, pipe_output("#{bin}/#{tool} -h 2>&1")
     end
   end
