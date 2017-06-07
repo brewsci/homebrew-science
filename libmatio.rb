@@ -7,10 +7,9 @@ class Libmatio < Formula
 
   bottle do
     cellar :any
-    sha256 "4ddf545b7d22fbe06f87781d41c5133f08e5f445079ae49778257884693291f1" => :sierra
-    sha256 "8f282fcfc63bb6816e17c687f45db8be5887ea371cad9bc10308c84092b2ed21" => :el_capitan
-    sha256 "bbd4fa83a5d321555452ea243e826ec1812348e1e504d50558b8407b887b0287" => :yosemite
-    sha256 "51c3bc63f74da9aaf32452689952a1670e8bd1c587f42c4f9c205fc775523980" => :x86_64_linux
+    sha256 "34fae6eb55f4e89cac866d742280c61c646acc7f01df1c3634905c2b5814e2ac" => :sierra
+    sha256 "56609562e31c329cfb00b1dd1afcb6e451eb90988e1d85c5eb3397f7db368a56" => :el_capitan
+    sha256 "e3cbabed01e29d33f1144c3a826688cc5508f00800dcdf39bc86a172887fb1d3" => :yosemite
   end
 
   depends_on "hdf5"
