@@ -10,6 +10,7 @@ class Cufflinks < Formula
     sha256 "e20dea99324c0d39e570741a643d3f7d75e5d3ece9c278d2102480bf5be01bf9" => :sierra
     sha256 "0a25110bb25213a1260bb635c5ca4195c08d4203d8efa266d36707b6925258b1" => :el_capitan
     sha256 "789fd165d673c2c1dfefe2ed403b28781a0f5f608edb588c3af781a4670b9555" => :yosemite
+    sha256 "6fd99d261e0a9439018b17252e04d3fe6456888301a575a97e3c74f576b20885" => :x86_64_linux
   end
 
   if OS.mac? && MacOS.version == :mavericks
