@@ -8,11 +8,10 @@ class SamtoolsAT01 < Formula
   sha256 "500019b4d1886ad995513d5ce8b413b14b51f16f251ce76bc0b35a446b182a47"
 
   bottle do
-    cellar :any
-    sha256 "acd7f43c7c12af030a02831aaead36711a41a4bda60fe4a406020b72e77cec3a" => :yosemite
-    sha256 "fffd6868c552e316ae0055d9a695aea5107a5303e88f313360c34ef11ef40097" => :mavericks
-    sha256 "8238ae7e31e946ac98c259fccdecdcd929368257f4c174e8b17938a9f6e9d7a9" => :mountain_lion
-    sha256 "f23f37c4afe69f7516cd3d1630ec50478e651bdc29ef5cefe1ee910d3575e308" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "94daeca01f8f12745a5e19eecd6fdf85e0202dd2dfdbfc999c9c57e591ab4f6b" => :sierra
+    sha256 "5fb71541a4b39224489f36de9926fd1e95ae172b7a17eff0e11287861012ee4f" => :el_capitan
+    sha256 "b9160636c1aca2857dca85da201ee92836792c7c2b9dae421b57331e359d8032" => :yosemite
   end
 
   keg_only :versioned_formula
