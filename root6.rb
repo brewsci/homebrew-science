@@ -2,10 +2,9 @@ class Root6 < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
   url "https://root.cern.ch/download/root_v6.08.06.source.tar.gz"
-  mirror "https://fossies.org/linux/misc/root_v6.08.06.source.tar.gz"
   version "6.08.06"
   sha256 "ea31b047ba6fc04b0b312667349eaf1498a254ccacd212144f15ffcb3f5c0592"
-  revision 1
+  revision 2
 
   head "http://root.cern.ch/git/root.git"
 
@@ -16,6 +15,7 @@ class Root6 < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "graphviz"
   depends_on "xrootd" => :optional
   depends_on "fftw" => :optional
   depends_on "openssl" => :recommended # use homebrew's openssl
@@ -30,7 +30,7 @@ class Root6 < Formula
   needs :cxx11
 
   def config_opt(opt, pkg = opt)
-    "-D#{opt}=#{(build.with? pkg) ? "ON" : "OFF"}"
+    "-D#{opt}=#{build.with? pkg ? "ON" : "OFF"}"
   end
 
   def install
@@ -90,8 +90,8 @@ class Root6 < Formula
       args << "-DPYTHON_INCLUDE_DIR='#{python_include}'"
       args << "-DPYTHON_LIBRARY='#{python_library}'"
     end
-    args << "-Dpython=" + ((build.with? "python") ? "ON" : "OFF")
-    args << "-Dpython3=" + ((build.with? "python3") ? "ON" : "OFF")
+    args << "-Dpython=" + (build.with?("python") ? "ON" : "OFF")
+    args << "-Dpython3=" + (build.with?("python3") ? "ON" : "OFF")
 
     # ROOT forbids running CMake in the root of the source directory,
     # so run in a subdirectory (there's already one called `build`)
