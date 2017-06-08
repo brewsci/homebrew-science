@@ -1,3 +1,4 @@
 {
-  "tabix": "homebrew/boneyard"
+  "tabix": "homebrew/boneyard",
+  "vips": "homebrew/core"
 }
