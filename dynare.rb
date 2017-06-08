@@ -76,11 +76,6 @@ class Dynare < Formula
     args << "--disable-octave" if build.without? "octave"
 
     if build.head?
-      # Work around "Input line too long. (l. 104)"
-      inreplace "dynare++/kord/journal.cweb",
-        "#if !defined(__MINGW32__) && !defined(__CYGWIN32__) && !defined(__CYGWIN__) && !defined(__MINGW64__) && !defined(__CYGWIN64__)",
-        "#if 1"
-
       inreplace "m4/ax_mexopts.m4",
         /MACOSX_DEPLOYMENT_TARGET='.*'/,
         "MACOSX_DEPLOYMENT_TARGET='#{MacOS.version}'"
