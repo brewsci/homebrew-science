@@ -9,6 +9,7 @@ class Opencollada < Formula
     sha256 "f76cf0de8777e058cf453a9253ec86c5f669fa1363c4ded37f98e5f87620b140" => :sierra
     sha256 "04b61ed84067d63fa6ef656b4fe71a04bc904aa3db78bd82251253e0ed19e4f0" => :el_capitan
     sha256 "616b0002069e1f06b0ff7b4a89bd556c1962fce16a2b76c64af85754753c2418" => :yosemite
+    sha256 "3c2e469e8a65f1def6e1af27f4687e50538ecc317b07f410dbca23369edb5c5c" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
