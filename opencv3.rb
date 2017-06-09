@@ -203,6 +203,7 @@ class Opencv3 < Formula
       py3_config = `python3-config --configdir`.chomp
       py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
       py3_version = Language::Python.major_minor_version "python3"
+      args << "-DPYTHON3_EXECUTABLE=#{which "python3"}"
       args << "-DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.#{dylib}"
       args << "-DPYTHON3_INCLUDE_DIR=#{py3_include}"
     end
