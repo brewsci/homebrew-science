@@ -12,6 +12,7 @@ class Rapsearch2 < Formula
     sha256 "0d3755d6140e349a50b46358fbccf6d2b7e688c8e9a14037e6e67c4c0c5e3daf" => :sierra
     sha256 "0cecc678b37835b0c9710a7373a8f473950bb486381d30a23f84013155e76aca" => :el_capitan
     sha256 "e5a398c890866e84a52376608b1bf5d89b5aa8d01294be819799bb0fd6af8f9d" => :yosemite
+    sha256 "05592fb9c9ac718c336bbd4b52127cb92340848164e1ac7b8f3e4c7afea86dab" => :x86_64_linux
   end
 
   depends_on "boost"
