@@ -3,7 +3,7 @@ class Mummer < Formula
   homepage "https://mummer.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/mummer/mummer/3.23/MUMmer3.23.tar.gz"
   sha256 "1efad4f7d8cee0d8eaebb320a2d63745bb3a160bb513a15ef7af46f330af662f"
-  revision 1
+  revision 2
   # doi "10.1186/gb-2004-5-2-r12"
   # tag "bioinformatics"
 
@@ -14,8 +14,6 @@ class Mummer < Formula
     sha256 "7820dd18cb5b874424d5227e4ab3504e451268894846be3e1be49020f83337e7" => :yosemite
     sha256 "6231bee3253c98e178ae272f2cd5c39fa60ba0637256ce02c4f9480a796ceae2" => :x86_64_linux
   end
-
-  conflicts_with "gd", :because => "/usr/local/bin/annotate is a symlink belonging to gd"
 
   depends_on "tcsh" unless OS.mac?
 
@@ -32,13 +30,14 @@ class Mummer < Formula
       rm_r "src"
     end
     TOOLS.each { |tool| bin.install_symlink prefix/tool }
+    mv bin/"annotate", bin/"annotate-mummer"
   end
 
   test do
     TOOLS.each do |tool|
       # Skip two tools that do not have a help flag
       next if ["gaps", "nucmer2xfig"].include?(tool.to_s)
-      assert_match /U(sage|SAGE)/, pipe_output("#{bin}/#{tool} -h 2>&1")
+      assert_match /U(sage|SAGE)/, pipe_output("#{prefix}/#{tool} -h 2>&1")
     end
   end
 end
