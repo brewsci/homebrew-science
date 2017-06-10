@@ -13,6 +13,7 @@ class Nanopolish < Formula
     cellar :any
     sha256 "a60b68202e26a304b4dbfdd671b64c3cad4ed9a683889587d3ddecf9a822eaf6" => :sierra
     sha256 "258c71146960a9c55a131f8e216b13c7d6240b6d84b2dc7c1b738d489df73b9e" => :el_capitan
+    sha256 "27ebe3f9dce4ce67ab612f38c070db01d51b2e759338ab0a82e7a23d665ff4b1" => :x86_64_linux
   end
 
   needs :cxx11
