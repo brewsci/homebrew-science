@@ -9,10 +9,9 @@ class Rapsearch2 < Formula
   # doi "10.1093/bioinformatics/btr595"
 
   bottle do
-    sha256 "28f6de891fc6aff968933ca60b388388f21784c2b2d02a65e922a10043fa1ed4" => :sierra
-    sha256 "a351c44fba48a0f426dad0e7d3c281a94d28e8c421db5f9897c5672c89370e40" => :el_capitan
-    sha256 "e3f97c8ac0450913443ca08444de06ed826107b0e3ee0f0f5a667b1d23c7d88c" => :yosemite
-    sha256 "1e863c788f8b6758b6b6120f6f70adbab000734db3f1bee97409d613a8d45587" => :x86_64_linux
+    sha256 "0d3755d6140e349a50b46358fbccf6d2b7e688c8e9a14037e6e67c4c0c5e3daf" => :sierra
+    sha256 "0cecc678b37835b0c9710a7373a8f473950bb486381d30a23f84013155e76aca" => :el_capitan
+    sha256 "e5a398c890866e84a52376608b1bf5d89b5aa8d01294be819799bb0fd6af8f9d" => :yosemite
   end
 
   depends_on "boost"
