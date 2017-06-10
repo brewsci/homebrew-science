@@ -1,8 +1,8 @@
 class Numdiff < Formula
   desc "Putative files comparison tool"
   homepage "http://www.nongnu.org/numdiff"
-  url "http://mirror6.layerjet.com/nongnu//numdiff/numdiff-5.8.1.tar.gz"
-  sha256 "99aebaadf63325f5658411c09c6dde60d2990c5f9a24a51a6851cb574a4af503"
+  url "http://mirror6.layerjet.com/nongnu//numdiff/numdiff-5.9.0.tar.gz"
+  sha256 "87284a117944723eebbf077f857a0a114d818f8b5b54d289d59e73581194f5ef"
 
   bottle do
     sha256 "8e42bfad74953a612e1ab9452a27c61e497d51ee771dc8a31ebfd8b16af24720" => :el_capitan
