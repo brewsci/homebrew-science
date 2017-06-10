@@ -5,9 +5,9 @@ class Numdiff < Formula
   sha256 "87284a117944723eebbf077f857a0a114d818f8b5b54d289d59e73581194f5ef"
 
   bottle do
-    sha256 "8e42bfad74953a612e1ab9452a27c61e497d51ee771dc8a31ebfd8b16af24720" => :el_capitan
-    sha256 "f66519d5d12c5c73b8d9b7bfd0e858b9913d4d535360ef1dca7016eb66e35448" => :yosemite
-    sha256 "a9125d3a5e5fd61b96378bbb1be83425800fc9617baed6a5d155d63b920d89ae" => :mavericks
+    sha256 "cffef8a28c7fd0fa994af0058b7792e0d80102b50a26d99c61cac6b88d2cec11" => :sierra
+    sha256 "494b14d0ea41b2b5a4a5801958b5d51c926f04713f21079fc3b74480f1b941bb" => :el_capitan
+    sha256 "840b9cfbfc404af7fec7472c7cc4297660a94db9b73860fd3604c13d897c4ce4" => :yosemite
   end
 
   # we need libintl.h which is normally a part of libc6-dev
