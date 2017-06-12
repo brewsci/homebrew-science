@@ -6,10 +6,9 @@ class Igvtools < Formula
   head "https://github.com/igvteam/igv.git"
   bottle do
     cellar :any_skip_relocation
-    sha256 "843bb2831aeca6bd33618a24b3f617b6c8cfb5c61b5d33913dcd87de0f8255cf" => :sierra
-    sha256 "1e08839174d4bd5ec9837c3469d4afd5ff8f68d5a3db9729bfd83d2619cabd41" => :el_capitan
-    sha256 "25c7ce95d23874194ffb787cc8569cdc7e12588f83094fde1f54364fbcbdf7c3" => :yosemite
-    sha256 "5f44b68be3b08584f5a56ebb702a080be77aac5be93cc8af4981c3c728c0ce2a" => :x86_64_linux
+    sha256 "1f00561d8f724970f2ee93f9f0465c8605031487707f2edc38c8c05bb366d26e" => :sierra
+    sha256 "2872333528d5886a3144dfac610c21589267aec062a5b2df7dba8dd97a6068ed" => :el_capitan
+    sha256 "d53ecc56b82b56526aa33c955c9cfab69dfddc1174a39260474a3d56421e941a" => :yosemite
   end
 
   # tag "bioinformatics"
