@@ -9,6 +9,7 @@ class Igvtools < Formula
     sha256 "1f00561d8f724970f2ee93f9f0465c8605031487707f2edc38c8c05bb366d26e" => :sierra
     sha256 "2872333528d5886a3144dfac610c21589267aec062a5b2df7dba8dd97a6068ed" => :el_capitan
     sha256 "d53ecc56b82b56526aa33c955c9cfab69dfddc1174a39260474a3d56421e941a" => :yosemite
+    sha256 "d7c9d1b0a5269b0614906e6a11c573f977a885b972caf6c71fd16ac127ac33e3" => :x86_64_linux
   end
 
   # tag "bioinformatics"
