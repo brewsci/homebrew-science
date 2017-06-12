@@ -4,6 +4,7 @@ class Vigra < Formula
   homepage "https://ukoethe.github.io/vigra/"
   url "https://github.com/ukoethe/vigra/releases/download/Version-1-11-1/vigra-1.11.1-src.tar.gz"
   sha256 "a5564e1083f6af6a885431c1ee718bad77d11f117198b277557f8558fa461aaf"
+  revision 1
   head "https://github.com/ukoethe/vigra.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Vigra < Formula
     sha256 "ad60c387f35e632bac5b7744fd13165ebd055dec82b8b37a7d39de2e895de301" => :x86_64_linux
   end
 
-  option :cxx11
+  needs :cxx11
   option "without-test", "skip tests"
 
   deprecated_option "without-check" => "without-test"
@@ -29,19 +30,13 @@ class Vigra < Formula
   depends_on "openexr" => :optional
 
   resource "numpy" do
-    url "https://pypi.python.org/packages/a5/16/8a678404411842fe02d780b5f0a676ff4d79cd58f0f22acddab1b392e230/numpy-1.12.1.zip"
+    url "https://files.pythonhosted.org/packages/a5/16/8a678404411842fe02d780b5f0a676ff4d79cd58f0f22acddab1b392e230/numpy-1.12.1.zip"
     sha256 "a65266a4ad6ec8936a1bc85ce51f8600634a31a258b722c9274a80ff189d9542"
   end
 
   # vigra python bindings requires boost-python
   # see http://packages.ubuntu.com/saucy/python-vigra
-  if build.with? "python"
-    if build.cxx11?
-      depends_on "boost-python" => "c++11"
-    else
-      depends_on "boost-python"
-    end
-  end
+  depends_on "boost-python" => "c++11" if build.with? "python"
 
   def install
     if build.with? "python"
@@ -49,8 +44,8 @@ class Vigra < Formula
       venv.pip_install resources
     end
 
-    ENV.cxx11 if build.cxx11?
-    ENV.append "CXXFLAGS", "-ftemplate-depth=512" if build.cxx11?
+    ENV.cxx11
+    ENV.append "CXXFLAGS", "-ftemplate-depth=512"
     cmake_args = std_cmake_args
     cmake_args << "-DWITH_VIGRANUMPY=0" if build.without? :python
     cmake_args << "-DWITH_HDF5=0" if build.without? "hdf5"
