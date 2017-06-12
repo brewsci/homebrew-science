@@ -7,6 +7,7 @@ class Meme < Formula
   url "http://meme-suite.org/meme-software/4.11.2/meme_4.11.2_2.tar.gz"
   version "4.11.2.2"
   sha256 "377238c2a9dda64e01ffae8ecdbc1492c100df9b0f84132d50c1cf2f68921b22"
+  revision 1
 
   bottle do
     sha256 "f7f0026b72349dd004a45e2058f608ad030d35c47db166f79f0cb160b928d693" => :sierra
@@ -16,7 +17,7 @@ class Meme < Formula
 
   keg_only <<-EOF.undent
     MEME installs many commands, and some conflict
-    with other packages.
+    with other packages
   EOF
 
   depends_on :mpi => [:recommended]
@@ -28,6 +29,10 @@ class Meme < Formula
     system "./configure", *args
     system "make", "install"
     doc.install "tests"
+    perl_files = `grep -l -w "#!/usr/bin/perl" #{bin}/*`.split("\n")
+    perl_files.each do |file|
+      inreplace file, %r{^#!/usr/bin/perl.*}, "#!/usr/bin/env perl"
+    end
   end
 
   test do
