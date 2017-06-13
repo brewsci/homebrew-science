@@ -6,9 +6,9 @@ class EnblendEnfuse < Formula
 
   bottle do
     cellar :any
-    sha256 "54f48ae7078a907686a3b5c5784414434ea504a51a0f0f87373817c2b840846d" => :sierra
-    sha256 "58c2a5821c97eb311554f4717aa7695616e1a1a4dd1767ec864c972f69bf7ade" => :el_capitan
-    sha256 "123ba3ca070d1f37cccb382c5cf58b7ba9d25fd0a08aa49ab60df63e2bbcb298" => :yosemite
+    sha256 "aa02335826c602b3c2e9a21e8fb893b5fb02a3bbe5ea55b13484bcc0de1fba44" => :sierra
+    sha256 "3e9eb11f8b3a4d2c30122193873c00de2d7c8b2396dfe9e659a0a54b671822b1" => :el_capitan
+    sha256 "41b2e32fcddeb677971a15e7d0e2645c137b71240d709284c697c349374a1341" => :yosemite
   end
 
   depends_on "cmake" => :build
