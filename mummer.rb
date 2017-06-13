@@ -9,10 +9,9 @@ class Mummer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "92a632236c115bb1b36f18e1a1eda4e7c654b634fa3f1c3efbc3d0d4628ab399" => :sierra
-    sha256 "f959fe1436ab925952dcc51854fc1954e145305895a28268bf0bd894a098ed8f" => :el_capitan
-    sha256 "7820dd18cb5b874424d5227e4ab3504e451268894846be3e1be49020f83337e7" => :yosemite
-    sha256 "6231bee3253c98e178ae272f2cd5c39fa60ba0637256ce02c4f9480a796ceae2" => :x86_64_linux
+    sha256 "1d89405b88cf2157ce7c819cf21a2db431471c6290d87de02aacd8e4e9c2fd63" => :sierra
+    sha256 "4f01363cabe72a13d87f2a42ae29d9875735331e703a34b4756bf8c69d8a7099" => :el_capitan
+    sha256 "5478784d9576e5a475ba66f21a8f8014a8bfac43e7ef19d44e3ac32ca5c57768" => :yosemite
   end
 
   depends_on "tcsh" unless OS.mac?
