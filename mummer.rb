@@ -12,6 +12,7 @@ class Mummer < Formula
     sha256 "1d89405b88cf2157ce7c819cf21a2db431471c6290d87de02aacd8e4e9c2fd63" => :sierra
     sha256 "4f01363cabe72a13d87f2a42ae29d9875735331e703a34b4756bf8c69d8a7099" => :el_capitan
     sha256 "5478784d9576e5a475ba66f21a8f8014a8bfac43e7ef19d44e3ac32ca5c57768" => :yosemite
+    sha256 "50dff6044633b86b4f0f0388fb56cbf1ace2881c9bd4ec30b52f7df3049a2d5e" => :x86_64_linux
   end
 
   depends_on "tcsh" unless OS.mac?
