@@ -34,7 +34,7 @@ class Dynare < Formula
   depends_on "readline"
   depends_on "veclibfort" if OS.mac?
   depends_on "octave" => :recommended
-  depends_on "slicot" => "with-default-integer-8" if build.with? "matlab="
+  depends_on "slicot" if build.with? "matlab="
   depends_on "suite-sparse"
 
   needs :cxx11
