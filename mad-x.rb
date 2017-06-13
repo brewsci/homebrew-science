@@ -10,6 +10,7 @@ class MadX < Formula
     sha256 "54d31a73ae0744b8093fff79a26bf797012086f00fcf65fdc9dae7251136c991" => :sierra
     sha256 "3104a72c54c91f2899641da479137bfe837d4e3970922a9791e19ea6b8c0f5a6" => :el_capitan
     sha256 "1afe12d2cc762817778b54e944b7f40a917d6b605e8ad44bf041bf37a7991c2e" => :yosemite
+    sha256 "4aa0d38e225db847c52021e02fab17729dc079e721af1aba7770d53e6a2062a0" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
