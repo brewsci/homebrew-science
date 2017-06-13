@@ -2,8 +2,7 @@ class MadX < Formula
   desc "Methodical Accelerator Design"
   homepage "https://cern.ch/mad"
 
-  url "http://svn.cern.ch/guest/madx/tags/5.02.13/madX/"
-  revision 1
+  url "http://svn.cern.ch/guest/madx/tags/5.03.06/madX/"
   head "http://svn.cern.ch/guest/madx/trunk/madX/"
 
   bottle do
