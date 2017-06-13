@@ -9,9 +9,9 @@ class Slicot < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f1f15e77810feb5452feb299e69e5c36c668c8a173fd345b06021c9028982e07" => :sierra
-    sha256 "5a9e100e70b5e39998b1773bdbdf2f9afed90af4d3424b776a0016b726297e39" => :el_capitan
-    sha256 "c9da0de7bd4de0c8e9cb030c64bf492de7b16365dbdeb11fdad3b2e900faeca3" => :yosemite
+    sha256 "8858d3476f8e51fc8725008fff3528216ac4510f712af26c158866da35194f53" => :sierra
+    sha256 "0c3a86b77f39bd2302c67643c5adc4c117b2ced83179f5b431511d2f4f37adff" => :el_capitan
+    sha256 "02e1f8d798ae9217639a2a2af6b561d4d32dbe2f90c2d75b47a3e577306ca7fc" => :yosemite
   end
 
   depends_on :fortran
