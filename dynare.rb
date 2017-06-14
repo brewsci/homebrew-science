@@ -3,6 +3,7 @@ class Dynare < Formula
   homepage "https://www.dynare.org"
   url "https://www.dynare.org/release/source/dynare-4.5.0.tar.xz"
   sha256 "692a13f51e465ce54e041932bd60beacb86a56f812e2465aa409c7049fcd36e5"
+  revision 1
 
   bottle do
     sha256 "4a8955e3429bb8dcf6c38fcb395ec1dd5c5dd36cedbca2c27915ede5466619ce" => :sierra
@@ -34,7 +35,7 @@ class Dynare < Formula
   depends_on "readline"
   depends_on "veclibfort" if OS.mac?
   depends_on "octave" => :recommended
-  depends_on "slicot" if build.with? "matlab="
+  depends_on "slicot"
   depends_on "suite-sparse"
 
   needs :cxx11
