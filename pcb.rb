@@ -1,8 +1,8 @@
 class Pcb < Formula
   desc "Interactive printed circuit board editor"
   homepage "http://pcb.geda-project.org/"
-  url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-4.0.0/pcb-4.0.0.tar.gz"
-  sha256 "8ede13acd0bdc1bc3c347b603718a92c5420b63f80724182ae5b25881e9adac4"
+  url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-4.0.1/pcb-4.0.1.tar.gz"
+  sha256 "5d1bd189d8f9b362ac0890ea7ce826e77e61f724439d83c9f854f9c782ca7ef5"
   version_scheme 1
   head "git://git.geda-project.org/pcb.git"
 
@@ -12,7 +12,6 @@ class Pcb < Formula
     sha256 "22033b376c35297eb4ea8f273474bb88df516ba064e816f5b5beec4fc0a3ba50" => :yosemite
   end
 
-  option "with-doc", "Build the documentation (requires LaTeX)."
   option "with-opengl", "Configure pcb with OpenGL, may cause garbled screen."
 
   depends_on "autoconf" => :build
@@ -25,7 +24,6 @@ class Pcb < Formula
   depends_on "gd"
   depends_on "glib"
   depends_on "gtkglext"
-  depends_on :tex if build.with? "doc"
   depends_on "perl" if OS.linux?
 
   conflicts_with "gts", :because => "both install `include/gts.h`"
@@ -50,7 +48,6 @@ class Pcb < Formula
       --disable-update-desktop-database
       --disable-update-mime-database
     ]
-    args << "--disable-doc" if build.without? "doc"
     args << "--disable-gl" if build.without? "opengl"
     args << "--without-x" if OS.mac?
 
