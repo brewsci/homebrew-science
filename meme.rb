@@ -13,6 +13,7 @@ class Meme < Formula
     sha256 "dafc3dde034a0cffd6ee7070949cbb07070c1bb2c5c2266154fdc307198d821e" => :sierra
     sha256 "32ad789bca24589f6573215a3fe897a83c48a9e55601e1b722c64adaa6ff3b4e" => :el_capitan
     sha256 "29813728af994953e6435eb5764fff22fd427629cc97064b3544191badd77f9b" => :yosemite
+    sha256 "63abc832e22073b7182ee205cd97466339dff9bfd07ee88fe2537f80c79af04c" => :x86_64_linux
   end
 
   keg_only <<-EOF.undent
