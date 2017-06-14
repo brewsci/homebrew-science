@@ -6,9 +6,9 @@ class Libsbol < Formula
 
   bottle do
     cellar :any
-    sha256 "2bbc0a976c014dae9236840be15b957e018bebeeac3efc833fec96bcf06fcc83" => :sierra
-    sha256 "9985b9c5c1620baf6d414e51aa618a3621c88abc0cee9796592cad2d2e9c4586" => :el_capitan
-    sha256 "9532b17e32966ef97c6bb612a81ed58f2dde4bdee0d76836c1cc71ea468d78b5" => :yosemite
+    sha256 "f75a14211394ced3c638029becb5475b7a7acf044e476ddac64f3633ea13dd02" => :sierra
+    sha256 "83dd5e576cbd700214b214549e166335fb63cc8ae52f33dd56393bc742de085d" => :el_capitan
+    sha256 "6c8960f360f07339e63a713a58bdbdaa970ca5b79abb93fc8200f3bbf9199506" => :yosemite
   end
 
   depends_on "cmake" => :build
