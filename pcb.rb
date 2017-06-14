@@ -7,9 +7,9 @@ class Pcb < Formula
   head "git://git.geda-project.org/pcb.git"
 
   bottle do
-    sha256 "932038a9ecc1934ae5f45d62d55a1a72bcb6f4d847ca2951866e5714983eff35" => :sierra
-    sha256 "4589108f7700ed018e9561a17d1ca34b32312be7a416449f9b824863f4eb758a" => :el_capitan
-    sha256 "22033b376c35297eb4ea8f273474bb88df516ba064e816f5b5beec4fc0a3ba50" => :yosemite
+    sha256 "968b7aed3801952c16a51f87d6faddc51dd96dbff154fa9c47fb28f81d809dbb" => :sierra
+    sha256 "df54df9cf02b11f50b3f106bdcdb26def3f5ec6bea807e26e57e4b2268f5d92c" => :el_capitan
+    sha256 "64ee041b71af0bd5993c1f0f1584f1b32fd969f151955e3bfd0ad174c8de4e74" => :yosemite
   end
 
   option "with-opengl", "Configure pcb with OpenGL, may cause garbled screen."
