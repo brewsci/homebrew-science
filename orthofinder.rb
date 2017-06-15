@@ -1,8 +1,8 @@
 class Orthofinder < Formula
   desc "Accurate inference of orthologous gene groups made easy"
   homepage "https://github.com/davidemms/OrthoFinder"
-  url "https://github.com/davidemms/OrthoFinder/archive/1.1.4.tar.gz"
-  sha256 "5a3b492b17a1089850e98a92594dc56a1304b963b826a9040f179d5b729fb574"
+  url "https://github.com/davidemms/OrthoFinder/archive/1.1.8.tar.gz"
+  sha256 "5a34bb4532f4d354d40b8bfa3799defc8bda294ee002255599d55e1e2f41c18d"
   head "https://github.com/davidemms/OrthoFinder.git"
   # doi "10.1186/s13059-015-0721-2"
   # tag "bioinformatics"
