@@ -7,11 +7,10 @@ class Dwgsim < Formula
   # tag "bioinformatics"
 
   bottle do
-    cellar :any
-    sha256 "fa90c65c4e4b60e4f5393459012764bee2a17d59b714a6ff6ee155bdc5f9e99b" => :yosemite
-    sha256 "bf3ee48fcf6e92be1dcb615d2a619f6737856e12ada59f6e896546fe596bcefe" => :mavericks
-    sha256 "db114d69ac843ee4d3bc4e1d599091cc691b0a945252c1a429987a3802c2a61c" => :mountain_lion
-    sha256 "77fda3da399617f36d84d0bac71f58e9900ca3d0ee3182f2999fd07ba1b29994" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "b192be1a5f9e084d1611578edf3e2e9f12e41b4c95135b43ca5d95243e811363" => :sierra
+    sha256 "efa87bd65372f93ce3ee7141e60b559dae71a1db9a6f4e72648f04e05e6236d0" => :el_capitan
+    sha256 "1ca0062c7ae8e5185604bd34d3e6d60d63e99adfffa3659cac10fdfd5d5f4788" => :yosemite
   end
 
   unless OS.mac?
