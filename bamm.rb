@@ -13,6 +13,7 @@ class Bamm < Formula
     sha256 "85c4295e628b243e6cd85e1f59e79d6f7bf43fa508df47890aae453818db18b9" => :sierra
     sha256 "99f45e11d780cf97756b4a604a506da08fefcf91b36e56fda1ce5c5109d58d59" => :el_capitan
     sha256 "90b5f38bca30a76810d90f50983d51662eb37abcfe60ce820621bbfbba191653" => :yosemite
+    sha256 "60fe664cf3346316a525b3783fe39a1066defe862b02da2f0af8db8078a2b708" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
