@@ -10,10 +10,9 @@ class Bamm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4d69a44a7bf8aaccffdce9ac637c4a2135b5b9a07109ee47bc63275db8a9b363" => :sierra
-    sha256 "0895f0659fbe00742ca8644d5a9c93dae9b89afeb10a4c61dbc3b0450bc46b97" => :el_capitan
-    sha256 "6c80230ab8ff97e1295391e79ce3975296d3dcd94aecc1fe9e155e719d6029da" => :yosemite
-    sha256 "d2d80c21c79680b279b4d2c5f6149eb083ad7cc4e17c60845c6dfe0533bdf6c3" => :x86_64_linux
+    sha256 "85c4295e628b243e6cd85e1f59e79d6f7bf43fa508df47890aae453818db18b9" => :sierra
+    sha256 "99f45e11d780cf97756b4a604a506da08fefcf91b36e56fda1ce5c5109d58d59" => :el_capitan
+    sha256 "90b5f38bca30a76810d90f50983d51662eb37abcfe60ce820621bbfbba191653" => :yosemite
   end
 
   depends_on "cmake" => :build
