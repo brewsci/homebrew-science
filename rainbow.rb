@@ -1,14 +1,15 @@
 class Rainbow < Formula
-  homepage "http://sourceforge.net/projects/bio-rainbow/"
-  url "https://downloads.sourceforge.net/project/bio-rainbow/rainbow_2.0.2.tar.gz"
-  sha256 "e33b126f88e374ae2d26a83a0a5e3223fb4b2ea9fd494c788e95bfa4684105f4"
+  desc "Short reads clustering and local assembly"
+  homepage "https://sourceforge.net/projects/bio-rainbow/"
+  url "https://downloads.sourceforge.net/project/bio-rainbow/rainbow_2.0.4.tar.gz"
+  sha256 "79281aae3bccd1ad467afef6fc7c8327aaa8d56f538821e2833d2b8f26b5bafc"
 
   def install
     system "make"
-    bin.install %w[rainbow ezmsim rbasm rbmergetag]
+    bin.install %w[rainbow ezmsim rbasm]
   end
 
   test do
-    system "rainbow 2>&1 |grep -q rainbow"
+    system "#{bin}/rainbow 2>&1 |grep -q rainbow"
   end
 end
