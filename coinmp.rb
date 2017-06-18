@@ -6,6 +6,13 @@ class Coinmp < Formula
   revision 2
   head "https://projects.coin-or.org/svn/CoinMP/trunk", :using => :svn
 
+  bottle do
+    cellar :any
+    sha256 "018f7377a5f925efe0aabfef889f202f68f43438e54b1196d1654d4269f4a77e" => :sierra
+    sha256 "b1a941e0f12febbb3c23b4f1d41c4ec12c5ed49527e00eb0043bb42352c2f28f" => :el_capitan
+    sha256 "7389173e25314264784ef64fec843068de566c33dde2519070e9aec46161906f" => :yosemite
+  end
+
   depends_on :fortran
 
   def install
