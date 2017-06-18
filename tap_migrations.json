@@ -1,4 +1,5 @@
 {
   "tabix": "homebrew/boneyard",
-  "vips": "homebrew/core"
+  "vips": "homebrew/core",
+  "tensorflow": "homebrew/core"
 }
