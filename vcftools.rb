@@ -28,7 +28,7 @@ class Vcftools < Formula
   def install
     args = ["--prefix=#{prefix}", "--with-pmdir=#{lib}/perl5/site_perl"]
 
-    if build.with? "zlib" || OS.linux?
+    if build.with? ("zlib" || OS.linux?)
       zlib = Formula["zlib"]
       args << "LIB=-lz -L#{zlib.opt_lib} -I#{zlib.opt_include}"
     end
