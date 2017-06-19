@@ -9,6 +9,7 @@ class Lmod < Formula
     sha256 "c03c1fe1323ff232f3adf62fd091325c6dad88e0cacbc5932dd15dd88f4c5e5d" => :sierra
     sha256 "c293f8082250b35cc68119718e0d1d940a445088568b3b927e507cf6b0682a76" => :el_capitan
     sha256 "3ef583fd7cc63e560bc04fa97facfa1d022ac3398d7eb41f2ce9b720ac4c5092" => :yosemite
+    sha256 "731f23d3ed646a94eeadaa312fd6f6d3ece0b48f49e89816544243315c5bf1e7" => :x86_64_linux
   end
 
   depends_on "lua"
