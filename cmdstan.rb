@@ -2,8 +2,8 @@ class Cmdstan < Formula
   desc "Probabilistic programming for Bayesian inference"
   homepage "http://mc-stan.org/"
   # tag "math"
-  url "https://github.com/stan-dev/cmdstan/releases/download/v2.15.0/cmdstan-2.15.0.tar.gz"
-  sha256 "4334702f8d35ac00516116e49e31c6bf2099d9cbe21e880018064c4a071970ab"
+  url "https://github.com/stan-dev/cmdstan/releases/download/v2.16.0/cmdstan-2.16.0.tar.gz"
+  sha256 "9b89a8717d49bc1c890c2e2dc080797810d7ed579030adef34ed51dcf218248d"
 
   bottle do
     cellar :any_skip_relocation
@@ -60,17 +60,17 @@ class Cmdstan < Formula
     lib.install Dir["lib/*"]
 
     # For the standard stan make system to work we also need the following files in prefix:
-    prefix.install "src", "makefile", "make", "stan_#{version}", "examples"
+    prefix.install "src", "makefile", "make", "stan", "examples"
   end
 
   test do
     system bin/"stanc", "--version"
     cp prefix/"examples/bernoulli/bernoulli.stan", testpath
     system bin/"stanc", "bernoulli.stan"
-    math = prefix/"stan_#{version}/lib/stan_math_#{version}"
+    math = prefix/"stan/lib/stan_math"
     libraries = File.read(math/"make/libraries")
     cvodes = libraries.match(%r{(lib\/cvodes_([0-9\.]+))\n})[1]
-    ENV["CPPFLAGS"] = %W[-I#{prefix}/stan_#{version}/src
+    ENV["CPPFLAGS"] = %W[-I#{prefix}/stan/src
                          -I#{math} -I#{math}/#{cvodes}/include
                          -I#{Formula["eigen"].opt_include/"eigen3"}].join(" ")
     system "make", "bernoulli_model.o"
