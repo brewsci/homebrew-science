@@ -1,9 +1,8 @@
 class Siril < Formula
   desc "Astronomical image (pre-)processing application"
   homepage "http://free-astro.org/index.php/Siril"
-  url "https://free-astro.org/download/siril-0.9.5.tar.bz2"
-  sha256 "8f25a8cb8dc1f2ca9da979161a51e6aacd4059674e21ee14edcc0f299e2a7924"
-  revision 1
+  url "https://free-astro.org/download/siril-0.9.6.tar.bz2"
+  sha256 "0622c885667396f1181f5c727ac1f8e3985560de817fec4400cd7d5ae6ed970f"
   head "https://free-astro.org/svn/siril/"
 
   bottle do
@@ -34,6 +33,7 @@ class Siril < Formula
   depends_on "netpbm"
   depends_on "gsl"
   depends_on "opencv"
+  depends_on "gnuplot" => :optional
 
   if build.with? "openmp"
     depends_on "gcc"
