@@ -3,8 +3,8 @@ require "language/go"
 class Vcfanno < Formula
   desc "Annotates a VCF with sorted and tabixed input BED, BAM, and VCF files"
   homepage "https://github.com/brentp/vcfanno"
-  url "https://github.com/brentp/vcfanno/archive/v0.2.6.tar.gz"
-  sha256 "c7340f2d776ab5de2ad05b80c88014036788a373d4826c84d2483e81a20631ac"
+  url "https://github.com/brentp/vcfanno/archive/v0.2.7.tar.gz"
+  sha256 "95c49b2848bba846a4b9694fea7dd909405353f37e9c0a885c19b5c468073fb5"
   head "https://github.com/brentp/vcfanno.git"
 
   bottle do
