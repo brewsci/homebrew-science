@@ -29,7 +29,7 @@ class Opencv3 < Formula
     end
   end
 
-  keg_only "opencv3 and opencv install many of the same files."
+  keg_only "opencv3 and opencv install many of the same files"
 
   deprecated_option "without-tests" => "without-test"
   deprecated_option "32-bit" => "with-32-bit"
@@ -65,11 +65,11 @@ class Opencv3 < Formula
   depends_on "gst-plugins-good" if build.with? "gstreamer"
   depends_on "jasper" => :optional
   depends_on :java => :optional
-  depends_on "jpeg"
+  depends_on "jpeg" => :recommended
   depends_on "jpeg-turbo" => :optional
   depends_on "libdc1394" => :optional
-  depends_on "libpng"
-  depends_on "libtiff"
+  depends_on "libpng" => :recommended
+  depends_on "libtiff" => :recommended
   depends_on "openexr" => :recommended
   depends_on "openni" => :optional
   depends_on "openni2" => :optional
@@ -98,24 +98,23 @@ class Opencv3 < Formula
   end
 
   def arg_switch(opt)
-    (build.with? opt) ? "ON" : "OFF"
+    build.with?(opt) ? "ON" : "OFF"
+  end
+
+  def neg_arg_switch(opt)
+    build.with?(opt) ? "OFF" : "ON"
   end
 
   def install
     ENV.cxx11 if build.cxx11?
-    jpeg = Formula[(build.with? "jpeg-turbo")? "jpeg-turbo" : "jpeg"]
-    dylib = OS.mac? ? "dylib" : "so"
+    dylib = "a"
+    dylib = OS.mac? ? "dylib" : "so" if build.without?("static")
     with_qt = build.with?("qt")
 
-    args = std_cmake_args + %W[
+    args = std_cmake_args + %w[
       -DBUILD_JASPER=OFF
-      -DBUILD_JPEG=OFF
-      -DBUILD_TIFF=OFF
-      -DBUILD_PNG=OFF
       -DBUILD_ZLIB=OFF
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
-      -DJPEG_INCLUDE_DIR=#{jpeg.opt_include}
-      -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.#{dylib}
     ]
 
     # cf https://github.com/Homebrew/homebrew-science/pull/5185
@@ -136,6 +135,19 @@ class Opencv3 < Formula
     args << "-DWITH_QT=" + (with_qt ? "ON" : "OFF")
     args << "-DWITH_TBB=" + arg_switch("tbb")
     args << "-DWITH_VTK=" + arg_switch("vtk")
+    args << "-DBUILD_TIFF=" + neg_arg_switch("libtiff")
+    args << "-DBUILD_PNG=" + neg_arg_switch("libpng")
+
+    if build.with?("jpeg") && build.with?("jpeg-turbo")
+      odie "Options --with-jpeg and --with-jpeg-turbo are mutually exclusive."
+    elsif build.without?("jpeg") && build.without?("jpeg-turbo")
+      args << "-DBUILD_JPEG=ON"
+    else
+      jpeg = Formula[build.with?("jpeg-turbo") ? "jpeg-turbo" : "jpeg"]
+      args << "-DBUILD_JPEG=OFF"
+      args << "-DJPEG_INCLUDE_DIR=#{jpeg.opt_include}"
+      args << "-DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.#{dylib}"
+    end
 
     if build.include? "32-bit"
       args << "-DCMAKE_OSX_ARCHITECTURES=i386"
