@@ -6,7 +6,7 @@ class Andi < Formula
 
   url "https://github.com/EvolBioInf/andi/releases/download/v0.10/andi-0.10.tar.gz"
   sha256 "7182d43bd13aa51d12a5d69fe4e3e4f83aab8429f5030192ae860e1a1b0e3f77"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
