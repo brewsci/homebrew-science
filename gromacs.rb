@@ -27,6 +27,10 @@ class Gromacs < Formula
   depends_on "gsl" => :recommended
   depends_on :mpi => :optional
   depends_on :x11 => :optional
+  unless OS.mac?
+    depends_on "openblas"
+    depends_on "zlib"
+  end
 
   def install
     args = std_cmake_args
