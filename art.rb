@@ -1,6 +1,7 @@
 class Art < Formula
   desc "Simulation tools to generate synthetic NGS reads"
-  homepage "http://www.niehs.nih.gov/research/resources/software/biostatistics/art/index.cfm"
+  homepage "https://www.niehs.nih.gov/research/resources/software/biostatistics/art/index.cfm"
+  revision 1
   # doi "10.1093/bioinformatics/btr708"
   # tag "bioinformatics"
 
