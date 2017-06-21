@@ -13,6 +13,7 @@ class Andi < Formula
     sha256 "cee3638fab897ec5799a524ce95ef5caef0e3045048504f805a228ba6eaaa5f4" => :sierra
     sha256 "dd082c541d6f7128d093869cab86c1bb28e8cad61415fe2dd432dbffcf7661b9" => :el_capitan
     sha256 "1c71120209974c2d9810a3c1e16eb260e14ad2e5a4f302b1d1ace1a73b4d4223" => :yosemite
+    sha256 "aec49457eb8725aa01abcc019c014bef6f30c2a5f2d0fd2430a29120a46b7623" => :x86_64_linux
   end
 
   depends_on "gsl"
