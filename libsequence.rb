@@ -5,6 +5,7 @@ class Libsequence < Formula
   # doi "10.1093/bioinformatics/btg316"
   url "https://github.com/molpopgen/libsequence/archive/1.9.1.tar.gz"
   sha256 "4432b50c63ff8fa05b39500ac7708276ccb6d30abfb5ea43d1c602108ff28733"
+  revision 1
   head "https://github.com/molpopgen/libsequence.git"
 
   bottle do
