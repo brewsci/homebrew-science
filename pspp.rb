@@ -1,10 +1,9 @@
 class Pspp < Formula
   desc "Statistical analysis of sampled data (FOSS SPSS clone)"
   homepage "https://www.gnu.org/software/pspp/"
-  url "https://ftpmirror.gnu.org/pspp/pspp-0.10.2.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/pspp/pspp-0.10.2.tar.gz"
-  sha256 "f77cacae6948689a60f1a5808a5d2e183c1cd0847c7fc6142646c63814c0daa9"
-  revision 2
+  url "https://ftp.gnu.org/gnu/pspp/pspp-0.11.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/pspp/pspp-0.11.0.tar.gz"
+  sha256 "ae5cc1c621917b5c171e955b29248c226051312a64d6c675dfa774f79b78bbb6"
 
   bottle do
     sha256 "74e7134c04699d36bbe4ac066d6d7fa0d7b40ba378eb87bfcb51ee4321faaa58" => :sierra
