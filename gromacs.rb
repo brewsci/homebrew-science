@@ -9,10 +9,9 @@ class Gromacs < Formula
   # doi "10.1016/0010-4655(95)00042-E"
 
   bottle do
-    sha256 "d656c66147f490bfc10b9ff6614a5910a257274dd31971601692effbdf35a504" => :sierra
-    sha256 "e1077fc5af5958144360b7362cc5b06ce8bdecca7c42db615479b1ea1dc88e09" => :el_capitan
-    sha256 "b5d24da6150c2e44b5eb038ad623dae7a7ce4144fd1e152c1dc2db6f61c5c64a" => :yosemite
-    sha256 "0cb8624cba507f8461d08ee1309ced4a9efb7cbc71461f5234bcfe88be07f956" => :x86_64_linux
+    sha256 "9eada79b13902b80ccc076e964cceee7a464e0f0ad89f069e31bd88b973ba7cb" => :sierra
+    sha256 "81f64dd4b5843d4cc24f38deff0717726aa1f118d61f70ad681f6f02f667d52b" => :el_capitan
+    sha256 "6c2fc2e5cfe7b335140a3cbdeec8eeafd3503851d9d1fde49d2dcdf4d6ca9482" => :yosemite
   end
 
   deprecated_option "with-x" => "with-x11"
