@@ -3,7 +3,7 @@ class Apophenia < Formula
   homepage "http://apophenia.info/"
   url "https://github.com/b-k/apophenia/archive/v1.0.tar.gz"
   sha256 "c753047a9230f9d9e105541f671c4961dc7998f4402972424e591404f33b82ca"
-  revision 1
+  revision 2
 
   head "https://github.com/b-k/apophenia.git"
 
