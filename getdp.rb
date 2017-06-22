@@ -13,9 +13,9 @@ class Getdp < Formula
   head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
 
   bottle do
-    sha256 "e7e56bb5dfcee38a6b453cee3929c92448083b3a7daadd35e79764d20678fc5b" => :sierra
-    sha256 "e67cd8cfe8507b7c212760fcd9ddf9706c6d3231a6ce229561983e23b01718b7" => :el_capitan
-    sha256 "688d622166687128fa9b0c79e91f76f76cb3cf77102504b3664c355da4e192bc" => :yosemite
+    sha256 "baf9660f7db02dd9ec7283f7b99bc7720800fb95fa0006daefd42139853f1ebc" => :sierra
+    sha256 "53ab51f9ac5077177bb084433b5adfa06791f9ebd36b9a671bd5b548f1ef1b58" => :el_capitan
+    sha256 "8f8bef43cbf8503afafa0d636c6fec3cc156a010fcac62304abd4f4d973505d5" => :yosemite
   end
 
   option "without-test", "skip build-time tests (not recommended)"
