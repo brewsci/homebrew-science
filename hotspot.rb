@@ -3,7 +3,7 @@ class Hotspot < Formula
   homepage "https://github.com/rthurman/hotspot"
   url "https://github.com/rthurman/hotspot/archive/v4.1.0.tar.gz"
   sha256 "9ecdbba612b80f137b78314c23ac94aa6840d217bf4256faf8adee88a73fdd0c"
-  revision 1
+  revision 2
 
   head "https://github.com/rthurman/hotspot.git"
 
