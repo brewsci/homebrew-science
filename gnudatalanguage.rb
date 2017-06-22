@@ -9,6 +9,7 @@ class Gnudatalanguage < Formula
     sha256 "1c6b7b17e491d32a47e775bdeac18614d6c3d5c091514577ca86e18d990cea2f" => :sierra
     sha256 "64fcf771c28e8a9d123f9f6de3be0730506bc888303ca980a17391261f04ebac" => :el_capitan
     sha256 "a295e482e7f5a2a14fe98396292ceeac3c9c2ccdb1e02057c0fc27f7d87f5008" => :yosemite
+    sha256 "93a2e9a311cb2d1d19f252428a145fcfffe28e58962c3e800e87653d17a65e90" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
