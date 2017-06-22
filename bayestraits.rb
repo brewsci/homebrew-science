@@ -8,10 +8,9 @@ class Bayestraits < Formula
 
   bottle do
     cellar :any
-    sha256 "37a4e4b0a4258f36c8d92a8484dd99623f9dc78d4833ddc2c9973638a869d9cf" => :sierra
-    sha256 "ab2c87a28c626b84d440debbf255bb2e00846c4c4a9eee33042b337d402fa91d" => :el_capitan
-    sha256 "20cd113efa5e6d3babff418a153e6bfba24f7e402c9f9ba8cd1b5b45a03e6849" => :yosemite
-    sha256 "01a78798b59d201e96ca7dcb5db61a035df3c3d4091fc130106eb94a3111eb17" => :x86_64_linux
+    sha256 "40298773f30495810c9a3de313bbf39fc0a4ce8dc6d3842a8ace1323fc529661" => :sierra
+    sha256 "c7866c39638a21127c14ca094e4de77215724321bb09e7ee134ac5b453769257" => :el_capitan
+    sha256 "101a38c0377f79135651bc8c4e5f430ca3db68f2afcba00f3d2600b4e5bc3479" => :yosemite
   end
 
   option "with-openmp", "Build a threaded version with openmp"
