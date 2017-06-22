@@ -1,9 +1,8 @@
 class AstrometryNet < Formula
   desc "Automatic identification of astronomical images"
   homepage "http://astrometry.net"
-  url "http://astrometry.net/downloads/astrometry.net-0.70.tar.gz"
-  sha256 "e087b26b3f3821e63ba3c4d1f6a5cc342784c5ab938c05d59b75ba91b2866b6a"
-  revision 1
+  url "http://astrometry.net/downloads/astrometry.net-0.72.tar.gz"
+  sha256 "c9f3c2c70847d8ac835f4eb3cfccdcfe938ad8762acea7dd18acbf84c7e97cb6"
   head "https://github.com/dstndstn/astrometry.net.git"
 
   bottle do
@@ -17,7 +16,6 @@ class AstrometryNet < Formula
 
   depends_on "swig" => :build
   depends_on "pkg-config" => :build
-  depends_on "wget"
   depends_on "netpbm"
   depends_on "cairo"
   depends_on "jpeg"
@@ -25,6 +23,7 @@ class AstrometryNet < Formula
   depends_on "wcslib"
   depends_on "gsl"
   depends_on "cfitsio"
+  depends_on "wget" if OS.mac?
 
   # this formula includes python bindings
   depends_on :python => :recommended
