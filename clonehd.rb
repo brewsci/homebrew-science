@@ -10,6 +10,7 @@ class Clonehd < Formula
     sha256 "3edb63f909f26b3de79d4ad84831cea510d9de2dc92147b4e1974215b81718e5" => :sierra
     sha256 "3b6afecd2818f5bfeba72226901629a60b0263ffd085ee3165bff3c04df7aeb2" => :el_capitan
     sha256 "a76e462eeeea666f1fd731c180ced9a494e81848bc5291cd8aa3bf81aed28d58" => :yosemite
+    sha256 "55192610eaf3931d0b0ff9d6404ee7fba44d236a9989cfebdb618555b870f6d5" => :x86_64_linux
   end
 
   # doi "10.1016/j.celrep.2014.04.055"
