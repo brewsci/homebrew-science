@@ -4,7 +4,7 @@ class EaUtils < Formula
   url "https://drive.google.com/uc?export=download&id=0B7KhouP0YeRAc2xackxzRnFrUEU"
   version "1.1.2-806"
   sha256 "31f059ac2d6282d8e0e25047fc6aa5448f8c41de6067eaf6b456054cd53c782c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
