@@ -10,11 +10,9 @@ class Wiggletools < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "3e8608fe94cbf06138392adf41978b6e8aff664f48a1afa4ccda46e2e258a155" => :sierra
-    sha256 "f592e4c356f20ada43a98eb19e28c4c0e54be564a52f428d363e0a719cefd1c6" => :el_capitan
-    sha256 "6db2a470664e190084ccf40b46150a8fb8d5ef2affbb796e1b9a9628262ba201" => :yosemite
-    sha256 "56bda789ab498686bcb2c68f6eab60e6331e76ad229b45ddfdb3cf0874c3d281" => :x86_64_linux
+    sha256 "461d183d596237fc2e68094eeed0adfe48d75e8c7c08f1e11e5376c0ac556c22" => :sierra
+    sha256 "8020b504935d5eb7145cc47608d6331b6d95411176c8a2b22ff2a011fe1cfd55" => :el_capitan
+    sha256 "becc1a3137457844798f374372d24e8c95b50d052f1a46d925094b9a79a9c250" => :yosemite
   end
 
   depends_on "curl" unless OS.mac?
