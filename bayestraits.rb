@@ -4,6 +4,7 @@ class Bayestraits < Formula
   url "http://www.evolution.rdg.ac.uk/BayesTraitsV3/Files/BayesTraitsV3-src.tar.gz"
   version "3.0"
   sha256 "6226afdac2aa93e49b54ffa7f77dc0107ee5fbfa0e8df92abef9d8aaacfb3828"
+  revision 1
 
   bottle do
     cellar :any
