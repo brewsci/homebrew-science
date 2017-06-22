@@ -1,7 +1,7 @@
 class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "http://libbi.org"
-  revision 3
+  revision 4
   head "https://github.com/libbi/LibBi.git"
 
   stable do
@@ -11,8 +11,8 @@ class Libbi < Formula
     if build.without? "openmp"
       patch do
         # disable OpenMP if it is not used
-        url "https://github.com/sbfnk/LibBi/commit/df6fbc815cc4c2c52f9a6bcbffc01bd82f9674fd.diff"
-        sha256 "7c0785c5337bcdd8dac9e90e0c37b7766d579684d48abac35974fb5fde67d6b5"
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/08c981bbee01db804e8002868affbbda57a82436/libbi/libbi-1.3.0-openmp.patch"
+        sha256 "236d288c79a505626ad5435f09761af371a2a562c3c35b32310a0a9d92edb3cf"
       end
     end
   end
@@ -57,8 +57,8 @@ class Libbi < Formula
   end
 
   resource "Parse::Yapp" do
-    url "http://search.cpan.org/CPAN/authors/id/F/FD/FDESAR/Parse-Yapp-1.05.tar.gz"
-    sha256 "228a6cfb483ade811720bb77647900ef359dfc3e071359eb73d39e4a1cc6f22b"
+    url "http://search.cpan.org/CPAN/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.2.tar.gz"
+    sha256 "4bd29f083c261253c6128303dc51bff88d6472c09c3846bd399e21f1f0c3e49a"
   end
 
   resource "Parse::Template" do
@@ -79,6 +79,21 @@ class Libbi < Formula
   resource "Math::Symbolic" do
     url "http://search.cpan.org/CPAN/authors/id/S/SM/SMUELLER/Math-Symbolic-0.612.tar.gz"
     sha256 "a9af979956c4c28683c535b5e5da3cde198c0cac2a11b3c9a129da218b3b9c08"
+  end
+
+  resource "YAML::Tiny" do
+    url "http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/YAML-Tiny-1.70.tar.gz"
+    sha256 "bbce4b52b5eafdb04e3043975a08dbf394d00b7d2c958adb9d03d9f7e9291255"
+  end
+
+  resource "File::Remove" do
+    url "http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/File-Remove-1.57.tar.gz"
+    sha256 "b3becd60165c38786d18285f770b8b06ebffe91797d8c00cc4730614382501ad"
+  end
+
+  resource "inc::Module::Install::DSL" do
+    url "http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/Module-Install-1.18.tar.gz"
+    sha256 "29068ac33502cec959844c206516c09cc4a847cb57327d41015f605153ca645e"
   end
 
   resource "Class::Inspector" do
