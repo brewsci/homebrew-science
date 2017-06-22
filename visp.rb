@@ -1,8 +1,9 @@
 class Visp < Formula
   desc "Visual Servoing Platform library"
   homepage "https://visp.inria.fr"
-  url "http://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.0.1.tar.gz"
+  url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.0.1.tar.gz"
   sha256 "8aefd21f30dd4f6d210c59c28704f9e3adf874e3337571a3ae65a65946c94326"
+  revision 1
 
   bottle do
     sha256 "255941dfb9c5c36ad20c96f2cf7c7f7614171de6499319ecae31a309a74ef2e8" => :sierra
@@ -23,7 +24,7 @@ class Visp < Formula
   depends_on :x11        => :recommended
 
   def arg_switch(opt)
-    (build.with? opt) ? "ON" : "OFF"
+    build.with?(opt) ? "ON" : "OFF"
   end
 
   def install
