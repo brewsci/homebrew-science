@@ -7,10 +7,9 @@ class Clonehd < Formula
   head "https://github.com/ivazquez/cloneHD.git"
 
   bottle do
-    sha256 "8ee4733510ff68c206f5a5ce8ae554bef0cdfd5986b9cbebf9d54e591dc774d2" => :el_capitan
-    sha256 "debd6eb1f17dd3dcb613e2ce73e8cd087dbbf5f1163b384d89a3e407eb19e675" => :yosemite
-    sha256 "aef26cbb76e8df98d9e876b37815804dc7053db999cf81e427c039e06c0980cd" => :mavericks
-    sha256 "0c23dfd1e0c4c3f030d9efd58749835fd0a24d241dc4f10fee5fe4d21bbf1b4d" => :x86_64_linux
+    sha256 "3edb63f909f26b3de79d4ad84831cea510d9de2dc92147b4e1974215b81718e5" => :sierra
+    sha256 "3b6afecd2818f5bfeba72226901629a60b0263ffd085ee3165bff3c04df7aeb2" => :el_capitan
+    sha256 "a76e462eeeea666f1fd731c180ced9a494e81848bc5291cd8aa3bf81aed28d58" => :yosemite
   end
 
   # doi "10.1016/j.celrep.2014.04.055"
