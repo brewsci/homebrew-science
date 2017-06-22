@@ -11,6 +11,7 @@ class Bayestraits < Formula
     sha256 "40298773f30495810c9a3de313bbf39fc0a4ce8dc6d3842a8ace1323fc529661" => :sierra
     sha256 "c7866c39638a21127c14ca094e4de77215724321bb09e7ee134ac5b453769257" => :el_capitan
     sha256 "101a38c0377f79135651bc8c4e5f430ca3db68f2afcba00f3d2600b4e5bc3479" => :yosemite
+    sha256 "5748d8787f2d8a201861365d804a63031b82f0d5cfbb780cf89e5797023d8293" => :x86_64_linux
   end
 
   option "with-openmp", "Build a threaded version with openmp"
