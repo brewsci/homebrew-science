@@ -3,6 +3,7 @@ class Lmod < Formula
   homepage "https://www.tacc.utexas.edu/research-development/tacc-projects/lmod"
   url "https://github.com/TACC/Lmod/archive/7.5.2.tar.gz"
   sha256 "f1f540fa2ddd61db31b73ac59e6e630373431b88f6630ee9254f4fdfb2e855d1"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -47,6 +48,9 @@ class Lmod < Formula
     mv Dir[prefix/"lmod/#{version}/*"], prefix
     rmdir prefix/"lmod/#{version}"
     (prefix/"lmod").install_symlink ".." => version
+    Dir[prefix/"lmod/init/*"].reject { |f| f["lmodrc.lua"] }.each do |f|
+      inreplace f, "lmod/lmod", "lmod"
+    end
   end
 
   test do
