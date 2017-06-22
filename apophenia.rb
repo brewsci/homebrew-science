@@ -12,6 +12,7 @@ class Apophenia < Formula
     sha256 "cd78c8a651577d511679b79aa66f43f50fbc5644d3152846142215252a3a3c9c" => :sierra
     sha256 "adf789318a1acc972ff0f1917f6b7006669b6b5f17aedc16e4cf413d7476dcf6" => :el_capitan
     sha256 "db04d9ea7bb72b6d51cdd35d509e488513a59f4d5eaa7c46cf8f3b6020f8b259" => :yosemite
+    sha256 "1ccf3e976071d815b5618f057a8e9063f0434620df43f732dadc4a496435def8" => :x86_64_linux
   end
 
   # doi "arXiv:1502.02614"
