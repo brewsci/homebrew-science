@@ -3,7 +3,7 @@ class Mathgl < Formula
   homepage "https://mathgl.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/mathgl/mathgl/mathgl%202.3.5/mathgl-2.3.5.1.tar.gz"
   sha256 "77a56936f5a763fc03480c9c1fe8ed528a949b3d63b858c91abc21c731acf0db"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "d3d41ce4849b4ae0d430648938eaad0d202c48c062fd4b450d9364e3fa0e629e" => :sierra
@@ -42,8 +42,8 @@ class Mathgl < Formula
       -Denable-octave=OFF
     ]
 
-    args << "-Denable-openmp=" + ((build.with? "openmp") ? "ON" : "OFF")
-    args << "-Denable-pthread=" + ((build.with? "openmp") ? "OFF" : "ON")
+    args << "-Denable-openmp=" + (build.with?("openmp") ? "ON" : "OFF")
+    args << "-Denable-pthread=" + (build.with?("openmp") ? "OFF" : "ON")
     args << "-Denable-qt5=ON"     if build.with? "qt"
     # the JSON samples need QtWebKit
     args << "-Denable-json-sample=OFF" if build.with? "qt"
