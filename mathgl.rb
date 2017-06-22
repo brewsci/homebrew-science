@@ -6,9 +6,9 @@ class Mathgl < Formula
   revision 3
 
   bottle do
-    sha256 "d3d41ce4849b4ae0d430648938eaad0d202c48c062fd4b450d9364e3fa0e629e" => :sierra
-    sha256 "9428e97dbf656238c19fe1edfa88891ba25964df059c8f5ab7b3a9c8d8e0afa1" => :el_capitan
-    sha256 "e7d04051e186f23b3c6d11ca7f2b1a17f5f716faeaadab166f5da6e2e89c2a09" => :yosemite
+    sha256 "848b03f5ca63c9ca6c504ab1c9980e3289c8e584694756f45de59350c21e6118" => :sierra
+    sha256 "25303d6c079ea3ce0c21fe55bf30547d81bac1bfff5d085a381a657b9ebe9df7" => :el_capitan
+    sha256 "1a300c1134b1452a3cab15d9961c22042b796181b5586f1430af6d653649f962" => :yosemite
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
