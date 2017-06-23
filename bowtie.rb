@@ -10,10 +10,9 @@ class Bowtie < Formula
 
   bottle do
     cellar :any
-    sha256 "73df585d60aaae9619f9e701b482d3415bf5f68d3ba10c88b273f39282d159c7" => :sierra
-    sha256 "75f6a82b0dfab633523558a22f976781cfd89c6ea9fa1c7a11f1f749dcf52d00" => :el_capitan
-    sha256 "63211bbe99c6dff70eafb3da17e0a169ed90a74db879fa71e43a83741e9a84cf" => :yosemite
-    sha256 "fd6e78fa9373b66ba2f52d1fb0ba059676e3b2177cd5094dd2db55d5b277c2a7" => :x86_64_linux
+    sha256 "e8e3de07ad1e8d7a7696919500f7d6abe3f39dd6d8f3b6b95d8488319aef8cb9" => :sierra
+    sha256 "31efd0d1833acc39131e977892ff270d060a191e75220a75905a66821e26c2bd" => :el_capitan
+    sha256 "7675597f548e966eb8106669691bc930355e3dc08ee1e085553ea354af90e2e7" => :yosemite
   end
 
   depends_on "tbb"
