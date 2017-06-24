@@ -28,9 +28,9 @@ class Root < Formula
   end
 
   bottle do
-    sha256 "1d68a7c81296880e4a9bd8ab98e4e069e6220b422b004dc035f4543e8eb5b857" => :sierra
-    sha256 "fac65200906f92419295887a51bc63729a6a0bc16ce6a814f9d63c6447c7cc53" => :el_capitan
-    sha256 "6ba709de6f4f67a406ba8ebceb07830213de2538dda936e2e262a1daa72de350" => :yosemite
+    sha256 "d6279a31e7fd86c7b601066d8b76d0b63438a773cee5e669973c3a5fc8a35204" => :sierra
+    sha256 "60ff09a9a278d726bf9ff0e45d24e9dc6e0c5e2969ad6c30295f430da511fa9c" => :el_capitan
+    sha256 "aa0d5047b21cc8e8c0b71995d28ae9af846717a758bedcd63940aba548f0dcf0" => :yosemite
   end
 
   depends_on "openssl"
