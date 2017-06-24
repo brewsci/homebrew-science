@@ -56,8 +56,8 @@ class Cgns < Formula
     EOS
     compiler = Tab.for_name("cgns").with?("hdf5") ? "h5cc" : ENV.cc
     # The rpath to szip needs to be passed explicitely here because the
-    # compiler may be h5cc (std env is not supported in that case)
-    rpath = OS.mac? ? "" : "-Wl,-rpath=#{Formula["szip"].opt_lib}"
+    # compiler may be h5cc (Superenv is not supported in that case)
+    rpath = "-Wl,-rpath=#{Formula["szip"].opt_lib}" unless OS.mac?
     system compiler, "-I#{opt_include}", testpath/"test.c", "-L#{opt_lib}", "-lcgns", *rpath
     assert_match(/#{version}/, shell_output("./a.out"))
   end
