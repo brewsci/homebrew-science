@@ -21,6 +21,7 @@ class Libbi < Formula
     sha256 "1c80eb9be120c3ea6eb0e1d637311988280896594b21df2d7d1bac0c6b62c53a" => :sierra
     sha256 "2148c03945b5464698f1f4fb99fefaa720942967030bc19f6c39c524c6335c4b" => :el_capitan
     sha256 "1a64a50a6ee83aa53482f24ce05b32ee9c327d4ade0dd2d45378268e04e87104" => :yosemite
+    sha256 "b99018811975b4750b17793c1e597c912adc6204a397f47e649450bc3a95c932" => :x86_64_linux
   end
 
   option "without-test", "Disable build-time checking (not recommended)"
