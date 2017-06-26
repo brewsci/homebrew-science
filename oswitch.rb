@@ -6,9 +6,9 @@ class Oswitch < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "364c344dec0c3a41ea59c76df5be6bb63106894ad55d8df68ec4dcd3f3104bb7" => :el_capitan
-    sha256 "33c34d78279af4034cae565ea10cb3bbffe34c32929255e34f6ce063ce8d5ee0" => :yosemite
-    sha256 "b515c7a7ca13560f075bb04559b7f8758f446de59627d3ae8f928e450e888d1d" => :mavericks
+    sha256 "9116ee150225d41e743fd5c8bc6bbdee6d321bceef3965c98b4accd295f0274d" => :sierra
+    sha256 "1b6a33ff6685f43895d6f83d1b5cdb0d7a92ffa75b99a11c056373f258c9fdf4" => :el_capitan
+    sha256 "f9302eed7c95b20561f3d4156bedd954e0c91683606748aa91640f10f01a04eb" => :yosemite
   end
 
   depends_on :ruby => "2.0" if OS.linux?
