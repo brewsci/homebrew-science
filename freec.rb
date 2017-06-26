@@ -12,6 +12,7 @@ class Freec < Formula
     sha256 "0e6b454b3d7c06b6ce6b523ee6a87fd2a7a8b60383493b07d82c23d641a7b2c4" => :sierra
     sha256 "19991ae34f6ac95ff8eebe922366402c837a3677c9920c185aecf3b33b1ffabf" => :el_capitan
     sha256 "b4f93ca403b077789b1d40ac4398f0ebc9cdfea3c654919bec0802c42361cb59" => :yosemite
+    sha256 "cde3295808a1df20f62f503e42c457a9ae7429205cba6264f6f690a6fd24af99" => :x86_64_linux
   end
 
   def install
