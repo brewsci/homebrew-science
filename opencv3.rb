@@ -157,7 +157,7 @@ class Opencv3 < Formula
 
     if build.with? "cuda"
       args << "-DWITH_CUDA=ON"
-      args << "-DCUDA_GENERATION=Kepler"
+      args << "-DCUDA_GENERATION=Auto"
     else
       args << "-DWITH_CUDA=OFF"
     end
