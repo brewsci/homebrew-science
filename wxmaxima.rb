@@ -7,9 +7,9 @@ class Wxmaxima < Formula
 
   bottle do
     cellar :any
-    sha256 "3c82f647ee04ea3b7e52483d686f9c234b3937b75659a0d621fdbf1048204009" => :sierra
-    sha256 "3b2f46ec73a685508757764b248de20e3059474dbb669ca4e4431ac49ab733d9" => :el_capitan
-    sha256 "d1aa7ff4ac56ae41a8b8b13be665568dc669e3f8586a21ded1278c7d8a11e0fd" => :yosemite
+    sha256 "5ce4ee1a3b4e22ea2a125b36b05a5fe0906be6587b03110b20fbe1b74afac504" => :sierra
+    sha256 "dd0bf3545800e8c63bf24dba46269f54793ae01c04720c1a891fa4dab9943e26" => :el_capitan
+    sha256 "c14fc77382413a5b9ade593b3d985dd80ac8c7efa61e5eedeedbc717404ee252" => :yosemite
   end
 
   depends_on "autoconf" => :build
