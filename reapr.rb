@@ -39,7 +39,7 @@ class Reapr < Formula
   # __ks_insertsort_##name as static to compile with C99."
   resource "samtools_patch" do
     url "https://github.com/samtools/samtools/commit/64275b4.patch"
-    sha256 "daa4d7050b56e089e3016aeb8fec9187c7e8f3bc1164d4d0c8aab1f61efe8b89"
+    sha256 "91ad8e714c0d48a7b3dde99eb4eba49c00b8e88f0c4b67cdd284c208a4741803"
   end
 
   def install
