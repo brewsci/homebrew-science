@@ -1,22 +1,9 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization."
   homepage "http://www.vtk.org"
+  url "http://www.vtk.org/files/release/8.0/VTK-8.0.0.tar.gz"
+  sha256 "c7e727706fb689fb6fd764d3b47cac8f4dc03204806ff19a10dfd406c6072a27"
   head "https://github.com/Kitware/VTK.git"
-
-  stable do
-    url "http://www.vtk.org/files/release/7.1/VTK-7.1.1.tar.gz"
-    mirror "https://fossies.org/linux/misc/VTK-7.1.1.tar.gz"
-    sha256 "2d5cdd048540144d821715c718932591418bb48f5b6bb19becdae62339efa75a"
-    patch do
-      # Fixes python linking. This is a modified version of
-      # https://github.com/Kitware/VTK/commit/5668595ea778e81acaed451ae4dc1125a43a8aa0
-      # This patch has been merged upstream and can be removed for the next VTK
-      # release containing the patch.
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/vtk/vtk-nopythonlinking-7.1.0.patch"
-      sha256 "b243eb77567f822540e299a9ee44f4fd646abb6fa3b8e889af3e69f97ff3993e"
-    end
-  end
-  revision 1
 
   bottle do
     sha256 "2b8babaaa135cd4edbeddb1b8b8163d89a012e4d64afb2b88087e8edba9fac7c" => :sierra
@@ -30,6 +17,7 @@ class Vtk < Formula
   deprecated_option "tcl" => "with-tcl"
   deprecated_option "remove-legacy" => "without-legacy"
   deprecated_option "with-qt@5.7" => "with-qt5"
+  deprecated_option "with-qt5" => "with-qt"
 
   option :cxx11
   option "with-examples",   "Compile and install various examples"
@@ -42,7 +30,7 @@ class Vtk < Formula
   depends_on "netcdf"
   depends_on "cmake" => :build
   depends_on :x11 => :optional
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
 
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
@@ -61,7 +49,7 @@ class Vtk < Formula
   end
 
   # If --with-qt and --with-python, then we automatically use PyQt, too!
-  if build.with? "qt5"
+  if build.with? "qt"
     if build.with? "python"
       depends_on "sip"
       depends_on "pyqt5" => ["with-python", "without-python3"]
@@ -85,7 +73,7 @@ class Vtk < Formula
       -DVTK_USE_SYSTEM_NETCDF=ON
     ]
 
-    args << "-DBUILD_EXAMPLES=" + ((build.with? "examples") ? "ON" : "OFF")
+    args << "-DBUILD_EXAMPLES=" + (build.with?("examples") ? "ON" : "OFF")
 
     if build.with? "examples"
       args << "-DBUILD_TESTING=ON"
@@ -93,7 +81,7 @@ class Vtk < Formula
       args << "-DBUILD_TESTING=OFF"
     end
 
-    if build.with? "qt5"
+    if build.with? "qt"
       args << "-DVTK_QT_VERSION:STRING=5"
       args << "-DVTK_Group_Qt=ON"
     end
@@ -161,7 +149,7 @@ class Vtk < Formula
         args << "-DVTK_INSTALL_PYTHON_MODULE_DIR='#{py_site_packages}/'"
       end
 
-      if build.with? "qt5"
+      if build.with? "qt"
         args << "-DVTK_WRAP_PYTHON_SIP=ON"
         args << "-DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'"
       end
@@ -178,9 +166,9 @@ class Vtk < Formula
   def caveats
     s = ""
     s += <<-EOS.undent
-        Even without the --with-qt5 option, you can display native VTK render windows
+        Even without the --with-qt option, you can display native VTK render windows
         from python. Alternatively, you can integrate the RenderWindowInteractor
-        in PyQt4, Tk or Wx at runtime. Read more:
+        in PyQt5, Tk or Wx at runtime. Read more:
             import vtk.qt5; help(vtk.qt5) or import vtk.wx; help(vtk.wx)
     EOS
 
@@ -200,13 +188,13 @@ class Vtk < Formula
         #include <assert.h>
         int main(int, char *[])
         {
-          assert (vtkVersion::GetVTKMajorVersion()==7);
-          assert (vtkVersion::GetVTKMinorVersion()==1);
+          assert (vtkVersion::GetVTKMajorVersion()==8);
+          assert (vtkVersion::GetVTKMinorVersion()==0);
           return EXIT_SUCCESS;
         }
       EOS
 
-    system ENV.cxx, "Version.cpp", "-I#{opt_include}/vtk-7.1"
+    system ENV.cxx, "Version.cpp", "-I#{opt_include}/vtk-8.0"
     system "./a.out"
     system "#{bin}/vtkpython", "-c", "exit()"
   end
