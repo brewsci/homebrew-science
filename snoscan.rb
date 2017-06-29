@@ -1,9 +1,8 @@
 class Snoscan < Formula
   desc "Search for C/D box methylation guide snoRNA genes in a genomic sequence"
   homepage "http://lowelab.ucsc.edu/snoscan/"
-  url "http://lowelab.ucsc.edu/software/snoscan-0.9.tar.gz"
-  version "0.9b"
-  sha256 "a73707f93bc52c3212fd2e7e339ca04d8b74aaa863fa417e26b4b935a6008756"
+  url "http://lowelab.ucsc.edu/software/snoscan-0.9.1.tar.gz"
+  sha256 "e6ad2f10354cb0c4c44d46d5f298476dbe250a4817afcc8d1c56d252e08ae19e"
   # doi "10.1126/science.283.5405.1168"
   # tag "bioinformatics"
 
@@ -16,19 +15,22 @@ class Snoscan < Formula
   end
 
   def install
-    inreplace "sort-snos" do |s|
-      s.sub! "#! /usr/local/bin/perl", "#!/usr/bin/perl"
-      s.sub! 'require ("getopts.pl");', "use Getopt::Std;"
-      s.sub! "Getopts", "getopts"
+    # Delete 0 byte sized files delivered by the archive
+    # These files seem only to be problematic on mac OS
+    if OS.mac?
+      rm "snoscan"
+      rm "search.o"
+      rm "snoscan_main.o"
     end
 
-    # error: static declaration of 'getline' follows non-static declaration
-    inreplace "squid-1.5j/sqio.c", "getline", "getline_ReadSeqVars"
+    inreplace "sort-snos" do |s|
+      s.sub! "#! /usr/local/bin/perl", "#!/usr/bin/perl"
+    end
 
-    system *%W[make -C squid-1.5j]
+    system "make", "-C", "squid-1.5.11"
     system "make"
-    bin.install %W[snoscan sort-snos]
-    doc.install %W[COPYING GNULICENSE README]
+    bin.install "snoscan", "sort-snos"
+    doc.install "COPYING", "GNULICENSE", "README"
   end
 
   test do
