@@ -1,8 +1,8 @@
 class Beast2 < Formula
   desc "Bayesian evolutionary analysis by sampling trees"
-  homepage "http://www.beast2.org/"
-  url "https://github.com/CompEvol/beast2/archive/v2.4.5.tar.gz"
-  sha256 "e2ff7c36ad9c216f76c01d0b7181b90d48fd4a7bd16668245fe6b49483c777bf"
+  homepage "https://www.beast2.org/"
+  url "https://github.com/CompEvol/beast2/archive/v2.4.6.tar.gz"
+  sha256 "a1e150927b5e063ed001b8234e87e72771c458e9ac0bf636bd6bbd1d4be255b5"
   head "https://github.com/CompEvol/beast2.git"
   # tag "bioinformatics"
   # doi "10.1371/journal.pcbi.1003537"
