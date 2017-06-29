@@ -15,6 +15,8 @@ class Pcl < Formula
     sha256 "6d556763913ab8f3e21789b567f56cea2191446251b23b544f8b118c0ab7dc98" => :yosemite
   end
 
+  deprecated_option "with-qt5" => "with-qt"
+
   option "with-examples", "Build pcl examples."
   option "without-tools", "Build without tools."
   option "without-apps", "Build without apps."
@@ -33,20 +35,36 @@ class Pcl < Formula
 
   depends_on "glew"
   depends_on CudaRequirement => :optional
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
 
-  if build.with? "qt5"
+  if build.with? "qt"
     depends_on "sip" # Fix for building system
     depends_on "pyqt5" => ["with-python", "without-python3"] # Fix for building system
-    depends_on "vtk" => [:recommended, "with-qt5"]
+    depends_on "vtk" => [:recommended, "with-qt"]
   else
     depends_on "vtk" => :recommended
   end
   depends_on "openni" => :optional
   depends_on "openni2" => :optional
-  depends_on "XML::Parser" => :perl if OS.linux?
+  if OS.linux?
+    resource "XML::Parser" do
+      url "https://cpan.metacpan.org/CPAN/authors/id/M/MS/MSERGEANT/XML-Parser-2.36.tar.gz"
+      mirror "http://search.cpan.org/CPAN/authors/id/M/MS/MSERGEANT/XML-Parser-2.36.tar.gz"
+      sha256 "9fd529867402456bd826fe0e5588d35b3a2e27e586a2fd838d1352b71c2ed73f"
+    end
+  end
 
   def install
+    # Reduce memory usage below 4 GB for Linux CI
+    ENV["MAKEFLAGS"] = "-j1" if OS.linux? && build.bottle?
+
+    if OS.linux?
+      resource("XML::Parser").stage do
+        system "perl", "Makefile.PL", "LIB=#{libexec}/PerlLib", "PREFIX=#{libexec}/vendor"
+        system "make", "install"
+      end
+    end
+
     args = std_cmake_args + %w[
       -DBUILD_SHARED_LIBS:BOOL=ON
       -DBUILD_simulation:BOOL=AUTO_OFF
@@ -56,7 +74,7 @@ class Pcl < Formula
       -DWITH_TUTORIALS:BOOL=OFF
       -DWITH_DOCS:BOOL=OFF
     ]
-    if build.with? "qt5"
+    if build.with? "qt"
       args << "-DPCL_QT_VERSION=5"
     else
       args << "-DWITH_QT:BOOL=FALSE"
@@ -89,7 +107,7 @@ class Pcl < Formula
         -DBUILD_apps_optronic_viewer=AUTO_OFF
         -DBUILD_apps_point_cloud_editor=AUTO_OFF
       ]
-      if !build.head? && build.without?("qt5")
+      if !build.head? && build.without?("qt")
         args << "-DBUILD_apps_modeler:BOOL=OFF"
       else
         args << "-DBUILD_apps_modeler=AUTO_OFF"
