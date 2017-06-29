@@ -19,7 +19,6 @@ class Vtk < Formula
   deprecated_option "with-qt@5.7" => "with-qt5"
   deprecated_option "with-qt5" => "with-qt"
 
-  option :cxx11
   option "with-examples",   "Compile and install various examples"
   option "with-qt-extern",  "Enable Qt4 extension via non-Homebrew external Qt4"
   option "with-tcl",        "Enable Tcl wrapping of VTK classes"
@@ -114,8 +113,6 @@ class Vtk < Formula
     args << "-DVTK_USE_SYSTEM_TIFF=ON" if build.with? "libtiff"
     args << "-DModule_vtkRenderingMatplotlib=ON" if build.with? "matplotlib"
     args << "-DVTK_LEGACY_REMOVE=ON" if build.without? "legacy"
-
-    ENV.cxx11 if build.cxx11?
 
     mkdir "build" do
       if build.with?("python3") && build.with?("python")
