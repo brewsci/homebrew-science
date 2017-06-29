@@ -1,11 +1,11 @@
 class Gmt < Formula
   desc "Tools for processing and displaying xy and xyz datasets"
   homepage "http://gmt.soest.hawaii.edu/"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.1-src.tar.xz"
-  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-5.4.1-src.tar.xz"
-  mirror "ftp://gd.tuwien.ac.at/pub/gmt/gmt-5.4.1-src.tar.xz"
-  mirror "ftp://ftp.iris.washington.edu/pub/gmt/gmt-5.4.1-src.tar.xz"
-  sha256 "1ea39bb6fc0d8880c33425ecdec8761470b91aff7c88e825db458d1e170f6f53"
+  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.2-src.tar.xz"
+  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-5.4.2-src.tar.xz"
+  mirror "ftp://gd.tuwien.ac.at/pub/gmt/gmt-5.4.2-src.tar.xz"
+  mirror "ftp://ftp.iris.washington.edu/pub/gmt/gmt-5.4.2-src.tar.xz"
+  sha256 "ddcd63094aeda5a60f541626ed7ab4a78538d52dea24ba915f168e4606e587f5"
 
   bottle do
     sha256 "046b514a64d4bcdb73e9dd49ff349e0066eb0ab0a02ab5dba0be08b46790b66c" => :sierra
@@ -22,11 +22,11 @@ class Gmt < Formula
   conflicts_with "gmt4", :because => "both versions install the same binaries"
 
   resource "gshhg" do
-    url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.6.tar.gz"
-    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.6.tar.gz"
-    mirror "ftp://gd.tuwien.ac.at/pub/gmt/gshhg-gmt-2.3.6.tar.gz"
-    mirror "ftp://ftp.iris.washington.edu/pub/gmt/gshhg-gmt-2.3.6.tar.gz"
-    sha256 "ccffff9d96fd6c9cc4f9fbc897d7420c5fc3862fb98d1fd1b03dc4a15c95124e"
+    url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.7.tar.gz"
+    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.7.tar.gz"
+    mirror "ftp://gd.tuwien.ac.at/pub/gmt/gshhg-gmt-2.3.7.tar.gz"
+    mirror "ftp://ftp.iris.washington.edu/pub/gmt/gshhg-gmt-2.3.7.tar.gz"
+    sha256 "9bb1a956fca0718c083bef842e625797535a00ce81f175df08b042c2a92cfe7f"
   end
 
   resource "dcw" do
