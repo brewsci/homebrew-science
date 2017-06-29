@@ -8,9 +8,9 @@ class Anvio < Formula
   head "https://github.com/merenlab/anvio.git"
 
   bottle do
-    sha256 "799386f04f32152d09d028b351f19e395e3d6093fcbe22cd949384aabbab2a12" => :sierra
-    sha256 "74aea46cdb6326e557c2c9a4c67c88c69a5cf3ff6e4e0b84d45e71227241fa06" => :el_capitan
-    sha256 "d41fee41521d43307439e85aa575a4e8bdf256553184ca82cd04a1a335f8d98b" => :yosemite
+    sha256 "dc58f4fef58489b6c2e86fdfb33ac694dcfd1c8c28e0f6331c72fb823c83b9cb" => :sierra
+    sha256 "9d33d7084820fcaa1025c925ddb5f3cde28228cec4b79d55ac03be107cdfec40" => :el_capitan
+    sha256 "a9e06b5f9380d59164e593349a88f7db897e26e8486fd4853a7556287436b01f" => :yosemite
   end
 
   # doi "10.7717/peerj.1319"
