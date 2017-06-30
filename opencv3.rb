@@ -42,7 +42,6 @@ class Opencv3 < Formula
   option "with-jpeg-turbo", "Build with libjpeg-turbo instead of libjpeg"
   option "with-nonfree", "Enable non-free algorithms"
   option "with-opengl", "Build with OpenGL support (must use --with-qt)"
-  option "with-quicktime", "Use QuickTime for Video I/O instead of QTKit"
   option "with-qt", "Build the Qt backend to HighGUI"
   option "with-static", "Build static libraries"
   option "with-tbb", "Enable parallel code in OpenCV using Intel TBB"
@@ -50,6 +49,11 @@ class Opencv3 < Formula
   option "without-opencl", "Disable GPU code in OpenCV using OpenCL"
   option "without-python", "Build without Python support"
   option "without-test", "Build without accuracy & performance tests"
+
+  if OS.mac? && DevelopmentTools.clang_build_version < 800
+    # Quicktime option was replaced with AVFoundation for newer development tools
+    option "with-quicktime", "Use QuickTime for Video I/O instead of QTKit"
+  end
 
   option :cxx11
 
@@ -131,12 +135,15 @@ class Opencv3 < Formula
     args << "-DWITH_JASPER=" + arg_switch("jasper")
     args << "-DWITH_OPENEXR=" + arg_switch("openexr")
     args << "-DWITH_OPENGL=" + arg_switch("opengl")
-    args << "-DWITH_QUICKTIME=" + arg_switch("quicktime") if OS.mac?
     args << "-DWITH_QT=" + (with_qt ? "ON" : "OFF")
     args << "-DWITH_TBB=" + arg_switch("tbb")
     args << "-DWITH_VTK=" + arg_switch("vtk")
     args << "-DBUILD_TIFF=" + neg_arg_switch("libtiff")
     args << "-DBUILD_PNG=" + neg_arg_switch("libpng")
+
+    if OS.mac? && DevelopmentTools.clang_build_version < 800
+      args << "-DWITH_QUICKTIME=" + arg_switch("quicktime")
+    end
 
     if build.with?("jpeg") && build.with?("jpeg-turbo")
       odie "Options --with-jpeg and --with-jpeg-turbo are mutually exclusive."
