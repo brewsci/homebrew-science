@@ -6,9 +6,9 @@ class Clinfo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fa3c52d03e5b9352eeb08690aebee470123efd73815de391bcce9b4f37fa02d2" => :sierra
-    sha256 "1d0e603def9babd4637fa6b27de94c5b24f7e4071617e7163f8c30c3af01b532" => :el_capitan
-    sha256 "404d014e917705167154f3ccdf9c43e2c993a5385a29295ce275669c4291d55b" => :yosemite
+    sha256 "d6df8c8b68234bb7ebc405c7ba34cc5d400b74329ecdc580e7cd125e19e4d694" => :sierra
+    sha256 "7dd7557890532f4093c435a4406bbd3118d4e4de5b479aa2f55d02e4ba2ee6fc" => :el_capitan
+    sha256 "9eb0209aa36e683c9a7fecca1dfdba7a5980e3d8b0647ba78764725ab8768740" => :yosemite
   end
 
   def install
