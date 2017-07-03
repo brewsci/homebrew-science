@@ -1,8 +1,8 @@
 class Packmol < Formula
   desc "Packing optimization for molecular dynamics simulations"
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
-  url "https://github.com/leandromartinez98/packmol/archive/17.163.tar.gz"
-  sha256 "52b0e999fb53cb635a44fc9e2116bd9b677f524462bb43b2f793e4be55a2befb"
+  url "https://github.com/leandromartinez98/packmol/archive/17.184.tar.gz"
+  sha256 "78f65b88924012ccddce4ae1977857cc35dc2d9c0f453d7c04c082815a0476b3"
   head "https://github.com/leandromartinez98/packmol.git"
   # tag "chemistry"
   # doi "10.1002/jcc.21224"
