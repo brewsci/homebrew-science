@@ -8,9 +8,9 @@ class Scalapack < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
-    sha256 "cfa37b8395b4277299ad3dc7ce249e3db8c846f325a48bab381a7f3f4a3c1cc3" => :sierra
-    sha256 "90a0d3f4a815f517024e1bece73776ec71cdd8ab694ccc2bd8c62c6be6a00ae0" => :el_capitan
-    sha256 "91e417775b352cdbdcd15002ba6f43665874cf7f5925a561150a26b3a276afb8" => :yosemite
+    sha256 "06890b48f66fed7ab98e7b132f707890f30fb96ac5f7c56d3aca2e42d7f6ed1f" => :sierra
+    sha256 "4b07175d17d42cd5da682fa083ab82acbc45ed13a58224d944f2d7ca62ee6acf" => :el_capitan
+    sha256 "266da17498776e07fca18a4477218600e7c7fc8ef53ac1c031045319965d97d2" => :yosemite
     sha256 "15621fd017803801a41f121018a5688bf4cde3c4ce1944c6d0f60f9d884c1fe1" => :x86_64_linux
   end
 
