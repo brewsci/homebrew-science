@@ -1,10 +1,9 @@
 class CalculixCcx < Formula
   desc "Three-Dimensional Finite Element Solver"
   homepage "http://www.calculix.de/"
-  url "http://www.dhondt.de/ccx_2.11.src.tar.bz2"
-  version "2.11"
-  sha256 "11588c7a2836cadbc4c6f2b866b0daa67512eebe755887094a76a997e6dc2493"
-  revision 3
+  url "http://www.dhondt.de/ccx_2.12.src.tar.bz2"
+  version "2.12"
+  sha256 "d75427dfb6db70fdfbb5939df22da8addf0ea4522cff32c9cdc4029e39b6b914"
 
   bottle do
     cellar :any
@@ -22,15 +21,15 @@ class CalculixCcx < Formula
   depends_on "pkg-config" => :build
 
   resource "test" do
-    url "http://www.dhondt.de/ccx_2.11.test.tar.bz2"
-    version "2.11"
-    sha256 "3bb676e689b83129aa7a24a1f87e59fec61b70e486c85ed590ef1baffc77db0a"
+    url "http://www.dhondt.de/ccx_2.12.test.tar.bz2"
+    version "2.12"
+    sha256 "1a3758a09a444472bccf0998ae66d3f78671c9fd8a3c8a8fe59372e9b5787bd8"
   end
 
   resource "doc" do
-    url "http://www.dhondt.de/ccx_2.11.htm.tar.bz2"
-    version "2.11"
-    sha256 "8cd8beec5cb010d50a9b0013ffc80785f7a0393236d88a49b36de6795949bab1"
+    url "http://www.dhondt.de/ccx_2.12.htm.tar.bz2"
+    version "2.12"
+    sha256 "79f16a016d37ae8b1599946dbbeb56fc256ba848413fa8ccfbab5b565b41a9e9"
   end
 
   resource "spooles" do
@@ -50,7 +49,7 @@ class CalculixCcx < Formula
     # Patch spooles library
     inreplace "spooles/Make.inc", "/usr/lang-4.0/bin/cc", ENV.cc
     inreplace "spooles/Tree/src/makeGlobalLib", "drawTree.c", "tree.c"
-    inreplace "ccx_2.11/src/Makefile", "-fopenmp", "" if build.without? "openmp"
+    inreplace "ccx_2.12/src/Makefile", "-fopenmp", "" if build.without? "openmp"
 
     # Build serial spooles library
     system "make", "-C", "spooles", "lib"
@@ -73,28 +72,28 @@ class CalculixCcx < Formula
             "FFLAGS=#{fflags.join(" ")}",
             "DIR=../../spooles",
             "LIBS=#{libs.join(" ")}"]
-    target = Pathname.new("ccx_2.11/src/ccx_2.11")
+    target = Pathname.new("ccx_2.12/src/ccx_2.12")
     system "make", "-C", target.dirname, target.basename, *args
     bin.install target
 
     (buildpath/"test").install resource("test")
-    pkgshare.install Dir["test/ccx_2.11/test/*"]
+    pkgshare.install Dir["test/ccx_2.12/test/*"]
 
     (buildpath/"doc").install resource("doc")
-    doc.install Dir["doc/ccx_2.11/doc/ccx/*"]
+    doc.install Dir["doc/ccx_2.12/doc/ccx/*"]
   end
 
   test do
     cp "#{pkgshare}/spring1.inp", testpath
-    system "#{bin}/ccx_2.11", "spring1"
+    system "#{bin}/ccx_2.12", "spring1"
   end
 end
 
 __END__
-diff --git a/ccx_2.11/src/CalculiX.h b/ccx_2.11/src/CalculiX.h
+diff --git a/ccx_2.12/src/CalculiX.h b/ccx_2.12/src/CalculiX.h
 index ee81ca8..d957130 100644
---- a/ccx_2.11/src/CalculiX.h
-+++ b/ccx_2.11/src/CalculiX.h
+--- a/ccx_2.12/src/CalculiX.h
++++ b/ccx_2.12/src/CalculiX.h
 @@ -15,6 +15,7 @@
  /*     along with this program; if not, write to the Free Software       */
  /*     Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.         */
@@ -103,23 +102,23 @@ index ee81ca8..d957130 100644
  #define Linux 1
  #define IRIX 2
  #define IRIX64 3
-diff --git a/ccx_2.11/src/Makefile b/ccx_2.11/src/Makefile
+diff --git a/ccx_2.12/src/Makefile b/ccx_2.12/src/Makefile
 index 9335028..d7791f1 100755
---- a/ccx_2.11/src/Makefile
-+++ b/ccx_2.11/src/Makefile
+--- a/ccx_2.12/src/Makefile
++++ b/ccx_2.12/src/Makefile
 @@ -25,7 +25,7 @@ LIBS = \
 	../../../ARPACK/libarpack_INTEL.a \
         -lpthread -lm -lc
 
--ccx_2.11: $(OCCXMAIN) ccx_2.11.a  $(LIBS)
-+ccx_2.11: $(OCCXMAIN) ccx_2.11.a
-	./date.pl; $(CC) $(CFLAGS) -c ccx_2.11.c; $(FC) -fopenmp -Wall -O3 -o $@ $(OCCXMAIN) ccx_2.11.a $(LIBS)
+-ccx_2.12: $(OCCXMAIN) ccx_2.12.a  $(LIBS)
++ccx_2.12: $(OCCXMAIN) ccx_2.12.a
+	./date.pl; $(CC) $(CFLAGS) -c ccx_2.12.c; $(FC) -fopenmp -Wall -O3 -o $@ $(OCCXMAIN) ccx_2.12.a $(LIBS)
 
- ccx_2.11.a: $(OCCXF) $(OCCXC)
-diff --git a/ccx_2.11/src/u_free.c b/ccx_2.11/src/u_free.c
+ ccx_2.12.a: $(OCCXF) $(OCCXC)
+diff --git a/ccx_2.12/src/u_free.c b/ccx_2.12/src/u_free.c
 index acccf3b..da517de 100644
---- a/ccx_2.11/src/u_free.c
-+++ b/ccx_2.11/src/u_free.c
+--- a/ccx_2.12/src/u_free.c
++++ b/ccx_2.12/src/u_free.c
 @@ -41,5 +41,5 @@ void *u_free(void* ptr,const char *file,const int line, const char* ptr_name){
    if(log_realloc==1) {
        printf("FREEING of variable %s, file %s, line=%d: oldaddress= %ld\n",ptr_name,file,line,(long int)ptr);
