@@ -11,6 +11,7 @@ class Snoscan < Formula
     sha256 "6db7af668b22f48aae3ad76945913edc404c93b0513e2eac670ddcaed10f85be" => :sierra
     sha256 "61bbcee065226ced533005e346b4cabcd23597afc8214ebb44490463f818dee2" => :el_capitan
     sha256 "6cabb0cba884b48146f385dea95d930638c4e9bbe50544d90b453511d970a2cc" => :yosemite
+    sha256 "4fcc1753681dc38bbd49a1c639e11be576309e595aec59e3531229eb873c0f07" => :x86_64_linux
   end
 
   def install
