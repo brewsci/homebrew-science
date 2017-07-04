@@ -7,9 +7,8 @@ end
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.rstudio.com/src/base/R-3/R-3.4.0.tar.gz"
-  sha256 "288e9ed42457c47720780433b3d5c3c20983048b789291cc6a7baa11f9428b91"
-  revision 1
+  url "https://cran.r-project.org/src/base/R-3/R-3.4.1.tar.gz"
+  sha256 "02b1135d15ea969a3582caeb95594a05e830a6debcdb5b85ed2d5836a6a3fc78"
   head "https://svn.r-project.org/R/trunk", :using => RDownloadStrategy
 
   # Do not remove executable permission from these scripts.
@@ -45,6 +44,7 @@ class R < Formula
   depends_on "openblas" => :optional
   depends_on "pango" => :optional
   depends_on "valgrind" => :optional
+  depends_on :java => :optional
   depends_on :x11 => (OS.mac? ? :optional : :recommended)
 
   cairo_opts = build.with?("x11") ? ["with-x11"] : []
@@ -193,8 +193,8 @@ class R < Formula
         R CMD javareconf JAVA_CPPFLAGS=-I/System/Library/Frameworks/JavaVM.framework/Headers
       If you've installed a version of Java other than the default, you might need to instead use:
         R CMD javareconf JAVA_CPPFLAGS="-I/System/Library/Frameworks/JavaVM.framework/Headers -I/Library/Java/JavaVirtualMachines/jdk<version>.jdk/"
-      (where <version> can be found by running `java -version`, `/usr/libexec/java#{'_'}home`, or `locate jni.h`), or:
-        R CMD javareconf JAVA_CPPFLAGS="-I/System/Library/Frameworks/JavaVM.framework/Headers -I$(/usr/libexec/java#{'_'}home | grep -o '.*jdk')"
+      (where <version> can be found by running `java -version`, `/usr/libexec/java_home`, or `locate jni.h`), or:
+        R CMD javareconf JAVA_CPPFLAGS="-I/System/Library/Frameworks/JavaVM.framework/Headers -I$(/usr/libexec/java_home | grep -o '.*jdk')"
       EOS
     end
   end
