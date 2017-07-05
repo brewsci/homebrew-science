@@ -3,6 +3,7 @@ class Openimageio < Formula
   homepage "http://openimageio.org"
   url "https://github.com/OpenImageIO/oiio/archive/Release-1.7.15.tar.gz"
   sha256 "5db80981a3f87ad4a2a0c684884ad28f8c879570318dc79ba485b69e6fe77e73"
+  revision 1
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
@@ -151,8 +152,8 @@ class Openimageio < Formula
     system "make", *args
     system "make", "test" if build.with? "test"
     cd "dist/macosx" do
-      (lib/"python#{pyver}").install "python"
-      (lib/"python#{py3ver}").install "python3" if build.with? "python3"
+      (lib/"python#{pyver}/site-packages").install Dir["python/*"]
+      (lib/"python#{py3ver}/site-packages").install Dir["python3/*"] if build.with? "python3"
       prefix.install %w[bin include]
       lib.install Dir["lib/lib*"]
       doc.install "doc/openimageio.pdf"
