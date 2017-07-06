@@ -1,9 +1,8 @@
 class Raxml < Formula
   desc "maximum likelihood analysis of large phylogenies"
-  homepage "http://sco.h-its.org/exelixis/web/software/raxml/index.html"
-  url "https://github.com/stamatak/standard-RAxML/archive/v8.2.10.tar.gz"
-  sha256 "48f9f4e6bcdcdae59ce6c895abfe35dadbbf4d0faf71ebb532d9b1e6ae56478f"
-  revision 1
+  homepage "https://sco.h-its.org/exelixis/web/software/raxml/index.html"
+  url "https://github.com/stamatak/standard-RAxML/archive/v8.2.11.tar.gz"
+  sha256 "08cda74bf61b90eb09c229e39b1121c6d95caf182708e8745bd69d02848574d7"
   head "https://github.com/stamatak/standard-RAxML.git"
   # doi "10.1093/bioinformatics/btu033"
   # tag "bioinformatics"
