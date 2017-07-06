@@ -4,8 +4,8 @@ class Bpipe < Formula
   # doi "10.1093/bioinformatics/bts167"
   # tag "bioinformatics"
 
-  url "http://download.bpipe.org/versions/bpipe-0.9.9.3.tar.gz"
-  sha256 "414d781c14d770cca0ddd4077fe82f30d691f19c7980aa8f1773f77c1cfddf08"
+  url "http://download.bpipe.org/versions/bpipe-0.9.9.4.tar.gz"
+  sha256 "0f4dfa3f96327d3e467cbebfd7690278d74f5194ec3628a2ce17e90b1064eaad"
   head "https://github.com/ssadedin/bpipe.git"
 
   bottle :unneeded
