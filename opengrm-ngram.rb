@@ -8,10 +8,9 @@ class OpengrmNgram < Formula
 
   bottle do
     cellar :any
-    sha256 "ae2f008164e2904aa79f726929aab3f04b2ac74f8ecca8a3419b6bcdc8d4a8eb" => :sierra
-    sha256 "a048a2efac3093f4ed135c781c2d62dae94e640bfd924fa79e31e01658850a8d" => :el_capitan
-    sha256 "833ed961e7440eb27f1285ceb23851819cf9826b77f1eb0e7d5cf36b87d56f01" => :yosemite
-    sha256 "3bed1ed20591e6a2f625eb28a07f4dfb27ce2122352132877ef2ef238aa3ce86" => :x86_64_linux
+    sha256 "2c018ccfc40596618d645052576fcf572e1a628ac3d489ca6be2c317a19f54ae" => :sierra
+    sha256 "fd0d2eedc9f56beee097f2cab312367f27019fc31afcf40530790afea363cf46" => :el_capitan
+    sha256 "cc29fec3a0f1934ab153ab2703c984076c7f854e9b9371891ca63b615028ead9" => :yosemite
   end
 
   depends_on "openfst"
