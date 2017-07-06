@@ -6,10 +6,9 @@ class Openfst < Formula
 
   bottle do
     cellar :any
-    sha256 "4b0e12fbc1e4fc1b54757cc87a3757e517186e95f8db6917b96966fd805dba6f" => :sierra
-    sha256 "0969ec5732bf52d43e05e0813c834a539fc25db981502088e12ee5ff9a272467" => :el_capitan
-    sha256 "9b77ae1524ca836cb4c0ea65e76ad27e54d6db70045ba3518698120922b354ce" => :yosemite
-    sha256 "89232dd56bc8e8610523c935e946e42b79f4cabfb619f965aef3cfb77779db16" => :x86_64_linux
+    sha256 "62f64bd93abe2834f07e1ee79a363d1cfa106f4e9faaad8e1f3537f772e88b1e" => :sierra
+    sha256 "695595240d43745060ecafa520178c8890dea8b34f47fb5f174f85bcddad9f63" => :el_capitan
+    sha256 "97b714421950df1d9693c294e5d8f69ca167474737e43fe6b1305f5269a98b54" => :yosemite
   end
 
   needs :cxx11
