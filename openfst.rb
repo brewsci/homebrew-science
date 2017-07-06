@@ -1,8 +1,8 @@
 class Openfst < Formula
   desc "Open-source library for working with weighted finite-state transducers."
   homepage "http://www.openfst.org/"
-  url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.6.1.tar.gz"
-  sha256 "5245af8ebccb96208eec2dfe3b3a81143d3565a4d41220bff299287fb3333f7d"
+  url "http://www.openfst.org/twiki/pub/FST/FstDownload/openfst-1.6.3.tar.gz"
+  sha256 "5c28b6ccd017fc6ff94ebd0c73ed8ab37d48f563dab1c603856fb05bc9333d99"
 
   bottle do
     cellar :any
@@ -13,6 +13,8 @@ class Openfst < Formula
   end
 
   needs :cxx11
+
+  depends_on "zlib" unless OS.mac?
 
   def install
     ENV.cxx11
