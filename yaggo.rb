@@ -1,8 +1,8 @@
 class Yaggo < Formula
   desc "Generate command-line parsers for C++"
   homepage "https://github.com/gmarcais/yaggo"
-  url "https://github.com/gmarcais/yaggo/archive/v1.5.9.tar.gz"
-  sha256 "c96f7d5932fad30c88300446cae9a49d35b6a1fcd5a971e02de129c5d7a53bb7"
+  url "https://github.com/gmarcais/yaggo/archive/v1.5.10.tar.gz"
+  sha256 "3a81532d3be8109a0e44949a04ccf74cc1b5c8fee47789a12c8cabc6fa0b1e4f"
   head "https://github.com/gmarcais/yaggo.git"
 
   bottle do
