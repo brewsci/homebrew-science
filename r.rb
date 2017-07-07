@@ -17,10 +17,9 @@ class R < Formula
   skip_clean "lib/R/bin" unless OS.mac?
 
   bottle do
-    sha256 "2244a15ac903afe9e35ce3cf88388591b80e2811e03a95cc449251745f8e7d7c" => :sierra
-    sha256 "876fea1ff71114bfc97833a51a7d0468476508ffc984845fa08fd6d5cceeb4f7" => :el_capitan
-    sha256 "1ec175513db567fc5fb15a1390d530dce0a5c6f068e5d90670c6f84c67b3cfa3" => :yosemite
-    sha256 "9c956b8854a9d964c35eb1840c6deff25c41fabf7139f1163d1db56a6c99c34b" => :x86_64_linux
+    sha256 "984b6b76bf69fe302ba39374026946ab03da28bca3d19dbd5bd8b5be8e655e73" => :sierra
+    sha256 "897ea046b1dd840d4b274a95a191796a3b586369e47d837fbd471cfb3217396d" => :el_capitan
+    sha256 "c31a3653303bb81741cde78e2b3712cd36516febf4839caa163b5824efa4cd52" => :yosemite
   end
 
   option "without-accelerate", "Build without the Accelerate framework (use Rblas)"
