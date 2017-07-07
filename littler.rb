@@ -9,10 +9,9 @@ class Littler < Formula
   head "https://github.com/eddelbuettel/littler.git"
 
   bottle do
-    sha256 "2abfff2b9297200ffc0be8bc135464baad2adc10b3cdd1c65c3f1063dd516e53" => :sierra
-    sha256 "e093d8a045ab3073b3202ab64b8a0ad64106c563e3b747831a4a237f5aa0a889" => :el_capitan
-    sha256 "243617b1e1fe47260c70d8957985ed6656c853a7a39d969a4b99f65a71eb66a3" => :yosemite
-    sha256 "a3866ebb39b0c8aca91dc6e519916a216aa41a85388da57eb766f0fa28b189a4" => :x86_64_linux
+    sha256 "c186e37116bf93f688cfc03d4c851a079ae0bd2cbe232e9a7f007dc7aa6ef417" => :sierra
+    sha256 "d5788877af5894e01ea6fd5fea0dc1f3835d1cff0ea59b26bfeb12f8a0300d74" => :el_capitan
+    sha256 "34f05dbb6789126afa1a0ab0d36bcc0db884b161ff6b8794236b158cd2373ef5" => :yosemite
   end
 
   depends_on "r"
