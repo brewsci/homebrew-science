@@ -9,6 +9,7 @@ class R < Formula
   homepage "https://www.r-project.org/"
   url "https://cran.r-project.org/src/base/R-3/R-3.4.1.tar.gz"
   sha256 "02b1135d15ea969a3582caeb95594a05e830a6debcdb5b85ed2d5836a6a3fc78"
+  revision 1
   head "https://svn.r-project.org/R/trunk", :using => RDownloadStrategy
 
   # Do not remove executable permission from these scripts.
@@ -46,10 +47,7 @@ class R < Formula
   depends_on "valgrind" => :optional
   depends_on :java => :optional
   depends_on :x11 => (OS.mac? ? :optional : :recommended)
-
-  cairo_opts = build.with?("x11") ? ["with-x11"] : []
-  cairo_opts << :optional if OS.linux?
-  depends_on "cairo" => cairo_opts
+  depends_on "cairo" => build.with?("x11") ? ["with-x11"] : []
 
   patch :DATA
 
@@ -64,6 +62,7 @@ class R < Formula
 
     args = [
       "--prefix=#{prefix}",
+      "--with-cairo",
       "--with-libintl-prefix=#{Formula["gettext"].opt_prefix}",
       "--enable-memory-profiling",
     ]
@@ -79,7 +78,6 @@ class R < Formula
       ENV.remove "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
     else
       args << "--enable-R-framework"
-      args << "--with-cairo"
 
       # Disable building against the Aqua framework with CLT >= 6.0.
       # See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63651
@@ -202,7 +200,7 @@ class R < Formula
   test do
     if build.without? "librmath-only"
       system bin/"Rscript", "-e", "print(1+1)"
-      system bin/"Rscript", "-e", "quit('no', capabilities('cairo')[['cairo']] != TRUE)" if OS.mac?
+      system bin/"Rscript", "-e", "quit('no', capabilities('cairo')[['cairo']] != TRUE)"
     end
   end
 end
