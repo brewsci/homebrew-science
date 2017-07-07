@@ -10,6 +10,7 @@ class Yaggo < Formula
     sha256 "eac780150769d36fca3a2719dacea9af18c96dfa05d642290da1a44557bd4dd4" => :sierra
     sha256 "bd5bc4bcdb8e818370832055bd77161c8137bf6ba83b1ccdce24c462e5de506a" => :el_capitan
     sha256 "bd5bc4bcdb8e818370832055bd77161c8137bf6ba83b1ccdce24c462e5de506a" => :yosemite
+    sha256 "ce0926f6dd71a74778423581bb7201e4439d687d6264fbfbbacc89caee6d8f9c" => :x86_64_linux
   end
 
   depends_on :ruby => ["1.9", :build]
