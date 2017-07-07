@@ -6,10 +6,9 @@ class Pillow < Formula
   head "https://github.com/python-imaging/Pillow.git"
 
   bottle do
-    sha256 "af41fb2bf3021976748e572a50316796e36aeb841bcf5e216ffdba16a3919e38" => :sierra
-    sha256 "d31e051437a4d295fa3f67b7dbf24fe2ff305664a34166d53f0fb22ab181d180" => :el_capitan
-    sha256 "8d4334a16384feb788188f4c12d010bceac69cdd91b9c44d4cd18c6f132a4fba" => :yosemite
-    sha256 "a320c422a1ca5fbb37e0947389af696236b7eeb0f06f2c88241157afac3ae1ad" => :x86_64_linux
+    sha256 "779057ffc1a4b3cb7aa21aff5638712b0be2b11b73c2f9cdbfdb0d549e68efe8" => :sierra
+    sha256 "f74ee02702a73ad12b8b7c6cc6de4697955762a5f56a565b18eda30811418eb2" => :el_capitan
+    sha256 "5902a87338a6644b9bbb1d0b7b4423ddd56742bb7c742092953948752aa586c4" => :yosemite
   end
 
   # waiting on upstream resolution of JPEG2000 issues
