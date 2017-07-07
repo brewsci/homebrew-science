@@ -3,7 +3,7 @@ class OpengrmThrax < Formula
   url "http://www.openfst.org/twiki/pub/GRM/ThraxDownload/thrax-1.2.3.tar.gz"
   sha256 "66491182584eed31a323324e8478042c8752c112d13ef7c4c66540b4f9df431d"
 
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
