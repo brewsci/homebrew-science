@@ -7,9 +7,9 @@ class Yaggo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "32713e47b450a35af95f7eba664dd97c79c1e63653d35475173b7d55e5a6a9d7" => :el_capitan
-    sha256 "64e70036dc8db79e168439e414c5760604ef5b87017be1957d386016527902ea" => :yosemite
-    sha256 "bdc50a12ce87a7a578d9d3e972fc6b509399d346ff8acda7218bd2adb24a8341" => :mavericks
+    sha256 "eac780150769d36fca3a2719dacea9af18c96dfa05d642290da1a44557bd4dd4" => :sierra
+    sha256 "bd5bc4bcdb8e818370832055bd77161c8137bf6ba83b1ccdce24c462e5de506a" => :el_capitan
+    sha256 "bd5bc4bcdb8e818370832055bd77161c8137bf6ba83b1ccdce24c462e5de506a" => :yosemite
   end
 
   depends_on :ruby => ["1.9", :build]
