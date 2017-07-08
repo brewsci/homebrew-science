@@ -1,10 +1,10 @@
 class Libsigrokdecode < Formula
   desc "Library for (streaming) protocol decoding"
-  homepage "http://sigrok.org/"
+  homepage "https://sigrok.org/"
 
   stable do
-    url "http://sigrok.org/download/source/libsigrokdecode/libsigrokdecode-0.4.1.tar.gz"
-    sha256 "065f70c10971173d86e03a8cf5534e600c7a622775113997d8061572135d4a95"
+    url "https://sigrok.org/download/source/libsigrokdecode/libsigrokdecode-0.5.0.tar.gz"
+    sha256 "4aa8579ecea9b421b8ac048a9b18c27e63206839f269374398d89c14a47bd1c1"
 
     resource "librevisa" do
       url "http://www.librevisa.org/git/librevisa.git", :tag => "alpha-2013-08-12",
@@ -12,13 +12,18 @@ class Libsigrokdecode < Formula
     end
 
     resource "libserialport" do
-      url "http://sigrok.org/download/source/libserialport/libserialport-0.1.1.tar.gz"
+      url "https://sigrok.org/download/source/libserialport/libserialport-0.1.1.tar.gz"
       sha256 "4a2af9d9c3ff488e92fb75b4ba38b35bcf9b8a66df04773eba2a7bbf1fa7529d"
     end
 
     resource "libsigrok" do
-      url "http://sigrok.org/download/source/libsigrok/libsigrok-0.4.0.tar.gz"
-      sha256 "5f291f3fee36e6dab1336f1c78596e50588831bc5ebd7cddc2a95fe8c71d669e"
+      url "https://sigrok.org/download/source/libsigrok/libsigrok-0.5.0.tar.gz"
+      sha256 "4c8c86779b880a5c419f6c77a08b1147021e5a19fa83b0f3b19da27463c9f3a4"
+    end
+
+    resource "fx2lafw" do
+      url "https://sigrok.org/download/source/sigrok-firmware-fx2lafw/sigrok-firmware-fx2lafw-0.1.5.tar.gz"
+      sha256 "ca74096b93baed48ef3e59ce0c97111153b9a2a8841c40019500b09b897f6d2d"
     end
   end
 
@@ -31,7 +36,7 @@ class Libsigrokdecode < Formula
   head do
     url "git://sigrok.org/libsigrokdecode", :shallow => false
 
-    depends_on "libtool" => :build
+    depends_on "libtool" => :build unless OS.mac?
     depends_on "autoconf" => :build
     depends_on "automake" => :build
 
@@ -47,10 +52,15 @@ class Libsigrokdecode < Formula
     resource "libsigrok" do
       url "git://sigrok.org/libsigrok", :shallow => false
     end
+
+    resource "fx2lafw" do
+      url "git://sigrok.org/sigrok-firmware-fx2lafw.git", :shallow => false
+    end
   end
 
   option "with-libserialport", "Build with libserialport"
   option "with-librevisa", "Build with librevisa"
+  option "with-fx2lafw", "Build with fx2lafw"
 
   depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
@@ -64,11 +74,9 @@ class Libsigrokdecode < Formula
   depends_on "libusb"   => :optional
 
   # currently needed for librevisa due to errors in released alpha build
-  if build.with?("librevisa")
-    depends_on "libtool" => :build
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
+  depends_on "libtool" => :build if build.with?("librevisa")
+
+  depends_on "sdcc" => :build if build.with?("fx2lafw")
 
   def install
     common_args = %W[
@@ -84,6 +92,14 @@ class Libsigrokdecode < Formula
       resource("libserialport").stage do
         system "./autogen.sh" if build.head?
         system "./configure", *common_args
+        system "make", "install"
+      end
+    end
+
+    if build.with? "fx2lafw"
+      resource("fx2lafw").stage do
+        system "./autogen.sh" if build.head?
+        system "./configure", "--prefix=#{prefix}"
         system "make", "install"
       end
     end
@@ -113,5 +129,18 @@ class Libsigrokdecode < Formula
     system "./configure", *common_args
     system "make", "check" if build.with? "check"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <libsigrokdecode/libsigrokdecode.h>
+      int main() {
+        if (srd_init(NULL) != SRD_OK || srd_exit() != SRD_OK)
+          return 1;
+        return 0;
+      }
+    EOS
+    system ENV.cc, "-o", "test", "test.c", "-L#{lib}", "-I#{Formula["glib"].opt_include}/glib-2.0", "-I#{Formula["glib"].opt_lib}/glib-2.0/include", "-L#{Formula["glib"].opt_lib}", "-lsigrokdecode"
+    system "./test"
   end
 end
