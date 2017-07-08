@@ -9,10 +9,9 @@ class Freec < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0e6b454b3d7c06b6ce6b523ee6a87fd2a7a8b60383493b07d82c23d641a7b2c4" => :sierra
-    sha256 "19991ae34f6ac95ff8eebe922366402c837a3677c9920c185aecf3b33b1ffabf" => :el_capitan
-    sha256 "b4f93ca403b077789b1d40ac4398f0ebc9cdfea3c654919bec0802c42361cb59" => :yosemite
-    sha256 "cde3295808a1df20f62f503e42c457a9ae7429205cba6264f6f690a6fd24af99" => :x86_64_linux
+    sha256 "a76515502af6f05a2fd2c63c6cb16095a7ba6e698b8318ea6d8e1356393899f3" => :sierra
+    sha256 "de28e3953dc88d9145ae6e1a7ee006e2c68bce1e2c1fc853a32b69d852f55c9a" => :el_capitan
+    sha256 "750b641caa46d2e3316eaddd8d41c04bebff4782522226c0c31229b2e29eb945" => :yosemite
   end
 
   def install
