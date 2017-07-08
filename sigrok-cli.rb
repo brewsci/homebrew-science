@@ -1,7 +1,8 @@
 class SigrokCli < Formula
-  homepage "http://sigrok.org/"
-  url "http://sigrok.org/download/source/sigrok-cli/sigrok-cli-0.6.0.tar.gz"
-  sha256 "ab2ede4e245f3987e19a89a530bd204e0d792c07474d9fed3345d4af4e84723c"
+  desc "Command-line client for sigrok"
+  homepage "https://sigrok.org/"
+  url "https://sigrok.org/download/source/sigrok-cli/sigrok-cli-0.7.0.tar.gz"
+  sha256 "5669d968c2de3dfc6adfda76e83789b6ba76368407c832438cef5e7099a65e1c"
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class SigrokCli < Formula
   head do
     url "git://sigrok.org/sigrok-cli", :shallow => false
     depends_on "glib"
-    depends_on "libtool" => :build
+    depends_on "libtool" => :build unless OS.mac?
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
