@@ -1,7 +1,8 @@
 class Pulseview < Formula
-  homepage "http://sigrok.org/"
-  url "http://sigrok.org/download/source/pulseview/pulseview-0.3.0.tar.gz"
-  sha256 "5ffe2cb7a602fcdc60933d400c77bcd66e6ce529bc4f6e97d6a5e5a86f2f530e"
+  desc "Qt-based LA/scope/MSO GUI for sigrok"
+  homepage "https://sigrok.org/"
+  url "https://sigrok.org/download/source/pulseview/pulseview-0.4.0.tar.gz"
+  sha256 "78f8291045c6f65b4827b12e83c8e68cea2d5e7268b15a51aaca9726c8100eb9"
 
   bottle do
     cellar :any
@@ -22,7 +23,7 @@ class Pulseview < Formula
 
   depends_on "boost"
   depends_on "libsigrokdecode"
-  depends_on "qt5"
+  depends_on "qt"
   depends_on :python3
 
   def install
@@ -30,9 +31,8 @@ class Pulseview < Formula
     ENV.append_path("PKG_CONFIG_PATH", lib / "pkgconfig")
     ENV.append_path "PKG_CONFIG_PATH", HOMEBREW_PREFIX / "Frameworks/Python.framework/Versions/3.4/lib/pkgconfig"
 
-    qt = Formula["qt5"].opt_prefix
+    qt = Formula["qt"].opt_prefix
     args = std_cmake_args + %W[
-      -DPNG_INCLUDE_DIR=#{MacOS::X11.include}
       -DALTERNATIVE_QT_INCLUDE_DIR=#{qt}/include
     ]
 
