@@ -6,9 +6,9 @@ class SigrokCli < Formula
 
   bottle do
     cellar :any
-    sha256 "5d8e6a75e4b59ddbff563cfb679fa086b59285e4dce385c5b71e362b1ce8f8b4" => :sierra
-    sha256 "25dd3a07147e5ad984236cd6823182ee1ad6c32851eed2b08732ed24d042946e" => :el_capitan
-    sha256 "79d672aba4fa67b2ff2c68a1650ff6f258c88c9b738b20417157d96c39f31e99" => :yosemite
+    sha256 "a41bd3e0acc877ec54a8019cf2b7640834eb7d531b6bb74c3d4bf345cd58360a" => :sierra
+    sha256 "50a9411021aa97979f58857e08a1f11034e0fadf52ca901dac0ab5b9deaa7a22" => :el_capitan
+    sha256 "68ad9e7ecba9e55ad3ba1d8810fefdc57d1327a300ce45ca76d4745fa7e6505d" => :yosemite
   end
 
   head do
