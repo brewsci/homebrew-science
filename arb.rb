@@ -10,6 +10,7 @@ class Arb < Formula
     sha256 "7cea38ebba9f240b3ae23f27921a2dbb54ea492cb2311057677eea5993edbab8" => :sierra
     sha256 "41e047c2667866cb1e4a05ed3a2027ee75d48d3a2317073fa0243f3ad76334f9" => :el_capitan
     sha256 "21817578932665a61a8a4ad63b6132ed8822a7541a7b7304e508a145ff893221" => :yosemite
+    sha256 "517806588e1d2511e40dba2e4ac525f1d08a268fa0492a1edb5521aee6ff30ca" => :x86_64_linux
   end
 
   option "without-test", "Disable build-time checking (not recommended)"
