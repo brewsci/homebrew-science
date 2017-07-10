@@ -3,8 +3,8 @@ require "language/go"
 class Vcfanno < Formula
   desc "Annotates a VCF with sorted and tabixed input BED, BAM, and VCF files"
   homepage "https://github.com/brentp/vcfanno"
-  url "https://github.com/brentp/vcfanno/archive/v0.2.7.tar.gz"
-  sha256 "95c49b2848bba846a4b9694fea7dd909405353f37e9c0a885c19b5c468073fb5"
+  url "https://github.com/brentp/vcfanno/archive/v0.2.8.tar.gz"
+  sha256 "cdb550f28d9b6d15105432b0414afa735a352839e27eda4efa954f29c000e7f8"
   head "https://github.com/brentp/vcfanno.git"
 
   bottle do
@@ -19,12 +19,12 @@ class Vcfanno < Formula
 
   go_resource "github.com/BurntSushi/toml" do
     url "https://github.com/BurntSushi/toml.git",
-        :revision => "b26d9c308763d68093482582cea63d69be07a0f0"
+        :revision => "a368813c5e648fee92e5f6c30e3944ff9d5e8895"
   end
 
   go_resource "github.com/biogo/hts" do
     url "https://github.com/biogo/hts.git",
-        :revision => "8593c335ea5b4d03af84f1710cabb37aa24d5f0e"
+        :revision => "8bf89f2e2bfa34e19ccb510d0b5ce3f5e8413ba6"
   end
 
   go_resource "github.com/brentp/bix" do
@@ -44,7 +44,7 @@ class Vcfanno < Formula
 
   go_resource "github.com/brentp/vcfgo" do
     url "https://github.com/brentp/vcfgo.git",
-        :revision => "3160d9c2041417583f253eea20749b4d43def57f"
+        :revision => "17ed276c3d6d1fd24dbbc4b8d467a207d35663f1"
   end
 
   go_resource "github.com/brentp/xopen" do
@@ -59,17 +59,17 @@ class Vcfanno < Formula
 
   go_resource "github.com/yuin/gluare" do
     url "https://github.com/yuin/gluare.git",
-        :revision => "8e2742cd1bf2b904720ac66eca3c2091b2ea0720"
+        :revision => "d7c94f1a80ede93a621ed100866e6d4745ca8c22"
   end
 
   go_resource "github.com/yuin/gopher-lua" do
     url "https://github.com/yuin/gopher-lua.git",
-        :revision => "b402f3114ec730d8bddb074a6c137309f561aa78"
+        :revision => "2243d714d6c94951d8ccca8c851836ff47d401c9"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "feeb485667d1fdabe727840fe00adc22431bc86e"
+        :revision => "054b33e6527139ad5b1ec2f6232c3b175bd9a30c"
   end
 
   def install
