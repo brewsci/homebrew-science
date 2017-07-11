@@ -1,12 +1,15 @@
 class Freebayes < Formula
   desc "Bayesian variant discovery and genotyping"
   homepage "https://github.com/ekg/freebayes"
+  # doi "arXiv:1207.3907v2"
+  # tag "bioinformatics"
+
   url "https://github.com/ekg/freebayes.git",
       :tag => "v1.1.0",
       :revision => "39e5e4bcb801556141f2da36aba1df5c5c60701f"
+  revision 1
+
   head "https://github.com/ekg/freebayes.git"
-  # doi "arXiv:1207.3907v2"
-  # tag "bioinformatics"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,14 +21,25 @@ class Freebayes < Formula
 
   depends_on "cmake" => :build
 
-  depends_on "parallel" => :recommended
-  depends_on "vcflib" => :recommended
+  depends_on "parallel"
+  depends_on "vcflib"
+  depends_on "zlib" unless OS.mac?
 
   def install
+    # make -j N results in: make: *** [all] Error 2
+    # Reported 16 Jan 2017 https://github.com/ekg/freebayes/issues/356
     ENV.deparallelize
 
-    # Build fix: https://github.com/chapmanb/homebrew-cbl/issues/14
+    # Works around ld: internal error: atom not found in symbolIndex
+    # Reported 21 Jul 2014 https://github.com/ekg/freebayes/issues/83
     inreplace "vcflib/smithwaterman/Makefile", "-Wl,-s", "" if OS.mac?
+
+    # Fixes bug ../vcflib/scripts/vcffirstheader: file not found
+    # Reported 1 Apr 2017 https://github.com/ekg/freebayes/issues/376
+    inreplace "scripts/freebayes-parallel" do |s|
+      s.gsub! "../vcflib/scripts/vcffirstheader", "vcffirstheader"
+      s.gsub! "../vcflib/bin/vcfstreamsort", "vcfstreamsort"
+    end
 
     system "make"
 
@@ -39,7 +53,7 @@ class Freebayes < Formula
   end
 
   test do
-    system "#{bin}/freebayes", "--version"
-    system "#{bin}/freebayes-parallel"
+    assert_match "polymorphism", shell_output("#{bin}/freebayes --help 2>&1")
+    assert_match "chunks", shell_output("#{bin}/freebayes-parallel 2>&1")
   end
 end
