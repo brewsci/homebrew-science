@@ -18,6 +18,7 @@ class CdHit < Formula
     sha256 "f501ff1231e6b965ad7473c552e05250b6b31750af75ff7deff4bda2fa520fe5" => :sierra
     sha256 "ae82eaccbc10d222d2098f08999ce7c9ba06a4847b8c9fce66f2c97cb1592a54" => :el_capitan
     sha256 "6eba5930225a89cf6e02766b921f8011ac88b14c0f582d26335c2075def4b3c0" => :yosemite
+    sha256 "19949dfd655856415a3adbd4d1a70f7d3a1c9f415bad56812f5dd02507262960" => :x86_64_linux
   end
 
   def install
