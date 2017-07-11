@@ -3,15 +3,9 @@ class Igv < Formula
   homepage "https://www.broadinstitute.org/software/igv"
   # tag "bioinformatics"
   # doi "10.1093/bib/bbs017"
-  url "https://www.broadinstitute.org/igv/projects/downloads/IGV_2.3.94.zip"
-  sha256 "483f3ec065498dd67117faa51b632cbd8d25c470ac0433d65fb3411aa021439b"
+  url "https://www.broadinstitute.org/igv/projects/downloads/IGV_2.3.97.zip"
+  sha256 "a992f696abcd5e1087d46feed0d697003d845a492c6e3a2bf27f06b102d9ff39"
   head "https://github.com/broadinstitute/IGV.git"
-
-  devel do
-    url "https://www.broadinstitute.org/igv/projects/downloads/snapshot/IGV_snapshot.zip"
-    sha256 "a294f35c1255cfe1716d381925db69a5b009f528a151a311fdc5be24a79f7501"
-    version "2017-05-19"
-  end
 
   bottle :unneeded
 
