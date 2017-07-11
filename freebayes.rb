@@ -16,6 +16,7 @@ class Freebayes < Formula
     sha256 "559edc61905e4893694929bb15b066f3b8f85aa4d08d2c2d507a99431b69a93d" => :sierra
     sha256 "4b8dfacfad2a7435eaa7951bb70b3716de705ebf2e6ebdacb8ea60e690b9e700" => :el_capitan
     sha256 "5c83b009e6866a1832a0391bfb9e8ad1fe1fe6687f7987aed6dbf322ea7bdd57" => :yosemite
+    sha256 "71394a22c6b01663447b6f0ae22a33432dc878dc70dfab622044a60977cd7a6b" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
