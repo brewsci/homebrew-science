@@ -3,6 +3,12 @@ class Cutadapt < Formula
 
   desc "Removes adapter sequences, primers, and poly-A tails"
   homepage "https://github.com/marcelm/cutadapt"
+  url "https://files.pythonhosted.org/packages/47/bf/9045e90dac084a90aa2bb72c7d5aadefaea96a5776f445f5b5d9a7a2c78b/cutadapt-1.11.tar.gz"
+  sha256 "11d0af9b39d6d9de6d186f113c7b361c24e7432425b9fa68fb2857a4656890cf"
+  head "https://github.com/marcelm/cutadapt.git"
+  # doi "10.14806/ej.17.1.200"
+  # tag "bioinformatics"
+
   bottle do
     cellar :any_skip_relocation
     sha256 "c069f5025f5b1b63df75a95a187d6af3ea6b64bffa7dccf4e0fb5c2253ef3027" => :sierra
@@ -10,14 +16,6 @@ class Cutadapt < Formula
     sha256 "85ca64bc5fd24d2137b6d61d3fce4bc9c54574747b9beece23b47bdd59a9ea8c" => :yosemite
     sha256 "60cd4273e6f64c2f3968ac06244c0492551cd65d0046dc932c2202d0fc4dae4a" => :x86_64_linux
   end
-
-  # tag "bioinformatics"
-  # doi "10.14806/ej.17.1.200"
-
-  url "https://files.pythonhosted.org/packages/47/bf/9045e90dac084a90aa2bb72c7d5aadefaea96a5776f445f5b5d9a7a2c78b/cutadapt-1.11.tar.gz"
-  sha256 "11d0af9b39d6d9de6d186f113c7b361c24e7432425b9fa68fb2857a4656890cf"
-
-  head "https://github.com/marcelm/cutadapt.git"
 
   depends_on :python3
 
