@@ -8,6 +8,7 @@ class Cutadapt < Formula
     sha256 "c069f5025f5b1b63df75a95a187d6af3ea6b64bffa7dccf4e0fb5c2253ef3027" => :sierra
     sha256 "5ed3d933438e9e63325a0ec832f7d4ce341d309d513a6c80b7042c24b651996c" => :el_capitan
     sha256 "85ca64bc5fd24d2137b6d61d3fce4bc9c54574747b9beece23b47bdd59a9ea8c" => :yosemite
+    sha256 "60cd4273e6f64c2f3968ac06244c0492551cd65d0046dc932c2202d0fc4dae4a" => :x86_64_linux
   end
 
   # tag "bioinformatics"
