@@ -9,6 +9,7 @@ class OmeFiles < Formula
     sha256 "8252403ab722cebffa018b252682e28a27ab78bd7184474a318f29a3f3ffa523" => :sierra
     sha256 "9b27df00f759cee25ef7aa25ba2cd5d8bb6b29e7e5501f7b50ddb75ab7b730f5" => :el_capitan
     sha256 "e7c90748a390f96f7d0ded67ff9e4af24ba45a1b5b04924540783f0b6c767c95" => :yosemite
+    sha256 "a27669c7585fdecf75d468b6c2c5bd7310cfb7735f08c00c5dcdb21c5f21abd6" => :x86_64_linux
   end
 
   option "with-api-docs", "Build API reference"
