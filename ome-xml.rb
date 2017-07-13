@@ -1,8 +1,8 @@
 class OmeXml < Formula
   desc "Open Microscopy Environment (OME) XML metadata model"
   homepage "https://www.openmicroscopy.org/site/products/ome-files-cpp/"
-  url "http://downloads.openmicroscopy.org/bio-formats/5.2.4/artifacts/bioformats-dfsg-5.2.4.tar.xz"
-  sha256 "4e50c4a6936514d1085f05bdbdd009966b61428a97415bf6a4d4d27667b7ff15"
+  url "https://downloads.openmicroscopy.org/ome-model/5.5.6/source/ome-model-5.5.6.tar.xz"
+  sha256 "1821c324ed85157aaac1b046649f97334509268eca1e43f059f74bff52908225"
   head "https://github.com/openmicroscopy/bioformats.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -34,7 +34,7 @@ class OmeXml < Formula
 
   # Required python module for main build
   resource "genshi" do
-    url "https://pypi.python.org/packages/source/G/Genshi/Genshi-0.7.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/G/Genshi/Genshi-0.7.tar.gz"
     sha256 "1d154402e68bc444a55bcac101f96cb4e59373100cc7a2da07fbf3e5cc5d7352"
   end
 
@@ -86,11 +86,11 @@ class OmeXml < Formula
       {
         ome::xml::meta::OMEXMLMetadata meta;
         ome::xml::model::detail::OMEModel model;
-        ome::compat::shared_ptr<ome::xml::meta::OMEXMLMetadataRoot> root(ome::compat::dynamic_pointer_cast<ome::xml::meta::OMEXMLMetadataRoot>(meta.getRoot()));
+        std::shared_ptr<ome::xml::meta::OMEXMLMetadataRoot> root(std::dynamic_pointer_cast<ome::xml::meta::OMEXMLMetadataRoot>(meta.getRoot()));
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{opt_include}", "-L#{opt_lib}", "-L#{Formula["ome-common"].opt_lib}", "-L#{Formula["boost"].opt_lib}", "-L#{Formula["xerces-c"].opt_lib}", "-L#{Formula["xalan-c"].opt_lib}", "-pthread", "-lome-common", "-lome-xml", "-lxerces-c", "-lxalan-c", "-lboost_filesystem-mt", "-lboost_system-mt", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{opt_include}", "-L#{opt_lib}", "-L#{Formula["ome-common"].opt_lib}", "-L#{Formula["boost"].opt_lib}", "-L#{Formula["xerces-c"].opt_lib}", "-L#{Formula["xalan-c"].opt_lib}", "-pthread", "-lome-common", "-lome-xml", "-lxerces-c", "-lxalan-c", "-lboost_filesystem-mt", "-lboost_system-mt", "-o", "test"
     system "./test"
   end
 end
