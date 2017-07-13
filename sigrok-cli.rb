@@ -9,6 +9,7 @@ class SigrokCli < Formula
     sha256 "a41bd3e0acc877ec54a8019cf2b7640834eb7d531b6bb74c3d4bf345cd58360a" => :sierra
     sha256 "50a9411021aa97979f58857e08a1f11034e0fadf52ca901dac0ab5b9deaa7a22" => :el_capitan
     sha256 "68ad9e7ecba9e55ad3ba1d8810fefdc57d1327a300ce45ca76d4745fa7e6505d" => :yosemite
+    sha256 "daa914ca934055c095efefe16a6db86d7714e2e1e0d45b3c4641ec51220102b5" => :x86_64_linux
   end
 
   head do
