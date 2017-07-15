@@ -21,7 +21,7 @@ class MedFile < Formula
   depends_on :python  => :recommended
   depends_on "swig"   => :build if build.with? "python"
   depends_on :fortran => :build if build.with? "fortran"
-  depends_on "homebrew/science/hdf5"
+  depends_on "hdf5"
 
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/720fedf/med-file/libc%2B%2B_and_python_bindings_fixes.diff"
