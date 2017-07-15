@@ -1,5 +1,5 @@
 class MedFile < Formula
-  desc "MEDFile - Modeling and Data Exchange standardized format"
+  desc "Modeling and Data Exchange standardized format"
   homepage "http://www.salome-platform.org"
   url "http://files.salome-platform.org/Salome/other/med-3.2.0.tar.gz"
   sha256 "d52e9a1bdd10f31aa154c34a5799b48d4266dc6b4a5ee05a9ceda525f2c6c138"
