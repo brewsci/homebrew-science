@@ -5,10 +5,9 @@ class Hdf5AT18 < Formula
   sha256 "59c03816105d57990329537ad1049ba22c2b8afe1890085f0c022b75f1727238"
 
   bottle do
-    sha256 "8ce040751d58abd3ac33b87431ddefb987e3cfc5d48b6c02680bfe369662b165" => :sierra
-    sha256 "b934a4a8dc46b8c045d35b0faed98bda803e4edd79f77ae04399858651afe9cf" => :el_capitan
-    sha256 "50c72c31b650d37c1ce30ea07bb6c579b496ae17c80c081e76b51bf20ccc76f0" => :yosemite
-    sha256 "bbbc922aa68fa60d412264b58f16f416916c112aafe142100b9d0b9cb2f824fe" => :x86_64_linux
+    sha256 "eb43fe0a38d8af441e82e1cecb9828e2d9c0e64f76c3e258ea962a302cde496d" => :sierra
+    sha256 "1ec3e5ea6afafc853ac4800dfd6a1886da9e1440c3147e6efa3683adf10848ac" => :el_capitan
+    sha256 "872a2ca654a802c6abaaccf2ffe579621c241dcdc0a84d85fd1c30fa9d8d1bfe" => :yosemite
   end
 
   keg_only :versioned_formula
