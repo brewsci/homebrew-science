@@ -8,6 +8,7 @@ class Hdf5AT18 < Formula
     sha256 "eb43fe0a38d8af441e82e1cecb9828e2d9c0e64f76c3e258ea962a302cde496d" => :sierra
     sha256 "1ec3e5ea6afafc853ac4800dfd6a1886da9e1440c3147e6efa3683adf10848ac" => :el_capitan
     sha256 "872a2ca654a802c6abaaccf2ffe579621c241dcdc0a84d85fd1c30fa9d8d1bfe" => :yosemite
+    sha256 "467c8f82ca0c8bf9a6f05cd2f20e4b2c2641777e9a3dd8eb18259af7ad6295cc" => :x86_64_linux
   end
 
   keg_only :versioned_formula
