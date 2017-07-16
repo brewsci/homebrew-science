@@ -1,6 +1,6 @@
 {
-  "tabix": "homebrew/boneyard",
   "hdf5": "homebrew/core",
-  "vips": "homebrew/core",
-  "tensorflow": "homebrew/core"
+  "r": "homebrew/core",
+  "tensorflow": "homebrew/core",
+  "vips": "homebrew/core"
 }
