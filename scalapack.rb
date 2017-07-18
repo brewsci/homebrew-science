@@ -6,12 +6,10 @@ class Scalapack < Formula
   revision 9
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "06890b48f66fed7ab98e7b132f707890f30fb96ac5f7c56d3aca2e42d7f6ed1f" => :sierra
-    sha256 "4b07175d17d42cd5da682fa083ab82acbc45ed13a58224d944f2d7ca62ee6acf" => :el_capitan
-    sha256 "266da17498776e07fca18a4477218600e7c7fc8ef53ac1c031045319965d97d2" => :yosemite
-    sha256 "15621fd017803801a41f121018a5688bf4cde3c4ce1944c6d0f60f9d884c1fe1" => :x86_64_linux
+    cellar :any
+    sha256 "e0535c196185e59f4bce10314c916979560f0b85f37ad401042c3d7c060eb08c" => :sierra
+    sha256 "b6ccfffc21ea3247ee6d62527a7aab02f04e00bd943bb316bc44c34d1a1b42c3" => :el_capitan
+    sha256 "983b149d13ba43cd2691f8a184ada01384d8eea67550244e672e42f8af22c780" => :yosemite
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
