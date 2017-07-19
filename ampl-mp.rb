@@ -3,6 +3,7 @@ class AmplMp < Formula
   homepage "http://www.ampl.com"
   url "https://github.com/ampl/mp/archive/3.1.0.tar.gz"
   sha256 "587c1a88f4c8f57bef95b58a8586956145417c8039f59b1758365ccc5a309ae9"
+  revision 1
 
   bottle do
     cellar :any
@@ -43,7 +44,7 @@ class AmplMp < Formula
     end
 
     resource("miniampl").stage do
-      system "make", "SHELL=/bin/bash", "CXX=#{ENV["CC"]} -std=c99", "LIBAMPL_DIR=#{prefix}", "LIBS=-L$(LIBAMPL_DIR)/lib -lasl -lm -ldl"
+      system "make", "SHELL=/bin/bash", "CXX=#{ENV["CC"]} -std=c99", "LIBAMPL_DIR=#{prefix}", "LIBS=-L$(LIBAMPL_DIR)/lib -lasl -lmp -lm -ldl"
       bin.install "bin/miniampl"
       (pkgshare/"example").install "Makefile", "README.rst", "src", "examples"
     end
