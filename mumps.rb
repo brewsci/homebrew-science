@@ -10,6 +10,7 @@ class Mumps < Formula
     sha256 "565dc81efcaaf1fc11332536250ca596db835265e6a2d59498a11bd203a30240" => :sierra
     sha256 "6ee0f31bd1c671cfc3cddcf4c5c6a6d25a6d8586eab509a4ee28b386cce57c7a" => :el_capitan
     sha256 "a529e2f2ec73f387326c2d8f2615deb69bf01f1847e804dce59af5282a841e18" => :yosemite
+    sha256 "a6a62e8a4fda29745279f33b3b0dec6adffcda91311e6967f93db5b8d1466566" => :x86_64_linux
   end
 
   depends_on :mpi => [:cc, :cxx, :f90, :recommended]
