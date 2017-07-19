@@ -1,10 +1,9 @@
 class Mumps < Formula
   desc "Parallel Sparse Direct Solver"
   homepage "http://mumps-solver.org"
-  url "http://mumps.enseeiht.fr/MUMPS_5.0.2.tar.gz"
-  mirror "http://graal.ens-lyon.fr/MUMPS/MUMPS_5.0.2.tar.gz"
-  sha256 "77292b204942640256097a3da482c2abcd1e0d5a74ecd1d4bab0f5ef6e60fe45"
-  revision 1
+  url "http://mumps.enseeiht.fr/MUMPS_5.1.1.tar.gz"
+  mirror "http://graal.ens-lyon.fr/MUMPS/MUMPS_5.1.1.tar.gz"
+  sha256 "a2a1f89c470f2b66e9982953cbd047d429a002fab9975400cef7190d01084a06"
 
   bottle do
     cellar :any
@@ -159,8 +158,10 @@ class Mumps < Formula
           simple_args += ["scotch_libdir=#{Formula["scotch"].opt_lib}",
                           "scotch_libs=-L$(scotch_libdir) -lptscotch -lptscotcherr -lscotch"]
         end
-        simple_args += ["blas_libdir=#{Formula["openblas"].opt_lib}",
-                        "blas_libs=-L$(blas_libdir) -lopenblas"] if build.with? "openblas"
+        if build.with? "openblas"
+          simple_args += ["blas_libdir=#{Formula["openblas"].opt_lib}",
+                          "blas_libs=-L$(blas_libdir) -lopenblas"]
+        end
         system "make", "SHELL=/bin/bash", *simple_args
         lib.install ("libmumps_simple." + (OS.mac? ? "dylib" : "so"))
         include.install "mumps_simple.h"
