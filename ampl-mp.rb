@@ -7,9 +7,9 @@ class AmplMp < Formula
 
   bottle do
     cellar :any
-    sha256 "4bf7fc7253661a1fb16fe1b07f6b4eeeb4dcecd6303199d959c98106eb1a059b" => :sierra
-    sha256 "43d48bd9aca07ba0b30e7aa4f43f1cbac248cc6d92d245413a698352595ef5c2" => :el_capitan
-    sha256 "a031b84d6695d5bcb4f461af062ebf0e0afc2484966704edf27e7e847bfd8b1a" => :yosemite
+    sha256 "84240fa16b3e1e91caecac1fa7808f6664eba827ba32939cdcdf1a23b6a11b80" => :sierra
+    sha256 "7bfe0922aa5a30bd14c66e313c5b89b49dd293dbef7aff86312ff85f715e2a2f" => :el_capitan
+    sha256 "de2b55e59036d32e7e67d385f2f929cfeae79c137b3adcdc06e9368aa8ca3ebe" => :yosemite
   end
 
   option "with-matlab", "Build MEX files for use with Matlab"
