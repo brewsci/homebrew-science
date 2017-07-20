@@ -7,9 +7,9 @@ class Ipopt < Formula
 
   bottle do
     cellar :any
-    sha256 "da38322534f900c1dd40b5021efff972581bdcd7124297f958902b3aa1456d14" => :sierra
-    sha256 "33e8436b69c88a6f62ad508e9ba76a7f8663662d7543140f8263423a54ca9378" => :el_capitan
-    sha256 "ed9dc832e8a64756303f6ac7d8262bfb10a3478c863d03a9f6478ca11133d5ef" => :yosemite
+    sha256 "ea5090d2a8e62db71fd8a4e99e48eb8c07fabc2df82209c905f53dea21247767" => :sierra
+    sha256 "863173534de5020ac2a40f0c07550d01e510fd0f09d8f11bbe4ac9b9e7a2a835" => :el_capitan
+    sha256 "399817abfafdc46c389b4ca36504dd12f7f0b4a5e36af35104d253ec3758e28b" => :yosemite
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
