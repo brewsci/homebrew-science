@@ -3,5 +3,6 @@
   "r": "homebrew/core",
   "tensorflow": "homebrew/core",
   "transfig": "homebrew/core",
+  "veclibfort": "homebrew/core",
   "vips": "homebrew/core"
 }
