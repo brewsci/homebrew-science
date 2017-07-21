@@ -1,4 +1,5 @@
 {
+  "arpack": "homebrew/core",
   "glpk": "homebrew/core",
   "hdf5": "homebrew/core",
   "openblas": "homebrew/core",
