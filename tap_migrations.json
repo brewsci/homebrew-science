@@ -1,6 +1,7 @@
 {
   "glpk": "homebrew/core",
   "hdf5": "homebrew/core",
+  "openblas": "homebrew/core",
   "qhull": "homebrew/core",
   "qrupdate": "homebrew/core",
   "r": "homebrew/core",
