@@ -1,6 +1,7 @@
 {
   "glpk": "homebrew/core",
   "hdf5": "homebrew/core",
+  "qhull": "homebrew/core",
   "r": "homebrew/core",
   "tensorflow": "homebrew/core",
   "transfig": "homebrew/core",
