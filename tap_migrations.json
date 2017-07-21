@@ -2,5 +2,6 @@
   "hdf5": "homebrew/core",
   "r": "homebrew/core",
   "tensorflow": "homebrew/core",
+  "transfig": "homebrew/core",
   "vips": "homebrew/core"
 }
