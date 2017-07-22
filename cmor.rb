@@ -6,9 +6,9 @@ class Cmor < Formula
   # doi "10.5281/zenodo.61943"
 
   bottle do
-    sha256 "77fa48901bada3472fd88eb2c7bf08c9ddca57bcaa8cc9d91590f744a2ee42cf" => :sierra
-    sha256 "83efc240aacb9fd4c0faeb227a60f7e15249f1bd3265ed7f32bd6d4d0e198ad4" => :el_capitan
-    sha256 "b7124ebf9f04f6e84400357ee78c9b2b55f81d3b562956040513d767d1904988" => :yosemite
+    sha256 "653ef16a8ea45e4d9823350549a1422d1f8900194778269f3389e339d76fc240" => :sierra
+    sha256 "f3c6f4bca656c103274dda65ec6e77a33eb9d1d67ba0e927a3593bcd441f0e31" => :el_capitan
+    sha256 "b109e83b35f6f2beb965d5d60c21ec350ae4b29b7b63bcc39c68568350e6ae21" => :yosemite
   end
 
   keg_only "conflicts with json-c in main repository"
