@@ -8,6 +8,7 @@ class Cgns < Formula
     sha256 "fbe0a2d65790e3acc942bbb851b6f4eb6ad2f9e52fbc86d373a0cb4c0f299e95" => :sierra
     sha256 "b2635b61047108a422540b66cccebc927a0ebc738e5d2091c3d3e0a9e9127890" => :el_capitan
     sha256 "27d4705b7b09b7c5991be0b8779a239301227196777d053f7e9e974680597705" => :yosemite
+    sha256 "9fcd6ee301f553ff0b4c174eda6de21593f991f9f8ecd22152b377a5b5a85a42" => :x86_64_linux
   end
 
   depends_on :fortran => :optional
