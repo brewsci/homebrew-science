@@ -5,6 +5,7 @@
   "openblas": "homebrew/core",
   "qhull": "homebrew/core",
   "metis": "homebrew/core",
+  "octave": "homebrew/core",
   "qrupdate": "homebrew/core",
   "r": "homebrew/core",
   "suite-sparse": "homebrew/core",
