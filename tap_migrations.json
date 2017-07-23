@@ -8,6 +8,7 @@
   "octave": "homebrew/core",
   "qrupdate": "homebrew/core",
   "r": "homebrew/core",
+  "scalapack": "homebrew/core",
   "suite-sparse": "homebrew/core",
   "tensorflow": "homebrew/core",
   "transfig": "homebrew/core",
