@@ -10,10 +10,9 @@ class Vcftools < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d4b6c7c42f4a4ae1b2ef3570c64ce00d128828a854651d7a31001b820fb2b2b2" => :sierra
-    sha256 "3f172d6ecc7ef530e53d38238d18627ce96e4b9d53dec5bff9c52c7602d12040" => :el_capitan
-    sha256 "938e1f243b1333f12a40fa2b423668a75785028bb4350b691680d14e7f27e259" => :yosemite
-    sha256 "395b11bdf5c137f88a734abd2d7c06ea65bc563294acb09570ad302098c9b352" => :x86_64_linux
+    sha256 "b7a409660af5ccc477c42b3e2b334c1d27d7bfd82e5857c1e9e033b9a1e9c20e" => :sierra
+    sha256 "1beb6162ac210ea24e5dc6edefac8319eec1a0a2f2ffd63aee0600b7d9e0db10" => :el_capitan
+    sha256 "a3868607b7d24d4775d1dae4bb54aea2ec8006626322d5bf2a8f50e9e875d93f" => :yosemite
   end
 
   depends_on "autoconf" => :build
