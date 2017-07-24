@@ -4,10 +4,8 @@ class Vcftools < Formula
   # doi "10.1093/bioinformatics/btr330"
   # tag "bioinformatics"
 
-  url "https://github.com/vcftools/vcftools/archive/v0.1.14.tar.gz"
-  sha256 "ba440584645e9901c1eeb6b769ccd828591f0575c73349072cde3efa77da6fdf"
-  revision 1
-
+  url "https://github.com/vcftools/vcftools/archive/v0.1.15.tar.gz"
+  sha256 "bfbc50d92262868802d62f595c076b34f8e61a5ecaf48682328dad19defd3e7d"
   head "https://github.com/vcftools/vcftools.git"
 
   bottle do
