@@ -6,9 +6,9 @@ class Alembic < Formula
   head "https://github.com/alembic/alembic.git"
 
   bottle do
-    sha256 "c85bcfda2b6a36678808ce74c22846c88e2e25dd5c0839719133c6a0550d7c15" => :sierra
-    sha256 "f3cdf29c171cc8578fe122e0a7a055b39576f5b1cb7f3a552e7f679308ac2587" => :el_capitan
-    sha256 "61f2efadcc5b710c140666e335c413cee1f89a7e6c4eaf90bba6eeae8c01dbaf" => :yosemite
+    sha256 "8b7b41b7e9ddd894a4647eab6b219b3b809571895b85577049a0b8818d2ecd31" => :sierra
+    sha256 "569276b88d2129b48d890049121335f395e880d559e078437341b98683f723e8" => :el_capitan
+    sha256 "fc5e6389bc9e58c3a4d46156bc2a403cf9cbc8ace869db220c58c17c29d92158" => :yosemite
   end
 
   needs :cxx11
