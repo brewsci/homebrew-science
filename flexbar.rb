@@ -9,6 +9,7 @@ class Flexbar < Formula
     sha256 "cd4855a994ec369d2a2be4037436770a18f1c0018a631b2904e77b802003fe36" => :sierra
     sha256 "053892e4788d33c20a4f2bdf91d4083baeb87b37241fbdf5bbb4df261a31def9" => :el_capitan
     sha256 "baba15a73024448b052ed340f337ac7d2e4171692218a44b531085fe6e222bd3" => :yosemite
+    sha256 "6cfd83496a680e6e30d27a223a396c4ce44a871fe004ade4e0927cf3125ee651" => :x86_64_linux
   end
 
   # tag "bioinformatics"
