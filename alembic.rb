@@ -9,6 +9,7 @@ class Alembic < Formula
     sha256 "8b7b41b7e9ddd894a4647eab6b219b3b809571895b85577049a0b8818d2ecd31" => :sierra
     sha256 "569276b88d2129b48d890049121335f395e880d559e078437341b98683f723e8" => :el_capitan
     sha256 "fc5e6389bc9e58c3a4d46156bc2a403cf9cbc8ace869db220c58c17c29d92158" => :yosemite
+    sha256 "7790d1588de33a670b823768a3c001945bce2bba80fd08fe08e3ee925cff97cb" => :x86_64_linux
   end
 
   needs :cxx11
