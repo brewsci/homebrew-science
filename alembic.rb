@@ -1,8 +1,8 @@
 class Alembic < Formula
   desc "Open computer graphics interchange framework"
   homepage "http://alembic.io"
-  url "https://github.com/alembic/alembic/archive/1.7.1.tar.gz"
-  sha256 "d9aa4f318df9e8f4bbc31a540209ef47a808b99a5627852e42d2550bd979ccc3"
+  url "https://github.com/alembic/alembic/archive/1.7.2.tar.gz"
+  sha256 "3ac0fe540afdeb9d2b37d25c6b38408c8c4eb830a8d5d3d19bbd64b8c9d26539"
   head "https://github.com/alembic/alembic.git"
 
   bottle do
@@ -14,7 +14,7 @@ class Alembic < Formula
   needs :cxx11
 
   depends_on "cmake" => :build
-  depends_on "hdf5" => :build
+  depends_on "hdf5"
   depends_on "ilmbase"
 
   def install
@@ -27,15 +27,11 @@ class Alembic < Formula
       -DUSE_MAYA=OFF
       -DUSE_PYALEMBIC=OFF
       -DUSE_HDF5=ON
-      -DUSE_STATIC_HDF5=ON
       -DUSE_EXAMPLES=ON
     ]
     system "cmake", ".", *cmake_args
     system "make"
-
-    # Re-enable for > 1.7.0
-    # system "make", "test"
-
+    system "make", "test"
     system "make", "install"
 
     pkgshare.install "prman/Tests/testdata/cube.abc"
