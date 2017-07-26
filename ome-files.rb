@@ -6,9 +6,9 @@ class OmeFiles < Formula
   head "https://github.com/ome/ome-files-cpp.git", :branch => "develop", :shallow => false
 
   bottle do
-    sha256 "afd2f59dfe3309bda48d878d44278531059d231421c188439b70ab0a13e961ca" => :sierra
-    sha256 "365ad7ec9542ec5d1ae3571cfa55e9891012c67973e31e20d8b0f987ae0e002a" => :el_capitan
-    sha256 "ea5f5ea31bb790c436ce42c435b7b746e9ac843e471acc4897e8307cb2aa0cb2" => :yosemite
+    sha256 "8252403ab722cebffa018b252682e28a27ab78bd7184474a318f29a3f3ffa523" => :sierra
+    sha256 "9b27df00f759cee25ef7aa25ba2cd5d8bb6b29e7e5501f7b50ddb75ab7b730f5" => :el_capitan
+    sha256 "e7c90748a390f96f7d0ded67ff9e4af24ba45a1b5b04924540783f0b6c767c95" => :yosemite
   end
 
   option "with-api-docs", "Build API reference"
