@@ -6,9 +6,9 @@ class OmeCommon < Formula
   head "https://github.com/ome/ome-common-cpp.git", :branch => "develop", :shallow => false
 
   bottle do
-    sha256 "e42ef6bdde96633c2b06e2b61b1b2f0f2839f1cfb468219105c032e876822bdd" => :sierra
-    sha256 "df8f8be0536c58a5876fc7a744c8547b5f22c25f7182b89e221eeb4978b8546d" => :el_capitan
-    sha256 "96e83f1de862a2e307faf38791b34a129eb8094f947c55d810b671614335a1f1" => :yosemite
+    sha256 "d203264e53f1382666e45e1572bbdb14a6a5c4829d6977cf94866092a487cc1c" => :sierra
+    sha256 "012d01a618b7f6425296be3545c3e00e14dff32404774a2c44cde6a426f1c791" => :el_capitan
+    sha256 "f6702a567d27d6d7edc38f2010399e0ee8b1e9c9f0570c0c171f0312b9904b31" => :yosemite
   end
 
   option "with-api-docs", "Build API reference"
