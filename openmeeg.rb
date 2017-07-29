@@ -4,6 +4,7 @@ class Openmeeg < Formula
   url "https://github.com/openmeeg/openmeeg/archive/2.4.prerelease.tar.gz"
   version "2.4.prerelease"
   sha256 "fabf9addfcb99d3b3161acde98104a321ec926a1968e444edfce5334adb1ae87"
+  revision 1
 
   head "https://github.com/openmeeg/openmeeg.git"
 
@@ -21,12 +22,15 @@ class Openmeeg < Formula
   depends_on "zlib" unless OS.mac?
   depends_on "openblas" unless OS.mac?
 
+  needs :openmp
+
   def install
     args = std_cmake_args + %w[
       -DBUILD_SHARED_LIBS=ON
       -DENABLE_PYTHON=OFF
       -DBUILD_DOCUMENTATION=OFF
       -DUSE_PROGRESSBAR=ON
+      -DUSE_OMP=ON
     ]
 
     mkdir "build" do
