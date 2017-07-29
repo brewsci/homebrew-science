@@ -7,10 +7,9 @@ class Dealii < Formula
   head "https://github.com/dealii/dealii.git"
 
   bottle do
-    cellar :any
-    sha256 "a7bacbd5b446e973dd3540b5be3f198ef47b27802b2d38c76b94f713c5320740" => :sierra
-    sha256 "978209fb3f9e2f349c799c29dd9212ace08ef8a7d6a3bdd533083313d396729c" => :el_capitan
-    sha256 "6328116f3be66084ea0ed9dd7cc91f7d47b997cfe05fb167eb71f40ff1773d0c" => :yosemite
+    sha256 "94cf50301a3585b6ce92ebdcc24396d631a20eb56c4992274d896610fd6512a8" => :sierra
+    sha256 "afd55037af2add4c360d6341c64c99e03256a7af196241ccb053387b7630e16d" => :el_capitan
+    sha256 "5d6ac348ba9355cb3b13b76dc49673675f89b473e3ee77a1624bc4775562c862" => :yosemite
   end
 
   option "with-testsuite", "Run full test suite (7000+ tests). Takes a lot of time."
