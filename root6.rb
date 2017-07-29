@@ -1,9 +1,9 @@
 class Root6 < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
-  url "https://root.cern.ch/download/root_v6.10.02.source.tar.gz"
-  version "6.10.02"
-  sha256 "6c268d2e483a0946c3b065e8e2b070141475416042086d14ec76dd7ed248d7e7"
+  url "https://root.cern.ch/download/root_v6.10.04.source.tar.gz"
+  version "6.10.04"
+  sha256 "461bde21d78608422310f04c599e84ce8dfbdd91caf12c2a54db6c01f8228f5b"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
@@ -29,13 +29,6 @@ class Root6 < Formula
 
   def config_opt(opt, pkg = opt)
     "-D#{opt}=#{build.with? pkg ? "ON" : "OFF"}"
-  end
-
-  # Remove for Homebrew > 1.2.4; see https://github.com/Homebrew/brew/pull/2884
-  # Patch disables hsimple macro running during build
-  patch :p0 do
-    url "https://raw.githubusercontent.com/macports/macports-ports/8a7a301ac1b/science/root6/files/patch-disable-hsimple-macro.diff"
-    sha256 "43c079b964c57baebf55dcb5541cf7a4146c7beb6ce16b2f4a2ff15186e0c78e"
   end
 
   def install
