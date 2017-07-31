@@ -13,6 +13,7 @@ class Openmeeg < Formula
     sha256 "54ee28ca0bf4a95c1218af5f0eca8b33e6f91e92aebfb71e304362716104453e" => :sierra
     sha256 "f5b43d31a3824f1bc1228ae2d20e4e10f2c7c8a1def2d884dd2c571d9f6e6dd9" => :el_capitan
     sha256 "24329f1ded566b7b80f1455dd42f21d5b96590bd7a297016e53dd607d46df1fe" => :yosemite
+    sha256 "c193f07c03481244b9541700dc5663c1a93fcdf7fb35e452b5aea54dbef3a701" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
