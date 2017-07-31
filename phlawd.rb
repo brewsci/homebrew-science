@@ -21,10 +21,6 @@ class Phlawd < Formula
     sha256 "c51b6f732f0acb671eecdf4604fb4603fa4e5f40dad96e77d6e0f47b5475d872" => :x86_64_linux
   end
 
-  fails_with :llvm do
-    cause "The llvm compiler is not supported."
-  end
-
   # correct the makefile to look for dependencies where brew installs them
   patch :DATA
 
