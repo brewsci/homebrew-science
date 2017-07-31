@@ -2,7 +2,6 @@ class Crlibm < Formula
   homepage "http://lipforge.ens-lyon.fr/www/crlibm/"
   url "http://lipforge.ens-lyon.fr/frs/download.php/162/crlibm-1.0beta4.tar.gz"
   sha256 "6836b4299f9421c99da2bdcd5e04a8d35577db4eb61161a401aa93751a96375d"
-  version "1.0beta4"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
