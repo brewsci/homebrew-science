@@ -5,7 +5,6 @@ class Gatb < Formula
   # tag "bioinformatics"
 
   url "http://gatb-core.gforge.inria.fr/versions/src/gatb-core-1.1.0-Source.tar.gz"
-  version "1.1.0"
   sha256 "d75fe178c97d85f11e3cf51bfb8ae4a6b9f864587f3762a7ca608abe48ed4a03"
 
   bottle do
