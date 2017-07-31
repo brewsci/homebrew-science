@@ -7,10 +7,9 @@ class Igraph < Formula
 
   bottle do
     cellar :any
-    sha256 "d5aa04fb769a88612b34f290a3023136150dc4a8ec4e6f379f716505ea254cb6" => :el_capitan
-    sha256 "149b2be62efcee21ff30db00796d2742758ba21cccb3f0d0b834e1635b961061" => :yosemite
-    sha256 "1ce6615a2d2cbbc2fd509caa8ecc805755c81a70a237b4c485ba75da9b7997e0" => :mavericks
-    sha256 "a34161eba244911b357d823be94dee50f3e594c09e92c5d2bade26590a1e8e09" => :x86_64_linux
+    sha256 "6ab53843c695c62fa33f86ef2424ca5f0e79d4de6e75c78a5c1aaec1565bd013" => :sierra
+    sha256 "9945a529e34d92bea23c8603859e3a7ba10bd6305300cb2197e421cee18a5823" => :el_capitan
+    sha256 "604729b5626349d80c46ae353b1ee3f5dd84b814f0d30445a374a547893787e6" => :yosemite
   end
 
   depends_on "libxml2" unless OS.mac?
