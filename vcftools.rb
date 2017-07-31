@@ -6,6 +6,7 @@ class Vcftools < Formula
 
   url "https://github.com/vcftools/vcftools/archive/v0.1.15.tar.gz"
   sha256 "bfbc50d92262868802d62f595c076b34f8e61a5ecaf48682328dad19defd3e7d"
+  revision 1
   head "https://github.com/vcftools/vcftools.git"
 
   bottle do
@@ -24,7 +25,7 @@ class Vcftools < Formula
   depends_on "zlib" if OS.linux?
 
   def install
-    args = ["--prefix=#{prefix}", "--with-pmdir=#{lib}/perl5/site_perl"]
+    args = ["--prefix=#{prefix}", "--with-pmdir=lib/perl5/site_perl"]
 
     if build.with? ("zlib" || OS.linux?)
       zlib = Formula["zlib"]
