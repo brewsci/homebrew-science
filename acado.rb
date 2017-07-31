@@ -2,7 +2,6 @@ class Acado < Formula
   desc "Toolkit for Automatic Control and Dynamic Optimization"
   homepage "https://acado.github.io/index.html"
   url "https://github.com/acado/acado/archive/v1.2.2beta.tar.gz"
-  version "1.2.2beta"
   sha256 "cf0779e64dd5d20989e97340c04ecccf542fe8d993c96b53e5c465693cb354b7"
   bottle do
     sha256 "33b701b48e25c3ac74e6dacda3b4146d4d5c9b1316d6cdbea3a943c118f22ea6" => :sierra
