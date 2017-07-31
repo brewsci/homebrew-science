@@ -2,7 +2,6 @@ class Jsbsim < Formula
   desc "Open source flight dynamics model"
   homepage "https://jsbsim.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/jsbsim/JSBSim_Source/JSBSim%20v1.0%20Release%20Candidate%202/JSBSim-1.0.rc2.tar.gz"
-  version "1.0.rc2"
   sha256 "04accd4efc75867edfa6eeb814ceefebf519b2e8d750518b1de0a6aafa9442e1"
   revision 1
 
