@@ -17,7 +17,6 @@ class Elemental < Formula
   devel do
     url "https://github.com/elemental/Elemental/archive/0.86-rc1.tar.gz"
     sha256 "4f27c55828f27ce1685aaf65018cc149849692b7dfbd9352fc203fed1a96c924"
-    version "0.86-rc1"
 
     option "without-python", "Build without Python 2 bindings"
     depends_on :python => :recommended if MacOS.version <= :snow_leopard
