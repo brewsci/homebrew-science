@@ -5,7 +5,6 @@ class Snap < Formula
   # tag "bioinformatics"
 
   url "http://korflab.ucdavis.edu/Software/snap-2013-11-29.tar.gz"
-  version "2013-11-29"
   sha256 "e2a236392d718376356fa743aa49a987aeacd660c6979cee67121e23aeffc66a"
 
   bottle do
