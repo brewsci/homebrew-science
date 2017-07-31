@@ -5,7 +5,6 @@ class Sortmerna < Formula
   # tag "bioinformatics"
 
   url "https://github.com/biocore/sortmerna/archive/2.1b.tar.gz"
-  version "2.1"
   sha256 "b3d122776c323813971b35991cda21a2c2f3ce817daba68a4c4e09d4367c0abe"
 
   head "https://github.com/biocore/sortmerna.git"
