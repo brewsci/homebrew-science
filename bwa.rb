@@ -11,10 +11,9 @@ class Bwa < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d8341ec482130b67c1a43394b56fcf0eb39da2ed9e37a1c27dbf7d8201901347" => :el_capitan
-    sha256 "2906054058cbdad87364cb58c6bbc25d1dc900709e9a2ba0629899d1d7a05bdb" => :yosemite
-    sha256 "a75a5025de6c1f1df0e53d005fb752843562271389dbde5fcbc865ca3aed9e7e" => :mavericks
-    sha256 "2539f7596fab900908bb4d72ecca16bf505436b2fbc3785b409abd0cdb375011" => :x86_64_linux
+    sha256 "734b913fe456453ba67bfe02e37b7f717ef9b870c01f03ef2f6ebfb82cfd77e4" => :sierra
+    sha256 "f9a0c3548af3a4f9e321255446434e363f8e8c55e783393a6fce4ae19fbed919" => :el_capitan
+    sha256 "652bc2644ce315ef6388fd8d21e4fdda945fa0d6cedc74d404ca6eb55281b61d" => :yosemite
   end
 
   depends_on "zlib" unless OS.mac?
