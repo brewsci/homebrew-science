@@ -18,7 +18,6 @@ class Maq < Formula
   depends_on "File::Copy" => :perl
 
   fails_with :clang
-  fails_with :llvm
 
   def install
     system "./configure", "--prefix=#{prefix}"
