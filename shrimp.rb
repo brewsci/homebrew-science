@@ -16,7 +16,6 @@ class Shrimp < Formula
   end
 
   needs :openmp
-  fails_with :llvm
 
   def install
     ENV.delete("CXXFLAGS")
