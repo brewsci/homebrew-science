@@ -4,8 +4,8 @@ class Bwa < Formula
   # doi "10.1093/bioinformatics/btp324"
   # tag "bioinformatics"
 
-  url "https://github.com/lh3/bwa/releases/download/v0.7.15/bwa-0.7.15.tar.bz2"
-  sha256 "2f56afefa49acc9bf45f12edb58e412565086cc20be098b8bf15ec07de8c0515"
+  url "https://github.com/lh3/bwa/releases/download/v0.7.16/bwa-0.7.16a.tar.bz2"
+  sha256 "8fecdb5f88871351bbe050c18d6078121456c36ad75c5c78f33a926560ffc170"
 
   head "https://github.com/lh3/bwa.git"
 
@@ -16,6 +16,8 @@ class Bwa < Formula
     sha256 "a75a5025de6c1f1df0e53d005fb752843562271389dbde5fcbc865ca3aed9e7e" => :mavericks
     sha256 "2539f7596fab900908bb4d72ecca16bf505436b2fbc3785b409abd0cdb375011" => :x86_64_linux
   end
+
+  depends_on "zlib" unless OS.mac?
 
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
