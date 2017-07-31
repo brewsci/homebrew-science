@@ -10,6 +10,7 @@ class Mantaflow < Formula
     sha256 "bb137ecbc8a0efa265ec19adf1996f5f58de77b84f1f98d254e7190871b31c04" => :sierra
     sha256 "7d6ef2b3b1d3a15507233df6457aa88679977b7c9e292e041f19c254f8ad29e8" => :el_capitan
     sha256 "b97b356016cdd76ad11ba9308c718abb61c396e5a95a1d33964c08a40a0a41ac" => :yosemite
+    sha256 "852036ce8d4af5e981bcc397d932d956e6636e441051d45e38a9ec5e77ed5a3d" => :x86_64_linux
   end
 
   deprecated_option "with-qt5" => "with-qt"
