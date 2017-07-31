@@ -17,7 +17,6 @@ class Mira < Formula
   depends_on "flex"
 
   fails_with :clang
-  fails_with :llvm
   fails_with :gcc
   fails_with :gcc => "4.5" do
     cause "gcc >= 4.6 is required to compile MIRA."
