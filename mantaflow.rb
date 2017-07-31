@@ -1,8 +1,8 @@
 class Mantaflow < Formula
   desc "Open computer graphics fluid simulation framework"
   homepage "http://mantaflow.com/"
-  url "http://mantaflow.com/download/manta-src-0.10.tar"
-  sha256 "cab98dd38ded26a65ad151ce1cd2dafd93be8f94b3668e873cbfca73748fdc57"
+  url "http://mantaflow.com/download/manta-src-0.11.tar.gz"
+  sha256 "2aa1d26a85696dd233f6b2276c0ef3972192bf2e0e9abb908118ee427cc10463"
   head "https://bitbucket.org/mantaflow/manta.git"
 
   bottle do
@@ -13,11 +13,13 @@ class Mantaflow < Formula
     sha256 "b7b594c99940e2494e61d8b872a4626e0f4a22822c044e127b674314ae847b8e" => :x86_64_linux
   end
 
+  deprecated_option "with-qt5" => "with-qt"
+
   option "with-openmp", "Build with OpenMP support"
-  option "with-qt5", "Build the QT GUI version"
+  option "with-qt", "Build the QT GUI version"
 
   depends_on "cmake" => :build
-  depends_on "qt5" => :optional
+  depends_on "qt" => :optional
   depends_on :python if MacOS.version <= :snow_leopard
 
   needs :openmp if build.with? "openmp"
@@ -28,7 +30,7 @@ class Mantaflow < Formula
     args = std_cmake_args
 
     args << "-DOPENMP=ON" if build.with? "openmp"
-    args << "-DGUI=ON" if build.with? "qt5"
+    args << "-DGUI=ON" if build.with? "qt"
 
     mkdir "build" do
       system "cmake", "..", *args
