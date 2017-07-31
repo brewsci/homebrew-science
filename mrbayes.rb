@@ -22,11 +22,6 @@ class Mrbayes < Formula
   depends_on :mpi => [:cc, :optional]
   depends_on "beagle" => :optional
 
-  fails_with :llvm do
-    build 2336
-    cause "build hangs at calling `as`: http://sourceforge.net/tracker/index.php?func=detail&aid=3426528&group_id=129302&atid=714418"
-  end
-
   def install
     args = ["--disable-debug", "--prefix=#{prefix}"]
     args << "--with-beagle=" + ((build.with? "beagle") ? Formula["beagle"].opt_prefix : "no")
