@@ -3,7 +3,7 @@ class Igraph < Formula
   homepage "http://igraph.org"
   url "http://igraph.org/nightly/get/c/igraph-0.7.1.tar.gz"
   sha256 "d978030e27369bf698f3816ab70aa9141e9baf81c56cc4f55efbe5489b46b0df"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -13,24 +13,23 @@ class Igraph < Formula
     sha256 "a34161eba244911b357d823be94dee50f3e594c09e92c5d2bade26590a1e8e09" => :x86_64_linux
   end
 
-  option :universal
+  depends_on "libxml2" unless OS.mac?
+  depends_on "openblas" unless OS.mac?
 
   # Use Homebrew Arpack, but disable thread-local storage.
   # If not selected, iGraph uses a built-in Arpack.
   depends_on "arpack" => :optional
 
-  # GMP is optional, and doesn't have a universal build
-  depends_on "gmp" => :optional unless build.universal?
+  # GMP is optional
+  depends_on "gmp" => :optional
 
   depends_on "glpk" => :recommended
 
   def install
-    ENV.universal_binary if build.universal?
-
     # There doesn't seem to be a way to specify which BLAS/LAPACK, ARPACK or GPLK.
     # iGraph just looks for -lblas, -llapack, -larpack and -lglpk on the path.
     extra_opts = ["--with-external-blas", "--with-external-lapack"]
-    extra_opts << ((build.with? "glpk") ? "--with-external-glpk" : "--disable-glpk")
+    extra_opts += ["--with-external-glpk", "--disable-glpk"] if build.with? "glpk"
     extra_opts << "--disable-gmp" if build.without? "gmp"
     extra_opts += ["--with-external-arpack", "--disable-tls"] if build.with? "arpack"
 
