@@ -24,11 +24,6 @@ class Ray < Formula
 
   depends_on :mpi => :cxx
 
-  fails_with :llvm do
-    build 2336
-    cause '"___gxx_personality_v0" ... ld: symbol(s) not found for architecture x86_64'
-  end
-
   fails_with :gcc do
     build 5666
     cause "error: wrong number of arguments specified for '__deprecated__' attribute"
