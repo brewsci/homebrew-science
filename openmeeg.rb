@@ -10,10 +10,9 @@ class Openmeeg < Formula
 
   bottle do
     cellar :any
-    sha256 "f1dabe4afb7c10db77e35f1f6545ca92c00f02fda62727e076cd3340154a5fe0" => :sierra
-    sha256 "d15f2a93dfd57aa840377e4406e733c9b845af509b1ec0b5f877b375aebf6f80" => :el_capitan
-    sha256 "8cd1e3c19bcb20cb728d20e69450b9309e4f26dd8655f1ac161f0a8a55b0cfa8" => :yosemite
-    sha256 "08133e00055d0ae8672a96222de77919561237132a53ca668ef6492ecc7e69c2" => :x86_64_linux
+    sha256 "54ee28ca0bf4a95c1218af5f0eca8b33e6f91e92aebfb71e304362716104453e" => :sierra
+    sha256 "f5b43d31a3824f1bc1228ae2d20e4e10f2c7c8a1def2d884dd2c571d9f6e6dd9" => :el_capitan
+    sha256 "24329f1ded566b7b80f1455dd42f21d5b96590bd7a297016e53dd607d46df1fe" => :yosemite
   end
 
   depends_on "cmake" => :build
