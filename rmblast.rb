@@ -3,7 +3,6 @@ class Rmblast < Formula
   homepage "http://www.repeatmasker.org/RMBlast.html"
   # tag "bioinformatics"
 
-  version "2.2.28"
   if OS.mac?
     url "ftp://ftp.ncbi.nlm.nih.gov/blast/executables/rmblast/LATEST/ncbi-rmblastn-#{version}-universal-macosx.tar.gz"
     sha256 "f94e91487b752eb24386c3571250a3394ec7a00e7a5370dd103f574c721b9c81"
