@@ -15,14 +15,6 @@ class Megahit < Formula
     sha256 "40cf2e2c113eb4b1b4cfc7ad4c961bfa66e29eb0325b91bda5fffa507c968825" => :x86_64_linux
   end
 
-  fails_with :llvm do
-    build 2336
-    cause <<-EOS.undent
-    llvm-g++ does not support -mpopcnt, -std=c++0x
-    options
-    EOS
-  end
-
   needs :openmp
 
   depends_on :python
