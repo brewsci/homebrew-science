@@ -12,6 +12,7 @@ class Megahit < Formula
     sha256 "26d0bcb8c712ce86fec05bf10718d33b1503a8983ebde799426622588c032742" => :sierra
     sha256 "e4098da7910cecfbda5f52fc327208d942becf9c533d024e25b02745ff38f7a8" => :el_capitan
     sha256 "d15260c4dd2962299e946762455aea48d5db69d0a24a3f590e4cee9bcc73027d" => :yosemite
+    sha256 "29491322bac7d65c72420cb22e5f2bc3b372da3abcc797120c26caf27724a424" => :x86_64_linux
   end
 
   needs :openmp
