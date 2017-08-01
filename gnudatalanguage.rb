@@ -18,7 +18,6 @@ class Gnudatalanguage < Formula
   depends_on "readline"
   depends_on "graphicsmagick"
   depends_on "netcdf"
-  depends_on "homebrew/science/hdf4" => :optional
   depends_on "hdf5"
   depends_on "libpng"
   depends_on "udunits"
@@ -39,8 +38,6 @@ class Gnudatalanguage < Formula
     url "https://gist.githubusercontent.com/sjackman/00fb95e10b7775d16924efb6faf462f6/raw/71ed3e05138a20b824c9e68707e403afc0f92c98/gnudatalanguage-hdf5-1.10.patch"
     sha256 "8400c3c17ac87704540a302673563c1e417801e729e3460f1565b8cd1ef9fc9d"
   end
-
-  patch :DATA if build.with? "hdf4"
 
   resource "plplot-x11" do
     url "https://downloads.sourceforge.net/project/plplot/plplot/5.12.0%20Source/plplot-5.12.0.tar.gz"
@@ -75,7 +72,7 @@ class Gnudatalanguage < Formula
 
     mkdir "build" do
       args = std_cmake_args
-      args << "-DHDF=OFF" if build.without?("hdf4")
+      args << "-DHDF=OFF" # Disables hdf4
       args << "-DPYTHON=OFF" if build.without?("python")
       args << "-DWXWIDGETS=OFF" << "-DPSLIB=OFF"
       system "cmake", "..", *args
@@ -97,20 +94,3 @@ class Gnudatalanguage < Formula
     system "#{bin}/gdl", "--version"
   end
 end
-
-__END__
-diff --git a/src/GDLTokenTypes.hpp b/src/GDLTokenTypes.hpp
-index 06b9316..a91f226 100644
---- a/src/GDLTokenTypes.hpp
-+++ b/src/GDLTokenTypes.hpp
-@@ -10,6 +10,10 @@
- #ifdef __cplusplus
- struct CUSTOM_API GDLTokenTypes {
- #endif
-+
-+#ifdef NOP
-+#undef NOP
-+#endif
-	enum {
-		EOF_ = 1,
-		ALL = 4,
