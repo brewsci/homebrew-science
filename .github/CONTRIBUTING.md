@@ -72,7 +72,7 @@ The current version of clang, Homebrew's default C/C++ compiler, does not suppor
 
 If OpenMP support is obligatory, `needs :openmp` may be used to avoid building with clang/LLVM altogether. If it is optional, one may use
 ```
-options "with-openmp", "Build with OpenMP support"
+option "with-openmp", "Enable OpenMP multithreading"
 needs :openmp if build.with? "openmp"
 ```
 
