@@ -9,9 +9,9 @@ class Scram < Formula
   head "https://github.com/rakhimov/scram.git"
 
   bottle do
-    sha256 "3a501818b0ae9f7a5a749be8ee6038c9f7b769a6f3bb9172b108b7c52630ad18" => :sierra
-    sha256 "59693ed39449963019c66edbbb8f3bee91a3962dc4dd75c88e62806f09ca8deb" => :el_capitan
-    sha256 "ae0066756d3473adf4ea5939f0da0717ba4fc03162a907d696d56ea065162c9b" => :yosemite
+    sha256 "8a4f8191ae334d15eb42f24f6d7776027389b5b9c772ce3fe4ea36f57255aff5" => :sierra
+    sha256 "5ecca409ff8682096e4cd7abd9e3028fa887b3e17f04810ae0c0e301b956d6d5" => :el_capitan
+    sha256 "32cd189a392bba38d4aacbedb05668c5576371fbd943504c66f17e4449ef8cb1" => :yosemite
   end
 
   needs :cxx14
