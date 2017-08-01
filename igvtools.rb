@@ -1,8 +1,8 @@
 class Igvtools < Formula
   desc "Utilities for preprocessing data files for IGV"
   homepage "https://www.broadinstitute.org/software/igv"
-  url "https://github.com/igvteam/igv/archive/v2.3.97.tar.gz"
-  sha256 "2735040b4e6b70f4711e62c952cc615a2dbb0eec6f3ef4efb9616350cc78e951"
+  url "https://github.com/igvteam/igv/archive/v2.3.98.tar.gz"
+  sha256 "de22b1e646bd2290757e617377b1c598f419e292d28f049ede958d0f08bffde5"
   head "https://github.com/igvteam/igv.git"
 
   bottle do
