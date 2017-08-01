@@ -7,10 +7,9 @@ class Mantaflow < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ad355d211ffb8c2dcfead2cc2b21f893131091f07e75ef9474e4160938c3fa10" => :sierra
-    sha256 "acdf534da3b63b86efe5ef35fa820bf909ee8eb6a40e5379ebc77324be14ac31" => :el_capitan
-    sha256 "541acdf33fbdbcb57df0d439de413db475c2073d30509715960c63c143c18790" => :yosemite
-    sha256 "b7b594c99940e2494e61d8b872a4626e0f4a22822c044e127b674314ae847b8e" => :x86_64_linux
+    sha256 "bb137ecbc8a0efa265ec19adf1996f5f58de77b84f1f98d254e7190871b31c04" => :sierra
+    sha256 "7d6ef2b3b1d3a15507233df6457aa88679977b7c9e292e041f19c254f8ad29e8" => :el_capitan
+    sha256 "b97b356016cdd76ad11ba9308c718abb61c396e5a95a1d33964c08a40a0a41ac" => :yosemite
   end
 
   deprecated_option "with-qt5" => "with-qt"
