@@ -1,8 +1,12 @@
 class Scram < Formula
   desc "Probabilistic Risk Analysis Tool"
-  homepage "https://scram-pra.org/"
-  url "https://github.com/rakhimov/scram/archive/0.13.0.tar.gz"
-  sha256 "01c4c3cd98e4a197e2b71b85f3953896e75030f5b70970b65fa5a67dbbdc532a"
+  homepage "https://scram-pra.org"
+  # Needs to pull submodules to get the customized Tango iconset for Mac.
+  url "https://github.com/rakhimov/scram.git",
+    :revision => "4031fc55dcd4ca8d611f552ce8d01990ac9a8eee",
+    :tag => "0.14.0"
+
+  head "https://github.com/rakhimov/scram.git"
 
   bottle do
     sha256 "3a501818b0ae9f7a5a749be8ee6038c9f7b769a6f3bb9172b108b7c52630ad18" => :sierra
@@ -18,15 +22,14 @@ class Scram < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "libxml++"
+  depends_on "qt"
   depends_on "gperftools" => :recommended
 
   def install
     mkdir "build" do
       args = std_cmake_args
-      args << "-DBUILD_SHARED_LIBS=OFF" << "-DINSTALL_LIBS=OFF"
-      args << "-DBUILD_GUI=OFF" << "-DBUILD_TESTS=OFF"
+      args << "-DBUILD_SHARED_LIBS=ON" << "-DBUILD_TESTS=OFF"
       system "cmake", "..", *args
-      system "make"
       system "make", "install"
     end
   end
