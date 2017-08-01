@@ -4,9 +4,9 @@ class Snpeff < Formula
   # tag "bioinformatics"
   # doi "10.4161/fly.19695"
 
-  url "https://downloads.sourceforge.net/project/snpeff/snpEff_v4_3i_core.zip"
-  version "4.3i"
-  sha256 "ebd3d5bec106c3ebc68961b941d3420c44fe1febe4654eb2931eb100c4a33a44"
+  url "https://downloads.sourceforge.net/project/snpeff/snpEff_v4_3p_core.zip"
+  version "4.3p"
+  sha256 "61f52d2105230ddf74ca810062b6b98473515fa403012cb8fd6498d63d9863f5"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,18 +16,27 @@ class Snpeff < Formula
     sha256 "ae791f614cde0602d42da9c83cc352d143982bef4e5119ec497f58831a9a17ef" => :x86_64_linux
   end
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8+"
 
   def install
-    inreplace "scripts/snpEff" do |s|
-      s.gsub! /^jardir=.*/, "jardir=#{libexec}"
-      s.gsub! "${jardir}/snpEff.config", "#{pkgshare}/snpEff.config"
+    # snpEff and SnpSift
+    cd "snpEff" do
+      inreplace "scripts/snpEff" do |s|
+        s.gsub! /^jardir=.*/, "jardir=#{libexec}"
+        s.gsub! "${jardir}/snpEff.config", "#{pkgshare}/snpEff.config"
+      end
+      bin.install "scripts/snpEff"
+      libexec.install "snpEff.jar", "SnpSift.jar"
+      bin.write_jar_script libexec/"SnpSift.jar", "SnpSift"
+      pkgshare.install "snpEff.config", "scripts", "galaxy", "examples"
     end
 
-    bin.install "scripts/snpEff"
-    libexec.install "snpEff.jar", "SnpSift.jar"
-    bin.write_jar_script libexec/"SnpSift.jar", "SnpSift"
-    pkgshare.install "snpEff.config", "scripts", "galaxy"
+    # ClinEff
+    cd "clinEff" do
+      libexec.install "ClinEff.jar"
+      bin.write_jar_script libexec/"ClinEff.jar", "ClinEff"
+      pkgshare.install "workflow", "report"
+    end
   end
 
   def caveats; <<-EOS.undent
@@ -38,7 +47,8 @@ class Snpeff < Formula
   end
 
   test do
-    system "#{bin}/snpEff 2>&1 |grep -q snpEff"
-    system "#{bin}/SnpSift 2>&1 |grep -q extractFields"
+    assert_match version.to_s, shell_output("#{bin}/snpEff -version 2>&1")
+    assert_match "Concordance", shell_output("#{bin}/SnpSift 2>&1", 1)
+    assert_match "annotations", shell_output("#{bin}/ClinEff -h 2>&1", 255)
   end
 end
