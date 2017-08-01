@@ -7,10 +7,9 @@ class Igvtools < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a395a25dd80489484271d89ca33e33813ee4530bbc30ba555c10ef1d4750fae3" => :sierra
-    sha256 "e060e87ce4ebc61a9a4da50097b21dada210d317dc047c9ccd77899610647047" => :el_capitan
-    sha256 "78788edbc76b5ac11aa4b42202a4e68e287df575b1664e9e71349b4fe558a228" => :yosemite
-    sha256 "04b0f47824ce14364fd15614a8221b13a6b4145aefea2de95158f94c95e7ed71" => :x86_64_linux
+    sha256 "835505a2ecc16d2e8ab3a9a506838a5e14dfbd6514c0a7426a59da24a76c49c7" => :sierra
+    sha256 "fff198a48e915319e721749da1d105acb5860ebe06fe8197a5cf87d502195408" => :el_capitan
+    sha256 "1d49e1908b8c9bc055d750c5add930fbed601998e10219924dbdd5354ea6ec91" => :yosemite
   end
 
   # tag "bioinformatics"
