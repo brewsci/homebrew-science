@@ -3,7 +3,7 @@ class Igraph < Formula
   homepage "http://igraph.org"
   url "http://igraph.org/nightly/get/c/igraph-0.7.1.tar.gz"
   sha256 "d978030e27369bf698f3816ab70aa9141e9baf81c56cc4f55efbe5489b46b0df"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
@@ -29,7 +29,7 @@ class Igraph < Formula
     # There doesn't seem to be a way to specify which BLAS/LAPACK, ARPACK or GPLK.
     # iGraph just looks for -lblas, -llapack, -larpack and -lglpk on the path.
     extra_opts = ["--with-external-blas", "--with-external-lapack"]
-    extra_opts += ["--with-external-glpk", "--disable-glpk"] if build.with? "glpk"
+    extra_opts << (build.with?("glpk") ? "--with-external-glpk" : "--disable-glpk")
     extra_opts << "--disable-gmp" if build.without? "gmp"
     extra_opts += ["--with-external-arpack", "--disable-tls"] if build.with? "arpack"
 
