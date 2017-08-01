@@ -10,6 +10,7 @@ class Igraph < Formula
     sha256 "8066f24f6d43ea475731ab5ae16e818b6a378da224e114134f045355d8c59eb9" => :sierra
     sha256 "52eb6bf980de24b98fba6c2d7435ccde5a166a549db2356e99e3d82b2123a5c4" => :el_capitan
     sha256 "4c44a23c1dfe29ec05ac8faec185651343833241be508d5cf1cc70676aa2b6a7" => :yosemite
+    sha256 "ef3d9973626fe319d6eb54d80686aad98f5881a32ea6ac509e492193434f026c" => :x86_64_linux
   end
 
   depends_on "libxml2" unless OS.mac?
