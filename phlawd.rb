@@ -10,11 +10,9 @@ class Phlawd < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "eab194f5f8a40fffc3801a179d8b794c28ff29232cd2a666a05fe34913c2cdbe" => :sierra
-    sha256 "98172e8ee0bce6476d8c39e8bda5bfe6bc9ac582a41c5be2507d3f8a527bc5c4" => :el_capitan
-    sha256 "147f7deae6e1c6c0f3697ed7f3c893b338bc147fb0fc2a4f28054806982b5fef" => :yosemite
-    sha256 "c51b6f732f0acb671eecdf4604fb4603fa4e5f40dad96e77d6e0f47b5475d872" => :x86_64_linux
+    sha256 "b0420865ca473c2220846163461df00977207f3e71fc1fb37880f1d2b6db9621" => :sierra
+    sha256 "33de754f947b42667e1d5f6e733e26447764d2cd1dc716b94f39de8e0353f1ba" => :el_capitan
+    sha256 "1217f95cda2926c4dba3dff7ce52a71f67190eba4421ebd52a55743c2fb8ce5a" => :yosemite
   end
 
   needs :openmp
