@@ -7,9 +7,9 @@ class Itensor < Formula
 
   bottle do
     cellar :any
-    sha256 "3a9d5184cd98a27afc9a2cfab5219b760842dc0f7db6e85fcffb3efaf1196d66" => :sierra
-    sha256 "439d0509cf565f1fa4c0e3180320c5d8580c53b7ce8b8618c36b290c6523b5d3" => :el_capitan
-    sha256 "903a3f2dc410cdcf85d9bcd7a4694c46f0cd49c58931fa102849a1c60a9557f7" => :yosemite
+    sha256 "8b6b7071ed6e384d98dea1d037c3c70a83512ca1cb03590d822d1b1b7880229c" => :sierra
+    sha256 "2f485cbad4d758d765b44680663c32773929cb555434cb675f211900157f370b" => :el_capitan
+    sha256 "949af2c2f49d93b95932bd68c113f487dc5fff26b882f9cd99b4642b20c3045e" => :yosemite
   end
 
   depends_on "openblas" => (OS.mac? ? :optional : :recommended)
