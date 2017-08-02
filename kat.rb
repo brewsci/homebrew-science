@@ -25,13 +25,13 @@ class Kat < Formula
 
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build if build.with? "docs"
+  depends_on :python unless OS.mac?
+  depends_on :python3
   depends_on "boost"
   depends_on "gnuplot"
-
-  depends_on :python3
-  depends_on "matplotlib" => "with-python3"
-  depends_on "numpy" => "with-python3"
-  depends_on "scipy" => "with-python3"
+  depends_on "matplotlib"
+  depends_on "numpy"
+  depends_on "scipy"
 
   def install
     ENV.cxx11
