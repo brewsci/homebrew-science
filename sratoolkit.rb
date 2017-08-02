@@ -11,10 +11,9 @@ class Sratoolkit < Formula
 
   bottle do
     cellar :any
-    sha256 "b566f7a182e266f6d2086fb8b58b5d74f86a4330631be67a05dda99c3bd2e9e3" => :sierra
-    sha256 "177a2cfa74a3bfed01a16b2eb6ed15e967e972a4968bcc07bfb8fbcb636b417e" => :el_capitan
-    sha256 "5890289978739c34c789a469df28b80d71e2a68b5aa72f1394993f9bbba734b5" => :yosemite
-    sha256 "600a259c23495343fedcbff2b56de66f8867d070e342f32b5e3d04462f91a260" => :x86_64_linux
+    sha256 "d107cc2429d52952f1d213e5daf74029c4f28d94f45657c31f590403054c3038" => :sierra
+    sha256 "147120ab8e988f03d00b0c2cc14ed3877ff26ce492303bbc44309cff68d2decc" => :el_capitan
+    sha256 "019a05f6c86d5a5bb6113923688a4072a9ddee1198d8715b84834ea111d3c8bb" => :yosemite
   end
 
   depends_on "autoconf" => :build
