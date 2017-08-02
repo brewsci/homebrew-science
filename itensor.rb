@@ -10,6 +10,7 @@ class Itensor < Formula
     sha256 "8b6b7071ed6e384d98dea1d037c3c70a83512ca1cb03590d822d1b1b7880229c" => :sierra
     sha256 "2f485cbad4d758d765b44680663c32773929cb555434cb675f211900157f370b" => :el_capitan
     sha256 "949af2c2f49d93b95932bd68c113f487dc5fff26b882f9cd99b4642b20c3045e" => :yosemite
+    sha256 "79bbb3e26dde985c11a0153610e47eb379f3812b80c0c42a73499d5d96aee8cd" => :x86_64_linux
   end
 
   depends_on "openblas" => (OS.mac? ? :optional : :recommended)
