@@ -28,16 +28,10 @@ class Kat < Formula
   depends_on "boost"
   depends_on "gnuplot"
 
-  if OS.linux?
-    depends_on "matplotlib" => :python
-    depends_on "numpy" => :python
-    depends_on "scipy" => :python
-  else
-    depends_on :python3
-    depends_on "matplotlib" => "with-python3"
-    depends_on "numpy" => "with-python3"
-    depends_on "scipy" => "with-python3"
-  end
+  depends_on :python3
+  depends_on "matplotlib" => "with-python3"
+  depends_on "numpy" => "with-python3"
+  depends_on "scipy" => "with-python3"
 
   def install
     ENV.cxx11
