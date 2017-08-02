@@ -11,6 +11,7 @@ class Fwdpp < Formula
     cellar :any
     sha256 "6e5f147980555dedb9f270f06b609be376c12aa59938d2b3f796039ab1b1e140" => :sierra
     sha256 "33f0fadb7196037c369afa0857b413db0778c2da0ae0c570243d3c9ef0dfd43e" => :el_capitan
+    sha256 "c4cc57f490364093e3728a26ff4bb650fe87906007483838ade115a5a899af37" => :x86_64_linux
   end
 
   option "without-test", "Disable build-time checking (not recommended)"
