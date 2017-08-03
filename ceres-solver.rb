@@ -1,9 +1,8 @@
 class CeresSolver < Formula
   desc "C++ library for large-scale optimization"
   homepage "http://ceres-solver.org/"
-  url "http://ceres-solver.org/ceres-solver-1.12.0.tar.gz"
-  sha256 "745bfed55111e086954126b748eb9efe20e30be5b825c6dec3c525cf20afc895"
-  revision 5
+  url "http://ceres-solver.org/ceres-solver-1.13.0.tar.gz"
+  sha256 "1df490a197634d3aab0a65687decd362912869c85a61090ff66f073c967a7dcd"
 
   bottle do
     cellar :any
@@ -20,6 +19,12 @@ class CeresSolver < Formula
 
   option "without-test", "Do not build and run the tests (not recommended)."
   deprecated_option "without-tests" => "without-test"
+
+  unless OS.mac?
+    fails_with :gcc => "5" do
+      cause "Dependency glog is compiled with the GCC 4.8 ABI."
+    end
+  end
 
   depends_on "cmake" => :run
   depends_on "glog"
