@@ -3,7 +3,9 @@ class AmplMp < Formula
   homepage "http://www.ampl.com"
   url "https://github.com/ampl/mp/archive/3.1.0.tar.gz"
   sha256 "587c1a88f4c8f57bef95b58a8586956145417c8039f59b1758365ccc5a309ae9"
-  revision 1
+  revision 2
+
+  head "https://github.com/ampl/mp.git"
 
   bottle do
     cellar :any
@@ -37,6 +39,10 @@ class AmplMp < Formula
     system "make", "install"
     mkdir libexec
     mv bin, libexec/"bin"
+
+    # install missing header files
+    # see https://github.com/ampl/mp/issues/110
+    %w[errchk.h jac2dim.h obj_adj.h].each { |h| cp "src/asl/solvers/#{h}", include/"asl" }
 
     if build.with? "matlab"
       mkdir_p (pkgshare/"matlab")
