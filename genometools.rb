@@ -9,9 +9,9 @@ class Genometools < Formula
 
   bottle do
     cellar :any
-    sha256 "88728e10c788d91a1fd24b8d754b0c21b6db481339c010a6b0c57f6a7375003b" => :sierra
-    sha256 "159f065b370710aed255ec8af4f0512908fb9814b0b9a0d7c5d9b8d178306c00" => :el_capitan
-    sha256 "9753ed6a87377efb3bd6e824ff2aebffd641cb8991aba133ef43e92d18474b4f" => :yosemite
+    sha256 "6b666d728c5f7a987b9e5a1a661e5474fab541331dfc437e65a1ac8bd703d42f" => :sierra
+    sha256 "9e84b5828a349fd5f1d593a7787b2c13b61cb7ed79bafdb0da3c33cdb0a0c01d" => :el_capitan
+    sha256 "4134e5f124484f31c55c661e05f0ec413b3cff8cd2a380bef4c495110dbca1ee" => :yosemite
   end
 
   option "with-test", "Run tests which require approximately one hour to run"
