@@ -3,6 +3,7 @@ class Prokka < Formula
   homepage "http://www.vicbioinformatics.com/software.prokka.shtml"
   # doi "10.1093/bioinformatics/btu153"
   # tag "bioinformatics"
+  revision 1
 
   url "https://github.com/tseemann/prokka/archive/v1.12.tar.gz"
   sha256 "845e46c9db167fb1fc9d16c934b7cfd89ddfeb6cd44bd8f42204ae7b4e87adba"
@@ -25,8 +26,33 @@ class Prokka < Formula
   depends_on "barrnap" => :recommended
   depends_on "rnammer" => :optional
 
+  unless OS.mac?
+    depends_on "patchelf" => :build
+    depends_on "bzip2"
+    depends_on "libidn"
+    depends_on "zlib"
+  end
+
   def install
     prefix.install Dir["*"]
+
+    if OS.linux?
+      # Use the brewed libidn, zlib and bzip2 rather than the host's.
+      system "patchelf",
+        "--set-rpath", [HOMEBREW_PREFIX, Formula["libidn"].lib, Formula["zlib"].lib].join(":"),
+        "--set-interpreter", HOMEBREW_PREFIX/"lib/ld.so",
+        prefix/"binaries/linux/tbl2asn"
+
+      system "patchelf",
+        "--set-rpath", [HOMEBREW_PREFIX, Formula["bzip2"].lib, Formula["zlib"].lib].join(":"),
+        "--set-interpreter", HOMEBREW_PREFIX/"lib/ld.so",
+        prefix/"binaries/linux/makeblastdb"
+
+      system "patchelf",
+        "--set-rpath", [HOMEBREW_PREFIX, Formula["bzip2"].lib, Formula["zlib"].lib].join(":"),
+        "--set-interpreter", HOMEBREW_PREFIX/"lib/ld.so",
+        prefix/"binaries/linux/blastp"
+    end
   end
 
   def post_install
