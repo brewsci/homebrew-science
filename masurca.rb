@@ -18,10 +18,6 @@ class Masurca < Formula
     sha256 "abb8cd1ad5d0333b2dfd8897effd514e31391d52d858daf58144eac1dbc96900" => :x86_64_linux
   end
 
-  # A fix for Mac OS is welcome.
-  # sort.cc:62:75: error: 'mremap' was not declared in this scope
-  depends_on LinuxRequirement
-
   fails_with :clang do
     build 703
     cause "n50.cc:105:51: error: no member named 'ceil' in namespace 'std'"
@@ -31,7 +27,15 @@ class Masurca < Formula
     cause "n50.cc:105:51: error: no member named 'ceil' in namespace 'std'"
   end
 
+  # A fix for Mac OS is welcome.
+  # sort.cc:62:75: error: 'mremap' was not declared in this scope
+  depends_on LinuxRequirement
+  depends_on "jellyfish"
   depends_on "parallel"
+  unless OS.mac?
+    depends_on "bzip2"
+    depends_on "zlib"
+  end
 
   def install
     if OS.mac?
