@@ -12,6 +12,7 @@ class AmplMp < Formula
     sha256 "d638f4f5c4c0195692cb81d23ec37d48376b7070e5dc39b043f21ef06e2301da" => :sierra
     sha256 "1366f91c8f7b8199f960f33ff9dea1a0aa3dd3e4f3d91e770ed27699c131c507" => :el_capitan
     sha256 "6be0d164fd2758589aaf3c962ff9e2bb2ddc597734c99bc7588bb566e2362abd" => :yosemite
+    sha256 "695091a06765b134426d33f5bbe03f59f0c15cf81e84ffc8757ba85819971b0e" => :x86_64_linux
   end
 
   option "with-matlab", "Build MEX files for use with Matlab"
