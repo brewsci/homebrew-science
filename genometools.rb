@@ -3,8 +3,8 @@ class Genometools < Formula
   homepage "http://genometools.org/"
   # doi "10.1109/TCBB.2013.68"
   # tag "bioinformatics"
-  url "http://genometools.org/pub/genometools-1.5.9.tar.gz"
-  sha256 "36923198a4214422886fd1425ef986bd7e558c73b94194982431cfd3dc7eb387"
+  url "http://genometools.org/pub/genometools-1.5.10.tar.gz"
+  sha256 "0208591333b74594bc219fb67f5a29b81bb2ab872f540c408ac1743716274e6a"
   head "https://github.com/genometools/genometools.git"
 
   bottle do
@@ -37,8 +37,6 @@ class Genometools < Formula
     system "make", *args
     system "make", "test", *args if build.with? "test"
     system "make", "install", *args
-
-    prefix.install bin/"gtdata"
 
     if build.with? "python"
       cd "gtpython" do
