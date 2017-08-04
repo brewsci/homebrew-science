@@ -12,6 +12,7 @@ class Genometools < Formula
     sha256 "6b666d728c5f7a987b9e5a1a661e5474fab541331dfc437e65a1ac8bd703d42f" => :sierra
     sha256 "9e84b5828a349fd5f1d593a7787b2c13b61cb7ed79bafdb0da3c33cdb0a0c01d" => :el_capitan
     sha256 "4134e5f124484f31c55c661e05f0ec413b3cff8cd2a380bef4c495110dbca1ee" => :yosemite
+    sha256 "e40fe8bbd868eb1f5846e5fffaf4e5255cd80ded39304a9448d55eae04dbe9ee" => :x86_64_linux
   end
 
   option "with-test", "Run tests which require approximately one hour to run"
