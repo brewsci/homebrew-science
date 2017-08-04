@@ -12,7 +12,7 @@ class Atompaw < Formula
   end
 
   depends_on :fortran
-  depends_on "veclibfort"
+  depends_on "veclibfort" if OS.mac?
   depends_on "libxc" => :recommended
 
   def install
