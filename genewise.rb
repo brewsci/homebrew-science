@@ -12,6 +12,7 @@ class Genewise < Formula
     sha256 "31c4c2cb325cfe706eb76fbfcf3c53b57fcfd9b8518696fb800792ff9f921f31" => :el_capitan
     sha256 "9c5aac77e7234681824d9e7f809282ceb48329ac281539173221b916e01c4700" => :yosemite
     sha256 "cc4083e3eeb3ce76dabd68c695f119f2dfa18035211c8bf1a1707c8acebe32d2" => :mavericks
+    sha256 "77faabddbe4ae1d4c6e8b820a370ee2e346afb82d66e7d019dcc5e1dbfbc4c10" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
