@@ -1,9 +1,9 @@
 class Genewise < Formula
   desc "Aligns proteins or protein HMMs to DNA"
-  homepage "http://www.ebi.ac.uk/~birney/wise2/"
+  homepage "https://www.ebi.ac.uk/~birney/wise2/"
   # doi "10.1101/gr.1865504"
   # tag "bioinformatics"
-  url "http://www.ebi.ac.uk/~birney/wise2/wise2.4.1.tar.gz"
+  url "https://www.ebi.ac.uk/~birney/wise2/wise2.4.1.tar.gz"
   sha256 "240e2b12d6cd899040e2efbcb85b0d3c10245c255f3d07c1db45d0af5a4d5fa1"
   revision 1
 
@@ -16,6 +16,8 @@ class Genewise < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
+
+  fails_with :gcc => "4.8"
 
   def install
     # Use pkg-config glib-2.0 rather than glib-config
@@ -33,6 +35,8 @@ class Genewise < Formula
     # undefined reference to `isnumber'
     # patch suggested in http://korflab.ucdavis.edu/datasets/cegma/ubuntu_instructions_1.txt
     inreplace "src/models/phasemodel.c", "isnumber", "isdigit"
+
+    inreplace "src/makefile", "csh welcome.csh", "sh welcome.csh"
 
     cd("src") { system "make", "all" }
     bin.install Dir["src/bin/*"]
