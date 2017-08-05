@@ -12,6 +12,7 @@ class Cegma < Formula
     sha256 "c0953276f654ad3f2696fd7ddb3c33fa6a61d6765b4b6ac4aae694618fb9a32b" => :el_capitan
     sha256 "48c10c321a8868e69dd06bef16e48c41d5db331fd2ea460866d3a04770a56259" => :yosemite
     sha256 "2a827211542d44535a0b1525474e3cee46b950bc12c5f82932e4b84b0384e58f" => :mavericks
+    sha256 "8b558845f19d3b2c6c79cf8cf69226bbb5934701d92b05d7952090d46a31ba1b" => :x86_64_linux
   end
 
   depends_on "blast"
