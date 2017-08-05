@@ -150,11 +150,20 @@ class Libbi < Formula
 
     bin.install libexec/"bin/libbi"
     (libexec/"share/test").install "Test.bi", "test.conf"
-    bin.env_script_all_files(libexec/"bin", :PATH => perl_dir.chomp.concat(":\$PATH"), :PERL5LIB => ENV["PERL5LIB"].chomp.concat(":$PERL5LIB"), :CPPFLAGS => "\$CPPFLAGS -I#{HOMEBREW_PREFIX}/include", :LDFLAGS => "\$LDFLAGS -L#{HOMEBREW_PREFIX}/lib", :LD_LIBRARY_PATH => "#{HOMEBREW_PREFIX}/lib:\$LD_LIBRARY_PATH", :CXX => ENV["CXX"])
+    env = {
+      :PATH => perl_dir.chomp.concat(":\$PATH"),
+      :PERL5LIB => ENV["PERL5LIB"].chomp.concat(":$PERL5LIB"),
+      :CPPFLAGS => "\$CPPFLAGS -I#{HOMEBREW_PREFIX}/include",
+      :LDFLAGS => "\$LDFLAGS -L#{HOMEBREW_PREFIX}/lib",
+      :LD_LIBRARY_PATH => "#{HOMEBREW_PREFIX}/lib:\$LD_LIBRARY_PATH",
+      :CXX => ENV["CXX"]
+    }
+    bin.env_script_all_files(libexec/"bin", env)
   end
 
   def caveats; <<-EOS.undent
-    libbi must be run with the same version of perl it was installed with. Changing perl versions might require a reinstall of libbi.
+    libbi must be run with the same version of perl it was installed with.
+    Changing perl versions might require a reinstall of libbi.
     EOS
   end
 
