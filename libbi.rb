@@ -156,7 +156,7 @@ class Libbi < Formula
       :CPPFLAGS => "\$CPPFLAGS -I#{HOMEBREW_PREFIX}/include",
       :LDFLAGS => "\$LDFLAGS -L#{HOMEBREW_PREFIX}/lib",
       :LD_LIBRARY_PATH => "#{HOMEBREW_PREFIX}/lib:\$LD_LIBRARY_PATH",
-      :CXX => ENV["CXX"]
+      :CXX => ENV["CXX"],
     }
     bin.env_script_all_files(libexec/"bin", env)
   end
