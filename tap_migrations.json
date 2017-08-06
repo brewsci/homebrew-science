@@ -1,5 +1,6 @@
 {
   "arpack": "homebrew/core",
+  "ceres-solver": "homebrew/core",
   "glpk": "homebrew/core",
   "hdf5": "homebrew/core",
   "openblas": "homebrew/core",
