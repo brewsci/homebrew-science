@@ -6,12 +6,12 @@ class Opencv3 < Formula
   revision 1
 
   stable do
-    url "https://github.com/opencv/opencv/archive/3.2.0.tar.gz"
-    sha256 "b9d62dfffb8130d59d587627703d5f3e6252dce4a94c1955784998da7a39dd35"
+    url "https://github.com/opencv/opencv/archive/3.3.0.tar.gz"
+    sha256 "95029eb5578af3b20b8c7f8f6f59db1b827c2d5aaaa74b6becb1de647cbdda5a"
 
     resource "contrib" do
-      url "https://github.com/opencv/opencv_contrib/archive/3.2.0.tar.gz"
-      sha256 "1e2bb6c9a41c602904cc7df3f8fb8f98363a88ea564f2a087240483426bf8cbe"
+      url "https://github.com/opencv/opencv_contrib/archive/3.3.0.tar.gz"
+      sha256 "e94acf39cd4854c3ef905e06516e5f74f26dddfa6477af89558fb40a57aeb444"
     end
   end
 
@@ -91,16 +91,6 @@ class Opencv3 < Formula
 
   # dependencies use fortran, which leads to spurious messages about gcc
   cxxstdlib_check :skip
-
-  resource "icv-macosx" do
-    url "https://raw.githubusercontent.com/opencv/opencv_3rdparty/81a676001ca8075ada498583e4166079e5744668/ippicv/ippicv_macosx_20151201.tgz", :using => :nounzip
-    sha256 "8a067e3e026195ea3ee5cda836f25231abb95b82b7aa25f0d585dc27b06c3630"
-  end
-
-  resource "icv-linux" do
-    url "https://raw.githubusercontent.com/opencv/opencv_3rdparty/81a676001ca8075ada498583e4166079e5744668/ippicv/ippicv_linux_20151201.tgz", :using => :nounzip
-    sha256 "4333833e40afaa22c804169e44f9a63e357e21476b765a5683bcb3760107f0da"
-  end
 
   def arg_switch(opt)
     build.with?(opt) ? "ON" : "OFF"
@@ -230,23 +220,9 @@ class Opencv3 < Formula
 
     args << "-DBUILD_SHARED_LIBS=OFF" if build.with?("static")
 
-    if ENV.compiler == :clang && !build.bottle?
-      args << "-DENABLE_SSSE3=ON" if Hardware::CPU.ssse3?
-      args << "-DENABLE_SSE41=ON" if Hardware::CPU.sse4?
-      args << "-DENABLE_SSE42=ON" if Hardware::CPU.sse4_2?
-      args << "-DENABLE_AVX=ON" if Hardware::CPU.avx?
-      args << "-DENABLE_AVX2=ON" if Hardware::CPU.avx2?
-    end
-
     # avoid error: '_mm_cvtps_ph' was not declared in this scope; cf https://github.com/RoboSherlock/robosherlock/issues/78#issuecomment-274469830
     # https://github.com/Homebrew/homebrew-science/issues/5336
     args << "-DCMAKE_CXX_FLAGS='-march=core2'" if OS.linux? && build.bottle?
-
-    inreplace buildpath/"3rdparty/ippicv/downloader.cmake",
-      "${OPENCV_ICV_PLATFORM}-${OPENCV_ICV_PACKAGE_HASH}",
-      "${OPENCV_ICV_PLATFORM}"
-    platform = OS.mac? ? "macosx" : "linux"
-    resource("icv-#{platform}").stage buildpath/"3rdparty/ippicv/downloads/#{platform}"
 
     mkdir "macbuild" do
       system "cmake", "..", *args
