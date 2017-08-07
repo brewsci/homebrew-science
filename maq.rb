@@ -12,6 +12,7 @@ class Maq < Formula
     sha256 "83bda1812af30f94bb99097134977d38227dd8b99688ecca74c257fe07c52fee" => :sierra
     sha256 "fb4ab9e0b5169f4ceaa375ab79b0b0e829533ba51a1266a37faa840abc6cee81" => :el_capitan
     sha256 "87085cf34c60f1b9f528ffc66018c4bf6824f96f1a4e2247280830e1b7425433" => :yosemite
+    sha256 "41de8572f1f96977532780f23ea7c62816a7a9d402f43fb831991d64b2c45808" => :x86_64_linux
   end
 
   depends_on "zlib" unless OS.mac?
