@@ -3,6 +3,7 @@ class Insighttoolkit < Formula
   homepage "https://www.itk.org"
   url "https://downloads.sourceforge.net/project/itk/itk/4.12/InsightToolkit-4.12.0.tar.gz"
   sha256 "fd9d2a5df6795e52824f1fc158d7532fdadc0031302c29e5d593ada147bf337a"
+  revision 1
   head "git://itk.org/ITK.git"
 
   bottle do
