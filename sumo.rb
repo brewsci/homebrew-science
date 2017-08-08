@@ -3,6 +3,7 @@ class Sumo < Formula
   homepage "https://sourceforge.net/projects/sumo/"
   url "https://downloads.sourceforge.net/project/sumo/sumo/version%200.30.0/sumo-src-0.30.0.tar.gz"
   sha256 "2f0825507d756979658061847f47c5d91ec2e5c07e7ebd8839a31ab08ecde742"
+  revision 1
 
   bottle do
     cellar :any
