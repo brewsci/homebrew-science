@@ -9,6 +9,7 @@ class Visp < Formula
     sha256 "4e403d2b5f9fdd23004ced095c06a63c230a2cb21e34fe53750ce2256ef9234a" => :sierra
     sha256 "d7044bb0bff081eee3f1105970fb7a400c233be6410cb1d200277e35c9dd9c3d" => :el_capitan
     sha256 "4ef0a9c687d8bcb263bb984b6dc603f5ab289483d43ccf1654c9feb6ebca8571" => :yosemite
+    sha256 "c78f8cf6eba1ad9906c2f7641df26477f170f14f0cd9bc4619705f9821b42f9a" => :x86_64_linux
   end
 
   option :cxx11
