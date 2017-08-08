@@ -5,6 +5,7 @@ class Dlib < Formula
   homepage "http://dlib.net/"
   url "http://dlib.net/files/dlib-19.4.tar.bz2"
   sha256 "003f0508fe605cf397ad678c6976e5ec7db8472faabf06508d16ead205571372"
+  revision 1
 
   head "https://github.com/davisking/dlib.git"
 
