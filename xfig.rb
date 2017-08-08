@@ -3,6 +3,7 @@ class Xfig < Formula
   homepage "https://mcj.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/mcj/xfig-3.2.6a.tar.xz"
   sha256 "a87aeb5d424aadb84ede137291bbe8649551209a807c94f0956fc323b819267c"
+  revision 1
 
   bottle do
     sha256 "44530539a62a89c10d0177ee6eb1d53b8976d057a7332a7cb8bcbd51fccb734f" => :sierra
