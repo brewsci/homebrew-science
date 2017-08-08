@@ -3,6 +3,7 @@ class AstrometryNet < Formula
   homepage "http://astrometry.net"
   url "http://astrometry.net/downloads/astrometry.net-0.70.tar.gz"
   sha256 "e087b26b3f3821e63ba3c4d1f6a5cc342784c5ab938c05d59b75ba91b2866b6a"
+  revision 1
   head "https://github.com/dstndstn/astrometry.net.git"
 
   bottle do
