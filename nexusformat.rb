@@ -7,10 +7,9 @@ class Nexusformat < Formula
 
   bottle do
     cellar :any
-    sha256 "81685de01b2a1ec7b25351e23f871986bd6d711a77f0505be68b435fa52b465a" => :sierra
-    sha256 "0628f4477e6b700aee3789bdbe9479b782fff227bf96c4af146f84acc27f0a3f" => :el_capitan
-    sha256 "7b152e2017515025dfcaf55d823b3aec8c1a0a98ed492f4272228d9155c90615" => :yosemite
-    sha256 "a43726cb9979ac0d2628fbff5c1fb4e28e8005ed1225bee1fbebab6863cac6e8" => :x86_64_linux
+    sha256 "ef2a356e9fa98b6efb9333e88ff242195cfa0d8af703942aedbba0b405f42981" => :sierra
+    sha256 "cbe9d5e6f3f04f4783b38a194490ab9dda157df6b6b59a19d878cb5e5dd4d05b" => :el_capitan
+    sha256 "fdefd7b6eaf73614fe95ac88f0f5821a708d6dafb62a2a50308c48aaa8a2ecd1" => :yosemite
   end
 
   option :cxx11
