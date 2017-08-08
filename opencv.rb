@@ -5,6 +5,7 @@ class Opencv < Formula
   homepage "http://opencv.org/"
   url "https://github.com/opencv/opencv/archive/2.4.13.2.tar.gz"
   sha256 "4b00c110e6c54943cbbb7cf0d35c5bc148133ab2095ee4aaa0ac0a4f67c58080"
+  revision 1
   head "https://github.com/opencv/opencv.git", :branch => "2.4"
 
   bottle do
