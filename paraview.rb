@@ -3,7 +3,7 @@ class Paraview < Formula
   homepage "http://paraview.org"
   url "http://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v5.3&type=source&os=all&downloadFile=ParaView-v5.3.0.tar.gz"
   sha256 "046631bbf00775edc927314a3db207509666c9c6aadc7079e5159440fd2f88a0"
-  revision 1
+  revision 2
 
   head "git://paraview.org/ParaView.git"
 
