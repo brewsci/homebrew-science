@@ -6,9 +6,9 @@ class Xfig < Formula
   revision 1
 
   bottle do
-    sha256 "44530539a62a89c10d0177ee6eb1d53b8976d057a7332a7cb8bcbd51fccb734f" => :sierra
-    sha256 "d92b550f13dfb298980cd4f67f2f37a6259c1eb14648f08963052c7913819b48" => :el_capitan
-    sha256 "0631ad0780ebb845a238af534fff46b286213771570596bd7695bc725bf8b96a" => :yosemite
+    sha256 "964981e25d43fa075b88db9d9926b7bf1695a4967508f289527130c3187dfdff" => :sierra
+    sha256 "6b2b699c0ffd866f0bf44230d6867dc178ead9e21361f8fbebf9505ea017a7c1" => :el_capitan
+    sha256 "d075ab9a33cadba801f7e4b568e8dbca32ad30edd7bde8ab8139c7dfbe450080" => :yosemite
   end
 
   depends_on :x11
