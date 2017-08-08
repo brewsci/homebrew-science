@@ -3,7 +3,7 @@ class EnblendEnfuse < Formula
   homepage "https://enblend.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/enblend/enblend-enfuse/enblend-enfuse-4.2/enblend-enfuse-4.2.tar.gz"
   sha256 "8703e324939ebd70d76afd350e56800f5ea2c053a040a5f5218b2a1a4300bd48"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
