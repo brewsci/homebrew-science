@@ -17,6 +17,7 @@ class Lammps < Formula
     sha256 "90c8ad15778e4133bf5613cee598b2c8bc9a0446b761a9d238bc30e9f672dcbb" => :sierra
     sha256 "c206caa3c21eca90ec305daf2412ffeeae65a041d5ef6a70ad75b70df9746457" => :el_capitan
     sha256 "a9c066e96522db5b7083f07b302bd0902921cc5244ecf4cd4e482f843e6608d1" => :yosemite
+    sha256 "e67fc38bfef3fd2408a0e637835832a5f88169c0d8e152dd68024bcb59ba5c35" => :x86_64_linux
   end
 
   # user-submitted packages not considered "standard"
