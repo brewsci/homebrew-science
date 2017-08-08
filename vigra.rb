@@ -9,10 +9,9 @@ class Vigra < Formula
 
   bottle do
     cellar :any
-    sha256 "fa6b63d6a57483a09cb237ff30b6b4a4430bbd08417a487f787f4a9acfcdfb3d" => :sierra
-    sha256 "d14d0c4ebd601a8a96cebd710f97c60b68a6d7033c6546eb2eac777e328e5a8b" => :el_capitan
-    sha256 "302beaed5d5cbb5e6e238acf7f9f1a3fad7e52f013278d3d0b770a459f50c578" => :yosemite
-    sha256 "f8753ffd3171bccda7e32b56702ca7a5ae69b3565ee6e682be82f8313a243b87" => :x86_64_linux
+    sha256 "e1c0c61673b0d83abe655959b5b812468ad7b44e079c17f6c67d89d7f20ca6fb" => :sierra
+    sha256 "f5229d63afd14beba5bf805e37e37ac00ff0de61518b09a0e5f44cb2442449fd" => :el_capitan
+    sha256 "f019c2eb3d7f11a24744da9f9a09041e8ee95a39ba1e846cbea349b370ccd6b8" => :yosemite
   end
 
   needs :cxx11
