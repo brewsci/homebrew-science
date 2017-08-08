@@ -10,6 +10,7 @@ class EnblendEnfuse < Formula
     sha256 "f6b3add9c50086e72a9bacd3bd7753634528345e533b1761bff0280185c0dff7" => :sierra
     sha256 "c176753e88c4b03811363dc6a4ac3cc9e467db2b10cfa4ea024206fb7680dc00" => :el_capitan
     sha256 "1fc56d398dd031927a1e7da81d27e735f979071cf9c9336b32714d2c9d6686cb" => :yosemite
+    sha256 "c7d8ffa2f46932a8784c9dd043a1a846f3d3ff406b5bebf5552ac4e357b9812c" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
