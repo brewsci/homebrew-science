@@ -3,6 +3,7 @@ class Pillow < Formula
   homepage "https://github.com/python-imaging/Pillow"
   url "https://github.com/python-pillow/Pillow/archive/4.2.1.tar.gz"
   sha256 "de9ef5d5bda3bfb5d70abd07c2a98bbdfd4b8908fce3e2e7478486ed7ee011eb"
+  revision 1
   head "https://github.com/python-imaging/Pillow.git"
 
   bottle do
