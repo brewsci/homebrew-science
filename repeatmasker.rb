@@ -3,9 +3,9 @@ class Repeatmasker < Formula
   homepage "http://www.repeatmasker.org/"
   # tag "bioinformatics"
 
-  url "http://www.repeatmasker.org/RepeatMasker-open-4-0-5.tar.gz"
-  version "4.0.5"
-  sha256 "e4c15c64b90d57ce2448df4c49c37529eeb725e97f3366cc90f794a4c0caeef7"
+  url "http://repeatmasker.org/RepeatMasker-open-4-0-7.tar.gz"
+  version "4.0.7"
+  sha256 "16faf40e5e2f521146f6692f09561ebef5f6a022feb17031f2ddb3e3aabcf166"
 
   bottle do
     sha256 "9bcfb35a7d4f2e10ee0cf174987656cccd4ce1db0d7f69115b86e2dcc8b2fc31" => :sierra
