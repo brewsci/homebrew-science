@@ -10,6 +10,7 @@ class Vtk < Formula
     sha256 "660cae62afeed5a8c98a87d7e4ead3f963852f640ee7c3ca8ae8392e21d70bec" => :sierra
     sha256 "0dfb64f11b553193d4f9ca148c3e2637e2797b23d8d28c7253aa1c0160912af2" => :el_capitan
     sha256 "69a8125b02f94dc6dcec8c0da4e8a1f18e3dc765f5d11e514e5a8d4386f754d3" => :yosemite
+    sha256 "9bac8f903ad40479c7c1c56fe7b3929b4cc7f8c925672c072e19d988e24ac5de" => :x86_64_linux
   end
 
   deprecated_option "examples" => "with-examples"
