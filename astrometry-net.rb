@@ -8,10 +8,9 @@ class AstrometryNet < Formula
 
   bottle do
     cellar :any
-    sha256 "070291cc7693691d27f6ca560fd1118fa7386d550a2ed6d3f1fc5e4a0d99e804" => :sierra
-    sha256 "0eb0bf91f8cd0323517235ad80e468415beb1fb3671ff692e51f9f854d4e8815" => :el_capitan
-    sha256 "3883a70238d2abebdf264744170aae5a13884210abd745d23136252fa73e099f" => :yosemite
-    sha256 "e560811ce509a8b097064b1ed8e0381fa9a1135be3b5df6915b425955c6a1f2d" => :x86_64_linux
+    sha256 "07c6a8bb50177ee8f7bbd63f8a68b05597fa79761b6630021286487ac10e3084" => :sierra
+    sha256 "a53ce6737e0ffa5e823717106f7f5c551381713f80cccc51ce3bf889b228f408" => :el_capitan
+    sha256 "dac1286a9a3898eb1a9eb9dcb038ae9f9414ce9a99e160d4261e4d8311b711de" => :yosemite
   end
 
   option "without-extras", "Don't try to build plotting code (actually it will still try, but homebrew won't halt the install if it fails)"
