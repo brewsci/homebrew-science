@@ -3,7 +3,7 @@ class Hdf4 < Formula
   homepage "https://www.hdfgroup.org"
   url "https://www.hdfgroup.org/ftp/HDF/releases/HDF4.2.11/src/hdf-4.2.11.tar.bz2"
   sha256 "bb0e900b8cc6bc89a5730abc97e654e7705e8e1fbc4e0d4477f417822428d99b"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
