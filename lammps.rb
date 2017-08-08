@@ -7,7 +7,7 @@ class Lammps < Formula
   # We only track "stable" releases as announced on the LAMMPS homepage.
   version "2017.03.31"
   sha256 "c90158833f99a823ce81b24d88abef2336a79e4966bd789443d2aa22cbb81cb9"
-  revision 1
+  revision 2
   head "http://git.icms.temple.edu/lammps-ro.git"
   # tag "chemistry"
   # doi "10.1006/jcph.1995.1039"
