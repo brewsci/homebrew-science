@@ -3,6 +3,7 @@
   "ceres-solver": "homebrew/core",
   "glpk": "homebrew/core",
   "hdf5": "homebrew/core",
+  "hwloc": "homebrew/core",
   "openblas": "homebrew/core",
   "qhull": "homebrew/core",
   "metis": "homebrew/core",
