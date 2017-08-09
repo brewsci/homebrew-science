@@ -19,6 +19,7 @@ class Opencv3 < Formula
     sha256 "eafa9328ac4588e9d8b5f4b14caad0c1b71f870f79974cea0299a7974496f5e9" => :sierra
     sha256 "bac50e1dd594be566e688f499e04c594d94fe006ad111b50a13cfb93560114d9" => :el_capitan
     sha256 "299fc31a9ab0336957da15a7726189b1dd4a208a7aa698c120d6331e4b268d62" => :yosemite
+    sha256 "82aab2ca4d5f1f05e0d8b2f967982cb5016fd20cf0ceb0ff6f5692ef557c5b05" => :x86_64_linux
   end
 
   head do
