@@ -12,6 +12,7 @@ class Opencv < Formula
     sha256 "4ae0b1764da9a01b67fb0d9c8164e759d6e8f0151d4dceae7433fcb609ae80b0" => :sierra
     sha256 "7e9fe89318390c9861600e6411d5d0213ace469ee8b6dfa0af8971047a941d17" => :el_capitan
     sha256 "10db2209f60d64d0dccb567d315c217a4ef1429ed7355c4b2728c4d3a316261d" => :yosemite
+    sha256 "0f976abc48fecc59331262a76699e244d8c5904f7d817b1b04a6bf5f9bda559f" => :x86_64_linux
   end
 
   option "with-java", "Build with Java support"
