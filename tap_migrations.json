@@ -16,5 +16,6 @@
   "tensorflow": "homebrew/core",
   "transfig": "homebrew/core",
   "veclibfort": "homebrew/core",
-  "vips": "homebrew/core"
+  "vips": "homebrew/core",
+  "vtk": "homebrew/core"
 }
