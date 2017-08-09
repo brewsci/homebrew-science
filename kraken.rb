@@ -3,6 +3,7 @@ class Kraken < Formula
   homepage "https://ccb.jhu.edu/software/kraken/"
   url "https://ccb.jhu.edu/software/kraken/dl/kraken-0.10.5-beta.tgz"
   sha256 "7c0ac64ee0acdcce18e16b51b636b7cdc6d07ea7ab465bb64df078c5a710346b"
+  head "https://github.com/DerrickWood/kraken.git"
   # doi "10.1186/gb-2014-15-3-r46"
   # tag "bioinformatics"
 
