@@ -8,12 +8,9 @@ class Repeatmasker < Formula
   sha256 "16faf40e5e2f521146f6692f09561ebef5f6a022feb17031f2ddb3e3aabcf166"
 
   bottle do
-    sha256 "9bcfb35a7d4f2e10ee0cf174987656cccd4ce1db0d7f69115b86e2dcc8b2fc31" => :sierra
-    sha256 "e207beda7decf6fb0580d569d604f7dfbd966109b8116a84eb2ad1c5fa5be031" => :el_capitan
-    sha256 "32acef0307f30cc3d20eca9e1eb7c3f485369bdcf5ac6bc6f25ebce2e257f521" => :yosemite
-    sha256 "acc0c2ea5291b32f3165bd1ff097d0efb8d42bac4e80b7a2952157ecdcb3bb84" => :mavericks
-    sha256 "2ebf7447cc0d9902df64fa6f292f2b1754118601455bf1889808b69eb5f3bf73" => :mountain_lion
-    sha256 "f75455ed5a322cd31ed3f11c961cc2bcc442d300b2f36ec2ff55bb6df8dcc775" => :x86_64_linux
+    sha256 "5f14080165dcb4ca8917a9e2045b3632df9226657815b09eb5877ba3160e7b87" => :sierra
+    sha256 "876a2e019a4976d2845ff0ab8e2cf83ee2cec543129b29ded4d4ce6f36335c7a" => :el_capitan
+    sha256 "b43b8c745ee09d88f7264947226c01ae4605cb453c0e8192bd1a6d36d351f040" => :yosemite
   end
 
   option "without-configure", "Do not run configure"
