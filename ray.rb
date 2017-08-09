@@ -6,6 +6,7 @@ class Ray < Formula
     sha256 "d7619f3b6326643113fabfcbfe2c2ed6db57c8748e6679491050b1bdecadcb01" => :el_capitan
     sha256 "6fc8e695923a3492203d41614d6ccbe685f30645110e9788a64076eab1b52928" => :yosemite
     sha256 "190bc6ad483f41afacd886718c750e960d1b828ac0901ea9bb625f558c70bf42" => :mavericks
+    sha256 "b09cc44b1eae5eb97ce551ef2c0d229eca3cc204b8d73718d0e1f67f3c02418e" => :x86_64_linux
   end
 
   # doi "10.1089/cmb.2009.0238"
