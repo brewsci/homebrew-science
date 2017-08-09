@@ -1,4 +1,5 @@
 {
+  "armadillo": "homebrew/core",
   "arpack": "homebrew/core",
   "ceres-solver": "homebrew/core",
   "cfitsio": "homebrew/core",
