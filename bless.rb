@@ -14,6 +14,7 @@ class Bless < Formula
     sha256 "1d6aa3d5b22b14cf97865246d25909140d4087477cb7863960910b3dacd3a410" => :el_capitan
     sha256 "752caee287ef8fe5250ee778ea2d8a49cb58f8b8bcee8e7abafa93b0305081a6" => :yosemite
     sha256 "05263b62185382a66c784d0e384730223681ace36e9ea6565dac72f053d6a1bc" => :mavericks
+    sha256 "41c98ca8e8ff7818b013089078a8aee587276fb4b928a95194dd873995de2390" => :x86_64_linux
   end
 
   needs :openmp
