@@ -11,6 +11,7 @@ class Repeatmasker < Formula
     sha256 "5f14080165dcb4ca8917a9e2045b3632df9226657815b09eb5877ba3160e7b87" => :sierra
     sha256 "876a2e019a4976d2845ff0ab8e2cf83ee2cec543129b29ded4d4ce6f36335c7a" => :el_capitan
     sha256 "b43b8c745ee09d88f7264947226c01ae4605cb453c0e8192bd1a6d36d351f040" => :yosemite
+    sha256 "7e5f431a0b58b4bc663d20ebd7ba62b4dde52073acfaddb226d85fe3246b31fb" => :x86_64_linux
   end
 
   option "without-configure", "Do not run configure"
