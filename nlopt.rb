@@ -131,7 +131,7 @@ class Nlopt < Formula
       nlopt_destroy(opt);
     }
     EOS
-    system ENV.cc, "test.c", "-o", "test", "-lnlopt", "-lm"
+    system ENV.cxx, "test.c", "-o", "test", "-lnlopt", "-lm"
     system "./test"
   end
 end
