@@ -10,11 +10,9 @@ class Pcl < Formula
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   bottle do
-    rebuild 1
-    sha256 "9b3570db0bc4624a00f793c4ada2409036e1d11626a3d434b576623b02065b00" => :sierra
-    sha256 "cb7f4b68a7209677821115abfa1048744a7d526a2687580e99044498d075f4d1" => :el_capitan
-    sha256 "222272c78558c7516d3dae002f510c9c225e8a4a50374a66d81643cc08672c19" => :yosemite
-    sha256 "558a411b1b361e4336bab9c2ee98880675c401be33c7e6328a29c52ab35396ad" => :x86_64_linux
+    sha256 "dc8e288a36b67ae85b4df986ea7b416b9c402cb3c949fda9ef84557d2be1ff57" => :sierra
+    sha256 "cc93198f8a65afc1e5fa46ce50bd312c7eb398f79784e4d2bdcf88b25dd6d438" => :el_capitan
+    sha256 "09bcca9beb0a95ee4f3aadf0fa56dae5a43f32b4b834f4b211adccf6d1f68c83" => :yosemite
   end
 
   deprecated_option "with-qt5" => "with-qt"
