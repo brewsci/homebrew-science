@@ -3,7 +3,7 @@ class Gnuastro < Formula
   homepage "https://www.gnu.org/software/gnuastro/index.html"
   url "https://ftp.gnu.org/gnu/gnuastro/gnuastro-0.3.tar.gz"
   sha256 "8a5bc2f977d4839f820d7423d10a6b94391a9571df97a64b9feb99a117973d81"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "c5d68842386eafb97a282d409052683bf1a2b86ddabcbb0cfdd6467850f2248b" => :sierra
