@@ -16,6 +16,7 @@
   "r-gui": "caskroom/cask/r-app",
   "scalapack": "homebrew/core",
   "suite-sparse": "homebrew/core",
+  "superlu": "homebrew/core",
   "tensorflow": "homebrew/core",
   "transfig": "homebrew/core",
   "veclibfort": "homebrew/core",
