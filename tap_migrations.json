@@ -2,6 +2,7 @@
   "arpack": "homebrew/core",
   "ceres-solver": "homebrew/core",
   "cfitsio": "homebrew/core",
+  "flann": "homebrew/core",
   "glpk": "homebrew/core",
   "hdf5": "homebrew/core",
   "hwloc": "homebrew/core",
