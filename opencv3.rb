@@ -16,10 +16,9 @@ class Opencv3 < Formula
   end
 
   bottle do
-    sha256 "eafa9328ac4588e9d8b5f4b14caad0c1b71f870f79974cea0299a7974496f5e9" => :sierra
-    sha256 "bac50e1dd594be566e688f499e04c594d94fe006ad111b50a13cfb93560114d9" => :el_capitan
-    sha256 "299fc31a9ab0336957da15a7726189b1dd4a208a7aa698c120d6331e4b268d62" => :yosemite
-    sha256 "82aab2ca4d5f1f05e0d8b2f967982cb5016fd20cf0ceb0ff6f5692ef557c5b05" => :x86_64_linux
+    sha256 "a0465bdac1e753251fcd7f5c00592dce021f27194cfd8e74afb495005cb5ae99" => :sierra
+    sha256 "48f45fab891009931cdb5c201830a15f1261ec44f90c93b2cbc73380dbe8b370" => :el_capitan
+    sha256 "66b314c33d4b341a7dbe736b0c15ace6540695d4edaf8da5b6a1dc569549d3fd" => :yosemite
   end
 
   head do
