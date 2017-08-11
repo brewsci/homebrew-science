@@ -1,10 +1,8 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "http://www.gromacs.org/"
-  url "ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.4.tar.gz"
-  mirror "https://fossies.org/linux/privat/gromacs-5.1.4.tar.gz"
-  sha256 "0f3793d8f1f0be747cf9ebb0b588fb2b2b5dc5acc32c3046a7bee2d2c03437bc"
-  revision 1
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2016.3.tar.gz"
+  sha256 "7bf00e74a9d38b7cef9356141d20e4ba9387289cbbfd4d11be479ef932d77d27"
   # tag "chemistry"
   # doi "10.1016/0010-4655(95)00042-E"
 
