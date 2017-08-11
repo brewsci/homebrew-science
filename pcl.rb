@@ -13,7 +13,6 @@ class Pcl < Formula
     sha256 "dc8e288a36b67ae85b4df986ea7b416b9c402cb3c949fda9ef84557d2be1ff57" => :sierra
     sha256 "cc93198f8a65afc1e5fa46ce50bd312c7eb398f79784e4d2bdcf88b25dd6d438" => :el_capitan
     sha256 "09bcca9beb0a95ee4f3aadf0fa56dae5a43f32b4b834f4b211adccf6d1f68c83" => :yosemite
-    sha256 "558a411b1b361e4336bab9c2ee98880675c401be33c7e6328a29c52ab35396ad" => :x86_64_linux
   end
 
   deprecated_option "with-qt5" => "with-qt"
