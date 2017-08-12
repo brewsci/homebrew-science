@@ -12,6 +12,7 @@ class Nlopt < Formula
     sha256 "4c1bfd654be7c344c1ebb6e86dea50063305cdf8f3ac1cf7e55c28371ce87ffd" => :sierra
     sha256 "86ec755243d199111edfc425db9c3f3e8b4c3cef6b346bea7408361f742c96bc" => :el_capitan
     sha256 "adac1b7dc1111703dda1e01b0a0a6cb7cdea9b211d51f9a9f6c055b4763babd1" => :yosemite
+    sha256 "a6079b363dd5b0a3a5f2b503dc518f07582563b5c0f0e2b7c41595ca0b0264d4" => :x86_64_linux
   end
 
   option "with-python", "Build Python bindings (requires NumPy)"
