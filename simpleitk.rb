@@ -1,3 +1,10 @@
+class CIRequirement < Requirement
+  # simpleitk hits the 4 Gb memory limit of circle,
+  # even with -j1
+  fatal true
+  satisfy { ENV["CIRCLECI"].nil? && ENV["TRAVIS"].nil? }
+end
+
 class Simpleitk < Formula
   desc "Simplified layer built on top of ITK"
   homepage "http://www.simpleitk.org"
@@ -26,11 +33,9 @@ class Simpleitk < Formula
   depends_on :java => :optional
   depends_on "r" => :optional
   depends_on "lua" => :optional
+  depends_on CIRequirement unless OS.mac?
 
   def install
-    # Reduce memory usage below 4 GB for Linux CI
-    ENV["MAKEFLAGS"] = "-j1" if OS.linux? && build.bottle?
-
     ENV.delete("PYTHONPATH")
 
     # Remove the CMAKE_INSTALL_PREFIX. The SuperBuild used here will install
