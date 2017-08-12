@@ -10,6 +10,7 @@ class Radx < Formula
     sha256 "7851aa983a1d803ef821e1db62f7d9ca50e9d9a5c9fa787bc4d562bd81eed12a" => :sierra
     sha256 "1bf3a6c30a22db867ab4758e2e3eaf4964aa30962be68ce929c34b0f2c5ea927" => :el_capitan
     sha256 "c4187d595e629fa88a77f6c3e771afdf9820f94a6dc86c0a1e7f874d18ed8afd" => :yosemite
+    sha256 "de6ed28ac845a751b0c50ea51fea91a4b744c0636873dc9e88a7965554f698b9" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
