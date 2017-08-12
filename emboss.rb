@@ -9,6 +9,7 @@ class Emboss < Formula
     sha256 "767f04c1b36b859e0f53300216f607db99c5bebfb678295679cca110b24d1f64" => :yosemite
     sha256 "9de99047b806fa9c1235c49e63987c320de2ebc2c47bb1996e857edea9894fa8" => :mavericks
     sha256 "94d3635a7f03038733a86aac846693d0975f0891adb40b42b821e20ba468d106" => :mountain_lion
+    sha256 "43e0496b75a896be3cb6281e0726867e072ba9bf18881ee127a33c5c56ede1d8" => :x86_64_linux
   end
 
   option "with-embossupdate", "Run embossupdate after `make install`"
