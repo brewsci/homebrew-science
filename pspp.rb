@@ -9,6 +9,7 @@ class Pspp < Formula
     sha256 "c0a05236ea6b388daee9cb3c2611ddc3587aca0b17e8ce832f6f75fb668ff9d5" => :sierra
     sha256 "55958d3fc017b8b66f686af87221e934d5be7158cbec26a5a95772e359e90bad" => :el_capitan
     sha256 "127dc888bf83cfe013e6fbba23ae72f4cd41de29140c7ccd4aeb1019b040b838" => :yosemite
+    sha256 "bd34b7a325dd94c448ec4da89e3e879b3c51852dbdf340852524dc97e0f8e8b0" => :x86_64_linux
   end
 
   option "without-test", "Skip running the PSPP test suite"
