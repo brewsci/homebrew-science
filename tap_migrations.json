@@ -4,6 +4,7 @@
   "ceres-solver": "homebrew/core",
   "cfitsio": "homebrew/core",
   "cminpack": "homebrew/core",
+  "dlib": "homebrew/core",
   "flann": "homebrew/core",
   "glpk": "homebrew/core",
   "hdf5": "homebrew/core",
