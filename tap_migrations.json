@@ -23,5 +23,6 @@
   "transfig": "homebrew/core",
   "veclibfort": "homebrew/core",
   "vips": "homebrew/core",
+  "voro++": "homebrew/core",
   "vtk": "homebrew/core"
 }
