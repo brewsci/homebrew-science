@@ -19,6 +19,8 @@
   "qrupdate": "homebrew/core",
   "r": "homebrew/core",
   "r-gui": "caskroom/cask/r-app",
+  "root": "homebrew/core",
+  "root6": "homebrew/core",
   "scalapack": "homebrew/core",
   "suite-sparse": "homebrew/core",
   "sundials": "homebrew/core",
