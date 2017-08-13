@@ -12,6 +12,7 @@
   "hwloc": "homebrew/core",
   "openblas": "homebrew/core",
   "qhull": "homebrew/core",
+  "maxima": "homebrew/core",
   "metis": "homebrew/core",
   "netcdf": "homebrew/core",
   "octave": "homebrew/core",
