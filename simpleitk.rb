@@ -17,6 +17,7 @@ class Simpleitk < Formula
     sha256 "a1fe57a2916ee47ae3b98016155790f915138eb2cb78ff7e95e8bdf9b1a225b3" => :sierra
     sha256 "d22b71717c8c1a45d2f823ef3f82b1ee22be13019d14db4f3bbce9fe68b8717b" => :el_capitan
     sha256 "234ad328cdeecfcfefe41fee3ddbc89334d10a690b484f1950b64a04c23c0b76" => :yosemite
+    sha256 "e4dba27408e1427ed0ce18224eca2fe8026a1b56fec065f242d008a89fa4dadb" => :x86_64_linux
   end
 
   option "with-examples", "Compile and install various examples"
