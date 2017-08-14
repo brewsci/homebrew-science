@@ -12,6 +12,7 @@ class Transdecoder < Formula
     sha256 "62791174d83a4655aa3528db0013b9e5cf1094adf28dc2ba7cb4def12d1582c7" => :sierra
     sha256 "4951a7abb70285be57c38ba50104213e5d7c90e33f61b4821ae5d3843ef4c72b" => :el_capitan
     sha256 "dcd341b6cd8607a7f0ee276bed52a5b4e37d3b8f4b8dc4d1d8c5e3ca51700d8d" => :yosemite
+    sha256 "fb5224366a2b65b97322244f566727b0d63d37d99cf54f4f5f741f8a8244e9a6" => :x86_64_linux
   end
 
   def install
