@@ -10,9 +10,9 @@ class Humann2 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f9dffd7689f34089b0d0f1189b7b13cce9ef34a61c99c1965c0741b6539b58bd" => :el_capitan
-    sha256 "f173e0be965d44a9370032ba9472abab787b4310dbfa4e3bd84297f6a48abbcf" => :yosemite
-    sha256 "252aa105284d46b58ce213d9ef901b75554b5471c903ad45ffa3ab73ee6acd0a" => :x86_64_linux
+    sha256 "00bd6e0a6329406bd463ecb0e9542a0f0253e5d2542c614360a495e334f399b4" => :sierra
+    sha256 "ba21526ddfbca3ea39df41755eae3b787fb911c7ef38e5f4e8525c052a52af1d" => :el_capitan
+    sha256 "ba21526ddfbca3ea39df41755eae3b787fb911c7ef38e5f4e8525c052a52af1d" => :yosemite
   end
 
   depends_on "bowtie2"
