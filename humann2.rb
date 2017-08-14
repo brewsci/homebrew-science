@@ -13,6 +13,7 @@ class Humann2 < Formula
     sha256 "00bd6e0a6329406bd463ecb0e9542a0f0253e5d2542c614360a495e334f399b4" => :sierra
     sha256 "ba21526ddfbca3ea39df41755eae3b787fb911c7ef38e5f4e8525c052a52af1d" => :el_capitan
     sha256 "ba21526ddfbca3ea39df41755eae3b787fb911c7ef38e5f4e8525c052a52af1d" => :yosemite
+    sha256 "bf79e0c929a405582ea4551acb70bbcfe1c8f36efb97eb59d161df986101e2d2" => :x86_64_linux
   end
 
   depends_on "bowtie2"
