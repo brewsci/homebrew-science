@@ -1,8 +1,8 @@
 class Alembic < Formula
   desc "Open computer graphics interchange framework"
   homepage "http://alembic.io"
-  url "https://github.com/alembic/alembic/archive/1.7.2.tar.gz"
-  sha256 "3ac0fe540afdeb9d2b37d25c6b38408c8c4eb830a8d5d3d19bbd64b8c9d26539"
+  url "https://github.com/alembic/alembic/archive/1.7.3.tar.gz"
+  sha256 "29f9174d5b092c49aa4cf6bc526b542f0b077ba6a5137cc745d653d732ab8e8f"
   head "https://github.com/alembic/alembic.git"
 
   bottle do
