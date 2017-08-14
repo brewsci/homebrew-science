@@ -8,7 +8,6 @@ class Libctl < Formula
     sha256 "08bc925eac1ce0b3dd4df2f7ee36135cd3cb1307b0e306663fd62183f52854f0" => :sierra
     sha256 "45c54a72e32d20be848af61843b1d0e7b76172b0f1d5bb33238527a731a3e897" => :el_capitan
     sha256 "f40890ef37a3be69fbbf99e94616225b5bf09f43e110c9481e7d2156395658e4" => :yosemite
-    sha256 "e0a737ca7750c8a0171ae1ff5457284a1d97703ba15d0ed6c38ba1d091c48f20" => :x86_64_linux
   end
 
   depends_on "guile"
