@@ -1,9 +1,8 @@
 class Dealii < Formula
-  desc "open source finite element library"
+  desc "Open source finite element library"
   homepage "https://www.dealii.org"
-  url "https://github.com/dealii/dealii/releases/download/v8.5.0/dealii-8.5.0.tar.gz"
-  sha256 "e6913ff6f184d16bc2598c1ba31f879535b72b6dff043e15aef048043ff1d779"
-  revision 2
+  url "https://github.com/dealii/dealii/releases/download/v8.5.1/dealii-8.5.1.tar.gz"
+  sha256 "d33e812c21a51f7e5e3d3e6af86aec343155650b611d61c1891fbc3cabce09ae"
   head "https://github.com/dealii/dealii.git"
 
   bottle do
@@ -21,8 +20,8 @@ class Dealii < Formula
   depends_on :mpi           => [:cc, :cxx, :f90, :recommended]
   depends_on "openblas"     => :optional
 
-  openblasdep = (build.with? "openblas") ? ["with-openblas"] : []
-  mpidep      = (build.with? "mpi")      ? ["with-mpi"]      : []
+  openblasdep = build.with?("openblas") ? ["with-openblas"] : []
+  mpidep      = build.with?("mpi")      ? ["with-mpi"]      : []
 
   depends_on "arpack"       => [:recommended] + mpidep + openblasdep
   depends_on "boost"        => :recommended
@@ -30,7 +29,7 @@ class Dealii < Formula
   depends_on "hdf5"         => [:recommended] + mpidep
   depends_on "metis"        => :recommended
   depends_on "muparser"     => :recommended if MacOS.version != :mountain_lion # Undefined symbols for architecture x86_64
-  depends_on "netcdf"       => [:recommended, "with-fortran"]
+  depends_on "netcdf"       => :recommended
   depends_on "oce"          => :recommended
   depends_on "p4est"        => [:recommended] + openblasdep if build.with? "mpi"
   depends_on "parmetis"     => :recommended if build.with? "mpi"
