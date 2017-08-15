@@ -1,8 +1,8 @@
 class Canu < Formula
   desc "Single molecule sequence assembler"
   homepage "https://canu.readthedocs.org/en/latest/"
-  url "https://github.com/marbl/canu/archive/v1.5.tar.gz"
-  sha256 "06e2c6d7b9f6d325b3b468e9c1a5de65e4689aed41154f2cee5ccd2cef0d5cf6"
+  url "https://github.com/marbl/canu/archive/v1.6.tar.gz"
+  sha256 "470e0ac761d69d1fecab85da810a6474b1e2387d7124290a0e4124d660766498"
   head "https://github.com/marbl/canu.git"
   # doi "10.1038/nbt.3238"
   # tag "bioinformatics"
