@@ -1,12 +1,11 @@
 class Amos < Formula
   desc "Modular Open-Source Assembler"
   homepage "http://sourceforge.net/apps/mediawiki/amos/index.php?title=AMOS"
-  # doi "10.1002/0471250953.bi1108s33"
-  # tag "bioinformatics"
-
   url "https://downloads.sourceforge.net/project/amos/amos/3.1.0/amos-3.1.0.tar.gz"
   sha256 "2d9f50e39186ad3dde3d3b28cc265e8d632430657f40fc3978ce34ab1b3db43b"
   revision 1
+  # doi "10.1002/0471250953.bi1108s33"
+  # tag "bioinformatics"
 
   bottle do
     rebuild 1
