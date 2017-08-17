@@ -13,6 +13,7 @@ class Plink2 < Formula
     sha256 "7811cac3dc634113a738a0b6c73099f14fa480ffa682f651a0f39ab44746c72e" => :sierra
     sha256 "82e91a96292f0577d55249eb7f50fe968f59f51970349b9ad3c8c589508b263d" => :el_capitan
     sha256 "7363e3c00eb1cb2a5542a8239906c01324f7bb4c6096ab3f1df34a20d8148021" => :yosemite
+    sha256 "4852a01fe2347772a7566d5aa1d84479f5ed66fa4610d0b4a090c1163f0267d2" => :x86_64_linux
   end
 
   depends_on :fortran
