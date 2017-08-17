@@ -21,6 +21,7 @@
   "r-gui": "caskroom/cask/r-app",
   "scalapack": "homebrew/core",
   "suite-sparse": "homebrew/core",
+  "sundials": "homebrew/core",
   "superlu": "homebrew/core",
   "tensorflow": "homebrew/core",
   "transfig": "homebrew/core",
