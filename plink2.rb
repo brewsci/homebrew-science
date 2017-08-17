@@ -7,6 +7,7 @@ class Plink2 < Formula
   # tag "bioinformatics"
   sha256 "2f4afc193c288b13af4410e4587358ee0a6f76ed7c98dd77ca1317aac28adf0d"
   revision 2
+  head "https://github.com/chrchang/plink-ng"
 
   bottle do
     cellar :any
