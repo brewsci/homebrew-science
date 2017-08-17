@@ -10,9 +10,9 @@ class Plink2 < Formula
 
   bottle do
     cellar :any
-    sha256 "61fba0c9016731531eaab1e88f1fc01d0ccbf41119c084e257e3f999fe8be0ad" => :sierra
-    sha256 "87ef1226f0fd076e0683e2b30c006489cb76f2a44b241949cd44beec549a3126" => :el_capitan
-    sha256 "540b6a0f57c322040f1338655456a32c7971a3320fdc17d09fba582930c5722e" => :yosemite
+    sha256 "7811cac3dc634113a738a0b6c73099f14fa480ffa682f651a0f39ab44746c72e" => :sierra
+    sha256 "82e91a96292f0577d55249eb7f50fe968f59f51970349b9ad3c8c589508b263d" => :el_capitan
+    sha256 "7363e3c00eb1cb2a5542a8239906c01324f7bb4c6096ab3f1df34a20d8148021" => :yosemite
   end
 
   depends_on :fortran
