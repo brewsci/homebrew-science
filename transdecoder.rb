@@ -2,8 +2,8 @@ class Transdecoder < Formula
   desc "Identifies candidate coding regions within transcript sequences"
   homepage "https://transdecoder.github.io/"
   url "https://github.com/TransDecoder/TransDecoder.git",
-      :tag => "v4.0.3",
-      :revision => "ea5b111dc6d49c076d080cb903e4932cf3d73130"
+      :tag => "v4.1.0",
+      :revision => "8f0e552ff76bb842182870d4e001d3d4d1412c5f"
   head "https://github.com/TransDecoder/TransDecoder.git"
   # tag "bioinformatics"
 
