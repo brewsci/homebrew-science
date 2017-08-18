@@ -9,7 +9,7 @@ class Mathgl < Formula
     sha256 "ca5e138c7722336d414cff98c59d5c5bfcf1ff36b20c74035a032adf8ff0246d" => :sierra
     sha256 "6fbe7bc574f7996873c1db9de80648f72f4fa43cce4be52a70b1b4c72c738878" => :el_capitan
     sha256 "7a04bd671cad956798cb424745cd9fba651096f7e2561ca638710087db5ac4f3" => :yosemite
-    sha256 "e62624ff8e169340331835d8e74623ffa0d380dffa01dd9b953831920cf61e5f" => :x86_64_linux
+    sha256 "7187fee2d695061e44ff520fc5076254a2aeb28636d66cda0bef9073a1a8bed7" => :x86_64_linux
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
