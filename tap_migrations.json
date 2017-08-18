@@ -1,4 +1,5 @@
 {
+  "ampl-mp": "homebrew/core",
   "armadillo": "homebrew/core",
   "arpack": "homebrew/core",
   "ceres-solver": "homebrew/core",
