@@ -16,6 +16,7 @@
   "metis": "homebrew/core",
   "netcdf": "homebrew/core",
   "octave": "homebrew/core",
+  "pcl": "homebrew/core",
   "qrupdate": "homebrew/core",
   "r": "homebrew/core",
   "r-gui": "caskroom/cask/r-app",
