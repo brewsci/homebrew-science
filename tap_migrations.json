@@ -13,6 +13,7 @@
   "hdf5": "homebrew/core",
   "hdf5@1.8": "homebrew/core",
   "hwloc": "homebrew/core",
+  "hypre": "homebrew/core",
   "libmatio": "homebrew/core",
   "maxima": "homebrew/core",
   "metis": "homebrew/core",
