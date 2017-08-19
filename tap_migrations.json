@@ -8,6 +8,8 @@
   "dlib": "homebrew/core",
   "flann": "homebrew/core",
   "glpk": "homebrew/core",
+  "gmt": "homebrew/core",
+  "gmt4": "homebrew/core",
   "hdf5": "homebrew/core",
   "hdf5@1.8": "homebrew/core",
   "hwloc": "homebrew/core",
