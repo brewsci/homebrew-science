@@ -9,6 +9,7 @@ class Ticcutils < Formula
     sha256 "ac93c31e75a639f8bf0d0b6d8d2c6bf10b84f4098fc1ad3934a742817be4e270" => :sierra
     sha256 "6964fb8689e6960204e71c17941c13fb537144ec6bf981ba191ddfdd93c0793a" => :el_capitan
     sha256 "7d5553b92f368c993ad86b05dd15d242c57f3602b7a2b270db4296b84c42566e" => :yosemite
+    sha256 "6defc0c5834c92f245a3eaf86751544c7b0d56a1ee62a9ba066ae382e800334c" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
