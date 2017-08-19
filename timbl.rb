@@ -1,9 +1,8 @@
 class Timbl < Formula
   desc "Memory-based learning algorithms"
-  homepage "http://ilk.uvt.nl/timbl/"
-  url "http://software.ticc.uvt.nl/timbl-6.4.6.tar.gz"
-  sha256 "8aeb09283a3389db9b3b576b6f0632f84841facc85cad516bb57e3ec070737b4"
-  revision 1
+  homepage "https://ilk.uvt.nl/timbl/"
+  url "https://github.com/LanguageMachines/timbl/releases/download/v6.4.9/timbl-6.4.9.tar.gz"
+  sha256 "02d58dc4a1b97cdd799541a597b6db5b4b8922614a02160a8c2d27c221db2f78"
 
   bottle do
     cellar :any
@@ -16,7 +15,10 @@ class Timbl < Formula
   depends_on "libxml2"
   depends_on "ticcutils"
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
