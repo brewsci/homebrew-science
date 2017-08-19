@@ -6,9 +6,9 @@ class Libfolia < Formula
 
   bottle do
     cellar :any
-    sha256 "f1001f3278477f88968038d0a722cb851c334653bcf55ca67f599a5482274b5a" => :el_capitan
-    sha256 "ed3ce3438a5f10bbae88d8224f672f7968882c5ef822af4650d4db92ac5b9d2f" => :yosemite
-    sha256 "4d541070af9aabc2bce4b1a46f3ad9360a7d6e9fc6e5128c074e77ed94d9fd42" => :mavericks
+    sha256 "891bc62ca54b0b52986306581961c91f950e4515b83871ba9413ff9844f72284" => :sierra
+    sha256 "4877bfe918dc8da7ab692a326dafd799af4c3afee61dd95ace30c336ff9ca2a5" => :el_capitan
+    sha256 "c27731540421d91cef104102fc9d21acf329c05cdd79672adcf5f3a412239333" => :yosemite
   end
 
   option "without-check", "skip build-time checks (not recommended)"
