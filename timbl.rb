@@ -6,9 +6,9 @@ class Timbl < Formula
 
   bottle do
     cellar :any
-    sha256 "f96e343829eaa220579f120bbde601c6340400ffede6147774fc3eb10220eb14" => :el_capitan
-    sha256 "bd9de88b4a642f4a31b5536b49f77a5dfa4401f7ad90a5a5fd83d90c42541930" => :yosemite
-    sha256 "46c6b0f12e0d97088884abf54007b7ea70adff1a87038756a2285bc1a55e061e" => :mavericks
+    sha256 "b296c9318d54e436d1901e148389508fd1bd64ebf9bdab6551cbbebf87cbc776" => :sierra
+    sha256 "5061707d7b9e661af260d8f4522527be37f028f9d15839a7085e6f6d47baeece" => :el_capitan
+    sha256 "ff0964f561ac630f3c298d0b2a8cdded34ba21a556cbaba5ca2d72c4bcb0cfd6" => :yosemite
   end
 
   depends_on "pkg-config" => :build
