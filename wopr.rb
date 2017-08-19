@@ -19,6 +19,13 @@ class Wopr < Formula
     end
   end
 
+  bottle do
+    cellar :any
+    sha256 "e5ab9df7d15881f5a5cee0355c4184afe625c3ea41ca2435434f5d91860f2629" => :sierra
+    sha256 "65c46a03ebce0a71f05c5b44cc1a06f17737f2ac1714bb34649deeb3294a62e4" => :el_capitan
+    sha256 "90937bd62790616249dc7bde27ffa1b2b2c48ad302d6e50b4f30cbd48725cb7c" => :yosemite
+  end
+
   head do
     url "https://github.com/LanguageMachines/wopr.git"
 
