@@ -5,9 +5,9 @@ class Ucto < Formula
   sha256 "c10b19f6f6de36cb22a61e663f6b0eaf1aa6fe6557989edce4a30ed28fc3eb64"
 
   bottle do
-    sha256 "d1cdf45fc49ed34d8c5a8e6e860a3248421c760a9c8895645cbbc4b4fbb3a1e7" => :el_capitan
-    sha256 "48250e654b37bc9055d87f57116f458e49e5765cfb8d2f879e83e50fc4a63126" => :yosemite
-    sha256 "869c3fda2b9d58aef0cabfd26f3bf3398f7c93332a2911358892c9f551703d03" => :mavericks
+    sha256 "da154d4cd2648113d06fd505922a159f97f4b866ed34d1f4877ba907a2b22749" => :sierra
+    sha256 "d7efe3bb35ac31bfdacd09bd4da7336d16cd970a83a58fa6399f56d28ba37779" => :el_capitan
+    sha256 "ab8cbbcaff043acbebe4ca65f1aceab7acff12ecd2883491d2d93f394b6feb10" => :yosemite
   end
 
   option "without-check", "skip build-time checks (not recommended)"
