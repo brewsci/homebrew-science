@@ -9,10 +9,9 @@ class Repeatmasker < Formula
   revision 1
 
   bottle do
-    sha256 "5f14080165dcb4ca8917a9e2045b3632df9226657815b09eb5877ba3160e7b87" => :sierra
-    sha256 "876a2e019a4976d2845ff0ab8e2cf83ee2cec543129b29ded4d4ce6f36335c7a" => :el_capitan
-    sha256 "b43b8c745ee09d88f7264947226c01ae4605cb453c0e8192bd1a6d36d351f040" => :yosemite
-    sha256 "7e5f431a0b58b4bc663d20ebd7ba62b4dde52073acfaddb226d85fe3246b31fb" => :x86_64_linux
+    sha256 "d23f2a802c70a9413bde01c90020b8cf988df9ccdf1d77ad029a3a3edbb1e4b1" => :sierra
+    sha256 "97c07a4d6450433a72b3173d1d70648151e8a11e5c31fda45a3f6dcfff5d825b" => :el_capitan
+    sha256 "f0eab468716f826cfca27ecab52211a4f09677c5d263d72afcc51ee52d6769f1" => :yosemite
   end
 
   option "without-configure", "Do not run configure"
