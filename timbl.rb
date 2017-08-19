@@ -9,6 +9,7 @@ class Timbl < Formula
     sha256 "b296c9318d54e436d1901e148389508fd1bd64ebf9bdab6551cbbebf87cbc776" => :sierra
     sha256 "5061707d7b9e661af260d8f4522527be37f028f9d15839a7085e6f6d47baeece" => :el_capitan
     sha256 "ff0964f561ac630f3c298d0b2a8cdded34ba21a556cbaba5ca2d72c4bcb0cfd6" => :yosemite
+    sha256 "2de1a1d0ed396541cdbf2bc092621e948be908e5ab17b32677cfcfe627f6b17b" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build
