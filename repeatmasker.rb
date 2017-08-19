@@ -6,6 +6,7 @@ class Repeatmasker < Formula
   url "http://repeatmasker.org/RepeatMasker-open-4-0-7.tar.gz"
   version "4.0.7"
   sha256 "16faf40e5e2f521146f6692f09561ebef5f6a022feb17031f2ddb3e3aabcf166"
+  revision 1
 
   bottle do
     sha256 "5f14080165dcb4ca8917a9e2045b3632df9226657815b09eb5877ba3160e7b87" => :sierra
