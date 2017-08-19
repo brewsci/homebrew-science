@@ -1,9 +1,8 @@
 class Libfolia < Formula
   desc "XML annotation format for linguistically annotated language resources"
   homepage "https://proycon.github.io/folia/"
-  url "http://software.ticc.uvt.nl/libfolia-0.13.tar.gz"
-  sha256 "a9fc9e475bb79629dc014cf7a78af64486c0f1bb902821ba2bb36c38c77a5d24"
-  revision 1
+  url "https://github.com/LanguageMachines/libfolia/releases/download/v1.8/libfolia-1.8.tar.gz"
+  sha256 "144051c5d590d7779a6a8b6825df58ab1c78889565a9fb04cd0f4a6e90d0f5a8"
 
   bottle do
     cellar :any
@@ -20,7 +19,10 @@ class Libfolia < Formula
   depends_on "libxslt"
   depends_on "libxml2"
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
