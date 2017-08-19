@@ -11,9 +11,9 @@ class Vislcg3 < Formula
 
   bottle do
     cellar :any
-    sha256 "6ad041538c79cbcc10ab6557efb4cd8df4724d141ef85de03697245f59819628" => :el_capitan
-    sha256 "d71978d0f161a53c2dadda8f1cde9d61e8477a82d32e9f4e7623aff88c5b009d" => :yosemite
-    sha256 "dd5da600c2221cea9a66f86cda03683f61564ac5679aae4f4dcdfc80fcafe844" => :mavericks
+    sha256 "46f466552fa4127e108b1522c69c9e7051ca917cb533bbd5c8b72f31198d2175" => :sierra
+    sha256 "ef134f60a89abc04337a97ae001cec05dde875a230a1adceee0ae78ae10fddd7" => :el_capitan
+    sha256 "6510cfc241b50e173dab178643128d005e35282f9cfe06be539effb34e9dd806" => :yosemite
   end
 
   option "without-test", "Disable build-time checking (not recommended)"
