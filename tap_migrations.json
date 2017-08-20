@@ -23,6 +23,7 @@
   "netcdf": "homebrew/core",
   "octave": "homebrew/core",
   "openblas": "homebrew/core",
+  "pcb": "homebrew/core",
   "pcl": "homebrew/core",
   "qhull": "homebrew/core",
   "qrupdate": "homebrew/core",
