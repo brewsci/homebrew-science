@@ -4,6 +4,7 @@
   "arpack": "homebrew/core",
   "ceres-solver": "homebrew/core",
   "cfitsio": "homebrew/core",
+  "clblas": "homebrew/core",
   "clfft": "homebrew/core",
   "clinfo": "homebrew/core",
   "cminpack": "homebrew/core",
