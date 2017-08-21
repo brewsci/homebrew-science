@@ -13,6 +13,7 @@
   "dlib": "homebrew/core",
   "flann": "homebrew/core",
   "glpk": "homebrew/core",
+  "gmsh": "homebrew/core",
   "gmt": "homebrew/core",
   "gmt4": "homebrew/core",
   "gromacs": "homebrew/core",
