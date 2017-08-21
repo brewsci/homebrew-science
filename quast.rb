@@ -14,7 +14,7 @@ class Quast < Formula
     sha256 "b7d7548f11945ad2ca7484b9a31552c319cf6c027d7dc825f351a7f3960e725d" => :x86_64_linux
   end
 
-  if OS.mac? && MacOS.version <= :mountain_lion
+  if (OS.mac? && MacOS.version <= :mountain_lion) || !OS.mac?
     depends_on "matplotlib"
   else
     # Mavericks and newer include matplotlib
