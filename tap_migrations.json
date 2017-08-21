@@ -8,6 +8,7 @@
   "clfft": "homebrew/core",
   "clinfo": "homebrew/core",
   "cminpack": "homebrew/core",
+  "cppad": "homebrew/core",
   "datamash": "homebrew/core",
   "dlib": "homebrew/core",
   "flann": "homebrew/core",
