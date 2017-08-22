@@ -9,6 +9,7 @@ class Shark < Formula
     sha256 "19232b0e4798850da95f45b2d2dcf7dabea20e842540b7f37d41c40e96cdbfee" => :sierra
     sha256 "ee137fc10bdbb203c213144487bd55976760a657053c216758b907845202fc74" => :el_capitan
     sha256 "6b5cf899fa64c713865d4ddb078146e94c4fdf9b2012d80c4b9ed3454b74c864" => :yosemite
+    sha256 "c9a897fd30e21c08f256c3b842b62936f0467ac8ad24d5dc6847aabeda9683ea" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
