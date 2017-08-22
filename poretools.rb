@@ -8,7 +8,7 @@ class Poretools < Formula
 
   url "https://github.com/arq5x/poretools/archive/v0.6.0.tar.gz"
   sha256 "64d22ac045bf4b424bd709abb07fcdb6ef4d198a76213183de166a307646b9fa"
-  revision 5
+  revision 6
   head "https://github.com/arq5x/poretools.git"
 
   bottle do
@@ -22,6 +22,8 @@ class Poretools < Formula
   depends_on "hdf5"
   depends_on :fortran # for scipy
   depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "scipy"
+  depends_on "numpy"
 
   cxxstdlib_check :skip
 
@@ -45,11 +47,6 @@ class Poretools < Formula
     sha256 "8875d763c9e0d0ae01fefd5ebbe2b22bde5f080037f9467126d5dbee31785913"
   end
 
-  resource "numpy" do
-    url "https://files.pythonhosted.org/packages/e0/4c/515d7c4ac424ff38cc919f7099bf293dd064ba9a600e1e3835b3edefdb18/numpy-1.11.1.tar.gz"
-    sha256 "dc4082c43979cc856a2bf352a8297ea109ccb3244d783ae067eb2ee5b0d577cd"
-  end
-
   resource "pandas" do
     url "https://files.pythonhosted.org/packages/11/09/e66eb844daba8680ddff26335d5b4fead77f60f957678243549a8dd4830d/pandas-0.18.1.tar.gz"
     sha256 "d2e483692c7915916dffd1b83256ea9761b4224c8d45646ceddf48b977ee77b2"
@@ -70,11 +67,6 @@ class Poretools < Formula
     sha256 "b5aff44126cf828537581e534cc94299b223b945a2bb3b5434d37bf8c7f3a10c"
   end
 
-  resource "scipy" do
-    url "https://files.pythonhosted.org/packages/01/a1/dce70d47377d662aa4b0895df8431aee92cea6faefaab9dae21b0f901ded/scipy-0.18.0.tar.gz"
-    sha256 "f01784fb1c2bc246d4211f2482ecf4369db5abaecb9d5afb9d94f6c59663286a"
-  end
-
   resource "seaborn" do
     url "https://files.pythonhosted.org/packages/ed/dc/f168ff9db34f8c03c568987b4f81603cd3df40dd8043722d526026381a91/seaborn-0.7.1.tar.gz"
     sha256 "fa274344b1ee72f723bab751c40a5c671801d47a29ee9b5e69fcf63a18ce5c5d"
@@ -91,7 +83,7 @@ class Poretools < Formula
   end
 
   def resources
-    front_load = [resource("six"), resource("numpy")]
+    front_load = [resource("six")]
     front_load + (super - front_load - [resource("Cython"), resource("test")])
   end
 
