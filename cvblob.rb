@@ -6,9 +6,9 @@ class Cvblob < Formula
 
   bottle do
     cellar :any
-    sha256 "1afc574079f3955bc2f44cfb6a8cb5219944b41f5725ada28d62ce29c2f42f9d" => :el_capitan
-    sha256 "bbbfb09024259cd0f0ea91b461a2e8ad4b34f0c44582ce8980bbdb0365754281" => :yosemite
-    sha256 "bba8a86fba6652c6bb42c69724b12c19b4ded91a871813597cbe7f82a34341bf" => :mavericks
+    sha256 "c4a7e3257e7f79040a6ebd787bc1f6b36bd8c4ba9ee46a0f3948c118d0606a7b" => :sierra
+    sha256 "63fee00e482dfc23d0093653375c5a31452cbcd7a7695190ec510023c9174490" => :el_capitan
+    sha256 "785fb1cbfccf5d2301d9648de027615acf2d9d7d97ab61ff0ed84d951c9cdcea" => :yosemite
   end
 
   depends_on "cmake" => :build
