@@ -11,9 +11,9 @@ class Openbr < Formula
   head "https://github.com/biometrics/openbr.git"
 
   bottle do
-    sha256 "0e9cecc03ce39f45e26c94a6854bdd1ab922f49cc307209fc008366f67bec309" => :el_capitan
-    sha256 "a4809628fb738aee27b5a4ff7d5e3cfd86a788871c89601f1126b5eefc555e0b" => :yosemite
-    sha256 "ad3e698e6a00c5e0a785811dd193a52a63f08f9856b13a4a6b216f913ab216d8" => :mavericks
+    sha256 "a030f1fb84882e3bcd2581473a821bf517158714b8f4be66089fbc4861ad6fad" => :sierra
+    sha256 "b6c5c5bd7310f22b7efd03acb3de3d74967c00c291b1140aff89d82fe5ec47bc" => :el_capitan
+    sha256 "989d7986cd6ac5d1f708ab630fa7ced01d01ed10430dd26f3e4ff9dd27510ff1" => :yosemite
   end
 
   depends_on "cmake" => :build
