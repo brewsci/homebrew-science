@@ -3,6 +3,7 @@ class Butterflow < Formula
   homepage "https://github.com/dthpham/butterflow"
   url "http://srv.dthpham.me/butterflow/releases/butterflow-0.2.3.tar.gz"
   sha256 "83e3ce52eef57ae2e4f4b3dc98d97ab354621e4a095d9734751bd876c34b755e"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,12 +15,11 @@ class Butterflow < Formula
   # To satisfy OpenCL 1.2 requirement
   depends_on :macos => :mavericks
 
-  depends_on "ffmpeg"
-  depends_on "opencv" => ["with-ffmpeg"]
+  depends_on "opencv@2"
 
   def install
     ENV.prepend_path "PYTHONPATH", Formula["numpy"].opt_lib/"python2.7/site-packages"
-    ENV.prepend_path "PYTHONPATH", Formula["opencv"].opt_lib/"python2.7/site-packages"
+    ENV.prepend_path "PYTHONPATH", Formula["opencv@2"].opt_lib/"python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)
     bin.install Dir["#{libexec}/bin/*"]
