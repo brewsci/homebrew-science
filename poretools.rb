@@ -16,6 +16,7 @@ class Poretools < Formula
     sha256 "e040d34e86d3b7989000ccd8d24d97a9e8025a11409bb4669a7afced55c6292e" => :sierra
     sha256 "ae1db4c366ce232875b07c3098b5be046b37a013fecd89f030698cd2525df434" => :el_capitan
     sha256 "42305e75f8b288c1a269bf6e79ffc7e4bd67d58b95a4bd7fb8110a9a0f82a195" => :yosemite
+    sha256 "c0c5f3eec88ed7b278b2cfe1a2e0f12dbf7b1f0f1b8491579d54fb4f030d4f84" => :x86_64_linux
   end
 
   depends_on "pkg-config" => :build # for h5py
