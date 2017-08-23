@@ -22,6 +22,7 @@ class MirPrefer < Formula
     depends_on "patchelf" => :build
     depends_on "ncurses"
     depends_on "zlib"
+    depends_on :python
   end
 
   def install
