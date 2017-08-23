@@ -9,6 +9,7 @@ class Visp < Formula
     sha256 "abadd9accf9e08e669aaec62c98c43302056e3ac58a67b8375de03a187fe7d64" => :sierra
     sha256 "12fe570a4ae1cf3ca67b10ec15c7d0e0ca42f042d0c658b97635d9df1e980419" => :el_capitan
     sha256 "6ebde647bc0d32568558c0aa9068f8bcc193e1717db3725f736db066b5fcf8c5" => :yosemite
+    sha256 "142073838f66e741178ff7c793791a5cd1118a04d112efae56f7769ac05646fb" => :x86_64_linux
   end
 
   option :cxx11
@@ -19,7 +20,7 @@ class Visp < Formula
   depends_on "libdc1394" => :recommended
   depends_on "libpng"    => :recommended
   depends_on "libxml2"   => :recommended
-  depends_on "opencv"   => :recommended
+  depends_on "opencv"    => :recommended
   depends_on "zbar"      => :recommended
   depends_on :x11        => :recommended
 
