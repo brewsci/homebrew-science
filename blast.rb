@@ -11,10 +11,9 @@ class Blast < Formula
   revision 2
 
   bottle do
-    sha256 "de27d2b417b3a87eb297286b3c73baa0e0cdc169daa6d4e5cf87c3f005e1bdb3" => :sierra
-    sha256 "25b4750230f42ea305dd24040d2c0fb69a69f5cbf96ffd658a195f10df1e68c2" => :el_capitan
-    sha256 "395eccf79bf1d5becb44f30ef5487312b2cd824db5c31e7c5ee9d4595ad1d04d" => :yosemite
-    sha256 "00049c074bb65f23cf2d384d702ab2a060ed31436b7f2772c05b0314b59619ae" => :x86_64_linux
+    sha256 "cbc5f928474dac2befb70abeb3a48482c81dddc96309d06bbe0c79439a7d4fd6" => :sierra
+    sha256 "b613e7474b0f7dbdf36e9937da83569c71cf5794f4f7200c9702e77bd480c06b" => :el_capitan
+    sha256 "2a28b36b92e381df14713bfcd4098e400f52f93e7882dabc8600dc4c78affac8" => :yosemite
   end
 
   option "with-static", "Build without static libraries and binaries"
