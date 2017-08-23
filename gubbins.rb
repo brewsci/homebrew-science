@@ -13,6 +13,7 @@ class Gubbins < Formula
     sha256 "3d4011063a8676188b4d94451d25af0f3f6b52bff422d32450f66a700b2cf8d3" => :sierra
     sha256 "9f3146ad47cc054cb7b90ab2a6ece86b9a27c52f26bdb223f102945a31b0a4a6" => :el_capitan
     sha256 "8808b679accb6e3a1a2ce89c4d7fbf0f18d207d691bf80bd603fc7c4858b2e0a" => :yosemite
+    sha256 "300a697714e1c06892abc9851d7784016d6d5db29b75edfc2f3877954da92c16" => :x86_64_linux
   end
 
   depends_on "autoconf"  => :build
