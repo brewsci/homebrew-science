@@ -1,8 +1,8 @@
 class Unicycler < Formula
   desc "Hybrid assembly pipeline for bacterial genomes"
   homepage "https://github.com/rrwick/Unicycler"
-  url "https://github.com/rrwick/Unicycler/archive/v0.4.0.tar.gz"
-  sha256 "0f2600a56c6e5fc26fff8611cd3dbebab57ecbe92978452b70b3cc40631b4139"
+  url "https://github.com/rrwick/Unicycler/archive/v0.4.1.tar.gz"
+  sha256 "00200ea13c2ce90ba7b55917060ffb2e425f59ba515423fa516ff3d6519af336"
   head "https://github.com/rrwick/Unicycler/releases"
   # doi "10.1371/journal.pcbi.1005595"
   # tag "bioinformatics"
