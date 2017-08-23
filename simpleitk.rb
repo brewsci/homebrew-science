@@ -8,8 +8,8 @@ end
 class Simpleitk < Formula
   desc "Simplified layer built on top of ITK"
   homepage "http://www.simpleitk.org"
-  url "https://downloads.sourceforge.net/project/simpleitk/SimpleITK/1.0.0/Source/SimpleITK-1.0.0.tar.gz"
-  sha256 "e3988e8b9db28615faecdecb3e703f54ef67a20be3391d91869f84713f90a414"
+  url "https://downloads.sourceforge.net/project/simpleitk/SimpleITK/1.0.1/Source/SimpleITK-1.0.1.tar.gz"
+  sha256 "ea30b9bdb77c571d073c9fe6b7e5772f7a330d089df7a31ffeaf5a0abeb84c5f"
   version_scheme 1
   head "https://github.com/SimpleITK/SimpleITK.git"
 
