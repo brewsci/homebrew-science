@@ -14,6 +14,7 @@ class Blast < Formula
     sha256 "cbc5f928474dac2befb70abeb3a48482c81dddc96309d06bbe0c79439a7d4fd6" => :sierra
     sha256 "b613e7474b0f7dbdf36e9937da83569c71cf5794f4f7200c9702e77bd480c06b" => :el_capitan
     sha256 "2a28b36b92e381df14713bfcd4098e400f52f93e7882dabc8600dc4c78affac8" => :yosemite
+    sha256 "7bd1d80eed5f7e6c7bf0d6e7183c69ce9fbb4ae19f2225b7bd3166338b2fb787" => :x86_64_linux
   end
 
   option "with-static", "Build without static libraries and binaries"
