@@ -7,9 +7,9 @@ class Siril < Formula
   head "https://free-astro.org/svn/siril/"
 
   bottle do
-    sha256 "37821dd96cda537e64185166f2387ed665d9b206c8ce2cc31def54803e08846c" => :sierra
-    sha256 "8bd56c5b0f3eddce38262575d418a9b72f633638fe5bc1333ef1b36b814d40e1" => :el_capitan
-    sha256 "6005dde9a16e7a525751a3d2d4b318dd4d287fa6e32a9ece4808567cd01450ca" => :yosemite
+    sha256 "32f4aa9faccc2430b0bce1b6d84395d2ba4f4d92b7b92526f2d74fbf0a0efda3" => :sierra
+    sha256 "cd70bd644efdcb5132e7f850381cd1170bfad9c49e641765db9a3882d6a72c30" => :el_capitan
+    sha256 "12f8f68b707b8ee031b6d6795cc4aa906c5b80f5f8a01c8efee96537d5ea92fb" => :yosemite
   end
 
   option "without-openmp", "Disable OpenMP"
