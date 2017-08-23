@@ -14,10 +14,9 @@ class Simpleitk < Formula
   head "https://github.com/SimpleITK/SimpleITK.git"
 
   bottle do
-    sha256 "a1fe57a2916ee47ae3b98016155790f915138eb2cb78ff7e95e8bdf9b1a225b3" => :sierra
-    sha256 "d22b71717c8c1a45d2f823ef3f82b1ee22be13019d14db4f3bbce9fe68b8717b" => :el_capitan
-    sha256 "234ad328cdeecfcfefe41fee3ddbc89334d10a690b484f1950b64a04c23c0b76" => :yosemite
-    sha256 "e4dba27408e1427ed0ce18224eca2fe8026a1b56fec065f242d008a89fa4dadb" => :x86_64_linux
+    sha256 "09fc9272603aeb2e64f1ada657399d6e10194fc5ce29004823b20e8074d972a1" => :sierra
+    sha256 "6cfdd1fb1518993f7ad0dd5088a34ed7028f1e0118f3ddc3b3d6cda28813d35b" => :el_capitan
+    sha256 "469bd0b6bf658ae6b2ac967de45a6ccc4f5fbc98999eee6841b351b6c899eb25" => :yosemite
   end
 
   option "with-examples", "Compile and install various examples"
