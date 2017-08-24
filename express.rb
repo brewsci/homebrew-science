@@ -11,10 +11,9 @@ class Express < Formula
 
   bottle do
     cellar :any
-    sha256 "ec9ceeca8fca3aa5d54a6daa07ef75fa7ec973d8fb8a4055ee7a6794cfbd93c3" => :sierra
-    sha256 "8e9c84c337b7e3fcb6ee2b410fb6d29416e1b4c6fc442ede8090df6dfc81ee48" => :el_capitan
-    sha256 "4b8cf3976c2555bc58b7e6f5add4a1c7f0b1151e7625e630b5827e6058109a6b" => :yosemite
-    sha256 "963c647325403042dfc4e4f948377ab2bdde8ad6d1c8a1a04caba886c635ceef" => :x86_64_linux
+    sha256 "a0527b11749e8cc574e38a3bfd8931ad175aa6f047f8986adde288f63f73eb0c" => :sierra
+    sha256 "eb7a09d9d1b36e6041b24c5b02a88ad01b2a990d3bb5fe5d49748390643ce43a" => :el_capitan
+    sha256 "9a11baa64edfc3f0236f53da3dc3829586140bcd1d9f6138d5ce536a1144bb51" => :yosemite
   end
 
   depends_on "bamtools"
