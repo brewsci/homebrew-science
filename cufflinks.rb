@@ -3,7 +3,7 @@ class Cufflinks < Formula
   homepage "https://cole-trapnell-lab.github.io/cufflinks/"
   url "https://cole-trapnell-lab.github.io/cufflinks/assets/downloads/cufflinks-2.2.1.tar.gz"
   sha256 "e8316b66177914f14b3a0c317e436d386a46c4c212ca1b2326f89f8a2e08d5ae"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -23,6 +23,8 @@ class Cufflinks < Formula
   depends_on "eigen"
 
   def install
+    inreplace "src/biascorrection.h", "boost/tr1/unordered_map.hpp", "boost/unordered_map.hpp"
+
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j4" if ENV["CIRCLECI"]
 
