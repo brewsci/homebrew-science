@@ -11,10 +11,9 @@ class Bless < Formula
 
   bottle do
     cellar :any
-    sha256 "1d6aa3d5b22b14cf97865246d25909140d4087477cb7863960910b3dacd3a410" => :el_capitan
-    sha256 "752caee287ef8fe5250ee778ea2d8a49cb58f8b8bcee8e7abafa93b0305081a6" => :yosemite
-    sha256 "05263b62185382a66c784d0e384730223681ace36e9ea6565dac72f053d6a1bc" => :mavericks
-    sha256 "41c98ca8e8ff7818b013089078a8aee587276fb4b928a95194dd873995de2390" => :x86_64_linux
+    sha256 "ddee4154e60f12d4587a75e7493fef3da68d414eb6ab969ff1b69b90a2df9e7e" => :sierra
+    sha256 "e7205a00d2381bab2cd4901b017a3bb5bba4bd48ea7bf2a2addde879fda9b0fc" => :el_capitan
+    sha256 "2e2e957f828ed0a5edd9dbd8e14637cd8e9c35d2530df8b3ac94a7a83fd01c39" => :yosemite
   end
 
   needs :openmp
