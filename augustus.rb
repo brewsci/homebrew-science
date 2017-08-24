@@ -4,10 +4,9 @@ class Augustus < Formula
   # doi "10.1093/nar/gkh379"
   # tag "bioinformatics"
 
-  url "http://bioinf.uni-greifswald.de/augustus/binaries/augustus-3.2.2.tar.gz"
-  mirror "http://bioinf.uni-greifswald.de/augustus/binaries/old/augustus-3.2.2.tar.gz"
+  url "http://bioinf.uni-greifswald.de/augustus/binaries/old/augustus-3.2.2.tar.gz"
   sha256 "bb36fcaaaab32920908e794d04e6cb57a0c61d689bfbd31b9b6315233ea3559e"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "7d0d1c0394043d7e42355c1e60b518742eb71e78f5ee8646372b7af70253cfa4" => :sierra
