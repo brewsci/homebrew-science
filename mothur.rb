@@ -3,6 +3,7 @@ class Mothur < Formula
   homepage "https://www.mothur.org/"
   url "https://github.com/mothur/mothur/archive/v1.39.5.tar.gz"
   sha256 "9f1cd691e9631a2ab7647b19eb59cd21ea643f29b22cde73d7f343372dfee342"
+  revision 1
   head "https://github.com/mothur/mothur.git"
   # tag "bioinformatics"
   # doi "10.1128/AEM.01541-09"
