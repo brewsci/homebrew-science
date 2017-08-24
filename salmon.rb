@@ -13,6 +13,7 @@ class Salmon < Formula
     sha256 "ab7348f3a8b68324d917ee9ccb7595347a9a1a141f9760a1f11cc2e46036f372" => :sierra
     sha256 "2ac32a183fee18068aeb4fe339391b000add4219c111a1805ce57bc1ef3254b8" => :el_capitan
     sha256 "9690f02d048dd9ade014196bfecd33003a3b9da424a0f75118d74208ecf186d9" => :yosemite
+    sha256 "bb8c9bf185f9ff19c9a9b53c616c408de4819ccc58712a5bb0efb673c7514283" => :x86_64_linux
   end
 
   # See https://github.com/kingsfordgroup/sailfish/issues/74
