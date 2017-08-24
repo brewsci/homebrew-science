@@ -9,9 +9,9 @@ class Mothur < Formula
   # doi "10.1128/AEM.01541-09"
 
   bottle do
-    sha256 "e36995d4192047ec7426e0e5c4861065f7c0d1a3bc5219c4f57b2d501f866ac7" => :sierra
-    sha256 "366829a37a3bab6c743b96c4453dc10c72cd0824bab47f9f118e138eb56dc5b8" => :el_capitan
-    sha256 "b0c33d37d6e78767afd43f4b847695d0d17cb58c8752300a01efbfc8da3bc595" => :yosemite
+    sha256 "a9c491f4967ccc0016077f39167dc2ff39418520d1606e5bd2537c6953edf7bb" => :sierra
+    sha256 "2e916178a3e0bae42efa6da4063dc8a09e3fbb4d1c12fd6b4fa8fc7400f9e749" => :el_capitan
+    sha256 "5e08fdc9fb96955a38a13b73d5ab3003d4cd70ccb5a24b2f1f176500e1b784f1" => :yosemite
   end
 
   depends_on "boost"
