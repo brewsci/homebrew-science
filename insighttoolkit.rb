@@ -9,6 +9,7 @@ class Insighttoolkit < Formula
     sha256 "0898896bea26d1c20691ea4c023d6276d24bfb40465220b5d3898ac73790ee36" => :sierra
     sha256 "d637407caff5b699d1f659a29e969627b5cae70f11fd452a9bc5d646a046e48e" => :el_capitan
     sha256 "6276092520817f8f87d6d795e6c08999d60559711c36e37034239a9deba18b8a" => :yosemite
+    sha256 "abe97ab53527341c77f62c6dc0ff1799b5eef4f00aa82a165a110dcd564c8f7f" => :x86_64_linux
   end
 
   option :cxx11
