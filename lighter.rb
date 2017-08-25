@@ -6,6 +6,8 @@ class Lighter < Formula
 
   url "https://github.com/mourisl/Lighter/archive/v1.1.1.tar.gz"
   sha256 "9b29b87cd87f6d57ef8c39d22fb8679977128a1bdf557d8c161eae2816e374b7"
+  revision 1
+
   head "https://github.com/mourisl/Lighter.git"
 
   bottle do
@@ -16,14 +18,18 @@ class Lighter < Formula
     sha256 "e540b534e05c443bd4496325152245fb9efc23905d8e511ed31aca8fe77ab389" => :x86_64_linux
   end
 
+  depends_on "zlib" unless OS.mac?
+
   def install
-    # do not use "CXXFLAGS=#{ENV.cxxflags}" as -Os compiles incorrectly
-    system "make", "CXX=#{ENV.cxx}"
+    # Miscompiles with -Os, see https://github.com/mourisl/Lighter/issues/24
+    ENV.O2
+    system "make"
     bin.install "lighter"
     doc.install "README.md", "LICENSE"
   end
 
   test do
-    system "#{bin}/lighter", "-h"
+    assert_match "num_of_threads", shell_output("#{bin}/lighter -h 2>&1")
+    assert_match version.to_s, shell_output("#{bin}/lighter -v 2>&1")
   end
 end
