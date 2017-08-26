@@ -12,6 +12,7 @@ class Fasttree < Formula
     sha256 "fc2d0e48e2ac4d63a0b4f978efd7897489e06897ebb9a6b52166f6b6569fc91c" => :sierra
     sha256 "cd24fcca9c9f8b1dca0edd11e5bf7b539e6ddbd8dc06c4d7f995e40bd5271acf" => :el_capitan
     sha256 "33a1e9a3d54465681eadfd6777b67147d5f584e7eb2a9418e42268aca756c9e8" => :yosemite
+    sha256 "ddd430ae428470ad6de97032f78c7766ffd096f6a3af489dd1af8a1ee94dfc99" => :x86_64_linux
   end
 
   # 26 Aug 2017; Community mostly wants USE_DOUBLE; make it default now
