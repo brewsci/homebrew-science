@@ -9,11 +9,9 @@ class Fasttree < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "aa51e0bac1e69fdcca6b7bc3ce2f991cd8ebddccda9bd017dd9d7c97c37d3b9f" => :yosemite
-    sha256 "8fc2e85716afb2b6230faa5ddf48398cc3e8905106a0d429193add343e24dbc4" => :mavericks
-    sha256 "4118a55ddf727c3069c9380d164d716e403554b2dff6b5bb833686cb21a3ec19" => :mountain_lion
-    sha256 "642dfb0168fb2ebfcb8314206da71aa9d4aa70c7d4ee7d77fe1a882e2f4e0c3b" => :x86_64_linux
+    sha256 "fc2d0e48e2ac4d63a0b4f978efd7897489e06897ebb9a6b52166f6b6569fc91c" => :sierra
+    sha256 "cd24fcca9c9f8b1dca0edd11e5bf7b539e6ddbd8dc06c4d7f995e40bd5271acf" => :el_capitan
+    sha256 "33a1e9a3d54465681eadfd6777b67147d5f584e7eb2a9418e42268aca756c9e8" => :yosemite
   end
 
   # 26 Aug 2017; Community mostly wants USE_DOUBLE; make it default now
