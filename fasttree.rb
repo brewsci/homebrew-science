@@ -1,10 +1,11 @@
 class Fasttree < Formula
+  desc "Approximately-maximum-likelihood phylogenetic trees"
   homepage "http://microbesonline.org/fasttree/"
   # doi "10.1371/journal.pone.0009490"
   # tag "bioinformatics"
 
-  url "http://microbesonline.org/fasttree/FastTree-2.1.8.c"
-  sha256 "b172d160f1b12b764d21a6937c3ce01ba42fa8743d95e083e031c6947762f837"
+  url "http://microbesonline.org/fasttree/FastTree-2.1.10.c"
+  sha256 "54cb89fc1728a974a59eae7a7ee6309cdd3cddda9a4c55b700a71219fc6e926d"
 
   bottle do
     cellar :any
@@ -15,7 +16,11 @@ class Fasttree < Formula
     sha256 "642dfb0168fb2ebfcb8314206da71aa9d4aa70c7d4ee7d77fe1a882e2f4e0c3b" => :x86_64_linux
   end
 
-  option "with-double", "Use double precision maths for accurate branch lengths (disables SSE)"
+  # 26 Aug 2017; Community mostly wants USE_DOUBLE; make it default now
+  # http://www.microbesonline.org/fasttree/#BranchLen
+  # http://darlinglab.org/blog/2015/03/23/not-so-fast-fasttree.html
+
+  option "without-double", "Disable double precision floating point. Use single precision floating point and enable SSE."
   option "without-openmp", "Disable multithreading support"
   option "without-sse", "Disable SSE parallel instructions"
 
@@ -31,6 +36,7 @@ class Fasttree < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/FastTree -expert 2>&1")
     (testpath/"test.fa").write <<-EOF.undent
       >1
       LCLYTHIGRNIYYGSYLYSETWNTTTMLLLITMATAFMGYVLPWGQMSFWGATVITNLFSAIPYIGTNLV
@@ -39,6 +45,6 @@ class Fasttree < Formula
       >3
       LCLYTHIGRNIYYGSYLYSETWNTGIMLLLITMATAFMGTTLPWGQMSFWGATVITNLFSAIPYIGTNLV
     EOF
-    assert_match(/1:0.\d+,2:0.\d+,3:0.\d+/, `#{bin}/FastTree test.fa`)
+    assert_match /1:0.\d+,2:0.\d+,3:0.\d+/, shell_output("#{bin}/FastTree test.fa 2>&1")
   end
 end
