@@ -5,6 +5,13 @@ class Lrsim < Formula
   sha256 "89623fba2ce624da4e2c8ce8a99b1a46eb3bc03a8c38044c64f4b8a0d0d9721e"
   # tag "bioinformatics"
 
+  bottle do
+    cellar :any
+    sha256 "3208017c9a2d094ba74dbe9a5d9e8a7313a14bc81d84c7ba31a8e78c058d5450" => :sierra
+    sha256 "f7029c0561c10ce77985ed18ff2b2d910f90912e161a1e180d6484692a963299" => :el_capitan
+    sha256 "8b811b62134ca56ca50911457fd55eca4a6cdda3e46da1dc70f68408d821614e" => :yosemite
+  end
+
   depends_on "samtools"
 
   # error: use of undeclared identifier 'direct_insert_aux'
