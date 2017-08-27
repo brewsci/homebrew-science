@@ -35,6 +35,8 @@ class Gnudatalanguage < Formula
 
   conflicts_with "plplot", :because => "both install a pltek executable"
 
+  fails_with :gcc => "5" unless OS.mac?
+
   # Support HDF5 1.10. See https://bugs.debian.org/841971
   patch do
     url "https://gist.githubusercontent.com/sjackman/00fb95e10b7775d16924efb6faf462f6/raw/71ed3e05138a20b824c9e68707e403afc0f92c98/gnudatalanguage-hdf5-1.10.patch"
