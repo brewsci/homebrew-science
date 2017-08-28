@@ -6,10 +6,9 @@ class Cdo < Formula
 
   bottle do
     cellar :any
-    sha256 "4c48b582be0e9bf7d7607f029ca002ec490ab9e230de87c57fad275df950cbb9" => :sierra
-    sha256 "4d9181952c565989e5aae28ae07998766673bca4368cdb849fd32536e392c5ee" => :el_capitan
-    sha256 "f0e3d29696ed4b1ca0de197ddd8df9196836d87ac48c4d51a58434b7c51c08c6" => :yosemite
-    sha256 "bd29db7c3f7fccc7d73c913f6d42af251d80a3e91e4b18f5a6aae4307e56b6af" => :x86_64_linux
+    sha256 "4767dc0897ec7dbc651baded5141d722f29413217ff830f01961c2c75a9e4d8d" => :sierra
+    sha256 "a39ba567ab6c4e0e23145cb9e1d96bf321c5ef5512b39725abd7f1dfe6baeb46" => :el_capitan
+    sha256 "601f3887779ea747abbee94eba006b5586b637b0273fd7ed142fe1ee3f2c2bd0" => :yosemite
   end
 
   option "with-grib2", "Compile Fortran bindings"
