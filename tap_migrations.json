@@ -35,6 +35,7 @@
   "packmol": "homebrew/core",
   "pcb": "homebrew/core",
   "pcl": "homebrew/core",
+  "pillow": "homebrew/core",
   "qhull": "homebrew/core",
   "qrupdate": "homebrew/core",
   "r": "homebrew/core",
