@@ -24,7 +24,7 @@ class Ckon < Formula
     autoreconf_args = ["-v", "--force", "--install", "-Wall"]
     system "autoreconf", *autoreconf_args
     boostopts = [
-      "--with-boost", "--with-boost-filesystem",
+      "--with-boost=#{Formula['boost'].opt_prefix}", "--with-boost-filesystem",
       "--with-boost-system", "--with-boost-regex",
       "--with-boost-program-options"
     ]
