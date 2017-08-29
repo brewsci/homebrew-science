@@ -3,7 +3,7 @@ class Openimageio < Formula
   homepage "http://openimageio.org"
   url "https://github.com/OpenImageIO/oiio/archive/Release-1.7.16.tar.gz"
   sha256 "12576b336e734ce196961b19847c166805c61f4729c9aa5d6a5957eb7a056539"
-  revision 1
+  revision 2
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
@@ -11,6 +11,12 @@ class Openimageio < Formula
     sha256 "a68f7cadae192d783844c6d5fb723f218110b0a396e140a69b391bd76c9b91f1" => :sierra
     sha256 "25488769e44197d58edac6efdb84c85739acaa7ecce90ec55c95ef4b910d1568" => :el_capitan
     sha256 "9b38d9aefe075675ddf08d8f6e9ddac2002d54717e90d6e7a84c78ad81a74944" => :yosemite
+  end
+
+  patch do
+    # Fixes for Boost 1.65. Remove on new version
+    url "https://github.com/OpenImageIO/oiio/commit/57f294df7430a860c60612c28235730fd429ea0d.diff?full_index=1"
+    sha256 "55806fcb64ceec323ada08c92f44a49d456ca0b33d9986e5443cac885ef290f3"
   end
 
   option "with-test", "Dowload 95MB of test images and verify Oiio (~2 min)"
@@ -36,7 +42,7 @@ class Openimageio < Formula
   depends_on "ffmpeg" => :recommended
   depends_on "libraw" => :recommended
   depends_on "ptex" => :recommended
-  depends_on "opencv" => :recommended
+  depends_on "opencv@2" => :recommended
   depends_on :python3 => :optional
   depends_on "jpeg-turbo" => :optional
 
