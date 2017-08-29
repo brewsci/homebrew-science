@@ -6,6 +6,7 @@ class Lightstringgraph < Formula
     sha256 "3250f00f03aaba15e453633d6e86951bd4caaf7fd6bf9861d703e195f23c494f" => :sierra
     sha256 "9d4e826dbfeffdb135b66b8b1efb58b1493ca57ba2355dec80b078d0bfc3ef17" => :el_capitan
     sha256 "39337dd9526d34d3cbe0e0db7a6eae0911ad6ae0c600b51dce9513aa2bc03cef" => :yosemite
+    sha256 "1ecd99c51c1611691652b67a790f65fe92b6d6115335bd7f94713fd92bee616c" => :x86_64_linux
   end
 
   # http://arxiv.org/pdf/1405.7520.pdf
