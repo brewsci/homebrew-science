@@ -9,6 +9,7 @@ class Cdo < Formula
     sha256 "4767dc0897ec7dbc651baded5141d722f29413217ff830f01961c2c75a9e4d8d" => :sierra
     sha256 "a39ba567ab6c4e0e23145cb9e1d96bf321c5ef5512b39725abd7f1dfe6baeb46" => :el_capitan
     sha256 "601f3887779ea747abbee94eba006b5586b637b0273fd7ed142fe1ee3f2c2bd0" => :yosemite
+    sha256 "3a7d5012555b91198889789f0acb7aefe9f3348bd4d71a1fad7542ce55f8ad57" => :x86_64_linux
   end
 
   option "with-grib2", "Compile Fortran bindings"
