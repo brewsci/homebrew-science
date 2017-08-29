@@ -7,10 +7,9 @@ class Ckon < Formula
   head "https://github.com/tschaume/ckon.git"
 
   bottle do
-    cellar :any
-    sha256 "2640f29e71414376b319a1b4300c5c94d9f4810f76b041bdc29002deba643355" => :sierra
-    sha256 "0a88e3e16853f39b18a85569283f74efbb974ca7624b5f492f978633d02cddd5" => :el_capitan
-    sha256 "262f08654a505af1dc855e6af169df6a2b645058a77cfbaaa71deb8af53c2c12" => :yosemite
+    sha256 "1c65f1a293f459c46f35cea64ca4c67f1de32ad69ef6b248c243836d47f37821" => :sierra
+    sha256 "aff1d12c445cf760945745293699977cc07a1c7c1a2ef5d706474ebfff38a057" => :el_capitan
+    sha256 "0146919b7bd272b7b997356d5721a362ce80a4f5f66885962181948667e7cd09" => :yosemite
   end
 
   depends_on "boost"
