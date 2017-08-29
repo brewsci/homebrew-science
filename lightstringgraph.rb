@@ -3,9 +3,9 @@ class Lightstringgraph < Formula
   homepage "http://lsg.algolab.eu/"
   bottle do
     cellar :any
-    sha256 "75fc42a4825b1ab2e49cdc7ac2b811ce703b4e563e4d12e2f42492913b22a607" => :sierra
-    sha256 "3a8f5158f3f9e5ff44dddd3a13ac331d0b2c8824a960a6700ba882104963e1e0" => :el_capitan
-    sha256 "1478fddf3f079339169d24759b9331af18837073b5b3dbafd2b86912df69b1ed" => :yosemite
+    sha256 "3250f00f03aaba15e453633d6e86951bd4caaf7fd6bf9861d703e195f23c494f" => :sierra
+    sha256 "9d4e826dbfeffdb135b66b8b1efb58b1493ca57ba2355dec80b078d0bfc3ef17" => :el_capitan
+    sha256 "39337dd9526d34d3cbe0e0db7a6eae0911ad6ae0c600b51dce9513aa2bc03cef" => :yosemite
   end
 
   # http://arxiv.org/pdf/1405.7520.pdf
