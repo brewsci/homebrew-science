@@ -3,7 +3,7 @@ class Ckon < Formula
   homepage "https://tschaume.github.io/ckon/"
   url "https://github.com/tschaume/ckon/archive/v0.7.1.tar.gz"
   sha256 "4cc8bde10430e21520aed4b7ac5f6d96a80b8a91014760997f9a7039103a7e0d"
-  revision 3
+  revision 4
   head "https://github.com/tschaume/ckon.git"
 
   bottle do
