@@ -12,6 +12,7 @@ class Nanopolish < Formula
   bottle do
     sha256 "9c88b5dc830fb9c1f50dd02d85fcd862c5a00de59b22265af8e6c91d768f986f" => :sierra
     sha256 "0fd1e70ac85708a8a7d76d1b694ddb2337f48b2bbb81bad57b9e67870e405fe5" => :el_capitan
+    sha256 "95b2d97edcc11b0c64960888a7751d2ec105af235b35c5af69e6a5cb13c30f96" => :x86_64_linux
   end
 
   needs :cxx11
