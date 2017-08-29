@@ -8,9 +8,9 @@ class Openimageio < Formula
 
   bottle do
     cellar :any
-    sha256 "a68f7cadae192d783844c6d5fb723f218110b0a396e140a69b391bd76c9b91f1" => :sierra
-    sha256 "25488769e44197d58edac6efdb84c85739acaa7ecce90ec55c95ef4b910d1568" => :el_capitan
-    sha256 "9b38d9aefe075675ddf08d8f6e9ddac2002d54717e90d6e7a84c78ad81a74944" => :yosemite
+    sha256 "866aa487ec1fa065515d8f46f487b2a34a31661cfee68f44eda3b01c6e834c07" => :sierra
+    sha256 "00cab59152d6289d105caab08d511f094c7ee769b076ccd133de16e29a376888" => :el_capitan
+    sha256 "6b1285da00710a75f52051bdfc351305e25734d522519279e3a7b6e040f38a47" => :yosemite
   end
 
   patch do
