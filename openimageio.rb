@@ -16,7 +16,7 @@ class Openimageio < Formula
   patch do
     # Fixes for Boost 1.65. Remove on new version
     url "https://github.com/OpenImageIO/oiio/commit/57f294df7430a860c60612c28235730fd429ea0d.diff?full_index=1"
-    sha256 "55806fcb64ceec323ada08c92f44a49d456ca0b33d9986e5443cac885ef290f3"
+    sha256 "6db4b2de64153f4fc7483167fb956ef555f2751c2c528bdb5a81a15fd2090f54"
   end
 
   option "with-test", "Dowload 95MB of test images and verify Oiio (~2 min)"
