@@ -6,10 +6,9 @@ class Yices < Formula
 
   bottle do
     cellar :any
-    sha256 "21c4912d4b5a632d252a90352a91463f7d9bb96add62b82d8bcbf43256b27cbb" => :sierra
-    sha256 "614796d70880e4a7b6ce3ac78ba98697bd9dd6d0084d8a6c1f6f61c943e0fc5f" => :el_capitan
-    sha256 "1a47b5478c6645432615c70a0742f9a2508121e40f7db8a01c85aee4a90d507b" => :yosemite
-    sha256 "afdd24d990d29dd3722e95dd276408267099ec11e9b0ed12a4dea2f41d5d2e2b" => :x86_64_linux
+    sha256 "e480423bc7fbf94a3ba512a4f672c66057905f9aaee061caf80ae84259ea0555" => :sierra
+    sha256 "da027117a516e23047f3baaf6c9fe2c986434bec34c64ddeb72a11832535db5c" => :el_capitan
+    sha256 "47be959ca49dd851401cc9dcddf29cf7fe0f5f9e59f8639255e405a25e51e1ca" => :yosemite
   end
 
   depends_on "cmake" => :build
