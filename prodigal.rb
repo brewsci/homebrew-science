@@ -8,11 +8,10 @@ class Prodigal < Formula
   # tag "bioinformatics"
 
   bottle do
-    cellar :any
-    sha256 "04589946de1192c7473c63a8f933fc421a5d5d5eebd61f8f659895dd18c0d87c" => :yosemite
-    sha256 "78e0d323775b06739c84984b79c3444bc40d0c1ec3f89d8d5a410f53e48539a5" => :mavericks
-    sha256 "0c0a4cfa497f3521023f15d7f3e94f197db313e432368489cd9ed80734f3ae50" => :mountain_lion
-    sha256 "846a3edf95d0577fed82fc37aab60c1affaa5101f0dbf9bbd9b7aa3c4d164c8d" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "79729bb335ac93842f0d06282243184de24e7290ab8fea17bee0e54504f69159" => :sierra
+    sha256 "0fadc805dab3dc9ac682bd9bb92555ee5a821906b09c2553aaf781fa4e022409" => :el_capitan
+    sha256 "149c2a9a0a23843bd989119e7f80bb93572474645df16271e43415d3734e180f" => :yosemite
   end
 
   def install
