@@ -1,8 +1,8 @@
 class Itensor < Formula
   desc "C++ library for implementing tensor product wavefunction calculations"
   homepage "http://itensor.org/"
-  url "https://github.com/ITensor/ITensor/archive/v2.1.0.tar.gz"
-  sha256 "3a3c0fb5b93dfe38ef00a07bb30266f5a79bda0917f5202de900eb54a0b58188"
+  url "https://github.com/ITensor/ITensor/archive/v2.1.1.tar.gz"
+  sha256 "b91a67af66ed0fa7678494f3895b5d5ae7f1dc1026540689f9625f515cb7791c"
   head "https://github.com/ITensor/ITensor.git"
 
   bottle do
@@ -102,13 +102,16 @@ class Itensor < Formula
       using namespace itensor;
       int main()
       {
-          Index site("spin", 2, Site);
-          printfln("%d", site.m());
+          Index i("i", 2), j("j", 2);
+          ITensor t(i,j), u(i), s, v;
+          t.fill(1.0);
+          svd(t, u, s, v);
+          printfln("%.2f", norm(s));
           return 0;
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cc", "-o", "test",
         "-I#{include}", "-L#{lib}", "-litensor", *blas_lapack_flags
-    assert_match "2", shell_output("./test")
+    assert_match "2.00", shell_output("./test").chomp
   end
 end
