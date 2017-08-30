@@ -1,9 +1,8 @@
 class Oce < Formula
   desc "Open CASCADE Community Edition"
   homepage "https://github.com/tpaviot/oce"
-  url "https://github.com/tpaviot/oce/archive/OCE-0.18.tar.gz"
-  sha256 "226e45e77c16a4a6e127c71fefcd171410703960ae75c7ecc7eb68895446a993"
-  revision 2
+  url "https://github.com/tpaviot/oce/archive/OCE-0.18.2.tar.gz"
+  sha256 "dc21ddea678a500ad87c773e9a502ed7a71768cf83d9af0bd4c43294186a7fef"
 
   bottle do
     sha256 "95b2fe2ee8e109a3a367d6c385a05b2fd1ab9cf6375a2f446427adc4588280d6" => :sierra
@@ -20,20 +19,19 @@ class Oce < Formula
   depends_on "freeimage" => :recommended
   depends_on "gl2ps" => :recommended
   depends_on "tbb" => :recommended
-  depends_on :macos => :snow_leopard
 
-  unless OS.mac?
+  if OS.mac?
+    depends_on :xcode => :build
+    depends_on :macos => :snow_leopard
+  else
     depends_on "tcl-tk"
   end
 
   conflicts_with "opencascade", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
 
-  # fix build with Xcode 8 "previous definition of CLOCK_REALTIME"
-  # reported 27 Sep 2016 https://github.com/tpaviot/oce/issues/643
-  patch :DATA if !DevelopmentTools.clang_version.nil? && DevelopmentTools.clang_version >= "8.0"
-
   def install
     cmake_args = std_cmake_args
+    cmake_args.delete("-DHAVE_CLOCK_GETTIME:INTERNAL=0")
     cmake_args << "-DOCE_INSTALL_PREFIX:STRING=#{prefix}"
     cmake_args << "-DOCE_COPY_HEADERS_BUILD:BOOL=ON"
     cmake_args << "-DOCE_DRAW:BOOL=ON"
@@ -67,17 +65,3 @@ class Oce < Formula
     assert_equal "1", shell_output(cmd).chomp
   end
 end
-
-__END__
-diff --git a/src/OSD/OSD_Chronometer.cxx b/src/OSD/OSD_Chronometer.cxx
-index f7374fb..63ac140 100644
---- a/src/OSD/OSD_Chronometer.cxx
-+++ b/src/OSD/OSD_Chronometer.cxx
-@@ -51,7 +51,7 @@
-   #include <mach/mach.h>
- #endif
-
--#if defined(__APPLE__) && defined(__MACH__)
-+#if defined(__APPLE__) && !defined(__MAC_10_12)
- #include "gettime_osx.h"
- #endif
