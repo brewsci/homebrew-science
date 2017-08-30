@@ -11,6 +11,7 @@ class Phyml < Formula
     sha256 "96c762a5ea82c4fdfa6369371eb05a2ac33852c7c60f7b065ae2e88a49852257" => :sierra
     sha256 "d9de8865da3981c1ff738b80a61d11c725beaa6f7bd8b2edb485f5016d921ff7" => :el_capitan
     sha256 "c9593560d779728c268ce43422623f4529e68753f1d59ec99ccb25695fdb9075" => :yosemite
+    sha256 "6ad02dc4e8254ecb2a7e899c78473e81409c9aa135fff108096429397e2128d8" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
