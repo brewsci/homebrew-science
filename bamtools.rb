@@ -7,6 +7,7 @@ class Bamtools < Formula
   url "https://github.com/pezmaster31/bamtools/archive/v2.4.1.tar.gz"
   sha256 "933a0c1a83c88c1dac8078c0c0e82f6794c75cb927265399404bc2cc2611204b"
   head "https://github.com/pezmaster31/bamtools.git"
+  revision 1
 
   bottle do
     cellar :any
@@ -20,8 +21,8 @@ class Bamtools < Formula
 
   patch do
     # Install libbamtools in /usr/local/lib; reported 29 July 2013
-    url "https://github.com/pezmaster31/bamtools/pull/82.patch"
-    sha256 "960032af95dcd6554329e6707c048c2a59808ea22800b270a268a92f8e67006b"
+    url "https://github.com/pezmaster31/bamtools/pull/82.patch?full_index=1"
+    sha256 "93a12cac30327699374ebd43516c755458b4ba06d687736180d10e05582ec179"
   end
 
   def install
