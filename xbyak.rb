@@ -1,8 +1,8 @@
 class Xbyak < Formula
   desc "Header file for dynamic assembly: x86(IA32), x64(AMD64, x86-64) mnemonic"
   homepage "http://herumi.in.coocan.jp"
-  url "https://github.com/herumi/xbyak/archive/v4.70.tar.gz"
-  sha256 "158b6b43792361314226b11a27678a62b2dd3229ae34f217050501b80e422dc2"
+  url "https://github.com/herumi/xbyak/archive/v5.53.tar.gz"
+  sha256 "5685a283573e35a3791be2bb80c301e810c6e3fcba29dd4740154fc73ee3f490"
   head "https://github.com/herumi/xbyak.git"
 
   def install
