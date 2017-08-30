@@ -1,13 +1,12 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "http://lammps.sandia.gov"
-  url "http://lammps.sandia.gov/tars/lammps-31Mar17.tar.gz"
+  url "http://lammps.sandia.gov/tars/lammps-11Aug17.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY.MM.DD (year.month.day) so that we get a comparable version numbering (for brew outdated).
   # We only track "stable" releases as announced on the LAMMPS homepage.
-  version "2017.03.31"
-  sha256 "c90158833f99a823ce81b24d88abef2336a79e4966bd789443d2aa22cbb81cb9"
-  revision 2
+  version "2017.08.11"
+  sha256 "33431329fc735fb12d22ed33399235ef9506ba759a281a24028de538822af104"
   head "http://git.icms.temple.edu/lammps-ro.git"
   # tag "chemistry"
   # doi "10.1006/jcph.1995.1039"
@@ -109,8 +108,11 @@ class Lammps < Formula
 
     if OS.mac?
       cd "lib/python" do
-        inreplace ["Makefile.lammps", "Makefile.lammps.python2"],
-          "python_SYSLIB = $(shell which python2-config > /dev/null 2>&1 && python2-config --ldflags || python-config --ldflags)",
+        inreplace "Makefile.lammps.python2",
+          "python_SYSLIB = $(shell which python2-config > /dev/null 2>&1 && python2-config --ldflags || (which python-config > /dev/null 2>&1 && python-config --ldflags || :))",
+          "python_SYSLIB = -ldl -framework CoreFoundation -undefined dynamic_lookup"
+        inreplace "Makefile.lammps",
+          "python_SYSLIB = $(shell which python-config > /dev/null 2>&1 && python-config --ldflags || :)",
           "python_SYSLIB = -ldl -framework CoreFoundation -undefined dynamic_lookup"
         inreplace "Makefile.lammps.python2.7",
           "python_SYSLIB = -lpython2.7 -lnsl -ldl -lreadline -ltermcap -lpthread -lutil -lm -Xlinker -export-dynamic",
