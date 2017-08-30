@@ -5,6 +5,13 @@ class Xbyak < Formula
   sha256 "5685a283573e35a3791be2bb80c301e810c6e3fcba29dd4740154fc73ee3f490"
   head "https://github.com/herumi/xbyak.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "744b9153333bc23a5fe778402cf93a77b9b8039b0bf8f38bfd37c058fb1e269d" => :sierra
+    sha256 "744b9153333bc23a5fe778402cf93a77b9b8039b0bf8f38bfd37c058fb1e269d" => :el_capitan
+    sha256 "744b9153333bc23a5fe778402cf93a77b9b8039b0bf8f38bfd37c058fb1e269d" => :yosemite
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
