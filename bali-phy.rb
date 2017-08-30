@@ -6,9 +6,9 @@ class BaliPhy < Formula
   head "https://github.com/bredelings/BAli-Phy.git"
 
   bottle do
-    sha256 "45db51cef110e5f82812996be15c5965ab03e3467a66145ccfbeab27fc382ef8" => :el_capitan
-    sha256 "0716809b2b3dcfb1a6597c7a5ad1be30c83ddb04f142600453382f7313f3e7b7" => :yosemite
-    sha256 "65e7717165ba2f21993c6a182d38bd3f16e957e9f823ddc757b818aae5d6c7eb" => :mavericks
+    sha256 "50fa703af91bb78303464e6e02db8603e8722e01a1275c8cc6b44254b9dacfab" => :sierra
+    sha256 "62fa80287c762052da28393ff946765c1390c1da0c917cdbac6e98f0600856e9" => :el_capitan
+    sha256 "9a243403ab53dc740dbfb5f34eb829fd4aa777bed544ece0d09c040994ad0b14" => :yosemite
   end
 
   depends_on "pkg-config" => :build
