@@ -12,6 +12,7 @@ class Prodigal < Formula
     sha256 "79729bb335ac93842f0d06282243184de24e7290ab8fea17bee0e54504f69159" => :sierra
     sha256 "0fadc805dab3dc9ac682bd9bb92555ee5a821906b09c2553aaf781fa4e022409" => :el_capitan
     sha256 "149c2a9a0a23843bd989119e7f80bb93572474645df16271e43415d3734e180f" => :yosemite
+    sha256 "3084c4ff6eb8010dcf0c07c35d9640d50055ac2be0d46442bc6601d104ce5d1c" => :x86_64_linux
   end
 
   def install
