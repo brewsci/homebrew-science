@@ -7,9 +7,9 @@ class Butterflow < Formula
 
   bottle do
     cellar :any
-    sha256 "b8b9dee4f0112c37cf3394f0342adfe30d25fff9e8fcb8f42b4bebe3cb75ac06" => :sierra
-    sha256 "4c645b300030bd0098d52e567cf91cf21d8c91d3e89fe8ef18dc27c6fd82512b" => :el_capitan
-    sha256 "3e1611b5d0af1f29c83bb16a1884cac9281080e05294ab5df2bf3d547b42f577" => :yosemite
+    sha256 "d8a9575b6f6f82dd97fbcbef7decbfe506662c16b0f241cf7d949b7b5a5e4102" => :sierra
+    sha256 "cdba4c5a27de847adaf9057b538a858aebe6ebd9a3cf8c084a2444a8d04dd52c" => :el_capitan
+    sha256 "04bad6a26382651b922394d2145914d2aa882e1daaf42b9b174e92fd276290e8" => :yosemite
   end
 
   # To satisfy OpenCL 1.2 requirement
