@@ -8,10 +8,9 @@ class Sga < Formula
   # tag "bioinformatics"
 
   bottle do
-    sha256 "6337cf4e83fad44a794ab27443cee7f20977898ee774c133a34aa629106197d4" => :sierra
-    sha256 "abf45ed87ec57fdf7711c7d40f02f62c0a786941aeef073b9dbf4f6f26e3f113" => :el_capitan
-    sha256 "ffe45f8727f1be0b613c35fe0673d0d292ea3f128b951e6bfadf1f6c56119cb9" => :yosemite
-    sha256 "94d42b4690fd179606c930860dc5ecaf108314fd514eac9058be1a8937c27f42" => :x86_64_linux
+    sha256 "6d04064faf78bb77d302783b3977e57d28f8d16d524b42660b2b85fe9363d43b" => :sierra
+    sha256 "ff5ee31db095e42df84c8701afaf4adc95adbdf4efb259c8d9207d1518e0f398" => :el_capitan
+    sha256 "eccaea15d67467f0fce69cdbf83771af215be8c2a8903a93f4e43eb7c0bf63d5" => :yosemite
   end
 
   depends_on "autoconf" => :build
