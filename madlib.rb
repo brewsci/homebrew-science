@@ -1,9 +1,9 @@
 class Madlib < Formula
   desc "Library for scalable in-database analytics."
   homepage "https://madlib.incubator.apache.org/"
-  url "https://github.com/apache/incubator-madlib/archive/rel/v1.9.1.tar.gz"
-  sha256 "60ffb6bb2c41895330e62b3eea135ebdd42ac88c34db9f016a151795b3dbbcbc"
-  head "https://github.com/apache/incubator-madlib.git"
+  url "https://github.com/apache/madlib/archive/rel/v1.12.tar.gz"
+  sha256 "4f21b1f463f22ee7ddefbe2e4c52e254a7156aefef980f1b3f26479f5f8c1672"
+  head "https://github.com/apache/madlib.git"
 
   bottle do
     sha256 "5f29f29d2c1d606e7cb4e65b95d6930331ea304a846d396053278629c0a93229" => :sierra
@@ -14,8 +14,8 @@ class Madlib < Formula
 
   boost_opts = []
   boost_opts << "c++11" if MacOS.version < :mavericks
-  depends_on "boost" => boost_opts
-  depends_on "boost-python" => boost_opts if build.with? "python"
+  depends_on "boost@1.59" => boost_opts
+  depends_on "boost-python@1.59" => boost_opts if build.with? "python"
   depends_on "cmake" => :build
   depends_on "postgresql" => ["with-python"]
   depends_on :python => :optional
@@ -26,8 +26,8 @@ class Madlib < Formula
   end
 
   resource "eigen" do
-    url "https://bitbucket.org/eigen/eigen/get/3.2.2.tar.gz"
-    sha256 "318d68c5a9c20ec20d08f1a50a10fb4991a25fd5474a969e771cd9f2a79c9e5f"
+    url "https://bitbucket.org/eigen/eigen/get/3.2.10.tar.gz"
+    sha256 "04f8a4fa4afedaae721c1a1c756afeea20d3cdef0ce3293982cf1c518f178502"
   end
 
   fails_with :clang do
@@ -39,9 +39,6 @@ class Madlib < Formula
     build 5666
     cause "See http://jira.madlib.net/browse/MADLIB-865"
   end
-
-  # See https://github.com/apache/incubator-madlib/pull/76
-  patch :DATA
 
   def install
     # http://jira.madlib.net/browse/MADLIB-913
@@ -97,17 +94,3 @@ class Madlib < Formula
     end
   end
 end
-
-__END__
-diff --git a/src/dbal/BoostIntegration/MathToolkit_impl.hpp b/src/dbal/BoostIntegration/MathToolkit_impl.hpp
-index 2239f14..a83b421 100644
---- a/src/dbal/BoostIntegration/MathToolkit_impl.hpp
-+++ b/src/dbal/BoostIntegration/MathToolkit_impl.hpp
-@@ -11,6 +11,7 @@
-
- #include <iomanip>
-
-+#include <boost/format.hpp>
- #include <boost/math/policies/error_handling.hpp>
-
- namespace boost {
