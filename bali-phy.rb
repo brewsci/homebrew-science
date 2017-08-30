@@ -1,10 +1,8 @@
 class BaliPhy < Formula
   desc "Simultaneous Bayesian estimation of alignment and phylogeny"
   homepage "http://www.bali-phy.org/"
-  url "http://www.bali-phy.org/bali-phy-2.3.7.tar.gz"
-  sha256 "3120f9b448d308889093aa26a5941866c2841078e5eb9f1af1e2a6cbb134356a"
-  revision 1
-
+  url "http://www.bali-phy.org/files/bali-phy-2.3.8.tar.gz"
+  sha256 "2e19fe736042574107300b12309b40f537364b7e9f637141863914b8680b7456"
   head "https://github.com/bredelings/BAli-Phy.git"
 
   bottle do
@@ -17,10 +15,9 @@ class BaliPhy < Formula
   depends_on "cairo"
   depends_on "boost"
 
-  needs :cxx11
+  needs :cxx14
 
   def install
-    ENV.cxx11
     mkdir "macbuild" do
       system "../configure", "--disable-debug", "--disable-dependency-tracking",
                              "--prefix=#{prefix}",
