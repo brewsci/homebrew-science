@@ -3,6 +3,7 @@ class Shark < Formula
   homepage "http://image.diku.dk/shark/"
   url "https://github.com/Shark-ML/Shark/archive/v3.1.4.tar.gz"
   sha256 "160c35ddeae3f6aeac3ce132ea4ba2611ece39eee347de2faa3ca52639dc6311"
+  revision 1
 
   bottle do
     cellar :any
