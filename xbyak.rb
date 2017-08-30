@@ -10,6 +10,7 @@ class Xbyak < Formula
     sha256 "744b9153333bc23a5fe778402cf93a77b9b8039b0bf8f38bfd37c058fb1e269d" => :sierra
     sha256 "744b9153333bc23a5fe778402cf93a77b9b8039b0bf8f38bfd37c058fb1e269d" => :el_capitan
     sha256 "744b9153333bc23a5fe778402cf93a77b9b8039b0bf8f38bfd37c058fb1e269d" => :yosemite
+    sha256 "9fb000c7df3a2e283c5dd42434c302367583f310d80bee94c85e1b001dad4ac1" => :x86_64_linux
   end
 
   def install
