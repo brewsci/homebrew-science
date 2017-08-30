@@ -8,10 +8,9 @@ class Phyml < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "54afc7cc2ff1bfbe3ee89b60431132e4ab57d0ff9091677846ae3c306603d55d" => :el_capitan
-    sha256 "10f0ed39855d390490c069e16da43ec98b106acde013201fb9e757bb25f3ec8d" => :yosemite
-    sha256 "dac19c8053a821f6a28057cd67863733b48c3372309f1d8bacfa904e2da5701e" => :mavericks
-    sha256 "37737392a5d053b12831167dc4eed1f7dc1fd722ed4e64d6c5c2d03eb7635de8" => :x86_64_linux
+    sha256 "96c762a5ea82c4fdfa6369371eb05a2ac33852c7c60f7b065ae2e88a49852257" => :sierra
+    sha256 "d9de8865da3981c1ff738b80a61d11c725beaa6f7bd8b2edb485f5016d921ff7" => :el_capitan
+    sha256 "c9593560d779728c268ce43422623f4529e68753f1d59ec99ccb25695fdb9075" => :yosemite
   end
 
   depends_on "autoconf" => :build
