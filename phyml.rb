@@ -20,6 +20,8 @@ class Phyml < Formula
   depends_on "pkg-config" => :build
 
   def install
+    # fatal error: 'malloc.h' file not found
+    # Upstream issue from 31 Jan 2017 https://github.com/stephaneguindon/phyml/issues/52
     inreplace "src/utilities.h", "#include <malloc.h>", "" if OS.mac?
 
     system "./autogen.sh"
