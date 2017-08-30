@@ -9,6 +9,7 @@ class Yices < Formula
     sha256 "e480423bc7fbf94a3ba512a4f672c66057905f9aaee061caf80ae84259ea0555" => :sierra
     sha256 "da027117a516e23047f3baaf6c9fe2c986434bec34c64ddeb72a11832535db5c" => :el_capitan
     sha256 "47be959ca49dd851401cc9dcddf29cf7fe0f5f9e59f8639255e405a25e51e1ca" => :yosemite
+    sha256 "d6e40dd842e89e7b83eba751644096dfc27e6e16d2a14c8cc6e3d13c56a75fa8" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
