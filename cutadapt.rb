@@ -11,10 +11,9 @@ class Cutadapt < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c069f5025f5b1b63df75a95a187d6af3ea6b64bffa7dccf4e0fb5c2253ef3027" => :sierra
-    sha256 "5ed3d933438e9e63325a0ec832f7d4ce341d309d513a6c80b7042c24b651996c" => :el_capitan
-    sha256 "85ca64bc5fd24d2137b6d61d3fce4bc9c54574747b9beece23b47bdd59a9ea8c" => :yosemite
-    sha256 "60cd4273e6f64c2f3968ac06244c0492551cd65d0046dc932c2202d0fc4dae4a" => :x86_64_linux
+    sha256 "a1d6850badc3e9c7eaced05e8a6dbc0b21cdfef22802cac60c55be1334d363e5" => :sierra
+    sha256 "006bad70fcb2e7631aadd048a8ab79c6f51f9862cfb16610a0b988e60b89e8b4" => :el_capitan
+    sha256 "95d9d8e8241116abb0ed52456c7473fb87de38a6499201acd28a78f94da98582" => :yosemite
   end
 
   depends_on :python3
