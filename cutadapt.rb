@@ -14,6 +14,7 @@ class Cutadapt < Formula
     sha256 "a1d6850badc3e9c7eaced05e8a6dbc0b21cdfef22802cac60c55be1334d363e5" => :sierra
     sha256 "006bad70fcb2e7631aadd048a8ab79c6f51f9862cfb16610a0b988e60b89e8b4" => :el_capitan
     sha256 "95d9d8e8241116abb0ed52456c7473fb87de38a6499201acd28a78f94da98582" => :yosemite
+    sha256 "dbeed8e0dc35c5838b3aa2be9a72e71e6d6dbfc76b3574b9f0a3fc1ed76d36f7" => :x86_64_linux
   end
 
   depends_on :python3
