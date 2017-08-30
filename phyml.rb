@@ -1,8 +1,8 @@
 class Phyml < Formula
   desc "Fast maximum likelihood-based phylogenetic inference"
   homepage "http://www.atgc-montpellier.fr/phyml/"
-  url "https://github.com/stephaneguindon/phyml/archive/v3.2.0.tar.gz"
-  sha256 "9fec8fc26e69cad8d58bf2c9433b531754e4f026dc3464d07958b6c824783fde"
+  url "https://github.com/stephaneguindon/phyml/archive/v3.3.20170530.tar.gz"
+  sha256 "f826726cd56b755be75f923abdf29aca8a9951d6af948cddbab40739a8f99f74"
   # tag "bioinformatics"
   # doi "10.1093/sysbio/syq010"
 
@@ -20,7 +20,8 @@ class Phyml < Formula
   depends_on "pkg-config" => :build
 
   def install
-    chmod 0755, 'autogen.sh'
+    inreplace "src/utilities.h", "#include <malloc.h>", "" if OS.mac?
+
     system "./autogen.sh"
 
     # separate steps required
