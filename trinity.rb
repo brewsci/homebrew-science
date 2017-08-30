@@ -3,7 +3,7 @@ class Trinity < Formula
   homepage "https://trinityrnaseq.github.io"
   url "https://github.com/trinityrnaseq/trinityrnaseq/archive/Trinity-v2.4.0.tar.gz"
   sha256 "2e91ed242923205b060164398aa325e5fe824040732d86c74ece4f98d7a6f220"
-  revision 1
+  revision 2
   head "https://github.com/trinityrnaseq/trinityrnaseq.git"
 
   # doi "10.1038/nbt.1883"
