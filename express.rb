@@ -14,6 +14,7 @@ class Express < Formula
     sha256 "6031c8f90d25186232c592e802b9aa62a08315f35552812812c0a7f96a2b733e" => :sierra
     sha256 "4c4680ff5d9a3a3307aa4f25e3fb864ceb2f62d5d34d1d66b057b727c17765d6" => :el_capitan
     sha256 "3c8fbcb343bf059819962628341d75a6a014f18955b3d00415d6ed1b68dc590c" => :yosemite
+    sha256 "0b0bfd41b16cf6ca31dcdb47766dbe2d7e9fe552442dc7dd668eef5490cb9305" => :x86_64_linux
   end
 
   depends_on "bamtools"
