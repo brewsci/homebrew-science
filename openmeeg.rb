@@ -6,11 +6,9 @@ class Openmeeg < Formula
   head "https://github.com/openmeeg/openmeeg.git"
 
   bottle do
-    cellar :any
-    sha256 "54ee28ca0bf4a95c1218af5f0eca8b33e6f91e92aebfb71e304362716104453e" => :sierra
-    sha256 "f5b43d31a3824f1bc1228ae2d20e4e10f2c7c8a1def2d884dd2c571d9f6e6dd9" => :el_capitan
-    sha256 "24329f1ded566b7b80f1455dd42f21d5b96590bd7a297016e53dd607d46df1fe" => :yosemite
-    sha256 "c193f07c03481244b9541700dc5663c1a93fcdf7fb35e452b5aea54dbef3a701" => :x86_64_linux
+    sha256 "94a34600db09392fa39c2d2547e3db8fd383359deb530b4bd47469257e2a0bd1" => :sierra
+    sha256 "f4031a9ebb02f8f4097596887ed188d771703b3b832dea5b699d7ace64524d4f" => :el_capitan
+    sha256 "3d0a3e81f90f838ce050ccaa0c9b26a41155ccc83fa02f5961fff24b2fcd4247" => :yosemite
   end
 
   depends_on "cmake" => :build
