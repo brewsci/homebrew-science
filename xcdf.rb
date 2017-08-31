@@ -10,6 +10,7 @@ class Xcdf < Formula
     sha256 "b8f96d4b44fea3a30751f88f43779fdea50ee6588da74f4e1b639cae70b88703" => :sierra
     sha256 "e3c6f06ee0df724563e956fd7db74b851ca4668f8113f04fa085110a47fac1a4" => :el_capitan
     sha256 "5a423e15d21339f3db529cb6ccadae717c10bd9a1e9ad7e413a77b0fbe6acd4c" => :yosemite
+    sha256 "f634b5934dcc50144f273938e708ae9e5b609b7e68ac673448ce452ecff559f8" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
