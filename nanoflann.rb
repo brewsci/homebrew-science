@@ -11,6 +11,7 @@ class Nanoflann < Formula
     sha256 "1ace2e2e1bb328cbce2c92c1a46970dcee5012ddae023274567a631a052b0cc3" => :sierra
     sha256 "1ace2e2e1bb328cbce2c92c1a46970dcee5012ddae023274567a631a052b0cc3" => :el_capitan
     sha256 "1ace2e2e1bb328cbce2c92c1a46970dcee5012ddae023274567a631a052b0cc3" => :yosemite
+    sha256 "ca47b76a7411c34e13ca50f496a1e48bd347d07eaf3e544cad824f9fe0c6a505" => :x86_64_linux
   end
 
   depends_on "cmake" => :build
