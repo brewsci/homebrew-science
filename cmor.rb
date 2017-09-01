@@ -1,8 +1,8 @@
 class Cmor < Formula
   desc "Climate Model Output Rewriter for producing CF-compliant netCDF files"
   homepage "https://cmor.llnl.gov/"
-  url "https://github.com/PCMDI/cmor/archive/CMOR-3.2.5.tar.gz"
-  sha256 "0ceba81bb6d51a9e0c0138a439ed921fd991335e337e1185f7a8ae27a61bb46f"
+  url "https://github.com/PCMDI/cmor/archive/CMOR-3.2.6.tar.gz"
+  sha256 "63a3656ed5a37bfb748766770e61665d6f94b2465d7df47fc03c568e5eb3104a"
   # doi "10.5281/zenodo.61943"
 
   bottle do
@@ -15,7 +15,7 @@ class Cmor < Formula
 
   depends_on "ossp-uuid"
   depends_on "udunits"
-  depends_on "netcdf" => "with-fortran"
+  depends_on "netcdf"
   depends_on :fortran
 
   def install
