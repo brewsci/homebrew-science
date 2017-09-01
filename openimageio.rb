@@ -1,9 +1,8 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "http://openimageio.org"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-1.7.16.tar.gz"
-  sha256 "12576b336e734ce196961b19847c166805c61f4729c9aa5d6a5957eb7a056539"
-  revision 2
+  url "https://github.com/OpenImageIO/oiio/archive/Release-1.7.17.tar.gz"
+  sha256 "669c59d06399dd882c3e2469bb3a4b33d537db150f6fe056495c3429b5c3838f"
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
@@ -11,12 +10,6 @@ class Openimageio < Formula
     sha256 "866aa487ec1fa065515d8f46f487b2a34a31661cfee68f44eda3b01c6e834c07" => :sierra
     sha256 "00cab59152d6289d105caab08d511f094c7ee769b076ccd133de16e29a376888" => :el_capitan
     sha256 "6b1285da00710a75f52051bdfc351305e25734d522519279e3a7b6e040f38a47" => :yosemite
-  end
-
-  patch do
-    # Fixes for Boost 1.65. Remove on new version
-    url "https://github.com/OpenImageIO/oiio/commit/57f294df7430a860c60612c28235730fd429ea0d.diff?full_index=1"
-    sha256 "6db4b2de64153f4fc7483167fb956ef555f2751c2c528bdb5a81a15fd2090f54"
   end
 
   option "with-test", "Dowload 95MB of test images and verify Oiio (~2 min)"
