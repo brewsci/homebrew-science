@@ -3,7 +3,7 @@ class Gubbins < Formula
   homepage "https://github.com/sanger-pathogens/gubbins"
   url "https://github.com/sanger-pathogens/gubbins/archive/v2.2.0.tar.gz"
   sha256 "245bc70d05b9f0f3ea10e6a20203ac049d1b912c1af8cf9b90763fd38e148cb2"
-  revision 2
+  revision 3
   head "https://github.com/sanger-pathogens/gubbins.git"
   # tag "bioinformatics"
   # doi "10.1093/nar/gku1196"
@@ -26,7 +26,7 @@ class Gubbins < Formula
   depends_on "numpy"
   depends_on "raxml"
   depends_on "webp"
-  depends_on "fasttree" => ["with-double", :recommended]
+  depends_on "fasttree" => :recommended
   unless OS.mac?
     depends_on "pkg-config" => :build
     depends_on "zlib"
