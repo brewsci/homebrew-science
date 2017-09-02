@@ -21,9 +21,11 @@ class Gubbins < Formula
   depends_on "libtool"   => :build
   depends_on "check"     => :build
   depends_on :python3
+  depends_on "freetype"
+  depends_on "jpeg"
   depends_on "numpy"
-  depends_on "pillow"
   depends_on "raxml"
+  depends_on "webp"
   depends_on "fasttree" => ["with-double", :recommended]
   unless OS.mac?
     depends_on "pkg-config" => :build
@@ -45,6 +47,11 @@ class Gubbins < Formula
     sha256 "f1bffef9cbc82628f6e7d7b40d7e255aefaa1adb6a1b1d26c69a8b79e6208a98"
   end
 
+  resource "Pillow" do
+    url "https://files.pythonhosted.org/packages/55/aa/f7f983fb72710a9daa4b3374b7c160091d3f94f5c09221f9336ade9027f3/Pillow-4.2.1.tar.gz"
+    sha256 "c724f65870e545316f9e82e4c6d608ab5aa9dd82d5185e5b2e72119378740073"
+  end
+
   resource "reportlab" do
     url "https://files.pythonhosted.org/packages/b8/17/7c5342dfbc9dc856173309270006e34c3bfad59934f0faa1dcc117ac93f1/reportlab-3.3.0.tar.gz"
     sha256 "f48900b9321bcb2871a46543993bd995148d769a11a9e24495f25b4ec0bbe267"
@@ -56,6 +63,25 @@ class Gubbins < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{version}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{version}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", "#{HOMEBREW_PREFIX}/lib/python#{version}/site-packages"
+
+    resource("Pillow").stage do
+      inreplace "setup.py" do |s|
+        sdkprefix = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+        s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
+        s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+        s.gsub! "JPEG_ROOT = None", "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
+        s.gsub! "FREETYPE_ROOT = None", "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"
+      end
+
+      begin
+        # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
+        deleted = ENV.delete "SDKROOT"
+        ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers" unless MacOS::CLT.installed?
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      ensure
+        ENV["SDKROOT"] = deleted
+      end
+    end
 
     %w[nose biopython DendroPy reportlab].each do |r|
       resource(r).stage do
