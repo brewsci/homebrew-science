@@ -11,6 +11,7 @@ class Abinit < Formula
     sha256 "b8531892abd1ccac94a512c66ab5fe0a2cc7fd05c67ed296a2da0c535bf231be" => :sierra
     sha256 "35a81ed4fdd183b9232e7f26336cf4a4152c6efa573580bbe436394d6f023735" => :el_capitan
     sha256 "64f91f20b9761343914a8197999ff2148a5175cd86fada3b3df87c3fa94ca145" => :yosemite
+    sha256 "0e249ed342982877049444e0242830111ed4a35eef2815a60c88ec6687175000" => :x86_64_linux
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
