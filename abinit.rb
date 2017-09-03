@@ -1,8 +1,8 @@
 class Abinit < Formula
   desc "Atomic-scale first-principles simulation software"
   homepage "http://www.abinit.org"
-  url "http://ftp.abinit.org/abinit-8.4.2.tar.gz"
-  sha256 "cadf062ec9778f23d715ce62eee9954aabfacce2fe5814ff1d3545a4dc4dcbb0"
+  url "https://www.abinit.org/sites/default/files/packages/abinit-8.4.3.tar.gz"
+  sha256 "a8fa95c346c00aa2dbed18bd9d42c74a4c89be1f28b010a43b624c0331423f04"
   # tag "chemistry"
   # doi "10.1016/j.cpc.2009.07.007"
 
@@ -23,7 +23,7 @@ class Abinit < Formula
   depends_on :mpi => [:cc, :cxx, :f77, :f90]
   depends_on :fortran
   depends_on "fftw" => ["with-mpi", "with-fortran", :recommended]
-  depends_on "netcdf" => ["with-fortran", :recommended]
+  depends_on "netcdf" => :recommended
   depends_on "gsl" => :recommended
   if OS.mac?
     depends_on "veclibfort"
