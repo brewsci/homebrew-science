@@ -12,6 +12,7 @@ class Bowtie2 < Formula
     sha256 "e98014fb3fce6541d662fd9b28c99bad72922cf5a95655ce80f46c67fd4b9a09" => :sierra
     sha256 "198f0e7175beee234eab8825397933f3eb8f448cd4061fb2fe05f4ed2cf67355" => :el_capitan
     sha256 "de5b86a2fc5ee255c3b78972f27ac748fe960a95f45f119fc21d018cebaea190" => :yosemite
+    sha256 "1a322927459d9b4290643362ff45af8ddb6ef545670015dd4c538e216aee626b" => :x86_64_linux
   end
 
   option "without-tbb", "Build without using Intel Thread Building Blocks (TBB)"
