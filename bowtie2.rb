@@ -3,8 +3,8 @@ class Bowtie2 < Formula
   homepage "https://bowtie-bio.sourceforge.io/"
   # doi "10.1038/nmeth.1923"
   # tag "bioinformatics"
-  url "https://github.com/BenLangmead/bowtie2/archive/v2.3.2.tar.gz"
-  sha256 "20653fec933c23c8c792c8101b8a1db9b55a694ee797afcfba97be85532e8a43"
+  url "https://github.com/BenLangmead/bowtie2/archive/v2.3.3.tar.gz"
+  sha256 "7d4d455a4af70d02a1ae4ce1a0b21b7d3018737dd197579e1a5612a5c01887c8"
   head "https://github.com/BenLangmead/bowtie2.git"
 
   bottle do
