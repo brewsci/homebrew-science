@@ -1,11 +1,10 @@
 class Spades < Formula
   desc "SPAdes: de novo genome assembly"
   homepage "http://bioinf.spbau.ru/spades/"
-  url "http://cab.spbu.ru/files/release3.10.1/SPAdes-3.10.1.tar.gz"
-  sha256 "d49dd9eb947767a14a9896072a1bce107fb8bf39ed64133a9e2f24fb1f240d96"
-  revision 1
-  # tag "bioinformatics"
+  url "http://cab.spbu.ru/files/release3.11.0/SPAdes-3.11.0.tar.gz"
+  sha256 "308aa3e6c5fb00221a311a8d32c5e8030990356ae03002351eac10abb66bad1f"
   # doi "10.1089/cmb.2012.0021"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any
@@ -16,8 +15,7 @@ class Spades < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"
-  depends_on :python if OS.linux?
+  depends_on :python unless OS.mac?
 
   needs :openmp
 
@@ -26,8 +24,8 @@ class Spades < Formula
   end
 
   def install
-    inreplace "src/common/utils/segfault_handler.hpp",
-              /(#include <signal.h>)/, "\\1\n#include <functional>"
+    # Fix error: 'uint' does not name a type
+    inreplace "src/projects/ionhammer/config_struct.hpp", "uint", "unsigned"
 
     mkdir "src/build" do
       system "cmake", "..", *std_cmake_args
