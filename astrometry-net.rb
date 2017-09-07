@@ -10,6 +10,7 @@ class AstrometryNet < Formula
     sha256 "0edf86b6e6b416fb8417f7c8647022903a92961eee65a4af95e7956c0a779f92" => :sierra
     sha256 "0ff3186b0f44c4bf2af7e025f32053e33478c58f82f3f5de57f79cc317aa1ddf" => :el_capitan
     sha256 "4942f8e1901a2c25e1a212f8aa31754ac67f4d2b78a076686532bf3b44931d75" => :yosemite
+    sha256 "7635867ed4deb5da049bdd1598e1e27b1f1ac1203f0c506c09002885de5f5fb3" => :x86_64_linux
   end
 
   option "without-extras", "Don't try to build plotting code (actually it will still try, but homebrew won't halt the install if it fails)"
