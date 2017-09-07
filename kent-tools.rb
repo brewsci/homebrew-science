@@ -17,6 +17,8 @@ class KentTools < Formula
   depends_on :mysql
   depends_on "libpng"
   depends_on "openssl"
+  depends_on "util-linux" unless OS.mac?
+  depends_on "zlib" unless OS.mac?
 
   def install
     libpng = Formula["libpng"]
