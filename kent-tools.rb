@@ -11,6 +11,7 @@ class KentTools < Formula
     sha256 "0182493728c26b8c04e5a1ac784d92fb8550f6f5f88288e1c2436f580f4fe180" => :sierra
     sha256 "a99b9cd252b872d9ae85652bbb7f9fea0e219982b31b03b8038f1e1fa5403302" => :el_capitan
     sha256 "6d2f37da7f672f4d8a33bb3d05a1c3080b7133ed104a7143f07a5128fa53241b" => :yosemite
+    sha256 "fa7ab977faaeb9d1555c5aba8c29359729953238f9d3999fc766e7d6ee3794a0" => :x86_64_linux
   end
 
   depends_on :mysql
