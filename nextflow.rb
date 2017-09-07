@@ -4,8 +4,8 @@ class Nextflow < Formula
   # doi "10.1038/nbt.3820"
   # tag "bioinformatics"
 
-  url "https://www.nextflow.io/releases/v0.25.6/nextflow"
-  sha256 "9498806596c96ba87396194fa6f1d7d1cdb739990f83e7e89d1d055366c5a943"
+  url "https://www.nextflow.io/releases/v0.25.7/nextflow"
+  sha256 "79a1695bca00500ac4c3f7f2781835c7cc29913bf96da0b1594e0f5019cba7c0"
   head "https://github.com/nextflow-io/nextflow.git"
 
   bottle :unneeded
