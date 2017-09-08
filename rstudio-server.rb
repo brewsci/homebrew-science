@@ -1,9 +1,8 @@
 class RstudioServer < Formula
   desc "Integrated development environment (IDE) for R"
   homepage "https://www.rstudio.com"
-  url "https://github.com/rstudio/rstudio/archive/v1.0.143.tar.gz"
-  sha256 "8ae88731b4474e5e2ff9030aa14e168903fe3a7ffc4fa716f497084a86801062"
-  revision 1
+  url "https://github.com/rstudio/rstudio/archive/v1.0.153.tar.gz"
+  sha256 "79b90e21e56b114e28b03fd8543a208c55bb9d5f47a87fd29143d08b9a06f7a0"
   head "https://github.com/rstudio/rstudio.git"
 
   bottle do
@@ -17,11 +16,13 @@ class RstudioServer < Formula
   depends_on "cmake" => :build
   depends_on "r" => :recommended
   if OS.linux?
-    depends_on "linuxbrew/extra/linux-pam" => :recommended
-    depends_on "libuuid" => :recommended
-    depends_on "libffi" => :recommended
+    depends_on "patchelf" => :build
+    depends_on "libedit"
+    depends_on "ncurses"
     depends_on "jdk" => :recommended
-    depends_on "patchelf"
+    depends_on "libffi"
+    depends_on "util-linux" # for libuuid
+    depends_on "linuxbrew/extra/linux-pam"
   end
   depends_on "boost"
   depends_on "openssl"
@@ -71,9 +72,31 @@ class RstudioServer < Formula
     sha256 "939a2d7f37e26287970be942df70f3e8f272bac2eb868ce1de18bb95d3c26c71"
   end
 
-  resource "pandoc" do
-    url "https://s3.amazonaws.com/rstudio-buildtools/pandoc-1.17.2.zip"
-    sha256 "887991ffbe191278ddc010146c8ab3e98810932d08a6201245a8acb1ddc38390"
+  if build.head?
+    if OS.linux?
+      resource "pandoc" do
+        url "https://s3.amazonaws.com/rstudio-buildtools/pandoc/1.19.2.1/linux-64/pandoc.gz"
+        sha256 "25dab022a12ec67575f4d2f8383c1130c42342ab064ef5e1954790b17e8f7b57"
+      end
+      resource "pandoc-citeproc" do
+        url "https://s3.amazonaws.com/rstudio-buildtools/pandoc/1.19.2.1/linux-64/pandoc-citeproc.gz"
+        sha256 "1243ffd30f490ad0d793259acbbd5d0a95996d3051df7ead1b8f006fcbca0944"
+      end
+    elsif OS.mac?
+      resource "pandoc" do
+        url "https://s3.amazonaws.com/rstudio-buildtools/pandoc/1.19.2.1/macos/pandoc-1.19.2.1.zip"
+        sha256 "9d6e085d1f904b23bc64de251968b63422e7c691c61b0b6963c997c23af54447"
+      end
+      resource "pandoc-citeproc" do
+        url "https://s3.amazonaws.com/rstudio-buildtools/pandoc/1.19.2.1/macos/pandoc-citeproc-0.10.4.zip"
+        sha256 "11db1554ffd64c692a4f92e7bfa26dbe685300055ab463130e6fd4188f1958ae"
+      end
+    end
+  else
+    resource "pandoc" do
+      url "https://s3.amazonaws.com/rstudio-buildtools/pandoc-1.17.2.zip"
+      sha256 "eac653a0422a8c60e59a74ffb091b6ba6f01929b274cad9e02589bcc3d0e9b9f"
+    end
   end
 
   resource "libclang" do
@@ -91,19 +114,51 @@ class RstudioServer < Formula
     sha256 "eda59b6baf1279f15ca10ead75d35d54fd88e488e1fcffba2ee8ea115cf753ed"
   end
 
-  if build.head?
-    resource "rsconnect" do
-      url "https://github.com/rstudio/rsconnect.git", :branch => "master"
-    end
-
-    resource "rmarkdown" do
-      url "https://github.com/rstudio/rmarkdown.git", :branch => "master"
-    end
-  end
-
   unless build.head?
-    # this piece of code has been removed from RStudio master as R API has changed.
+    # patches necessary for boost 1.65
     patch :DATA
+
+    # this hunk has been removed from RStudio master as R API has changed.
+    patch <<-EOS.undent
+      diff --git a/src/cpp/r/RRoutines.cpp b/src/cpp/r/RRoutines.cpp
+      --- a/src/cpp/r/RRoutines.cpp
+      +++ b/src/cpp/r/RRoutines.cpp
+      @@ -54,14 +54,6 @@ void registerAll()
+          R_CMethodDef* pCMethods = NULL;
+          if (s_cMethods.size() > 0)
+          {
+      -      R_CMethodDef nullMethodDef ;
+      -      nullMethodDef.name = NULL ;
+      -      nullMethodDef.fun = NULL ;
+      -      nullMethodDef.numArgs = 0 ;
+      -      nullMethodDef.types = NULL;
+      -      nullMethodDef.styles = NULL;
+      -      s_cMethods.push_back(nullMethodDef);
+      -      pCMethods = &s_cMethods[0];
+          }
+
+    EOS
+
+    patch do
+      # allow non-framework R installation
+      # https://github.com/rstudio/rstudio/pull/1504
+      url "https://github.com/rstudio/rstudio/commit/e9a06e1efc66694dfd60c7bb0b6edfa5530eb6c6.patch?full_index=1"
+      sha256 "b3a507a7aef229b29b7aa658b158150d505764f68eb48a9cddd89460d7cd185c"
+    end
+
+    patch do
+      # set the default LANG to en_US.UTF-8
+      # https://github.com/rstudio/rstudio/pull/1506
+      url "https://github.com/rstudio/rstudio/commit/d5eaec730b66fe1d7eff0ca6bc7bc7f00d44e690.patch?full_index=1"
+      sha256 "0eb51358d0f5d099e1783f3ab0e7e00310e769441d3386bc01e64428ee4503e2"
+    end
+
+    patch do
+      # set the default LANG to en_US.UTF-8
+      # https://github.com/rstudio/rstudio/pull/1507
+      url "https://github.com/rstudio/rstudio/commit/b14242baeb7e24a133930412994b3670c5feaa0b.patch?full_index=1"
+      sha256 "cb44f4c9592884f8f57a63fe9253ffff443068e48786722e9a30719c55eb36f0"
+    end
   end
 
   def which_linux_distribution
@@ -140,19 +195,22 @@ class RstudioServer < Formula
     (common_dir/"mathjax-26").install resource("mathjax")
 
     if build.head?
-      (common_dir/"rsconnect").install resource("rsconnect")
-      (common_dir/"rmarkdown").install resource("rmarkdown")
-    end
-
-    resource("pandoc").stage do
-      if OS.linux?
-        arch = Hardware::CPU.is_64_bit? ? "x86_64" : "i686"
-
-        (common_dir/"pandoc/1.17.2/").install "linux/#{which_linux_distribution}/#{arch}/pandoc"
-        (common_dir/"pandoc/1.17.2/").install "linux/#{which_linux_distribution}/#{arch}/pandoc-citeproc"
-      elsif OS.mac?
-        (common_dir/"pandoc/1.17.2/").install "mac/pandoc"
-        (common_dir/"pandoc/1.17.2/").install "mac/pandoc-citeproc"
+      resource("pandoc").stage do
+        (common_dir/"pandoc/1.19.2.1/").install "pandoc"
+      end
+      resource("pandoc-citeproc").stage do
+        (common_dir/"pandoc/1.19.2.1/").install "pandoc-citeproc"
+      end
+    else
+      resource("pandoc").stage do
+        if OS.linux?
+          arch = Hardware::CPU.is_64_bit? ? "x86_64" : "i686"
+          (common_dir/"pandoc/1.17.2/").install "linux/#{which_linux_distribution}/#{arch}/pandoc"
+          (common_dir/"pandoc/1.17.2/").install "linux/#{which_linux_distribution}/#{arch}/pandoc-citeproc"
+        elsif OS.mac?
+          (common_dir/"pandoc/1.17.2/").install "mac/pandoc"
+          (common_dir/"pandoc/1.17.2/").install "mac/pandoc-citeproc"
+        end
       end
     end
 
@@ -170,7 +228,7 @@ class RstudioServer < Formula
       args << "-DBOOST_INCLUDEDIR=#{Formula["boost"].opt_include}"
       args << "-DBOOST_LIBRARYDIR=#{Formula["boost"].opt_lib}"
       args << "-DCMAKE_INSTALL_PREFIX=#{prefix}/rstudio-server"
-      args << "-DCMAKE_CXX_FLAGS=-I#{Formula["openssl"].opt_include}"
+      args << "-DCMAKE_CXX_FLAGS=-I#{Formula["openssl"].opt_include} -D__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0"
 
       linkerflags = "-DCMAKE_EXE_LINKER_FLAGS=-L#{Formula["openssl"].opt_lib} -L#{Formula["boost"].opt_lib}"
       if OS.linux?
@@ -221,15 +279,18 @@ class RstudioServer < Formula
     if OS.linux?
       if which_linux_distribution == "rpm"
         daemon = <<-EOS
+
               sudo cp #{opt_prefix}/extras/systemd/rstudio-server.redhat.service /etc/systemd/system/
         EOS
       else
         daemon = <<-EOS
+
               sudo cp #{opt_prefix}/extras/systemd/rstudio-server.service /etc/systemd/system/
         EOS
       end
     elsif OS.mac?
       daemon = <<-EOS
+
               If it is an upgrade or the plist file exists, unload the plist first
               sudo launchctl unload -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
 
@@ -237,13 +298,13 @@ class RstudioServer < Formula
               sudo launchctl load -w /Library/LaunchDaemons/com.rstudio.launchd.rserver.plist
       EOS
     end
-    <<-EOS.undent
+
+    <<-EOS.unindent
       - To test run RStudio Server,
           sudo #{opt_bin}/rserver --server-daemonize=0
 
       - To complete the installation of RStudio Server
-          1. register RStudio daemon
-#{daemon}
+          1. register RStudio daemon#{daemon}
           2. install the PAM configuration
               sudo cp #{opt_prefix}/extras/pam/rstudio /etc/pam.d/
 
@@ -263,19 +324,27 @@ class RstudioServer < Formula
 end
 
 __END__
-diff --git a/src/cpp/r/RRoutines.cpp b/src/cpp/r/RRoutines.cpp
---- a/src/cpp/r/RRoutines.cpp
-+++ b/src/cpp/r/RRoutines.cpp
-@@ -54,14 +54,6 @@ void registerAll()
-    R_CMethodDef* pCMethods = NULL;
-    if (s_cMethods.size() > 0)
-    {
--      R_CMethodDef nullMethodDef ;
--      nullMethodDef.name = NULL ;
--      nullMethodDef.fun = NULL ;
--      nullMethodDef.numArgs = 0 ;
--      nullMethodDef.types = NULL;
--      nullMethodDef.styles = NULL;
--      s_cMethods.push_back(nullMethodDef);
--      pCMethods = &s_cMethods[0];
-    }
+diff --git a/src/cpp/core/Trace.cpp b/src/cpp/core/Trace.cpp
+--- a/src/cpp/core/Trace.cpp
++++ b/src/cpp/core/Trace.cpp
+@@ -22,6 +22,8 @@
+
+ #include <core/Thread.hpp>
+
++#include <iostream>
++
+ namespace rstudio {
+ namespace core {
+ namespace trace {
+diff --git a/src/cpp/session/modules/SessionSVN.cpp b/src/cpp/session/modules/SessionSVN.cpp
+--- a/src/cpp/session/modules/SessionSVN.cpp
++++ b/src/cpp/session/modules/SessionSVN.cpp
+@@ -1190,7 +1190,7 @@ struct CommitInfo
+    std::string author;
+    std::string subject;
+    std::string description;
+-   boost::posix_time::time_duration::sec_type date;
++   boost::uint64_t date;
+ };
+
+ bool commitIsMatch(const std::vector<std::string>& patterns,
