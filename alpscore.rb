@@ -10,6 +10,7 @@ class Alpscore < Formula
     cellar :any
     sha256 "09e7dcd5be0f25164e1db0ac0fc7ac187f7e74c5fc00766742945ce3d6b9dec6" => :sierra
     sha256 "d61663c3b8eafd58259a10cb3a6d06754a293293d456043d5e51f15ee60c33ff" => :el_capitan
+    sha256 "ef5c8384e224e4ea72cd33f4882acd454c1d29a3ddd30a310c0e8ce20e045fd3" => :x86_64_linux
   end
 
   option :cxx11
