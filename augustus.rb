@@ -6,7 +6,7 @@ class Augustus < Formula
 
   url "http://bioinf.uni-greifswald.de/augustus/binaries/old/augustus-3.2.2.tar.gz"
   sha256 "bb36fcaaaab32920908e794d04e6cb57a0c61d689bfbd31b9b6315233ea3559e"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "78d63fb1a78421d41d625938d15be4bbe43f0e1869501b1f600843608f3f4ea6" => :sierra
