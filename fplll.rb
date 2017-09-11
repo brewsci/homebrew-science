@@ -1,9 +1,9 @@
 class Fplll < Formula
-  desc "fplll: Lattice algorithms using floating-point arithmetic"
+  desc "Lattice algorithms using floating-point arithmetic"
   homepage "https://github.com/fplll/fplll"
   # tag "math"
-  url "https://github.com/fplll/fplll/releases/download/5.1.0/fplll-5.1.0.tar.gz"
-  sha256 "58175c54cc92752576a64361c73e4ea7797fc18fb703b3f22c7570a09075486f"
+  url "https://github.com/fplll/fplll/releases/download/5.2.0/fplll-5.2.0.tar.gz"
+  sha256 "75e17fcaa4fc5fdddbe6eb42aca5f38c4c169a4b52756e74fbe2d1769737ac9c"
 
   bottle do
     sha256 "4d5560046f79d850f084b07cfbc59e27a550c969259302f95ac078f5da7e5bff" => :sierra
