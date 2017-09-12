@@ -8,6 +8,7 @@ class Cufflinks < Formula
   bottle do
     sha256 "d9e4198c221f3cf2a1a81f5dcf6faefa2e272d7ca2616cf2886a229d7513f9ad" => :sierra
     sha256 "04344209d7c17496d1af0d4bd56513dc7a271e2344fa5e1b5d9c1155377799bb" => :el_capitan
+    sha256 "0f09fdb99d08dc958242a79e2b37601063d1d77d8f8d111a063f8c608850a39a" => :x86_64_linux
   end
 
   if OS.mac? && MacOS.version == :mavericks
