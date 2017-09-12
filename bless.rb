@@ -13,6 +13,7 @@ class Bless < Formula
     cellar :any
     sha256 "53b7ecad83a4c6e5bb7d60612e45ada3506d11485e20e6513dd1064b5ba7dfa5" => :sierra
     sha256 "b072d6c255fd1643df8d26d800406e959198812ad860e4e6ffea9f349a3f921b" => :el_capitan
+    sha256 "2413c26d2f3f76c16daa9d7b87a07169df5012512fda952878074c951bec7d2d" => :x86_64_linux
   end
 
   needs :openmp
