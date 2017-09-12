@@ -8,6 +8,7 @@ class Fplll < Formula
   bottle do
     sha256 "30e57a63f3f73b7c6c0bf2483b77302e7f850c764b4676f9aaca75b2a8be7e13" => :sierra
     sha256 "36ace8be9340aa6cf29ed1d431f56e0c8df9064005334d9ffae14aaf039ce7a3" => :el_capitan
+    sha256 "46430c3ce03a664c7a14f22335bbfe99728a77f08e9447bca95ce5be66c42011" => :x86_64_linux
   end
 
   needs :cxx11
