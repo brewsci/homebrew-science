@@ -11,6 +11,7 @@ class Tophat < Formula
     cellar :any
     sha256 "b804e6bf82f232895b6c8ba21a3c107a1a8b6616732e52589e959132dd276f33" => :sierra
     sha256 "b964747668f7ab6b87bde406ed879b43ea657411a9d7d110bf927d5ee7bba896" => :el_capitan
+    sha256 "a6a9c831594ec15ee2335b7146a7f86eba18f4a7224ec4af882fd276532be8c2" => :x86_64_linux
   end
 
   depends_on "boost"
