@@ -10,9 +10,8 @@ class Scram < Formula
   head "https://github.com/rakhimov/scram.git"
 
   bottle do
-    sha256 "713d34e4aef68d96c3a00f2ba34ef505a75e2e3de639744e0603928453c03e7c" => :sierra
-    sha256 "3dfcfcddeefa5fe548178f6eb6a75b59170efd311476fbaa8349e555e87f1ca1" => :el_capitan
-    sha256 "95ead45a8ec47848963f9df023ae9b492cf58ecad5942be546944138b35498e4" => :yosemite
+    sha256 "09d611fe813d13b098758846342d64cdc44b19ac42f1cc6fc4596affb263e07c" => :sierra
+    sha256 "af3a7ca19582e7226f8d74b1ac65a2e451a8cf99065c0352df901f7330dc8f51" => :el_capitan
   end
 
   needs :cxx14
