@@ -7,7 +7,7 @@ class Bless < Formula
   url "https://downloads.sourceforge.net/project/bless-ec/bless.v0p24.tgz"
   version "0.24"
   sha256 "4214a7f9277e92c02acc132f0f8ba88e7d05a7fd3135a59fc1c6e52ca37d181a"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
