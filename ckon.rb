@@ -7,9 +7,8 @@ class Ckon < Formula
   head "https://github.com/tschaume/ckon.git"
 
   bottle do
-    sha256 "1c65f1a293f459c46f35cea64ca4c67f1de32ad69ef6b248c243836d47f37821" => :sierra
-    sha256 "aff1d12c445cf760945745293699977cc07a1c7c1a2ef5d706474ebfff38a057" => :el_capitan
-    sha256 "0146919b7bd272b7b997356d5721a362ce80a4f5f66885962181948667e7cd09" => :yosemite
+    sha256 "3457c6c11472fc5093691dca0164a18a745a51e91cdbcba48f4c56c7c336c718" => :sierra
+    sha256 "4dd26c5ef70245361d6069439dbd9aed53f69f57c22251b71960b3bfe34b4158" => :el_capitan
   end
 
   depends_on "boost"
