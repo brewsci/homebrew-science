@@ -10,6 +10,7 @@ class Sollya < Formula
     cellar :any
     sha256 "0bdf63143ce17ed5dfb2fb806fd035635d46f1f5b2e189afbaef419c3da878ee" => :sierra
     sha256 "430e46f8eb66ba72b757d44bf78bda39950536fff589994e68c7280798def4e9" => :el_capitan
+    sha256 "344b8d77fd5cabfee3698e18cd02b0106a03996ca9f185c3258b3f9dd664e0c8" => :x86_64_linux
   end
 
   # doi "10.1007/978-3-642-15582-6_5"
