@@ -6,10 +6,8 @@ class Cufflinks < Formula
   revision 3
 
   bottle do
-    sha256 "66ea47fbb7a2885269c977559c072c25aeac4cf948c9c80719caf3911cb4f4ca" => :sierra
-    sha256 "39f7233c84bd7d9099cc98f4d8584d008fd17bdb7be6f027f1f3e9255df4e23a" => :el_capitan
-    sha256 "5e05aac65472d4fad7f45f96af67ec263a92b3eaecaef87f6c9b5459bd893c24" => :yosemite
-    sha256 "542571c1a1564bbf8429b094029a76f91571f567cab351c2e576e940048e574d" => :x86_64_linux
+    sha256 "d9e4198c221f3cf2a1a81f5dcf6faefa2e272d7ca2616cf2886a229d7513f9ad" => :sierra
+    sha256 "04344209d7c17496d1af0d4bd56513dc7a271e2344fa5e1b5d9c1155377799bb" => :el_capitan
   end
 
   if OS.mac? && MacOS.version == :mavericks
