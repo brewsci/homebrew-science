@@ -5,6 +5,7 @@ class Lightstringgraph < Formula
     cellar :any
     sha256 "1d4178768a325048be4bd52b8408adabc01f60f15a1d07e27d98d8d0f132c55c" => :sierra
     sha256 "b4d75609112fcb4f04ea8e5b066e74408fd697224e543b22dac1618eb3e6e380" => :el_capitan
+    sha256 "7a2c4769125a547e0a79acda893a80184352d5e0d98ca1c38d45e1f4e67c3e7a" => :x86_64_linux
   end
 
   # http://arxiv.org/pdf/1405.7520.pdf
