@@ -9,6 +9,7 @@ class Ckon < Formula
   bottle do
     sha256 "3457c6c11472fc5093691dca0164a18a745a51e91cdbcba48f4c56c7c336c718" => :sierra
     sha256 "4dd26c5ef70245361d6069439dbd9aed53f69f57c22251b71960b3bfe34b4158" => :el_capitan
+    sha256 "ff9d0761b5b9ec40c57040d754c0ea79734a63f0ff9e6cd0c7e2d85e9575167c" => :x86_64_linux
   end
 
   depends_on "boost"
