@@ -3,7 +3,7 @@ class Tophat < Formula
   homepage "https://ccb.jhu.edu/software/tophat"
   url "https://ccb.jhu.edu/software/tophat/downloads/tophat-2.1.1.tar.gz"
   sha256 "37840b96f3219630082b15642c47f5ef95d14f6ee99c06a369b08b3d05684da5"
-  revision 5
+  revision 6
   # doi "10.1093/bioinformatics/btp120"
   # tag "bioinformatics"
 
