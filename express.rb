@@ -3,7 +3,7 @@ class Express < Formula
   homepage "http://bio.math.berkeley.edu/eXpress/"
   url "https://pachterlab.github.io/eXpress/downloads/express-1.5.1/express-1.5.1-src.tgz"
   sha256 "0c5840a42da830fd8701dda8eef13f4792248bab4e56d665a0e2ca075aff2c0f"
-  revision 8
+  revision 9
   head "https://github.com/adarob/eXpress.git"
 
   # doi "10.1038/nmeth.2251"
