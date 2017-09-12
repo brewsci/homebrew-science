@@ -13,6 +13,7 @@ class Express < Formula
     cellar :any
     sha256 "84931d98f06484db897be2e48de9bf2fbce638ecfa0964faba51de3d66ef305f" => :sierra
     sha256 "f6f7602f9b234eeca8da2f2abbb0fb5a0294a39c61fa91a9d20288baf84ed950" => :el_capitan
+    sha256 "5958675433a77b743711c1c40b86bf8c8509f2316d2364000e6957c24d78a0a7" => :x86_64_linux
   end
 
   depends_on "bamtools"
