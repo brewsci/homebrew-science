@@ -5,6 +5,7 @@ class Scram < Formula
   url "https://github.com/rakhimov/scram.git",
     :revision => "aa6f9b3737882062af2bc69570bb529ff0f72fd3",
     :tag => "0.15.0"
+  revision 1
 
   head "https://github.com/rakhimov/scram.git"
 
