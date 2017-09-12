@@ -11,6 +11,7 @@ class Delly < Formula
   bottle do
     sha256 "ae43c8a4c1cc69b62de2f72f750c3352fda23a0eb1989305d97ae5acba3d5d70" => :sierra
     sha256 "1d0969f4586cc55f93b45c6cdfd30f20211c90d2556a90e9e18ed04c25c60971" => :el_capitan
+    sha256 "bb86a4b18d37edda2d9f25b3a9aeee1a035239ad8049abd6d5b06525e5274fd2" => :x86_64_linux
   end
 
   option "with-binary", "Install a statically linked binary for 64-bit Linux" if OS.linux?
