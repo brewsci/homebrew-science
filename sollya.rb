@@ -3,7 +3,7 @@ class Sollya < Formula
   homepage "http://sollya.gforge.inria.fr/"
   url "https://gforge.inria.fr/frs/download.php/file/36271/sollya-6.0.tar.bz2"
   sha256 "05321581ba47f5e0804b712157dfc5343a268ca6c1983dce48fdd1e91d5b0a1f"
-  revision 1
+  revision 2
   head "https://scm.gforge.inria.fr/anonscm/git/sollya/sollya.git"
 
   bottle do
@@ -21,6 +21,7 @@ class Sollya < Formula
   depends_on "mpfr"
   depends_on "mpfi"
   depends_on "fplll"
+  depends_on "libxml2" unless OS.mac?
 
   def install
     system "./configure", "--disable-debug",
