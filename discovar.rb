@@ -35,6 +35,6 @@ class Discovar < Formula
   end
 
   test do
-    system "Discovar", "--version"
+    system "#{bin}/Discovar", "--version"
   end
 end
