@@ -2,8 +2,9 @@ class RstudioServer < Formula
   desc "Integrated development environment (IDE) for R"
   homepage "https://www.rstudio.com"
   url "https://github.com/rstudio/rstudio/archive/v1.0.153.tar.gz"
-  sha256 "79b90e21e56b114e28b03fd8543a208c55bb9d5f47a87fd29143d08b9a06f7a0"
+  sha256 "10521e6ef2e5b7497458007c55fa911cc0454685e6079e67ac5cb7e55ae9f617"
   head "https://github.com/rstudio/rstudio.git"
+  revision 1
 
   bottle do
     cellar :any
@@ -262,6 +263,11 @@ class RstudioServer < Formula
       end
     end
     if OS.linux?
+      system "patchelf",
+        "--replace-needed", "libncurses.so.5", "libncurses.so.6",
+        "--remove-needed", "libtinfo.so.5",
+        prefix/"rstudio-server/bin/rsclang/libclang.so"
+
       # brew patchelf rstudio-server
       keg = Keg.new(prefix)
       keg.relocate_dynamic_linkage Keg::Relocation.new(
