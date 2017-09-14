@@ -2,7 +2,7 @@ class Adapterremoval < Formula
   desc "Adapter trimming, consensus, and read merging"
   homepage "https://github.com/MikkelSchubert/adapterremoval"
   url "https://github.com/MikkelSchubert/adapterremoval/archive/v2.2.2.tar.gz"
-  sha256 "70431171e1fa73f64547a5f50c264a085cbf0a1894fa9852a978977151a25017"
+  sha256 "99832546428a1e9463a565fa726844a0559828bda9428b2b51ef6b3558079b67"
   # doi "10.1186/s13104-016-1900-2"
   # tag "bioinformatics"
 
