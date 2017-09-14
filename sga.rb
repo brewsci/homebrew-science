@@ -11,6 +11,7 @@ class Sga < Formula
     sha256 "6d04064faf78bb77d302783b3977e57d28f8d16d524b42660b2b85fe9363d43b" => :sierra
     sha256 "ff5ee31db095e42df84c8701afaf4adc95adbdf4efb259c8d9207d1518e0f398" => :el_capitan
     sha256 "eccaea15d67467f0fce69cdbf83771af215be8c2a8903a93f4e43eb7c0bf63d5" => :yosemite
+    sha256 "d816e1738680e02afa84882f4658af82735f79134529690b66cbb9e2eff17c46" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
