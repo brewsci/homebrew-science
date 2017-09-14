@@ -3,7 +3,7 @@ class Trilinos < Formula
   homepage "http://trilinos.sandia.gov"
   url "https://github.com/trilinos/Trilinos/archive/trilinos-release-12-10-1.tar.gz"
   version "12.10.1"
-  sha256 "395dcaab000eb675f3ec14a103cb5bbf97f1e2e0eee657afd20a9cbd089554b3"
+  sha256 "ab81d917196ffbc21c4927d42df079dd94c83c1a08bda43fef2dd34d0c1a5512"
   revision 3
   head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
 
