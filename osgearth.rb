@@ -2,7 +2,7 @@ class Osgearth < Formula
   desc "Geospatial SDK and terrain engine for OpenSceneGraph"
   homepage "http://osgearth.org"
   url "https://github.com/gwaldron/osgearth/archive/osgearth-2.7.tar.gz"
-  sha256 "cf973b664aeb79f70e48f5cd02ba670069ec273d71fe541604ed5b328d956d83"
+  sha256 "945bd4d0bc65143a14caeb434b07384eccef1ba89ae11282fc499903a251ec18"
 
   head "https://github.com/gwaldron/osgearth.git", :branch => "master"
 
