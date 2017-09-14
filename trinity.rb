@@ -2,7 +2,7 @@ class Trinity < Formula
   desc "RNA-Seq de novo assembler"
   homepage "https://trinityrnaseq.github.io"
   url "https://github.com/trinityrnaseq/trinityrnaseq/archive/Trinity-v2.4.0.tar.gz"
-  sha256 "2e91ed242923205b060164398aa325e5fe824040732d86c74ece4f98d7a6f220"
+  sha256 "9f816fdc7870fb85af9a44249be05bf06f2a3f0b780275513eec9b0124fa9bda"
   revision 2
   head "https://github.com/trinityrnaseq/trinityrnaseq.git"
 
