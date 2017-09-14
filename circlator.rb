@@ -4,7 +4,7 @@ class Circlator < Formula
   desc "Tool to circularize genome assemblies"
   homepage "https://sanger-pathogens.github.io/circlator/"
   url "https://github.com/sanger-pathogens/circlator/archive/v1.5.1.tar.gz"
-  sha256 "de9707e28adc40d5268a83ccf56294d81269651013f4607f6a4c9ae32a972564"
+  sha256 "64e50a2c1ad2d39fd0acf814ede3cefa18b7d24bc1599fc9bae413c1d128e902"
   head "https://github.com/sanger-pathogens/circlator.git"
 
   bottle do
