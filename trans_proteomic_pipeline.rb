@@ -3,7 +3,7 @@ class TransProteomicPipeline < Formula
   homepage "http://tools.proteomecenter.org/wiki/index.php?title=Software:TPP"
   url "https://github.com/iracooke/tpp/archive/v4.8.0p9.tar.gz"
   version "4.8.0"
-  sha256 "2f500c867e86eee16e8be1c91a97d1c4e51cfba65a1a3b3fa2327e2731f28d80"
+  sha256 "900365ccf0ba28a2e6c8401c809972cc33d28f1cfd4ca5624a8c37f24211492f"
 
   bottle do
     sha256 "f698520c827c0abb483f98f73ec6efdd277cb03e90d6ececd4159f0152e71d32" => :sierra
