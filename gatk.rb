@@ -2,7 +2,7 @@ class Gatk < Formula
   desc "Genome Analysis Toolkit: Variant Discovery in High-Throughput Sequencing"
   homepage "https://software.broadinstitute.org/gatk/"
   url "https://github.com/broadgsa/gatk-protected/archive/3.6.tar.gz"
-  sha256 "51ae87abfad304c0f5d9e9dd52fdd41fed29635ad339d11e991d0e2ffeccb549"
+  sha256 "f2f1311136e06189b0f44a35a3c92fa700ddcbf3d6c4760517ec7bbe08eafce0"
   head "https://github.com/broadgsa/gatk-protected.git"
   # doi "10.1101/gr.107524.110"
   # tag "bioinformatics"
