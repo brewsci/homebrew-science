@@ -12,6 +12,7 @@ class Nonpareil < Formula
     cellar :any_skip_relocation
     sha256 "4ea1bcb2aa7888f57df8c37e0bb24cb44cc4d9bc55003540b07ab099563191f9" => :sierra
     sha256 "057c794b88ceff0fdd9efc316644927d60a365415d3572c3bf03c4cefbe08239" => :el_capitan
+    sha256 "52f99ed9445b629479954f9c95dcf4b98102531d640c9ae1da61492ce6ac8cc2" => :x86_64_linux
   end
 
   depends_on "r"
