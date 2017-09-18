@@ -1,6 +1,13 @@
 class Nonpareil < Formula
   desc "Estimates coverage in metagenomic datasets."
   homepage "http://enve-omics.ce.gatech.edu/nonpareil"
+
+  # doi "10.1093/bioinformatics/btt584"
+  # tag "bioinformatics"
+  url "https://github.com/lmrodriguezr/nonpareil/archive/v3.1.tar.gz"
+  sha256 "bd07cd39fcc461ee4188daf7887c1dbd2a0ceb22b91e3dd2d37fe2b8fede2079"
+  head "https://github.com/lmrodriguezr/nonpareil.git"
+
   bottle do
     cellar :any_skip_relocation
     sha256 "0bd41c4db6e54923722528c9bef95c1c5e6384b1a26cb3438860380415136ad4" => :el_capitan
@@ -8,13 +15,6 @@ class Nonpareil < Formula
     sha256 "1e74c7ca447adc503f9bccc3f123b18f9b7dd6c9400c33d2fa8504ee31a8d2da" => :mavericks
     sha256 "0bd66f915cf9b85f8618996a178b200914a83e0aa93e428509032572c1700aca" => :x86_64_linux
   end
-
-  # doi "10.1093/bioinformatics/btt584"
-  # tag "bioinformatics"
-  url "https://github.com/lmrodriguezr/nonpareil/archive/v2.4.01.tar.gz"
-  sha256 "ca5955e877098ed4a679404ac87635e28a855d15d6970ca51a6be422266c0999"
-  head "https://github.com/lmrodriguezr/nonpareil.git"
-  revision 1
 
   depends_on "r"
   depends_on :mpi => [:cxx, :optional]
@@ -35,6 +35,7 @@ class Nonpareil < Formula
 
   test do
     cp libexec/"test.fasta", testpath
-    system "nonpareil", "-s", "#{testpath}/test.fasta", "-b", "#{testpath}/test"
+    system bin/"nonpareil", "-s", "#{testpath}/test.fasta", "-T", "alignment",
+                            "-b", "#{testpath}/test"
   end
 end
