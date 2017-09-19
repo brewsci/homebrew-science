@@ -1,8 +1,8 @@
 class Xraylib < Formula
   desc "Library for interactions of X-rays with matter"
   homepage "https://github.com/tschoonj/xraylib"
-  url "https://xraylib.tomschoonjans.eu/xraylib-3.2.0.tar.gz"
-  sha256 "a734a0ea7b8224918f4e2105a4cf6c63664f257c1940a4c633beedf470d1576b"
+  url "https://xraylib.tomschoonjans.eu/xraylib-3.3.0.tar.gz"
+  sha256 "a22a73b8d90eb752b034bab1a4cf6abdd81b8c7dc5020bcb22132d2ee7aacd42"
 
   bottle do
     rebuild 2
