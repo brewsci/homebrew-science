@@ -5,11 +5,8 @@ class Xraylib < Formula
   sha256 "a22a73b8d90eb752b034bab1a4cf6abdd81b8c7dc5020bcb22132d2ee7aacd42"
 
   bottle do
-    rebuild 2
-    sha256 "2c010e409880ab0f9e2c86fe3cddca1a028ea7b695359f328a7a6ae0af99d51d" => :sierra
-    sha256 "c372396866507e3eb30ee4950cb83c8cbd089287b6ffea93f0e40bccbbdcaf80" => :el_capitan
-    sha256 "6acb5ff796a02dcbbf2d1d9aad0168a33b00f2dbca469aecc4e34a5030004134" => :yosemite
-    sha256 "a533de98b85eb17feab453688399468e56f104bd6d994920465d1312b7330997" => :x86_64_linux
+    sha256 "950360aad937107de19505c23f03e15b39ae159bf6e0ad0f2e5a7a7289263afd" => :sierra
+    sha256 "2ae0dad444b6ca321845f32974559615ce5c9f7374811e8b553acb23b23887d2" => :el_capitan
   end
 
   option "with-perl", "Build with perl support"
