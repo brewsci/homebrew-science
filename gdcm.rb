@@ -7,6 +7,7 @@ class Gdcm < Formula
   bottle do
     sha256 "29bf9317b363e31eabdbc9505a55ade7a2750743d170f57f1bfb6d50c2d906cb" => :sierra
     sha256 "bd4d6236cae8c6c510f3f17730427ccc805634e9347012afb89093259958ebbc" => :el_capitan
+    sha256 "db88f26c72236f22029d6d8da5665785ab6bc8f0d9e24ca0239a24f03437f094" => :x86_64_linux
   end
 
   deprecated_option "with-check" => "with-test"
