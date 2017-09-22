@@ -1,8 +1,8 @@
 class Gubbins < Formula
   desc "Detect recombinations in Bacteria"
   homepage "https://github.com/sanger-pathogens/gubbins"
-  url "https://github.com/sanger-pathogens/gubbins/archive/v2.3.0.tar.gz"
-  sha256 "813a8e24392f1951f600909ee2930c62c4ca131e805716c6643080f046fddb8f"
+  url "https://github.com/sanger-pathogens/gubbins/archive/v2.3.1.tar.gz"
+  sha256 "61ff6ffd1612d4ecaaba4e1d0f2f6c7a30cde1635068b3a15f8c619426daf9c3"
   head "https://github.com/sanger-pathogens/gubbins.git"
   # tag "bioinformatics"
   # doi "10.1093/nar/gku1196"
