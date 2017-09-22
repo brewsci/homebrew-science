@@ -9,9 +9,8 @@ class Transdecoder < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a3a510bea681625d2c5f0d7031da14e6ccdfbb206dc19c65b08b1853b870dad1" => :sierra
-    sha256 "04c0f23885f20314bf260571ecee8c2169e89a6e9fb66e1b802d9bd6678f0137" => :el_capitan
-    sha256 "9fce0a271bce8d297117e8ced5d4e6afe3c3991466361d45b1b2dc9df497275d" => :yosemite
+    sha256 "3d001a6f8c0710032216ec8d8bf17443c31835fad1e020d94e11cd2a40010a62" => :sierra
+    sha256 "9dce4d9acfeac6980894ff1e6af4537ef526789d9cb3e5b3ec5a2ce3c90440bc" => :el_capitan
   end
 
   def install
