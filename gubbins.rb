@@ -9,9 +9,8 @@ class Gubbins < Formula
 
   bottle do
     cellar :any
-    sha256 "d362e3090122ff4599dadb53cc8baee98edcba9a7e36db7cc1652b55391eb086" => :sierra
-    sha256 "d23c66a9e61797f3a77c4c28633c6d4fd015d3c9e1db9ba702dc6094ccd82622" => :el_capitan
-    sha256 "696bdb97550ee83a47a2951e00dcc375e10333fcd3e1183238168af0947d4f27" => :x86_64_linux
+    sha256 "d52cffe4cfee3666dc34da64f24893c8f74ce7e939956eadba6cbe4282bd5f1d" => :sierra
+    sha256 "cd1c10d8562734138ee3f7b2612728847a1b5f19fe900003d85c31efe005de6b" => :el_capitan
   end
 
   depends_on "autoconf"  => :build
