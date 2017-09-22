@@ -12,6 +12,7 @@ class Mash < Formula
     cellar :any
     sha256 "a6533b182d4f0a600549f446562c43d315205952686aaa54270700d13e70305f" => :sierra
     sha256 "c99869b2652be4556b5b62ba83d291e541ee6d8b5db1d2d18350d4a3e5230c97" => :el_capitan
+    sha256 "0e4fd774c5ef62ab1fe33c54164f26621951e0632bf8501957df8f49cd677c2f" => :x86_64_linux
   end
 
   needs :cxx11
