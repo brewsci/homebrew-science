@@ -11,6 +11,7 @@ class Gubbins < Formula
     cellar :any
     sha256 "d52cffe4cfee3666dc34da64f24893c8f74ce7e939956eadba6cbe4282bd5f1d" => :sierra
     sha256 "cd1c10d8562734138ee3f7b2612728847a1b5f19fe900003d85c31efe005de6b" => :el_capitan
+    sha256 "c6fc0116ab14ab66020a9bcf78061335145d50b3ffafba75765cdab9d8afe7f1" => :x86_64_linux
   end
 
   depends_on "autoconf"  => :build
