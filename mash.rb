@@ -4,10 +4,8 @@ class Mash < Formula
   # tag "bioinformatics"
   # doi "10.1101/029827"
 
-  url "https://github.com/marbl/Mash/archive/v1.1.1.tar.gz"
-  sha256 "d2097267342a719cd831d1c58fe2b924ee4f4e918c8f7b2b7476f682f15ef623"
-  revision 2
-
+  url "https://github.com/marbl/Mash/archive/v2.0.tar.gz"
+  sha256 "28f9b0d5ca646065b0b0b8c628552420fa61ac2904777a33c1856c4512640660"
   head "https://github.com/marbl/Mash.git"
 
   bottle do
