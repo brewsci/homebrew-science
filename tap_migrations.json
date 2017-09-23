@@ -2,6 +2,7 @@
   "ampl-mp": "homebrew/core",
   "armadillo": "homebrew/core",
   "arpack": "homebrew/core",
+  "beast": "homebrew/core",
   "ceres-solver": "homebrew/core",
   "cfitsio": "homebrew/core",
   "clblas": "homebrew/core",
