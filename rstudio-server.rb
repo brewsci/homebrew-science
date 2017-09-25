@@ -8,9 +8,9 @@ class RstudioServer < Formula
 
   bottle do
     cellar :any
-    sha256 "1a53e880c8a52c31ff0f21633b00954ccf0bd181ae6013e2df6c9722b25bb06f" => :sierra
-    sha256 "4ac9284884fa96e23ffd87555b6591838aeea84fdf3f986def8befac21142d5c" => :el_capitan
-    sha256 "3211c8305fc5153d08bf91551310bab71474c843e2be3f1db642e83a6ac365d1" => :yosemite
+    sha256 "741758e57a1c384e322328adf39d0521d300264faceb9f2fe1b179ba4b92429b" => :high_sierra
+    sha256 "5a8fc6d06c908609ce77696c85cd6d661622246f4e08226d495852814b9dd409" => :sierra
+    sha256 "18bc7564aa821f6bb85b938bf68ced36c3b3d36ce53b6e55192ae6146bf5bec6" => :el_capitan
   end
 
   depends_on "ant" => :build
