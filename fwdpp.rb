@@ -3,6 +3,7 @@ class Fwdpp < Formula
   homepage "https://molpopgen.github.io/fwdpp/"
   url "https://github.com/molpopgen/fwdpp/archive/0.5.7.tar.gz"
   sha256 "e038462b0522f4b5aa135211222ce354df4c81a89122240b9eaacc72b62a0ceb"
+  revision 1
   head "https://github.com/molpopgen/fwdpp.git"
   # doi "10.1534/genetics.114.165019"
   # tag "bioinformatics"
