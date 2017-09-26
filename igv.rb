@@ -3,8 +3,8 @@ class Igv < Formula
   homepage "https://www.broadinstitute.org/software/igv"
   # tag "bioinformatics"
   # doi "10.1093/bib/bbs017"
-  url "https://www.broadinstitute.org/igv/projects/downloads/IGV_2.3.98.zip"
-  sha256 "82a261e41f46d2490f2a490f8706575bd3bc07a4ccf9b38dcf6c6989fad64dae"
+  url "https://data.broadinstitute.org/igv/projects/downloads/2.4/IGV_2.4.1.zip"
+  sha256 "4be870db1f962aa580bedbfc9182d788dd2f5aada72d2fec27eae5b6080889db"
   head "https://github.com/broadinstitute/IGV.git"
 
   bottle :unneeded
@@ -15,7 +15,6 @@ class Igv < Formula
     inreplace "igv.sh", /^prefix=.*/, "prefix=#{prefix}"
     prefix.install Dir["igv.sh", "*.jar"]
     bin.install_symlink prefix/"igv.sh" => "igv"
-    doc.install "readme.txt" unless build.devel?
   end
 
   test do
