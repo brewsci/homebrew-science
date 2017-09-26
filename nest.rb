@@ -3,7 +3,7 @@ class Nest < Formula
   homepage "http://www.nest-simulator.org/"
   url "https://github.com/nest/nest-simulator/releases/download/v2.12.0/nest-2.12.0.tar.gz"
   sha256 "bac578f38bb0621618ee9d5f2f1febfee60cddc000ff32e51a5f5470bb3df40d"
-  revision 2
+  revision 3
   head "https://github.com/nest/nest-simulator.git"
 
   bottle do
@@ -21,31 +21,30 @@ class Nest < Formula
   depends_on "gsl" => :recommended
   depends_on :mpi => [:optional, :cc, :cxx]
 
-  resource "Cython" do
-    url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
-    sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
-  end
-
   # Any Python >= 2.7 < 3.x is okay (either from macOS or brewed)
   depends_on :python => :optional
-  if build.with? "python"
-    depends_on "numpy"
-    depends_on "scipy"
-    depends_on "matplotlib"
-    depends_on "nose" => :python
-  end
-
   depends_on :python3 => :optional
-  if build.with? "python3"
-    depends_on "numpy" => "with-python3"
-    depends_on "scipy" => "with-python3"
-    depends_on "matplotlib" => "with-python3"
-    depends_on "nose" => :python3
+  if build.with?("python") || build.with?("python3")
+    requires_py3 = []
+    requires_py3 << "with-python3" if build.with? "python3"
+    depends_on "numpy" => requires_py3
+    depends_on "scipy" => requires_py3
+    depends_on "matplotlib" => requires_py3
   end
 
   depends_on "libtool" => :run
   depends_on "readline" => :run
   depends_on "cmake" => :build
+
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
+    sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
+  end
+
+  resource "nose" do
+    url "https://files.pythonhosted.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
+    sha256 "f1bffef9cbc82628f6e7d7b40d7e255aefaa1adb6a1b1d26c69a8b79e6208a98"
+  end
 
   fails_with :clang do
     cause <<-EOS.undent
@@ -65,15 +64,6 @@ class Nest < Formula
 
     if build.with? "python3"
       args << "-Dwith-python=3"
-
-      # Add local build resource Cython residing in buildpath to paths, with correct python version
-      pyver = Language::Python.major_minor_version "python3"
-      ENV.prepend_create_path "PATH", buildpath/"cython/bin"
-      ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python#{pyver}/site-packages"
-
-      resource("Cython").stage do
-        system "python3", *Language::Python.setup_install_args(buildpath/"cython")
-      end
     elsif build.with? "python"
       dylib = OS.mac? ? "dylib" : "so"
       py_prefix = `python-config --prefix`.chomp
@@ -82,16 +72,25 @@ class Nest < Formula
       args << "-Dwith-python=2"
       args << "-DPYTHON_LIBRARY=#{py_lib}/libpython2.7.#{dylib}"
       args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python2.7"
-
-      pyver = Language::Python.major_minor_version "python"
-      ENV.prepend_create_path "PATH", buildpath/"cython/bin"
-      ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python#{pyver}/site-packages"
-
-      resource("Cython").stage do
-        system "python", *Language::Python.setup_install_args(buildpath/"cython")
-      end
     else
       args << "-Dwith-python=OFF"
+    end
+
+    Language::Python.each_python(build) do |python, version|
+      dest_path = lib/"python#{version}/site-packages"
+      dest_path.mkpath
+      resource("nose").stage do
+        system python, *Language::Python.setup_install_args(libexec/"nose")
+        # only nose executable is interesting during testing - not adding a *.pth file
+      end
+
+      # Add local build resource Cython residing in buildpath to paths
+      ENV.prepend_create_path "PATH", buildpath/"cython/bin"
+      ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python#{version}/site-packages"
+
+      resource("Cython").stage do
+        system python, *Language::Python.setup_install_args(buildpath/"cython")
+      end
     end
 
     # "out of source" build
@@ -135,10 +134,14 @@ class Nest < Formula
 
     # run all tests
     args = []
-    args << "--test-pynest" if build.with?("python") || build.with?("python3")
-    if build.with? "python3"
-      ENV["PYTHON"] = "python3"
+    if build.with?("python") || build.with?("python3")
+      args << "--test-pynest"
+      # add nosetest executable to path
+      ENV.prepend_create_path "PATH", libexec/"nose/bin"
     end
+
+    ENV["PYTHON"] = "python3" if build.with? "python3"
+
     system pkgshare/"extras/do_tests.sh", *args
   end
 end
