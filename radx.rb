@@ -1,9 +1,9 @@
 class Radx < Formula
   desc "Software package for radial radar data"
   homepage "https://www.ral.ucar.edu/projects/titan/docs/radial_formats/radx.html"
-  url "https://github.com/NCAR/lrose-core/releases/download/radx-20170315/radx-20170315.src.tgz"
-  version "20170315"
-  sha256 "2ee2cd5ca6254c6c92df144feca4f4cee6504d1f68c014fbad753cf8324655a2"
+  url "https://github.com/NCAR/lrose-core/releases/download/radx-20170920/radx-20170920.src.tgz"
+  version "20170920"
+  sha256 "15c09c0d4495fb3f5cd1232b86daba93f5f5cc32a7fec852bf626a415363c32c"
 
   bottle do
     cellar :any
@@ -26,8 +26,8 @@ class Radx < Formula
   patch do
     # Fixes compilation with hdf5 1.10.0
     # Reported https://github.com/NCAR/lrose-core/issues/8
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3124ede999c9ffd700652d20f0455c97512f84a3/radx/radx-hdf5-20170315.diff?full_index=1"
-    sha256 "2d4e424fbe43d776e13a2f3506773145e6947be546a2b50df480b1c594aadcbb"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/208060e/radx/radx-hdf5.diff"
+    sha256 "15f61648400487b03955fbf330322e68ad2b2856be3af96ea8ffad22e338fbd4"
   end
 
   def install
