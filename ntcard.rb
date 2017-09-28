@@ -9,10 +9,9 @@ class Ntcard < Formula
 
   bottle do
     cellar :any
-    sha256 "2e2ed0de2a798d41993829e8cc0a128ba33a39898971f0366e0e50f39139fb82" => :sierra
-    sha256 "4c6e1e6b55c0a7bd1b478c694fe17c3e46fe1fe3e396776f9123dd59651978e5" => :el_capitan
-    sha256 "56987a2d89be2345a3f474208e4ddaba96d28f8a09a598076b386f8e7bf7d907" => :yosemite
-    sha256 "a5f230239b82190af955086c0bb1577c1d3fed240f5f0987f9f1b0bfe74a654a" => :x86_64_linux
+    sha256 "e6f5be712e672529f080fa8e3b61c9cede78f386e76b5c18f167c558df1ff58d" => :high_sierra
+    sha256 "84406bc492afb290cc7d357cd56ca372d58990d02b73a214a368620542bda2c4" => :sierra
+    sha256 "15c51babe4ef3743a3bcaa02ce02360b803de48f3ed150fb7bd81f5931777605" => :el_capitan
   end
 
   depends_on "autoconf" => :build
