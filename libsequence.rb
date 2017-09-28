@@ -16,7 +16,11 @@ class Libsequence < Formula
     sha256 "e094416f6bd0fc1c8b55aeafa91edeeb93a25969ef44cc442245b0530fe3b8ec" => :x86_64_linux
   end
 
-  cxx11 = OS.linux? || MacOS.version > :mountain_lion ? [] : ["c++11"]
+  cxx11 = if OS.mac?
+    (MacOS.version > :mountain_lion) ? [] : ["c++11"]
+  else
+    []
+  end
 
   depends_on "boost" => cxx11
   depends_on "gsl"
