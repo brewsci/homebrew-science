@@ -12,6 +12,7 @@ class Ntcard < Formula
     sha256 "e6f5be712e672529f080fa8e3b61c9cede78f386e76b5c18f167c558df1ff58d" => :high_sierra
     sha256 "84406bc492afb290cc7d357cd56ca372d58990d02b73a214a368620542bda2c4" => :sierra
     sha256 "15c51babe4ef3743a3bcaa02ce02360b803de48f3ed150fb7bd81f5931777605" => :el_capitan
+    sha256 "742934e0175f17dbb5b15ab2dc6aaa3e95450a2e0f831488eeef600fbe7d5866" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
