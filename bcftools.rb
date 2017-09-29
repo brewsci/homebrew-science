@@ -1,10 +1,11 @@
 class Bcftools < Formula
   desc "Tools for BCF/VCF files and variant calling from samtools"
   homepage "http://www.htslib.org/"
+  # doi "10.1093/bioinformatics/btr509"
   # tag "bioinformatics"
 
-  url "https://github.com/samtools/bcftools/releases/download/1.4.1/bcftools-1.4.1.tar.bz2"
-  sha256 "d7d0871846005c653f5e2e78e434f7f9b846ab245ab5c1cd4224ecbf52d99d08"
+  url "https://github.com/samtools/bcftools/releases/download/1.6/bcftools-1.6.tar.bz2"
+  sha256 "293010736b076cf684d2873928924fcc3d2c231a091084c2ac23a8045c7df982"
 
   bottle do
     sha256 "1ff54e0673300dd10e955f506c72d95d230977799156929b22c24889080b1401" => :sierra
@@ -17,19 +18,23 @@ class Bcftools < Formula
 
   deprecated_option "with-polysomy" => "with-gsl"
 
+  depends_on "htslib"
   depends_on "xz"
+  depends_on "bzip2" unless OS.mac?
   depends_on "samtools" => :recommended
   depends_on "gsl" => :optional
-  depends_on "bzip2" unless OS.mac?
 
   def install
-    args = build.with?("gsl") ? "USE_GPL=1" : []
-    system "make", "all", "install", "prefix=#{prefix}", *args
+    args = %W[--prefix=#{prefix} --with-htslib=#{Formula["htslib"].opt_prefix}]
+    args << "--enable-libgsl" if build.with? "gsl"
+    system "./configure", *args
+    system "make"
+    system "make", "install"
     pkgshare.install "test"
   end
 
   test do
-    output = shell_output("#{bin}/bcftools stats #{pkgshare}/test/query.vcf")
-    assert_match "number of SNPs:\t3", output
+    assert_match "number of SNPs:\t3", shell_output("#{bin}/bcftools stats #{pkgshare}/test/query.vcf")
+    assert_match "fixploidy", shell_output("#{bin}/bcftools plugin -l")
   end
 end
