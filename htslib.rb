@@ -4,8 +4,8 @@ class Htslib < Formula
   # doi "10.1093/bioinformatics/btr509"
   # tag "bioinformatics"
 
-  url "https://github.com/samtools/htslib/releases/download/1.5/htslib-1.5.tar.bz2"
-  sha256 "a02b515ea51d86352b089c63d778fb5e8b9d784937cf157e587189cb97ad922d"
+  url "https://github.com/samtools/htslib/releases/download/1.6/htslib-1.6.tar.bz2"
+  sha256 "9588be8be0c2390a87b7952d644e7a88bead2991b3468371347965f2e0504ccb"
   head "https://github.com/samtools/htslib.git"
 
   bottle do
