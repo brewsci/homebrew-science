@@ -14,6 +14,7 @@ class Lrsim < Formula
   end
 
   depends_on "samtools"
+  depends_on "perl" unless OS.mac?
 
   # error: use of undeclared identifier 'direct_insert_aux'
   fails_with :clang
