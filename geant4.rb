@@ -1,9 +1,9 @@
 class Geant4 < Formula
   desc "Simulation toolkit for particle transport through matter"
   homepage "http://geant4.cern.ch"
-  url "http://geant4.cern.ch/support/source/geant4.10.03.p01.tar.gz"
-  version "10.3.1"
-  sha256 "78edab8298789b2bac4189f0864a2fb65f66ffdc50b7cb3335fafe2b1e70fd7d"
+  url "http://geant4.cern.ch/support/source/geant4.10.03.p02.tar.gz"
+  version "10.3.2"
+  sha256 "9b7b6a0041c45b84aca4c045d1a35d202c407c12bc2c59d202dc349123f7cf8e"
 
   bottle do
     cellar :any
