@@ -7,10 +7,10 @@ class Lrsim < Formula
 
   bottle do
     cellar :any
-    sha256 "3208017c9a2d094ba74dbe9a5d9e8a7313a14bc81d84c7ba31a8e78c058d5450" => :sierra
-    sha256 "f7029c0561c10ce77985ed18ff2b2d910f90912e161a1e180d6484692a963299" => :el_capitan
-    sha256 "8b811b62134ca56ca50911457fd55eca4a6cdda3e46da1dc70f68408d821614e" => :yosemite
-    sha256 "da58a2b4da11f2c59e9b6b422b34839dd877f82615fa39d5d6594e6e9e0109a2" => :x86_64_linux
+    rebuild 1
+    sha256 "4ada11fd75cc6f28c79fed0f5ddf7e5b382e5d0a0b9934f91901189c09368f33" => :high_sierra
+    sha256 "46bdb71b0058c47caff7a3a374e6f3d0eed3c9d52b91180366af575e715a7dd9" => :sierra
+    sha256 "6f96c5463de2f1f51b06f6f702b9e406e5662543480cd32c7df1d7a0d3b57209" => :el_capitan
   end
 
   depends_on "samtools"
