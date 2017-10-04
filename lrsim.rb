@@ -11,6 +11,7 @@ class Lrsim < Formula
     sha256 "4ada11fd75cc6f28c79fed0f5ddf7e5b382e5d0a0b9934f91901189c09368f33" => :high_sierra
     sha256 "46bdb71b0058c47caff7a3a374e6f3d0eed3c9d52b91180366af575e715a7dd9" => :sierra
     sha256 "6f96c5463de2f1f51b06f6f702b9e406e5662543480cd32c7df1d7a0d3b57209" => :el_capitan
+    sha256 "182ce15a8e5f0e418359dd6726b7f7169187ffab62cc5ba0e33a443cd17e851b" => :x86_64_linux
   end
 
   depends_on "samtools"
