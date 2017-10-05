@@ -10,6 +10,7 @@ class Anvio < Formula
     sha256 "3ff362032485cb6ff1ba4c43fd26a1dba5dbcd552320840d5effaebaf19b504f" => :high_sierra
     sha256 "aaf48b8a3076b502d9aa22039cd432a184eb49c77897aecf0c9472e9d6b03177" => :sierra
     sha256 "9d7de798440c50f5a2931a46b3ad82493a42f7822222895d1561b8da003883f4" => :el_capitan
+    sha256 "1f7e306feebde84d6a298cbbd9cc6c21641ec79af376af465330d2967ced61a9" => :x86_64_linux
   end
 
   # doi "10.7717/peerj.1319"
