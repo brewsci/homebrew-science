@@ -2,8 +2,8 @@ class Anvio < Formula
   include Language::Python::Virtualenv
   desc "Analysis and visualization platform for ‘omics data."
   homepage "http://merenlab.org/projects/anvio/"
-  url "https://files.pythonhosted.org/packages/1a/f4/e75b895b3348ec7d0d21e220735d0f9dd0ea2e67ef9a6ebb9c92bd1d7593/anvio-2.4.0.tar.gz"
-  sha256 "0f2b3dfe92dc94f097bc9690f4d3e5d9b9320621404fc9cf7c752827e9d09e93"
+  url "https://files.pythonhosted.org/packages/16/45/a0378836eb14fceed15f8179da5dee6edf6e63bacaa5f9a062bca1f7ad57/anvio-3.tar.gz"
+  sha256 "d5790f60e221fffcbea4bb310dd672eaeb253e8d3f280e15b3da4a779e30fc49"
   head "https://github.com/merenlab/anvio.git"
 
   bottle do
@@ -88,6 +88,21 @@ class Anvio < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
     sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+  end
+
+  resource "pytz" do
+    url "https://files.pythonhosted.org/packages/a4/09/c47e57fc9c7062b4e83b075d418800d322caa87ec0ac21e6308bd3a2d519/pytz-2017.2.zip"
+    sha256 "f5c056e8f62d45ba8215e5cb8f50dfccb198b4b9fbea8500674f3443e4689589"
+  end
+
+  resource "python-dateutil" do
+    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
+    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
+  end
+
+  resource "pandas" do
+    url "https://files.pythonhosted.org/packages/34/fd/0cb98ea4df08c82af3de93da5b9f79d573c6ecc05098905f9cd6b0bece51/pandas-0.20.1.tar.gz"
+    sha256 "42707365577ef69f7c9c168ddcf045df2957595a9ee71bc13c7997eecb96b190"
   end
 
   def install
