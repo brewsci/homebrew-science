@@ -1,8 +1,9 @@
 class Mapsembler2 < Formula
   desc "targeted assembly software"
   homepage "https://colibread.inria.fr/software/mapsembler2/"
-  url "http://www.irisa.fr/symbiose/people/ppeterlongo/mapsembler2_2.2.4.zip"
+  url "https://www.irisa.fr/symbiose/people/ppeterlongo/mapsembler2_2.2.4.zip"
   sha256 "e25f911ada8222ad982ebaf2c1a30e5c74b81edc3b7613879299e620e77b4ec7"
+  revision 1
   # doi "10.1186/1471-2105-13-48"
   # tag "bioinformatics"
 
@@ -14,10 +15,6 @@ class Mapsembler2 < Formula
   fails_with :clang do
     build 703
     cause "error: no member named 'malloc' in namespace 'std'"
-  end
-
-  fails_with :gcc => "5" do
-    cause "undefined reference to `prefix_trashable[abi:cxx11]'"
   end
 
   depends_on "cmake" => :build
