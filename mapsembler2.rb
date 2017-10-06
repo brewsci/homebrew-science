@@ -11,6 +11,7 @@ class Mapsembler2 < Formula
     sha256 "742ca2dfb2e550d1d839f0542a3809b939ad381fd18e1de336ca86eaad71a36a" => :high_sierra
     sha256 "87d29c6ce1f393616c1862c7effe4af85a749b33695e7c16c5ca3de5ac441580" => :sierra
     sha256 "87e6addec277034fc54f47a4895a62ffd5bf29208805568063308b7906cc8bfb" => :el_capitan
+    sha256 "50882b30ad388b0fda3ccd9d0e37d389541227549468d0db240201560176df94" => :x86_64_linux
   end
 
   fails_with :clang do
