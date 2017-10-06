@@ -9,6 +9,7 @@ class Kat < Formula
   bottle do
     sha256 "2ee4951cf052bb1b735e69e7c8e8daeb6ca8ec8b28bc1cd6b43f56700ac9f433" => :sierra
     sha256 "d44878f2e4a4e19c7dbff4af223bed7e74917892a9a8f03ef40540554cbbb2d2" => :el_capitan
+    sha256 "ee74a2829a1702187eac36a74c457076278cbf93e710a06166186403a28dee4c" => :x86_64_linux
   end
 
   head do
