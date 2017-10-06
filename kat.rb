@@ -3,6 +3,7 @@ class Kat < Formula
   homepage "https://github.com/TGAC/KAT"
   url "https://github.com/TGAC/KAT/releases/download/Release-2.3.4/kat-2.3.4.tar.gz"
   sha256 "40ac5e1ea310b4dac35620f74e489a749c355b41d850d297a06c3822f58295e1"
+  revision 1
   # tag "bioinformatics"
 
   bottle do
