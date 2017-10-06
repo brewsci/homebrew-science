@@ -24,12 +24,6 @@ class Kat < Formula
 
   needs :cxx11
 
-  unless OS.mac?
-    fails_with :gcc => "5" do
-      cause "Dependency boost is compiled with the GCC 4.8 ABI."
-    end
-  end
-
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build if build.with? "docs"
   depends_on :python unless OS.mac?
