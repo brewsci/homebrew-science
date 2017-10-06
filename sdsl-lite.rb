@@ -8,6 +8,7 @@ class SdslLite < Formula
     sha256 "b354a078dce1076c83f61c7d7da76a72fbc738904610ae21c9db11a27d36cf3f" => :high_sierra
     sha256 "58e56e03f7f2647d9247802bcabfaa7aa52b5434ba5466d34e3627d67331388d" => :sierra
     sha256 "1d6fc36b8293e0254b2c926a857b14d31b741af7cfab0bef0f4ff562b37abb55" => :el_capitan
+    sha256 "a8d641c713f69fabf88e4762ee94521a8bb7f5b1064577e1b39589ee946f90a7" => :x86_64_linux
   end
 
   # doi "arXiv:1311.1249v1"
