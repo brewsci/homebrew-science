@@ -5,10 +5,9 @@ class SdslLite < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "48ae4f44f316ba307b190b87e01a119d01d81f22521e6ec2a27f60f14cc7611d" => :el_capitan
-    sha256 "e6ea4f8b2e4c5f3618ab2ea6faf7a6cadc4caff92f498f8f0fa934381edd2cac" => :yosemite
-    sha256 "f3ce68732cce03d5108064f8eafd3ea5fadab326c515edb3aee5c140fcf586af" => :mavericks
-    sha256 "e631a05046077faba0842186fe5f313f569b233506d7d568a4de4afd0f75f710" => :x86_64_linux
+    sha256 "b354a078dce1076c83f61c7d7da76a72fbc738904610ae21c9db11a27d36cf3f" => :high_sierra
+    sha256 "58e56e03f7f2647d9247802bcabfaa7aa52b5434ba5466d34e3627d67331388d" => :sierra
+    sha256 "1d6fc36b8293e0254b2c926a857b14d31b741af7cfab0bef0f4ff562b37abb55" => :el_capitan
   end
 
   # doi "arXiv:1311.1249v1"
