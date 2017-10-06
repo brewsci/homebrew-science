@@ -8,8 +8,9 @@ class Mapsembler2 < Formula
   # tag "bioinformatics"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cb2d5170bb6a8cd1180816a650114812a5a1f46d7b2679f8626a3e8ca5b998f8" => :x86_64_linux
+    sha256 "742ca2dfb2e550d1d839f0542a3809b939ad381fd18e1de336ca86eaad71a36a" => :high_sierra
+    sha256 "87d29c6ce1f393616c1862c7effe4af85a749b33695e7c16c5ca3de5ac441580" => :sierra
+    sha256 "87e6addec277034fc54f47a4895a62ffd5bf29208805568063308b7906cc8bfb" => :el_capitan
   end
 
   fails_with :clang do
