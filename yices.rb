@@ -1,8 +1,8 @@
 class Yices < Formula
   desc "The Yices SMT Solver"
   homepage "http://yices.csl.sri.com/"
-  url "https://github.com/SRI-CSL/yices2/archive/Yices-2.5.3.tar.gz"
-  sha256 "4c8972f7c257c80426f7d22473d339b5eaf8ce00ac7663f19734fa57f7fa7f28"
+  url "https://github.com/SRI-CSL/yices2/archive/Yices-2.5.4.tar.gz"
+  sha256 "f7403328d7d0b3973ffac61fe674d5b8030dd4806c75f3de2cfb8fd81aad1ccd"
 
   bottle do
     cellar :any
