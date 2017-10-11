@@ -9,10 +9,9 @@ class Quicktree < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8e5fc6dfd9189adec6fd97204dc4e5ef2d00ef05f4eb3e7819bb918855c0a9c6" => :sierra
-    sha256 "22d08b0f4bbbcc1f92b2b8eb358155b2551ad4f3d344f3557b9b1ecd8eda0501" => :el_capitan
-    sha256 "be3f595c268ff391ccd1351f8d91b5f09eb45e819630533f107c52d6d5b32846" => :yosemite
-    sha256 "7654424e618179f3f4a0efd269edc37c582f64523c7103645e5ab2eaf65a51fe" => :x86_64_linux
+    sha256 "148eec40495d7978b6b4b507ece131aeaa7b2325d02ccce63844365e009b1d0b" => :high_sierra
+    sha256 "3c41d2a3de9cc96ca5732c0c323f66da142ff828170de80a3867795282fc0a38" => :sierra
+    sha256 "9aaa5691ece1f0c7ebabe00a2f725922a81f61696dc6b7ee03957207b17b09d4" => :el_capitan
   end
 
   def install
