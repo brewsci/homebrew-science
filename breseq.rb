@@ -1,8 +1,8 @@
 class Breseq < Formula
   desc "Find mutations in microbes from short reads"
   homepage "http://barricklab.org/twiki/bin/view/Lab/ToolsBacterialGenomeResequencing"
-  url "https://github.com/barricklab/breseq/releases/download/v0.30.0/breseq-0.30.0-Source.tar.gz"
-  sha256 "a5504a9bf7967a773ce28519ff4619c33f6b7f7efaf45ad8ed58273c5dea290d"
+  url "https://github.com/barricklab/breseq/releases/download/v0.31.1/breseq-0.31.1-Source.tar.gz"
+  sha256 "52471eb1c90b1b564243ad6d1c668a82a5539ef742b0badbbb9c7b3fcc2afac3"
   head "https://github.com/barricklab/breseq.git"
   # doi "10.1007/978-1-4939-0554-6_12"
   # tag "bioinformatics"
