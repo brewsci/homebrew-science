@@ -12,6 +12,7 @@ class Breseq < Formula
     sha256 "3fa45e4b226bfea55434957def8d630c149e91beff1b28cf362a4864b5fa0b26" => :high_sierra
     sha256 "bea79c4ca40e7db8e11c6c7364bbd89999878ffde22f86d24592ca749660b99b" => :sierra
     sha256 "54fd05f58de2c6d0bb51c3ec6ac576ae0754d20466d0d0b2eb80c8092c6afea0" => :el_capitan
+    sha256 "29e67d1437b040ff2589ebaa83fdd0c70c6c9c09089021e5b77e96e4154f0bb0" => :x86_64_linux
   end
 
   depends_on "autoconf" => :build
