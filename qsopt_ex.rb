@@ -1,7 +1,7 @@
 class QsoptEx < Formula
-  desc "exact rational solution to LP instances having rational input"
-  homepage "http://www.math.uwaterloo.ca/~bico/qsopt/ex/"
-  url "http://www.math.uwaterloo.ca/~bico/qsopt/ex/QSex090408.tgz"
+  desc "Exact rational solution to LP instances having rational input"
+  homepage "https://www.math.uwaterloo.ca/~bico/qsopt/ex/"
+  url "https://www.math.uwaterloo.ca/~bico/qsopt/ex/QSex090408.tgz"
   version "2.5"
   sha256 "5949c65a8528fc170371d6f99461280f79313da91b1bc6d71d792c51601fa6bb"
 
