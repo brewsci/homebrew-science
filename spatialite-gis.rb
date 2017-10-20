@@ -1,6 +1,6 @@
 class SpatialiteGis < Formula
   homepage "https://www.gaia-gis.it/fossil/spatialite_gis/index"
-  url "http://www.gaia-gis.it/gaia-sins/spatialite_gis-1.0.0c.tar.gz"
+  url "https://www.gaia-gis.it/gaia-sins/spatialite_gis-1.0.0c.tar.gz"
   sha256 "cdc8c6143eeedb4cae2663e2f0b3163452c5f941bd9b02b9b5159e319b7d21fb"
 
   depends_on "pkg-config" => :build
