@@ -1,9 +1,9 @@
 class Megam < Formula
-  homepage "http://www.umiacs.umd.edu/~hal/megam/"
+  homepage "https://www.umiacs.umd.edu/~hal/megam/"
   url "http://eightnine.de/megam/megam-0.9.2.tgz"
   sha256 "dc0e9f59ff8513449fe3bd40b260141f89c88a4edf6ddc8b8a394c758e49724e"
 
-  depends_on "objective-caml"
+  depends_on "ocaml"
 
   def install
     # Environment settings for Makefile to compile on MacOS
