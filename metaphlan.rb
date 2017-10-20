@@ -1,6 +1,6 @@
 class Metaphlan < Formula
   desc "MetaPhlAn: Metagenomic Phylogenetic Analysis"
-  homepage "http://huttenhower.sph.harvard.edu/metaphlan"
+  homepage "https://huttenhower.sph.harvard.edu/metaphlan"
   # doi "10.1038/nmeth.2066"
   # tag "bioinformatics"
 
