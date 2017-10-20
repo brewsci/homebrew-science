@@ -1,6 +1,6 @@
 class Phyutility < Formula
-  desc "analyze and modify trees and data matrices"
-  homepage "http://blackrim.org/programs/phyutility/"
+  desc "Analyze and modify trees and data matrices"
+  homepage "https://blackrim.org/programs/phyutility/"
   url "https://github.com/blackrim/phyutility/releases/download/v2.7.1/phyutility_2.7.1.tar.gz"
   sha256 "3438336abda593cf3043d49910815dc8b8e506e9e44831726407f37a1a7506bc"
   # doi "10.1093/bioinformatics/btm619"
