@@ -1,5 +1,5 @@
 class Fastuniq < Formula
-  homepage "http://sourceforge.net/projects/fastuniq/"
+  homepage "https://sourceforge.net/projects/fastuniq/"
   # tag "bioinformatics"
   # doi "10.1371/journal.pone.0052249"
 
