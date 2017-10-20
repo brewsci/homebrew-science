@@ -1,10 +1,10 @@
 class Mafft < Formula
   desc "Multiple alignments with fast Fourier transforms"
-  homepage "http://mafft.cbrc.jp/alignment/software/index.html"
+  homepage "https://mafft.cbrc.jp/alignment/software/"
   # doi "10.1093/nar/gkf436"
   # tag "bioinformatics"
 
-  url "http://mafft.cbrc.jp/alignment/software/mafft-7.305-with-extensions-src.tgz"
+  url "https://mafft.cbrc.jp/alignment/software/mafft-7.305-with-extensions-src.tgz"
   sha256 "26fccbd7091edfe6528a0535d33738546ee57b4a3b6e43332ffc3323e29ff4d1"
 
   bottle do
