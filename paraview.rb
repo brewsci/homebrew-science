@@ -1,11 +1,11 @@
 class Paraview < Formula
   desc "Multi-platform data analysis and visualization application"
-  homepage "http://paraview.org"
-  url "http://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v5.3&type=source&os=all&downloadFile=ParaView-v5.3.0.tar.gz"
+  homepage "https://www.paraview.org/"
+  url "https://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v5.3&type=source&os=all&downloadFile=ParaView-v5.3.0.tar.gz"
   sha256 "046631bbf00775edc927314a3db207509666c9c6aadc7079e5159440fd2f88a0"
   revision 2
 
-  head "git://paraview.org/ParaView.git"
+  head "https://gitlab.kitware.com/paraview/paraview.git"
 
   bottle do
     sha256 "3c2d0de30d0af43169ef111c56f6c42c64879219da0475088ebb62e77dc05c27" => :sierra
