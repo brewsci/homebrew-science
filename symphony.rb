@@ -1,7 +1,7 @@
 class Symphony < Formula
   desc "Generic MILP solver"
-  homepage "http://www.coin-or.org/projects/SYMPHONY.xml"
-  url "http://www.coin-or.org/download/source/SYMPHONY/SYMPHONY-5.6.6.tgz"
+  homepage "https://projects.coin-or.org/SYMPHONY"
+  url "https://www.coin-or.org/download/source/SYMPHONY/SYMPHONY-5.6.6.tgz"
   sha256 "af28afff326635b04ac47857af648244704af0b0743c9a9acd6da0b6b2b60bfb"
   revision 1
 
