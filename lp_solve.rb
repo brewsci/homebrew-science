@@ -20,7 +20,7 @@ class NumpyHasHeaders < Requirement
 end
 
 class LpSolve < Formula
-  homepage "http://sourceforge.net/projects/lpsolve/"
+  homepage "https://sourceforge.net/projects/lpsolve/"
   url "https://downloads.sourceforge.net/lpsolve/lp_solve_5.5.2.0_source.tar.gz"
   version "5.5.2.0" # automatic version parser spits out "solve" as version
   sha256 "5827a30b143105283f398a09419ea608719a2d7699ecea165a66d521803bcc9c"
@@ -56,11 +56,11 @@ class LpSolve < Formula
 
     cd "lpsolve55" do
       if OS.mac?
-        system "sh ccc.osx # lpsolve55 library"
+        system "sh", "ccc.osx", "#", "lpsolve55", "library"
         lib.install Dir["./bin/osx64/*.a"]
         lib.install Dir["./bin/osx64/*.dylib"]
       else
-        system "sh ccc # lpsolve55 library"
+        system "sh", "ccc", "#", "lpsolve55", "library"
         lib.install Dir["./bin/ux64/*.a"]
         lib.install Dir["./bin/ux64/*.so"]
       end
@@ -68,10 +68,10 @@ class LpSolve < Formula
 
     cd "lp_solve" do
       if OS.mac?
-        system "sh ccc.osx # lp_solve executable"
+        system "sh", "ccc.osx", "#", "lp_solve", "executable"
         bin.install "./bin/osx64/lp_solve"
       else
-        system "sh ccc # lp_solve executable"
+        system "sh", "ccc", "#", "lp_solve", "executable"
         bin.install "./bin/ux64/lp_solve"
       end
     end
