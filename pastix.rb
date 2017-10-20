@@ -1,6 +1,6 @@
 class Pastix < Formula
   desc "Parallel solver for sparse linear systems based on direct methods"
-  homepage "http://pastix.gforge.inria.fr"
+  homepage "http://pastix.gforge.inria.fr/"
   url "https://gforge.inria.fr/frs/download.php/file/35070/pastix_5.2.2.22.tar.bz2"
   sha256 "30f771a666719e6b116f549a6e4da451beabab99c2ecabc0745247c3654acbed"
   revision 3
@@ -101,7 +101,7 @@ class Pastix < Formula
   test do
     Dir.foreach("#{pkgshare}/example/bin") do |example|
       next if example =~ /^\./ || example =~ /plot_memory_usage/ || example =~ /mem_trace.o/ || example =~ /murge_sequence/
-      next if example == "reentrant" # May fail due to thread handling. See http://goo.gl/SKDGPV
+      next if example == "reentrant" # May fail due to thread handling. See https://goo.gl/SKDGPV
       if example == "murge-product"
         system "#{pkgshare}/example/bin/#{example}", "100", "10", "1"
       elsif example =~ /murge/
