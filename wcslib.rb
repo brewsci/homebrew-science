@@ -1,6 +1,6 @@
 class Wcslib < Formula
   desc "Library and utilities for the FITS World Coordinate System"
-  homepage "http://www.atnf.csiro.au/people/mcalabre/WCS/"
+  homepage "https://www.atnf.csiro.au/people/mcalabre/WCS/"
   url "ftp://ftp.atnf.csiro.au/pub/software/wcslib/wcslib-5.16.tar.bz2"
   sha256 "ed031e0cf1cec0e9cabfc650423efa526fec341441865001c1e2c56bfffc99ef"
   revision 1
