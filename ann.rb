@@ -1,7 +1,7 @@
 class Ann < Formula
   desc "Library for Approximate Nearest Neighbor Searching"
-  homepage "http://www.cs.umd.edu/~mount/ANN/"
-  url "http://www.cs.umd.edu/~mount/ANN/Files/1.1.2/ann_1.1.2.zip"
+  homepage "https://www.cs.umd.edu/~mount/ANN/"
+  url "https://www.cs.umd.edu/~mount/ANN/Files/1.1.2/ann_1.1.2.zip"
   sha256 "1b54b58ae697202a09d793de51ee9200fe1d5c39def78d9e8f5c0d08e48afaf5"
 
   bottle do
