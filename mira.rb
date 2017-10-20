@@ -1,5 +1,5 @@
 class Mira < Formula
-  homepage "http://sourceforge.net/projects/mira-assembler"
+  homepage "https://sourceforge.net/projects/mira-assembler"
   # doi "10.1101/gr.1917404"
   # tag "bioinformatics"
 
@@ -7,13 +7,13 @@ class Mira < Formula
   sha256 "a32cb2b21e0968a5536446287c895fe9e03d11d78957554e355c1080b7b92a80"
 
   depends_on "boost"
-  depends_on "google-perftools" => :recommended # for tcmalloc
+  depends_on "gperftools" => :recommended # for tcmalloc
   depends_on "docbook"
   # On Xcode-only systems, Mira's configure is unable to find expat
   depends_on "expat"
   # FlexLexer.h is not in the 10.8 SDK (only in 10.7 SDK and in xctoolchain/usr/include)
   # Further, an ugly patch would be needed to work with OS X's flex (on 10.8)
-  # http://www.freelists.org/post/mira_talk/Type-mismatch-of-LexerInput-and-LexerOutput-PATCH
+  # https://www.freelists.org/post/mira_talk/Type-mismatch-of-LexerInput-and-LexerOutput-PATCH
   depends_on "flex"
 
   fails_with :clang
@@ -40,7 +40,7 @@ class Mira < Formula
     system "./configure", *configure_args
 
     # Link with boost_system for boost::system::system_category().
-    # http://www.freelists.org/post/mira_talk/Linking-requires-boost-system
+    # https://www.freelists.org/post/mira_talk/Linking-requires-boost-system
     make_args = ["LIBS='-lboost_regex-mt -lboost_system-mt -lboost_filesystem-mt -lboost_iostreams-mt -lboost_thread-mt -lexpat -lz'"]
     system "make", *make_args
     system "make", "check"
@@ -48,6 +48,6 @@ class Mira < Formula
   end
 
   test do
-    system "#{bin}/mira --version"
+    system "#{bin}/mira", "--version"
   end
 end
