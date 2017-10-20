@@ -36,7 +36,7 @@ class Amos < Formula
       system "make", "install"
     end
 
-    # http://seqanswers.com/forums/showthread.php?t=17802
+    # https://seqanswers.com/forums/showthread.php?t=17802
     inreplace "src/Align/find-tandem.cc", "#include <sys/time.h>", "#include <sys/time.h>\n#include <getopt.h>"
 
     ENV.deparallelize
