@@ -1,10 +1,10 @@
 class Hisat < Formula
-  homepage "http://ccb.jhu.edu/software/hisat/"
+  homepage "https://ccb.jhu.edu/software/hisat/"
   # tag "bioinformatics"
   # doi "10.1038/nmeth.3317"
-  url "http://ccb.jhu.edu/software/hisat/downloads/hisat-0.1.6-beta-source.zip"
-  sha256 "69fbd79d8f29b221aa72f0db33148d67d44a3e2cfe16dadf0663a58b7741ff9c"
+  url "https://ccb.jhu.edu/software/hisat/downloads/hisat-0.1.6-beta-source.zip"
   version "0.1.6b"
+  sha256 "69fbd79d8f29b221aa72f0db33148d67d44a3e2cfe16dadf0663a58b7741ff9c"
 
   bottle do
     cellar :any
