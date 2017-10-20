@@ -1,6 +1,6 @@
 class Oases < Formula
   desc "De novo transcriptome assembler for very short reads"
-  homepage "http://www.ebi.ac.uk/~zerbino/oases/"
+  homepage "https://www.ebi.ac.uk/~zerbino/oases/"
   # doi "10.1093/bioinformatics/bts094"
   # tag "bioinformatics"
 
