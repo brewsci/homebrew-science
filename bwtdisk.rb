@@ -1,7 +1,7 @@
 class Bwtdisk < Formula
   desc "Compute large BWTs in external memory"
-  homepage "http://people.unipmn.it/manzini/bwtdisk/"
-  url "http://people.unipmn.it/manzini/bwtdisk/bwtdisk.0.9.0.tgz"
+  homepage "https://people.unipmn.it/manzini/bwtdisk/"
+  url "https://people.unipmn.it/manzini/bwtdisk/bwtdisk.0.9.0.tgz"
   sha256 "ef053144d1756d6c8b4c01fc822897fd2d99ff652a9745e418c813d7ab5f33fa"
 
   def install
