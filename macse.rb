@@ -1,7 +1,7 @@
 class Macse < Formula
   desc "Multiple Alignment of Coding SEquences"
-  homepage "http://bioweb.supagro.inra.fr/macse/"
-  url "http://bioweb.supagro.inra.fr/macse/releases/macse_v1.2.jar"
+  homepage "https://bioweb.supagro.inra.fr/macse/"
+  url "https://bioweb.supagro.inra.fr/macse/releases/macse_v1.2.jar"
   sha256 "5545afd948cc4cd8af435ad9b29c78f77226b73c505b4a42cf938aad0d256803"
   # doi "10.1371/journal.pone.0022594"
   # tag "bioinformatics"
