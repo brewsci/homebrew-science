@@ -1,6 +1,6 @@
 class Wfdb < Formula
-  desc "A software library for working with physiologic signals"
-  homepage "http://physionet.org/physiotools/"
+  desc "Software library for working with physiologic signals"
+  homepage "https://physionet.org/physiotools/"
   url "https://github.com/bemoody/wfdb/archive/10.5.24.tar.gz"
   sha256 "be3be34cd1c2c0eaaae56a9987de13f49a3c53bf1539ce7db58f885dc6e34b7b"
   head "https://github.com/bemoody/wfdb.git"
