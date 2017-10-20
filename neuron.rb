@@ -1,7 +1,7 @@
 class Neuron < Formula
-  homepage "http://www.neuron.yale.edu/neuron/"
-  desc "Neuron is a simulation environment for modeling individual neurons and networks of neurons"
-  url "http://www.neuron.yale.edu/ftp/neuron/versions/v7.4/nrn-7.4.tar.gz"
+  desc "Simulation environment for modeling individual neurons and networks of neurons"
+  homepage "https://www.neuron.yale.edu/neuron/"
+  url "https://www.neuron.yale.edu/ftp/neuron/versions/v7.4/nrn-7.4.tar.gz"
   sha256 "165513a4c5e4f11fb78b6c8a71d92f11a00c120c4bbeec26abfedac241729e98"
 
   head "http://www.neuron.yale.edu/hg/neuron/nrn", :using => :hg
@@ -25,7 +25,7 @@ class Neuron < Formula
   #    According to the lead developer, Carbon is not available for 64-bit
   #    machines, and is an "ancient launcher helper", so we remove it,
   #    as was suggested in this forum thread:
-  #       http://www.neuron.yale.edu/phpbb/viewtopic.php?f=4&t=3254
+  #       https://www.neuron.yale.edu/phpBB/viewtopic.php?f=4&t=3254
   # 2. The build assumes InterViews kept .la files around. It doesn't,
   #    so we link directly to the .dylib instead.
   patch :DATA
