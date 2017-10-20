@@ -1,6 +1,6 @@
 class Cddlib < Formula
   desc "Double description method for general polyhedral cones"
-  homepage "http://www.inf.ethz.ch/personal/fukudak/cdd_home/"
+  homepage "https://www.inf.ethz.ch/personal/fukudak/cdd_home/"
   url "ftp://ftp.math.ethz.ch/users/fukudak/cdd/cddlib-094h.tar.gz"
   sha256 "fe6d04d494683cd451be5f6fe785e147f24e8ce3ef7387f048e739ceb4565ab5"
   # doi "math"
