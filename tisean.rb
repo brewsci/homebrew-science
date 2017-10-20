@@ -1,7 +1,7 @@
 class Tisean < Formula
   desc "Nonlinear time series analysis"
-  homepage "http://www.mpipks-dresden.mpg.de/~tisean/"
-  url "http://www.mpipks-dresden.mpg.de/~tisean/TISEAN_3.0.1.tar.gz"
+  homepage "https://www.mpipks-dresden.mpg.de/~tisean/"
+  url "https://www.mpipks-dresden.mpg.de/~tisean/TISEAN_3.0.1.tar.gz"
   sha256 "cd6662505a2e411218f5d34ccb8bf206a6148b6c79b1cc8e4fa4dc11dfd00534"
   revision 4
 
