@@ -1,6 +1,7 @@
 class Mfusg < Formula
-  homepage "http://water.usgs.gov/ogw/mfusg"
-  url "http://water.usgs.gov/ogw/mfusg/mfusg.1_2_00.zip"
+  homepage "https://water.usgs.gov/ogw/mfusg/"
+  # Broken link
+  url "https://water.usgs.gov/ogw/mfusg/mfusg.1_2_00.zip"
   sha256 "41feb2d595a9b87feca301cfcf00dd142cd67fc466c101548f35bc09c57fadbc"
   revision 1
 
