@@ -1,7 +1,7 @@
 class Mfem < Formula
   desc "Free, lightweight, scalable C++ library for FEM."
-  homepage "http://www.mfem.org"
-  url "http://goo.gl/Vrpsns"
+  homepage "http://www.mfem.org/"
+  url "https://goo.gl/Vrpsns"
   version "3.3"
   sha256 "b17bd452593aada93dc0fee748fcfbbf4f04ce3e7d77fdd0341cc9103bcacd0b"
 
