@@ -1,9 +1,9 @@
 class Fastqc < Formula
   desc "Quality control tool for high throughput sequence data"
-  homepage "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/"
+  homepage "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/"
   # tag "bioinformatics"
 
-  url "http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip"
+  url "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip"
   sha256 "dd7a5ad80ceed2588cf6d6ffe35e0f161c0d9977ed08355f5e4d9473282cbd66"
 
   bottle do
