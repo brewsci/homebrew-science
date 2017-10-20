@@ -1,7 +1,7 @@
 class Cube < Formula
   desc "Performance report explorer for Scalasca and Score-P"
-  homepage "http://apps.fz-juelich.de/scalasca/"
-  url "http://apps.fz-juelich.de/scalasca/releases/cube/4.3/dist/cube-4.3.4.tar.gz"
+  homepage "https://apps.fz-juelich.de/scalasca/"
+  url "https://apps.fz-juelich.de/scalasca/releases/cube/4.3/dist/cube-4.3.4.tar.gz"
   sha256 "34c55fc5d0c84942c0845a7324d84cde09f3bc1b3fae6a0f9556f7ea0e201065"
 
   bottle do
@@ -10,7 +10,7 @@ class Cube < Formula
     sha256 "13c046ba780a2450ab4bf055f5cf70e98a3128ca2e79a55ca364dbc5519bdce9" => :yosemite
   end
 
-  depends_on "qt5"
+  depends_on "qt"
   depends_on "cmake" => :build
 
   def install
