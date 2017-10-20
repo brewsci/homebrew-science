@@ -1,5 +1,6 @@
 class AtePairing < Formula
-  homepage "http://homepage1.nifty.com/herumi/crypt/ate-pairing.html"
+  desc "Implements Optimal Ate Pairing over Barreto-Naehrig Curves"
+  homepage "https://github.com/herumi/ate-pairing"
   url "https://github.com/herumi/ate-pairing/archive/v1.2.tar.gz"
   sha256 "04450727f00d58bee07dea7fad04a39eb12e89b00a9b3e7db78cbbcee9e61d4c"
   head "https://github.com/herumi/ate-pairing.git"
