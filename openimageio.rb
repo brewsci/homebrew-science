@@ -50,7 +50,7 @@ class Openimageio < Formula
   resource "tiffpic" do
     url "ftp://140.211.15.132/pub/libtiff/pics-3.8.0.tar.gz"
     mirror "http://dl.maptools.org/dl/libtiff/pics-3.8.0.tar.gz"
-    mirror "ftp://ftp.ntua.gr/pub/graphics/tiff/pics-3.8.0.tar.gz"
+    mirror "http://ftp.ntua.gr/pub/graphics/tiff/pics-3.8.0.tar.gz"
     mirror "ftp://ftp.u-aizu.ac.jp/pub/graphics/image/ImageMagick/simplesystems.org/libtiff/pics-3.8.0.tar.gz"
     sha256 "e0e34732b61e1ce49eff2c7a079994c856d2a5f772f5228c84678272bc6829a9"
   end
@@ -123,17 +123,17 @@ class Openimageio < Formula
       d = buildpath
 
       mkdir d+"webp-images" do
-        curl "http://www.gstatic.com/webp/gallery/[1-5].webp", "-O"
+        curl "https://www.gstatic.com/webp/gallery/[1-5].webp", "-O"
       end
       mkdir d+"fits-images"
       mkdir d+"fits-images/pg93" do
-        curl "http://www.cv.nrao.edu/fits/data/tests/pg93/tst000[1-3].fits", "-O"
-        curl "http://www.cv.nrao.edu/fits/data/tests/pg93/tst000[5-9].fits", "-O"
-        curl "http://www.cv.nrao.edu/fits/data/tests/pg93/tst0013.fits", "-O"
+        curl "https://www.cv.nrao.edu/fits/data/tests/pg93/tst000[1-3].fits", "-O"
+        curl "https://www.cv.nrao.edu/fits/data/tests/pg93/tst000[5-9].fits", "-O"
+        curl "https://www.cv.nrao.edu/fits/data/tests/pg93/tst0013.fits", "-O"
       end
       mkdir d+"fits-images/ftt4b" do
-        curl "http://www.cv.nrao.edu/fits/data/tests/ftt4b/file00[1-3].fits", "-O"
-        curl "http://www.cv.nrao.edu/fits/data/tests/ftt4b/file0{09,12}.fits", "-O"
+        curl "https://www.cv.nrao.edu/fits/data/tests/ftt4b/file00[1-3].fits", "-O"
+        curl "https://www.cv.nrao.edu/fits/data/tests/ftt4b/file0{09,12}.fits", "-O"
       end
 
       resource("j2kp4files").stage { (d+"j2kp4files_v1_5").install Dir["J2KP4files/*"] }
