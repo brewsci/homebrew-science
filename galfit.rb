@@ -1,19 +1,19 @@
 class Galfit < Formula
-  homepage "http://users.obs.carnegiescience.edu/peng/work/galfit/galfit.html"
+  homepage "https://users.obs.carnegiescience.edu/peng/work/galfit/galfit.html"
   version "3.0.5"
 
   depends_on :macos => :leopard
 
   if MacOS.version == :mavericks
-    url "http://users.obs.carnegiescience.edu/peng/work/galfit/galfit3-mavericks.tar.gz"
+    url "https://users.obs.carnegiescience.edu/peng/work/galfit/galfit3-mavericks.tar.gz"
     sha256 "8829cafd3c0d34a6697c389fcf50f5eff267dc81c450f1e60865d456bff93f7f"
   else
-    url "http://users.obs.carnegiescience.edu/peng/work/galfit/galfit3-leopard+.tar.gz"
+    url "https://users.obs.carnegiescience.edu/peng/work/galfit/galfit3-leopard+.tar.gz"
     sha256 "97dae1d6500d42fa9cb27faca15286350b69e703eaecfdb6bf89c33f85a03d5d"
   end
 
   resource "example" do
-    url "http://users.obs.carnegiescience.edu/peng/work/galfit/galfit-ex.tar.gz"
+    url "https://users.obs.carnegiescience.edu/peng/work/galfit/galfit-ex.tar.gz"
     sha256 "3761cf4247b076a4aa2842c4c8d1f4d99871ec4ef31f39145c28102aaadc0d9a"
   end
 
