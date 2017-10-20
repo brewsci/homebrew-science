@@ -3,13 +3,13 @@ class Tbl2asn < Formula
   homepage "https://www.ncbi.nlm.nih.gov/genbank/tbl2asn2/"
   # tag "bioinformatics"
 
-  # version number is in ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/DOCUMENTATION/VERSIONS
+  # version number is in https://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/DOCUMENTATION/VERSIONS
   version "25.3"
   if OS.mac?
-    url "ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/mac.tbl2asn.gz"
+    url "https://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/mac.tbl2asn.gz"
     sha256 "429d63ee3c36d1f2f6322c62c6089d5ee8a8b089e5cc9373e298e017bcbbb9ec"
   elsif OS.linux?
-    url "ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/linux64.tbl2asn.gz"
+    url "https://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/linux64.tbl2asn.gz"
     sha256 "37fb033ef3364447d718b726f234da124d474fa22a31917d3b60458ef8294283"
   end
 
@@ -22,7 +22,7 @@ class Tbl2asn < Formula
   end
 
   resource "doc" do
-    url "ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/DOCUMENTATION/tbl2asn.txt"
+    url "https://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/DOCUMENTATION/tbl2asn.txt"
     sha256 "b5e139c2a22cea4e1b5c7a063e3fb1f311d6b8802f2a8cca1433d7f16f816300"
   end
 
