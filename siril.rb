@@ -1,6 +1,6 @@
 class Siril < Formula
   desc "Astronomical image (pre-)processing application"
-  homepage "http://free-astro.org/index.php/Siril"
+  homepage "https://free-astro.org/index.php/Siril"
   url "https://free-astro.org/download/siril-0.9.7.tar.bz2"
   sha256 "6db016d5aecffa9e8d9541fc642532e2fb35ddebb9e85ebf1f37adcccfb7fe62"
   head "https://free-astro.org/svn/siril/"
@@ -20,7 +20,7 @@ class Siril < Formula
   depends_on "llvm"
   depends_on "ffms2"
   depends_on "fftw"
-  depends_on "gnome-icon-theme"
+  depends_on "adwaita-icon-theme"
   depends_on "openjpeg"
   depends_on "cfitsio"
   depends_on "libconfig"
