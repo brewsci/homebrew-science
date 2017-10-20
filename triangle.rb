@@ -1,8 +1,8 @@
 class Triangle < Formula
-  homepage "http://www.cs.cmu.edu/~quake/triangle.html"
+  homepage "https://www.cs.cmu.edu/~quake/triangle.html"
   url "http://www.netlib.org/voronoi/triangle.zip"
-  sha256 "1766327add038495fa3499e9b7cc642179229750f7201b94f8e1b7bee76f8480"
   version "1.6"
+  sha256 "1766327add038495fa3499e9b7cc642179229750f7201b94f8e1b7bee76f8480"
 
   depends_on :x11
 
