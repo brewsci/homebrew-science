@@ -1,8 +1,12 @@
 class Velvet < Formula
-  desc "sequence assembler for very short reads"
-  homepage "http://www.ebi.ac.uk/~zerbino/velvet/"
-  url "http://www.ebi.ac.uk/~zerbino/velvet/velvet_1.2.10.tgz"
+  desc "Sequence assembler for very short reads"
+  homepage "https://www.ebi.ac.uk/~zerbino/velvet/"
+  url "https://www.ebi.ac.uk/~zerbino/velvet/velvet_1.2.10.tgz"
   sha256 "884dd488c2d12f1f89cdc530a266af5d3106965f21ab9149e8cb5c633c977640"
+
+  # doi "10.1101/gr.074492.107"
+  # tag "bioinformatics"
+  head "https://github.com/dzerbino/velvet.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,10 +16,6 @@ class Velvet < Formula
     sha256 "505a5749837f89cfe68f058593bc23a6c1c935ff5e212c03109b3c9c136d4de0" => :yosemite
     sha256 "83ff1ef5b16dd8f142418c9b54189ff86979d7ba427ca55cc44c3fe6ad2197c0" => :x86_64_linux
   end
-
-  # doi "10.1101/gr.074492.107"
-  # tag "bioinformatics"
-  head "https://github.com/dzerbino/velvet.git"
 
   option "with-maxkmerlength=", "Specify maximum k-mer length, any positive odd integer (default: 31)"
   option "with-categories=", "Specify number of categories, any positive integer (default: 2)"
