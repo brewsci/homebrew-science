@@ -16,7 +16,7 @@ class Trf < Formula
   # doi "10.1093/nar/27.2.573"
   # tag "bioinformatics"
 
-  # The license does not permit redistribution. http://tandem.bu.edu/trf/trf.license.html
+  # The license does not permit redistribution. https://tandem.bu.edu/trf/trf.license.html
   bottle :unneeded
 
   depends_on "patchelf" => :build unless OS.mac?
