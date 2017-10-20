@@ -1,8 +1,8 @@
 class Glpk448 < Formula
   desc "Library for Linear Programming"
   homepage "https://www.gnu.org/software/glpk/"
-  url "http://ftpmirror.gnu.org/glpk/glpk-4.48.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/glpk/glpk-4.48.tar.gz"
+  url "https://ftp.gnu.org/gnu/glpk/glpk-4.48.tar.gz"
+  mirror "https://ftpmirror.gnu.org/glpk/glpk-4.48.tar.gz"
   sha256 "abc2c8f895b20a91cdfcfc04367a0bc8677daf8b4ec3f3e86c5b71c79ac6adb1"
   revision 1
 
@@ -13,7 +13,7 @@ class Glpk448 < Formula
     sha256 "24427a5e8d671ea3e305e1e26814957b03481f9e8850be8e0226ba47a8bcc35b" => :mavericks
   end
 
-  keg_only "This formula installs an older version of the GLPK libraries"
+  keg_only "this formula installs an older version of the GLPK libraries"
 
   depends_on "gmp" => :recommended
 
