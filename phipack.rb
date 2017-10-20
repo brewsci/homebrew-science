@@ -1,6 +1,13 @@
 class Phipack < Formula
-  desc "A quick and robust genomic recombination test"
-  homepage "http://www.maths.otago.ac.nz/~dbryant/software.html"
+  desc "Quick and robust genomic recombination test"
+  homepage "https://www.maths.otago.ac.nz/~dbryant/software.html"
+  # doi "10.1534/genetics.105.048975"
+  # tag "bioinformatics"
+
+  url "https://www.maths.otago.ac.nz/~dbryant/software/PhiPack.tar"
+  version "2013-03-05"
+  sha256 "bee88a90c081caac427f7bc206a59ae9a51b9d4affdb3a53750d7f9da109e193"
+
   bottle do
     cellar :any
     sha256 "1fabe869b7a87d8fec85ca7cf7ee1899d12a38994a6046f203f83026733c91a3" => :yosemite
@@ -8,13 +15,6 @@ class Phipack < Formula
     sha256 "8c0f3cd292ba7964acbcd388ad04dccee785c69288c9d78169e9bf7fba9e5ef6" => :mountain_lion
     sha256 "d14f04741addecb41c8c212f67f82915a78993335adf61fef8736c23ad140ed3" => :x86_64_linux
   end
-
-  # doi "10.1534/genetics.105.048975"
-  # tag "bioinformatics"
-
-  url "http://www.maths.otago.ac.nz/~dbryant/software/PhiPack.tar"
-  version "2013-03-05"
-  sha256 "bee88a90c081caac427f7bc206a59ae9a51b9d4affdb3a53750d7f9da109e193"
 
   def install
     system "make", "-C", "src"
