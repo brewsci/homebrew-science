@@ -1,7 +1,7 @@
 class Nfft < Formula
   desc "Nonequispaced fast Fourier transform"
-  homepage "http://www-user.tu-chemnitz.de/~potts/nfft"
-  url "http://www-user.tu-chemnitz.de/~potts/nfft/download/nfft-3.2.3.tar.gz"
+  homepage "https://www-user.tu-chemnitz.de/~potts/nfft"
+  url "https://www-user.tu-chemnitz.de/~potts/nfft/download/nfft-3.2.3.tar.gz"
   sha256 "5c920f4be63230083756f36ad78bbdd083c4c2298ec361741dc74243c4d67818"
 
   bottle do
