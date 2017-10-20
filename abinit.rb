@@ -1,6 +1,6 @@
 class Abinit < Formula
   desc "Atomic-scale first-principles simulation software"
-  homepage "http://www.abinit.org"
+  homepage "https://www.abinit.org/"
   url "https://www.abinit.org/sites/default/files/packages/abinit-8.4.4.tar.gz"
   sha256 "ebf63b842810c65d83939cf04058d7bdedc9874ee662f59af45cb29de41e2a8c"
   # tag "chemistry"
