@@ -46,7 +46,7 @@ class Concorde < Formula
     system "./configure", *args
 
     if build.with? "cplex"
-      # based on http://www.leandro-coelho.com/installing-concorde-tsp-with-cplex-linux/
+      # based on https://www.leandro-coelho.com/installing-concorde-tsp-with-cplex-linux/
       inreplace "TSP/Makefile", "LIBFLAGS = -lm", "LIBFLAGS = -lm -lpthread"
       inreplace "Makefile", "LIBFLAGS = -lm", "LIBFLAGS = -lm -lpthread"
     end
