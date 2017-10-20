@@ -1,7 +1,7 @@
 class Pathd8 < Formula
   desc "Estimates divergence times in large phylogenetic trees"
-  homepage "http://www2.math.su.se/PATHd8/"
-  url "http://www2.math.su.se/PATHd8/PATHd8.zip"
+  homepage "https://www2.math.su.se/PATHd8/"
+  url "https://www2.math.su.se/PATHd8/PATHd8.zip"
   version "1.0"
   sha256 "6f92c1104b5fcdacdcc387024b5a1324790a165d0418795dec2ec68ebb946749"
   bottle do
@@ -16,7 +16,7 @@ class Pathd8 < Formula
   # tag "bioinformatics"
 
   def install
-    # Build instructions per http://www2.math.su.se/PATHd8/compile.html
+    # Build instructions per https://www2.math.su.se/PATHd8/compile.html
     system ENV.cc, "PATHd8.c", "-O3", "-lm", "-o", "PATHd8"
     bin.install "PATHd8"
   end
