@@ -1,5 +1,5 @@
 class FastqTools < Formula
-  homepage "http://homes.cs.washington.edu/~dcjones/fastq-tools/"
+  homepage "https://homes.cs.washington.edu/~dcjones/fastq-tools/"
   # tag "bioinformatics"
 
   url "https://homes.cs.washington.edu/~dcjones/fastq-tools/fastq-tools-0.7.tar.gz"
