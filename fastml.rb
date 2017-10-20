@@ -1,10 +1,10 @@
 class Fastml < Formula
   desc "Probabilistic reconstruction of ancestral sequences using ML"
-  homepage "http://fastml.tau.ac.il/source.php"
+  homepage "https://fastml.tau.ac.il/source.php"
   # doi "10.1093/bioinformatics/18.8.1116"
   # tag "bioinformatics"
 
-  url "http://fastml.tau.ac.il/source/FastML.v3.1.tgz"
+  url "https://fastml.tau.ac.il/source/FastML.v3.1.tgz"
   sha256 "16c8631a4186f434f81f5b7e8c1147660e79b025b3c93a6db9889c30477bd5f4"
   revision 1
 
