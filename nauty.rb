@@ -1,6 +1,6 @@
 class Nauty < Formula
-  desc "automorphism groups of graphs and digraphs"
-  homepage "http://cs.anu.edu.au/~bdm/nauty/"
+  desc "Automorphism groups of graphs and digraphs"
+  homepage "http://pallini.di.uniroma1.it/"
   url "http://users.cecs.anu.edu.au/~bdm/nauty/nauty26r5.tar.gz"
   version "26r5"
   sha256 "5043e7d8157c36bf0e7f5ccdc43136f610108d2d755bf1a30508b4cb074302eb"
