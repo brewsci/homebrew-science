@@ -1,7 +1,7 @@
 class R8s < Formula
   desc "Estimate rates and divergence times on phylogenetic trees"
-  homepage "http://ceiba.biosci.arizona.edu/r8s/"
-  url "http://ceiba.biosci.arizona.edu/r8s/r8s.dist.tgz"
+  homepage "https://ceiba.biosci.arizona.edu/r8s/"
+  url "https://ceiba.biosci.arizona.edu/r8s/r8s.dist.tgz"
   version "1.8"
   sha256 "3b70c86c5aeff52b42598bd48777881b22104c1c1c4658ebcf96d2da9d9521b4"
   revision 2
