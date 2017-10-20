@@ -1,15 +1,15 @@
 class Ccfits < Formula
-  homepage "http://heasarc.gsfc.nasa.gov/fitsio/CCfits/"
-  url "http://heasarc.gsfc.nasa.gov/fitsio/CCfits/CCfits-2.4.tar.gz"
+  homepage "https://heasarc.gsfc.nasa.gov/fitsio/CCfits/"
+  url "https://heasarc.gsfc.nasa.gov/fitsio/CCfits/CCfits-2.4.tar.gz"
   sha256 "ba6c5012b260adf7633f92581279ea582e331343d8c973981aa7de07242bd7f8"
+
+  option "without-check", "Disable build-time checking (not recommended)"
 
   depends_on "cfitsio"
 
   # patch for OS X Mavericks build system
-  # see http://heasarc.gsfc.nasa.gov/fitsio/CCfits/html/
+  # see https://heasarc.gsfc.nasa.gov/fitsio/CCfits/html/
   patch :DATA
-
-  option "without-check", "Disable build-time checking (not recommended)"
 
   def install
     system "./configure", "--disable-debug",
