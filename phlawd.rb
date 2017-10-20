@@ -1,6 +1,6 @@
 class Phlawd < Formula
   desc "Phylogenetic dataset construction"
-  homepage "http://www.phlawd.net/"
+  homepage "https://www.phlawd.net/"
   url "https://github.com/jonchang/phlawd/archive/3.4b.tar.gz"
   version "3.4b"
   sha256 "a0fea43866e425f7fed5f74bcb8c391484a10b486f3f03d5b7bbc4df84dd84b8"
