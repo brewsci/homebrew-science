@@ -80,7 +80,7 @@ class Poretools < Formula
   end
 
   resource "test" do
-    url "ftp://ftp.sra.ebi.ac.uk/vol1/ERA412/ERA412821/oxfordnanopore_native/MVA_filtered.tar.gz"
+    url "http://ftp.sra.ebi.ac.uk/vol1/ERA412/ERA412821/oxfordnanopore_native/MVA_filtered.tar.gz"
     sha256 "76b00286acba1f65c76a3869bc60e099190ce48d0a5822606ce222e80529e523"
   end
 
