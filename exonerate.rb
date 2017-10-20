@@ -1,6 +1,6 @@
 class Exonerate < Formula
   desc "Pairwise sequence alignment of DNA and proteins"
-  homepage "http://www.ebi.ac.uk/about/vertebrate-genomics/software/exonerate"
+  homepage "https://www.ebi.ac.uk/about/vertebrate-genomics/software/exonerate"
   # doi "10.1186/1471-2105-6-31"
   # tag "bioinformatics"
   url "http://ftp.ebi.ac.uk/pub/software/vertebrategenomics/exonerate/exonerate-2.2.0.tar.gz"
