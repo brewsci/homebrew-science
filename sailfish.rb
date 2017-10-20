@@ -1,6 +1,6 @@
 class Sailfish < Formula
   desc "Rapid mapping-based RNA-Seq isoform quantification"
-  homepage "http://www.cs.cmu.edu/~ckingsf/software/sailfish"
+  homepage "https://www.cs.cmu.edu/~ckingsf/software/sailfish"
   # doi "10.1038/nbt.2862"
   # tag "bioinformatics"
   url "https://github.com/kingsfordgroup/sailfish/archive/v0.10.1.tar.gz"
