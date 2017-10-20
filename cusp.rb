@@ -2,7 +2,7 @@ require File.expand_path("../Requirements/cuda_requirement", __FILE__)
 
 class Cusp < Formula
   desc "C++ Templated Sparse Matrix Library for CUDA"
-  homepage "http://cusplibrary.github.io"
+  homepage "https://cusplibrary.github.io/"
   url "https://github.com/cusplibrary/cusplibrary/archive/v0.4.0.tar.gz"
   sha256 "8bfcef7fd281bffd53865d74b53cdc69747390c47901a0402bac76cd6442ecda"
   head "https://github.com/cusplibrary/cusplibrary.git", :branch => "develop"
