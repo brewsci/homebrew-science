@@ -26,7 +26,7 @@ class SamtoolsAT01 < Formula
   end
 
   resource "dwgsim" do
-    # http://sourceforge.net/apps/mediawiki/dnaa/index.php?title=Whole_Genome_Simulation
+    # https://web.archive.org/web/20140610040151/sourceforge.net/apps/mediawiki/dnaa/index.php?title=Whole_Genome_Simulation
     url "https://downloads.sourceforge.net/project/dnaa/dwgsim/dwgsim-0.1.11.tar.gz"
     sha256 "6ffc8a4f7d20bc7c8b3efa1d2b3ae6cbf9609a93db976d4e7ccd2a209a2305b5"
   end
