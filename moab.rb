@@ -1,6 +1,6 @@
 class Moab < Formula
   desc "Mesh-Oriented datABase for evaluating mesh data"
-  homepage "http://press3.mcs.anl.gov/sigma/moab-library/"
+  homepage "https://press3.mcs.anl.gov/sigma/moab-library/"
   url "http://ftp.mcs.anl.gov/pub/fathom/moab-4.9.2.tar.gz"
   sha256 "26611b8cc24f6b7df52eb4ecbd31523d61523da0524b5a2d066a7656e2e82ac5"
   revision 5
