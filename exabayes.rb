@@ -1,6 +1,6 @@
 class Exabayes < Formula
   desc "Large-scale Bayesian tree inference"
-  homepage "http://sco.h-its.org/exelixis/web/software/exabayes/"
+  homepage "https://sco.h-its.org/exelixis/web/software/exabayes/"
   url "https://github.com/aberer/exabayes/archive/v1.5.tar.gz"
   sha256 "3e5747d2ffb875ea929da666ee8bc8727aa3963bfa86207efe14218fd952c6b3"
   head "https://github.com/aberer/exabayes.git", :branch => "devel"
