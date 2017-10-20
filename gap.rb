@@ -13,7 +13,7 @@ class Gap < Formula
     sha256 "9eca000ecddafb1101edb06cd6087f87e38f9d168d5224e8c7030ccf6bf85853" => :x86_64_linux
   end
 
-  # NOTE:  the archive contains the [GMP library](http://gmplib.org) under
+  # NOTE:  the archive contains the [GMP library](https://gmplib.org/) under
   #   `extern/`, which is not needed if it is already installed (for example,
   #   with Homebrew), and a number of GAP packages under `pkg/`, some of
   #   which need to be built.
@@ -24,9 +24,9 @@ class Gap < Formula
   deprecated_option "with-InstPackages" => "with-packages"
 
   depends_on "gmp"
-  # NOTE:  A version of [GMP](https://gmplib.org) is included in GAP archive
+  # NOTE:  A version of [GMP](https://gmplib.org/) is included in GAP archive
   #   under `extern/`, it is possible to use it instead of the brewed `gmp`.
-  #   See http://www.gap-system.org/Download/INSTALL for details.
+  #   See https://www.gap-system.org/Download/INSTALL for details.
 
   depends_on "readline" => :recommended
 
@@ -40,7 +40,7 @@ class Gap < Formula
     # XXX:  Currently there is no `install` target in `Makefile`.
     #   According to the manual installation instructions in
     #
-    #     http://www.gap-system.org/Download/INSTALL ,
+    #     https://www.gap-system.org/Download/INSTALL ,
     #
     #   the compiled "bundle" is intended to be used "as is," and there is
     #   no instructions for how to remove the source and other unnecessary
