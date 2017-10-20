@@ -1,6 +1,6 @@
 class G2o < Formula
   desc "General Framework for Graph Optimization"
-  homepage "http://openslam.org/g2o.html"
+  homepage "https://openslam.org/g2o.html"
   url "https://github.com/RainerKuemmerle/g2o/archive/20170730_git.tar.gz"
   version "2017-07-30"
   sha256 "799a7a943de423f7514c6cfdc7ed1c7393a15a73ff88aa07ad3fdd571d777d22"
