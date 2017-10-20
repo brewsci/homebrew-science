@@ -1,6 +1,6 @@
 class Seqan < Formula
   desc "C++ library of sequence algorithms and data structures"
-  homepage "http://www.seqan.de/"
+  homepage "https://www.seqan.de/"
   # doi "10.1186/1471-2105-9-11"
   # tag "bioinformatics"
 
