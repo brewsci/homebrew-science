@@ -1,11 +1,11 @@
 class Rnammer < Formula
   desc "Predicts 5s/8s, 16s/18s, and 23s/28s ribosomal RNA in full genome sequences"
-  homepage "http://www.cbs.dtu.dk/services/RNAmmer/"
+  homepage "https://www.cbs.dtu.dk/services/RNAmmer/"
   # doi "10.1093/nar/gkm160"
   # tag "bioinformatics"
 
   # The tarball may also be downloaded using this web form:
-  # http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?rnammer
+  # https://www.cbs.dtu.dk/cgi-bin/nph-sw_request?rnammer
   url "http://bioinformatics.se/resources_2/rnammer-1.2.src.tar.Z"
   sha256 "c8f0df0c44e3c31b81de5b74de9e6033907976bfdc283ad8c3402af5efc2aae2"
 
@@ -36,7 +36,7 @@ class Rnammer < Formula
     For academic users there is no license fee. For the complete license see
       #{opt_prefix}/LICENSE
     There is also a web service at
-      http://www.cbs.dtu.dk/services/RNAmmer/
+      https://www.cbs.dtu.dk/services/RNAmmer/
     EOS
   end
 
