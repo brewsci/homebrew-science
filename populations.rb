@@ -1,6 +1,6 @@
 class Populations < Formula
-  desc "individual and population distances, and file conversions"
-  homepage "http://bioinformatics.org/~tryphon/populations/"
+  desc "Individual and population distances, and file conversions"
+  homepage "https://bioinformatics.org/~tryphon/populations/"
   url "https://launchpad.net/~olivier-langella/+archive/ubuntu/ppa/+files/populations_1.2.33-2.tar.gz"
   sha256 "bea8ba96e6ed2b1e193194564475458a5bdcd23e1bb3a9d93f27c9a94797124f"
   revision 1
@@ -15,7 +15,7 @@ class Populations < Formula
 
   depends_on "cmake" => :build
   depends_on "gettext"
-  depends_on "qt5"
+  depends_on "qt"
 
   # Fix a compiler error.
   patch :DATA
