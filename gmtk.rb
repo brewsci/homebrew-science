@@ -1,7 +1,7 @@
 class Gmtk < Formula
   desc "The Graphical Models Toolkit for prototyping dynamic graphical models"
-  homepage "http://melodi.ee.washington.edu/gmtk"
-  url "http://melodi.ee.washington.edu/downloads/gmtk/gmtk-1.4.4.tar.gz"
+  homepage "https://melodi.ee.washington.edu/gmtk"
+  url "https://melodi.ee.washington.edu/downloads/gmtk/gmtk-1.4.4.tar.gz"
   sha256 "c6243f1b5c68910a4a0ea60a1b2285ede5ba771cfec3fa5ffa3699ecef6e87e0"
 
   bottle do
