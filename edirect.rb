@@ -1,9 +1,9 @@
 class Edirect < Formula
   desc "Access NCBI's databases from the shell"
-  homepage "http://www.ncbi.nlm.nih.gov/books/NBK179288/"
-  url "ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/versions/6.00.20170109/edirect.tar.gz"
+  homepage "https://www.ncbi.nlm.nih.gov/books/NBK179288/"
+  url "https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/versions/6.00.20170109/edirect.tar.gz"
   sha256 "b0709d89394ceee1c97bfc44c993ce074181837f79def2c6958edc3e5ffa7d29"
-  head "ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/versions/current/edirect.tar.gz"
+  head "https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/versions/current/edirect.tar.gz"
   # tag "bioinformatics"
 
   bottle do
