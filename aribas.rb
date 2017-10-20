@@ -1,6 +1,6 @@
 class Aribas < Formula
   desc "Interactive interpreter for integer and multi-precision arithmetic"
-  homepage "http://www.mathematik.uni-muenchen.de/~forster/sw/aribas.html"
+  homepage "https://www.mathematik.uni-muenchen.de/~forster/sw/aribas.html"
   url "ftp://ftp.mathematik.uni-muenchen.de/pub/forster/aribas/UNIX_LINUX/aribas-1.64.tar.gz"
   sha256 "11b2a934774088e2c66a9d9397806dbb8d33f0da48d6c800a492c2a43c258169"
 
