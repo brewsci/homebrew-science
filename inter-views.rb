@@ -1,6 +1,6 @@
 class InterViews < Formula
-  homepage "http://www.neuron.yale.edu/neuron/"
-  url "http://www.neuron.yale.edu/ftp/neuron/versions/v7.4/iv-19.tar.gz"
+  homepage "https://www.neuron.yale.edu/neuron/"
+  url "https://www.neuron.yale.edu/ftp/neuron/versions/v7.4/iv-19.tar.gz"
   sha256 "3cb76ad00ebf4282d4c586540f54624fef7ecf8cd3fa2e6b3075d8fdacdc42e0"
 
   head "http://www.neuron.yale.edu/hg/neuron/iv", :using => :hg
