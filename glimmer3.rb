@@ -1,6 +1,6 @@
 class Glimmer3 < Formula
-  homepage "http://ccb.jhu.edu/software/glimmer/index.shtml"
-  url "http://ccb.jhu.edu/software/glimmer/glimmer302b.tar.gz"
+  homepage "https://ccb.jhu.edu/software/glimmer/"
+  url "https://ccb.jhu.edu/software/glimmer/glimmer302b.tar.gz"
   version "3.02b"
   sha256 "ecf28e03d0a675aed7360ca34ca7f19993f5c3ea889273e657ced9fa7d1e2bf6"
 
@@ -48,7 +48,7 @@ class Glimmer3 < Formula
   end
 
   test do
-    system "g3-from-scratch.csh #{share}/#{name}/tpall.fna test"
+    system "g3-from-scratch.csh", "#{share}/#{name}/tpall.fna", "test"
 
     if FileTest.exists? "test.predict"
       `diff test.predict #{share}/#{name}/from-scratch.predict`.empty? ? true : false
