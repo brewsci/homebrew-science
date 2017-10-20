@@ -1,7 +1,7 @@
 class Oma < Formula
-  desc "standalone package to infer orthologs with the OMA algorithm"
-  homepage "http://omabrowser.org/standalone/"
-  url "http://omabrowser.org/standalone/OMA.2.1.1.tgz"
+  desc "Standalone package to infer orthologs with the OMA algorithm"
+  homepage "https://omabrowser.org/standalone/"
+  url "https://omabrowser.org/standalone/OMA.2.1.1.tgz"
   sha256 "c21fde703a1d13bd759ebc724e09b6d83b9e88abacc7cc1a78fee76972f93ec1"
 
   bottle do
