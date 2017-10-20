@@ -1,11 +1,11 @@
 class Mitofy < Formula
-  homepage "http://dogma.ccbb.utexas.edu/mitofy/"
+  homepage "https://dogma.ccbb.utexas.edu/mitofy/"
   # doi "10.1093/molbev/msq029"
   # tag "bioinformatics"
 
-  url "http://dogma.ccbb.utexas.edu/mitofy/mitofy.tgz"
-  sha256 "29e73b0f0a09e698209809081cc0de1ef0ee7e3cf9ae873b01504911025bb244"
+  url "https://dogma.ccbb.utexas.edu/mitofy/mitofy.tgz"
   version "20120322"
+  sha256 "29e73b0f0a09e698209809081cc0de1ef0ee7e3cf9ae873b01504911025bb244"
 
   bottle do
     cellar :any
