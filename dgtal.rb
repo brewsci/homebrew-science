@@ -1,11 +1,11 @@
 class Dgtal < Formula
   desc "Digital Geometry Tools and Algorithms"
-  homepage "http://dgtal.org"
+  homepage "http://dgtal.org/"
   url "http://dgtal.org/releases/DGtal-0.9.3-Source.tar.gz"
-  mirror "http://liris.cnrs.fr/dgtal/releases/DGtal-0.9.3-Source.tar.gz"
+  mirror "https://liris.cnrs.fr/dgtal/releases/DGtal-0.9.3-Source.tar.gz"
   sha256 "6ade39b5bf12b8da9b26df340830136d423fc4558b51ae5608cdac40e0fc1744"
-  head "https://github.com/DGtal-team/DGtal.git"
   revision 1
+  head "https://github.com/DGtal-team/DGtal.git"
 
   bottle do
     cellar :any
