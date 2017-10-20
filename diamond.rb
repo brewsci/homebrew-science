@@ -1,6 +1,6 @@
 class Diamond < Formula
   desc "Accelerated BLAST compatible local sequence aligner"
-  homepage "http://ab.inf.uni-tuebingen.de/software/diamond/"
+  homepage "https://ab.inf.uni-tuebingen.de/software/diamond/"
   # doi "10.1038/nmeth.3176"
   # tag "bioinformatics"
 
