@@ -35,7 +35,7 @@ class Vigra < Formula
   end
 
   # vigra python bindings requires boost-python
-  # see http://packages.ubuntu.com/saucy/python-vigra
+  # see https://packages.ubuntu.com/saucy/python-vigra
   depends_on "boost-python" => "c++11" if build.with? "python"
 
   def install
