@@ -1,5 +1,5 @@
 class Glimmerhmm < Formula
-  homepage "http://ccb.jhu.edu/software/glimmerhmm/"
+  homepage "https://ccb.jhu.edu/software/glimmerhmm/"
   # doi "10.1093/bioinformatics/bth315"
   # tag "bioinformatics"
 
