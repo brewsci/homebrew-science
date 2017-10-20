@@ -1,6 +1,6 @@
 class Smalt < Formula
   desc "Aligns DNA sequencing reads with a reference genome"
-  homepage "http://www.sanger.ac.uk/science/tools/smalt-0"
+  homepage "https://www.sanger.ac.uk/science/tools/smalt-0"
   # tag "bioinformatics"
 
   url "https://downloads.sourceforge.net/project/smalt/smalt-0.7.6.tar.gz"
