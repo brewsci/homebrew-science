@@ -1,12 +1,12 @@
 class Sextractor < Formula
-  homepage "http://www.astromatic.net/software/sextractor"
-  url "http://www.astromatic.net/download/sextractor/sextractor-2.19.5.tar.gz"
+  homepage "https://www.astromatic.net/software/sextractor"
+  url "https://www.astromatic.net/download/sextractor/sextractor-2.19.5.tar.gz"
   sha256 "2a880e018585f905300d5919ab454b18640a5bef13deb5c4f03111ac4710b2c5"
+
+  option "without-check", "Disable build-time checking (not recommended); running check will take 5-10 minutes"
 
   depends_on "fftw"
   depends_on "autoconf" => :build
-
-  option "without-check", "Disable build-time checking (not recommended); running check will take 5-10 minutes"
 
   # these patches collectively make the changes needed to compile with the Accelerate
   # framework for linear algebra routines.
