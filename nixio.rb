@@ -1,8 +1,8 @@
 class Nixio < Formula
   desc "C++ library for the NIX scientific data format and model"
   homepage "http://www.g-node.org/nix"
-  url "https://github.com/G-Node/nix/archive/1.4.0.tar.gz"
-  sha256 "29defada2319691679fa54aadef239fe7bb026aa01933a9b535e8c0628c9578c"
+  url "https://github.com/G-Node/nix/archive/1.4.1.tar.gz"
+  sha256 "6b559744d36b6212a35a8c82db5829ec8feeac87bf0732686bef5e2cd7c9d8a9"
   head "https://github.com/G-Node/nix.git"
 
   bottle do
@@ -16,12 +16,7 @@ class Nixio < Formula
   depends_on "cmake" => :build
   depends_on "hdf5"
   depends_on "cppunit"
-
-  if OS.mac? && MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
-  else
-    depends_on "boost"
-  end
+  depends_on "boost"
 
   needs :cxx11
 
