@@ -1,9 +1,8 @@
 class Nest < Formula
   desc "The Neural Simulation Tool"
   homepage "http://www.nest-simulator.org/"
-  url "https://github.com/nest/nest-simulator/releases/download/v2.12.0/nest-2.12.0.tar.gz"
-  sha256 "bac578f38bb0621618ee9d5f2f1febfee60cddc000ff32e51a5f5470bb3df40d"
-  revision 3
+  url "https://github.com/nest/nest-simulator/archive/v2.14.0.tar.gz"
+  sha256 "afaf7d53c2d5305fac1257759cc0ea6d62c3cebf7d5cc4a07d4739af4dbb9caf"
   head "https://github.com/nest/nest-simulator.git"
 
   bottle do
