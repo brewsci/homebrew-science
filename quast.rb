@@ -4,8 +4,8 @@ class Quast < Formula
   # doi "10.1093/bioinformatics/btt086", "10.1093/bioinformatics/btv697", "10.1093/bioinformatics/btw379"
   # tag "bioinformatics"
 
-  url "https://downloads.sourceforge.net/project/quast/quast-4.5.tar.gz"
-  sha256 "6c6e0b108d7d3f47d42a2205e8a95ed07a240829ed0980e5058b20e44bc666bb"
+  url "https://downloads.sourceforge.net/project/quast/quast-4.6.0.tar.gz"
+  sha256 "fcb5ac34c7fd71ceedd75fa8da6136e7ef66cdcc9a87216b7ea11a2012f61f56"
 
   bottle do
     sha256 "b0e39c8e7a45032b00c87110e618def5ab305cebe3b3fbf9bc44b080fb09e972" => :sierra
