@@ -1,9 +1,8 @@
 class Gnuastro < Formula
   desc "Programs and libs for manipulation and analysis of astronomical data"
   homepage "https://www.gnu.org/software/gnuastro/index.html"
-  url "https://ftp.gnu.org/gnu/gnuastro/gnuastro-0.3.tar.gz"
-  sha256 "8a5bc2f977d4839f820d7423d10a6b94391a9571df97a64b9feb99a117973d81"
-  revision 2
+  url "https://ftp.gnu.org/gnu/gnuastro/gnuastro-0.4.tar.gz"
+  sha256 "3ac37879efcb14256b40d1d93eaad014cc056ecff62c30606131a137c9ff60d8"
 
   bottle do
     sha256 "bbb6459d691af315bb88a402245119546ebc9a51f73ba0ee90d5c4e2621e572a" => :sierra
