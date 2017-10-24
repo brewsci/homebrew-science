@@ -12,6 +12,7 @@ class Flint < Formula
     sha256 "84ea34a38641727ba22c55f9b1822fb3b7d6a7cf4aa7df3276b0414e02e13aa7" => :high_sierra
     sha256 "1449026475aeb11f36bcd1d7406f6cf33df7ad63e67ccca034611e4383666281" => :sierra
     sha256 "100c43d9c54a3ce171fdbea0156423e63f6a10e3fe53f291aabac7cb89d2aa2d" => :el_capitan
+    sha256 "2b5aa1e178f556652bdfca7db76f9adbfe781abfe9a2925e448b79656676ccad" => :x86_64_linux
   end
 
   depends_on "gmp"
