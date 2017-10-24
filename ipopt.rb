@@ -61,6 +61,6 @@ class Ipopt < Formula
 
   test do
     # IPOPT still fails to converge on the Waechter-Biegler problem?!?!
-    system "#{bin}/ipopt", "#{Formula["ampl-mp"].opt_pkgshare}/example/examples/wb" if build.with? "ampl-mp"
+    system "#{bin}/ipopt", "#{Formula["ampl-mp"].opt_pkgshare}/example/wb" if build.with? "ampl-mp"
   end
 end
