@@ -10,6 +10,7 @@ class Quast < Formula
   bottle do
     sha256 "67b4a3574978a0ba1436462648ff0897bb833948a4322a542c35b8ccd7747d47" => :sierra
     sha256 "c05c9eb8135431aed74343b77a121622bf806d017c0a1695a5a2ee73fc0dca4c" => :el_capitan
+    sha256 "e8119dd0f298fc9fb44960fc8563e4235b45bef98afee23c92262d2945f4345c" => :x86_64_linux
   end
 
   depends_on "matplotlib"
