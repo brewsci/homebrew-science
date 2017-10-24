@@ -10,6 +10,7 @@ class Geant4 < Formula
     sha256 "c772638082c68d6610ee73325e4cea2559a000e0b0f954a55be26154019bf105" => :high_sierra
     sha256 "ec5643125522f34ebfce1125a838c34519b9bf356c63870d5c6c328a64e63b63" => :sierra
     sha256 "b9b5bafa9f756f11a2a5113b8f3e058af2f07c1c21010ca7fe0cf7271cdd4016" => :el_capitan
+    sha256 "ab2c884c84ace2445f714ef1a23482c4d902b6cae3ff5cb63befe37601e5a41e" => :x86_64_linux
   end
 
   option "with-g3tog4", "Use G3toG4 Library"
