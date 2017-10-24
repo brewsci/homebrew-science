@@ -10,6 +10,7 @@ class CalculixCcx < Formula
     sha256 "fdeb7b65ae2970e878b61e80e81074e36a89e7489e9fe39816279531068d3099" => :high_sierra
     sha256 "4c2595b652eb8b17e5875b7cfc57ae05c1f5dcf3dd94e350d9fa6a8c1ce2a260" => :sierra
     sha256 "4f18ebce2ac2c8fd9780cc0e3493f34159f59032a12ef34fc26343d5aacdc405" => :el_capitan
+    sha256 "06699205b29b97ebc10c1f5385d0148b59ad745057578b2ba06b2ea9812ee6a0" => :x86_64_linux
   end
 
   option "with-openmp", "build with OpenMP support"
