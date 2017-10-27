@@ -1,16 +1,19 @@
 class Omcompiler < Formula
-  desc "Modelica compiler translating Modelica to C code"
+  desc "Modelica compiler translating Modelica to C/C++ code"
   homepage "https://www.openmodelica.org"
   url "https://github.com/OpenModelica/OMCompiler.git",
-      :tag => "v1.9.6",
-      :revision => "d3c35c90b382998275f42eb5da05c0f25e6b63a8"
-  revision 1
+      :tag => "v1.12.0",
+      :revision => "e2917bff56c988565e60d30fd22a74012277f79f"
 
   bottle do
     sha256 "ad536caec332f444d77712cd5de788bf09f86cf35fc6014a3e8c7b4170447cdf" => :sierra
     sha256 "0da439596e39213f1a020f38cf8233b91aa093c40557bd038461d40467cfe4d3" => :el_capitan
     sha256 "6c9c499a9841599ca824e8609adfee75d2d2f63c69c27d93e5b66c60a26707aa" => :yosemite
   end
+
+  # Options
+  option "with-cppruntime", "Build C++ runtime in addition to C runtime"
+  option "without-modelica3d", "Build without Modelica3D support"
 
   # Build dependencies
   depends_on "autoconf"     => :build
@@ -28,7 +31,7 @@ class Omcompiler < Formula
   depends_on "gettext"
 
   # Optional dependencies
-  depends_on "boost"    => :optional
+  depends_on "boost" if build.with? "cppruntime"
   depends_on "sundials" => :optional
 
   def install
@@ -39,31 +42,37 @@ class Omcompiler < Formula
 
     system "autoconf"
 
-    args = ["--disable-debug"]
-    args << "--disable-dependency-tracking"
-    args << "--disable-silent-rules"
-    args << "--prefix=#{prefix}"
-    args << "--with-cppruntime" if build.with? "boost"
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+    ]
+    args << "--disable-modelica3d" if build.without? "modelica3d"
 
     system "./configure", *args
-    system "make"
+
+    if build.without? "cppruntime"
+      system "make"
+    else
+      system "make", "all-runtimeCPPinstall"
+    end
     system "make", "install"
   end
 
   test do
     # Define the Van der Pol equation as a simple model. Translate it to C code
     # (with 'omc'), compile the C code and execute the resulting program.
-    str = "
-        model VanDerPol  \"Van der Pol oscillator model\"
-            Real x(start = 1);
-            Real y(start = 1);
-            parameter Real lambda = 0.3;
-        equation
-            der(x) = y;
-            der(y) = - x + lambda*(1 - x*x)*y;
-        end VanDerPol;
-    "
-    (testpath/"VanDerPol.mo").write str
+    (testpath/"VanDerPol.mo").write <<-EOS
+      model VanDerPol  \"Van der Pol oscillator model\"
+          Real x(start = 1);
+          Real y(start = 1);
+          parameter Real lambda = 0.3;
+      equation
+          der(x) = y;
+          der(y) = - x + lambda*(1 - x*x)*y;
+      end VanDerPol;
+    EOS
     system "#{bin}/omc", "-s", "VanDerPol.mo"
     system "make", "-f", "VanDerPol.makefile"
     system "./VanDerPol"
