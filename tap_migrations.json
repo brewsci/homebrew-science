@@ -23,6 +23,7 @@
   "gromacs": "homebrew/core",
   "hdf5": "homebrew/core",
   "hdf5@1.8": "homebrew/core",
+  "htslib": "homebrew/core",
   "hwloc": "homebrew/core",
   "hypre": "homebrew/core",
   "igraph": "homebrew/core",
