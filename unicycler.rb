@@ -9,10 +9,9 @@ class Unicycler < Formula
 
   bottle do
     cellar :any
-    sha256 "a3581a5d5614fc13b8808714d0f2138d71bf5fd99df465a52086866199254193" => :high_sierra
-    sha256 "f616d163f311791d7bd0e13236a7ecfe737f1b929eff636112b37f27173b525e" => :sierra
-    sha256 "892d19b781e255e91ca48f89394fafb0ed2f6bc8224206a67c9864fa728c0504" => :el_capitan
-    sha256 "445840937f9a0bb18c568426e34d2bb99bc5df63a1109c988324ad58c6bfe337" => :x86_64_linux
+    sha256 "5468027db8258aa6f836009bc8dc7520a686d3be66a61bae5fce173b06b6c7de" => :high_sierra
+    sha256 "7ca3551f59a9ab6d7d703c2037448638b9ad856ed187e211245958a0795f295e" => :sierra
+    sha256 "07f185841bb3c22682d1e9d34fe70cc4351b1ca5627aa7d36efa2a21e2738702" => :el_capitan
   end
 
   needs :cxx14
