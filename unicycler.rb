@@ -12,6 +12,7 @@ class Unicycler < Formula
     sha256 "5468027db8258aa6f836009bc8dc7520a686d3be66a61bae5fce173b06b6c7de" => :high_sierra
     sha256 "7ca3551f59a9ab6d7d703c2037448638b9ad856ed187e211245958a0795f295e" => :sierra
     sha256 "07f185841bb3c22682d1e9d34fe70cc4351b1ca5627aa7d36efa2a21e2738702" => :el_capitan
+    sha256 "ee8897c79037c7b13305c47561affa4ebe8224be8cd334b1c8d5fbcbf825b607" => :x86_64_linux
   end
 
   needs :cxx14
