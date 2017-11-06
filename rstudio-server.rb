@@ -1,10 +1,9 @@
 class RstudioServer < Formula
   desc "Integrated development environment (IDE) for R"
   homepage "https://www.rstudio.com"
-  url "https://github.com/rstudio/rstudio/archive/v1.0.153.tar.gz"
-  sha256 "10521e6ef2e5b7497458007c55fa911cc0454685e6079e67ac5cb7e55ae9f617"
+  url "https://github.com/rstudio/rstudio/archive/v1.1.383.tar.gz"
+  sha256 "6edc85f98366a94f0c9939dde8d25950c65580c9eed7ac245903e0aa1205c818"
   head "https://github.com/rstudio/rstudio.git"
-  revision 1
 
   bottle do
     cellar :any
@@ -14,29 +13,42 @@ class RstudioServer < Formula
     sha256 "e883ecb7eba779188181f7a2432191e2f284389544a7b07c6951fae3ae827eb7" => :x86_64_linux
   end
 
-  depends_on "ant" => :build
-  depends_on "cmake" => :build
-  depends_on "r" => :recommended
   if OS.linux?
     depends_on "patchelf" => :build
+    depends_on "jdk@8" => :recommended
     depends_on "libedit"
     depends_on "ncurses"
-    depends_on "jdk" => :recommended
     depends_on "libffi"
     depends_on "util-linux" # for libuuid
     depends_on "linuxbrew/extra/linux-pam"
   end
+  depends_on :java => "1.8"
+  depends_on "r" => :recommended
+  depends_on "cmake" => :build
+  depends_on "ant" => :build
   depends_on "boost"
   depends_on "openssl"
 
-  resource "gin" do
-    url "https://s3.amazonaws.com/rstudio-buildtools/gin-1.5.zip"
-    sha256 "f561f4eb5d5fe1cff95c881e6aed53a86e9f0de8a52863295a8600375f96ab94"
-  end
+  if build.head?
+    resource "gin" do
+      url "https://s3.amazonaws.com/rstudio-buildtools/gin-2.1.2.zip"
+      sha256 "b98e704164f54be596779696a3fcd11be5785c9907a99ec535ff6e9525ad5f9a"
+    end
 
-  resource "gwt" do
-    url "https://s3.amazonaws.com/rstudio-buildtools/gwt-2.7.0.zip"
-    sha256 "aa65061b73836190410720bea422eb8e787680d7bc0c2b244ae6c9a0d24747b3"
+    resource "gwt" do
+      url "https://s3.amazonaws.com/rstudio-buildtools/gwt-2.8.1.zip"
+      sha256 "0b7af89fdadb4ec51cdb400ace94637d6fe9ffa401b168e2c3d372392a00a0a7"
+    end
+  else
+    resource "gin" do
+      url "https://s3.amazonaws.com/rstudio-buildtools/gin-1.5.zip"
+      sha256 "f561f4eb5d5fe1cff95c881e6aed53a86e9f0de8a52863295a8600375f96ab94"
+    end
+
+    resource "gwt" do
+      url "https://s3.amazonaws.com/rstudio-buildtools/gwt-2.7.0.zip"
+      sha256 "aa65061b73836190410720bea422eb8e787680d7bc0c2b244ae6c9a0d24747b3"
+    end
   end
 
   resource "junit" do
@@ -74,30 +86,23 @@ class RstudioServer < Formula
     sha256 "939a2d7f37e26287970be942df70f3e8f272bac2eb868ce1de18bb95d3c26c71"
   end
 
-  if build.head?
-    if OS.linux?
-      resource "pandoc" do
-        url "https://s3.amazonaws.com/rstudio-buildtools/pandoc/1.19.2.1/linux-64/pandoc.gz"
-        sha256 "25dab022a12ec67575f4d2f8383c1130c42342ab064ef5e1954790b17e8f7b57"
-      end
-      resource "pandoc-citeproc" do
-        url "https://s3.amazonaws.com/rstudio-buildtools/pandoc/1.19.2.1/linux-64/pandoc-citeproc.gz"
-        sha256 "1243ffd30f490ad0d793259acbbd5d0a95996d3051df7ead1b8f006fcbca0944"
-      end
-    elsif OS.mac?
-      resource "pandoc" do
-        url "https://s3.amazonaws.com/rstudio-buildtools/pandoc/1.19.2.1/macos/pandoc-1.19.2.1.zip"
-        sha256 "9d6e085d1f904b23bc64de251968b63422e7c691c61b0b6963c997c23af54447"
-      end
-      resource "pandoc-citeproc" do
-        url "https://s3.amazonaws.com/rstudio-buildtools/pandoc/1.19.2.1/macos/pandoc-citeproc-0.10.4.zip"
-        sha256 "11db1554ffd64c692a4f92e7bfa26dbe685300055ab463130e6fd4188f1958ae"
-      end
-    end
-  else
+  if OS.linux?
     resource "pandoc" do
-      url "https://s3.amazonaws.com/rstudio-buildtools/pandoc-1.17.2.zip"
-      sha256 "eac653a0422a8c60e59a74ffb091b6ba6f01929b274cad9e02589bcc3d0e9b9f"
+      url "https://s3.amazonaws.com/rstudio-buildtools/pandoc/1.19.2.1/linux-64/pandoc.gz"
+      sha256 "25dab022a12ec67575f4d2f8383c1130c42342ab064ef5e1954790b17e8f7b57"
+    end
+    resource "pandoc-citeproc" do
+      url "https://s3.amazonaws.com/rstudio-buildtools/pandoc/1.19.2.1/linux-64/pandoc-citeproc.gz"
+      sha256 "1243ffd30f490ad0d793259acbbd5d0a95996d3051df7ead1b8f006fcbca0944"
+    end
+  elsif OS.mac?
+    resource "pandoc" do
+      url "https://s3.amazonaws.com/rstudio-buildtools/pandoc/1.19.2.1/macos/pandoc-1.19.2.1.zip"
+      sha256 "9d6e085d1f904b23bc64de251968b63422e7c691c61b0b6963c997c23af54447"
+    end
+    resource "pandoc-citeproc" do
+      url "https://s3.amazonaws.com/rstudio-buildtools/pandoc/1.19.2.1/macos/pandoc-citeproc-0.10.4.zip"
+      sha256 "11db1554ffd64c692a4f92e7bfa26dbe685300055ab463130e6fd4188f1958ae"
     end
   end
 
@@ -109,58 +114,6 @@ class RstudioServer < Formula
   resource "libclang-builtin-headers" do
     url "https://s3.amazonaws.com/rstudio-buildtools/libclang-builtin-headers.zip"
     sha256 "0b8f54c8d278dd5cd2fb3ec6f43e9ea1bfc9e8d595ff88127073d46550e88a74"
-  end
-
-  resource "rstudio-pam" do
-    url "https://raw.githubusercontent.com/rstudio/rstudio/4ad9b3fed9c5f3596503e8a97194bcb473c605db/src/cpp/server/extras/pam/mac/rstudio"
-    sha256 "eda59b6baf1279f15ca10ead75d35d54fd88e488e1fcffba2ee8ea115cf753ed"
-  end
-
-  unless build.head?
-    # patches necessary for boost 1.65
-    patch :DATA
-
-    # this hunk has been removed from RStudio master as R API has changed.
-    patch <<-EOS.undent
-      diff --git a/src/cpp/r/RRoutines.cpp b/src/cpp/r/RRoutines.cpp
-      --- a/src/cpp/r/RRoutines.cpp
-      +++ b/src/cpp/r/RRoutines.cpp
-      @@ -54,14 +54,6 @@ void registerAll()
-          R_CMethodDef* pCMethods = NULL;
-          if (s_cMethods.size() > 0)
-          {
-      -      R_CMethodDef nullMethodDef ;
-      -      nullMethodDef.name = NULL ;
-      -      nullMethodDef.fun = NULL ;
-      -      nullMethodDef.numArgs = 0 ;
-      -      nullMethodDef.types = NULL;
-      -      nullMethodDef.styles = NULL;
-      -      s_cMethods.push_back(nullMethodDef);
-      -      pCMethods = &s_cMethods[0];
-          }
-
-    EOS
-
-    patch do
-      # allow non-framework R installation
-      # https://github.com/rstudio/rstudio/pull/1504
-      url "https://github.com/rstudio/rstudio/commit/e9a06e1efc66694dfd60c7bb0b6edfa5530eb6c6.patch?full_index=1"
-      sha256 "b3a507a7aef229b29b7aa658b158150d505764f68eb48a9cddd89460d7cd185c"
-    end
-
-    patch do
-      # set the default LANG to en_US.UTF-8
-      # https://github.com/rstudio/rstudio/pull/1506
-      url "https://github.com/rstudio/rstudio/commit/d5eaec730b66fe1d7eff0ca6bc7bc7f00d44e690.patch?full_index=1"
-      sha256 "0eb51358d0f5d099e1783f3ab0e7e00310e769441d3386bc01e64428ee4503e2"
-    end
-
-    patch do
-      # set the default LANG to en_US.UTF-8
-      # https://github.com/rstudio/rstudio/pull/1507
-      url "https://github.com/rstudio/rstudio/commit/b14242baeb7e24a133930412994b3670c5feaa0b.patch?full_index=1"
-      sha256 "cb44f4c9592884f8f57a63fe9253ffff443068e48786722e9a30719c55eb36f0"
-    end
   end
 
   def which_linux_distribution
@@ -179,9 +132,18 @@ class RstudioServer < Formula
       ENV["RSTUDIO_VERSION_PATCH"] = version.to_s.split(".")[2]
     end
 
+    if OS.linux?
+      ENV["JAVA_HOME"] = Formula["jdk@8"].prefix
+    end
+
     gwt_lib = buildpath/"src/gwt/lib/"
-    (gwt_lib/"gin/1.5").install resource("gin")
-    (gwt_lib/"gwt/2.7.0").install resource("gwt")
+    if build.head?
+      (gwt_lib/"gin/2.1.2").install resource("gin")
+      (gwt_lib/"gwt/2.8.1").install resource("gwt")
+    else
+      (gwt_lib/"gin/1.5").install resource("gin")
+      (gwt_lib/"gwt/2.7.0").install resource("gwt")
+    end
     gwt_lib.install resource("junit")
     (gwt_lib/"selenium/2.37.0").install resource("selenium")
     (gwt_lib/"selenium/2.37.0").install resource("selenium-server")
@@ -196,24 +158,12 @@ class RstudioServer < Formula
     (common_dir/"dictionaries").install resource("dictionaries")
     (common_dir/"mathjax-26").install resource("mathjax")
 
-    if build.head?
-      resource("pandoc").stage do
-        (common_dir/"pandoc/1.19.2.1/").install "pandoc"
-      end
-      resource("pandoc-citeproc").stage do
-        (common_dir/"pandoc/1.19.2.1/").install "pandoc-citeproc"
-      end
-    else
-      resource("pandoc").stage do
-        if OS.linux?
-          arch = Hardware::CPU.is_64_bit? ? "x86_64" : "i686"
-          (common_dir/"pandoc/1.17.2/").install "linux/#{which_linux_distribution}/#{arch}/pandoc"
-          (common_dir/"pandoc/1.17.2/").install "linux/#{which_linux_distribution}/#{arch}/pandoc-citeproc"
-        elsif OS.mac?
-          (common_dir/"pandoc/1.17.2/").install "mac/pandoc"
-          (common_dir/"pandoc/1.17.2/").install "mac/pandoc-citeproc"
-        end
-      end
+    resource("pandoc").stage do
+      (common_dir/"pandoc/1.19.2.1/").install "pandoc"
+    end
+
+    resource("pandoc-citeproc").stage do
+      (common_dir/"pandoc/1.19.2.1/").install "pandoc-citeproc"
     end
 
     resource("libclang").stage do
@@ -243,14 +193,7 @@ class RstudioServer < Formula
       system "cmake", "..", *args
       system "make", "install"
     end
-    if OS.mac? && !build.head?
-      # it should not be needed for future version of RStudio.
-      # https://github.com/rstudio/rstudio/commit/5284e2ac85f0071d21c0ff42d802804ea9e6c596
-      # move the pam file in place
-      resource("rstudio-pam").stage do
-        (prefix/"rstudio-server/extras/pam").install "rstudio"
-      end
-    end
+
     bin.install_symlink prefix/"rstudio-server/bin/rserver"
     bin.install_symlink prefix/"rstudio-server/bin/rstudio-server"
     prefix.install_symlink prefix/"rstudio-server/extras"
@@ -329,29 +272,3 @@ class RstudioServer < Formula
     system "#{bin}/rstudio-server", "version"
   end
 end
-
-__END__
-diff --git a/src/cpp/core/Trace.cpp b/src/cpp/core/Trace.cpp
---- a/src/cpp/core/Trace.cpp
-+++ b/src/cpp/core/Trace.cpp
-@@ -22,6 +22,8 @@
-
- #include <core/Thread.hpp>
-
-+#include <iostream>
-+
- namespace rstudio {
- namespace core {
- namespace trace {
-diff --git a/src/cpp/session/modules/SessionSVN.cpp b/src/cpp/session/modules/SessionSVN.cpp
---- a/src/cpp/session/modules/SessionSVN.cpp
-+++ b/src/cpp/session/modules/SessionSVN.cpp
-@@ -1190,7 +1190,7 @@ struct CommitInfo
-    std::string author;
-    std::string subject;
-    std::string description;
--   boost::posix_time::time_duration::sec_type date;
-+   boost::uint64_t date;
- };
-
- bool commitIsMatch(const std::vector<std::string>& patterns,
