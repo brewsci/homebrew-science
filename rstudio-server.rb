@@ -10,6 +10,7 @@ class RstudioServer < Formula
     sha256 "b12267c47d971f76a4b6b12b648af7b270a81f6f9f6a0497dcfe4cffed8978d1" => :high_sierra
     sha256 "5666f19005cb5f92aca1158b42900c51d68f9234c1bd12c6b0936007f837eab1" => :sierra
     sha256 "0eaa78af60067efdf168aa56160e23b969989c558477c539c8f0affa55d5d3aa" => :el_capitan
+    sha256 "2385f6ef7fa01ef3dff4028ec310b3d185b0050db64f2ee948c9cb02347bd265" => :x86_64_linux
   end
 
   if OS.linux?
