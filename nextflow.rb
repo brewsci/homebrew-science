@@ -4,13 +4,13 @@ class Nextflow < Formula
   # doi "10.1038/nbt.3820"
   # tag "bioinformatics"
 
-  url "https://www.nextflow.io/releases/v0.25.7/nextflow"
-  sha256 "79a1695bca00500ac4c3f7f2781835c7cc29913bf96da0b1594e0f5019cba7c0"
+  url "https://www.nextflow.io/releases/v0.26.0/nextflow"
+  sha256 "dd0cec126373542cb2d6e1d2ea10513780547accf44af6d8364e19da9e93aee2"
   head "https://github.com/nextflow-io/nextflow.git"
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
 
   def install
     bin.install "nextflow"
