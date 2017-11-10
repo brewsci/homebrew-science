@@ -3,14 +3,10 @@ class Garli < Formula
   homepage "https://code.google.com/p/garli/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/garli/garli-2.01.tar.gz"
   sha256 "e7fd4c115f9112fd9a019dcb6314e3a9d989f56daa0f833a28dc8249e50988ef"
-  revision 1
+  revision 2
   # tag "bioinformatics"
 
-  bottle do
-    sha256 "5449142219c1d736f742a372cb2e89a42057f798b2cc4ae347d096064c1f2661" => :el_capitan
-    sha256 "f922d66d4a7dce7b1e9929f728b5a69b3c53448f3e676ed5f2f123f71147200e" => :yosemite
-    sha256 "277ec8eb53c43b1909ddd4ca8fd78d86ca14027547a3d43fb4e384f3785e5064" => :mavericks
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   option "with-brewed-ncl", "Use Homebrew's NCL instead of building a separate copy"
   depends_on "ncl" if build.with? "brewed-ncl"
