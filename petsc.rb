@@ -3,14 +3,10 @@ class Petsc < Formula
   homepage "https://www.mcs.anl.gov/petsc/index.html"
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.7.6.tar.gz"
   sha256 "b07f7b4e57d75f982787bd8169f7b8debd5aee2477293da230ab6c80a52c6ef8"
-  revision 3
+  revision 4
   head "https://bitbucket.org/petsc/petsc", :using => :git
 
-  bottle do
-    sha256 "7e099e911305752784f8b955c8cab86c9c7a40235065a576aada7950409d1936" => :sierra
-    sha256 "c05677788a07e8fb1ea15d50053ebff8cf5aa50ecf346dc76525755c9bf11c82" => :el_capitan
-    sha256 "9d4a449ea92b86aaa90dc0695512e5c2a921f16cdb7aea3925f5affdef52f10b" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   option "without-test", "Skip build-time tests (not recommended)"
   option "with-complex", "Link complex version of PETSc by default."
