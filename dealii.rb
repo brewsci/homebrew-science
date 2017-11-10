@@ -3,14 +3,10 @@ class Dealii < Formula
   homepage "https://www.dealii.org"
   url "https://github.com/dealii/dealii/releases/download/v8.5.1/dealii-8.5.1.tar.gz"
   sha256 "d33e812c21a51f7e5e3d3e6af86aec343155650b611d61c1891fbc3cabce09ae"
+  revision 1
   head "https://github.com/dealii/dealii.git"
 
-  bottle do
-    cellar :any
-    sha256 "66fa5f6f3df1c5b4e61997a497e9b7d87afdbeed5c6a0248f285bfe37ff95d76" => :sierra
-    sha256 "9c7ad1040c105c19f91a15be5317d3d3b6c9aa0960160d8d9423b1dc7f870bc3" => :el_capitan
-    sha256 "55008f5d4a0d1c7e1994560ef08208dc9e52d7cfb9499c467f3ca2744dde6b82" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-testsuite", "Run full test suite (7000+ tests). Takes a lot of time."
   option "without-oce", "Build without oce support (conflicts with opencascade)"
