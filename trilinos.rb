@@ -4,14 +4,10 @@ class Trilinos < Formula
   url "https://github.com/trilinos/Trilinos/archive/trilinos-release-12-10-1.tar.gz"
   version "12.10.1"
   sha256 "ab81d917196ffbc21c4927d42df079dd94c83c1a08bda43fef2dd34d0c1a5512"
-  revision 3
+  revision 4
   head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
 
-  bottle do
-    sha256 "4b447a168309dc556bdf3cc1b9f0b89a8658e9e73f7022b9630497108992894d" => :sierra
-    sha256 "b2aeca55f32c688ef16144d2b06474b44c88718721ad434d36cce1d2be824c1c" => :el_capitan
-    sha256 "6985e2752cf442b42908a55cecb74880fee594031e1bd13a83f86f0d1c1ce3d1" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   option "with-test", "Perform build time checks (time consuming and contains failures)"
   option "without-python", "Build without python2 support"
