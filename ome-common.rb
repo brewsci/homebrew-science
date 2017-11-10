@@ -3,14 +3,10 @@ class OmeCommon < Formula
   homepage "https://www.openmicroscopy.org/site/products/ome-files-cpp/"
   url "https://downloads.openmicroscopy.org/ome-common-cpp/5.4.2/source/ome-common-cpp-5.4.2.tar.xz"
   sha256 "16dde8fc2197267177430b8766da9c64ceee2e68161be66d28b611569fb1035b"
+  revision 1
   head "https://github.com/ome/ome-common-cpp.git", :branch => "develop", :shallow => false
 
-  bottle do
-    sha256 "d203264e53f1382666e45e1572bbdb14a6a5c4829d6977cf94866092a487cc1c" => :sierra
-    sha256 "012d01a618b7f6425296be3545c3e00e14dff32404774a2c44cde6a426f1c791" => :el_capitan
-    sha256 "f6702a567d27d6d7edc38f2010399e0ee8b1e9c9f0570c0c171f0312b9904b31" => :yosemite
-    sha256 "d5f56278cf2bd7b8ee2600d890a09069abac1816f57939ece16706ce42b3ffaa" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-api-docs", "Build API reference"
   option "without-test", "Skip build time tests (not recommended)"
