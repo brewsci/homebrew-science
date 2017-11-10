@@ -3,14 +3,9 @@ class Scotch < Formula
   homepage "https://gforge.inria.fr/projects/scotch"
   url "https://gforge.inria.fr/frs/download.php/file/34618/scotch_6.0.4.tar.gz"
   sha256 "f53f4d71a8345ba15e2dd4e102a35fd83915abf50ea73e1bf6efe1bc2b4220c7"
-  revision 4
+  revision 5
 
-  bottle do
-    cellar :any
-    sha256 "812e7528fa64b3201defdae6fd23b6f6a8b2a747cc9c892bb67adb22f1cd665b" => :sierra
-    sha256 "5d9abf458fd7379dd7b992d8a0689b1606f740a8717360eea677015b24d02889" => :el_capitan
-    sha256 "367c9f37d50decad89aeb52bf5c2f88a7faa8b25120a38153edb558c143f55ac" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   option "without-test", "skip build-time tests (not recommended)"
   deprecated_option "without-check" => "without-test"
