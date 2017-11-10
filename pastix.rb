@@ -3,16 +3,11 @@ class Pastix < Formula
   homepage "http://pastix.gforge.inria.fr/"
   url "https://gforge.inria.fr/frs/download.php/file/35070/pastix_5.2.2.22.tar.bz2"
   sha256 "30f771a666719e6b116f549a6e4da451beabab99c2ecabc0745247c3654acbed"
-  revision 3
+  revision 4
 
   head "git://scm.gforge.inria.fr/ricar/ricar.git"
 
-  bottle do
-    cellar :any
-    sha256 "5d4efdf6c44e99be2ecc7897d31ee4706a3f0c3f161ca360c97691e9c547a444" => :sierra
-    sha256 "4d0228cb9418de5972ea750f3a47b64d98f9b8eb057875a72aa69850e9378b65" => :el_capitan
-    sha256 "adb96aee31c3186d70ee57dbf40039414cb685dc033785dd69713dee7e48d171" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   depends_on "scotch"
   depends_on "hwloc"
