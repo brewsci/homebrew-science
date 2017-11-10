@@ -3,13 +3,9 @@ class Pulseview < Formula
   homepage "https://sigrok.org/"
   url "https://sigrok.org/download/source/pulseview/pulseview-0.4.0.tar.gz"
   sha256 "78f8291045c6f65b4827b12e83c8e68cea2d5e7268b15a51aaca9726c8100eb9"
+  revision 1
 
-  bottle do
-    cellar :any
-    sha256 "6626478407fc744baad10a7babdec4995a1e84ec11b1964ebce34881214e9866" => :sierra
-    sha256 "7d1c89c789781b902a85e3ab6eec7807d9b8316feafed05c3b7b865024699800" => :el_capitan
-    sha256 "efe7608bd349f30889384d32c33e4632739c7a9c5cc0c5d3ad7c13bd5657d79f" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   head do
     url "git://sigrok.org/pulseview", :shallow => false
