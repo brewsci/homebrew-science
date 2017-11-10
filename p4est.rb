@@ -3,14 +3,9 @@ class P4est < Formula
   homepage "http://www.p4est.org"
   url "https://p4est.github.io/release/p4est-1.1.tar.gz"
   sha256 "0b5327a35f0c869bf920b8cab5f20caa4eb55692eaaf1f451d5de30285b25139"
-  revision 3
+  revision 4
 
-  bottle do
-    cellar :any
-    sha256 "aba9783575d362edd2338b6ebb2deed97b11161d64f31dd113181442e0c81b9a" => :sierra
-    sha256 "c74738baef581cb75e2cbc2eb228c2fc9f2a1cbeeadf587516a5da61fea65838" => :el_capitan
-    sha256 "de7896b3b2eb9a4a0957209e80dcfab1370f2250c2527d1b74eb7f9a5580735f" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   head do
     url "https://github.com/cburstedde/p4est.git", :branch => "master"
