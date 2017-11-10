@@ -3,14 +3,9 @@ class Scotch5 < Formula
   url "https://gforge.inria.fr/frs/download.php/28978"
   version "5.1.12b"
   sha256 "82654e63398529cd3bcc8eefdd51d3b3161c0429bb11770e31f8eb0c3790db6e"
-  revision 1
+  revision 2
 
-  bottle do
-    cellar :any
-    sha256 "196ca2e162b649cf87b2f906fbc01de49048d0e6aba602c9f27c4f2d7ae3a181" => :el_capitan
-    sha256 "a556a95bb6fa93f0c50986829fc3d821158b652e482982dfd6895017b9e92e0e" => :yosemite
-    sha256 "3704eea2ff80599ddbf302c80ad0b67ef812c731b8a844e343f7823eb73626fb" => :mavericks
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   keg_only "Conflicts with scotch (6.x)"
 
