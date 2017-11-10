@@ -1,11 +1,10 @@
 class Cdo < Formula
   desc "Operators to manipulate and analyse climate and NWP model data"
   homepage "https://code.zmaw.de/projects/cdo"
-  url "https://code.mpimet.mpg.de/attachments/download/15187/cdo-1.9.0.tar.gz"
-  sha256 "df367f8c3abf4ab085bcfc61e0205b28a5ecc69b7b83ba398b4d3c874dd69008"
-  revision 1
+  url "https://code.mpimet.mpg.de/attachments/download/15653/cdo-1.9.1.tar.gz"
+  sha256 "33cba3cfcc27e5896769143c5f8e2f300ca14c7a40d1f19ffd1ed24b49ea3d55"
 
-  bottle :disable, "needs to be rebuilt with latest netcdf"
+  bottle :disable, "needs to be bottled"
 
   option "with-grib2", "Compile Fortran bindings"
   deprecated_option "enable-grib2" => "with-grib2"
