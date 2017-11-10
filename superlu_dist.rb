@@ -3,14 +3,9 @@ class SuperluDist < Formula
   homepage "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
   url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_dist_5.1.0.tar.gz"
   sha256 "30ac554a992441e6041c6fb07772da4fa2fa6b30714279de03573c2cad6e4b60"
-  revision 2
+  revision 3
 
-  bottle do
-    sha256 "cd577c006da8f90d6835fbe6351fcd8027dcbd7270bb870434a2e2b1350232e4" => :sierra
-    sha256 "d96ec784ec58b0b40ba07ed784301d2d5bed4b9323eecc50aae06fc8ed6647be" => :el_capitan
-    sha256 "93998ea9efe9b1bbc48adcd839936790f2970788848ed4e94214cfdd66d1ac9a" => :yosemite
-    sha256 "d188e92bd33981ecbbea58b75c1b044dbcd574e195507c8409a2ebd075f297be" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   option "without-test", "skip build-time tests (not recommended)"
   option "with-openmp", "Enable OpenMP multithreading"
