@@ -3,14 +3,10 @@ class Exabayes < Formula
   homepage "https://sco.h-its.org/exelixis/web/software/exabayes/"
   url "https://github.com/aberer/exabayes/archive/v1.5.tar.gz"
   sha256 "3e5747d2ffb875ea929da666ee8bc8727aa3963bfa86207efe14218fd952c6b3"
+  revision 1
   head "https://github.com/aberer/exabayes.git", :branch => "devel"
 
-  bottle do
-    cellar :any
-    sha256 "022a17d0e90f07a82ee34f90ec188ced3b7ab83e895eb31a0cdc11f4ee1c2b33" => :sierra
-    sha256 "07c486b159388037c32e4af3ae8b1dc4b8ba8805aa6902ee1da422d882df0705" => :el_capitan
-    sha256 "b8458c7f7161d5c3d000983c20ebbb22c21ee68e116271370d2a02035aa096ec" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
