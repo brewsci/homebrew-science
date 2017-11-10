@@ -3,15 +3,10 @@ class OmeXml < Formula
   homepage "https://www.openmicroscopy.org/site/products/ome-files-cpp/"
   url "https://downloads.openmicroscopy.org/ome-model/5.5.6/source/ome-model-5.5.6.tar.xz"
   sha256 "1821c324ed85157aaac1b046649f97334509268eca1e43f059f74bff52908225"
+  revision 1
   head "https://github.com/openmicroscopy/bioformats.git", :branch => "develop", :shallow => false
 
-  bottle do
-    cellar :any
-    sha256 "afdef6c33e6b9ab554905c47c938eefb1f23f70174f80e696c54cafaf196fe76" => :sierra
-    sha256 "df739cf68669e4b8842edaa200cf54b8ce8da67486885e3efb0a9ff3c75e47be" => :el_capitan
-    sha256 "3614b53ba69047aeef505b5a65588e1e976fb3fbc85e50cbdb78ac7521ebba2c" => :yosemite
-    sha256 "6bea39a19e776f648925343ce6078c8741c829992ae6f2b2ef2a693c8b0655a4" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-api-docs", "Build API reference"
   option "without-test", "Skip build time tests (not recommended)"
