@@ -3,16 +3,12 @@ class Cp2k < Formula
   homepage "https://www.cp2k.org"
   url "https://downloads.sourceforge.net/project/cp2k/cp2k-4.1.tar.bz2"
   sha256 "4a3e4a101d8a35ebd80a9e9ecb02697fb8256364f1eccdbe4e5a85d31fe21343"
-  revision 1
+  revision 2
   head "https://svn.code.sf.net/p/cp2k/code/trunk"
   # tag "chemistry"
   # doi "10.1016/j.cpc.2004.12.014"
 
-  bottle do
-    sha256 "fd3f23fa319c2f618f6f9839207f2cfd9fd2797a0d82c97c06e79e336aa8566e" => :sierra
-    sha256 "37033a97490fd6c2bc445d55bbf15ca17d2e4f618a7df6fe649b002040996416" => :el_capitan
-    sha256 "8da49755bd2b933cdbaf18207c1b05c84d0fc25b19952130edeafc353ab665c7" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   depends_on :fortran
   depends_on "gcc"
