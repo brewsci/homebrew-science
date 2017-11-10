@@ -3,14 +3,9 @@ class Zoltan < Formula
   homepage "http://www.cs.sandia.gov/Zoltan"
   url "http://www.cs.sandia.gov/~kddevin/Zoltan_Distributions/zoltan_distrib_v3.83.tar.gz"
   sha256 "d0d78fdeab7a385c87d3666b8a8dc748994ff04d3fd846872a4845e12d79c1bb"
-  revision 2
+  revision 3
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "cc7c42d60ef77018b8e274024237223f88cc3fe4aea503e146005bc6d20d624c" => :el_capitan
-    sha256 "dd8c56898a543c2a063d74f77e9d1a28f741b2e749875b55bd551498e17cc47a" => :yosemite
-    sha256 "a4128a0c7000c85eb9087724e7da9a8bd17e4227b7dcdae39110d560e9e92dbe" => :mavericks
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   keg_only "conflicts with trilinos"
 
