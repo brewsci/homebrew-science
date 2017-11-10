@@ -1,18 +1,14 @@
 class Elemental < Formula
   desc "Distributed-memory dense & sparse linear algebra library"
   homepage "http://libelemental.org/"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/elemental/Elemental/archive/0.85.tar.gz"
     sha256 "ccf2b8d3b92e99fb0f248b2c82222bef15a7644d7dc3a2826935216b0bd82d9d"
   end
 
-  bottle do
-    sha256 "885bccf4b409e222f7f0d3b12a51dbb343b4db5646087a7a054d916df09c21e2" => :sierra
-    sha256 "81ba151f885cb5060b9c25e1b97421c253b12aea53cf9d84faf4ddf0a5f5f330" => :el_capitan
-    sha256 "9d0e87d9744e789bf332d4ae95ecffb36f7b1b0221635cc483a36cbdf8894a17" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   devel do
     url "https://github.com/elemental/Elemental/archive/0.86-rc1.tar.gz"
