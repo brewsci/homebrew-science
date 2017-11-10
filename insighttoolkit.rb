@@ -3,14 +3,10 @@ class Insighttoolkit < Formula
   homepage "https://www.itk.org"
   url "https://downloads.sourceforge.net/project/itk/itk/4.12/InsightToolkit-4.12.1.tar.gz"
   sha256 "6a539027bab2012fc45b8b8ae803877ee0db766d5dc4d74690025fdec36448c8"
+  revision 1
   head "git://itk.org/ITK.git"
 
-  bottle do
-    sha256 "0898896bea26d1c20691ea4c023d6276d24bfb40465220b5d3898ac73790ee36" => :sierra
-    sha256 "d637407caff5b699d1f659a29e969627b5cae70f11fd452a9bc5d646a046e48e" => :el_capitan
-    sha256 "6276092520817f8f87d6d795e6c08999d60559711c36e37034239a9deba18b8a" => :yosemite
-    sha256 "abe97ab53527341c77f62c6dc0ff1799b5eef4f00aa82a165a110dcd564c8f7f" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest netcdf"
 
   option :cxx11
   option "with-examples", "Compile and install various examples"
