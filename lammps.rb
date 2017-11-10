@@ -7,16 +7,12 @@ class Lammps < Formula
   # We only track "stable" releases as announced on the LAMMPS homepage.
   version "2017.08.11"
   sha256 "33431329fc735fb12d22ed33399235ef9506ba759a281a24028de538822af104"
+  revision 1
   head "http://git.icms.temple.edu/lammps-ro.git"
   # tag "chemistry"
   # doi "10.1006/jcph.1995.1039"
 
-  bottle do
-    cellar :any
-    sha256 "2983bcc483d17c9f7b652f2e839cab646d7bec842642637cd5aa57c6441525e1" => :sierra
-    sha256 "893fe854ab848eec85e191729be79202bc8687bb981c187517a9457901b5b1e9" => :el_capitan
-    sha256 "d652fe7d50e5ee7571a5ce3a102db421129a556f53189dfdae79b802c04fedf5" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   # user-submitted packages not considered "standard"
   USER_PACKAGES = %w[
