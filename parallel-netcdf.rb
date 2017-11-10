@@ -3,14 +3,9 @@ class ParallelNetcdf < Formula
   homepage "https://trac.mcs.anl.gov/projects/parallel-netcdf"
   url "http://cucis.ece.northwestern.edu/projects/PnetCDF/Release/parallel-netcdf-1.7.0.tar.gz"
   sha256 "52f0d106c470a843c6176318141f74a21e6ece3f70ee8fe261c6b93e35f70a94"
-  revision 1
+  revision 2
 
-  bottle do
-    sha256 "4602d7625d9dba89adac1d1fbce53853f2a7c8cd3bf628008c9696512cd11e69" => :sierra
-    sha256 "26b180d67bf32881e36f5a076cf678f8634bf2633cf8f7057ca68c78c2c76d0c" => :el_capitan
-    sha256 "20dd9e6b5aaccffe892a65debd87550326a8c1b180e4355d0ed1a295d033323d" => :yosemite
-    sha256 "d0fc27859864d574885034ebe80c967644ce2830c70b23f4cd189c9787519975" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   option "without-cxx", "Don't compile C++ bindings"
   option "without-fortran", "Don't compile Fortran bindings"
