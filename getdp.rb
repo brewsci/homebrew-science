@@ -9,14 +9,10 @@ class Getdp < Formula
   homepage "https://www.geuz.org/getdp/"
   url "https://getdp.info/src/getdp-2.11.1-source.tgz"
   sha256 "bb32d1d24e110eab209e57701d0754289f62402d5ee6672be596310b1a359997"
-  revision 2
+  revision 3
   head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
 
-  bottle do
-    sha256 "1e0eb557808e989c9de3bef69ec70d337405b3241345f291809319d41a773be9" => :sierra
-    sha256 "98040606b6c9a1f7302f0ca65189ce723a732c5945d39fbb28ab14346ffff650" => :el_capitan
-    sha256 "8e50109947e33e0d42dedebf1951a06917b01b887499868d16ba5eb2e1a6f276" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   option "without-test", "skip build-time tests (not recommended)"
   deprecated_option "without-check" => "without-test"
