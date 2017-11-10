@@ -3,12 +3,9 @@ class GraphTool < Formula
   homepage "https://graph-tool.skewed.de/"
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.22.tar.bz2"
   sha256 "57121b562763c79c138b3a385b8cddb59e7dec375c61e00ca7e9e96fd1a5e080"
-  revision 2
+  revision 3
 
-  bottle do
-    sha256 "ada3dc63452d56a205a1a35f2233f579908d62eb549553d9f28de78c59c99a11" => :sierra
-    sha256 "e8401ad908c6dc4a251535a4d4dc1b75b2b9d45d542cf504375ebf455ef565c7" => :el_capitan
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   head do
     url "https://git.skewed.de/count0/graph-tool.git"
