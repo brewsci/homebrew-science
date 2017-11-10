@@ -4,13 +4,9 @@ class Dssp < Formula
   url "https://mirrors.kernel.org/debian/pool/main/d/dssp/dssp_2.2.1.orig.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dssp/dssp_2.2.1.orig.tar.gz"
   sha256 "5fb5e7c085de16c05981e3a72869c8b082911a0b46e6dcc6dbd669c9f267e8e1"
-  revision 2
+  revision 3
 
-  bottle do
-    sha256 "4af36720bc8f9f91c4affe5de5a42811596b113a05dc0326c6091e59ecc7a64b" => :el_capitan
-    sha256 "e93f3dcaf703a3e5a31c057a218a224dfdbd24b627d7b57bb790278076fb174e" => :yosemite
-    sha256 "c0b06eb5a524919861752c64a820e31ae4b75fbc8fee228f2b2c35782bf2ea6b" => :mavericks
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "boost"
 
