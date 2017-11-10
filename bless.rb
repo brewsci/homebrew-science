@@ -7,14 +7,9 @@ class Bless < Formula
   url "https://downloads.sourceforge.net/project/bless-ec/bless.v0p24.tgz"
   version "0.24"
   sha256 "4214a7f9277e92c02acc132f0f8ba88e7d05a7fd3135a59fc1c6e52ca37d181a"
-  revision 4
+  revision 5
 
-  bottle do
-    cellar :any
-    sha256 "53b7ecad83a4c6e5bb7d60612e45ada3506d11485e20e6513dd1064b5ba7dfa5" => :sierra
-    sha256 "b072d6c255fd1643df8d26d800406e959198812ad860e4e6ffea9f349a3f921b" => :el_capitan
-    sha256 "2413c26d2f3f76c16daa9d7b87a07169df5012512fda952878074c951bec7d2d" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   needs :openmp
 
