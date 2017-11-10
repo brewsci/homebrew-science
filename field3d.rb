@@ -3,15 +3,10 @@ class Field3d < Formula
   homepage "https://sites.google.com/site/field3d/"
   url "https://github.com/imageworks/Field3D/archive/v1.7.2.tar.gz"
   sha256 "8f7c33ecb4489ed626455cf3998d911a079b4f137f86814d9c37c5765bf4b020"
-  revision 2
+  revision 3
   head "https://github.com/imageworks/Field3D.git"
 
-  bottle do
-    cellar :any
-    sha256 "879babcad82018f9e038160084d19d8f669daeb30c7ba8f3d610290046ebc8ad" => :sierra
-    sha256 "eaaff788c71a868d2a1ebbeb6f8e36c30b266aae7993e9e5af9a47e2ea43b015" => :el_capitan
-    sha256 "49507a1cf4925fe42f09cdb29a993bc5b90e247cd0cb4652e8675acbdfcf134d" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "scons" => :build
   depends_on "boost"
