@@ -4,13 +4,9 @@ class Xmgredit < Formula
   url "http://www.stccmop.org/CORIE/modeling/selfe/ace.tgz"
   version "5.1"
   sha256 "442abbe1e81e3ea33f310a0a43020ef5165768c4b57cf5a97757bd87a758e9f1"
+  revision 1
 
-  bottle do
-    cellar :any
-    sha256 "9fda30b51a1a06ca18f506d3f9fac7235dac74c223588132b8a118622eebc6fd" => :sierra
-    sha256 "c8a89629748fdf41b3c964d9488d5404109d5b2f24b6d7239f9143274a68e1a2" => :el_capitan
-    sha256 "511a22bf478a4957f1474d8388523161e90d13e7d0664eb8b6741181be747263" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest netcdf"
 
   depends_on :x11
   depends_on "netcdf"
