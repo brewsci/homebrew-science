@@ -3,15 +3,10 @@ class Alpscore < Formula
   homepage "http://alpscore.org"
   url "https://github.com/ALPSCore/ALPSCore/archive/v1.0.0.tar.gz"
   sha256 "2054f47929f3bdb6a0c07fb70e53194f884cdf6c830b737ed5d24312d060b12a"
-  revision 3
+  revision 4
   head "https://github.com/ALPSCore/ALPSCore.git"
 
-  bottle do
-    cellar :any
-    sha256 "09e7dcd5be0f25164e1db0ac0fc7ac187f7e74c5fc00766742945ce3d6b9dec6" => :sierra
-    sha256 "d61663c3b8eafd58259a10cb3a6d06754a293293d456043d5e51f15ee60c33ff" => :el_capitan
-    sha256 "ef5c8384e224e4ea72cd33f4882acd454c1d29a3ddd30a310c0e8ce20e045fd3" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   option :cxx11
   option "with-test",   "Build and run shipped tests"
