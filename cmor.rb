@@ -3,12 +3,10 @@ class Cmor < Formula
   homepage "https://cmor.llnl.gov/"
   url "https://github.com/PCMDI/cmor/archive/CMOR-3.2.7.tar.gz"
   sha256 "a82b023111975e03ea109a32806f0fc1657e81e5f1805bd4aa61adafa25ed7af"
+  revision 1
   # doi "10.5281/zenodo.61943"
 
-  bottle do
-    sha256 "6fa510a26424638d0dda17ed0e804334f9afd511848fe8da9ee7e75ccf66c675" => :sierra
-    sha256 "3d47bc89af00c28e8c56fdfb02ac866c4214dba25fe79b34ddd99ce7caa727a9" => :el_capitan
-  end
+  bottle :disable, "needs to be rebuilt with latest netcdf"
 
   keg_only "conflicts with json-c in main repository"
 
