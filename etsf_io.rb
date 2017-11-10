@@ -3,15 +3,10 @@ class EtsfIo < Formula
   homepage "http://www.etsf.eu/resources/software/libraries_and_tools"
   url "http://www.etsf.eu/system/files/etsf_io-1.0.4.tar.gz"
   sha256 "3140c2cde17f578a0e6b63acb27a5f6e9352257a1371a17b9c15c3d0ef078fa4"
-  revision 5
+  revision 6
   # doi "10.1016/j.cpc.2008.05.007"
 
-  bottle do
-    sha256 "f98947cd96f7464bd2c3ae0490865780624267f39ffad7b8a7c8bdb53be84c23" => :sierra
-    sha256 "9bd2d3b7c0249842fde7326f1c73cd3b33244d28d497905fceaf94e2e1813db5" => :el_capitan
-    sha256 "ae10fdb25a3b95f7870e20e65a8efcb90888d70b67745b2a56b6cb5ed128029e" => :yosemite
-    sha256 "8b2bf8d1b0e8395a1cf9617c3acfe37f9509408224463d974c26893a2eeb7c0d" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest netcdf"
 
   option "without-test", "Skip build-time tests (not recommended)"
   deprecated_option "without-check" => "without-test"
