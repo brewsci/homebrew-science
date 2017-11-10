@@ -3,14 +3,10 @@ class OmeFiles < Formula
   homepage "https://www.openmicroscopy.org/site/products/ome-files-cpp/"
   url "https://downloads.openmicroscopy.org/ome-files-cpp/0.4.0/source/ome-files-cpp-0.4.0.tar.xz"
   sha256 "eca5741be2b70c26f55423362bcc862762244b3facb95e8d49043f3a610ca280"
+  revision 1
   head "https://github.com/ome/ome-files-cpp.git", :branch => "develop", :shallow => false
 
-  bottle do
-    sha256 "8252403ab722cebffa018b252682e28a27ab78bd7184474a318f29a3f3ffa523" => :sierra
-    sha256 "9b27df00f759cee25ef7aa25ba2cd5d8bb6b29e7e5501f7b50ddb75ab7b730f5" => :el_capitan
-    sha256 "e7c90748a390f96f7d0ded67ff9e4af24ba45a1b5b04924540783f0b6c767c95" => :yosemite
-    sha256 "a27669c7585fdecf75d468b6c2c5bd7310cfb7735f08c00c5dcdb21c5f21abd6" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-api-docs", "Build API reference"
   option "without-docs", "Build man pages and manual using sphinx"
