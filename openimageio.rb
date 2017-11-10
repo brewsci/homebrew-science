@@ -3,14 +3,10 @@ class Openimageio < Formula
   homepage "http://openimageio.org"
   url "https://github.com/OpenImageIO/oiio/archive/Release-1.7.17.tar.gz"
   sha256 "669c59d06399dd882c3e2469bb3a4b33d537db150f6fe056495c3429b5c3838f"
+  revision 1
   head "https://github.com/OpenImageIO/oiio.git"
 
-  bottle do
-    cellar :any
-    sha256 "ecfc1d4a3e225f36a7786b37658625efcb86da2aa70bb07cdf341f6a91218a0c" => :sierra
-    sha256 "8d462a8e203a1e6fe783696b291eddafdd76a3989a73090991a5793b434aa4f5" => :el_capitan
-    sha256 "83d81e6e8493ba54038278ed4433fe008f99ad77851deb8e5d307952907b7bb1" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-test", "Dowload 95MB of test images and verify Oiio (~2 min)"
   option "with-jpeg-turbo", "Build with libjpeg-turbo support, instead of libjpeg"
