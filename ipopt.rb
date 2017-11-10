@@ -3,15 +3,10 @@ class Ipopt < Formula
   homepage "https://projects.coin-or.org/Ipopt"
   url "https://www.coin-or.org/download/source/Ipopt/Ipopt-3.12.8.tgz"
   sha256 "62c6de314220851b8f4d6898b9ae8cf0a8f1e96b68429be1161f8550bb7ddb03"
+  revision 1
   head "https://projects.coin-or.org/svn/Ipopt/trunk", :using => :svn
 
-  bottle do
-    cellar :any
-    rebuild 1
-    sha256 "efba0ec9a028086a6d57ef054e4a98ffa46f737bacab1d70b220420cfc537b2c" => :high_sierra
-    sha256 "4399fc2cef8545e46d633d41515599526db42bd7fbb448b6387de44028092c9e" => :sierra
-    sha256 "edc30221f5c8b6b92c3878c67f3a2f1bed105fad2e4d6e6a1bedd914d781f282" => :el_capitan
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   option "without-test", "Skip build-time tests (not recommended)"
   deprecated_option "without-check" => "without-test"
