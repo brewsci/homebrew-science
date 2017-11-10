@@ -3,15 +3,9 @@ class Gnudatalanguage < Formula
   homepage "https://gnudatalanguage.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gnudatalanguage/gdl/0.9.7/gdl-0.9.7.tgz"
   sha256 "2b5945d06e4d95f01cb70a3c432ac2fa4c81e1b3ac7c02687a6704ab042a7e21"
-  revision 3
+  revision 4
 
-  bottle do
-    rebuild 1
-    sha256 "1e4e37991aecc97c7fed700d6103672b7d8379636e471f7ef3bb3220ce52face" => :sierra
-    sha256 "2e3f10db29219bb7059ed473cdd4906ec884fd87d50f5fa59b4875be9c388bec" => :el_capitan
-    sha256 "f6bcb9cf30ff33debf618b181a10ae0143bf56f49b61f71a7f7c668556e5ce8d" => :yosemite
-    sha256 "4fbc1c1a0eed2caa28183bf37aeb9f50be9a3eabb98f862871242b20f6d0f6dd" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest netcdf"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
