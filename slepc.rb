@@ -3,12 +3,9 @@ class Slepc < Formula
   homepage "http://www.grycap.upv.es/slepc"
   url "http://slepc.upv.es/download/distrib/slepc-3.7.4.tar.gz"
   sha256 "2fb782844e3bc265a8d181c3c3e2632a4ca073111c874c654f1365d33ca2eb8a"
+  revision 1
 
-  bottle do
-    sha256 "7923b18a17d1225639f7de9e1872fa8961f66db3d625868c3bb23b1922f1cc78" => :sierra
-    sha256 "8216bb05ec00c9b31619b787af04b7aaeb7b520d04454660b51447b74fa3636c" => :el_capitan
-    sha256 "585b4c1ee290f315e0f8d71f451637b2e509082c643296ab64439cb870739216" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   deprecated_option "complex" => "with-complex"
 
