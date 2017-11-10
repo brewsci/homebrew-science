@@ -3,16 +3,11 @@ class Abinit < Formula
   homepage "https://www.abinit.org/"
   url "https://www.abinit.org/sites/default/files/packages/abinit-8.4.4.tar.gz"
   sha256 "ebf63b842810c65d83939cf04058d7bdedc9874ee662f59af45cb29de41e2a8c"
+  revision 1
   # tag "chemistry"
   # doi "10.1016/j.cpc.2009.07.007"
 
-  bottle do
-    cellar :any
-    sha256 "693bc294f253cdf0a52a96c9ddf4aba3a1eb753960484073f8733ee071e618c3" => :high_sierra
-    sha256 "438696df1159268685ca2b531d0da16430a4e17939b176afd74b500037b0b18a" => :sierra
-    sha256 "91bcb3b367ec26658ac6592ff6f829a2e72aecab2a1fe443dd107be006c9b75f" => :el_capitan
-    sha256 "e4b8ae1fa86b61478fa97573e33c0f814c1bb1d4f26c75e1dd93243ecc88baf3" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   option "with-openmp", "Enable OpenMP multithreading"
   option "without-test", "Skip build-time tests (not recommended)"
