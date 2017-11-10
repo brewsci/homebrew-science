@@ -3,16 +3,11 @@ class Moab < Formula
   homepage "https://press3.mcs.anl.gov/sigma/moab-library/"
   url "http://ftp.mcs.anl.gov/pub/fathom/moab-4.9.2.tar.gz"
   sha256 "26611b8cc24f6b7df52eb4ecbd31523d61523da0524b5a2d066a7656e2e82ac5"
-  revision 5
+  revision 6
 
   head "https://bitbucket.org/fathomteam/moab.git"
 
-  bottle do
-    cellar :any
-    sha256 "157b0599a9f0bc0122888d889a5d74fe23956b06a39931f60a8b56ea53953057" => :sierra
-    sha256 "152853885760446f16699d590c1d6dca70ff1f604241fbcc226c8b58ba47faad" => :el_capitan
-    sha256 "fc037f88f1c7bc2d0a9737e720abb5b452121214c5c27d38a5bbea240dc7dd8c" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest netcdf"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
