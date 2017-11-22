@@ -13,7 +13,7 @@ class Igv < Formula
 
   def install
     inreplace "igv.sh", /^prefix=.*/, "prefix=#{prefix}"
-    prefix.install Dir["igv.sh", "*.jar"]
+    prefix.install "igv.sh", Dir["*.jar"]
     bin.install_symlink prefix/"igv.sh" => "igv"
   end
 
