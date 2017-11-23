@@ -4,6 +4,7 @@
   "armadillo": "homebrew/core",
   "arpack": "homebrew/core",
   "beast": "homebrew/core",
+  "bedtools": "homebrew/core",
   "bowtie2": "homebrew/core",
   "ceres-solver": "homebrew/core",
   "cfitsio": "homebrew/core",
