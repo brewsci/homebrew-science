@@ -1,9 +1,8 @@
 class Neuron < Formula
   desc "Simulation environment for modeling individual neurons and networks of neurons"
   homepage "https://www.neuron.yale.edu/neuron/"
-  url "https://www.neuron.yale.edu/ftp/neuron/versions/v7.4/nrn-7.4.tar.gz"
-  sha256 "165513a4c5e4f11fb78b6c8a71d92f11a00c120c4bbeec26abfedac241729e98"
-
+  url "https://www.neuron.yale.edu/ftp/neuron/versions/v7.5/nrn-7.5.tar.gz"
+  sha256 "67642216a969fdc844da1bd56643edeed5e9f9ab8c2a3049dcbcbcccba29c336"
   head "http://www.neuron.yale.edu/hg/neuron/nrn", :using => :hg
 
   bottle do
@@ -16,6 +15,7 @@ class Neuron < Formula
   depends_on "inter-views"
   depends_on :mpi => :optional
   depends_on :python if MacOS.version <= :snow_leopard
+  depends_on :python3 => :optional
 
   # NEURON uses .la files to compile HOC files at runtime
   skip_clean :la
@@ -36,11 +36,17 @@ class Neuron < Formula
 
     args = ["--with-iv=#{Formula["inter-views"].opt_prefix}"]
     args << "--with-paranrn" if build.with? "mpi"
+    if build.with? "python3"
+      args << "--with-nrnpython=python3"
+      python_exec = "python3"
+    else
+      args << "--with-nrnpython"
+      python_exec = "python"
+    end
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-pysetup=no",
-                          "--with-nrnpython",
                           "--without-mpi",
                           "--prefix=#{prefix}",
                           "--exec-prefix=#{libexec}",
@@ -51,7 +57,7 @@ class Neuron < Formula
     system "make", "install"
 
     cd "src/nrnpython" do
-      system "python", *Language::Python.setup_install_args(prefix)
+      system python_exec, *Language::Python.setup_install_args(prefix)
     end
 
     # Neuron builds some .apps which are useless and in the wrong place
@@ -86,8 +92,13 @@ class Neuron < Formula
   end
 
   test do
+    if build.with? "python3"
+      python_exec = "python3"
+    else
+      python_exec = "python"
+    end
     system "#{bin}/nrniv", "--version"
-    system "python", "-c", "import neuron; neuron.test()"
+    system python_exec, "-c", "import neuron; neuron.h.Section()"
   end
 end
 
