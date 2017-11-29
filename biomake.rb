@@ -1,8 +1,8 @@
 class Biomake < Formula
   desc "GNU-Make-like utility for managing builds and complex workflows"
   homepage "https://github.com/evoldoers/biomake"
-  url "https://github.com/evoldoers/biomake/archive/v0.1.2.tar.gz"
-  sha256 "3ed91b553201b2b0aeab600f1f0795f1c02cb1cb1f19a4c0a2bb78070147b096"
+  url "https://github.com/evoldoers/biomake/archive/v0.1.3.tar.gz"
+  sha256 "98c10a85834955b656e1f78ddc3f3adde78b1321472a7d91f70827b8a7b81f48"
   head "https://github.com/evoldoers/biomake.git"
   # doi "10.1101/093245"
   # tag "bioinformatics"
