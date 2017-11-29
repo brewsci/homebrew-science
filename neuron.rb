@@ -8,6 +8,7 @@ class Neuron < Formula
   bottle do
     sha256 "06953481e1ca7420a001e392aa842fa674570b8cff3d372d3bd5af9095d8662a" => :sierra
     sha256 "d7658192e8c4544df6b7e183d547a44731e2d99b2b5fdd175c2903f5d1b1eaf4" => :el_capitan
+    sha256 "1a88cfc08c73d484cfd368d37436c8004e1dd50362c65042fdd2643c17b9ff40" => :x86_64_linux
   end
 
   depends_on "inter-views"
