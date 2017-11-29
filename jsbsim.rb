@@ -13,7 +13,7 @@ class Jsbsim < Formula
   end
 
   head do
-    url "git://git.code.sf.net/p/jsbsim/code"
+    url "https://git.code.sf.net/p/jsbsim/code.git"
 
     # Note: we are removing the compilation of Aeromatic, a web-based
     # configuration file generator for JSBSim. Additionally, we are removing
