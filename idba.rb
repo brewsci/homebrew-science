@@ -1,6 +1,6 @@
 class Idba < Formula
   desc "Iterative De Bruijn Graph De Novo Assembler for sequence assembly"
-  homepage "http://i.cs.hku.hk/~alse/hkubrg/projects/idba/"
+  homepage "https://i.cs.hku.hk/~alse/hkubrg/projects/idba/"
   # doi "10.1093/bioinformatics/bts174"
   # tag "bioinformatics"
 
