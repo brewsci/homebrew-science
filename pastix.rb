@@ -5,7 +5,7 @@ class Pastix < Formula
   sha256 "30f771a666719e6b116f549a6e4da451beabab99c2ecabc0745247c3654acbed"
   revision 4
 
-  head "git://scm.gforge.inria.fr/ricar/ricar.git"
+  head "https://scm.gforge.inria.fr/anonscm/git/ricar/ricar.git"
 
   bottle :disable, "needs to be rebuilt with latest open-mpi"
 
