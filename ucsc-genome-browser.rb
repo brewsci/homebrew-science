@@ -1,6 +1,6 @@
 class UcscGenomeBrowser < Formula
   desc "Mirror of the UCSC Genome Browser"
-  homepage "http://genome.ucsc.edu"
+  homepage "https://genome.ucsc.edu/"
   url "http://hgdownload.cse.ucsc.edu/admin/jksrc.v338.zip"
   sha256 "760972f8f8b6f5a2ac62c1a563a9235b3844c040757d8c51d793962224afa239"
   head "git://genome-source.cse.ucsc.edu/kent.git"
@@ -15,8 +15,8 @@ class UcscGenomeBrowser < Formula
   end
 
   keg_only <<-EOF.undent
-    The UCSC Genome Browser installs many commands, and some conflict
-    with other packages.
+    the UCSC Genome Browser installs many commands, and some conflict
+    with other packages
   EOF
 
   depends_on "libpng"
