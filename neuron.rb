@@ -6,10 +6,8 @@ class Neuron < Formula
   head "http://www.neuron.yale.edu/hg/neuron/nrn", :using => :hg
 
   bottle do
-    rebuild 1
-    sha256 "5372bbb13c06b50d1734fc5510073810d22522cbf7ebdd3f5d58f9615e67cc1f" => :el_capitan
-    sha256 "cf7d064e0eab9c7dd3d27559b1e81b976639715bf9f140f33c1428be073c7c4a" => :yosemite
-    sha256 "51a14a0a84cda238d401619b30006a983801a4ff05a2908fef191e372a8d4133" => :mavericks
+    sha256 "06953481e1ca7420a001e392aa842fa674570b8cff3d372d3bd5af9095d8662a" => :sierra
+    sha256 "d7658192e8c4544df6b7e183d547a44731e2d99b2b5fdd175c2903f5d1b1eaf4" => :el_capitan
   end
 
   depends_on "inter-views"
