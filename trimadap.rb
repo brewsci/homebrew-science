@@ -5,6 +5,7 @@ class Trimadap < Formula
 
   url "https://github.com/lh3/trimadap/archive/0.1.tar.gz"
   sha256 "553069d81004b120d9df7d6161edce9317c0f95e5eefe2ec3325dd4081a90acd"
+  head "https://github.com/lh3/trimadap.git"
 
   bottle do
     cellar :any
