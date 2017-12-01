@@ -11,9 +11,10 @@ class Neuron < Formula
   head "http://github.com/nrnhines/nrn", :using => :git
 
   bottle do
-    sha256 "06953481e1ca7420a001e392aa842fa674570b8cff3d372d3bd5af9095d8662a" => :sierra
-    sha256 "d7658192e8c4544df6b7e183d547a44731e2d99b2b5fdd175c2903f5d1b1eaf4" => :el_capitan
-    sha256 "1a88cfc08c73d484cfd368d37436c8004e1dd50362c65042fdd2643c17b9ff40" => :x86_64_linux
+    rebuild 1
+    sha256 "2e045ddbbd13cce16acb6c0d8c9f8878982d69034944ddc2456445ba09d17375" => :high_sierra
+    sha256 "1f838029eb4bbc150c0320254c8c18ad2f4c085901ae55b05328e1e4e3f9cde1" => :sierra
+    sha256 "099fabcff6ea468ca73f0d6c006cc5be756499d1cbc90f26281d2d3cdc0eb2a2" => :el_capitan
   end
 
   # Autotools goodies required to build Neuron from scratch
