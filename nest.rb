@@ -36,8 +36,8 @@ class Nest < Formula
   depends_on "cmake" => :build
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
-    sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
+    url "https://files.pythonhosted.org/packages/ee/2a/c4d2cdd19c84c32d978d18e9355d1ba9982a383de87d0fcb5928553d37f4/Cython-0.27.3.tar.gz"
+    sha256 "6a00512de1f2e3ce66ba35c5420babaef1fe2d9c43a8faab4080b0dbcc26bc64"
   end
 
   resource "nose" do
@@ -54,6 +54,13 @@ class Nest < Formula
   def install
     ENV.delete("CFLAGS")
     ENV.delete("CXXFLAGS")
+    # The Homebrew site-packages path is automatically added to the PYTHONPATH
+    # env var in Library/Homebrew/requirements/python_requirement.rb. However,
+    # it is getting confused as to which version of Python we are using and
+    # putting the wrong site-packages on the path (2 instead of 3). Since we
+    # don't need any Homebrew-installed bindings it is easiest/safe just to
+    # delete it.
+    ENV.delete("PYTHONPATH")
 
     args = ["-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}"]
 
@@ -97,6 +104,14 @@ class Nest < Formula
       system "cmake", "..", *args
       system "make"
       system "make", "install"
+    end
+
+    # Replace internally accessible gcc with externally accesible version
+    # in nest-config
+    if OS.mac? || build.without?("mpi")
+      inreplace bin/"nest-config",
+          %r{#{HOMEBREW_REPOSITORY}/Library/Homebrew/shims.*/super},
+          "#{HOMEBREW_PREFIX}/bin"
     end
   end
 
