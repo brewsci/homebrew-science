@@ -15,6 +15,7 @@ class Neuron < Formula
     sha256 "2e045ddbbd13cce16acb6c0d8c9f8878982d69034944ddc2456445ba09d17375" => :high_sierra
     sha256 "1f838029eb4bbc150c0320254c8c18ad2f4c085901ae55b05328e1e4e3f9cde1" => :sierra
     sha256 "099fabcff6ea468ca73f0d6c006cc5be756499d1cbc90f26281d2d3cdc0eb2a2" => :el_capitan
+    sha256 "0b4214ac066e1e9f93dfdbc1282bba83c9fb87cc4f8878482d12fa5e27dc02b8" => :x86_64_linux
   end
 
   # Autotools goodies required to build Neuron from scratch
