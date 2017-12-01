@@ -1,9 +1,14 @@
 class Neuron < Formula
   desc "Simulation environment for modeling individual neurons and networks of neurons"
   homepage "https://www.neuron.yale.edu/neuron/"
-  url "https://www.neuron.yale.edu/ftp/neuron/versions/v7.5/nrn-7.5.tar.gz"
-  sha256 "67642216a969fdc844da1bd56643edeed5e9f9ab8c2a3049dcbcbcccba29c336"
-  head "http://www.neuron.yale.edu/hg/neuron/nrn", :using => :hg
+  # NB: The Neuron authors are old-school physicists and don't do point releases, so bug-fixes
+  # are often pushed to download link of their latest version, which breaks the the SHA check of this
+  # formula. This commit is the earliest version that builds on High Sierra.
+  url "https://github.com/nrnhines/nrn/archive/e0950a19a722b661882d1609fe7748ec67b68ba8.tar.gz"
+  version "7.5"
+  # url "https://www.neuron.yale.edu/ftp/neuron/versions/v7.5/nrn-7.5.tar.gz"
+  sha256 "1d5510033c35654edde04ad89dbb9568a4a7c50770018e7f2e1ca4cf167e6e2c"
+  head "http://github.com/nrnhines/nrn", :using => :git
 
   bottle do
     sha256 "06953481e1ca7420a001e392aa842fa674570b8cff3d372d3bd5af9095d8662a" => :sierra
@@ -11,6 +16,14 @@ class Neuron < Formula
     sha256 "1a88cfc08c73d484cfd368d37436c8004e1dd50362c65042fdd2643c17b9ff40" => :x86_64_linux
   end
 
+  # Autotools goodies required to build Neuron from scratch
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "flex" => :build
+  depends_on "bison" => :build
+
+  # Dependencies of the simulator itself
   depends_on "inter-views"
   depends_on :mpi => :optional
   depends_on :python if MacOS.version <= :snow_leopard
@@ -30,9 +43,6 @@ class Neuron < Formula
   patch :DATA
 
   def install
-    dylib = OS.mac? ? "dylib" : "so"
-    inreplace "configure", "$IV_LIBDIR/libIVhines.la", "$IV_LIBDIR/libIVhines.#{dylib}"
-
     args = ["--with-iv=#{Formula["inter-views"].opt_prefix}"]
     args << "--with-paranrn" if build.with? "mpi"
     if build.with? "python3"
@@ -42,6 +52,17 @@ class Neuron < Formula
       args << "--with-nrnpython"
       python_exec = "python"
     end
+
+    # NB: autotools need to be run if building from a GitHub commit.
+    # Comment out if downloading from the released version on the NEURON
+    # downloads page "https://www.neuron.yale.edu/ftp/neuron/versions/"
+    # You will also need to change the patch below to point to the Makefile.in
+    # instead of the Makefile.am.
+    system "./build.sh"
+
+    # Needs to come after ./build.sh call
+    dylib = OS.mac? ? "dylib" : "so"
+    inreplace "configure", "$IV_LIBDIR/libIVhines.la", "$IV_LIBDIR/libIVhines.#{dylib}"
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -60,8 +81,7 @@ class Neuron < Formula
     end
 
     # Neuron builds some .apps which are useless and in the wrong place
-    ["idraw", "mknrndll", "modlunit",
-     "mos2nrn", "neurondemo", "nrngui"].each do |app|
+    %w[idraw mknrndll modlunit mos2nrn neurondemo nrngui].each do |app|
       rm_rf "#{prefix}/../#{app}.app"
     end
 
@@ -71,8 +91,8 @@ class Neuron < Formula
     ln_sf Dir["#{libexec}/lib/*.la"], lib
     ln_sf Dir["#{libexec}/lib/*.o"], lib
 
-    ["hoc_ed", "ivoc", "modlunit", "mos2nrn", "neurondemo",
-     "nocmodl", "nrngui", "nrniv", "nrnivmodl", "sortspike"].each do |exe|
+    %w[hoc_ed ivoc modlunit mos2nrn neurondemo
+       nocmodl nrngui nrniv nrnivmodl sortspike].each do |exe|
       bin.install_symlink "#{libexec}/bin/#{exe}"
     end
   end
@@ -102,25 +122,30 @@ class Neuron < Formula
 end
 
 __END__
-diff --git i/src/mac/Makefile.in w/src/mac/Makefile.in
-index cecf310..7618ee0 100644
---- i/src/mac/Makefile.in
-+++ w/src/mac/Makefile.in
-@@ -613,17 +613,6 @@ uninstall-am: uninstall-binSCRIPTS
-	uninstall-am uninstall-binSCRIPTS
+diff --git a/src/mac/Makefile.am b/src/mac/Makefile.am
+index a612653..76d9389 100755
+--- a/src/mac/Makefile.am
++++ b/src/mac/Makefile.am
+@@ -14,22 +14,3 @@ EXTRA_DIST = maccmd.c njconf.h nrnneosm.h bbsconf.h macnrn.h nrnconf.h \
 
- @MAC_DARWIN_TRUE@install: install-am
--@MAC_DARWIN_TRUE@@UniversalMacBinary_TRUE@	$(CC) -arch ppc -o aoutppc -Dcpu="\"$(host_cpu)\"" -I. $(srcdir)/launch.c $(srcdir)/mac2uxarg.c -framework Carbon
--@MAC_DARWIN_TRUE@@UniversalMacBinary_TRUE@	$(CC) -arch i386 -o aouti386 -Dcpu="\"$(host_cpu)\"" -I. $(srcdir)/launch.c $(srcdir)/mac2uxarg.c -framework Carbon
--@MAC_DARWIN_TRUE@@UniversalMacBinary_TRUE@	lipo aouti386 aoutppc -create -output a.out
--@MAC_DARWIN_TRUE@@UniversalMacBinary_FALSE@	gcc -g -arch i386 -Dncpu="\"$(host_cpu)\"" -I. $(srcdir)/launch.c $(srcdir)/mac2uxarg.c -framework Carbon
+ host_cpu = @host_cpu@
+
+-if MAC_DARWIN
+-carbon = @enable_carbon@
+-bin_SCRIPTS = $(launch_scripts)
+-install: install-am
+-if UniversalMacBinary
+-	$(CC) -arch ppc -o aoutppc -Dcpu="\"$(host_cpu)\"" -I. $(srcdir)/launch.c $(srcdir)/mac2uxarg.c -framework Carbon
+-	$(CC) -arch i386 -o aouti386 -Dcpu="\"$(host_cpu)\"" -I. $(srcdir)/launch.c $(srcdir)/mac2uxarg.c -framework Carbon
+-	lipo aouti386 aoutppc -create -output a.out
+-else
+-	gcc -g -arch i386 -Dncpu="\"$(host_cpu)\"" -I. $(srcdir)/launch.c $(srcdir)/mac2uxarg.c -framework Carbon
 -
--@MAC_DARWIN_TRUE@	carbon=$(carbon) sh $(srcdir)/launch_inst.sh "$(host_cpu)" "$(DESTDIR)$(prefix)" "$(srcdir)"
--@MAC_DARWIN_TRUE@	for i in $(S) ; do \
--@MAC_DARWIN_TRUE@		sed "s/^CPU.*/CPU=\"$(host_cpu)\"/" < $(DESTDIR)$(bindir)/$$i > temp; \
--@MAC_DARWIN_TRUE@		mv temp $(DESTDIR)$(bindir)/$$i; \
--@MAC_DARWIN_TRUE@		chmod 755 $(DESTDIR)$(bindir)/$$i; \
--@MAC_DARWIN_TRUE@	done
-
- # Tell versions [3.59,3.63) of GNU make to not export all variables.
- # Otherwise a system limit (for SysV at least) may be exceeded.
+-endif
+-	carbon=$(carbon) sh $(srcdir)/launch_inst.sh "$(host_cpu)" "$(DESTDIR)$(prefix)" "$(srcdir)"
+-	for i in $(S) ; do \
+-		sed "s/^CPU.*/CPU=\"$(host_cpu)\"/" < $(DESTDIR)$(bindir)/$$i > temp; \
+-		mv temp $(DESTDIR)$(bindir)/$$i; \
+-		chmod 755 $(DESTDIR)$(bindir)/$$i; \
+-	done
+-endif
