@@ -26,7 +26,7 @@ class Neuron < Formula
   depends_on "bison" => :build
 
   # Dependencies of the simulator itself
-  depends_on "inter-views"
+  depends_on "inter-views" => :optional
   depends_on :mpi => :optional
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
@@ -45,7 +45,7 @@ class Neuron < Formula
   patch :DATA
 
   def install
-    args = ["--with-iv=#{Formula["inter-views"].opt_prefix}"]
+    args = []
     args << "--with-paranrn" if build.with? "mpi"
     if build.with? "python3"
       args << "--with-nrnpython=python3"
@@ -53,6 +53,13 @@ class Neuron < Formula
     else
       args << "--with-nrnpython"
       python_exec = "python"
+    end
+
+    if build.with? "inter-views"
+      args << "--with-iv=#{Formula["inter-views"].opt_prefix}"
+    else
+      args << "--without-x"
+      args << "--disable-rx3d"
     end
 
     # NB: autotools need to be run if building from a GitHub commit.
