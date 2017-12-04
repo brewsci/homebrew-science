@@ -1,8 +1,9 @@
 class Nest < Formula
-  desc "The Neural Simulation Tool"
+  desc "The Neural Simulation Tool (NEST) with Python2 bindings (PyNEST)"
   homepage "http://www.nest-simulator.org/"
   url "https://github.com/nest/nest-simulator/archive/v2.14.0.tar.gz"
   sha256 "afaf7d53c2d5305fac1257759cc0ea6d62c3cebf7d5cc4a07d4739af4dbb9caf"
+  revision 1
   head "https://github.com/nest/nest-simulator.git"
 
   bottle do
@@ -13,8 +14,7 @@ class Nest < Formula
     sha256 "aae208b59011c886293f99660c700e21d2912f75258a166cbbeb87ba26519f64" => :x86_64_linux
   end
 
-  option "with-python", "Build Python2 bindings (PyNEST)."
-  option "with-python3", "Build Python3 bindings (PyNEST, precedence over --with-python)."
+  option "with-python3", "Build Python3 bindings (PyNEST) instead of Python2 bindings."
   option "without-openmp", "Build without OpenMP support."
   needs :openmp if build.with? "openmp"
 
@@ -22,15 +22,14 @@ class Nest < Formula
   depends_on :mpi => [:optional, :cc, :cxx]
 
   # Any Python >= 2.7 < 3.x is okay (either from macOS or brewed)
-  depends_on :python => :optional
+  depends_on :python unless OS.mac?
   depends_on :python3 => :optional
-  if build.with?("python") || build.with?("python3")
-    requires_py3 = []
-    requires_py3 << "with-python3" if build.with? "python3"
-    depends_on "numpy" => requires_py3
-    depends_on "scipy" => requires_py3
-    depends_on "matplotlib" => requires_py3
-  end
+
+  requires_py3 = []
+  requires_py3 << "with-python3" if build.with? "python3"
+  depends_on "numpy" => requires_py3
+  depends_on "scipy" => requires_py3
+  depends_on "matplotlib" => requires_py3
 
   depends_on "libtool" => :run
   depends_on "readline" => :run
@@ -71,34 +70,30 @@ class Nest < Formula
 
     if build.with? "python3"
       args << "-Dwith-python=3"
-    elsif build.with? "python"
-      dylib = OS.mac? ? "dylib" : "so"
-      py_prefix = `python-config --prefix`.chomp
-      py_lib = "#{py_prefix}/lib"
-
-      args << "-Dwith-python=2"
-      args << "-DPYTHON_LIBRARY=#{py_lib}/libpython2.7.#{dylib}"
-      args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python2.7"
+      python_exec = "python3"
     else
-      args << "-Dwith-python=OFF"
+      # default to python2 installation
+      # this always links to the system python during nest installation,
+      # which should not be a problem, as python2.7.10 (system py2 as of writing this)
+      # is compatible with brewed python2.7+
+      args << "-Dwith-python=ON"
+      python_exec = "python"
     end
 
-    Language::Python.each_python(build) do |python, version|
-      dest_path = lib/"python#{version}/site-packages"
-      dest_path.mkpath
-      resource("nose").stage do
-        system python, *Language::Python.setup_install_args(libexec/"nose")
-        # only nose executable is interesting during testing - not adding a *.pth file
-      end
+    python_version = Language::Python.major_minor_version(python_exec)
 
-      # Add local build resource Cython residing in buildpath to paths
-      ENV.prepend_create_path "PATH", buildpath/"cython/bin"
-      ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python#{version}/site-packages"
-
-      resource("Cython").stage do
-        system python, *Language::Python.setup_install_args(buildpath/"cython")
-      end
+    resource("nose").stage do
+      system python_exec, *Language::Python.setup_install_args(libexec/"nose")
+      # only nose executable is interesting during testing - not adding a *.pth file
     end
+
+    resource("Cython").stage do
+      system python_exec, *Language::Python.setup_install_args(buildpath/"cython")
+    end
+
+    # Add local build resource Cython residing in buildpath to paths
+    ENV.prepend_create_path "PATH", buildpath/"cython/bin"
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python#{python_version}/site-packages"
 
     # "out of source" build
     mkdir "build" do
@@ -147,13 +142,10 @@ class Nest < Formula
       File.open(ENV["HOME"]+"/.nestrc", "w") { |file| file.write(nestrc) }
     end
 
+    # add nosetest executable to path
+    ENV.prepend_create_path "PATH", libexec/"nose/bin"
     # run all tests
-    args = []
-    if build.with?("python") || build.with?("python3")
-      args << "--test-pynest"
-      # add nosetest executable to path
-      ENV.prepend_create_path "PATH", libexec/"nose/bin"
-    end
+    args = ["--test-pynest"]
 
     ENV["PYTHON"] = "python3" if build.with? "python3"
 
