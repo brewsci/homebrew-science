@@ -9,6 +9,7 @@ class OmeCommon < Formula
     sha256 "b8c159d5ab68163e59a37a050cf2a26c63a43d3503cbb8946a3c152a699e64dc" => :high_sierra
     sha256 "3a5190975548cffa254d8ec927c2288d91f02f6e18fe7eaab4333e14be9f6610" => :sierra
     sha256 "0db890ec186c4a4d43ab396fd81d3a7f081c1ebfa55a5cb9ec2b62fabd13653d" => :el_capitan
+    sha256 "a29a562a1bc6f597ee7b5b4691bb065d922876c52cccd39134ceec1d66e06e1c" => :x86_64_linux
   end
 
   option "with-api-docs", "Build API reference"
