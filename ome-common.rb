@@ -1,12 +1,9 @@
 class OmeCommon < Formula
   desc "Open Microscopy Environment (OME) common functionality"
   homepage "https://www.openmicroscopy.org/site/products/ome-files-cpp/"
-  url "https://downloads.openmicroscopy.org/ome-common-cpp/5.4.2/source/ome-common-cpp-5.4.2.tar.xz"
-  sha256 "16dde8fc2197267177430b8766da9c64ceee2e68161be66d28b611569fb1035b"
-  revision 1
+  url "https://downloads.openmicroscopy.org/ome-common-cpp/5.5.0/source/ome-common-cpp-5.5.0.tar.xz"
+  sha256 "96ae1824fffcc405de53666133b009d32ee304b6aa1b086c1738d7a05d98853d"
   head "https://github.com/ome/ome-common-cpp.git", :branch => "develop", :shallow => false
-
-  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-api-docs", "Build API reference"
   option "without-test", "Skip build time tests (not recommended)"
@@ -68,7 +65,17 @@ class OmeCommon < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{opt_include}", "-L#{opt_lib}", "-L#{Formula["boost"].opt_lib}", "-L#{Formula["xerces-c"].opt_lib}", "-L#{Formula["xalan-c"].opt_lib}", "-pthread", "-lome-common", "-lxerces-c", "-lxalan-c", "-lboost_filesystem-mt", "-lboost_system-mt", "-o", "test"
+    system ENV.cxx, "test.cpp",
+      "-std=c++11",
+      "-I#{opt_include}",
+      "-L#{opt_lib}",
+      "-L#{Formula["boost"].opt_lib}",
+      "-L#{Formula["xerces-c"].opt_lib}",
+      "-L#{Formula["xalan-c"].opt_lib}",
+      "-pthread", "-lome-common",
+      "-lxerces-c", "-lxalan-c",
+      "-lboost_filesystem-mt", "-lboost_system-mt",
+      "-o", "test"
     system "./test"
   end
 end
