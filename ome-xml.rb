@@ -5,6 +5,13 @@ class OmeXml < Formula
   sha256 "0658788b839b40a15883caa99d9a0f43a6ea1f547a8df8043256293aec81a4cc"
   head "https://github.com/ome/ome-model.git", :branch => "master", :shallow => false
 
+  bottle do
+    cellar :any
+    sha256 "c89b72b528e8eb500957600395e64fae2414f9d42cc0ee2a6aae4c765f24ed9c" => :high_sierra
+    sha256 "599ac5323bd3b561f2427840ed7c53b48e1250fd2de56f4155c0c2c2b9662836" => :sierra
+    sha256 "b4b5e6ccad30c3454c643086f9d4e210fc9b82f258f7c02e8f7d9820831aba96" => :el_capitan
+  end
+
   option "with-api-docs", "Build API reference"
   option "without-test", "Skip build time tests (not recommended)"
 
