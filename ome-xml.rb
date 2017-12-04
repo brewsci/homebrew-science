@@ -10,6 +10,7 @@ class OmeXml < Formula
     sha256 "c89b72b528e8eb500957600395e64fae2414f9d42cc0ee2a6aae4c765f24ed9c" => :high_sierra
     sha256 "599ac5323bd3b561f2427840ed7c53b48e1250fd2de56f4155c0c2c2b9662836" => :sierra
     sha256 "b4b5e6ccad30c3454c643086f9d4e210fc9b82f258f7c02e8f7d9820831aba96" => :el_capitan
+    sha256 "bdc741f51997c9ffe1265eefdc8cd5c381632b105a04091395b2b1dd62f0ff1f" => :x86_64_linux
   end
 
   option "with-api-docs", "Build API reference"
