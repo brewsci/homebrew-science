@@ -1,12 +1,9 @@
 class OmeXml < Formula
   desc "Open Microscopy Environment (OME) XML metadata model"
   homepage "https://www.openmicroscopy.org/site/products/ome-files-cpp/"
-  url "https://downloads.openmicroscopy.org/ome-model/5.5.6/source/ome-model-5.5.6.tar.xz"
-  sha256 "1821c324ed85157aaac1b046649f97334509268eca1e43f059f74bff52908225"
-  revision 1
-  head "https://github.com/openmicroscopy/bioformats.git", :branch => "develop", :shallow => false
-
-  bottle :disable, "needs to be rebuilt with latest boost"
+  url "https://downloads.openmicroscopy.org/ome-model/5.6.0/source/ome-model-5.6.0.tar.xz"
+  sha256 "0658788b839b40a15883caa99d9a0f43a6ea1f547a8df8043256293aec81a4cc"
+  head "https://github.com/ome/ome-model.git", :branch => "master", :shallow => false
 
   option "with-api-docs", "Build API reference"
   option "without-test", "Skip build time tests (not recommended)"
@@ -86,7 +83,21 @@ class OmeXml < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{opt_include}", "-L#{opt_lib}", "-L#{Formula["ome-common"].opt_lib}", "-L#{Formula["boost"].opt_lib}", "-L#{Formula["xerces-c"].opt_lib}", "-L#{Formula["xalan-c"].opt_lib}", "-pthread", "-lome-common", "-lome-xml", "-lxerces-c", "-lxalan-c", "-lboost_filesystem-mt", "-lboost_system-mt", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11",
+      "-I#{opt_include}",
+      "-L#{opt_lib}",
+      "-L#{Formula["ome-common"].opt_lib}",
+      "-L#{Formula["boost"].opt_lib}",
+      "-L#{Formula["xerces-c"].opt_lib}",
+      "-L#{Formula["xalan-c"].opt_lib}",
+      "-pthread",
+      "-lome-common",
+      "-lome-xml",
+      "-lxerces-c",
+      "-lxalan-c",
+      "-lboost_filesystem-mt",
+      "-lboost_system-mt",
+      "-o", "test"
     system "./test"
   end
 end
