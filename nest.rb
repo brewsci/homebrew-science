@@ -10,6 +10,7 @@ class Nest < Formula
     sha256 "333aaaa4e3328b0bb27b3c8981a04027e970b6cbd3c482bcf5877f4a631c0990" => :high_sierra
     sha256 "05e4fb871602ee4a89789f71f50be787b37fc0fef9f6ed6b64b8ffd347a49da0" => :sierra
     sha256 "593d129052508cf894bfc48d3cdd54c35411e89e9fde296be2b71aea26eff32c" => :el_capitan
+    sha256 "aae208b59011c886293f99660c700e21d2912f75258a166cbbeb87ba26519f64" => :x86_64_linux
   end
 
   option "with-python", "Build Python2 bindings (PyNEST)."
