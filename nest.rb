@@ -102,12 +102,11 @@ class Nest < Formula
     end
 
     # Replace internally accessible gcc with externally accesible version
-    # in nest-config
-    if OS.mac? || build.without?("mpi")
-      inreplace bin/"nest-config",
-          %r{#{HOMEBREW_REPOSITORY}/Library/Homebrew/shims.*/super},
-          "#{HOMEBREW_PREFIX}/bin"
-    end
+    # in nest-config if required
+    inreplace bin/"nest-config",
+        %r{#{HOMEBREW_REPOSITORY}/Library/Homebrew/shims.*/super},
+        "#{HOMEBREW_PREFIX}/bin",
+        FALSE
   end
 
   test do
