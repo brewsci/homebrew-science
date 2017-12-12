@@ -3,6 +3,7 @@ class SeqGen < Formula
   homepage "http://tree.bio.ed.ac.uk/software/seqgen/"
   url "https://github.com/rambaut/Seq-Gen/archive/1.3.4.tar.gz"
   sha256 "092ec2255ce656a02b2c3012c32443c7d8e38c692f165fb155b304ca030cbb59"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any_skip_relocation
