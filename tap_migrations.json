@@ -28,6 +28,7 @@
   "hwloc": "homebrew/core",
   "hypre": "homebrew/core",
   "igraph": "homebrew/core",
+  "igv": "homebrew/core",
   "libmatio": "homebrew/core",
   "maxima": "homebrew/core",
   "metis": "homebrew/core",
