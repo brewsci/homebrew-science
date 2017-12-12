@@ -1,8 +1,8 @@
 class Swarm < Formula
   desc "Robust and fast clustering method for amplicons"
   homepage "https://github.com/torognes/swarm"
-  url "https://github.com/torognes/swarm/archive/v2.1.13.tar.gz"
-  sha256 "ec4b22cc1874ec6d2c89fe98e23a2fb713aec500bc4a784f0556389d22c02650"
+  url "https://github.com/torognes/swarm/archive/v2.2.2.tar.gz"
+  sha256 "960f9b7db1142f0b5761e5ba02bedde09f9d9816c0f8275746fd856af3dfac12"
   head "https://github.com/torognes/swarm.git"
   # doi "10.7717/peerj.1420", "10.7717/peerj.593"
   # tag "bioinformatics"
