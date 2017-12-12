@@ -4,6 +4,13 @@ class SeqGen < Formula
   url "https://github.com/rambaut/Seq-Gen/archive/1.3.4.tar.gz"
   sha256 "092ec2255ce656a02b2c3012c32443c7d8e38c692f165fb155b304ca030cbb59"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "c9ff4a5b0ee94ab990bd9cbeafe60ab652ed5197bf7111f0cfd8ec76426e89c3" => :high_sierra
+    sha256 "772c48c053f90b6826910ee9b02d742397b5348eba99eb7fa75f1e1464ddab0a" => :sierra
+    sha256 "f0bab4aea0dfe1f025460c43d7c1d3e39c7ddea35bd06cc4b1c0aa56769b6fcc" => :el_capitan
+  end
+
   def install
     cd "source" do
       system "make"
