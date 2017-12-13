@@ -3,6 +3,7 @@
   "ampl-mp": "homebrew/core",
   "armadillo": "homebrew/core",
   "arpack": "homebrew/core",
+  "bamtools": "homebrew/core",
   "beast": "homebrew/core",
   "bedtools": "homebrew/core",
   "bowtie2": "homebrew/core",
