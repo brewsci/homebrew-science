@@ -17,6 +17,7 @@
   "dlib": "homebrew/core",
   "flann": "homebrew/core",
   "gdcm": "homebrew/core",
+  "genometools": "homebrew/core",
   "glpk": "homebrew/core",
   "gmsh": "homebrew/core",
   "gmt": "homebrew/core",
