@@ -15,6 +15,7 @@
   "cppad": "homebrew/core",
   "datamash": "homebrew/core",
   "dlib": "homebrew/core",
+  "fastqc": "homebrew/core",
   "flann": "homebrew/core",
   "gdcm": "homebrew/core",
   "genometools": "homebrew/core",
