@@ -43,6 +43,7 @@
   "packmol": "homebrew/core",
   "pcb": "homebrew/core",
   "pcl": "homebrew/core",
+  "picard-tools": "homebrew/core",
   "prodigal": "homebrew/core",
   "qhull": "homebrew/core",
   "qrupdate": "homebrew/core",
