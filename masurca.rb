@@ -1,22 +1,16 @@
-class LinuxRequirement < Requirement
-  fatal true
-  satisfy OS.linux?
-  def message
-    "This software is only supported on Linux. Mac OS is missing the required function mremap."
-  end
-end
-
 class Masurca < Formula
-  desc "MaSuRCA: Maryland Super-Read Celera Assembler"
-  homepage "http://www.genome.umd.edu/masurca.html"
-  url "https://raw.githubusercontent.com/helios/bio-docker/master/stringtie/1.2.1/MaSuRCA-3.1.3.tar.gz"
-  sha256 "0708bc6ec5a61e177533b290380d2c3de598e49f1da640df9cd88fb538913e48"
+  desc "Maryland Super-Read Celera Assembler"
+  homepage "http://masurca.blogspot.com"
+  url "ftp://ftp.genome.umd.edu/pub/MaSuRCA/latest/MaSuRCA-3.2.3.tar.gz"
+  sha256 "533d8bf2225c2f7701f82093025d8a7ec8830b1c6632801e8d6a0216b84d86e6"
   # doi "10.1093/bioinformatics/btt476"
   # tag "bioinformatics"
 
   bottle do
     sha256 "abb8cd1ad5d0333b2dfd8897effd514e31391d52d858daf58144eac1dbc96900" => :x86_64_linux
   end
+
+  depends_on :linux
 
   fails_with :clang do
     build 703
@@ -27,25 +21,17 @@ class Masurca < Formula
     cause "n50.cc:105:51: error: no member named 'ceil' in namespace 'std'"
   end
 
-  # A fix for Mac OS is welcome.
-  # sort.cc:62:75: error: 'mremap' was not declared in this scope
-  depends_on LinuxRequirement
+  depends_on "boost" => :build
   depends_on "jellyfish"
   depends_on "parallel"
+  depends_on :perl => "5.18"
+
   unless OS.mac?
     depends_on "bzip2"
     depends_on "zlib"
   end
 
   def install
-    if OS.mac?
-      # Fix cp: CA/Linux-amd64/bin/*: No such file or directory
-      inreplace "install.sh", "Linux-amd64", "Darwin-amd64"
-    elsif OS.linux?
-      # Fix libstdc++.so: undefined reference to `clock_gettime@GLIBC_2.17'
-      inreplace "CA/src/c_make.as", %r{ARCH_LIB *= /usr/lib64 /usr/X11R6/lib64}, ""
-    end
-
     ENV.deparallelize
     ENV["DEST"] = prefix
     system "./install.sh"
@@ -59,11 +45,23 @@ class Masurca < Formula
     rm_r include/"jellyfish-1"
     rm man1/"jellyfish.1"
 
-    # Conflicts with parallel
-    rm bin/"parallel"
-
     # Conflicts with samtools
     rm bin/"samtools"
+
+    # Conlicts with mummer
+    rm bin/"combineMUMs"
+    rm bin/"delta-filter"
+    rm bin/"dnadiff"
+    rm bin/"exact-tandems"
+    rm bin/"mummer"
+    rm bin/"mummerplot"
+    rm bin/"nucmer"
+    rm bin/"promer"
+    rm bin/"repeat-match"
+    rm bin/"show-coords"
+    rm bin/"show-diff"
+    rm bin/"show-snps"
+    rm bin/"show-tiling"
   end
 
   test do
