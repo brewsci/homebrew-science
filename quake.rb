@@ -5,7 +5,7 @@ class Quake < Formula
 
   url "http://www.cbcb.umd.edu/software/quake/downloads/quake-0.3.5.tar.gz"
   sha256 "8ded707213117463675553bb989c4c69c5d01b122945b1e265c79d7e4e34eebd"
-  revision 2
+  revision 3
 
   bottle :disable, "Test-bot cannot use the versioned gcc formulae"
 
