@@ -3,7 +3,7 @@ class Nixio < Formula
   homepage "http://www.g-node.org/nix"
   url "https://github.com/G-Node/nix/archive/1.4.1.tar.gz"
   sha256 "6b559744d36b6212a35a8c82db5829ec8feeac87bf0732686bef5e2cd7c9d8a9"
-  revision 1
+  revision 2
   head "https://github.com/G-Node/nix.git"
 
   bottle :disable, "needs to be rebuilt with latest boost"
