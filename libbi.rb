@@ -1,7 +1,7 @@
 class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "http://libbi.org"
-  revision 6
+  revision 7
   head "https://github.com/libbi/LibBi.git"
 
   stable do
@@ -17,7 +17,7 @@ class Libbi < Formula
     end
   end
 
-  bottle :disable, "needs to be rebuilt with latest netcdf"
+  bottle :disable, "needs to be rebuilt with latest boost and netcdf"
 
   option "without-test", "Disable build-time checking (not recommended)"
   option "without-openmp", "Disable OpenMP"
