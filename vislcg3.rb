@@ -6,15 +6,11 @@ class Vislcg3 < Formula
   url "https://visl.sdu.dk/download/vislcg3/cg3-1.1.0~r12312.tar.bz2"
   version "1.1.0"
   sha256 "b3702b80ee3adceda482ca759918168e18900c63fe6d1a0b70b3c698f8213399"
+  revision 1
   version_scheme 1
   head "https://github.com/TinoDidriksen/cg3.git"
 
-  bottle do
-    cellar :any
-    sha256 "46f466552fa4127e108b1522c69c9e7051ca917cb533bbd5c8b72f31198d2175" => :sierra
-    sha256 "ef134f60a89abc04337a97ae001cec05dde875a230a1adceee0ae78ae10fddd7" => :el_capitan
-    sha256 "6510cfc241b50e173dab178643128d005e35282f9cfe06be539effb34e9dd806" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "without-test", "Disable build-time checking (not recommended)"
   deprecated_option "without-check" => "without-test"
