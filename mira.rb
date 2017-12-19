@@ -6,6 +6,9 @@ class Mira < Formula
 
   url "https://downloads.sourceforge.net/project/mira-assembler/MIRA/stable/mira-4.0.2.tar.bz2"
   sha256 "a32cb2b21e0968a5536446287c895fe9e03d11d78957554e355c1080b7b92a80"
+  revision 1
+
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "boost"
   depends_on "gperftools" => :recommended # for tcmalloc
