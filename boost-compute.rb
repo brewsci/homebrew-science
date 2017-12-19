@@ -3,13 +3,9 @@ class BoostCompute < Formula
   homepage "https://boostorg.github.io/compute"
   url "https://github.com/boostorg/compute/archive/boost-1.65.1.tar.gz"
   sha256 "a89bfc96a93647ef6572a8a7a6eb39ce265137fe80e92e9d6f728bd0591f57ef"
+  revision 1
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "7fac2c6c7d889635f49d1d70502292d6f76490ca1afe218a99bcf86731298ec5" => :sierra
-    sha256 "7fac2c6c7d889635f49d1d70502292d6f76490ca1afe218a99bcf86731298ec5" => :el_capitan
-    sha256 "7fac2c6c7d889635f49d1d70502292d6f76490ca1afe218a99bcf86731298ec5" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "cmake" => :build
   depends_on "boost"
