@@ -3,15 +3,10 @@ class Analysis < Formula
   homepage "https://github.com/molpopgen/analysis"
   url "https://github.com/molpopgen/analysis/archive/0.8.8.tar.gz"
   sha256 "f9ef9e0a90fce2c0f4fe462d6c05e22fef22df1c23b63a7c64ad7b538f6e8bb0"
-  revision 3
+  revision 4
   # tag "bioinformatics"
 
-  bottle do
-    sha256 "8ef5508260edfc8a4f9f0110a3b9e139ac5d5f9f240e25095a9f9c6085a84824" => :sierra
-    sha256 "81ac46c9cdc2148018026aacd0cf8deb7a33e96be154bf457cb2d1de67b99097" => :el_capitan
-    sha256 "35284aca3f7cffeb41bcfc5a70e0c3f67dd1a4f41e15c80ba55ad0951e7336ab" => :yosemite
-    sha256 "914c84eab0cf8c3450821b3018696b1770ccfacc1e2fe90f492d3b7edd8a6e56" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "gsl"
   depends_on "boost"
