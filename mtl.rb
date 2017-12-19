@@ -2,14 +2,9 @@ class Mtl < Formula
   homepage "http://www.simunova.com"
   url "http://www.simunova.com/downloads/mtl4/MTL-4.0.9555-Linux.tar.bz2"
   sha256 "b747922b25ccf3192de7f8a6b2035705d415ccbebc5d90dd9538a7087539008d"
-  revision 1
+  revision 2
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "6389e2d406ea278e950a169bb68e43520ebe54f865634e80b48039263b442a98" => :el_capitan
-    sha256 "0d0c2e477431d64e163211b2b98efb3180e024f40904b4ec2d25e904e1f7acba" => :yosemite
-    sha256 "1440f542ade9660038b9d079967830e48c69f9401b28d9e480f16797632f785e" => :mavericks
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   head do
     url "https://simunova.zih.tu-dresden.de/svn/mtl4/trunk", :using => :svn
