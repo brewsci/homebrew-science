@@ -3,14 +3,9 @@ class Shark < Formula
   homepage "http://image.diku.dk/shark/"
   url "https://github.com/Shark-ML/Shark/archive/v3.1.4.tar.gz"
   sha256 "160c35ddeae3f6aeac3ce132ea4ba2611ece39eee347de2faa3ca52639dc6311"
-  revision 2
+  revision 3
 
-  bottle do
-    cellar :any
-    sha256 "3ae98a5a3b9f1e858f156ed9caf2dec299928ab3854290117bbe1745c890bc2c" => :sierra
-    sha256 "6d8d6172e4a8977f63794355c9fd19b1e053f95f99617c70efc68fd2a73f9d8a" => :el_capitan
-    sha256 "e36550cdc6a5d9aaf95937892132045b55d2b25bf817ee87b732303fa44a1ec6" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "cmake" => :build
   depends_on "boost"
