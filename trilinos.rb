@@ -4,10 +4,10 @@ class Trilinos < Formula
   url "https://github.com/trilinos/Trilinos/archive/trilinos-release-12-10-1.tar.gz"
   version "12.10.1"
   sha256 "ab81d917196ffbc21c4927d42df079dd94c83c1a08bda43fef2dd34d0c1a5512"
-  revision 4
+  revision 5
   head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
+  bottle :disable, "needs to be rebuilt with latest boost and open-mpi"
 
   option "with-test", "Perform build time checks (time consuming and contains failures)"
   option "without-python", "Build without python2 support"
