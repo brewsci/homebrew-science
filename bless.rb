@@ -7,9 +7,9 @@ class Bless < Formula
   url "https://downloads.sourceforge.net/project/bless-ec/bless.v0p24.tgz"
   version "0.24"
   sha256 "4214a7f9277e92c02acc132f0f8ba88e7d05a7fd3135a59fc1c6e52ca37d181a"
-  revision 5
+  revision 6
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
+  bottle :disable, "needs to be rebuilt with latest boost and open-mpi"
 
   needs :openmp
 
