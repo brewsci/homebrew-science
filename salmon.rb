@@ -5,16 +5,10 @@ class Salmon < Formula
 
   url "https://github.com/COMBINE-lab/salmon/archive/v0.8.2.tar.gz"
   sha256 "299168e873e71e9b07d63a84ae0b0c41b0876d1ad1d434b326a5be2dce7c4b91"
-
+  revision 1
   head "https://github.com/COMBINE-lab/salmon.git"
 
-  bottle do
-    cellar :any
-    sha256 "ab7348f3a8b68324d917ee9ccb7595347a9a1a141f9760a1f11cc2e46036f372" => :sierra
-    sha256 "2ac32a183fee18068aeb4fe339391b000add4219c111a1805ce57bc1ef3254b8" => :el_capitan
-    sha256 "9690f02d048dd9ade014196bfecd33003a3b9da424a0f75118d74208ecf186d9" => :yosemite
-    sha256 "bb8c9bf185f9ff19c9a9b53c616c408de4819ccc58712a5bb0efb673c7514283" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   # See https://github.com/kingsfordgroup/sailfish/issues/74
   needs :cxx11
