@@ -3,7 +3,7 @@ class Openimageio < Formula
   homepage "http://openimageio.org"
   url "https://github.com/OpenImageIO/oiio/archive/Release-1.7.17.tar.gz"
   sha256 "669c59d06399dd882c3e2469bb3a4b33d537db150f6fe056495c3429b5c3838f"
-  revision 1
+  revision 2
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle :disable, "needs to be rebuilt with latest boost"
