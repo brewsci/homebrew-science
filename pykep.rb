@@ -1,7 +1,7 @@
 class Pykep < Formula
   desc "Library providing basic tools for astrodynamics research"
   homepage "https://esa.github.io/pykep/"
-  revision 1
+  revision 2
   head "https://github.com/esa/pykep.git"
 
   stable do
