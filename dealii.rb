@@ -3,7 +3,7 @@ class Dealii < Formula
   homepage "https://www.dealii.org"
   url "https://github.com/dealii/dealii/releases/download/v8.5.1/dealii-8.5.1.tar.gz"
   sha256 "d33e812c21a51f7e5e3d3e6af86aec343155650b611d61c1891fbc3cabce09ae"
-  revision 1
+  revision 2
   head "https://github.com/dealii/dealii.git"
 
   bottle :disable, "needs to be rebuilt with latest boost"
