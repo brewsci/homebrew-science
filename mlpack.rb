@@ -4,7 +4,7 @@ class Mlpack < Formula
   # doi "arXiv:1210.6293"
   url "http://mlpack.org/files/mlpack-2.2.0.tar.gz"
   sha256 "31c3a14d5bdf34e7fdca57e589f363461cb328b0e58922b28e1a389aa1671bc1"
-  revision 2
+  revision 3
 
   bottle :disable, "needs to be rebuilt with latest boost"
 
