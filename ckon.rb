@@ -3,14 +3,10 @@ class Ckon < Formula
   homepage "https://tschaume.github.io/ckon/"
   url "https://github.com/tschaume/ckon/archive/v0.7.1.tar.gz"
   sha256 "4cc8bde10430e21520aed4b7ac5f6d96a80b8a91014760997f9a7039103a7e0d"
-  revision 5
+  revision 6
   head "https://github.com/tschaume/ckon.git"
 
-  bottle do
-    sha256 "3457c6c11472fc5093691dca0164a18a745a51e91cdbcba48f4c56c7c336c718" => :sierra
-    sha256 "4dd26c5ef70245361d6069439dbd9aed53f69f57c22251b71960b3bfe34b4158" => :el_capitan
-    sha256 "ff9d0761b5b9ec40c57040d754c0ea79734a63f0ff9e6cd0c7e2d85e9575167c" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "boost"
   depends_on "curl"
