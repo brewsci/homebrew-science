@@ -4,7 +4,7 @@ class Dssp < Formula
   url "https://mirrors.kernel.org/debian/pool/main/d/dssp/dssp_2.2.1.orig.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dssp/dssp_2.2.1.orig.tar.gz"
   sha256 "5fb5e7c085de16c05981e3a72869c8b082911a0b46e6dcc6dbd669c9f267e8e1"
-  revision 3
+  revision 4
 
   bottle :disable, "needs to be rebuilt with latest boost"
 
