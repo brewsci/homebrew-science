@@ -4,13 +4,9 @@ class Cmdstan < Formula
   # tag "math"
   url "https://github.com/stan-dev/cmdstan/releases/download/v2.17.0/cmdstan-2.17.0.tar.gz"
   sha256 "72194e91ae24e0c58e51a7db09a77fd759e78d41f4fb6f0b1f8be7b9ef235eb1"
+  revision 1
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "9abbf30514d05f5307fa558ec1556ea09b0cb5e8811a23cbd966cf4386452547" => :sierra
-    sha256 "8284278e3f42523c766c6275ef1f6fadb4169d07696113f66256218f8dc6015b" => :el_capitan
-    sha256 "c1799f1b87ee2f89021feed16844d2c9d0a2f40df203986024d54ace3bf2ac07" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "boost"
   depends_on "eigen"
