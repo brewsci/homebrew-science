@@ -3,8 +3,10 @@ class Galsim < Formula
   homepage "https://github.com/GalSim-developers/GalSim"
   url "https://github.com/GalSim-developers/GalSim/archive/v1.3.0.tar.gz"
   sha256 "4afd3284adfd12845b045ea3c8e293b63057c7da57872bc9eecd005cf0a763c0"
-  revision 1
+  revision 2
   head "https://github.com/GalSim-developers/GalSim.git"
+
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-openmp", "Enable OpenMP multithreading"
   option "without-test", "Skip build-time tests (not recommended)"
