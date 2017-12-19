@@ -4,14 +4,10 @@ class Dgtal < Formula
   url "http://dgtal.org/releases/DGtal-0.9.3-Source.tar.gz"
   mirror "https://liris.cnrs.fr/dgtal/releases/DGtal-0.9.3-Source.tar.gz"
   sha256 "6ade39b5bf12b8da9b26df340830136d423fc4558b51ae5608cdac40e0fc1744"
-  revision 1
+  revision 2
   head "https://github.com/DGtal-team/DGtal.git"
 
-  bottle do
-    cellar :any
-    sha256 "f7a24ee7782ea8001016157ea4063573dddbd8a31c08f52233c1935455dc762f" => :el_capitan
-    sha256 "c94547c524e925afb53e0ba221441c08321cde75cfdbeff4b5fe68226e7c32bd" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "without-test", "Skip build-time tests"
   option "without-examples", "Don't build the examples"
