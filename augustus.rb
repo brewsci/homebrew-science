@@ -6,13 +6,9 @@ class Augustus < Formula
 
   url "http://bioinf.uni-greifswald.de/augustus/binaries/old/augustus-3.2.2.tar.gz"
   sha256 "bb36fcaaaab32920908e794d04e6cb57a0c61d689bfbd31b9b6315233ea3559e"
-  revision 4
+  revision 5
 
-  bottle do
-    sha256 "decae226649599fa6269282d03126385061900894053c553edb6f263b3c35042" => :sierra
-    sha256 "a7e9b87f9d434109560fd6868565858bbcc9e9d2fd96323b10ed26688f808a09" => :el_capitan
-    sha256 "ed8bb0c941c364accd58572817678a4b330a9b5f0211f9fbc2f8ebd3a6cdfe38" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-cgp",  "Enable comparative gene prediction"
 
