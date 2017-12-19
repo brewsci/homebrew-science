@@ -5,14 +5,10 @@ class Scram < Formula
   url "https://github.com/rakhimov/scram.git",
     :revision => "cccecbf9286a6aee945538ca4dd9141f64714f79",
     :tag => "0.16.0"
-
+  revision 1
   head "https://github.com/rakhimov/scram.git"
 
-  bottle do
-    sha256 "71b89eef9dd9765cf295e108d8607cd495318a23dfab88fae4e8e4e624b4f021" => :high_sierra
-    sha256 "fe7025dc570e1752e76c0ad6b6b4df683492a23aa5eccb6e6f0bc53ef43ffff4" => :sierra
-    sha256 "e2fa4d3d270fe7a5ab29eef7ebc9b493970d9bdc9670e771a7969107791b6791" => :el_capitan
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   needs :cxx14
 
