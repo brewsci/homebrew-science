@@ -3,13 +3,9 @@ class Cufflinks < Formula
   homepage "https://cole-trapnell-lab.github.io/cufflinks/"
   url "https://cole-trapnell-lab.github.io/cufflinks/assets/downloads/cufflinks-2.2.1.tar.gz"
   sha256 "e8316b66177914f14b3a0c317e436d386a46c4c212ca1b2326f89f8a2e08d5ae"
-  revision 3
+  revision 4
 
-  bottle do
-    sha256 "d9e4198c221f3cf2a1a81f5dcf6faefa2e272d7ca2616cf2886a229d7513f9ad" => :sierra
-    sha256 "04344209d7c17496d1af0d4bd56513dc7a271e2344fa5e1b5d9c1155377799bb" => :el_capitan
-    sha256 "0f09fdb99d08dc958242a79e2b37601063d1d77d8f8d111a063f8c608850a39a" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   if OS.mac? && MacOS.version == :mavericks
     depends_on "boost@1.55"
