@@ -3,16 +3,11 @@ class Tophat < Formula
   homepage "https://ccb.jhu.edu/software/tophat"
   url "https://ccb.jhu.edu/software/tophat/downloads/tophat-2.1.1.tar.gz"
   sha256 "37840b96f3219630082b15642c47f5ef95d14f6ee99c06a369b08b3d05684da5"
-  revision 6
+  revision 7
   # doi "10.1093/bioinformatics/btp120"
   # tag "bioinformatics"
 
-  bottle do
-    cellar :any
-    sha256 "b804e6bf82f232895b6c8ba21a3c107a1a8b6616732e52589e959132dd276f33" => :sierra
-    sha256 "b964747668f7ab6b87bde406ed879b43ea657411a9d7d110bf927d5ee7bba896" => :el_capitan
-    sha256 "a6a9c831594ec15ee2335b7146a7f86eba18f4a7224ec4af882fd276532be8c2" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "boost"
   depends_on "bowtie2"
