@@ -3,16 +3,12 @@ class Delly < Formula
   homepage "https://github.com/tobiasrausch/delly"
   url "https://github.com/tobiasrausch/delly/archive/v0.7.7.tar.gz"
   sha256 "72298ef36be82fa0bd83c77c9c38d5bac48c9219595f1a206c26d6eeeff07c36"
-  revision 3
+  revision 4
   head "https://github.com/tobiasrausch/delly.git"
   # doi "10.1093/bioinformatics/bts378"
   # tag "bioinformatics"
 
-  bottle do
-    sha256 "ae43c8a4c1cc69b62de2f72f750c3352fda23a0eb1989305d97ae5acba3d5d70" => :sierra
-    sha256 "1d0969f4586cc55f93b45c6cdfd30f20211c90d2556a90e9e18ed04c25c60971" => :el_capitan
-    sha256 "bb86a4b18d37edda2d9f25b3a9aeee1a035239ad8049abd6d5b06525e5274fd2" => :x86_64_linux
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-binary", "Install a statically linked binary for 64-bit Linux" if OS.linux?
 
