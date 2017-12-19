@@ -3,7 +3,7 @@ class Pulseview < Formula
   homepage "https://sigrok.org/"
   url "https://sigrok.org/download/source/pulseview/pulseview-0.4.0.tar.gz"
   sha256 "78f8291045c6f65b4827b12e83c8e68cea2d5e7268b15a51aaca9726c8100eb9"
-  revision 1
+  revision 2
 
   bottle :disable, "needs to be rebuilt with latest boost"
 
