@@ -3,15 +3,11 @@ class Paraview < Formula
   homepage "https://www.paraview.org/"
   url "https://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v5.3&type=source&os=all&downloadFile=ParaView-v5.3.0.tar.gz"
   sha256 "046631bbf00775edc927314a3db207509666c9c6aadc7079e5159440fd2f88a0"
-  revision 2
+  revision 3
 
   head "https://gitlab.kitware.com/paraview/paraview.git"
 
-  bottle do
-    sha256 "3c2d0de30d0af43169ef111c56f6c42c64879219da0475088ebb62e77dc05c27" => :sierra
-    sha256 "ac45e574de40df2516f35a6a346c4b373dd1a88d5f4f419208eec8de3a43ac4c" => :el_capitan
-    sha256 "48a9167efbac7ec36be9cd42519803c5a520cce55f062fd9eef4eecedbb8f669" => :yosemite
-  end
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "cmake" => :build
 
