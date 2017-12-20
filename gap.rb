@@ -10,6 +10,7 @@ class Gap < Formula
     sha256 "fa4c6eead2e2b6304d198e6b21e55fdf64f55e5d4e67aff7e5733de147a8495b" => :high_sierra
     sha256 "2fc2788630fc337bf2c15b99b177abb04da3b4cca34b260cc7dc34fa1210ae1a" => :sierra
     sha256 "249ea47d7e4659d62a5d19ff06909499244fc64a4ca171fa927144e8df301fb8" => :el_capitan
+    sha256 "038ea062c01ec6cf9ae93a16af3f20cd196873fe4e3c37e95fddaae171350781" => :x86_64_linux
   end
 
   # NOTE:  the archive contains the [GMP library](https://gmplib.org/) under
