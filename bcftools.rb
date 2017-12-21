@@ -14,27 +14,35 @@ class Bcftools < Formula
     sha256 "0dbef49ca15ddddccad18081db004c831f9c7c249eeff49792f06c4b17a2b359" => :x86_64_linux
   end
 
-  option "with-gsl", "Enable polysomy command. Makes licence GPL3 not MIT/Expat."
-
-  deprecated_option "with-polysomy" => "with-gsl"
-
+  depends_on "gsl"
   depends_on "htslib"
   depends_on "xz"
   depends_on "bzip2" unless OS.mac?
-  depends_on "samtools" => :recommended
-  depends_on "gsl" => :optional
 
   def install
-    args = %W[--prefix=#{prefix} --with-htslib=#{Formula["htslib"].opt_prefix}]
-    args << "--enable-libgsl" if build.with? "gsl"
-    system "./configure", *args
+    # Bug reported upstream and fixed in the next release.
+    # https://github.com/samtools/bcftools/issues/684
+    inreplace "Makefile",
+      "PLUGIN_FLAGS = -bundle -bundle_loader bcftools",
+      "PLUGIN_FLAGS = -bundle -bundle_loader bcftools -Wl,-undefined,dynamic_lookup"
+
+    system "./configure",
+      "--prefix=#{prefix}",
+      "--with-htslib=#{Formula["htslib"].opt_prefix}",
+      "--enable-libgsl"
+
+    # Fix install: cannot stat ‘bcftools’: No such file or directory
+    # Reported upstream: https://github.com/samtools/bcftools/issues/727
     system "make"
+
     system "make", "install"
-    pkgshare.install "test"
+
+    # For brew test bcftools
+    pkgshare.install "test/query.vcf"
   end
 
   test do
-    assert_match "number of SNPs:\t3", shell_output("#{bin}/bcftools stats #{pkgshare}/test/query.vcf")
+    assert_match "number of SNPs:\t3", shell_output("#{bin}/bcftools stats #{pkgshare}/query.vcf")
     assert_match "fixploidy", shell_output("#{bin}/bcftools plugin -l")
   end
 end
