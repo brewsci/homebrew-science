@@ -21,10 +21,9 @@ class Tbl2asn < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d1d425c14dac16911a3cd2f55968da21bea1519c305ebec58c2154ef330b4b4a" => :sierra
-    sha256 "5e9baf2faa15d2a9e9eada81d4edcf09ea09e5e40952b44ed341e8e902980c8d" => :el_capitan
-    sha256 "1afa149ee069a6e78b3f4c7305e1f361d44d2a97d93e7cd175e5744d44bbd70c" => :yosemite
-    sha256 "2b8f4195c4a7facfe48fc86e4c58cad36431bdcd685568790dc2baaceb35c9e1" => :x86_64_linux
+    sha256 "2081bf977df5f20889cb7c5ebde93a697e907b0ce4b2b45b78a2420f6ccb75c5" => :high_sierra
+    sha256 "2452a512d57a512eb025d5f3165e5fb6f4dd5306c1dbbcc831c0fe10b06c17d0" => :sierra
+    sha256 "19f8ac7b05c8cde4ff77abb66c1a19b76c55ce83e137b960c27e3476cc9a1010" => :el_capitan
   end
 
   resource "doc" do
