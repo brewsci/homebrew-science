@@ -8,10 +8,9 @@ class Bcftools < Formula
   sha256 "293010736b076cf684d2873928924fcc3d2c231a091084c2ac23a8045c7df982"
 
   bottle do
-    sha256 "1ff54e0673300dd10e955f506c72d95d230977799156929b22c24889080b1401" => :sierra
-    sha256 "27d79f1244ec79a028c9a8432def58ad906fc8ff3661c72f51d5d8d8808db11a" => :el_capitan
-    sha256 "bba50d9490ae5f7b671ef24ee0bf11a41b858d0642aad31d644b4291fa4c94f6" => :yosemite
-    sha256 "0dbef49ca15ddddccad18081db004c831f9c7c249eeff49792f06c4b17a2b359" => :x86_64_linux
+    sha256 "48ac850690ea1c1bda9b4c5e23b46e162328438f145b229af4c7c79d2cc0f369" => :high_sierra
+    sha256 "d46ac4024e70fcc2f376774cef371317a1e6a6027fb1cf6e7b0a22f22a6df4c8" => :sierra
+    sha256 "9b52c234626d14512cbbff82b92106235fe8a75a311adc5715bae4e228851fc1" => :el_capitan
   end
 
   depends_on "gsl"
