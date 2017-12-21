@@ -4,13 +4,19 @@ class Tbl2asn < Formula
   # tag "bioinformatics"
 
   # version number is in https://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/DOCUMENTATION/VERSIONS
-  version "25.3"
+  version "25.6"
   if OS.mac?
     url "https://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/mac.tbl2asn.gz"
-    sha256 "429d63ee3c36d1f2f6322c62c6089d5ee8a8b089e5cc9373e298e017bcbbb9ec"
+    sha256 "c79416ff5fea23baf4ac10ff1a67f7f6e099980a45ac878f649821ba7b68788b"
   elsif OS.linux?
     url "https://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/linux64.tbl2asn.gz"
-    sha256 "37fb033ef3364447d718b726f234da124d474fa22a31917d3b60458ef8294283"
+    sha256 "5306321c1e9cd709c41a47a01c8193cff20bc2c71141037e739dd8b59cb30dc2"
+  end
+
+  unless OS.mac?
+    depends_on "patchelf" => :build
+    depends_on "libidn"
+    depends_on "zlib"
   end
 
   bottle do
@@ -31,6 +37,10 @@ class Tbl2asn < Formula
       bin.install "mac.tbl2asn" => "tbl2asn"
     elsif OS.linux?
       bin.install "linux64.tbl2asn" => "tbl2asn"
+      system "patchelf",
+        "--set-interpreter", HOMEBREW_PREFIX/"lib/ld.so",
+        "--set-rpath", HOMEBREW_PREFIX/"lib",
+        bin/"tbl2asn"
     end
     doc.install resource("doc")
   end
