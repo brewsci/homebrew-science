@@ -10,8 +10,6 @@ class Masurca < Formula
     sha256 "fa77052c424949866ee9da1b27e96742ce6e93cb2d4f3093420c592bdde20f37" => :x86_64_linux
   end
 
-  depends_on :linux
-
   fails_with :clang do
     build 703
     cause "n50.cc:105:51: error: no member named 'ceil' in namespace 'std'"
@@ -21,11 +19,11 @@ class Masurca < Formula
     cause "n50.cc:105:51: error: no member named 'ceil' in namespace 'std'"
   end
 
+  depends_on :linux
   depends_on "boost" => :build
   depends_on "jellyfish"
   depends_on "parallel"
   depends_on :perl => "5.18"
-
   unless OS.mac?
     depends_on "bzip2"
     depends_on "zlib"
@@ -33,10 +31,11 @@ class Masurca < Formula
 
   def install
     ENV.deparallelize
+
     ENV["DEST"] = prefix
     system "./install.sh"
 
-    # Conflicts with SOAPdenovo
+    # Conflicts with soapdenovo
     rm [bin/"SOAPdenovo-63mer", bin/"SOAPdenovo-127mer"]
 
     # Conflicts with jellyfish
@@ -49,19 +48,12 @@ class Masurca < Formula
     rm bin/"samtools"
 
     # Conlicts with mummer
-    rm bin/"combineMUMs"
-    rm bin/"delta-filter"
-    rm bin/"dnadiff"
-    rm bin/"exact-tandems"
-    rm bin/"mummer"
-    rm bin/"mummerplot"
-    rm bin/"nucmer"
-    rm bin/"promer"
-    rm bin/"repeat-match"
-    rm bin/"show-coords"
-    rm bin/"show-diff"
-    rm bin/"show-snps"
-    rm bin/"show-tiling"
+    cd "/tmp" do
+      rm %w[
+        combineMUMs delta-filter dnadiff exact-tandems mummer mummerplot
+        nucmer promer repeat-match show-coords show-diff show-snps show-tiling
+      ]
+    end
   end
 
   test do
