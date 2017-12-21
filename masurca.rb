@@ -7,7 +7,7 @@ class Masurca < Formula
   # tag "bioinformatics"
 
   bottle do
-    sha256 "abb8cd1ad5d0333b2dfd8897effd514e31391d52d858daf58144eac1dbc96900" => :x86_64_linux
+    sha256 "fa77052c424949866ee9da1b27e96742ce6e93cb2d4f3093420c592bdde20f37" => :x86_64_linux
   end
 
   depends_on :linux
