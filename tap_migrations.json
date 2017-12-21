@@ -12,6 +12,7 @@
   "clfft": "homebrew/core",
   "clinfo": "homebrew/core",
   "cminpack": "homebrew/core",
+  "cp2k": "homebrew/core",
   "cppad": "homebrew/core",
   "datamash": "homebrew/core",
   "dlib": "homebrew/core",
