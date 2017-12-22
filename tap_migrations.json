@@ -16,6 +16,7 @@
   "cp2k": "homebrew/core",
   "cppad": "homebrew/core",
   "datamash": "homebrew/core",
+  "diamond": "homebrew/core",
   "dlib": "homebrew/core",
   "fastqc": "homebrew/core",
   "flann": "homebrew/core",
