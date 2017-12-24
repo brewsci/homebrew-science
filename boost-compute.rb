@@ -1,11 +1,8 @@
 class BoostCompute < Formula
   desc "C++ GPU Computing Library for OpenCL"
   homepage "https://boostorg.github.io/compute"
-  url "https://github.com/boostorg/compute/archive/boost-1.65.1.tar.gz"
-  sha256 "a89bfc96a93647ef6572a8a7a6eb39ce265137fe80e92e9d6f728bd0591f57ef"
-  revision 1
-
-  bottle :disable, "needs to be rebuilt with latest boost"
+  url "https://github.com/boostorg/compute/archive/boost-1.66.0.tar.gz"
+  sha256 "e8845fd33ca386e5a3ddb2f17cd6bc0e104ebd55ba32b15c1ff0da781c1ea7a8"
 
   depends_on "cmake" => :build
   depends_on "boost"
