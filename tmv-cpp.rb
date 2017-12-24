@@ -1,8 +1,8 @@
 class TmvCpp < Formula
   desc "user-friendly C++ interface to BLAS and LAPACK"
   homepage "https://github.com/rmjarvis/tmv"
-  url "https://github.com/rmjarvis/tmv/archive/v0.74.tar.gz"
-  sha256 "a1e55a1b10c0bd2511593ab35b08bcc460b6b65f5d3d12fe44117dec55ce634e"
+  url "https://github.com/rmjarvis/tmv/archive/v0.75.tar.gz"
+  sha256 "f0ed1b500c5f4ee12f9d018a7d6a883f06df4a345a1010e3f96223410c9b3dea"
   head "https://github.com/rmjarvis/tmv.git"
 
   bottle do
@@ -37,11 +37,6 @@ class TmvCpp < Formula
     scons "tests" if build.with? "test"
     scons "examples"
     scons "install"
-
-    # dylibs don't have the correct install name.
-    %w[libtmv.0.dylib libtmv_symband.0.dylib].each do |libname|
-      system "install_name_tool", "-id", "#{lib}/#{libname}", "#{lib}/#{libname}"
-    end
 
     (pkgshare/"tests").install Dir["test/tmvtest*"] if build.with? "test"
     (pkgshare/"examples").install Dir["examples/*[^\.o]"]
