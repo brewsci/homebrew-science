@@ -1,9 +1,8 @@
 class XmiMsim < Formula
   desc "Monte Carlo simulation of X-ray fluorescence spectrometers"
   homepage "https://github.com/tschoonj/xmimsim"
-  url "https://xmi-msim.tomschoonjans.eu/xmimsim-6.0.tar.gz"
-  sha256 "26520645d9e524436183090c2b8d3ea67cf1480e3b695b6feedf5790c436ac5c"
-  revision 3
+  url "https://xmi-msim.tomschoonjans.eu/xmimsim-7.0.tar.gz"
+  sha256 "3e970203a56a116fe0b136a857b91b6c4f001cb69b6ac8f68bd865bb7c688542"
 
   bottle do
     sha256 "c11eb391a2c67312052022c026b525e1239ef5a1155991dbac240116ab5264ef" => :sierra
@@ -21,12 +20,6 @@ class XmiMsim < Formula
   depends_on "glib"
   depends_on "hdf5"
   depends_on "xraylib"
-
-  # add support for HDF5 1.10.0
-  patch do
-    url "https://github.com/tschoonj/xmimsim/commit/1459971313ea4a3cbbfdc87332b91dfcdfc0f3d7.diff"
-    sha256 "d5d435a420b0b089f103173a143ad6e94718967257fe835f8cecd32ff19c2bb4"
-  end
 
   def install
     ENV.deparallelize # fortran modules don't like parallel builds
