@@ -5,6 +5,13 @@ class Alpscore < Formula
   sha256 "d254f4c6a43a76ff85cea7ba46c2fef90cf0770f4270d8a591c5aad25facfa47"
   head "https://github.com/ALPSCore/ALPSCore.git"
 
+  bottle do
+    cellar :any
+    sha256 "8cf520494570bdc24b61f289fd3d4a00220c2061bd99012bc966ac517aa11aa0" => :high_sierra
+    sha256 "717d2b0c0d6af1733fd0f3a9f1f4a410798d8b55cbc62cb9a5878fcc1d290db7" => :sierra
+    sha256 "93bf8395229b560063892082f6c7697545cc5a5684b3baba61b265bde12e3063" => :el_capitan
+  end
+
   option "with-test",   "Build and run shipped tests"
   option "with-doc",    "Build documentation"
   option "with-static", "Build static instead of shared libraries"
