@@ -9,10 +9,9 @@ class Kraken < Formula
 
   bottle do
     cellar :any
-    sha256 "8aa0b49d43549c08ab6dbad12cf0a5e2762b5c8f020a9e57019880a5ab0aeda9" => :yosemite
-    sha256 "2f2bf03509e930ee0dd6080ec81fe73dc2bc271d0adf40e198edb898e6f77860" => :mavericks
-    sha256 "7dd3ad72403d173bb5cab35a51099e20bc7408c2148376dbc08edadc4ed1fa5e" => :mountain_lion
-    sha256 "83b2bf3cffec73b1dc01496d32478fda703a406eb2ccdc32867a12103f3d624f" => :x86_64_linux
+    sha256 "67ca2a920ec77a34271f46b138cfbffa9bd35ede29e021350ed72366ca39ed76" => :high_sierra
+    sha256 "075189b2bf64ff8ba6d9dab9295581729c34204b53fe531c911ffdc947521319" => :sierra
+    sha256 "6d708f5ba2ef470a24784b7d9b776bf36769014ac26a980d0ca3bf1d7a75875a" => :el_capitan
   end
 
   needs :openmp
