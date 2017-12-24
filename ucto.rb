@@ -1,8 +1,8 @@
 class Ucto < Formula
   desc "Unicode tokenizer"
   homepage "https://ilk.uvt.nl/ucto/"
-  url "https://github.com/LanguageMachines/ucto/releases/download/v0.9.6/ucto-0.9.6.tar.gz"
-  sha256 "c10b19f6f6de36cb22a61e663f6b0eaf1aa6fe6557989edce4a30ed28fc3eb64"
+  url "https://github.com/LanguageMachines/ucto/releases/download/v0.11/ucto-0.11.tar.gz"
+  sha256 "f61f2465a1d1e79b964df7807a7957eba1cb4acc21c9cd74e91de662a8d192e8"
 
   bottle do
     sha256 "da154d4cd2648113d06fd505922a159f97f4b866ed34d1f4877ba907a2b22749" => :sierra
@@ -20,11 +20,10 @@ class Ucto < Formula
   depends_on "libxml2"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
-    system "make", "check" if build.with? "check"
     system "make", "install"
+    system "make", "check" if build.with? "check"
   end
 end
