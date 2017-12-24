@@ -5,9 +5,9 @@ class Atram < Formula
   # doi "10.5281/zenodo.10431"
   # tag "bioinformatics"
 
-  url "https://github.com/juliema/aTRAM/archive/v1.04.tar.gz"
-  sha256 "ee05363885d1096e628582eebda4958c6316e7668da448af7ffe1b3f67286bea"
-  revision 2
+  url "https://github.com/juliema/aTRAM/archive/v1.3.0.tar.gz"
+  sha256 "b4ab5f2ceec7cf1566585cf772b34e5efee25f9368b8e307698edc37f72a11f9"
+  version_scheme 1
   head "https://github.com/juliema/aTRAM.git"
 
   bottle do
