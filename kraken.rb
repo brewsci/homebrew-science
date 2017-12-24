@@ -12,6 +12,7 @@ class Kraken < Formula
     sha256 "67ca2a920ec77a34271f46b138cfbffa9bd35ede29e021350ed72366ca39ed76" => :high_sierra
     sha256 "075189b2bf64ff8ba6d9dab9295581729c34204b53fe531c911ffdc947521319" => :sierra
     sha256 "6d708f5ba2ef470a24784b7d9b776bf36769014ac26a980d0ca3bf1d7a75875a" => :el_capitan
+    sha256 "fa4df8c8e57cf2f53b05ec9cb8e0147ad7e9da1f09e59b12c40c476c7e41714b" => :x86_64_linux
   end
 
   needs :openmp
