@@ -3,8 +3,8 @@ class Circlator < Formula
 
   desc "Tool to circularize genome assemblies"
   homepage "https://sanger-pathogens.github.io/circlator/"
-  url "https://github.com/sanger-pathogens/circlator/archive/v1.5.1.tar.gz"
-  sha256 "64e50a2c1ad2d39fd0acf814ede3cefa18b7d24bc1599fc9bae413c1d128e902"
+  url "https://github.com/sanger-pathogens/circlator/archive/v1.5.3.tar.gz"
+  sha256 "61ed44698b2eda9c32715b3a43b1143474a1251df77599e9510db4358874d93d"
   head "https://github.com/sanger-pathogens/circlator.git"
 
   bottle do
@@ -36,23 +36,23 @@ class Circlator < Formula
   end
 
   resource "openpyxl" do
-    url "https://files.pythonhosted.org/packages/dc/f2/c57f9f00f8ae5e1a73cb096dbf600433724f037ffcbd51c456f89da5efd9/openpyxl-2.4.1.tar.gz"
-    sha256 "836e66578320e5871baa5a958c7acb7dcbc1b508989a675276b20ac2e1c08d82"
+    url "https://files.pythonhosted.org/packages/8c/75/c4e557207c7ff3d217d002d4fee32b4e5dbfc5498e2a2c9ce6b5424c5e37/openpyxl-2.4.9.tar.gz"
+    sha256 "95e007f4d121f4fd73f39a6d74a883c75e9fa9d96de91d43c1641c103c3a9b18"
   end
 
   resource "pyfastaq" do
-    url "https://files.pythonhosted.org/packages/0e/5d/8b39442b62c43da835c89f4c244d037bc7fcd8b47b0c0fff6e8d9097a035/pyfastaq-3.14.0.tar.gz"
-    sha256 "54dc8cc8b3d24111f6939cf563833b8e9e78777b9cf7b82ca8ddec04aa1c05f2"
+    url "https://files.pythonhosted.org/packages/91/5e/cd2a8b4e3b601b89b9af2ecd706ffade96b6b2c89b2f8d50ab8a8bac3fed/pyfastaq-3.16.0.tar.gz"
+    sha256 "368f3f1752668283f5d1aac4ea80e9595a57dc92a7d4925d723407f862af0e4e"
   end
 
   resource "pymummer" do
-    url "https://files.pythonhosted.org/packages/96/04/a67728a727a8214de494b06178bfaca025550156889953d581a141976ec0/pymummer-0.10.1.tar.gz"
-    sha256 "04a06d2faecf5b972b3a60e1493520e384cb10dd5c00bf7d643a1d059c4e8f87"
+    url "https://files.pythonhosted.org/packages/79/4c/15ef3401217379fcc53e33e67a9aa1b89449825d7246fa527879892b5305/pymummer-0.10.3.tar.gz"
+    sha256 "986555d36828bd90bf0e63d9d472e5b20c191f0e51123b5252fa924761149fc2"
   end
 
   resource "pysam" do
-    url "https://files.pythonhosted.org/packages/27/89/bf8c44d0bfe9d0cadab062893806994c168c9f490f67370fc56d6e8ba224/pysam-0.8.4.tar.gz"
-    sha256 "30cf23931edf8a426678811f234bca4a83a53438028b323f2ef55792562d9dea"
+    url "https://files.pythonhosted.org/packages/31/17/31d317006a74941d2caddac97c5106601fe4da467653d0f061702e9ead95/pysam-0.13.tar.gz"
+    sha256 "1829035f58bddf26b0cb6867968178701c2a243518ea697dcedeebff487979af"
   end
 
   def install
@@ -60,6 +60,7 @@ class Circlator < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
     output = shell_output("#{bin}/circlator test outdir")
     assert_match "Finished run on test data OK", output
   end
