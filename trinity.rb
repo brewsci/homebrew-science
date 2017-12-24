@@ -1,9 +1,8 @@
 class Trinity < Formula
   desc "RNA-Seq de novo assembler"
   homepage "https://trinityrnaseq.github.io"
-  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/Trinity-v2.4.0.tar.gz"
-  sha256 "9f816fdc7870fb85af9a44249be05bf06f2a3f0b780275513eec9b0124fa9bda"
-  revision 2
+  url "https://github.com/trinityrnaseq/trinityrnaseq/archive/Trinity-v2.5.1.tar.gz"
+  sha256 "bf14f96981bb028d7960dec895a1bcbda1fadbbe562a913b188559fd74b90457"
   head "https://github.com/trinityrnaseq/trinityrnaseq.git"
 
   # doi "10.1038/nbt.1883"
@@ -55,8 +54,6 @@ class Trinity < Formula
       s.gsub! "trinity-plugins/BIN/samtools", Formula["samtools"].opt_prefix
     end
 
-    inreplace "galaxy-plugin/old/GauravGalaxy/Trinity", "$ROOTDIR/trinity-plugins/jellyfish", Formula["jellyfish"].opt_prefix
-    inreplace "galaxy-plugin/old/Trinity", "$ROOTDIR/trinity-plugins/jellyfish", Formula["jellyfish"].opt_prefix
     inreplace "util/insilico_read_normalization.pl", "$ROOTDIR/trinity-plugins/jellyfish", Formula["jellyfish"].opt_prefix
     inreplace "util/misc/run_jellyfish.pl", '$JELLYFISH_DIR = $FindBin::RealBin . "/../../trinity-plugins/jellyfish-1.1.3";',
                                             "$JELLYFISH_DIR = \"#{Formula["jellyfish"].opt_prefix}\";"
