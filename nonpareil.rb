@@ -13,6 +13,7 @@ class Nonpareil < Formula
     sha256 "f3f3dc6aa211f450fdc2bdb8f1c8c03eabac3a39881a3983d7519a989f051c95" => :high_sierra
     sha256 "d1baff97fa30fabf2cdd1cb6128d85abf8192b4b4ab070af714a45202a23c298" => :sierra
     sha256 "3ca5634310fa7c4e09ee0060dd524cf70d99afa60fe10f22660f5915c69dc0cb" => :el_capitan
+    sha256 "6247316d927e9b46086d3d4165cb3cde61a162d602a7fbd3b5027b7fcd0f8766" => :x86_64_linux
   end
 
   depends_on "r"
