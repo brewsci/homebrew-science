@@ -1,8 +1,8 @@
 class Prank < Formula
   desc "A multiple alignment program for DNA, codon and amino-acid sequences"
   homepage "http://wasabiapp.org/software/prank/"
-  url "http://wasabiapp.org/download/prank/prank.source.140603.tgz"
-  sha256 "9a48064132c01b6dba1eec90279172bf6c13d96b3f1b8dd18297b1a53d17dec6"
+  url "http://wasabiapp.org/download/prank/prank.source.170427.tgz"
+  sha256 "623eb5e9b5cb0be1f49c3bf715e5fabceb1059b21168437264bdcd5c587a8859"
 
   head "https://github.com/ariloytynoja/prank-msa.git"
 
