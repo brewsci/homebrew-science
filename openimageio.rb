@@ -1,12 +1,9 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "http://openimageio.org"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-1.7.17.tar.gz"
-  sha256 "669c59d06399dd882c3e2469bb3a4b33d537db150f6fe056495c3429b5c3838f"
-  revision 2
+  url "https://github.com/OpenImageIO/oiio/archive/Release-1.8.6.tar.gz"
+  sha256 "9e070d56c0f71496ca77290a78abd948af9c2799983bc27c22a36dcc16ffe2e3"
   head "https://github.com/OpenImageIO/oiio.git"
-
-  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-test", "Dowload 95MB of test images and verify Oiio (~2 min)"
   option "with-jpeg-turbo", "Build with libjpeg-turbo support, instead of libjpeg"
@@ -35,7 +32,7 @@ class Openimageio < Formula
   depends_on :python3 => :optional
   depends_on "jpeg-turbo" => :optional
 
-  depends_on "boost-python" => (build.with?("python3") ? ["with-python3"] : [])
+  depends_on "boost-python" => (build.with?("python3") ? ["with-python3", "without-python"] : [])
 
   resource "j2kp4files" do
     url "http://pkgs.fedoraproject.org/repo/pkgs/openjpeg/j2kp4files_v1_5.zip/27780ed3254e6eb763ebd718a8ccc340/j2kp4files_v1_5.zip"
@@ -73,14 +70,6 @@ class Openimageio < Formula
         :revision => "9a70c65c7a29a50114a8208d61c87ba4fedd018e"
   end
 
-  def pyver
-    Language::Python.major_minor_version "python"
-  end
-
-  def py3ver
-    Language::Python.major_minor_version "python3"
-  end
-
   def install
     # Oiio is designed to have its testsuite images extracted one directory
     # above the source.  That's not a safe place for HB.  Do the opposite,
@@ -104,6 +93,7 @@ class Openimageio < Formula
     # CMake picks up the system's python dylib, even if we have a brewed one.
     # Code taken from the Insighttoolkit formula
     if build.with? "python3"
+      py3ver = Language::Python.major_minor_version "python3"
       ENV["PYTHONPATH"] = lib/"python#{py3ver}/site-packages"
       ENV.append "MY_CMAKE_FLAGS", "-DPYTHON_EXECUTABLE='#{`python3-config --prefix`.chomp}/bin/python3'"
       ENV.append "MY_CMAKE_FLAGS", "-DPYTHON_LIBRARY='#{`python3-config --prefix`.chomp}/lib/libpython#{py3ver}.dylib'"
@@ -147,12 +137,10 @@ class Openimageio < Formula
     system "make", *args
     system "make", "test" if build.with? "test"
     cd "dist/macosx" do
-      (lib/"python#{pyver}/site-packages").install Dir["python/*"]
-      (lib/"python#{py3ver}/site-packages").install Dir["python3/*"] if build.with? "python3"
-      prefix.install %w[bin include]
-      lib.install Dir["lib/lib*"]
-      doc.install "doc/openimageio.pdf"
-      prefix.install Dir["doc/*"]
+      prefix.install "bin", "include", "lib"
+      doc.install Dir["share/doc/OpenImageIO/*.pdf"]
+      rm_rf "share/doc"
+      share.install Dir["share/*"]
     end
   end
 
