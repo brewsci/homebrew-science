@@ -3,12 +3,9 @@ class Libsequence < Formula
   homepage "https://molpopgen.github.io/libsequence/"
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btg316"
-  url "https://github.com/molpopgen/libsequence/archive/1.9.1.tar.gz"
-  sha256 "4432b50c63ff8fa05b39500ac7708276ccb6d30abfb5ea43d1c602108ff28733"
-  revision 3
+  url "https://github.com/molpopgen/libsequence/archive/1.9.2.tar.gz"
+  sha256 "e7232c969bf9dabab86cd6c592c80de521cc15287252e3a996e63d24028cdd40"
   head "https://github.com/molpopgen/libsequence.git"
-
-  bottle :disable, "needs to be rebuilt with latest boost"
 
   cxx11 = if OS.mac?
     (MacOS.version > :mountain_lion) ? [] : ["c++11"]
