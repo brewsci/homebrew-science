@@ -1,8 +1,8 @@
 class Primer3 < Formula
   desc "Program for designing PCR primers"
   homepage "https://primer3.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/primer3/primer3/2.3.7/primer3-2.3.7.tar.gz"
-  sha256 "9e37a301d2ca9e5034c9a9d4afcb3e90041f6cc44c658b63598d0ccfcb176e5e"
+  url "https://downloads.sourceforge.net/project/primer3/primer3/2.4.0/primer3-2.4.0.tar.gz"
+  sha256 "6d537640c86e2b4656ae77f75b6ad4478fd0ca43985a56cce531fb9fc0431c47"
 
   bottle do
     cellar :any_skip_relocation
