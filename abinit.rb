@@ -1,13 +1,10 @@
 class Abinit < Formula
   desc "Atomic-scale first-principles simulation software"
   homepage "https://www.abinit.org/"
-  url "https://www.abinit.org/sites/default/files/packages/abinit-8.4.4.tar.gz"
-  sha256 "ebf63b842810c65d83939cf04058d7bdedc9874ee662f59af45cb29de41e2a8c"
-  revision 1
+  url "https://www.abinit.org/sites/default/files/packages/abinit-8.6.3.tar.gz"
+  sha256 "82e8d071088ab8dc1b3a24380e30b68c544685678314df1213180b449c84ca65"
   # tag "chemistry"
   # doi "10.1016/j.cpc.2009.07.007"
-
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   option "with-openmp", "Enable OpenMP multithreading"
   option "without-test", "Skip build-time tests (not recommended)"
@@ -28,14 +25,6 @@ class Abinit < Formula
   needs :openmp if build.with? "openmp"
 
   def install
-    if OS.mac?
-      # call random_seed(put=seed)
-      # Error: Size of 'put' argument of 'random_seed' intrinsic at (1) too small (12/33)
-      # Reported upstream: https://forum.abinit.org/viewtopic.php?f=3&t=3615
-      inreplace "src/67_common/m_vcoul.F90", "integer :: seed(12)=0", "integer :: seed(33)=0"
-      inreplace "src/67_common/m_vcoul.F90", "do i1=1,12", "do i1=1,33"
-    end
-
     # Environment variables CC, CXX, etc. will be ignored.
     ENV.delete "CC"
     ENV.delete "CXX"
