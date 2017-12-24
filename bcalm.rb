@@ -4,8 +4,9 @@ class Bcalm < Formula
   # doi "10.1093/bioinformatics/btw279"
   # tag "bioinformatics"
 
-  url "https://github.com/GATB/bcalm/releases/download/v2.0.0/bcalm-2.0.0.zip"
-  sha256 "6d1d1d8b3339fff7cd0ec04b954a30e49138c1470efbcbcbf7b7e91f3c5b6d18"
+  url "https://github.com/GATB/bcalm.git",
+      :tag => "v2.2.0",
+      :revision => "c8ac60252fa0b2abf511f7363cff7c4342dac2ee"
 
   head "https://github.com/GATB/bcalm.git"
 
@@ -22,13 +23,11 @@ class Bcalm < Formula
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make"
-      bin.install "bcalm", "bglue"
+      bin.install "bcalm"
     end
-    doc.install "README.md"
   end
 
   test do
     system bin/"bcalm"
-    system bin/"bglue"
   end
 end
