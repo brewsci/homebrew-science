@@ -4,8 +4,8 @@ class Jellyfish < Formula
   # doi "10.1093/bioinformatics/btr011"
   # tag "bioinformatics"
 
-  url "https://github.com/gmarcais/Jellyfish/releases/download/v2.2.6/jellyfish-2.2.6.tar.gz"
-  sha256 "4532fb003a0494f6473bb97d52467904f631b94f7f9afb0d45b398f6c413692e"
+  url "https://github.com/gmarcais/Jellyfish/releases/download/v2.2.7/jellyfish-2.2.7.tar.gz"
+  sha256 "d80420b4924aa0119353a5b704f923863abc802e94efeb531593147c13e631a8"
 
   bottle do
     cellar :any
