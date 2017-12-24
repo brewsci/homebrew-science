@@ -4,8 +4,8 @@ class Astral < Formula
   # doi "10.1093/bioinformatics/btu462"
   # tag "bioinformatics"
 
-  url "https://github.com/smirarab/ASTRAL/archive/v4.10.7.tar.gz"
-  sha256 "314b49e0129ec06a7c78a1b60d590259ede6a5e75253407031e108d8048fcc79"
+  url "https://github.com/smirarab/ASTRAL/archive/5.5.6.tar.gz"
+  sha256 "dc7d6b09a15db7ebdc676f354b3e3300beba8bf104c4366a61f31535044b58b7"
 
   # head "https://github.com/smirarab/ASTRAL.git"
 
