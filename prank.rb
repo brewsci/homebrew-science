@@ -7,11 +7,10 @@ class Prank < Formula
   head "https://github.com/ariloytynoja/prank-msa.git"
 
   bottle do
-    cellar :any
-    sha256 "645b55928f814076559c0515ba5760006efbd6352d9599c09f769e5b05d9441a" => :yosemite
-    sha256 "c935677f529955560e10caedadaa2294e7df2a29559691c8bd5c4f4406b782d7" => :mavericks
-    sha256 "126c9194604ebf8af867ad12e7c621ff271ae7d17fa47dc509941ceb681eb263" => :mountain_lion
-    sha256 "3f9b5ba80cf44800d5bfec891de6ee5e37b00d5ec8dae8bcaa5f2ce7539e38d8" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "2ab7158ba5b9ee5ab22d14be9b6eb451f475578b7edd8caa96c5c77435e79f26" => :high_sierra
+    sha256 "dff62b6c346bc089c2a941d76f98f4796f985518b49f33fb1a0633f9fcf44174" => :sierra
+    sha256 "535477c82397b4de4f74732345040448a99fa908a7c45532a3e730e0aff2cde6" => :el_capitan
   end
 
   depends_on "mafft"
