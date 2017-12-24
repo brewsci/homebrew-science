@@ -10,10 +10,9 @@ class Nonpareil < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "79ba3db2b4c7a817bb3d91aeef1a47bc32d78c461d2ae49534474e486e686a43" => :high_sierra
-    sha256 "9da40351040a7c1259539ac37fe1d509282f9932967d029aeae0905ca66f0734" => :sierra
-    sha256 "cc8904e3f870bf130609f3e53f469f1c2fbd8407d64fe202134323a950cbaf2f" => :el_capitan
-    sha256 "7b6edc1db05e82532fbd20166d1d7236bb4e353ee75dae7cb70a8e9b6d8d5fc3" => :x86_64_linux
+    sha256 "f3f3dc6aa211f450fdc2bdb8f1c8c03eabac3a39881a3983d7519a989f051c95" => :high_sierra
+    sha256 "d1baff97fa30fabf2cdd1cb6128d85abf8192b4b4ab070af714a45202a23c298" => :sierra
+    sha256 "3ca5634310fa7c4e09ee0060dd524cf70d99afa60fe10f22660f5915c69dc0cb" => :el_capitan
   end
 
   depends_on "r"
