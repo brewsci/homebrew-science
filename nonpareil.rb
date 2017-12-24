@@ -4,8 +4,8 @@ class Nonpareil < Formula
 
   # doi "10.1093/bioinformatics/btt584"
   # tag "bioinformatics"
-  url "https://github.com/lmrodriguezr/nonpareil/archive/v3.1.1.tar.gz"
-  sha256 "a29fb3a8d81cce78b3d6bb9b135af1bad0af1a2263a0ca215fee71890a1f1f5d"
+  url "https://github.com/lmrodriguezr/nonpareil/archive/v3.2.tar.gz"
+  sha256 "caccc665ade312347f29d617e49312ac1f00bee3e262134bdf010afa42dcc369"
   head "https://github.com/lmrodriguezr/nonpareil.git"
 
   bottle do
