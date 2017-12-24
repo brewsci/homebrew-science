@@ -1,12 +1,9 @@
 class Insighttoolkit < Formula
   desc "ITK is a toolkit for performing registration and segmentation"
   homepage "https://www.itk.org"
-  url "https://downloads.sourceforge.net/project/itk/itk/4.12/InsightToolkit-4.12.1.tar.gz"
-  sha256 "6a539027bab2012fc45b8b8ae803877ee0db766d5dc4d74690025fdec36448c8"
-  revision 1
+  url "https://downloads.sourceforge.net/project/itk/itk/4.13/InsightToolkit-4.13.0.tar.gz"
+  sha256 "956f3383e93eb8ffcfdfde96fc27a7d38f2e577f0001c4011f4123be6eb65eda"
   head "git://itk.org/ITK.git"
-
-  bottle :disable, "needs to be rebuilt with latest netcdf"
 
   option :cxx11
   option "with-examples", "Compile and install various examples"
