@@ -1,12 +1,9 @@
 class Cmor < Formula
   desc "Climate Model Output Rewriter for producing CF-compliant netCDF files"
   homepage "https://cmor.llnl.gov/"
-  url "https://github.com/PCMDI/cmor/archive/CMOR-3.2.7.tar.gz"
-  sha256 "a82b023111975e03ea109a32806f0fc1657e81e5f1805bd4aa61adafa25ed7af"
-  revision 1
+  url "https://github.com/PCMDI/cmor/archive/cmor-3.3.0.tar.gz"
+  sha256 "d09f24acbffd11c47791e2e86df0dc39ab7276cb46d449f89781d6cce5b488be"
   # doi "10.5281/zenodo.61943"
-
-  bottle :disable, "needs to be rebuilt with latest netcdf"
 
   keg_only "conflicts with json-c in main repository"
 
