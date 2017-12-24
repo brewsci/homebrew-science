@@ -4,8 +4,8 @@ class Iqtree < Formula
   # doi "10.1093/molbev/mst024", "10.1093/molbev/msu300", "10.1093/sysbio/syw037"
   # tag "bioinformatics"
 
-  url "https://github.com/Cibiv/IQ-TREE/archive/v1.5.5.tar.gz"
-  sha256 "1be05b8ca97b43815309352b78030540e8d5f44e4003552c406538415cd6fe19"
+  url "https://github.com/Cibiv/IQ-TREE/archive/v1.6.0.tar.gz"
+  sha256 "283e5f251652fdc8375f0b8eb28cb1b1866f764e2286bae6fe2b53f9d39adebe"
 
   bottle do
     sha256 "53712f1783ffb24605f50d14d06608b2a1e7f51eaea4fbbf4945073232dfb236" => :sierra
@@ -31,7 +31,7 @@ class Iqtree < Formula
       system "cmake", "..", "-DIQTREE_FLAGS=omp", *std_cmake_args
       system "make"
     end
-    bin.install "build/iqtree-omp" => "iqtree"
+    bin.install "build/iqtree"
   end
 
   test do
