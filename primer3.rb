@@ -6,9 +6,9 @@ class Primer3 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6163ced92c25d26f09b01f407a08ff4a50a17c0aa5a2ab813db586f4f7c4ed6f" => :el_capitan
-    sha256 "b63546771335e1d1263ecd9e6c94f5c09d5bb073dee7c879b813d64e788317b8" => :yosemite
-    sha256 "437f1028ed79c520133ecfbf885d6fdf3345807e9530be78af4945f6f2b66d53" => :mavericks
+    sha256 "bcc7d166ca32302dca6650cd4097255e7dd2dd3f890a1a864498586b71a44a3e" => :high_sierra
+    sha256 "fe08ddd1929b113d59912a7b86bc90eb0dcd47873b2d00263609b685b45c4973" => :sierra
+    sha256 "e5c5bd6002dd36aa1fa177dc73bcb2feeae9b7a421a6ecbac4443866827378ae" => :el_capitan
   end
 
   option "without-test", "Skip build-time tests"
