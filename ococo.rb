@@ -8,10 +8,9 @@ class Ococo < Formula
 
   bottle do
     cellar :any
-    sha256 "b9145919260ca03c415fc0da4902427f9eed390e16856a21aec8615df44232d7" => :sierra
-    sha256 "4eabdc5d8bbc2701a955221621ab39a369ddfea15d3e610cc0be832f1b81ce32" => :el_capitan
-    sha256 "5faaaa13bfb44ab4f2bbf45592158939fb54c5589488817e43c5815f114e7a20" => :yosemite
-    sha256 "494d48f491c3bf454748e1501d8d4f199b06abd39c581eaa1613f45f9e6a1df5" => :x86_64_linux
+    sha256 "a487edf868f9f09f851d60d6d161642f683fd1ea1949ffaaf40ed0d57da01862" => :high_sierra
+    sha256 "42a0faa2e0a24f6771f620cbb5fef35e7c6a9a6d07e6afe4cb682075af9dcbdd" => :sierra
+    sha256 "4ca6425e31e0546a910c5a4c5261c5ca3a455371c9ee251139eb86acb8ae3b40" => :el_capitan
   end
 
   depends_on "htslib"
