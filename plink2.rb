@@ -1,12 +1,11 @@
 class Plink2 < Formula
   desc "Analyze genotype and phenotype data"
   homepage "https://www.cog-genomics.org/plink2"
-  url "https://github.com/chrchang/plink-ng/archive/v1.90b3.tar.gz"
-  version "1.90b3"
+  url "https://github.com/chrchang/plink-ng/archive/b15c19f.tar.gz"
+  version "1.90b5"
   # doi "10.1186/s13742-015-0047-8"
   # tag "bioinformatics"
-  sha256 "2f4afc193c288b13af4410e4587358ee0a6f76ed7c98dd77ca1317aac28adf0d"
-  revision 2
+  sha256 "e00ef16ac5abeb6b4c4d77846bd655fafc62669fbebf8cd2e941f07b3111907e"
   head "https://github.com/chrchang/plink-ng"
 
   bottle do
@@ -26,18 +25,28 @@ class Plink2 < Formula
   end
 
   def install
+    ln_s Formula["zlib"].opt_include, "zlib-1.2.11"
+    cd "1.9"
     mv "Makefile.std", "Makefile"
-    ln_s Formula["zlib"].opt_include, "zlib-1.2.8"
+
+    args = ["ZLIB=-L#{Formula["zlib"].opt_lib} -lz"]
     cflags = "-Wall -O2 -flax-vector-conversions"
-    cflags += " -I#{Formula["openblas"].opt_include}" if build.with? "openblas"
-    args = ["CFLAGS=#{cflags}", "ZLIB=-L#{Formula["zlib"].opt_lib} -lz"]
-    args << "BLASFLAGS=-L#{Formula["openblas"].opt_lib} -lopenblas" if build.with? "openblas"
+
+    if build.with? "openblas"
+      args << "BLASFLAGS=-L#{Formula["openblas"].opt_lib} -lopenblas"
+      cflags += " -I#{Formula["openblas"].opt_include}"
+    else
+      args << "BLASFLAGS=-framework Accelerate"
+    end
+
+    args << "CFLAGS=#{cflags}"
+
     system "make", "plink", *args
     bin.install "plink" => "plink2"
   end
 
   test do
     system "#{bin}/plink2", "--dummy", "513", "1423", "0.02", "--out", "dummy_cc1"
-    assert File.exist?("dummy_cc1.bed")
+    assert_predicate testpath/"dummy_cc1.bed", :exist?
   end
 end
