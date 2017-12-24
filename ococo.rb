@@ -11,6 +11,7 @@ class Ococo < Formula
     sha256 "a487edf868f9f09f851d60d6d161642f683fd1ea1949ffaaf40ed0d57da01862" => :high_sierra
     sha256 "42a0faa2e0a24f6771f620cbb5fef35e7c6a9a6d07e6afe4cb682075af9dcbdd" => :sierra
     sha256 "4ca6425e31e0546a910c5a4c5261c5ca3a455371c9ee251139eb86acb8ae3b40" => :el_capitan
+    sha256 "b52fabb6b7bf2944660c7ebd8db06c7e13c4298ee5891f2ed40b1dd57b4b4174" => :x86_64_linux
   end
 
   depends_on "htslib"
