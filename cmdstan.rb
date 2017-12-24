@@ -2,11 +2,8 @@ class Cmdstan < Formula
   desc "Probabilistic programming for Bayesian inference"
   homepage "http://mc-stan.org/"
   # tag "math"
-  url "https://github.com/stan-dev/cmdstan/releases/download/v2.17.0/cmdstan-2.17.0.tar.gz"
-  sha256 "72194e91ae24e0c58e51a7db09a77fd759e78d41f4fb6f0b1f8be7b9ef235eb1"
-  revision 1
-
-  bottle :disable, "needs to be rebuilt with latest boost"
+  url "https://github.com/stan-dev/cmdstan/releases/download/v2.17.1/cmdstan-2.17.1.tar.gz"
+  sha256 "9298927e734d557c8b73d344179eea4ce626816152190908756be73db36501ef"
 
   depends_on "boost"
   depends_on "eigen"
