@@ -59,6 +59,7 @@
   "root6": "homebrew/core",
   "samtools": "homebrew/core",
   "scalapack": "homebrew/core",
+  "spades": "homebrew/core",
   "suite-sparse": "homebrew/core",
   "sundials": "homebrew/core",
   "superlu": "homebrew/core",
