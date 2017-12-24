@@ -1,8 +1,8 @@
 class Arcs < Formula
   desc "Scaffold genome sequence assemblies using 10x Genomics data"
   homepage "https://github.com/bcgsc/arcs"
-  url "https://github.com/bcgsc/arcs/archive/v1.0.0.tar.gz"
-  sha256 "3b104675d49ace02d8241aff82e72192034ecd0ec35f25d611eb560f698750c4"
+  url "https://github.com/bcgsc/arcs/archive/v1.0.1.tar.gz"
+  sha256 "4dc5336e741abdd0197335a21fcdc578eb4251131caf86ca4fb191c125065bf4"
   head "https://github.com/bcgsc/arcs.git"
   # tag "bioinformatics"
 
@@ -17,17 +17,15 @@ class Arcs < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "boost" => :build
+  depends_on "zlib" unless OS.mac?
 
   def install
-    # Remove broken symlinks.
-    rm ["COPYING", "INSTALL"]
     inreplace "autogen.sh", "automake -a", "automake -a --foreign"
     system "./autogen.sh"
-    system "./configure",
-      "--disable-debug",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--with-boost=#{Formula["boost"].opt_include}"
     system "make", "install"
   end
 
