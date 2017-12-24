@@ -4,8 +4,9 @@ class Bowtie < Formula
   # doi "10.1186/gb-2009-10-3-r25"
   # tag "bioinformatics"
 
-  url "https://github.com/BenLangmead/bowtie/archive/v1.2.1.1.tar.gz"
-  sha256 "1b38408b88f61d18d7ff28b2470a8cfeefccb3fc59fd46e4cc62e23874e52c20"
+  url "https://github.com/BenLangmead/bowtie/archive/v1.2.2_p1.tar.gz"
+  version "1.2.2_p1"
+  sha256 "e1b02b2e77a0d44a3dd411209fa1f44f0c4ee304ef5cc83f098275085740d5a1"
   head "https://github.com/BenLangmead/bowtie.git"
 
   bottle do
