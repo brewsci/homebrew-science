@@ -1,8 +1,8 @@
 class Libfolia < Formula
   desc "XML annotation format for linguistically annotated language resources"
   homepage "https://proycon.github.io/folia/"
-  url "https://github.com/LanguageMachines/libfolia/releases/download/v1.9/libfolia-1.9.tar.gz"
-  sha256 "d22376bc7528f00a98fe7444cbdf089051fa4a3922cddd8d2854dcf35dad9a07"
+  url "https://github.com/LanguageMachines/libfolia/releases/download/v1.11/libfolia-1.11.tar.gz"
+  sha256 "0e716281802df050bcced4826b470152308f7be93ce481f8f47528abafa1e2e1"
 
   bottle do
     cellar :any
