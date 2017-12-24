@@ -9,6 +9,7 @@ class Primer3 < Formula
     sha256 "bcc7d166ca32302dca6650cd4097255e7dd2dd3f890a1a864498586b71a44a3e" => :high_sierra
     sha256 "fe08ddd1929b113d59912a7b86bc90eb0dcd47873b2d00263609b685b45c4973" => :sierra
     sha256 "e5c5bd6002dd36aa1fa177dc73bcb2feeae9b7a421a6ecbac4443866827378ae" => :el_capitan
+    sha256 "62595ddbfc162732a7d4741b1c331ef51d53fe8ac2008c613447bb4ebb7a2b1c" => :x86_64_linux
   end
 
   option "without-test", "Skip build-time tests"
