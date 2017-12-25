@@ -7,9 +7,9 @@ class TmvCpp < Formula
 
   bottle do
     cellar :any
-    sha256 "69736264324e4471ef9a066e497e364a8ecaef4cf68fc07d4d410db8b7a5ec6d" => :sierra
-    sha256 "1b97f323f1247c9525c55d4a1ecb3389ec621e34ea0700cf208e3b7282203e57" => :el_capitan
-    sha256 "2450771211d44af985afc7ffe98d2ef1234dc6c46ecb90715cd7b4c4ae08c365" => :yosemite
+    sha256 "18d80d1ab60aa4edaa4ae2f1a5e0853b8710fc7ba71ec436cd7dc3daa201c99c" => :high_sierra
+    sha256 "aaaea5f9d8ead80b0ab7fa18d73e7a932022cbb468de99b17dc226d2434133e3" => :sierra
+    sha256 "0d1af7e8958e5334e8c149c93ef1ce8d3fd4503e28cb748e88d114efa756c504" => :el_capitan
   end
 
   option "without-test", "Do not build tests (not recommended)"
