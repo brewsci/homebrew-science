@@ -25,6 +25,7 @@ class Wopr < Formula
     sha256 "5a9190ebe32630c2af81f0b842b35829287f89c4f2d59abe4d0bf1de45e6b644" => :high_sierra
     sha256 "f97455f03119767c279d6ab29fa2e4141acd70544f400e45667947514ec6fe59" => :sierra
     sha256 "583a0dc5c1a5a385aa10b8a68ccb52ae19756bcd955a6b3b773a8fd71103058c" => :el_capitan
+    sha256 "48e1fa0c02cf59eb7c33bfb0e81932a348c81821a2be288246d07271bda4bd73" => :x86_64_linux
   end
 
   head do
