@@ -22,10 +22,9 @@ class Wopr < Formula
 
   bottle do
     cellar :any
-    sha256 "e5ab9df7d15881f5a5cee0355c4184afe625c3ea41ca2435434f5d91860f2629" => :sierra
-    sha256 "65c46a03ebce0a71f05c5b44cc1a06f17737f2ac1714bb34649deeb3294a62e4" => :el_capitan
-    sha256 "90937bd62790616249dc7bde27ffa1b2b2c48ad302d6e50b4f30cbd48725cb7c" => :yosemite
-    sha256 "c0f93fa4edbcd2f6dbf0dc28c6a023bf1cbaf05cb34e94207e2434b39ca6269c" => :x86_64_linux
+    sha256 "5a9190ebe32630c2af81f0b842b35829287f89c4f2d59abe4d0bf1de45e6b644" => :high_sierra
+    sha256 "f97455f03119767c279d6ab29fa2e4141acd70544f400e45667947514ec6fe59" => :sierra
+    sha256 "583a0dc5c1a5a385aa10b8a68ccb52ae19756bcd955a6b3b773a8fd71103058c" => :el_capitan
   end
 
   head do
