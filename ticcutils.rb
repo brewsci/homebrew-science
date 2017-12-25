@@ -5,11 +5,9 @@ class Ticcutils < Formula
   sha256 "4e5ed6b66a8595f4bdb75c46458723c6a8001a570ff47c068ea4e1ff1517c8a1"
 
   bottle do
-    cellar :any
-    sha256 "ac93c31e75a639f8bf0d0b6d8d2c6bf10b84f4098fc1ad3934a742817be4e270" => :sierra
-    sha256 "6964fb8689e6960204e71c17941c13fb537144ec6bf981ba191ddfdd93c0793a" => :el_capitan
-    sha256 "7d5553b92f368c993ad86b05dd15d242c57f3602b7a2b270db4296b84c42566e" => :yosemite
-    sha256 "6defc0c5834c92f245a3eaf86751544c7b0d56a1ee62a9ba066ae382e800334c" => :x86_64_linux
+    sha256 "1e960f04fdefbeb3f9876fe0ba78293a03449823268d860c1963b0fc9808a1fa" => :high_sierra
+    sha256 "7b3b241ef5416eb4d7d7c4c5f536462a9dc567120be48391dc879d7cd30a7d54" => :sierra
+    sha256 "7b6b842e5c94f26764826e54befcf3e532cd1895935c1700e84ab407e0e062cf" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
