@@ -5,6 +5,13 @@ class Openimageio < Formula
   sha256 "9e070d56c0f71496ca77290a78abd948af9c2799983bc27c22a36dcc16ffe2e3"
   head "https://github.com/OpenImageIO/oiio.git"
 
+  bottle do
+    cellar :any
+    sha256 "77bdd8b9b3e1b1ca6abd7eaa98227b0794b98b43fbacb24348774c4de10a4570" => :high_sierra
+    sha256 "b50f595ad597de8774ac929917d0371d2dca702349e3e4538250dc9fcf0050fd" => :sierra
+    sha256 "02adc761d2d21864e480795a4ef527de7852401770dec5dac31ea99872347001" => :el_capitan
+  end
+
   option "with-test", "Dowload 95MB of test images and verify Oiio (~2 min)"
   option "with-jpeg-turbo", "Build with libjpeg-turbo support, instead of libjpeg"
 
