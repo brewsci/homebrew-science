@@ -1,12 +1,11 @@
 class Radx < Formula
   desc "Software package for radial radar data"
   homepage "https://www.ral.ucar.edu/projects/titan/docs/radial_formats/radx.html"
-  url "https://github.com/NCAR/lrose-core/releases/download/radx-20170920/radx-20170920.src.tgz"
-  version "20170920"
-  sha256 "15c09c0d4495fb3f5cd1232b86daba93f5f5cc32a7fec852bf626a415363c32c"
-  revision 1
+  url "https://github.com/NCAR/lrose-core/releases/download/radx-20171016/radx-20171016.src.tgz"
+  version "20171016"
+  sha256 "a60dbaf2256fe71f97f444c1fd0e21a59e9340a6f90acc5d7594e8e9c2fd4ef6"
 
-  bottle :disable, "needs to be rebuilt with latest netcdf"
+  bottle :disable, "Test-bot cannot use the versioned gcc formulae"
 
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
@@ -18,14 +17,17 @@ class Radx < Formula
   depends_on "fftw"
   depends_on "bzip2" unless OS.mac?
 
-  patch do
-    # Fixes compilation with hdf5 1.10.0
-    # Reported https://github.com/NCAR/lrose-core/issues/8
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/208060e/radx/radx-hdf5.diff"
-    sha256 "15f61648400487b03955fbf330322e68ad2b2856be3af96ea8ffad22e338fbd4"
-  end
+  patch :DATA if OS.mac?
+
+  fails_with :clang
+  fails_with :gcc => "7"
+  fails_with :gcc => "6"
+
+  needs :cxx11
 
   def install
+    ENV.cxx11
+
     cd "codebase"
     system "glibtoolize"
     system "aclocal"
@@ -39,3 +41,18 @@ class Radx < Formula
     system "#{bin}/RadxPrint", "-h"
   end
 end
+
+__END__
+diff --git a/codebase/libs/Radx/src/Bufr/BufrProduct.cc b/codebase/libs/Radx/src/Bufr/BufrProduct.cc
+index 597e4be..d38f363 100644
+--- a/codebase/libs/Radx/src/Bufr/BufrProduct.cc
++++ b/codebase/libs/Radx/src/Bufr/BufrProduct.cc
+@@ -222,7 +222,7 @@ double *BufrProduct::decompressData() {
+ 		 //                 nData) != Z_OK) {
+     return NULL;
+   }
+-#if __BYTE_ORDER == __BIG_ENDIAN
++#if 0
+   for (i = 0; i < *ndecomp/sizeof(double); ++i) {
+     for (j = 0; j < sizeof(double); ++j) {
+       str[j] = UnCompDataBuff[i*sizeof(double)+j];
