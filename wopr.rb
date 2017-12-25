@@ -1,5 +1,6 @@
 class Wopr < Formula
   homepage "https://ilk.uvt.nl/wopr"
+  revision 1
 
   stable do
     url "https://software.ticc.uvt.nl/wopr-1.36.1.tar.gz"
