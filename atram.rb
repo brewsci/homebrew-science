@@ -12,10 +12,9 @@ class Atram < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1f676dc882d3ca11f24dd1f97968985db717bcdecbcb4b4cb8c10ef2894ea85e" => :el_capitan
-    sha256 "d0912c55cf87b536371d178312c17a35904cff15a30f5402086ec8cf3c982c80" => :yosemite
-    sha256 "ff50f781b9940d5fca761d2894cc36f11f2a8928a1ae600254e0882fb4de9505" => :mavericks
-    sha256 "46244967080ec4411d85949741d5a74ca3e76ad42c4a7335fff4be1d3e378768" => :x86_64_linux
+    sha256 "0828d9e44444fdfd26f1b209c956cf130c9ba44915cfb4285a73f24c14804e0f" => :high_sierra
+    sha256 "3d4d87141fe67eb040f5abf3a25b9a8f88d134f40ab50ae329985a7ed574dae8" => :sierra
+    sha256 "5a957652fd330d42f1db80f5caeecebe18913473cfd8c45bd28de45fcbbf7fe0" => :el_capitan
   end
 
   depends_on "blast"
