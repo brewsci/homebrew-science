@@ -15,6 +15,7 @@ class Atram < Formula
     sha256 "0828d9e44444fdfd26f1b209c956cf130c9ba44915cfb4285a73f24c14804e0f" => :high_sierra
     sha256 "3d4d87141fe67eb040f5abf3a25b9a8f88d134f40ab50ae329985a7ed574dae8" => :sierra
     sha256 "5a957652fd330d42f1db80f5caeecebe18913473cfd8c45bd28de45fcbbf7fe0" => :el_capitan
+    sha256 "06a242ab83c7ce5d5eb5412da5de2c3deeffa4ae214b5802de9039dc65c4d2e3" => :x86_64_linux
   end
 
   depends_on "blast"
