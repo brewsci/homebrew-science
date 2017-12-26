@@ -7,6 +7,13 @@ class Libsequence < Formula
   sha256 "e7232c969bf9dabab86cd6c592c80de521cc15287252e3a996e63d24028cdd40"
   head "https://github.com/molpopgen/libsequence.git"
 
+  bottle do
+    cellar :any
+    sha256 "68eb801e1ab47f24b76ca666fb97308cbf3a44628e76c7f8efc4da535ffd9bc8" => :high_sierra
+    sha256 "a97325b11c57ef0868674e59ce336e7a08ef08a5ea4985bfbb15b4812d12b728" => :sierra
+    sha256 "2cf76ed0b54d947fae9ae83e18070ac105a455214e506aff2163cd8a61b51eba" => :el_capitan
+  end
+
   cxx11 = if OS.mac?
     (MacOS.version > :mountain_lion) ? [] : ["c++11"]
   else
