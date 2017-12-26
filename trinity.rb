@@ -13,6 +13,7 @@ class Trinity < Formula
     sha256 "fa9bcc45554a66aa1d3d087134a28fb6f4f9433abdafc0d8c50f7783928d7a4f" => :high_sierra
     sha256 "1623053e278a5d96fcc38721d06c2ffd1316d45598a37838de506fb1a1df109e" => :sierra
     sha256 "0f7977431ec3a451c443ecdd537a55751ee6a59d64eb29b29dae4647cb8b1f27" => :el_capitan
+    sha256 "f742197ec74fa55782a175894ba53f83204c7445050c467d7229f2891feeb210" => :x86_64_linux
   end
 
   depends_on "express" => :recommended
