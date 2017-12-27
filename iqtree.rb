@@ -4,8 +4,8 @@ class Iqtree < Formula
   # doi "10.1093/molbev/mst024", "10.1093/molbev/msu300", "10.1093/sysbio/syw037"
   # tag "bioinformatics"
 
-  url "https://github.com/Cibiv/IQ-TREE/archive/v1.6.0.tar.gz"
-  sha256 "283e5f251652fdc8375f0b8eb28cb1b1866f764e2286bae6fe2b53f9d39adebe"
+  url "https://github.com/Cibiv/IQ-TREE/archive/v1.6.1.tar.gz"
+  sha256 "32ed901ec0d9b908218df9ac899378668abd1a0dd34f9c46cc5fcd6ff895d02c"
 
   bottle do
     sha256 "dbe34a68aacc7e76c5312a8141916c922ac5d77fda89d029f44fa372cb8341cf" => :high_sierra
