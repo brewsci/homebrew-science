@@ -8,10 +8,9 @@ class Iqtree < Formula
   sha256 "32ed901ec0d9b908218df9ac899378668abd1a0dd34f9c46cc5fcd6ff895d02c"
 
   bottle do
-    sha256 "dbe34a68aacc7e76c5312a8141916c922ac5d77fda89d029f44fa372cb8341cf" => :high_sierra
-    sha256 "2cfbe86ef8a2f7da60ef237c034d69805c84b9de7b07468409fe33c9e52efddf" => :sierra
-    sha256 "a1453d22e3fa9bad8b468aade7378346b94c80942f43cf1870faf612fd9f00b5" => :el_capitan
-    sha256 "4cd70da7365a35bd65e382b04f1cf89620863e507519a7de94e7b8f2c36974b3" => :x86_64_linux
+    sha256 "5ebbc2860628d5ef6600f01a331ad208e9c6d9408e9e88bbfa5dffdfd373d4ce" => :high_sierra
+    sha256 "9fb5ec543d750421ccc8d8a756df4fcf7248688cd58b27b29e1c3726b2e1ee44" => :sierra
+    sha256 "7ced91d8704659c858ffc73d1acf653722432033699b1c1588c69f74feb00096" => :el_capitan
   end
 
   needs :openmp
