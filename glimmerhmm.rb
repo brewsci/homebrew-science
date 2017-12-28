@@ -7,11 +7,10 @@ class Glimmerhmm < Formula
   sha256 "43e321792b9f49a3d78154cbe8ddd1fb747774dccb9e5c62fbcc37c6d0650727"
 
   bottle do
-    cellar :any
-    sha256 "da6d1cb5474a93aec63ee57744ec3c6b036d8cdc762fb2d7a413c155910e7354" => :yosemite
-    sha256 "29e2af8728db02b766e7e1b71cd37d5b360b308ece7f58bb5de34b408c7ddb29" => :mavericks
-    sha256 "701387377b202acb5407c238db3cf8c0261cafac7ae441da486d36903cf1b22d" => :mountain_lion
-    sha256 "96f5e9f71fe3af2c5cff493b6f90ea9e233ae345d5f3a4897acfcf8fa9fd498d" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "6c129f46df339601105a9bea74cc34ebd44bfefd70af9602db8728d6efca187b" => :high_sierra
+    sha256 "bec2c26c9b1b965de11c91126e799151b14c41854deea4bd3f02e80e1170ceab" => :sierra
+    sha256 "085de0bdee7ea9d218357d4d82fc2eed1963e1c3a7b1930b7f8da48f734d707a" => :el_capitan
   end
 
   def install
