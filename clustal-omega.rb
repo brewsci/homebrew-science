@@ -3,8 +3,8 @@ class ClustalOmega < Formula
   # doi "10.1038/msb.2011.75"
   # tag "bioinformatics"
 
-  url "http://www.clustal.org/omega/clustal-omega-1.2.1.tar.gz"
-  sha256 "0ef32727aa25c6ecf732083e668a0f45bc17085c28a5c7b4459f4750419f2b0a"
+  url "http://www.clustal.org/omega/clustal-omega-1.2.4.tar.gz"
+  sha256 "8683d2286d663a46412c12a0c789e755e7fd77088fb3bc0342bb71667f05a3ee"
 
   bottle do
     cellar :any
