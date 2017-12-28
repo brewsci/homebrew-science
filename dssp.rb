@@ -1,21 +1,28 @@
 class Dssp < Formula
   desc "Secondary structure assignments for the Protein Data Bank"
   homepage "http://swift.cmbi.ru.nl/gv/dssp/"
-  url "https://mirrors.kernel.org/debian/pool/main/d/dssp/dssp_2.2.1.orig.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dssp/dssp_2.2.1.orig.tar.gz"
-  sha256 "5fb5e7c085de16c05981e3a72869c8b082911a0b46e6dcc6dbd669c9f267e8e1"
-  revision 4
-
-  bottle :disable, "needs to be rebuilt with latest boost"
+  url "https://mirrors.kernel.org/debian/pool/main/d/dssp/dssp_3.0.0.orig.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dssp/dssp_3.0.0.orig.tar.gz"
+  sha256 "25d39a2107767b622a59dd9fa790112c1516564b8518fc6ac0fab081d5ac3ab0"
 
   depends_on "boost"
 
   resource "pdb" do
     url "ftp://ftp.cmbi.ru.nl/pub/molbio/data/pdb_redo/zz/3zzz/3zzz_0cyc.pdb.gz"
-    sha256 "6ee5ab16972d8f3ae6c2f92fce789a40fecb1a6a8c0de42257b35fc7e9d82149"
+    sha256 "970c00f922829fb3b2de50aee191027c16069a1a50d2ae594175010674f08c33"
   end
 
+  # use C++11 instead off std::tr1 for Boost >= 1.65 compat
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3f14733/dssp/boost165.diff"
+    sha256 "dddc01d4fe8263d32dab7b3ffd32f02859414a97bbc1d4688557dd493d93c4a6"
+  end
+
+  needs :cxx11
+
   def install
+    ENV.cxx11
+
     # Create a make.config file that contains the configuration for boost
     boost = Formula["boost"].opt_prefix
     File.open("make.config", "w") do |makeconf|
@@ -33,7 +40,7 @@ class Dssp < Formula
 
   test do
     resource("pdb").stage do
-      system "mkdssp", "-i", "3zzz_0cyc.pdb", "-o", testpath/"test.dssp"
+      system bin/"mkdssp", "-i", "3zzz_0cyc.pdb", "-o", testpath/"test.dssp"
     end
     assert_match "POLYPYRIMIDINE TRACT BINDING PROTEIN RRM2", (testpath/"test.dssp").read
   end
