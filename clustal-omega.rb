@@ -8,10 +8,9 @@ class ClustalOmega < Formula
 
   bottle do
     cellar :any
-    sha256 "2e1ee794f4b1e2c7875f2bfb053281227a068a9accfcb9d3988b810a84b32bc3" => :yosemite
-    sha256 "1d00c72cb42d76b62a58d9cb760ff8a0f74603934e7ecfb86be85f6f98a75439" => :mavericks
-    sha256 "e0f045938866b33480339d6ecccd8c9af97a9f8e7b1295fe7fcd862a93cb3b54" => :mountain_lion
-    sha256 "3321d5a3ac87002656db10037563576dd2502865c036baecbfaae483d973f6f4" => :x86_64_linux
+    sha256 "caa2e452212b280d512d50ac0e93156df3d260d5814f4552ece2a871e60f3712" => :high_sierra
+    sha256 "d03a460a77f2de1cf2253a95a21fc7662945ca0763f7ef917664040a90863bbe" => :sierra
+    sha256 "5ed21f129ca5071628176a38aa9051b72e71d8e641bbd76006c340622c0ccc9b" => :el_capitan
   end
 
   depends_on "argtable"
