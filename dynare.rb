@@ -1,8 +1,8 @@
 class Dynare < Formula
   desc "Platform for economic models, particularly DSGE and OLG models"
   homepage "https://www.dynare.org"
-  url "https://www.dynare.org/release/source/dynare-4.5.1.tar.xz"
-  sha256 "ae6a7e9cc62fb25b18db3d4b5c34c27c7af17a46cb73586d051a049b7108db1f"
+  url "https://www.dynare.org/release/source/dynare-4.5.3.tar.xz"
+  sha256 "01434f6d3ceaff1891dc771f6a5b39caee787b2ffa1875e5a4e8c673e32ff3d7"
 
   bottle do
     sha256 "e0b8055f4d626d1ac81818ff2b09ef649720012233ef50e8a0a48323240491be" => :sierra
