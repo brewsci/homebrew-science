@@ -1,8 +1,8 @@
 class Bbtools < Formula
   desc "suite of Brian Bushnell's tools for manipulating reads"
   homepage "https://bbmap.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/bbmap/BBMap_37.02.tar.gz"
-  sha256 "f0af3c27ee93ea89625d227b6c0c3eb9e1bca427f0f8ca9085f691f5dd8835c2"
+  url "https://downloads.sourceforge.net/project/bbmap/BBMap_37.77.tar.gz"
+  sha256 "3004c14dace43d35f4a89bf5fdaa5a2a9fab1630e173e801da9ea386cb166e96"
   # tag "bioinformatics"
 
   bottle do
