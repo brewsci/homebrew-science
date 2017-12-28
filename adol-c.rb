@@ -6,9 +6,9 @@ class AdolC < Formula
   head "https://projects.coin-or.org/svn/ADOL-C/trunk/", :using => :svn
 
   bottle do
-    sha256 "e3a9fae09a42da6c59a785cae6893b837b2bf81014ae5930524e3c04c7881d1c" => :sierra
-    sha256 "a355e3ef09468dd53164a0001902ccf5b5e3676987ec6ba45dda102a16583f79" => :el_capitan
-    sha256 "3811346b9efaf44e4e8d735efa03b32d8152345f580f4733360c6a7886796524" => :yosemite
+    sha256 "dd84e59f5fda4bba97bb7ca7457e8e6dc73f21a863150d4e38c262a8ad8ac775" => :high_sierra
+    sha256 "0cc0d8caf1b150c4c30bb5f2d2b12238cc7e4812ce7985496d12a0d126ffec14" => :sierra
+    sha256 "54ac19495b3550860969967cbb4e16946de178893da483d441a5ff934dc35bce" => :el_capitan
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
