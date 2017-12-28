@@ -1,8 +1,8 @@
 class AdolC < Formula
   desc "Automatic Differentiation by Overloading in C/C++"
   homepage "https://projects.coin-or.org/ADOL-C"
-  url "https://www.coin-or.org/download/source/ADOL-C/ADOL-C-2.6.2.tgz"
-  sha256 "f6326e7ba994d02074816132d4461915221069267c31862b31fab7020965c658"
+  url "https://www.coin-or.org/download/source/ADOL-C/ADOL-C-2.6.3.tgz"
+  sha256 "6ed74580695a0d2c960581e5430ebfcd380eb5da9337daf488bf2e89039e9c21"
   head "https://projects.coin-or.org/svn/ADOL-C/trunk/", :using => :svn
 
   bottle do
