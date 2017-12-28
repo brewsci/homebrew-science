@@ -4,10 +4,10 @@ class Cuba < Formula
   sha256 "6b75bb8146ae6fb7da8ebb72ab7502ecd73920efc3ff77a69a656db9530a5eef"
 
   bottle do
-    cellar :any
-    sha256 "bb7790282cc4763dab620bd6fef3453317a54f91eae920a57767d9b508329ca2" => :yosemite
-    sha256 "9d64b534a14d2c3ea2e5293fa31c1dce3f26b4583ccd1eb12e55ce1dbe74891d" => :mavericks
-    sha256 "ee8416e347157716805e856441202ff1ee6fc3af8710512116310b30471337f2" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "06bc2a5f602de65f466164c075dfba2045bf63c270cf17bd6604a3854a694f5f" => :high_sierra
+    sha256 "ce92a393821cb06d4f05ea8b33ff530fd387cfb580d2c24a51cccdfccfe3bcc6" => :sierra
+    sha256 "37157372c09da329f43cdcdf031ca56657d6038ac7a8a44c479ec7a69dfc64de" => :el_capitan
   end
 
   option "without-check", "Skip build-time tests (not recommended)"
