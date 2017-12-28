@@ -10,6 +10,7 @@ class Bbtools < Formula
     sha256 "4e59d491437184e9e725459a0a73b542e134e0fed361a08871f5e1ba7340437b" => :high_sierra
     sha256 "820b2e858d33b069c2470ecefaa694f76130d843449795f306f6abf95d5f46c6" => :sierra
     sha256 "7fe858e5bf8248998214fa898176e68401c2ddc957b795f0e911d445bc6d29bb" => :el_capitan
+    sha256 "5c981c961b0f5a10f3b7dea200aa0f5072f67c9cb819df0f7440beb6062aceda" => :x86_64_linux
   end
 
   depends_on :java => "1.7+"
