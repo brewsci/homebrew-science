@@ -7,10 +7,9 @@ class FastqTools < Formula
 
   bottle do
     cellar :any
-    sha256 "e86ffa61e35cbd3b14228a6183b3c472323c6752d47c2586cd41516a6f5c9d6e" => :yosemite
-    sha256 "ee21d34a811b294d11b809bdd22abbdf5cb5b0c7ed855d74592565f9c9c40c04" => :mavericks
-    sha256 "b9f6d5213d969eafadfd1d82171a296c145a67afc70f758445e919a2ea31e56a" => :mountain_lion
-    sha256 "1674cbecb09313439c129349cbd0920a77c12aa36934b47a5709c91e3f457041" => :x86_64_linux
+    sha256 "fc6d0fd33d43cd37122c1a57ff6378da67eeac2dc38939913547dfd510918854" => :high_sierra
+    sha256 "ef3f6cfb458a061dafd325b6f16b6ab6e546084ff246088e085cd07600099970" => :sierra
+    sha256 "63edd331dc15dd6d907eb629dbc40d020f3bb3e87d9f96dcb723fb403a724cdf" => :el_capitan
   end
 
   depends_on "pcre"
