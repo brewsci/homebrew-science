@@ -3,8 +3,8 @@ class Glimmerhmm < Formula
   # doi "10.1093/bioinformatics/bth315"
   # tag "bioinformatics"
 
-  url "ftp://ccb.jhu.edu/pub/software/glimmerhmm/GlimmerHMM-3.0.2.tar.gz"
-  sha256 "7a9c442dc0cbdb001ed55fc29e1f1283502bdff4db596803ffcac8965d66f7dc"
+  url "ftp://ccb.jhu.edu/pub/software/glimmerhmm/GlimmerHMM-3.0.4.tar.gz"
+  sha256 "43e321792b9f49a3d78154cbe8ddd1fb747774dccb9e5c62fbcc37c6d0650727"
 
   bottle do
     cellar :any
