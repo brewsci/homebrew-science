@@ -1,7 +1,7 @@
 class Cuba < Formula
   homepage "http://www.feynarts.de/cuba"
-  url "http://www.feynarts.de/cuba/Cuba-4.1.tar.gz"
-  sha256 "0928fb2911b77a72a9d01c75f5ed9962f46f5f7e2d913baf7b302395ac851f5f"
+  url "http://www.feynarts.de/cuba/Cuba-4.2.tar.gz"
+  sha256 "6b75bb8146ae6fb7da8ebb72ab7502ecd73920efc3ff77a69a656db9530a5eef"
 
   bottle do
     cellar :any
