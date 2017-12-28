@@ -1,8 +1,8 @@
 class Cdsclient < Formula
   desc "Tools for querying CDS databases"
   homepage "http://cdsarc.u-strasbg.fr/doc/cdsclient.html"
-  url "http://cdsarc.u-strasbg.fr/ftp/pub/sw/cdsclient-3.83.tar.gz"
-  sha256 "0c348b5bfb5b5853de77604d082bee1a592718f83e021fa151582a1ddfa2cfaf"
+  url "http://cdsarc.u-strasbg.fr/ftp/pub/sw/cdsclient-3.84.tar.gz"
+  sha256 "09eb633011461b9261b923e1d0db69d3591d376b447f316eb1994aaea8919700"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,11 +12,10 @@ class Cdsclient < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}"
     man.mkpath
     system "make", "install", "MANDIR=#{man}"
+    pkgshare.install bin/"abibcode.awk"
   end
 
   test do
