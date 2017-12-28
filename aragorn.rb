@@ -4,8 +4,8 @@ class Aragorn < Formula
   # doi "10.1093/nar/gkh152"
   # tag "bioinformatics
 
-  url "http://mbio-serv2.mbioekol.lu.se/ARAGORN/Downloads/aragorn1.2.36.tgz"
-  sha256 "ab06032589e45aa002f8616333568e9ab11034b3a675f922421e5f1c3e95e7b5"
+  url "http://mbio-serv2.mbioekol.lu.se/ARAGORN/Downloads/aragorn1.2.38.tgz"
+  sha256 "4b84e3397755fb22cc931c0e7b9d50eaba2a680df854d7a35db46a13cecb2126"
 
   bottle do
     cellar :any_skip_relocation
@@ -30,6 +30,6 @@ class Aragorn < Formula
       GGGGCTATAGCTCAGTTGGGAGAGCGCTGCAATCGCACTG
       CAGAGGTCGTCAGTTCGAACCTGACTAGCTCCACCA
     EOS
-    assert_match "tRNA-Ala", shell_output("aragorn -w #{testpath}/test.fa")
+    assert_match "tRNA-Ala", shell_output("#{bin}/aragorn -w #{testpath}/test.fa")
   end
 end
