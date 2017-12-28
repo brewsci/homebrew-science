@@ -1,9 +1,9 @@
 class Alglib < Formula
   desc "Cross-platform numerical analysis library"
   homepage "http://www.alglib.net"
-  url "http://www.alglib.net/translator/re/alglib-3.10.0.cpp.gpl.tgz"
-  version "3.10.0"
-  sha256 "26a6aa966da5bba01da1bebddc0acb0a8fc579f07d53a2cbcfa5dfcaf612aaeb"
+  url "http://www.alglib.net/translator/re/alglib-3.12.0.cpp.gpl.tgz"
+  version "3.12.0"
+  sha256 "8d72c36eeb8218baf580500348be4048b8392db262458211793a9e7b4809a560"
 
   bottle do
     cellar :any
@@ -12,8 +12,8 @@ class Alglib < Formula
     sha256 "f0a4fd70b961c25d781f7a2dc9c25980a53a680db5074577c6ffea6fb4665d46" => :yosemite
   end
 
-  depends_on "qt5"
   depends_on "pkg-config" => :build
+  depends_on "qt"
 
   def install
     (buildpath/"alglib.pro").write <<-EOS.undent
@@ -30,7 +30,7 @@ class Alglib < Formula
       QT      -= gui core
       LIBS    -= -lQtGui -lQtCore
       TARGET       = alglib
-      VERSION      = 3.10.0
+      VERSION      = 3.12.0
       TEMPLATE     = lib
       target.path = $$PREFIX/lib
       DEPENDPATH += .
