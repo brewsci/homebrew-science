@@ -9,6 +9,7 @@ class Dssp < Formula
     sha256 "98a4c699451b212d3122a6078bd57f70c9e55f98655752a40abfed618f23533f" => :high_sierra
     sha256 "a794e955d8d59b7c5e94f9259154e99ade3fe104b31a9eb7e98a71a39bf3ba38" => :sierra
     sha256 "01a2dd97790b3234e22a0afe5b08fb8072922749aaf1457f9c64e509e0d4c11f" => :el_capitan
+    sha256 "ed18ff082794b74f61e28152d1401642f686a7c8e961843543069c856eb6a604" => :x86_64_linux
   end
 
   depends_on "boost"
