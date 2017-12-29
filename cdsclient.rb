@@ -6,9 +6,9 @@ class Cdsclient < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "42c127f775025c68692ffff3e3b77b56902c8213ece14fd11b490d6ad51e37ee" => :el_capitan
-    sha256 "e3f68d0387bf312ec05e2a7bda8a228a6a1392777cb97550cf2196b2b452b2f8" => :yosemite
-    sha256 "6a2eb43b162d4d787bf9aa1f0d2de8fd3781f0757203d4664dee9d5cc7b37d56" => :mavericks
+    sha256 "6fca214528e4dddcb72a8e76d2886dbbb1bd768c0073ae1471dd44865d1d9a58" => :high_sierra
+    sha256 "fba50ae2e39f40de30dcdd5f42f1d32b19b7ae7a360cfb9037edfdee01f29650" => :sierra
+    sha256 "41aa43f0dbe94290c60ad47d4f6041cd4ffb0129e0ab45a43d9c1cde467213e1" => :el_capitan
   end
 
   def install
