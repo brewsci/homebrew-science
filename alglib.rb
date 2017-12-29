@@ -7,9 +7,9 @@ class Alglib < Formula
 
   bottle do
     cellar :any
-    sha256 "8e598ccbc0a92205ce55a079e9d0ff6a120675c3350ca6673aae7f5e9d9b48a3" => :sierra
-    sha256 "8e598ccbc0a92205ce55a079e9d0ff6a120675c3350ca6673aae7f5e9d9b48a3" => :el_capitan
-    sha256 "f0a4fd70b961c25d781f7a2dc9c25980a53a680db5074577c6ffea6fb4665d46" => :yosemite
+    sha256 "71b980bb805b528934cfa45edfa5b265c36e74ddef220cc0c4664490e67e891e" => :high_sierra
+    sha256 "71b980bb805b528934cfa45edfa5b265c36e74ddef220cc0c4664490e67e891e" => :sierra
+    sha256 "3a4746bded5fbefb46ba03a60e3a5eb9ccc904ca6fb9cd90fcb5ac43c76c615f" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
