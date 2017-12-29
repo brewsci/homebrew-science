@@ -9,6 +9,7 @@ class Des < Formula
     sha256 "6cb0f6aa606566fa735dda9524c900e3e51602dafa6cad01e821cabf5a3c1b7e" => :high_sierra
     sha256 "6cb0f6aa606566fa735dda9524c900e3e51602dafa6cad01e821cabf5a3c1b7e" => :sierra
     sha256 "6cb0f6aa606566fa735dda9524c900e3e51602dafa6cad01e821cabf5a3c1b7e" => :el_capitan
+    sha256 "b4c1c5e10fdc28d1a9795fd43893235df6237f69243421ba00c1d33c6438c510" => :x86_64_linux
   end
 
   depends_on :java => "1.6+"
