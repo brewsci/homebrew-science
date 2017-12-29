@@ -4,10 +4,10 @@ class Gmcloser < Formula
   sha256 "fc7d8de8e4ef67bfc00be7f4a60542ab65e6cea182ae9dc346b07da7f02140e7"
 
   bottle do
-    cellar :any
-    sha256 "68f334e3619c2c63e0c0ab0aede877bbfabb190a23a5e17d785704f14b4e4c7b" => :yosemite
-    sha256 "4a34cc424e51e845b9894258c6a69a94ccd80802573b0b404a34e40c3f10ce37" => :mavericks
-    sha256 "9802f7b2488041b06e0a18513f48264a855c4600b69b75246fe6b9b6564999b3" => :mountain_lion
+    cellar :any_skip_relocation
+    sha256 "8a3ee8e69ec9e5959fe387fc567f63aa690ae61e687dd5001ebe85d16b8c8a08" => :high_sierra
+    sha256 "8a3ee8e69ec9e5959fe387fc567f63aa690ae61e687dd5001ebe85d16b8c8a08" => :sierra
+    sha256 "28eb73d81ea789cbbd6c9f9c8c3ab5d16634982c162a6428e19f516da43800fa" => :el_capitan
   end
 
   def install
