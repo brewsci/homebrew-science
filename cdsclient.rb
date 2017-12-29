@@ -9,6 +9,7 @@ class Cdsclient < Formula
     sha256 "6fca214528e4dddcb72a8e76d2886dbbb1bd768c0073ae1471dd44865d1d9a58" => :high_sierra
     sha256 "fba50ae2e39f40de30dcdd5f42f1d32b19b7ae7a360cfb9037edfdee01f29650" => :sierra
     sha256 "41aa43f0dbe94290c60ad47d4f6041cd4ffb0129e0ab45a43d9c1cde467213e1" => :el_capitan
+    sha256 "e657d3ed93174b22f63bf0b4b89bc265f7fa83cdddaef5c29b8fbbba2faca2f4" => :x86_64_linux
   end
 
   def install
