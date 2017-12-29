@@ -7,11 +7,10 @@ class Fasta < Formula
   sha256 "e235458afd16591bbcd5b89b639497e20346841091440a2445593318510a2262"
 
   bottle do
-    cellar :any
-    sha256 "3fb1552fa6887d73ceaab44f6632697c5a4130bd29b3826236f34fd1aa5f4f6f" => :yosemite
-    sha256 "887a5ed9bf87b815098738f680717741b55b544b68d7fcced77653a166b61b74" => :mavericks
-    sha256 "6b237170e06c877f6ccd486104b7f8505b927b9ab8d62e7193ff778e96ace18e" => :mountain_lion
-    sha256 "cbf9e27307f4a0f88f5f7557b326039495c20b3e692c7a3ee4d605ea77f78f52" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "6cba2aee49586bdeb6121e2fe933329b938d927b823bbca4dd58ce45e7c2b379" => :high_sierra
+    sha256 "a892fdacc1b440df741f6790de590430dac7a2444c04c49e9d9104b29ddf2a40" => :sierra
+    sha256 "3e0a3877f9e711fc6ad856df2f94ed209e4d9732dec982ac02a169c6b46bf6d3" => :el_capitan
   end
 
   depends_on "zlib" unless OS.mac?
