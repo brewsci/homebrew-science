@@ -10,6 +10,7 @@ class Mlpack < Formula
     sha256 "e9d8e97e3df78d48ccfff553fa46cfc6d61204133ce8bf86ead2022d43716ac4" => :high_sierra
     sha256 "dee66abdc8257caba52d37b69bd2e5514d9a697841182553cc309424913e7739" => :sierra
     sha256 "0bba3b4d17b38c2ca882b7f09fa694095674ef27853ffb140fc514cd143512e9" => :el_capitan
+    sha256 "8a435c0e52162b282cb23bfb0b5f62fecbba5bc0bc2b87f1c5b89a11617af8be" => :x86_64_linux
   end
 
   option "with-debug", "Compile with debug options"
