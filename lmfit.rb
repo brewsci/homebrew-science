@@ -1,8 +1,8 @@
 class Lmfit < Formula
   desc "Levenberg-Marquardt least-squares minimization and curve fitting."
   homepage "http://apps.jcns.fz-juelich.de/doku/sc/lmfit"
-  url "http://apps.jcns.fz-juelich.de/src/lmfit/lmfit-6.1.tgz"
-  sha256 "54366788400e3b1eb47cff44c9dae9906da079400cec2df2fb0b865c9e04c6a0"
+  url "http://apps.jcns.fz-juelich.de/src/lmfit/lmfit-6.4.tgz"
+  sha256 "a667572ebd0d7474451a1bdde69e76f0965ddb3b4f0640585e6f5d65cb8554c2"
 
   bottle do
     cellar :any
