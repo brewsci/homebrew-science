@@ -6,10 +6,9 @@ class Lmfit < Formula
 
   bottle do
     cellar :any
-    sha256 "454e223c39a4a049c9001584137077147f85d12a3657c10d6888b4db8415106d" => :sierra
-    sha256 "4998c7cfa91014494c02dc1601c11951348b999269d6fed9cd1a4cc50283608e" => :el_capitan
-    sha256 "85cd1061ef09f90b819f611d4b1e86a81f04e88e49f9c67e674cf47b171c484c" => :yosemite
-    sha256 "9fbd898fc70d99e318676e1d32f0802f522019453bb6cea594353df604345e97" => :x86_64_linux
+    sha256 "bbd8fe5551040242d4520c43760f5425905b9cdd2a684002a204dc9ef377a481" => :high_sierra
+    sha256 "5f77f709999d25f8e3ee4b1d610890ffe818e0888a7fef02b9de914210aa75e8" => :sierra
+    sha256 "581ff0bf574fa30729fcd1da007d004e7c26af2ce0f014db46d99de984c4257a" => :el_capitan
   end
 
   def install
