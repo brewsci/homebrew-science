@@ -8,10 +8,9 @@ class KentTools < Formula
 
   bottle do
     cellar :any
-    sha256 "0182493728c26b8c04e5a1ac784d92fb8550f6f5f88288e1c2436f580f4fe180" => :sierra
-    sha256 "a99b9cd252b872d9ae85652bbb7f9fea0e219982b31b03b8038f1e1fa5403302" => :el_capitan
-    sha256 "6d2f37da7f672f4d8a33bb3d05a1c3080b7133ed104a7143f07a5128fa53241b" => :yosemite
-    sha256 "fa7ab977faaeb9d1555c5aba8c29359729953238f9d3999fc766e7d6ee3794a0" => :x86_64_linux
+    sha256 "04b38d218eb87829f33baae42d453b872aa2de986a330754445b2fc12d60fb93" => :high_sierra
+    sha256 "2b2faf1a428b99541c20dc4136c8ea6d6f4832607364478e537c278baeb4f676" => :sierra
+    sha256 "6bf095413b6aa2de56551c51a81273ced85efae0b59905492fccdbc08e7d2b8c" => :el_capitan
   end
 
   depends_on "mysql"
