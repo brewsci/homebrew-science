@@ -12,6 +12,7 @@ class Last < Formula
     sha256 "74d5bd73e6caa407045bd965ce269d38af02de252cb734862e5e3175c6223930" => :high_sierra
     sha256 "473b6c50184bdc10e12d789706dd72081305330075278034524fa96e262531b2" => :sierra
     sha256 "1599151f147caa774395b2bdb310a5db82b960853a8a90b2427f010f74988f5c" => :el_capitan
+    sha256 "52073658f8f52b9b35d6d1a498230417f6abd418b6d3c1f1a2e4681fae2a831b" => :x86_64_linux
   end
 
   depends_on "zlib" unless OS.mac?
