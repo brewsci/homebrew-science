@@ -1,7 +1,7 @@
 class Gmcloser < Formula
   homepage "https://sourceforge.net/projects/gmcloser/"
-  url "https://downloads.sourceforge.net/project/gmcloser/GMcloser-1.5.1.tar.gz"
-  sha256 "5f25d428a2530f2faa4af1858f9725945e95e6ebb55e43a0cfb4545b01508d0c"
+  url "https://downloads.sourceforge.net/project/gmcloser/GMcloser-1.6.tar.gz"
+  sha256 "fc7d8de8e4ef67bfc00be7f4a60542ab65e6cea182ae9dc346b07da7f02140e7"
 
   bottle do
     cellar :any
@@ -11,7 +11,7 @@ class Gmcloser < Formula
   end
 
   def install
-    doc.install "Manual_GMcloser_1.5.pdf"
+    doc.install "Manual_GMcloser.pdf"
     libexec.install Dir["*"]
     (bin/"gmcloser").write <<-EOS.undent
       #!/bin/sh
