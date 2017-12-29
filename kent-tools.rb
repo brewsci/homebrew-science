@@ -1,8 +1,8 @@
 class KentTools < Formula
   desc "Utilities for the UCSC Genome Browser"
   homepage "https://genome.ucsc.edu/"
-  url "http://hgdownload.soe.ucsc.edu/admin/exe/userApps.v353.src.tgz"
-  sha256 "f3e7609069b195ef5219e39e0181ced1988f8d3843579d36549fc47e808b27a1"
+  url "http://hgdownload.soe.ucsc.edu/admin/exe/userApps.v358.src.tgz"
+  sha256 "d888abbf83f2b2c7c58b96556360ea1728518aa85d83e5724d94c2132e1dee9f"
   head "git://genome-source.cse.ucsc.edu/kent.git"
   # tag "bioinformatics"
 
@@ -14,7 +14,7 @@ class KentTools < Formula
     sha256 "fa7ab977faaeb9d1555c5aba8c29359729953238f9d3999fc766e7d6ee3794a0" => :x86_64_linux
   end
 
-  depends_on :mysql
+  depends_on "mysql"
   depends_on "libpng"
   depends_on "openssl"
   depends_on "util-linux" unless OS.mac?
