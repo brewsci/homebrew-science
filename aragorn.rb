@@ -12,6 +12,7 @@ class Aragorn < Formula
     sha256 "45b1f0c63b4ffc0c564ece26c839259bf723b69c7dbe621ce2d4fe1131a1666c" => :high_sierra
     sha256 "64bf898f9262a25fe4a7b28e5e542b1a2927ec3a884851d2623b61742eaf4a16" => :sierra
     sha256 "d59bd3eaf61234b4b584a6f53754f8e7f2f704c6a9c6218dcd23034b34105ef6" => :el_capitan
+    sha256 "8db65b56fa5f2a708ef7ad585c396e36a892d4bb9cdd3ee56a4fdde188c14415" => :x86_64_linux
   end
 
   def install
