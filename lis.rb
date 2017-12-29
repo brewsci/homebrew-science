@@ -1,11 +1,8 @@
 class Lis < Formula
   desc "Library of Iterative Solvers for Linear Systems"
   homepage "http://www.ssisc.org/lis"
-  url "http://www.ssisc.org/lis/dl/lis-1.4.34.tar.gz"
-  sha256 "e25fb5ef0c52fa0c66efab626da7d1a4b4082776173ffce632a034ab73a4d292"
-  revision 5
-
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
+  url "http://www.ssisc.org/lis/dl/lis-2.0.6.zip"
+  sha256 "b9b17242c8dc0c7ef60a1e8053aedd5f7a04cc534634b0ae08551a0d59639ef9"
 
   option "without-test", "Skip build-time tests (not recommended)"
   option "with-saamg",    "build SA-AMG preconditioner"
