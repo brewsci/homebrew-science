@@ -1,13 +1,9 @@
 class Moab < Formula
   desc "Mesh-Oriented datABase for evaluating mesh data"
   homepage "https://press3.mcs.anl.gov/sigma/moab-library/"
-  url "http://ftp.mcs.anl.gov/pub/fathom/moab-4.9.2.tar.gz"
-  sha256 "26611b8cc24f6b7df52eb4ecbd31523d61523da0524b5a2d066a7656e2e82ac5"
-  revision 6
-
+  url "http://ftp.mcs.anl.gov/pub/fathom/moab-5.0.0.tar.gz"
+  sha256 "df5d5eb8c0d0dbb046de2e60aa611f276cbf007c9226c44a24ed19c570244e64"
   head "https://bitbucket.org/fathomteam/moab.git"
-
-  bottle :disable, "needs to be rebuilt with latest netcdf"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -15,6 +11,7 @@ class Moab < Formula
   depends_on "netcdf"
   depends_on "hdf5"
   depends_on :fortran
+  depends_on "openblas" unless OS.mac?
 
   def install
     args = [
@@ -32,11 +29,6 @@ class Moab < Formula
     system "./configure", *args
     system "make", "install"
     system "make", "check"
-
-    cd lib do
-      # Move non-libraries out of lib
-      prefix.install %w[iMesh-Defs.inc moab.config moab.make MOABConfig.cmake]
-    end
   end
 
   test do
