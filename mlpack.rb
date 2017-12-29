@@ -2,26 +2,22 @@ class Mlpack < Formula
   desc "Scalable C++ machine learning library"
   homepage "http://www.mlpack.org"
   # doi "arXiv:1210.6293"
-  url "http://mlpack.org/files/mlpack-2.2.0.tar.gz"
-  sha256 "31c3a14d5bdf34e7fdca57e589f363461cb328b0e58922b28e1a389aa1671bc1"
-  revision 3
-
-  bottle :disable, "needs to be rebuilt with latest boost"
-
-  needs :cxx11
-  cxx11dep = MacOS.version < :mavericks ? ["c++11"] : []
-
-  deprecated_option "with-check" => "with-test"
+  url "http://mlpack.org/files/mlpack-2.2.5.tar.gz"
+  sha256 "e24e64d8451a3db23eafb7c94f9fa075dd540f5ac04953c82260a9d4d9fc4fcf"
 
   option "with-debug", "Compile with debug options"
   option "with-profile", "Compile with profile options"
   option "with-test", "Run build-time tests"
 
+  deprecated_option "with-check" => "with-test"
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :run
+  depends_on "armadillo"
+  depends_on "boost"
   depends_on "libxml2"
-  depends_on "armadillo" => ["with-hdf5"] + cxx11dep
-  depends_on "boost" => cxx11dep
+
+  needs :cxx11
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
@@ -30,8 +26,8 @@ class Mlpack < Formula
     ENV.cxx11
     dylib = OS.mac? ? "dylib" : "so"
     cmake_args = std_cmake_args
-    cmake_args << "-DDEBUG=" + ((build.with? "debug") ? "ON" : "OFF")
-    cmake_args << "-DPROFILE=" + ((build.with? "profile") ? "ON" : "OFF")
+    cmake_args << "-DDEBUG=" + (build.with?("debug") ? "ON" : "OFF")
+    cmake_args << "-DPROFILE=" + (build.with?("profile") ? "ON" : "OFF")
     cmake_args << "-DBOOST_ROOT=#{Formula["boost"].opt_prefix}"
     cmake_args << "-DARMADILLO_INCLUDE_DIR=#{Formula["armadillo"].opt_include}"
     cmake_args << "-DARMADILLO_LIBRARY=#{Formula["armadillo"].opt_lib}/libarmadillo.#{dylib}"
