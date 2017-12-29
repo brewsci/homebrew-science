@@ -8,6 +8,7 @@ class Gmcloser < Formula
     sha256 "8a3ee8e69ec9e5959fe387fc567f63aa690ae61e687dd5001ebe85d16b8c8a08" => :high_sierra
     sha256 "8a3ee8e69ec9e5959fe387fc567f63aa690ae61e687dd5001ebe85d16b8c8a08" => :sierra
     sha256 "28eb73d81ea789cbbd6c9f9c8c3ab5d16634982c162a6428e19f516da43800fa" => :el_capitan
+    sha256 "8598681e6924ccf8e4ab01681d702395ee2166e975b20bac4e6f61a623f58188" => :x86_64_linux
   end
 
   def install
