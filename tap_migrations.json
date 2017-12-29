@@ -6,6 +6,7 @@
   "bamtools": "homebrew/core",
   "bcftools": "homebrew/core",
   "beast": "homebrew/core",
+  "bedops": "homebrew/core",
   "bedtools": "homebrew/core",
   "bowtie2": "homebrew/core",
   "ceres-solver": "homebrew/core",
