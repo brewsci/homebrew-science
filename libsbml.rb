@@ -6,9 +6,9 @@ class Libsbml < Formula
 
   bottle do
     cellar :any
-    sha256 "58ddad748fc30492381a0d788d54a56cb31f89a90a0b4c87d061dcd5b7c12bf8" => :sierra
-    sha256 "d2126439d2afacb0f6329840687bb2ca4a16338b0683375e118b8ab222e26573" => :el_capitan
-    sha256 "ade741b74948b3b958f2a099244bc46454eb3b3b96af683180cc3bb907bd1a7c" => :yosemite
+    sha256 "164571619c5e873e831679632454b0ec81841488e20b31fdec53bb267cdc617a" => :high_sierra
+    sha256 "e34da5cb0002c70afb996d6cecbd3e1bb4afd98799ccbcc0b0477c5568d42e7e" => :sierra
+    sha256 "9e6b76c0ab1f0f66a518329e1e51de13f61216c0c31ab70c2335e136d9c2206e" => :el_capitan
   end
 
   LANGUAGES_OPTIONAL = {
