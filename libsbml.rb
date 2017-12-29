@@ -1,8 +1,8 @@
 class Libsbml < Formula
   desc "Systems Biology Markup Language (SBML)"
   homepage "http://sbml.org/Software/libSBML"
-  url "https://downloads.sourceforge.net/project/sbml/libsbml/5.15.0/stable/libSBML-5.15.0-core-plus-packages-src.tar.gz"
-  sha256 "c779c2a8a97c5480fe044028099d928a327261fb68cf08657ec8d4f3b3fc0a21"
+  url "https://downloads.sourceforge.net/project/sbml/libsbml/5.16.0/stable/libSBML-5.16.0-core-plus-packages-src.tar.gz"
+  sha256 "c6855481434dd2a667fef73e1ff2feade509aa2f3a76d4d06e29022975ce1496"
 
   bottle do
     cellar :any
@@ -29,6 +29,7 @@ class Libsbml < Formula
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on :python => :optional
+  depends_on "libxml2" unless OS.mac?
 
   # fix ruby's sitelib dir
   patch :DATA
@@ -37,6 +38,10 @@ class Libsbml < Formula
     mkdir "build" do
       args = std_cmake_args
       args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
+
+      unless OS.mac?
+        args << "-DLIBXML_INCLUDE_DIR=#{Formula["libxml2"].opt_include}/libxml2"
+      end
 
       if build.with? "python"
         args << "-DWITH_PYTHON=ON"
