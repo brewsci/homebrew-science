@@ -5,6 +5,13 @@ class Mlpack < Formula
   url "http://mlpack.org/files/mlpack-2.2.5.tar.gz"
   sha256 "e24e64d8451a3db23eafb7c94f9fa075dd540f5ac04953c82260a9d4d9fc4fcf"
 
+  bottle do
+    cellar :any
+    sha256 "e9d8e97e3df78d48ccfff553fa46cfc6d61204133ce8bf86ead2022d43716ac4" => :high_sierra
+    sha256 "dee66abdc8257caba52d37b69bd2e5514d9a697841182553cc309424913e7739" => :sierra
+    sha256 "0bba3b4d17b38c2ca882b7f09fa694095674ef27853ffb140fc514cd143512e9" => :el_capitan
+  end
+
   option "with-debug", "Compile with debug options"
   option "with-profile", "Compile with profile options"
   option "with-test", "Run build-time tests"
