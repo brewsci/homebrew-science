@@ -1,8 +1,8 @@
 class Gnuastro < Formula
   desc "Programs and libs for manipulation and analysis of astronomical data"
   homepage "https://www.gnu.org/software/gnuastro/index.html"
-  url "https://ftp.gnu.org/gnu/gnuastro/gnuastro-0.4.tar.gz"
-  sha256 "3ac37879efcb14256b40d1d93eaad014cc056ecff62c30606131a137c9ff60d8"
+  url "https://ftp.gnu.org/gnu/gnuastro/gnuastro-0.5.tar.gz"
+  sha256 "19e385b2ae17395937c855c269028aedc39ba4daf9be86d790100c977dff9d82"
 
   bottle do
     sha256 "79bb41747e566d0304acfa5a68903631860688ed2d2efb524a1a85f94d9e6738" => :high_sierra
@@ -19,7 +19,6 @@ class Gnuastro < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--enable-bin-op-alltypes",
                           "--prefix=#{prefix}"
     system "make"
     system "make", "check"
