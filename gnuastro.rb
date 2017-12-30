@@ -8,6 +8,7 @@ class Gnuastro < Formula
     sha256 "1bde26a005920b142fc665dbe056da4259a15d53694a0862b13257deb93468d1" => :high_sierra
     sha256 "e0fd88658cc25b0c82e93b85fbac8a2c38a291333cfc533d75946879b1ebeebf" => :sierra
     sha256 "446e651c43b315d2cb7728f4ebb2db6d2f9fd7500b7668bbe8bc733160225771" => :el_capitan
+    sha256 "21871c4e3f038e393fac35404f19dd794f8de55bf585d40e978d9660038b0f7c" => :x86_64_linux
   end
 
   depends_on "cfitsio"
