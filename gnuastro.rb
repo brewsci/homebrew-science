@@ -5,10 +5,9 @@ class Gnuastro < Formula
   sha256 "19e385b2ae17395937c855c269028aedc39ba4daf9be86d790100c977dff9d82"
 
   bottle do
-    sha256 "79bb41747e566d0304acfa5a68903631860688ed2d2efb524a1a85f94d9e6738" => :high_sierra
-    sha256 "95ddda94b32f8ace966e928dd83700267db2dacc90e549566aced945122c863d" => :sierra
-    sha256 "9a14e64d1ebf72a1555fc5e403571144c8e1b0c1918d01794f667af28e983dcc" => :el_capitan
-    sha256 "48b30ee9ccc4335a69ac5fcfec5959ea22162999538405923b3cf6d3131a83fd" => :x86_64_linux
+    sha256 "1bde26a005920b142fc665dbe056da4259a15d53694a0862b13257deb93468d1" => :high_sierra
+    sha256 "e0fd88658cc25b0c82e93b85fbac8a2c38a291333cfc533d75946879b1ebeebf" => :sierra
+    sha256 "446e651c43b315d2cb7728f4ebb2db6d2f9fd7500b7668bbe8bc733160225771" => :el_capitan
   end
 
   depends_on "cfitsio"
