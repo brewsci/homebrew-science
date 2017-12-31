@@ -36,6 +36,7 @@
   "hypre": "homebrew/core",
   "igraph": "homebrew/core",
   "igv": "homebrew/core",
+  "kallisto": "homebrew/core",
   "lammps": "homebrew/core",
   "libmatio": "homebrew/core",
   "maxima": "homebrew/core",
