@@ -1,8 +1,8 @@
 class Soplex < Formula
   desc "The Sequential object-oriented simPlex"
   homepage "http://soplex.zib.de"
-  url "http://soplex.zib.de/download/release/soplex-2.2.1.tgz"
-  sha256 "c2fffca4095c56f7261820dc2bcc2a31a6a6ff91446a9da083814a913a2a086f"
+  url "http://soplex.zib.de/download/release/soplex-3.1.0.tgz"
+  sha256 "577d5719bc4c10d4b2e43222b4173fa830a050cb0ce2addd92ad5683c9fed276"
 
   bottle do
     cellar :any
@@ -42,7 +42,7 @@ class Soplex < Formula
 
   test do
     libs = ["-lsoplex", "-lz", "-lgmp"]
-    system ENV["CXX"], "#{pkgshare}/example.cpp", "-oexample", *libs
+    system ENV.cxx, "-std=c++11", "#{pkgshare}/example.cpp", "-oexample", *libs
     system "./example"
   end
 end
