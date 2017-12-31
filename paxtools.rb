@@ -1,8 +1,8 @@
 class Paxtools < Formula
-  desc "Java library for accessing and manipulating data in BioPAX format."
+  desc "Java library for accessing and manipulating data in BioPAX format"
   homepage "http://www.biopax.org/paxtools/"
-  url "https://downloads.sourceforge.net/project/biopax/paxtools/paxtools-4.3.1.jar"
-  sha256 "a3479a09ee55f0c16d97cc6a0c423e71e0f43121757522ec63eb6aee81e0aa56"
+  url "https://downloads.sourceforge.net/project/biopax/paxtools/paxtools-5.0.1.jar"
+  sha256 "da189a2232719b34276f91f4422572ed8754350a8afdfec3378572cc76b27e40"
 
   depends_on :java => "1.6"
 
