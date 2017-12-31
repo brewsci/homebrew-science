@@ -6,11 +6,10 @@ class Recon < Formula
   sha256 "699765fa49d18dbfac9f7a82ecd054464b468cb7521abe9c2bd8caccf08ee7d8"
 
   bottle do
-    cellar :any
-    sha256 "b3e222db9633614433c6cabd5c2ee46c78f18194421cb4e8df0820608eb90d22" => :yosemite
-    sha256 "c3d875ca2a2715e03be0cb439d3848c6bc5fb19e80bec51ea2d296bbdcf03d27" => :mavericks
-    sha256 "5b1e6e98ae5a2b9dc18ca9d7a1de74db21fe1b7918498e12019e7a3e72ff12d1" => :mountain_lion
-    sha256 "d07b99e6c7f1ae0b4f6d461ce4386afb3e9ad6ef8436abc743c768943d532c5e" => :x86_64_linux
+    cellar :any_skip_relocation
+    sha256 "cd1fe441ff386d786943598239ec0dd39a3806f156f469b30e4039314f42abab" => :high_sierra
+    sha256 "9d28e681fdc14d5f10906a20e55c04d93384b6d73975ab06157d42c2a578f2ac" => :sierra
+    sha256 "7a99aac95cb168f1fa13db23186fea687750d488cde5d869b98403d10b516248" => :el_capitan
   end
 
   def install
