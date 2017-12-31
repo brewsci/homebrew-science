@@ -1,9 +1,8 @@
 class Sumo < Formula
   desc "Simulation of Urban Mobility"
   homepage "https://sourceforge.net/projects/sumo/"
-  url "https://downloads.sourceforge.net/project/sumo/sumo/version%200.30.0/sumo-src-0.30.0.tar.gz"
-  sha256 "2f0825507d756979658061847f47c5d91ec2e5c07e7ebd8839a31ab08ecde742"
-  revision 1
+  url "https://downloads.sourceforge.net/project/sumo/sumo/version%200.32.0/sumo-src-0.32.0.tar.gz"
+  sha256 "00753ca57a9911f0c99202505a6b05b1777168134842d7924fd827766642608a"
 
   bottle do
     cellar :any
@@ -35,8 +34,8 @@ class Sumo < Formula
   end
 
   resource "TextTest" do
-    url "https://pypi.python.org/packages/source/T/TextTest/TextTest-3.28.2.zip"
-    sha256 "2343b59425da2f24e3f9bea896e212e4caa370786c0a71312a4d9bd90ce1033b"
+    url "https://files.pythonhosted.org/packages/bc/c7/8000004c9c44bbad1cf5c1dbc7b240dec374aae0ebb4be922dba8113d2b9/TextTest-3.29.zip"
+    sha256 "0d4052fabadfc87338d6f720fd654878bed396cc6c17fe516965a29502259e92"
   end
 
   def install
