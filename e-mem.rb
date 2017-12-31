@@ -1,9 +1,8 @@
 class EMem < Formula
   desc "Efficiently compute MEMs between large genomes"
   homepage "https://www.csd.uwo.ca/~ilie/E-MEM/"
-  url "https://www.csd.uwo.ca/~ilie/E-MEM/e-mem.zip"
-  version "1.0.0"
-  sha256 "dccf8f3fdd397a7ff370593e2efe9fe060d194cf1b279d835502f9008ca34632"
+  url "https://github.com/lucian-ilie/E-MEM/archive/v1.0.1.tar.gz"
+  sha256 "70a5a1e8b4e190d117b8629fff3493a4762708c8c0fe9eae84da918136ceafea"
   # doi "10.1093/bioinformatics/btu687"
   # tag "bioinformatics"
 
@@ -19,11 +18,9 @@ class EMem < Formula
   depends_on "boost" => :build
 
   def install
-    cd "e-mem_2"
-    system "make"
-    bin.install "e-mem"
-    prefix.install_metafiles
-    prefix.install "example"
+    bin.mkpath
+    system "make", "BIN_DIR=#{bin}"
+    pkgshare.install "example"
   end
 
   test do
