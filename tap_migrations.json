@@ -21,6 +21,7 @@
   "diamond": "homebrew/core",
   "dlib": "homebrew/core",
   "fastqc": "homebrew/core",
+  "field3d": "homebrew/core",
   "flann": "homebrew/core",
   "gdcm": "homebrew/core",
   "genometools": "homebrew/core",
