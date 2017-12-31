@@ -6,9 +6,9 @@ class Wcstools < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e62507e22777515b183a1e9e311427033ac97d2db08b0f1c09937907f95bf4f4" => :el_capitan
-    sha256 "70caab977d57e6b999a4242d381d1c1619b7ef2bde5da1317bc5f8672d322651" => :yosemite
-    sha256 "f731758ecfb3fdf169be64b1db0c05ff16bb727aed01b76a6bdc20d2cb523890" => :mavericks
+    sha256 "b0b7badef0e5ca704231f4e02ac72c4a4b26e165c40a48516ebd6e745eb17b13" => :high_sierra
+    sha256 "e2dec9afd018c2cfa774d4a7f948160ecd51560a310a8b60b940e43db8f388ae" => :sierra
+    sha256 "981435e5ae21235f080c7a5bdf750d51e4be3b0090ac2b2ebbd62bc5371a552b" => :el_capitan
   end
 
   def install
