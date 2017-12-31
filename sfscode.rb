@@ -6,10 +6,9 @@ class Sfscode < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "65355ebf143d5ae2b9c7ca01bf830b451ce2348ecfb18af8d1f5beed96148f83" => :el_capitan
-    sha256 "20c6de798168eb20dbadd36c133cb2c7d1f9f0834e577db37404d4924856dd42" => :yosemite
-    sha256 "8bb471709ea95a2285c985a975e6500f56700b28e8e4dd3376098be12bc4cd5f" => :mavericks
+    sha256 "4e44262e9ab34e4dc1b5d1892afee52b372605734c81d44b79c42946fbe6e54a" => :high_sierra
+    sha256 "35bfa0e2fe611812febcb8059d6fe0a3dba64e3f28a1340621ea7bebbbea4973" => :sierra
+    sha256 "99c13636f500c799eeda98cf7d5fe70a46030d7f211c94da8c9e8f13dbac0a10" => :el_capitan
   end
 
   def install
