@@ -9,6 +9,7 @@
   "bedops": "homebrew/core",
   "bedtools": "homebrew/core",
   "bowtie2": "homebrew/core",
+  "bwa": "homebrew/core",
   "ceres-solver": "homebrew/core",
   "cfitsio": "homebrew/core",
   "clblas": "homebrew/core",
