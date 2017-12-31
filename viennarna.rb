@@ -12,6 +12,7 @@ class Viennarna < Formula
     sha256 "602401ba751afaa76dd94b27e66efb678735861463fddf9d99a531c3a45d779b" => :high_sierra
     sha256 "dc9f1dff1b0ed8964681f72f70493e987567627fae1252a24d831882c5562213" => :sierra
     sha256 "1b39e431dd9a4e300cef10258d3c8bb97c77d909a2e2d096e5a9762c3113a5f4" => :el_capitan
+    sha256 "f673b0e84bbea0be9fb8ccfc6eb32fa47638c2954a2a7cb5065fbdfc23cbdcc8" => :x86_64_linux
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
