@@ -4,8 +4,8 @@ class Stacks < Formula
   # doi "10.1111/mec.12354"
   # tag "bioinformatics
 
-  url "http://catchenlab.life.illinois.edu/stacks/source/stacks-1.46.tar.gz"
-  sha256 "45a0725483dc0c0856ad6b1f918e65d91c1f0fe7d8bf209f76b93f85c29ea28a"
+  url "http://catchenlab.life.illinois.edu/stacks/source/stacks-1.48.tar.gz"
+  sha256 "e9f6251f5f609f9dd0bb1de17a51f69ce1a9af531548c4d2456a89783b1dcd1e"
   bottle do
     cellar :any_skip_relocation
     sha256 "0cf5db2f8aa026d172d3b15dc219febab62361b5257890be02be6b5d216545a8" => :sierra
@@ -51,7 +51,7 @@ class Stacks < Formula
   end
 
   test do
-    system "#{bin}/ustacks", "--version"
+    assert_match version.to_s, shell_output("#{bin}/ustacks --version 2>&1", 1)
   end
 end
 
