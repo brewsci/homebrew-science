@@ -8,10 +8,9 @@ class EMem < Formula
 
   bottle do
     cellar :any
-    sha256 "b67ed6d5687530d9e86570e6e65164a3358ffe785771a10caad77627444f1d1f" => :sierra
-    sha256 "fbd2e31ea4b9b8679fdde1c9ed5936fa3f17f3840270184db11f49979f4bed0f" => :el_capitan
-    sha256 "95f69f5b0fd8b4f0fe0e437d4ee985c8a4bdc1bc8b0ed793cdbe5519db863066" => :yosemite
-    sha256 "531f0d557ac8c858906639812dbbf1c53ba813a78cbc964686f5941d78ca3737" => :x86_64_linux
+    sha256 "39a2643a1cf154afbd6c170ab3d086caca3128dc71b65c7edbfd99fe8a08214a" => :high_sierra
+    sha256 "f491c76bbbc316320e11f7321f5640e44a4ef089c1caf6e7e53e013cf428ff6d" => :sierra
+    sha256 "d703dfcd20a6667d7dada62734ce3c88630337a64f3c2e6d470e29f579da1c01" => :el_capitan
   end
 
   needs :openmp
