@@ -1,8 +1,8 @@
 class Sfscode < Formula
   desc "Population genetics simulator"
   homepage "https://sfscode.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/sfscode/sfscode/sfscode_20140719/sfscode_20140719.tgz"
-  sha256 "1f69ed96e20f1453df2882ce78171b49cb3378b25538a3cacd18db00e07c979a"
+  url "https://downloads.sourceforge.net/project/sfscode/sfscode/sfscode_20150910/sfscode_20150910.tgz"
+  sha256 "fee60d244bb0d756770a1e26e25683bc84aad13695ddfb3eab5d8f0c33312e7d"
 
   bottle do
     cellar :any_skip_relocation
