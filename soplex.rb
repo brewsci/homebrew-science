@@ -6,9 +6,9 @@ class Soplex < Formula
 
   bottle do
     cellar :any
-    sha256 "41d33e7eb2e439d46876b992c58588b46a15dab29c84dbc2e09d8f6d0173fae6" => :sierra
-    sha256 "1babfb72fc28968f150f346011b2fca9df0a534e4cc32b9b7d0914002e99abf7" => :el_capitan
-    sha256 "e5948d3b0653c07e528423792f2133ea5046676d7eb12c8ed8f042e5c9a18db4" => :yosemite
+    sha256 "c922367d9709352c5c4d7fb119f24c0ef868189b7e0193b005bf3ba06a40ba19" => :high_sierra
+    sha256 "a06a6662c8cd61c49b27437ec927eeeccd7ab23c53382ab9581c22fee3d45c9d" => :sierra
+    sha256 "d6b36d1c9bd64cb7a7099632f6832a646d03db06acce2081dbd3e02786879c98" => :el_capitan
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
