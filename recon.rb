@@ -2,8 +2,8 @@ class Recon < Formula
   homepage "http://www.repeatmasker.org/RepeatModeler.html"
   # doi "10.1101/gr.88502"
   # tag "bioinformatics"
-  url "http://www.repeatmasker.org/RECON-1.07.tar.gz"
-  sha256 "98821e6a8b196d7039fa3f14e4e8f67ef0925c31dc05007f4de9248a138dcb4b"
+  url "http://www.repeatmasker.org/RepeatModeler/RECON-1.08.tar.gz"
+  sha256 "699765fa49d18dbfac9f7a82ecd054464b468cb7521abe9c2bd8caccf08ee7d8"
 
   bottle do
     cellar :any
