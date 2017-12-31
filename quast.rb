@@ -11,6 +11,7 @@ class Quast < Formula
     sha256 "b92333c9a18282bd3f9101493f5551e70a943d1674663731c27cc7d675274962" => :high_sierra
     sha256 "70fdf8ca6c98696ea88abe6dd776ea553b880e4c4bdb69f0c7d3bfdb0a758f8a" => :sierra
     sha256 "0716a92532645e720c75be385ce0989137e2b136dc23a7417eb459f8037dbec7" => :el_capitan
+    sha256 "bbd22abb6a20e42b2d9a3889649f5996f9cc0dd32d6c53266762924d4c12d83c" => :x86_64_linux
   end
 
   depends_on "matplotlib"
