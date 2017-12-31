@@ -10,6 +10,7 @@ class Recon < Formula
     sha256 "cd1fe441ff386d786943598239ec0dd39a3806f156f469b30e4039314f42abab" => :high_sierra
     sha256 "9d28e681fdc14d5f10906a20e55c04d93384b6d73975ab06157d42c2a578f2ac" => :sierra
     sha256 "7a99aac95cb168f1fa13db23186fea687750d488cde5d869b98403d10b516248" => :el_capitan
+    sha256 "5be204c75319325a55dab73a9f63b495ec406afe646c03149b7c3ead9f9dd3d3" => :x86_64_linux
   end
 
   def install
