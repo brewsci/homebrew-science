@@ -4,8 +4,8 @@ class Viennarna < Formula
   # tag "bioinformatics"
   # doi "10.1186/1748-7188-6-26"
 
-  url "https://www.tbi.univie.ac.at/RNA/packages/source/ViennaRNA-2.3.3.tar.gz"
-  sha256 "cf92c05e54dff32c2135433b6ebaa5330c05de02a1ae8b7c3b7a865d42eea514"
+  url "https://www.tbi.univie.ac.at/RNA/packages/source/ViennaRNA-2.4.3.tar.gz"
+  sha256 "4cda6e22029b34bb9f5375181562f69e4a780a89ead50fe952891835e9933ac0"
 
   bottle do
     cellar :any_skip_relocation
