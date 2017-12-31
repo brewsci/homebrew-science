@@ -46,6 +46,7 @@
   "nlopt": "homebrew/core",
   "octave": "homebrew/core",
   "openblas": "homebrew/core",
+  "opencascade": "homebrew/core",
   "opencv3": "homebrew/core",
   "packmol": "homebrew/core",
   "pcb": "homebrew/core",
