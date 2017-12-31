@@ -11,6 +11,7 @@ class EMem < Formula
     sha256 "39a2643a1cf154afbd6c170ab3d086caca3128dc71b65c7edbfd99fe8a08214a" => :high_sierra
     sha256 "f491c76bbbc316320e11f7321f5640e44a4ef089c1caf6e7e53e013cf428ff6d" => :sierra
     sha256 "d703dfcd20a6667d7dada62734ce3c88630337a64f3c2e6d470e29f579da1c01" => :el_capitan
+    sha256 "584a65212d0555912b150574310a846e7a546d93695dcd2592301998ed5f76fa" => :x86_64_linux
   end
 
   needs :openmp
