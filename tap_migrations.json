@@ -72,6 +72,7 @@
   "superlu": "homebrew/core",
   "tensorflow": "homebrew/core",
   "transfig": "homebrew/core",
+  "vcftools": "homebrew/core",
   "veclibfort": "homebrew/core",
   "vips": "homebrew/core",
   "voro++": "homebrew/core",
