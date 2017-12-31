@@ -9,6 +9,7 @@ class Wcstools < Formula
     sha256 "b0b7badef0e5ca704231f4e02ac72c4a4b26e165c40a48516ebd6e745eb17b13" => :high_sierra
     sha256 "e2dec9afd018c2cfa774d4a7f948160ecd51560a310a8b60b940e43db8f388ae" => :sierra
     sha256 "981435e5ae21235f080c7a5bdf750d51e4be3b0090ac2b2ebbd62bc5371a552b" => :el_capitan
+    sha256 "a4aaf0b6b8deed563fe758a28f476f130f77c9739ff0e5beeeffdf43e87c1424" => :x86_64_linux
   end
 
   def install
