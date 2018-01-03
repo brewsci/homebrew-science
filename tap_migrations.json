@@ -52,6 +52,7 @@
   "openblas": "homebrew/core",
   "opencascade": "homebrew/core",
   "opencv3": "homebrew/core",
+  "orocos-kdl": "homebrew/core",
   "packmol": "homebrew/core",
   "pcb": "homebrew/core",
   "pcl": "homebrew/core",
