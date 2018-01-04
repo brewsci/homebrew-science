@@ -77,6 +77,7 @@
   "vcftools": "homebrew/core",
   "veclibfort": "homebrew/core",
   "vips": "homebrew/core",
+  "visp": "homebrew/core",
   "voro++": "homebrew/core",
   "vtk": "homebrew/core",
   "wxmaxima": "homebrew/core"
