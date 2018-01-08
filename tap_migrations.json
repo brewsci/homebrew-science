@@ -68,6 +68,7 @@
   "samtools": "homebrew/core",
   "scalapack": "homebrew/core",
   "seqtk": "homebrew/core",
+  "sickle": "homebrew/core",
   "spades": "homebrew/core",
   "sratoolkit": "homebrew/core",
   "suite-sparse": "homebrew/core",
