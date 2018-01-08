@@ -8,6 +8,7 @@
   "beast": "homebrew/core",
   "bedops": "homebrew/core",
   "bedtools": "homebrew/core",
+  "bioawk": "homebrew/core",
   "blast": "homebrew/core",
   "bowtie2": "homebrew/core",
   "bwa": "homebrew/core",
