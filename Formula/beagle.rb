@@ -1,4 +1,4 @@
-require File.expand_path("../Requirements/cuda_requirement", __FILE__)
+require File.expand_path("../../Requirements/cuda_requirement", __FILE__)
 
 class Beagle < Formula
   desc "Evaluate the likelihood of sequence evolution on trees"

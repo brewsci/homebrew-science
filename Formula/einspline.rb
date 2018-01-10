@@ -1,4 +1,4 @@
-require File.expand_path("../Requirements/cuda_requirement", __FILE__)
+require File.expand_path("../../Requirements/cuda_requirement", __FILE__)
 
 class Einspline < Formula
   desc "C library for cubic B-splines in 1, 2 and 3D"
