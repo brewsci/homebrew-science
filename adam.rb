@@ -1,8 +1,8 @@
 class Adam < Formula
   desc "Genomics analysis platform built on Apache Avro, Apache Spark and Parquet"
   homepage "https://github.com/bigdatagenomics/adam"
-  url "https://search.maven.org/remotecontent?filepath=org/bdgenomics/adam/adam-distribution-spark2_2.11/0.22.0/adam-distribution-spark2_2.11-0.22.0-bin.tar.gz"
-  sha256 "31624954eb473f2ec24354af7e6303a47887cf2ca4076bb71f54618aef59e15b"
+  url "https://search.maven.org/remotecontent?filepath=org/bdgenomics/adam/adam-distribution-spark2_2.11/0.23.0/adam-distribution-spark2_2.11-0.23.0-bin.tar.gz"
+  sha256 "08e43ab689977787635b1c92b056b387e3d19fd2ae173fbaf5cf3a7c948188a5"
   # tag "bioinformatics"
 
   bottle do
@@ -26,8 +26,6 @@ class Adam < Formula
 
   def install
     if build.head?
-      system "scripts/move_to_scala_2.11.sh"
-      system "scripts/move_to_spark_2.sh"
       system "mvn", "clean", "package",
                     "-DskipTests=" + (build.with?("test") ? "False" : "True")
     end
