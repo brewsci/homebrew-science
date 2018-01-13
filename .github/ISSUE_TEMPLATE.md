@@ -1,25 +1,5 @@
-### Indicate troubleshooting steps taken
+This tap is archived. Please consider opening a pull request to migrate this formula to Homebrew/core or a different tap within the [Brewsci organization](https://github.com/brewsci). Please open an issue if you are interested in creating and maintaining a new tap within the Brewsci organization.
 
-- [ ] Ran `brew update` and retried your prior step?
-- [ ] Ran `brew doctor`, fixed as many issues as possible and retried your prior step?
-- [ ] Checked that a similar issue hasn't already been filed?
-- [ ] Looked up the software bug tracker if reporting a build error?
-- [ ] If you're seeing permission errors tried running `sudo chown -R $(whoami) $(brew --prefix)`?
+# Hosting Your Own Tap
 
-### Bug reports / build errors:
-
-#### Brief summary of issue:
-
-#### The complete command that you issued:
-
-#### Gist with output of `brew doctor`:
-
-#### Link output by `brew gist-logs <formula>`:
-
-#### Output of `brew config`:
-
-### Formula Requests:
-
-**The quickest way to get a new formula into Homebrew is to file a [Pull Request](https://github.com/Homebrew/homebrew-science/pulls)**.
-
-We will consider your request but it may be closed if it's something we're not actively planning to work on.
+Anyone can host their own tap. See [Interesting Taps & Forks](https://docs.brew.sh/Interesting-Taps-and-Forks.html) and [How to Create and Maintain a Tap](https://docs.brew.sh/How-to-Create-and-Maintain-a-Tap.html)
