@@ -1,8 +1,8 @@
-# Brewsci/science (archived)
+# Brewsci/science (legacy)
 
 This tap provided scientific formulae for both the Homebrew and Linuxbrew package managers.
 
-This tap is archived. We are not accepting new pull requests, except to migrate a formula to [Homebrew/core](https://github.com/Homebrew/homebrew-core), [Brewsci/bio](https://github.com/brewsci/homebrew-bio), or a different tap within the [Brewsci organization](https://github.com/brewsci). Please open an issue if you are interested in creating and maintaining a new tap within the Brewsci organization.
+This tap is not maintained. We are not accepting new pull requests, except to migrate a formula to [Homebrew/core](https://github.com/Homebrew/homebrew-core), [Brewsci/bio](https://github.com/brewsci/homebrew-bio), or a different tap within the [Brewsci organization](https://github.com/brewsci). Please open an issue if you are interested in creating and maintaining a new tap within the Brewsci organization.
 
 # Hosting Your Own Tap
 
