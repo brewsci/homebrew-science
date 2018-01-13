@@ -1,11 +1,15 @@
 # Brewsci/science (archived)
 
-This tap is archived. We are not accepting new pull requests, except to migrate a formula to Homebrew/core or a different tap within the [Brewsci organization](https://github.com/brewsci). Please open an issue if you are interested in creating and maintaining a new tap within the Brewsci organization.
+This tap provided scientific formulae for both the Homebrew and Linuxbrew package managers.
+
+This tap is archived. We are not accepting new pull requests, except to migrate a formula to [Homebrew/core](https://github.com/Homebrew/homebrew-core), [Brewsci/bio](https://github.com/brewsci/homebrew-bio), or a different tap within the [Brewsci organization](https://github.com/brewsci). Please open an issue if you are interested in creating and maintaining a new tap within the Brewsci organization.
+
+# Hosting Your Own Tap
+
+Anyone can host their own tap. See [Interesting Taps & Forks](https://docs.brew.sh/Interesting-Taps-and-Forks.html) and [How to Create and Maintain a Tap](https://docs.brew.sh/How-to-Create-and-Maintain-a-Tap.html)
 
 ![Brewsci logo](https://raw.githubusercontent.com/brewsci/homebrew-science/master/.github/brewsci-256x256.png)
 [![For science.](https://i.imgur.com/Bswp1.png)](https://xkcd.com/585)
-
-These formulae provide software tailored to scientific endeavours for both Linux and macOS. Need to store large amounts of data in a sparse matrix, solve a huge optimization problem or process the images from your space telescope? Maybe we can help!
 
 ## How do I install these formulae?
 
