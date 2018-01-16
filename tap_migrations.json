@@ -1,5 +1,6 @@
 {
   "abyss": "homebrew/core",
+  "adam": "brewsci/bio",
   "ampl-mp": "homebrew/core",
   "armadillo": "homebrew/core",
   "arpack": "homebrew/core",
