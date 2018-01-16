@@ -11,6 +11,7 @@
   "bioawk": "homebrew/core",
   "blast": "homebrew/core",
   "bowtie2": "homebrew/core",
+  "busco": "brewsci/bio",
   "bwa": "homebrew/core",
   "ceres-solver": "homebrew/core",
   "cfitsio": "homebrew/core",
