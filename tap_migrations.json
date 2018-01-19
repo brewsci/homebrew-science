@@ -54,6 +54,7 @@
   "netcdf": "homebrew/core",
   "nlopt": "homebrew/core",
   "octave": "homebrew/core",
+  "oma": "brewsci/bio",
   "openblas": "homebrew/core",
   "opencascade": "homebrew/core",
   "opencv3": "homebrew/core",
