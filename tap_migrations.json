@@ -3,6 +3,7 @@
   "ampl-mp": "homebrew/core",
   "armadillo": "homebrew/core",
   "arpack": "homebrew/core",
+  "augustus": "homebrew/core",
   "bamtools": "homebrew/core",
   "bcftools": "homebrew/core",
   "beast": "homebrew/core",
