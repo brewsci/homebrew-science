@@ -36,7 +36,9 @@ class MedFile < Formula
     cmake_args << "-DMEDFILE_INSTALL_DOC:BOOL=OFF"    if build.without? "docs"
 
     if build.with? "python"
-      python_prefix=`#{HOMEBREW_PREFIX}/bin/python-config --prefix`.chomp
+      python = Formula["python"]
+      python_major = python.version.to_s.split(/\./,2).first
+      python_prefix=`#{HOMEBREW_PREFIX}/bin/python#{python_major}-config --prefix`.chomp
       python_include=Dir["#{python_prefix}/include/*"].first
       python_library=Dir["#{python_prefix}/lib/libpython*" + (OS.mac? ? ".dylib" : ".so")].first
 
@@ -47,7 +49,7 @@ class MedFile < Formula
 
     mkdir "build" do
       system "cmake", "..", *cmake_args
-      system "make", "install"
+      system "make", "-j#{ENV.make_jobs}", "install"
     end
   end
 
