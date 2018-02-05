@@ -23,9 +23,9 @@ class Masurca < Formula
   depends_on "boost" => :build
   depends_on "jellyfish"
   depends_on "parallel"
-  depends_on :perl => "5.18"
   unless OS.mac?
     depends_on "bzip2"
+    depends_on "perl"
     depends_on "zlib"
   end
 
