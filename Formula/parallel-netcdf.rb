@@ -11,7 +11,7 @@ class ParallelNetcdf < Formula
   option "without-fortran", "Don't compile Fortran bindings"
   # disabled (see comment below): option "without-test", "Disable checks (not recommended)"
 
-  depends_on :mpi => [:cc, :cxx, :f90]
+  depends_on "open-mpi"
   depends_on :fortran
 
   def install

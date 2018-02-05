@@ -10,7 +10,7 @@ class DlPolyClassic < Formula
   bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   depends_on :fortran
-  depends_on :mpi => :f90
+  depends_on "open-mpi"
 
   resource "test1" do
     url "https://ccpforge.cse.rl.ac.uk/gf/download/frsrelease/145/1314/TEST1.tar.gz"

@@ -8,14 +8,16 @@ class Exabayes < Formula
 
   bottle :disable, "needs to be rebuilt with latest open-mpi"
 
+  deprecated_option "without-mpi" => "without-open-mpi"
+
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
-  depends_on :mpi => [:cc, :cxx, :recommended]
+  depends_on "open-mpi" => :recommended
 
   def install
     args = %W[--disable-dependency-tracking --disable-silent-rules --prefix=#{prefix}]
-    args << "--enable-mpi" if build.with? "mpi"
+    args << "--enable-mpi" if build.with? "open-mpi"
     system "autoreconf", "--install"
     system "./configure", *args
     # Only build the binaries; `make` by itself will also
@@ -57,7 +59,7 @@ class Exabayes < Formula
       Frog      ATGGCACACCCATCACAATTAGGTTTTCAAGACGCAGCCTCTCCAATTATAGAAGAATTA
     EOS
 
-    args = build.with?("mpi") ? %W[mpirun -np 2 #{bin}/exabayes] : %W["#{bin}/yggdrasil -T 2]
+    args = build.with?("open-mpi") ? %W[mpirun -np 2 #{bin}/exabayes] : %W["#{bin}/yggdrasil -T 2]
     args += %W[-f aln.phy -m DNA -n test -s 100 -c config.nex]
     system *args
     system "#{bin}/sdsf", "-f", "ExaBayes_topologies.run-0.test", "ExaBayes_topologies.run-1.test"

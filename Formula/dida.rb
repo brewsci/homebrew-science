@@ -14,7 +14,7 @@ class Dida < Formula
   needs :openmp
 
   # Fix error: DIDA must be compiled with MPI support.
-  depends_on :mpi
+  depends_on "open-mpi"
 
   def install
     system "./configure",

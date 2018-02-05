@@ -13,13 +13,14 @@ class Mfem < Formula
     sha256 "05341892c5f4530c5edead5b496894c2a6276c16dc4c3dd1febc2e1dd4faa478" => :x86_64_linux
   end
 
-  option "with-mpi", "Build with mpi support (implies --with-hypre --with-metis)"
+  option "with-open-mpi", "Build with MPI support (implies --with-hypre --with-metis)"
   option "with-suite-sparse", "Build with suite-sparse support (implies --with-metis)"
+  deprecated_option "with-mpi" => "with-open-mpi"
 
-  depends_on :mpi => [:cxx, :optional]
-  if build.with?("mpi")
+  depends_on "open-mpi" => :optional
+  if build.with?("open-mpi")
     depends_on "metis"
-    depends_on "hypre" => "with-mpi"
+    depends_on "hypre" => "with-open-mpi"
   else
     depends_on "hypre" => :optional
     depends_on "metis" => :optional
@@ -45,13 +46,13 @@ class Mfem < Formula
     end
     make_args += ["MFEM_USE_LAPACK=YES", "LAPACK_LIB=#{lapack_lib}"]
 
-    if build.with?("hypre") || build.with?("mpi")
+    if build.with?("hypre") || build.with?("open-mpi")
       make_args += ["HYPRE_DIR=#{Formula["hypre"].opt_prefix}",
                     "HYPRE_OPT=-I#{Formula["hypre"].opt_include}",
                     "HYPRE_LIB=-L#{Formula["hypre"].opt_lib} -lHYPRE"]
     end
 
-    if build.with?("metis") || build.with?("mpi") || build.with?("suite-sparse")
+    if build.with?("metis") || build.with?("open-mpi") || build.with?("suite-sparse")
       metis_lib = "-L#{Formula["metis"].opt_lib} -lmetis"
       make_args += ["MFEM_USE_METIS_5=YES",
                     "METIS_DIR=#{Formula["metis"].opt_prefix}",
@@ -59,7 +60,7 @@ class Mfem < Formula
                     "METIS_LIB=#{metis_lib}"]
     end
 
-    make_args += ["MFEM_USE_MPI=YES"] if build.with?("mpi")
+    make_args += ["MFEM_USE_MPI=YES"] if build.with?("open-mpi")
 
     if build.with?("suite-sparse")
       ss_lib = "-L#{Formula["suite-sparse"].opt_lib} "
@@ -116,7 +117,7 @@ class Mfem < Formula
       cp "#{Formula["mfem"].opt_pkgshare}/data/star.mesh", "./"
       system "make", "all", "MFEM_DIR=#{Formula["mfem"].opt_prefix}", "CONFIG_MK=$(MFEM_DIR)/config.mk", "TEST_MK=$(MFEM_DIR)/test.mk", "MFEM_LIB_FILE=$(MFEM_DIR)/lib/libmfem.a", "SRC="
       args = ["-m", "star.mesh", "--no-visualization"]
-      if Tab.for_name("mfem").with? "mpi"
+      if Tab.for_name("mfem").with? "open-mpi"
         system "mpirun", "-np", "4", "./ex1p", *args
       else
         system "./ex1", *args

@@ -16,11 +16,13 @@ class Raxml < Formula
     sha256 "c9ee28f10415e58cfe33d7cfe4e03bef934ab81fd6482578fadd925271ff2d75" => :x86_64_linux
   end
 
+  deprecated_option "with-mpi" => "with-open-mpi"
+
   depends_on :fortran
 
   # Won't build on OS X - relies on Linux-specific threading APIs
-  depends_on :mpi => [:cc, :optional] if OS.linux?
-  needs :openmp if build.with? "mpi"
+  depends_on "open-mpi" => :optional if OS.linux?
+  needs :openmp if build.with? "open-mpi"
 
   def make_clean(makefile)
     rm Dir["*.o"]
@@ -33,7 +35,7 @@ class Raxml < Formula
     make_clean "Makefile.AVX.PTHREADS.gcc" if Hardware::CPU.avx?
     make_clean "Makefile.AVX2.PTHREADS.gcc" if Hardware::CPU.avx2?
 
-    if build.with? "mpi"
+    if build.with? "open-mpi"
       make_clean "Makefile.HYBRID.gcc"
       make_clean "Makefile.SSE3.HYBRID.gcc" if Hardware::CPU.sse3?
       make_clean "Makefile.AVX.HYBRID.gcc" if Hardware::CPU.avx?

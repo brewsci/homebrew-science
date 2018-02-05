@@ -16,7 +16,7 @@ class Bless < Formula
   depends_on "boost"
   depends_on "google-sparsehash" => :build
   depends_on "kmc" => :recommended
-  depends_on :mpi
+  depends_on "openmpi"
 
   def install
     # Do not build vendored dependency, kmc.

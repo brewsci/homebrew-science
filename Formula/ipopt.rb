@@ -16,7 +16,7 @@ class Ipopt < Formula
   depends_on "pkg-config" => :build
 
   # IPOPT is not able to use parallel MUMPS.
-  depends_on "mumps" => ["without-mpi"] + ((build.with? "openblas") ? ["with-openblas"] : [])
+  depends_on "mumps" => ["without-open-mpi"] + ((build.with? "openblas") ? ["with-openblas"] : [])
 
   depends_on :fortran
 

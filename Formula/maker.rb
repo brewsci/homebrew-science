@@ -11,7 +11,7 @@ class Maker < Formula
   depends_on "exonerate" => :recommended
   depends_on "infernal" => :optional
   depends_on "mir-prefer" => :optional
-  depends_on :mpi => :optional
+  depends_on "open-mpi" => :optional
   depends_on "postgresql" => :optional
   depends_on "repeatmasker" => :recommended
   depends_on "snap" => :recommended
@@ -36,7 +36,7 @@ class Maker < Formula
 
   def install
     cd "src" do
-      mpi = if build.with?("mpi") then "yes" else "no" end
+      mpi = if build.with?("open-mpi") then "yes" else "no" end
       system "(echo #{mpi}; yes '') |perl Build.PL"
       system *%w[./Build install]
     end

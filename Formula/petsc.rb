@@ -17,10 +17,10 @@ class Petsc < Formula
   deprecated_option "complex" => "with-complex"
   deprecated_option "debug"   => "with-debug"
 
-  depends_on :mpi => [:cc, :cxx, :f77, :f90]
   depends_on :fortran
   depends_on :x11 => :optional
   depends_on "cmake" => :build
+  depends_on "open-mpi"
 
   depends_on "openblas" => :optional
   openblasdep = (build.with? "openblas") ? ["with-openblas"] : []
@@ -33,11 +33,11 @@ class Petsc < Formula
   depends_on "mumps"        => [:recommended] + openblasdep # mumps is built with mpi by default
   depends_on "hypre"        => [:recommended] + openblasdep
   depends_on "sundials"     => [:recommended] + openblasdep
-  depends_on "hdf5"         => ["with-mpi", :recommended]
+  depends_on "hdf5"         => ["with-open-mpi", :recommended]
   depends_on "hwloc"        => :recommended
   depends_on "suite-sparse" => [:recommended] + openblasdep
   depends_on "netcdf"       => ["with-fortran", :recommended]
-  depends_on "fftw"         => ["with-mpi", "with-fortran", :recommended]
+  depends_on "fftw"         => ["with-open-mpi", "with-fortran", :recommended]
 
   # TODO: YAML dependencies when the formulae are available
 

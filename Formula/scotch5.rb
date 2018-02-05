@@ -9,7 +9,7 @@ class Scotch5 < Formula
 
   keg_only "Conflicts with scotch (6.x)"
 
-  depends_on :mpi => :cc
+  depends_on "open-mpi"
 
   # bugs in makefile:
   # - libptesmumps must be built before main_esmumps

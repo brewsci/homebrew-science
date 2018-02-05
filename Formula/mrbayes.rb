@@ -16,16 +16,17 @@ class Mrbayes < Formula
   end
 
   option "with-beagle", "Build with BEAGLE library support"
+  deprecated_option "with-mpi" => "with-open-mpi"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on :mpi => [:cc, :optional]
+  depends_on "open-mpi" => :optional
   depends_on "beagle" => :optional
 
   def install
     args = ["--disable-debug", "--prefix=#{prefix}"]
     args << "--with-beagle=" + ((build.with? "beagle") ? Formula["beagle"].opt_prefix : "no")
-    args << "--enable-mpi="  + ((build.with? "mpi") ? "yes" : "no")
+    args << "--enable-mpi="  + ((build.with? "open-mpi") ? "yes" : "no")
 
     cd "src" do
       system "autoconf"

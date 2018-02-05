@@ -18,12 +18,12 @@ class Slepc < Formula
 
   openblasdep = (build.with? "openblas") ? ["with-openblas"] : []
 
+  depends_on "open-mpi"
   depends_on "petsc" => openblasdep
-  depends_on :mpi => [:cc, :f90]
   depends_on :fortran
   depends_on "hdf5"
   depends_on :x11 => :optional
-  depends_on "arpack" => [:recommended, "with-mpi"] + openblasdep
+  depends_on "arpack" => [:recommended, "with-open-mpi"] + openblasdep
 
   def install
     ENV.deparallelize

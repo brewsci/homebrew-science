@@ -9,12 +9,14 @@ class Paraview < Formula
 
   bottle :disable, "needs to be rebuilt with latest boost"
 
+  deprecated_option "with-mpi" => "with-open-mpi"
+
   depends_on "cmake" => :build
 
   depends_on "boost" => :recommended
   depends_on "ffmpeg" => :recommended
   depends_on "qt" => :recommended
-  depends_on :mpi => [:cc, :cxx, :optional]
+  depends_on "open-mpi" => :optional
   depends_on :python => :recommended
 
   depends_on "freetype"
@@ -45,7 +47,7 @@ class Paraview < Formula
     ]
 
     args << "-DPARAVIEW_BUILD_QT_GUI:BOOL=OFF" if build.without? "qt"
-    args << "-DPARAVIEW_USE_MPI:BOOL=ON" if build.with? "mpi"
+    args << "-DPARAVIEW_USE_MPI:BOOL=ON" if build.with? "open-mpi"
     args << "-DPARAVIEW_ENABLE_FFMPEG:BOOL=ON" if build.with? "ffmpeg"
     args << "-DPARAVIEW_USE_VISITBRIDGE:BOOL=ON" if build.with? "boost"
     args << "-DPARAVIEW_ENABLE_PYTHON:BOOL=" + ((build.with? "python") ? "ON" : "OFF")

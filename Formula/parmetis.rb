@@ -12,7 +12,7 @@ class Parmetis < Formula
   depends_on "metis"
 
   depends_on "cmake" => :build
-  depends_on :mpi => :cc
+  depends_on "open-mpi"
 
   # Do not build the METIS 5.* that ships with ParMETIS.
   patch :DATA

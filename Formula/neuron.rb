@@ -18,6 +18,8 @@ class Neuron < Formula
     sha256 "33ecd408c7375b74bd3fbceb26aaab2c784871c4ff704e2aa59a9e4905dea9b8" => :x86_64_linux
   end
 
+  deprecated_option "without-mpi" => "without-open-mpi"
+
   # Autotools goodies required to build Neuron from scratch
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -27,7 +29,7 @@ class Neuron < Formula
 
   # Dependencies of the simulator itself
   depends_on "inter-views" => :optional
-  depends_on :mpi => :optional
+  depends_on "open-mpi" => :optional
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on :python3 => :optional
 
@@ -46,7 +48,7 @@ class Neuron < Formula
 
   def install
     args = []
-    args << "--with-paranrn" if build.with? "mpi"
+    args << "--with-paranrn" if build.with? "open-mpi"
     if build.with? "python3"
       args << "--with-nrnpython=python3"
       python_exec = "python3"

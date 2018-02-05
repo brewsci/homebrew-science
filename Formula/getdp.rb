@@ -19,17 +19,17 @@ class Getdp < Formula
 
   depends_on "cmake" => :build
   depends_on :fortran
-  depends_on :mpi => [:cc, :cxx, :f90, :recommended]
-  if build.with? "mpi"
-    depends_on "arpack" => [:recommended, "with-mpi"]
+  depends_on "open-mpi" => :recommended
+  if build.with? "open-mpi"
+    depends_on "arpack" => [:recommended, "with-open-mpi"]
   else
     depends_on "arpack" => :recommended
   end
   depends_on "gmsh" => :recommended
   depends_on "gsl" => :recommended
   depends_on "hdf5" => :recommended
-  if build.with? "mpi"
-    depends_on "hdf5" => [:recommended, "with-mpi"]
+  if build.with? "open-mpi"
+    depends_on "hdf5" => [:recommended, "with-open-mpi"]
   else
     depends_on "hdf5" => :recommended
   end
@@ -59,7 +59,7 @@ class Getdp < Formula
     end
 
     if (build.with? "petsc") || (build.with? "slepc")
-      args << "-DENABLE_MPI=ON" if build.with? :mpi
+      args << "-DENABLE_MPI=ON" if build.with? :open-mpi
     end
 
     mkdir "build" do

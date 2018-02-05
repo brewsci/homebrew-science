@@ -17,16 +17,17 @@ class Lis < Formula
   option "with-quad",     "enable quadruple precision operations"
 
   deprecated_option "without-check" => "without-test"
+  deprecated_option "without-mpi" => "without-open-mpi"
 
   depends_on :fortran => :recommended
-  depends_on :mpi => [:cc, :cxx, :f77, :f90, :recommended]
+  depends_on "open-mpi" => :recommended
 
   def install
     ENV.deparallelize
 
     args = %W[--prefix=#{prefix} --disable-dependency-tracking --enable-shared]
     args << "--enable-fortran" if build.with? :fortran
-    args << "--enable-mpi"     if build.with? :mpi
+    args << "--enable-mpi"     if build.with? "open-mpi"
     args << "--enable-omp" unless ENV.compiler == :clang
     args << "--enable-saamg"   if build.with? "saamg"
     args << "--enable-quad"    if build.with? "quad"

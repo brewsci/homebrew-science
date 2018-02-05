@@ -16,15 +16,17 @@ class Nonpareil < Formula
     sha256 "6247316d927e9b46086d3d4165cb3cde61a162d602a7fbd3b5027b7fcd0f8766" => :x86_64_linux
   end
 
+  deprecated_option "with-mpi" => "with-open-mpi"
+
   depends_on "r"
-  depends_on :mpi => [:cxx, :optional]
+  depends_on "openmpi" => :optional
 
   def install
     r_library = lib/"R"/r_major_minor
     r_library.mkpath
     inreplace "Makefile", "CMD INSTALL", "CMD INSTALL --library=#{r_library}"
     system "make", "nonpareil"
-    system "make", "mpicpp=#{ENV["MPICXX"]}", "nonpareil-mpi" if build.with? :mpi
+    system "make", "mpicpp=#{ENV["MPICXX"]}", "nonpareil-mpi" if build.with? :open-mpi
     system "make", "prefix=#{prefix}", "mandir=#{man1}", "install"
     libexec.install "test/test.fasta"
   end

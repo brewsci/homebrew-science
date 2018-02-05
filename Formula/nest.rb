@@ -15,10 +15,12 @@ class Nest < Formula
 
   option "with-python3", "Build Python3 bindings (PyNEST) instead of Python2 bindings."
   option "without-openmp", "Build without OpenMP support."
+  deprecated_option "with-mpi" => "with-open-mpi"
+
   needs :openmp if build.with? "openmp"
 
   depends_on "gsl" => :recommended
-  depends_on :mpi => [:optional, :cc, :cxx]
+  depends_on "open-mpi" => :optional
 
   # Any Python >= 2.7 < 3.x is okay (either from macOS or brewed)
   depends_on :python unless OS.mac?
@@ -63,7 +65,7 @@ class Nest < Formula
 
     args = ["-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}"]
 
-    args << "-Dwith-mpi=ON" if build.with? "mpi"
+    args << "-Dwith-mpi=ON" if build.with? "open-mpi"
     args << "-Dwith-openmp=OFF" if build.without? "openmp"
     args << "-Dwith-gsl=OFF" if build.without? "gsl"
 
@@ -124,7 +126,7 @@ class Nest < Formula
       ENV["NEST_SOURCE"] = pkgshare/"sources"
     end
 
-    if build.with? "mpi"
+    if build.with? "open-mpi"
       # we need the command /mpirun defined for the mpi tests
       # and since we are in the sandbox, we create it again
       nestrc = <<-EOS

@@ -14,6 +14,7 @@ class Trilinos < Formula
   option "with-openmp", "Enable OpenMP multithreading"
 
   deprecated_option "with-check" => "with-test"
+  deprecated_option "without-mpi" => "without-open-mpi"
 
   # options and dependencies not supported in the current version
   # are commented out with #- and failure reasons are documented.
@@ -22,7 +23,7 @@ class Trilinos < Formula
   # https://github.com/trilinos/Trilinos/issues/565
   option "with-csparse", "Build with CSparse (Experimental TPL) from suite-sparse"
 
-  depends_on :mpi           => [:cc, :cxx, :recommended]
+  depends_on "open-mpi" => :recommended
   depends_on :fortran       => :recommended
   depends_on :x11           => :recommended
   depends_on :python        => :recommended if MacOS.version <= :snow_leopard
@@ -39,7 +40,7 @@ class Trilinos < Formula
   end
 
   openblasdep = (build.with? "openblas") ? ["with-openblas"] : []
-  mpidep      = (build.with? "mpi")      ? ["with-mpi"]      : []
+  mpidep      = (build.with? "open-mpi") ? ["with-open-mpi"]      : []
 
   depends_on "adol-c"       => :recommended
   depends_on "boost"        => :recommended
@@ -50,7 +51,7 @@ class Trilinos < Formula
   depends_on "metis"        => :recommended
   depends_on "mumps"        => [:recommended] + openblasdep
   depends_on "netcdf"       => ["with-fortran", :optional]
-  depends_on "parmetis"     => :recommended if build.with? "mpi"
+  depends_on "parmetis"     => :recommended if build.with? "open-mpi"
   depends_on "scalapack"    => [:recommended] + openblasdep
   depends_on "scotch"       => :recommended
   depends_on "suite-sparse" => [:recommended] + openblasdep
@@ -63,7 +64,7 @@ class Trilinos < Formula
 
   # Experimental TPLs:
   depends_on "eigen"        => :recommended
-  depends_on "hypre"        => [:recommended] + ((build.with? "mpi") ? [] : ["without-mpi"]) + openblasdep # EpetraExt tests fail to compile
+  depends_on "hypre"        => [:recommended] + ((build.with? "open-mpi") ? [] : ["without-open-mpi"]) + openblasdep # EpetraExt tests fail to compile
   depends_on "glpk"         => :recommended
   depends_on "hdf5"         => [:optional] + mpidep
   depends_on "tbb"          => :recommended
@@ -126,7 +127,7 @@ class Trilinos < Formula
     # on Linux Trilinos might pick up wrong MPI.
     # Can't specify "open-mpi" location as other (mpich)
     # implementations may be used.
-    args << "-DMPI_BASE_DIR:PATH=#{HOMEBREW_PREFIX}" if build.with? "mpi"
+    args << "-DMPI_BASE_DIR:PATH=#{HOMEBREW_PREFIX}" if build.with? "open-mpi"
 
     # BLAS / LAPACK support
     if build.with? "openblas"
@@ -138,7 +139,7 @@ class Trilinos < Formula
 
     args << "-DTrilinos_ASSERT_MISSING_PACKAGES=OFF" if build.head?
 
-    args << onoff("-DTPL_ENABLE_MPI:BOOL=", (build.with? "mpi"))
+    args << onoff("-DTPL_ENABLE_MPI:BOOL=", (build.with? "open-mpi"))
     args << onoff("-DTrilinos_ENABLE_OpenMP:BOOL=", build.with?("openmp"))
     args << "-DTrilinos_ENABLE_OpenMP:BOOL=OFF"
     args << "-DTrilinos_ENABLE_CXX11:BOOL=ON"
@@ -266,7 +267,7 @@ class Trilinos < Formula
     args << onoff("-DTrilinos_ENABLE_PyTrilinos:BOOL=", (build.with? "python"))
     args << "-DPyTrilinos_INSTALL_PREFIX:PATH=#{prefix}" if build.with? "python"
 
-    if (build.with? "mpi") && (build.with? "python")
+    if (build.with? "open-mpi") && (build.with? "python")
       ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
       resource("mpi4py").stage do
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
@@ -297,9 +298,9 @@ class Trilinos < Formula
 
   test do
     system "#{bin}/Epetra_BasicPerfTest_test.exe", "16", "12", "1", "1", "25", "-v"
-    system "mpirun", "-np", "2", "#{bin}/Epetra_BasicPerfTest_test.exe", "10", "12", "1", "2", "9", "-v" if build.with? "mpi"
+    system "mpirun", "-np", "2", "#{bin}/Epetra_BasicPerfTest_test.exe", "10", "12", "1", "2", "9", "-v" if build.with? "open-mpi"
     system "#{bin}/Epetra_BasicPerfTest_test_LL.exe", "16", "12", "1", "1", "25", "-v"
-    system "mpirun", "-np", "2", "#{bin}/Epetra_BasicPerfTest_test_LL.exe", "10", "12", "1", "2", "9", "-v" if build.with? "mpi"
+    system "mpirun", "-np", "2", "#{bin}/Epetra_BasicPerfTest_test_LL.exe", "10", "12", "1", "2", "9", "-v" if build.with? "open-mpi"
     system "python", "-c", "'from PyTrilinos import Epetra'" if Tab.for_name("trilinos").unused_options.include? "without-python"
   end
 end

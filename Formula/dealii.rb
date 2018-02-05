@@ -11,14 +11,15 @@ class Dealii < Formula
   option "with-testsuite", "Run full test suite (7000+ tests). Takes a lot of time."
   option "without-oce", "Build without oce support (conflicts with opencascade)"
 
+  deprecated_option "without-mpi" => "without-open-mpi"
   deprecated_option "without-opencascade" => "without-oce"
 
   depends_on "cmake"        => :run
-  depends_on :mpi           => [:cc, :cxx, :f90, :recommended]
+  depends_on "openmpi"      => :recommended
   depends_on "openblas"     => :optional
 
   openblasdep = build.with?("openblas") ? ["with-openblas"] : []
-  mpidep      = build.with?("mpi")      ? ["with-mpi"]      : []
+  mpidep      = build.with?("open-mpi")      ? ["with-open-mpi"]      : []
 
   depends_on "arpack"       => [:recommended] + mpidep + openblasdep
   depends_on "boost"        => :recommended
@@ -28,8 +29,8 @@ class Dealii < Formula
   depends_on "muparser"     => :recommended if MacOS.version != :mountain_lion # Undefined symbols for architecture x86_64
   depends_on "netcdf"       => :recommended
   depends_on "oce"          => :recommended
-  depends_on "p4est"        => [:recommended] + openblasdep if build.with? "mpi"
-  depends_on "parmetis"     => :recommended if build.with? "mpi"
+  depends_on "p4est"        => [:recommended] + openblasdep if build.with? "open-mpi"
+  depends_on "parmetis"     => :recommended if build.with? "open-mpi"
   depends_on "petsc"        => [:recommended] + openblasdep
   depends_on "slepc"        => :recommended
   depends_on "suite-sparse" => [:recommended] + openblasdep
@@ -63,7 +64,7 @@ class Dealii < Formula
       args << "-DLAPACK_LINKER_FLAGS=-lgfortran -lm"
     end
 
-    if build.with? "mpi"
+    if build.with? "open-mpi"
       args << "-DCMAKE_C_COMPILER=mpicc"
       args << "-DCMAKE_CXX_COMPILER=mpicxx"
       args << "-DCMAKE_Fortran_COMPILER=mpif90"
@@ -111,7 +112,7 @@ class Dealii < Formula
       cd "step-40" do
         system "cmake", "."
         system "make", "release"
-        if build.with? "mpi"
+        if build.with? "open-mpi"
           system "mpirun", "-np", Hardware::CPU.cores, "step-40"
         else
           system "make", "run"
@@ -119,7 +120,7 @@ class Dealii < Formula
         # change to Trilinos
         inreplace "step-40.cc", "#  define USE_PETSC_LA", "//#  define USE_PETSC_LA"
         system "make", "release"
-        if build.with? "mpi"
+        if build.with? "open-mpi"
           system "mpirun", "-np", Hardware::CPU.cores, "step-40"
         else
           system "make", "run"

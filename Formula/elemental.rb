@@ -27,7 +27,7 @@ class Elemental < Formula
   option "with-test", "Run build time tests (lengthy, not recommended)"
 
   depends_on "cmake" => :build
-  depends_on :mpi => [:cc, :cxx, :f90]
+  depends_on "open-mpi"
 
   depends_on "openblas"  => :optional
   depends_on "qt5"       => :optional

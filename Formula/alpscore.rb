@@ -16,12 +16,13 @@ class Alpscore < Formula
   option "with-test",   "Build and run shipped tests"
   option "with-doc",    "Build documentation"
   option "with-static", "Build static instead of shared libraries"
+  deprecated_option "without-mpi" => "without-open-mpi"
 
   depends_on "cmake" => :build
-  depends_on :mpi => [:cc, :cxx, :recommended]
   depends_on "boost"
   depends_on "eigen"
   depends_on "hdf5"
+  depends_on "open-mpi" => :recommended
 
   def install
     ENV.cxx11
@@ -38,7 +39,7 @@ class Alpscore < Formula
       args << "-DALPS_BUILD_SHARED=ON"
     end
 
-    args << "-DENABLE_MPI=" + (build.with?("mpi") ? "ON" : "OFF")
+    args << "-DENABLE_MPI=" + (build.with?("open-mpi") ? "ON" : "OFF")
     args << "-DDocumentation=" + (build.with?("doc") ? "ON" : "OFF")
     args << "-DTesting=" + (build.with?("test") ? "ON" : "OFF")
 
@@ -77,7 +78,7 @@ class Alpscore < Formula
       "-I#{include}", "-I#{Formula["boost"].opt_include}"
     ]
     args_compile << "-o" << "test"
-    system (build.with?("mpi") ? "mpicxx" : ENV.cxx), *args_compile
+    system (build.with?("open-mpi") ? "mpicxx" : ENV.cxx), *args_compile
     system "./test"
   end
 end

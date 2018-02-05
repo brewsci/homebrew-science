@@ -17,7 +17,7 @@ class Ray < Formula
     url "https://github.com/sebhtml/RayPlatform.git"
   end
 
-  depends_on :mpi => :cxx
+  depends_on "open-mpi"
 
   fails_with :gcc do
     build 5666

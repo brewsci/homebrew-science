@@ -20,9 +20,9 @@ class Abinit < Formula
 
   deprecated_option "without-check" => "without-test"
 
-  depends_on :mpi => [:cc, :cxx, :f77, :f90]
   depends_on :fortran
-  depends_on "fftw" => ["with-mpi", "with-fortran", :recommended]
+  depends_on "openmpi"
+  depends_on "fftw" => ["with-open-mpi", "with-fortran", :recommended]
   depends_on "netcdf" => :recommended
   depends_on "gsl" => :recommended
   if OS.mac?

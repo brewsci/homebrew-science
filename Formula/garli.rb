@@ -10,7 +10,8 @@ class Garli < Formula
 
   option "with-brewed-ncl", "Use Homebrew's NCL instead of building a separate copy"
   depends_on "ncl" if build.with? "brewed-ncl"
-  depends_on :mpi => :recommended
+  depends_on "open-mpi" => :recommended
+  deprecated_option "without-mpi" => "without-open-mpi"
 
   # Fix template instantiation errors by making GCC infer types rather than
   # explicitly specifying the types. Patch emailed to upstream 12-Jun-2016.
@@ -39,7 +40,7 @@ class Garli < Formula
     # collect2: error: ld returned 1 exit status
 
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
-    args.push "--enable-mpi" if build.with? "mpi"
+    args.push "--enable-mpi" if build.with? "open-mpi"
 
     if build.with? "brewed-ncl"
       args.push "--with-ncl=#{Formula["ncl"].opt_prefix}"
@@ -89,7 +90,7 @@ class Garli < Formula
     cp pkgshare/"example"/"basic"/"garli.conf.nuc.test", testpath/"garli.conf"
     inreplace "garli.conf", "zakonEtAl2006.11tax.nex", "aln.phy"
 
-    if build.with? "mpi"
+    if build.with? "open-mpi"
       system "mpirun", "-np", "2", "#{bin}/Garli", "-2"
     else
       system "#{bin}/Garli", "-1"
