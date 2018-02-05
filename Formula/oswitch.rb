@@ -3,6 +3,7 @@ class Oswitch < Formula
   homepage "https://github.com/yeban/oswitch"
   url "https://github.com/yeban/oswitch/archive/v0.2.7.tar.gz"
   sha256 "69090f628213fb93dccedbd8772d462fb7100c20c4495d4079d5f4d9bb84524c"
+  # tag "bioinformatics"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class Oswitch < Formula
     sha256 "a98bb8326752204b0e3117c37c8457a15026a9b4b83980d3affe210290b3efdd" => :x86_64_linux
   end
 
-  depends_on :ruby => "2.0" if OS.linux?
+  depends_on "ruby" unless OS.mac?
 
   def install
     # Build gem and install to prefix.
