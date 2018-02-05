@@ -24,7 +24,7 @@ class Blast < Formula
   depends_on "gnutls" => :optional
   depends_on "hdf5" => :optional
   depends_on "lzo" => :optional
-  depends_on :mysql => :optional
+  depends_on "mysql" => :optional
   depends_on "pcre" => :recommended
   depends_on :python if MacOS.version <= :snow_leopard
 

@@ -13,8 +13,8 @@ class KentTools < Formula
     sha256 "6bf095413b6aa2de56551c51a81273ced85efae0b59905492fccdbc08e7d2b8c" => :el_capitan
   end
 
-  depends_on "mysql"
   depends_on "libpng"
+  depends_on "mysql"
   depends_on "openssl"
   depends_on "util-linux" unless OS.mac?
   depends_on "zlib" unless OS.mac?
