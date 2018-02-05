@@ -5,7 +5,7 @@ class Mfusg < Formula
   sha256 "41feb2d595a9b87feca301cfcf00dd142cd67fc466c101548f35bc09c57fadbc"
   revision 1
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   def install
     prefix.install "mfusg.txt", "readme.txt", "release.txt", "problems.txt"

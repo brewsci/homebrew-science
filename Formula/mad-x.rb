@@ -14,7 +14,7 @@ class MadX < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
   depends_on :x11
   depends_on "openblas" unless OS.mac?
 

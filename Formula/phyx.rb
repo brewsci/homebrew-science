@@ -20,7 +20,7 @@ class Phyx < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
   depends_on "armadillo"
   depends_on "nlopt"
 

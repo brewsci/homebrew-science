@@ -18,7 +18,7 @@ class Moab < Formula
   depends_on "libtool" => :build
   depends_on "netcdf"
   depends_on "hdf5"
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
   depends_on "openblas" unless OS.mac?
 
   def install

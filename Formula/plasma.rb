@@ -13,7 +13,7 @@ class Plasma < Formula
   end
 
   depends_on "hwloc"
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   resource "lapacke" do
     # LAPACKE is now included in the main LAPACK distribution.

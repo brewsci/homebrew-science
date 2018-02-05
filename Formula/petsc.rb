@@ -17,7 +17,7 @@ class Petsc < Formula
   deprecated_option "complex" => "with-complex"
   deprecated_option "debug"   => "with-debug"
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
   depends_on :x11 => :optional
   depends_on "cmake" => :build
   depends_on "open-mpi"

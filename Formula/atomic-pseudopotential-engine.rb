@@ -11,7 +11,7 @@ class AtomicPseudopotentialEngine < Formula
     sha256 "93eaa810321b25bc322900419149f6b13dbca8793f6f845649b02b1c7a4350be" => :mavericks
   end
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
   depends_on "gsl"
   depends_on "libxc"
 

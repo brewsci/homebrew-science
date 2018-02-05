@@ -22,7 +22,7 @@ class Superlu43 < Formula
   option "without-test", "skip build-time tests (not recommended)"
   option "with-openmp", "Enable OpenMP multithreading"
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   # Accelerate single precision is buggy and causes certain single precision
   # tests to fail.

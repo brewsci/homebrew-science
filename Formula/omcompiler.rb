@@ -25,7 +25,7 @@ class Omcompiler < Formula
   depends_on "xz"           => :build
 
   # Essential dependencies
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
   depends_on "lp_solve"
   depends_on "hwloc"
   depends_on "gettext"

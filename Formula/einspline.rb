@@ -18,7 +18,7 @@ class Einspline < Formula
 
   depends_on "pkg-config" => :build
   depends_on "fftw"
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
   depends_on CudaRequirement => :optional
 
   needs :openmp if build.with? "openmp"

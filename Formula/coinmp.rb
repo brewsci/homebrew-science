@@ -14,7 +14,7 @@ class Coinmp < Formula
     sha256 "752a68fa35e890c14ec23dcc2abc8bc7c604ab9fdcf4c7046d8f9856aa6f5d95" => :x86_64_linux
   end
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

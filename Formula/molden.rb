@@ -15,7 +15,7 @@ class Molden < Formula
   end
 
   depends_on :x11
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   def install
     system "make"

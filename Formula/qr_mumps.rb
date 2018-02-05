@@ -14,7 +14,7 @@ class QrMumps < Formula
 
   option "without-test", "Skip build-time tests (not recommended)"
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   depends_on "metis4" => :recommended
   depends_on "scotch5" => :optional

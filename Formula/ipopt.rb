@@ -18,7 +18,7 @@ class Ipopt < Formula
   # IPOPT is not able to use parallel MUMPS.
   depends_on "mumps" => ["without-open-mpi"] + ((build.with? "openblas") ? ["with-openblas"] : [])
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   def install
     ENV.delete("MPICC")  # configure will pick these up and use them to link

@@ -4,7 +4,7 @@ class Itsol < Formula
   version "2.0"
   sha256 "de8f2726e2dbc248e8ccebdbc9ce8515ad47a8c8595cca87264c22b44845736a"
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   def install
     system "make"

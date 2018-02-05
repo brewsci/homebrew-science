@@ -12,7 +12,7 @@ class SuperluDist < Formula
   needs :openmp if build.with? "openmp"
 
   depends_on "cmake" => :build
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
   depends_on "open-mpi"
 
   depends_on "parmetis"

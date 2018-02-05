@@ -16,7 +16,7 @@ class Plink2 < Formula
     sha256 "8f3c2077963875b459087b242eefc3551409a60befa6ce447b961c81b10f097f" => :x86_64_linux
   end
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
   depends_on "zlib"
   if OS.mac?
     depends_on "openblas" => :optional

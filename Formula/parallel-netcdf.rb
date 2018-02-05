@@ -12,7 +12,7 @@ class ParallelNetcdf < Formula
   # disabled (see comment below): option "without-test", "Disable checks (not recommended)"
 
   depends_on "open-mpi"
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   def install
     args = "--prefix=#{prefix}"

@@ -15,7 +15,7 @@ class R8s < Formula
     sha256 "12765e243211314bcc0e5f8eed2757aa9ae8990b6fb778e3f494060471c59d00" => :yosemite
   end
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   def install
     # Tell r8s where libgfortran is located

@@ -12,7 +12,7 @@ class Salt < Formula
     sha256 "51e4079277a0068c0a14622297e59ee4db6b645b93068eeb2514ffeab03e0a47" => :yosemite
   end
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   conflicts_with "fastbit", :because => "both install `include/filter.h`"
 

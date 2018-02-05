@@ -11,7 +11,7 @@ class Atompaw < Formula
     sha256 "2861f7274926bb37c3b96d0e4bfc5d1f32a21e6793c291a3743a8eb7949c3a2c" => :mavericks
   end
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
   depends_on "veclibfort" if OS.mac?
   depends_on "libxc" => :recommended
 

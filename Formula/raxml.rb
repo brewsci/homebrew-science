@@ -18,7 +18,7 @@ class Raxml < Formula
 
   deprecated_option "with-mpi" => "with-open-mpi"
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   # Won't build on OS X - relies on Linux-specific threading APIs
   depends_on "open-mpi" => :optional if OS.linux?

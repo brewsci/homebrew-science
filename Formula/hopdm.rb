@@ -11,7 +11,7 @@ class Hopdm < Formula
     sha256 "65c8c7ce0860bdd980d1e6280c3ea9a630c8acb5ff70c16632b4be4f69b56579" => :mavericks
   end
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   patch :DATA
 

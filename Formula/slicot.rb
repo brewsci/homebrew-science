@@ -15,7 +15,7 @@ class Slicot < Formula
     sha256 "be0eb9dba27c75222eee021d8ca8ac1385fff0e3388587671efc7e169d98ff96" => :x86_64_linux
   end
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   def install
     args = [

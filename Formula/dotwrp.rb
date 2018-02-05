@@ -13,7 +13,7 @@ class Dotwrp < Formula
     sha256 "98ad7164ef80c760fc0c8d63d0b8d6ff2949d4067b68bfc521073d0654f66bf4" => :yosemite
   end
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   def install
     # note: fno-underscoring is vital to override the symbols in Accelerate

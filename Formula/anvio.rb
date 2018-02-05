@@ -17,7 +17,7 @@ class Anvio < Formula
   # tag "bioinformatics"
 
   depends_on :python3
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
   depends_on "prodigal"
   depends_on "hmmer"
   depends_on "sqlite"

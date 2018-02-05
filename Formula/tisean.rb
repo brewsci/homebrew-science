@@ -14,7 +14,7 @@ class Tisean < Formula
 
   option "without-prefixed-binaries", "Do not prefix binaries with `tisean-`"
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
   depends_on "gnu-sed"
 
   BINS = ["poincare", "extrema", "rescale", "recurr", "corr", "mutual",

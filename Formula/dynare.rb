@@ -26,7 +26,7 @@ class Dynare < Formula
   depends_on "cweb" => :build
   depends_on "xz" => :build
   depends_on "fftw"
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
   depends_on "gsl"
   depends_on "hdf5"
   depends_on "libmatio"

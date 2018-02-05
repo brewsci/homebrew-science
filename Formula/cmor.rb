@@ -16,7 +16,7 @@ class Cmor < Formula
   depends_on "ossp-uuid"
   depends_on "udunits"
   depends_on "netcdf"
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   def install
     ENV.append "CFLAGS", "-Wno-error=unused-command-line-argument-hard-error-in-future"

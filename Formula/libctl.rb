@@ -11,7 +11,7 @@ class Libctl < Formula
   end
 
   depends_on "guile"
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

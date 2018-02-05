@@ -16,7 +16,7 @@ class CalculixCcx < Formula
   option "with-openmp", "build with OpenMP support"
   needs :openmp if build.with? "openmp"
 
-  depends_on :fortran
+  depends_on "gcc" if OS.mac? # for gfortran
   depends_on "arpack"
   depends_on "pkg-config" => :build
 
