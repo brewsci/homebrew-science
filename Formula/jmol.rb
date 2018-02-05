@@ -1,4 +1,5 @@
 class Jmol < Formula
+  desc "Viewer for chemical structures in 3D"
   homepage "http://www.jmol.org"
   url "https://downloads.sourceforge.net/jmol/Jmol/Version%2014.2/Version%2014.2.12/Jmol-14.2.12_2015.02.11-binary.zip"
   version "14.2.12"
@@ -6,7 +7,7 @@ class Jmol < Formula
 
   head do
     url "https://jmol.svn.sourceforge.net/svnroot/jmol/trunk/Jmol"
-    depends_on :ant
+    depends_on "ant" => :build
   end
 
   depends_on :java
