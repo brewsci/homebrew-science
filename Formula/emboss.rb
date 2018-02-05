@@ -1,9 +1,12 @@
 class Emboss < Formula
+  desc "European Molecular Biology Open Software Suite"
   homepage "https://emboss.sourceforge.io/"
   url "ftp://emboss.open-bio.org/pub/EMBOSS/EMBOSS-6.6.0.tar.gz"
   mirror "http://mirrors.mit.edu/gentoo-distfiles/distfiles/EMBOSS-6.6.0.tar.gz"
   mirror "http://science-annex.org/pub/emboss/EMBOSS-6.6.0.tar.gz"
   sha256 "7184a763d39ad96bb598bfd531628a34aa53e474db9e7cac4416c2a40ab10c6e"
+  # cite "http://doi.org/10.1016/S0168-9525(00)02024-2"
+  # tag "bioinformatics"
 
   bottle do
     sha256 "767f04c1b36b859e0f53300216f607db99c5bebfb678295679cca110b24d1f64" => :yosemite
@@ -15,12 +18,12 @@ class Emboss < Formula
   option "with-embossupdate", "Run embossupdate after `make install`"
 
   depends_on "pkg-config" => :build
-  depends_on "libharu"    => :optional
   depends_on "gd"         => :optional
+  depends_on "libharu"    => :optional
   depends_on "libpng"     => :recommended
+  depends_on "mysql"      => :optional
+  depends_on "postgresql" => :optional
   depends_on :x11         => :recommended
-  depends_on :postgresql  => :optional
-  depends_on :mysql       => :optional
 
   def install
     inreplace "Makefile.in", "$(bindir)/embossupdate", "" if build.without? "embossupdate"
