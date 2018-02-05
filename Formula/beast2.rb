@@ -38,7 +38,7 @@ class Beast2 < Formula
     doc.install Dir["doc/*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This install coexists with BEAST 1.x as all scripts are suffixed with '-2':
         beast-2 -help
 

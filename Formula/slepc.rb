@@ -66,7 +66,7 @@ class Slepc < Formula
     pkgshare.install "src/eps/examples/tutorials"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Set your SLEPC_DIR to #{opt_prefix}/real or #{opt_prefix}/complex.
     Fortran modules are in #{opt_prefix}/real/include and #{opt_prefix}/complex/include.
     EOS

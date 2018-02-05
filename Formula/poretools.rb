@@ -106,7 +106,7 @@ class Poretools < Formula
   end
 
   test do
-    result = <<-EOS.undent
+    result = <<~EOS
       total reads	297
       total base pairs	260131
       mean	875.86

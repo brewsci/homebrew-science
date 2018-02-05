@@ -133,7 +133,7 @@ class Libsigrokdecode < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libsigrokdecode/libsigrokdecode.h>
       int main() {
         if (srd_init(NULL) != SRD_OK || srd_exit() != SRD_OK)

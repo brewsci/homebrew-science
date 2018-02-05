@@ -5,7 +5,7 @@ class DvipngRequirement < Requirement
   satisfy { which("dvipng") }
 
   def message
-    s = <<-EOS.undent
+    s = <<~EOS
       `dvipng` not found. This is optional for Matplotlib.
     EOS
     s += super
@@ -20,7 +20,7 @@ class NoExternalPyCXXPackage < Requirement
     !quiet_system "python", "-c", "import CXX"
   end
 
-  def message; <<-EOS.undent
+  def message; <<~EOS
     *** Warning, PyCXX detected! ***
     On your system, there is already a PyCXX version installed, that will
     probably make the build of Matplotlib fail. In python you can test if that
@@ -160,14 +160,14 @@ class Matplotlib < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       If you want to use the `wxagg` backend, do `brew install wxpython`.
       This can be done even after the matplotlib install.
     EOS
     if build.with?("python") && !Formula["python"].installed?
       homebrew_site_packages = Language::Python.homebrew_site_packages
       user_site_packages = Language::Python.user_site_packages "python"
-      s += <<-EOS.undent
+      s += <<~EOS
         If you use system python (that comes - depending on the OS X version -
         with older versions of numpy, scipy and matplotlib), you may need to
         ensure that the brewed packages come earlier in Python's sys.path with:

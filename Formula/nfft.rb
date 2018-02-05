@@ -32,7 +32,7 @@ class Nfft < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
     NFFT is built as serial (not multi-threaded) library by default
     when being built with clang, as this compiler doesn't support
     OpenMP.
@@ -56,7 +56,7 @@ class Nfft < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <nfft3.h>
       #include <nfft3util.h>
 

@@ -24,7 +24,7 @@ class Minced < Formula
   end
 
   test do
-    (testpath/"test.fa").write <<-EOS.undent
+    (testpath/"test.fa").write <<~EOS
     >CRISPR Escherichia coli UTI89 886538..887045
     GTTCACTGCCGTACAGGCAGCTTAGAAATGACGCCATATGCAGATCATTGAGGCGAAACC
     GTTCACTGCCGTACAGGCAGCTTAGAAAACGTTCGCACCGGTCAGGGTACTGCGCAGCGT

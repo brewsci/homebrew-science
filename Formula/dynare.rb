@@ -87,14 +87,14 @@ class Dynare < Formula
     system "make", "install"
 
     if build.with? "matlab="
-      (prefix/"matlab.config").write <<-EOS.undent
+      (prefix/"matlab.config").write <<~EOS
         #{matlab_path}
         #{matlab_version}
       EOS
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To get started with dynare, open Matlab or Octave and type:
 
             addpath #{opt_prefix}/lib/dynare/matlab

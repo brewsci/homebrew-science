@@ -2,7 +2,7 @@ class RubyVersion19 < Requirement
   fatal true
   satisfy(:build_env => false) { `ruby -e 'print RUBY_VERSION'`.strip.to_f >= 1.9 }
 
-  def message; <<-EOS.undent
+  def message; <<~EOS
       Ruby >= 1.9 is required to run tests, which utilize Encoding class.
       Install without `--with-tests` option.
   EOS
@@ -40,7 +40,7 @@ class Libgpkg < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       Custom SQLite command-line shell that autoloads static GeoPackage extension:
       #{opt_prefix}/bin/gpkg
 

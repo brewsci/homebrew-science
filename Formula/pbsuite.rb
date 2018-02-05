@@ -17,7 +17,7 @@ class Pbsuite < Formula
     prefix.install Dir["*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Set the PYTHONPATH environment variable:
       export PYTHONPATH=#{opt_prefix}:$PYTHONPATH
     EOS

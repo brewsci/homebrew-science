@@ -13,7 +13,7 @@ class Fann < Formula
   end
 
   test do
-    (testpath/"xor.data").write <<-EOS.undent
+    (testpath/"xor.data").write <<~EOS
       4 2 1
       -1 -1
       -1
@@ -25,7 +25,7 @@ class Fann < Formula
       -1
     EOS
 
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
     #include "fann.h"
     int main()
     {

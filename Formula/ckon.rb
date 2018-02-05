@@ -29,7 +29,7 @@ class Ckon < Formula
 
   test do
     system "#{bin}/ckon", "--version"
-    (testpath/"ckon.cfg").write <<-EOS.undent
+    (testpath/"ckon.cfg").write <<~EOS
     suffix=0
     yaml=1
     [ckon]
@@ -44,10 +44,10 @@ class Ckon < Formula
     [ldadd]
     cbes=-lMathMore
     EOS
-    (testpath/"ckonignore").write <<-EOS.undent
+    (testpath/"ckonignore").write <<~EOS
     macros
     EOS
-    (testpath/"ckon.out").write <<-EOS.undent
+    (testpath/"ckon.out").write <<~EOS
     found ignore string macros in StRoot/BesCocktail/macros
     found ignore string macros in StRoot/BesCocktail/macros/bingchu
     "StRoot/BesCocktail"

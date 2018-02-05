@@ -39,7 +39,7 @@ class Zoltan < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To link against Zoltan, add
       #{opt_include}
     to the search path for includes and
@@ -49,7 +49,7 @@ class Zoltan < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include "zoltan.h"
       int main(int argc, char *argv[])

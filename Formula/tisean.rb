@@ -45,7 +45,7 @@ class Tisean < Formula
   end
 
   def caveats
-    if build.with? "prefixed-binaries" then <<-EOS.undent
+    if build.with? "prefixed-binaries" then <<~EOS
       By default, all TISEAN binaries are prefixed with `tisean-`.
       For unprefixed binaries, use `--without-prefixed-binaries`.
       EOS

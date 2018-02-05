@@ -18,7 +18,7 @@ class Topcat < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       The Java JAR files are installed to
         #{share}/java
     EOS

@@ -33,7 +33,7 @@ class Itensor < Formula
       blas_lapack_includeflags = ""
     end
 
-    (buildpath/"options.mk").write <<-EOS.undent
+    (buildpath/"options.mk").write <<~EOS
       CCCOM=#{ENV.cxx} -std=c++11 -fPIC
       PLATFORM=#{platform}
       BLAS_LAPACK_LIBFLAGS=#{blas_lapack_libflags}
@@ -97,7 +97,7 @@ class Itensor < Formula
       blas_lapack_flags = ["-llapack", "-lblas"]
     end
 
-    (testpath/"test.cc").write <<-EOS.undent
+    (testpath/"test.cc").write <<~EOS
       #include "itensor/all.h"
       using namespace itensor;
       int main()

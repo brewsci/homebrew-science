@@ -26,7 +26,7 @@ class Aribas < Formula
 
   test do
     # ftp://ftp.mathematik.uni-muenchen.de/pub/forster/aribas/examples/pi.ari
-    (testpath/"pi.ari").write <<-EOS.undent
+    (testpath/"pi.ari").write <<~EOS
       function Saux(zz)
       const
           k1 = 545140134;

@@ -31,7 +31,7 @@ class Apophenia < Formula
 
   test do
     # write a sample csv text file to import
-    (testpath/"foo.csv").write <<-EOS.undent
+    (testpath/"foo.csv").write <<~EOS
       thud,bump
       1,2
       3,4

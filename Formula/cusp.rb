@@ -18,7 +18,7 @@ class Cusp < Formula
 
   test do
     cp pkgshare/"data/laplacian/5pt_10x10.mtx", testpath
-    (testpath/"testcusp.cu").write <<-EOS.undent
+    (testpath/"testcusp.cu").write <<~EOS
     #include <thrust/version.h>
     #include <cusp/version.h>
     #include <cusp/hyb_matrix.h>

@@ -59,7 +59,7 @@ class SuperluMt < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Default SuperLU_MT build options are recorded in
 
       #{opt_prefix}/make.inc

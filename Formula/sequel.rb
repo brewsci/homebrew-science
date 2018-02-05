@@ -30,7 +30,7 @@ class Sequel < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       The helper script prep.pl has been installed as sequel-prep.pl
     EOS
   end

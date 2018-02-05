@@ -17,7 +17,7 @@ class Gaemr < Formula
     bin.install_symlink "../libexec/bin/GAEMR.py"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     After install GAEMR, you must do these 3 things:
 
     1. Amend your UNIX PATH environmental variable to point to your

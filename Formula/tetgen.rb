@@ -16,7 +16,7 @@ class Tetgen < Formula
     system "#{bin}/tetgen", "#{doc}/example.poly"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Please register as a TetGen user at
     http://wias-berlin.de/software/tetgen/download2.jsp.
     EOS

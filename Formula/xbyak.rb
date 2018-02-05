@@ -18,7 +18,7 @@ class Xbyak < Formula
   end
 
   test do
-    (testpath / "test.cpp").write <<-EOS.undent
+    (testpath / "test.cpp").write <<~EOS
       #include <stdio.h>
       #include <xbyak/xbyak.h>
 

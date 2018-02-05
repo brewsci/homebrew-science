@@ -45,7 +45,7 @@ class Galsim < Formula
   def caveats
     homebrew_site_packages = Language::Python.homebrew_site_packages
     user_site_packages = Language::Python.user_site_packages "python"
-    s = <<-EOS.undent
+    s = <<~EOS
       If you use the Apple-provided Python instead of one from Homebrew, you
       may want to add all Homebrew python packages to the default paths
       by running:

@@ -48,7 +48,7 @@ class Raxml < Formula
   end
 
   test do
-    (testpath/"aln.phy").write <<-EOS.undent
+    (testpath/"aln.phy").write <<~EOS
        10 60
       Cow       ATGGCATATCCCATACAACTAGGATTCCAAGATGCAACATCACCAATCATAGAAGAACTA
       Carp      ATGGCACACCCAACGCAACTAGGTTTCAAGGACGCGGCCATACCCGTTATAGAGGAACTT

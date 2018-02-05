@@ -27,7 +27,7 @@ class Scrm < Formula
   end
 
   test do
-    assert_equal shell_output("#{bin}/scrm 10 1 -seed 1 2 3 -T"), <<-EOS.undent
+    assert_equal shell_output("#{bin}/scrm 10 1 -seed 1 2 3 -T"), <<~EOS
       scrm 10 1 -seed 1 2 3 -T
       4199328558
 

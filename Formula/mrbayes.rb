@@ -40,7 +40,7 @@ class Mrbayes < Formula
 
   def caveats
     unless build.head?
-      <<-EOS.undent
+      <<~EOS
         The documentation and examples are installed to
             #{HOMEBREW_PREFIX}/share/mrbayes
       EOS

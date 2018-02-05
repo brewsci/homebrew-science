@@ -28,7 +28,7 @@ class Trimmomatic < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       The Trimmomatic FASTA adapter files can be found in
         #{HOMEBREW_PREFIX}/share/trimmomatic/adapters
     EOS

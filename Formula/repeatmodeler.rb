@@ -39,7 +39,7 @@ class Repeatmodeler < Formula
     prefix.install Dir["*"]
     bin.install_symlink %w[../BuildDatabase ../RepeatModeler]
 
-    (prefix/"config.txt").write <<-EOS.undent
+    (prefix/"config.txt").write <<~EOS
 
       /usr/bin/perl
       #{prefix}
@@ -60,7 +60,7 @@ class Repeatmodeler < Formula
     end if build.with? "configure"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To reconfigure RepeatModeler, run
       brew postinstall repeatmodeler
     or

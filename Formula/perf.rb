@@ -20,7 +20,7 @@ class Perf < Formula
   end
 
   test do
-    (testpath/"test.data").write <<-EOS.undent
+    (testpath/"test.data").write <<~EOS
       1 0.80962
       0 0.48458
       1 0.65812

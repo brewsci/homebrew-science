@@ -19,7 +19,7 @@ class AbyssExplorer < Formula
 
   def install
     libexec.install "AbyssExplorer.jar", "lib"
-    (bin / "abyss-explorer").write <<-EOS.undent
+    (bin / "abyss-explorer").write <<~EOS
       #!/bin/sh
       set -eu
       exec java -jar #{libexec}/AbyssExplorer.jar "$@"

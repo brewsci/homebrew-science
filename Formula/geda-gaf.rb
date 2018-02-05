@@ -34,7 +34,7 @@ class GedaGaf < Formula
     # executable test (GUI)
     system "#{bin}/gschem", "--version"
     # API test
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libgeda/libgeda.h>
 
       int main(int argc, char *argv[]) {

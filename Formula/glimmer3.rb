@@ -40,7 +40,7 @@ class Glimmer3 < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       Glimmer3 is mostly used by calling the .csh scripts but if you need the
       supporting binaries, they are in
           #{libexec}

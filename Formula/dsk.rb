@@ -30,7 +30,7 @@ class Dsk < Formula
   end
 
   test do
-    (testpath/"shortread.fasta").write <<-EOS.undent
+    (testpath/"shortread.fasta").write <<~EOS
       >taille 15
       ACTGTACGTATAAGA
     EOS

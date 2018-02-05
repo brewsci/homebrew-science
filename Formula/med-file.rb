@@ -53,7 +53,7 @@ class MedFile < Formula
 
   test do
     assert_match "Nombre de parametre incorrect : medimport filein [fileout]", shell_output("#{bin}/medimport 2>&1", 255)
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <med.h>
       int main() {
         med_int major, minor, release;

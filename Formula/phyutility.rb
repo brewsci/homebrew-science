@@ -14,7 +14,7 @@ class Phyutility < Formula
     pkgshare.install "examples", "manual.pdf"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The manual and examples are in:
       #{opt_pkgshare}
     EOS

@@ -39,7 +39,7 @@ class Velvet < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       Some additional user contributed scripts are installed here:
       #{share}/velvet/contrib
     EOS

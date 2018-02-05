@@ -14,7 +14,7 @@ class Gmcloser < Formula
   def install
     doc.install "Manual_GMcloser.pdf"
     libexec.install Dir["*"]
-    (bin/"gmcloser").write <<-EOS.undent
+    (bin/"gmcloser").write <<~EOS
       #!/bin/sh
       set -eu
       exec #{libexec}/gmcloser "$@"

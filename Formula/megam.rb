@@ -19,7 +19,7 @@ class Megam < Formula
   end
 
   test do
-    (testpath/"tiny.megam").write <<-EOS.undent
+    (testpath/"tiny.megam").write <<~EOS
       0    F1 F2 F3
       1    F2 F3 F8
       0    F1 F2

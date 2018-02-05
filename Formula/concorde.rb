@@ -32,7 +32,7 @@ class Concorde < Formula
         end
       end
       # CPX_PARAM_FASTMIP is not defined in the latest versions of CPLEX
-      fastmip_replace = <<-EOS.undent
+      fastmip_replace = <<~EOS
         #ifndef CPX_PARAM_FASTMIP
         #define CPX_PARAM_FASTMIP 1017
         #endif

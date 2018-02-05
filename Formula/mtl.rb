@@ -23,7 +23,7 @@ class Mtl < Formula
   end
 
   test do
-    (testpath/"vector1.cpp").write <<-EOS.undent
+    (testpath/"vector1.cpp").write <<~EOS
       // copied from http://www.simunova.com/node/144
       #include <iostream>
       #include <boost/numeric/mtl/mtl.hpp>

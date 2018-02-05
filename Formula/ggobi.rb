@@ -30,7 +30,7 @@ class Ggobi < Formula
     # executable (GUI)
     system "#{bin}/ggobi", "--version"
     # API
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <GGobiAPI.h>
 
       int main(int argc, char *argv[]) {

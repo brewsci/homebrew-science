@@ -63,7 +63,7 @@ class Biopp < Formula
   end
 
   test do
-    (testpath/"bpp-phyl-test.cpp").write <<-EOS.undent
+    (testpath/"bpp-phyl-test.cpp").write <<~EOS
       #include <iostream>
       using namespace std;
       #include <Bpp/Seq/Alphabet.all>

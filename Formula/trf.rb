@@ -35,7 +35,7 @@ class Trf < Formula
 
   test do
     assert_match "period", shell_output("#{bin}/trf 2>&1", 1)
-    (testpath/"test.fa").write <<-EOS.undent
+    (testpath/"test.fa").write <<~EOS
        >seq
        aggaaacctgccatggcctcctggtgagctgtcctcatccactgctcgctgcctctccag
        atactctgacccatggatcccctgggtgcagccaagccacaatggccatggcgccgctgt

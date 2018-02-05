@@ -59,7 +59,7 @@ class Dgtal < Formula
   end
 
   test do
-    (testpath/"poly.cpp").write <<-EOS.undent
+    (testpath/"poly.cpp").write <<~EOS
       #include "DGtal/io/readers/MPolynomialReader.h"
       using namespace std;
       using namespace DGtal;

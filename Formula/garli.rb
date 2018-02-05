@@ -59,7 +59,7 @@ class Garli < Formula
     pkgshare.install "example"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The manual and examples have been installed to:
 
       #{opt_pkgshare}/doc
@@ -70,7 +70,7 @@ class Garli < Formula
   test do
     system "#{bin}/Garli", "--version"
 
-    (testpath/"aln.phy").write <<-EOS.undent
+    (testpath/"aln.phy").write <<~EOS
        10 60
       Cow       ATGGCATATCCCATACAACTAGGATTCCAAGATGCAACATCACCAATCATAGAAGAACTA
       Carp      ATGGCACACCCAACGCAACTAGGTTTCAAGGACGCGGCCATACCCGTTATAGAGGAACTT

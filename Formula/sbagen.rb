@@ -26,7 +26,7 @@ class Sbagen < Formula
 
   test do
     File.open("test.sbg", "w") do |file|
-      file.write <<-EOS.undent
+      file.write <<~EOS
         -SE
         silent: -
         0:00:00 == silent

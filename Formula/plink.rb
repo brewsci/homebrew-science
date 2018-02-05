@@ -17,7 +17,7 @@ class Plink < Formula
 
   fails_with :clang do
     build 425
-    cause <<-EOS.undent
+    cause <<~EOS
       Old versions of clang are missing some symbols for
       exception unwinding (Homebrew/science issue #4234).
       EOS

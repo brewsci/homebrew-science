@@ -85,7 +85,7 @@ class Superlu43 < Formula
   def caveats
     s = ""
     if build.with? "matlab"
-      s += <<-EOS.undent
+      s += <<~EOS
         Matlab interfaces are located in
 
           #{opt_pkgshare}/matlab

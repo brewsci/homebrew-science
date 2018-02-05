@@ -156,7 +156,7 @@ class Libbi < Formula
     bin.env_script_all_files(libexec/"bin", env)
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     libbi must be run with the same version of perl it was installed with.
     Changing perl versions might require a reinstall of libbi.
     EOS

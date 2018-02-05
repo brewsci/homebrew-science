@@ -35,7 +35,7 @@ class Phyml < Formula
     pkgshare.install Dir["examples/*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Examples have been installed here:
       #{opt_pkgshare}
 

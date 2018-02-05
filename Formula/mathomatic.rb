@@ -23,7 +23,7 @@ class Mathomatic < Formula
   end
 
   test do
-    (testpath/"testo.c").write <<-EOS.undent
+    (testpath/"testo.c").write <<~EOS
       #include <stdio.h>
       #include <math.h>
 

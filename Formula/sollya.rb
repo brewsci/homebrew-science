@@ -34,7 +34,7 @@ class Sollya < Formula
   end
 
   test do
-    (testpath/"sample.sollya").write <<-EOS.undent
+    (testpath/"sample.sollya").write <<~EOS
     1+x==1+x;
     EOS
     assert_match "true", shell_output("#{bin}/sollya sample.sollya", 3)

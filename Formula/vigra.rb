@@ -64,7 +64,7 @@ class Vigra < Formula
     libtiff = Formula["libtiff"]
     libtiff_cxx11 = Tab.for_formula(libtiff).cxx11?
     if (build.cxx11? && !libtiff_cxx11) || (libtiff_cxx11 && !build.cxx11?)
-      s += <<-EOS.undent
+      s += <<~EOS
       The Homebrew warning about libtiff not being built with the C++11
       standard may be safely ignored as Vigra only relies on C API of libtiff.
       EOS

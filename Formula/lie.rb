@@ -23,7 +23,7 @@ class Lie < Formula
     # The original Makefile builds a similar lie entry point but it is not
     # relocatable
     entry_point = bin/"lie"
-    entry_point.write <<-EOS.undent
+    entry_point.write <<~EOS
       #!/bin/bash
       exec #{libexec}/Lie.exe initfile #{info}
     EOS

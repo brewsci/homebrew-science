@@ -34,7 +34,7 @@ class Biopieces < Formula
     prefix.install Dir["*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       To use Biopieces, set the following environment variables:
         export BP_DIR=#{opt_prefix}
         export BP_DATA="$BP_DIR/bp_data"

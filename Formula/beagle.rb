@@ -50,7 +50,7 @@ class Beagle < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "libhmsbeagle/platform.h"
       int main()
       {

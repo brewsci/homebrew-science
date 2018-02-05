@@ -36,7 +36,7 @@ class ParallelNetcdf < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include "pnetcdf.h"
       int main()
@@ -45,7 +45,7 @@ class ParallelNetcdf < Formula
         return 0;
       }
     EOS
-    (testpath/"test_mpi.c").write <<-EOS.undent
+    (testpath/"test_mpi.c").write <<~EOS
       #include <stdlib.h>
       #include <mpi.h>
       #include <pnetcdf.h>
@@ -126,7 +126,7 @@ class ParallelNetcdf < Formula
           return 0;
       }
     EOS
-    (testpath/"output.expected").write <<-EOS.undent
+    (testpath/"output.expected").write <<~EOS
     netcdf output {
     // file format: CDF-2 (large file)
     dimensions:

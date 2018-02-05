@@ -25,7 +25,7 @@ class BlazeLib < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <blaze/Blaze.h>
 
       using blaze::StaticVector;

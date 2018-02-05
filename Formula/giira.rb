@@ -13,11 +13,11 @@ class Giira < Formula
   end
 
   test do
-    (testpath/"test.fasta").write <<-EOS.undent
+    (testpath/"test.fasta").write <<~EOS
       >gi|330443520|ref|NC_001136.10| Saccharomyces cerevisiae
       ACACCACACCCACACCACACCCACACACACCACACCCACACACCACACCCACACCCACACACCCACACCC
     EOS
-    (testpath/"test.fastq").write <<-EOS.undent
+    (testpath/"test.fastq").write <<~EOS
       @scer_part1_c15.000000000 contig=lcl|NC_001136.10_cdsid_NP_010096.1
       CAATTTTTCGCATTCGCCATGGACTTCCTTTTCACCCCTGCTTGGTTCAA
     EOS

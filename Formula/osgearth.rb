@@ -80,7 +80,7 @@ class Osgearth < Formula
   def caveats
     osg = Formula["open-scene-graph"]
     osgver = (osg.linked_keg.exist?) ? osg.version : "#.#.# (version)"
-    <<-EOS.undent
+    <<~EOS
     This formula installs Open Scene Graph plugins. To ensure access when using
     the osgEarth toolset, set the OSG_LIBRARY_PATH enviroment variable to:
 

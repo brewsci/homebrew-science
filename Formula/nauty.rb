@@ -33,7 +33,7 @@ class Nauty < Formula
     doc.install "nug26.pdf"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     User guide was saved locally to:
       #{doc}/nug26.pdf
     EOS

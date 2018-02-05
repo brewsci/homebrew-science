@@ -32,7 +32,7 @@ class Libpll < Formula
   end
 
   test do
-    (testpath/"alignment.phy").write <<-EOS.undent
+    (testpath/"alignment.phy").write <<~EOS
       10 60
       Cow       ATGGCATATCCCATACAACTAGGATTCCAAGATGCAACATCACCAATCATAGAAGAACTA
       Carp      ATGGCACACCCAACGCAACTAGGTTTCAAGGACGCGGCCATACCCGTTATAGAGGAACTT
@@ -46,7 +46,7 @@ class Libpll < Formula
       Frog      ATGGCACACCCATCACAATTAGGTTTTCAAGACGCAGCCTCTCCAATTATAGAAGAATTA
     EOS
 
-    (testpath/"libpll-test.c").write <<-EOS.undent
+    (testpath/"libpll-test.c").write <<~EOS
       #include <stdio.h>
       #include <stdlib.h>
       #include <pll/pll.h>

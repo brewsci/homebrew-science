@@ -15,14 +15,14 @@ class Des < Formula
   depends_on :java => "1.6+"
   depends_on "swi-prolog"
 
-  def shim_script; <<-EOS.undent
+  def shim_script; <<~EOS
       #!/usr/bin/env bash
       cd #{libexec}
       swipl des.pl
     EOS
   end
 
-  def jar_script(target_jar); <<-EOS.undent
+  def jar_script(target_jar); <<~EOS
       #!/bin/bash
       cd #{libexec}
       exec java -jar #{target_jar} "$@"
@@ -38,7 +38,7 @@ class Des < Formula
     (bin+"des-gui").write jar_script("des_acide.jar")
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The executable for the console version of DES is
         #{bin}/des
 
@@ -48,7 +48,7 @@ class Des < Formula
   end
 
   test do
-    cmd = <<-EOS.undent
+    cmd = <<~EOS
     des << 'END'
     /pretty_print off
     /version

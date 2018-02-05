@@ -17,13 +17,13 @@ class Alglib < Formula
   depends_on "qt"
 
   def install
-    (buildpath/"alglib.pro").write <<-EOS.undent
+    (buildpath/"alglib.pro").write <<~EOS
       TEMPLATE = subdirs
       SUBDIRS = \\
           src
     EOS
 
-    (buildpath/"src/src.pro").write <<-EOS.undent
+    (buildpath/"src/src.pro").write <<~EOS
       isEmpty(PREFIX) {
         PREFIX = /usr/local
       }
@@ -57,7 +57,7 @@ class Alglib < Formula
   end
 
   test do
-    (testpath / "test.cpp").write <<-EOS.undent
+    (testpath / "test.cpp").write <<~EOS
       #include <stdlib.h>
       #include <stdio.h>
       #include <time.h>

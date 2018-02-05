@@ -29,7 +29,7 @@ class R8s < Formula
     pkgshare.install Dir["SAMPLE_*", "*.pdf"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The manual and example files were installed to
       #{opt_prefix}/share/r8s
     EOS

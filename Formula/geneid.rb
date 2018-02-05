@@ -22,7 +22,7 @@ class Geneid < Formula
     pkgshare.install Dir["param/*.param"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The parameter files are installed in
       #{HOMEBREW_PREFIX}/share/geneid
     EOS

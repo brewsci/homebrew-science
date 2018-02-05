@@ -12,7 +12,7 @@ class EnsemblTools < Formula
       system "perl", "INSTALL.pl", "-a", "a", "-d", libexec
     end
 
-    (bin/"variant_effect_predictor").write <<-EOS.undent
+    (bin/"variant_effect_predictor").write <<~EOS
       #!/bin/sh
       set -eu
       export PERL5LIB=#{libexec}
@@ -30,7 +30,7 @@ class EnsemblTools < Formula
     ]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You may need to append your PERL5LIB environment variable:
       export PERL5LIB=#{opt_libexec}:$PERL5LIB
     EOS

@@ -93,7 +93,7 @@ class QrMumps < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Fortran modules were installed to
       "#{libexec}/modules"
     EOS

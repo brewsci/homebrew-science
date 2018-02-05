@@ -44,7 +44,7 @@ class Symengine < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <symengine/expression.h>
       #include <symengine/symbol.h>
       using SymEngine::Expression;

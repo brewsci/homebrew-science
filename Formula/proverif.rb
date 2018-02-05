@@ -24,7 +24,7 @@ class Proverif < Formula
     (prefix/"tests").install "test", "test-type"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Cryptoverif compatibility library has been installed to
     #{prefix}/cryptoverif/cryptoverif.pvl
 

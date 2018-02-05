@@ -39,7 +39,7 @@ class Hyphy < Formula
     doc.install("help")
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The help has been installed to #{doc}/hyphy.
     EOS
   end

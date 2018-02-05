@@ -28,7 +28,7 @@ class Yices < Formula
   end
 
   test do
-    (testpath/"lra.smt2").write <<-EOS.undent
+    (testpath/"lra.smt2").write <<~EOS
       ;; QF_LRA = Quantifier-Free Linear Real Arithemtic
       (set-logic QF_LRA)
       ;; Declare variables x, y

@@ -36,7 +36,7 @@ class Wfdb < Formula
     share.install prefix/"man" if build.stable?
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     WFDB Example programs have been installed to:
       #{pkgshare}/examples
     EOS

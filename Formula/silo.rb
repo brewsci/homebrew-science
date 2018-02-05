@@ -40,7 +40,7 @@ class Silo < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
         #include <silo.h>
 
         int main(void)

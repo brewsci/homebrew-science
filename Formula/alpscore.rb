@@ -52,7 +52,7 @@ class Alpscore < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <alps/mc/api.hpp>
       #include <alps/mc/mcbase.hpp>
       #include <alps/accumulators.hpp>

@@ -26,14 +26,14 @@ class Exabayes < Formula
     pkgshare.install "examples"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The example files are stored in
       #{opt_prefix}/share/exabayes
     EOS
   end
 
   test do
-    (testpath/"config.nex").write <<-EOS.undent
+    (testpath/"config.nex").write <<~EOS
       #nexus
       begin run;
         numgen 10000
@@ -43,7 +43,7 @@ class Exabayes < Formula
       end;
     EOS
 
-    (testpath/"aln.phy").write <<-EOS.undent
+    (testpath/"aln.phy").write <<~EOS
        10 60
       Cow       ATGGCATATCCCATACAACTAGGATTCCAAGATGCAACATCACCAATCATAGAAGAACTA
       Carp      ATGGCACACCCAACGCAACTAGGTTTCAAGGACGCGGCCATACCCGTTATAGAGGAACTT

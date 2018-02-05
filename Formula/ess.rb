@@ -19,18 +19,18 @@ class Ess < Formula
   end
 
   test do
-    (testpath/".emacs").write <<-EOS.undent
+    (testpath/".emacs").write <<~EOS
       (add-to-list 'load-path "#{elisp}")
       (require 'ess-site)
     EOS
-    (testpath/"test.r").write <<-EOS.undent
+    (testpath/"test.r").write <<~EOS
       foo(a,
       b)
     EOS
     system "emacs", "-Q", "--batch", "-l", testpath/".emacs",
            "test.r", "--eval", "(ess-indent-exp)", "-f", "save-buffer"
 
-    expected = <<-EOS.undent
+    expected = <<~EOS
       foo(a,
           b)
     EOS

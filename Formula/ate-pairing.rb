@@ -21,7 +21,7 @@ class AtePairing < Formula
   end
 
   test do
-    (testpath / "test.cpp").write <<-EOS.undent
+    (testpath / "test.cpp").write <<~EOS
       #include <ate-pairing/bn.h>
       using namespace bn;
 

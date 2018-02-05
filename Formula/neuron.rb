@@ -106,7 +106,7 @@ class Neuron < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     NEURON recommends that you set an X11 option that raises the window
     under the mouse cursor on mouseover. If you don't set this option,
     NEURON's GUI will still work, but you will have to click in each window

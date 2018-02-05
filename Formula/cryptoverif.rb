@@ -39,7 +39,7 @@ class Cryptoverif < Formula
     prefix.install_symlink libexec/"authexamples"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Cryptoverif can be manually aliased to include the default lib:
     - alias cryptoverif='cryptoverif -lib #{prefix}/stdlib/default'
 

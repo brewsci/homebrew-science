@@ -46,7 +46,7 @@ class Maker < Formula
       ../libexec/bin/maker]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Optional components of MAKER
       GeneMarkS and GeneMark-ES. Download from http://exon.biology.gatech.edu
       FGENESH 2.4 or higher. Purchase from http://www.softberry.com

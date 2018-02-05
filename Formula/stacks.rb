@@ -40,7 +40,7 @@ class Stacks < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       For instructions on setting up the web interface:
           #{prefix}/README
 

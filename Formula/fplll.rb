@@ -30,7 +30,7 @@ class Fplll < Formula
 
   test do
     ENV.cxx11
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       // inspired from ./tests/test_lll.cpp
       #include <fplll.h>
 

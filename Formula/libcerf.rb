@@ -25,7 +25,7 @@ class Libcerf < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <cerf.h>
       #include <stdio.h>
       int main()

@@ -45,7 +45,7 @@ class Openni2 < Formula
     doc.install "Documentation" if build.with? "docs"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Add the recommended variables to your dotfiles.
      * On Bash, add them to `~/.bash_profile`.
      * On Zsh, add them to `~/.zprofile` instead.

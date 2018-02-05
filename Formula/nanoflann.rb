@@ -27,7 +27,7 @@ class Nanoflann < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <nanoflann.hpp>
       int main() {
         nanoflann::KNNResultSet<size_t> resultSet(1);

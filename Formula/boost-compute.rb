@@ -20,7 +20,7 @@ class BoostCompute < Formula
   end
 
   test do
-    (testpath/"hello.cpp").write <<-EOS.undent
+    (testpath/"hello.cpp").write <<~EOS
       #include <iostream>
       #include <boost/compute/core.hpp>
       int main()

@@ -45,7 +45,7 @@ class Nest < Formula
   end
 
   fails_with :clang do
-    cause <<-EOS.undent
+    cause <<~EOS
       Building NEST with clang is not stable. See https://github.com/nest/nest-simulator/issues/74 .
     EOS
   end

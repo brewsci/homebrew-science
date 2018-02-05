@@ -11,7 +11,7 @@ class Edena < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       The documentation installed into
           #{HOMEBREW_PREFIX}/share/doc/#{name}
     EOS

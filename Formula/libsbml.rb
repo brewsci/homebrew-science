@@ -65,7 +65,7 @@ class Libsbml < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <sbml/SBMLTypes.h>
       int main() {
         SBMLDocument_t *d = SBMLDocument_createWithLevelAndVersion(3, 2);

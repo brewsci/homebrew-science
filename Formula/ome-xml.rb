@@ -75,7 +75,7 @@ class OmeXml < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <ome/xml/meta/OMEXMLMetadata.h>
 
       int main()

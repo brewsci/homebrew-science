@@ -21,7 +21,7 @@ class Transpose < Formula
   end
 
   test do
-    (testpath/"test.tab").write <<-EOS.undent
+    (testpath/"test.tab").write <<~EOS
        1	2
        3	4
     EOS

@@ -23,7 +23,7 @@ class Aragorn < Formula
   end
 
   test do
-    (testpath/"test.fa").write <<-EOS.undent
+    (testpath/"test.fa").write <<~EOS
       >sequence
       GGGGCTATAGCTCAGTTGGGAGAGCGCTGCAATCGCACTG
       CAGAGGTCGTCAGTTCGAACCTGACTAGCTCCACCA

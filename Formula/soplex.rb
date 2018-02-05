@@ -29,7 +29,7 @@ class Soplex < Formula
     pkgshare.install "src/example.cpp"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       SoPlex is distributed under the ZIB Academic License
       (http://scip.zib.de/academic.txt).
       You are allowed to retrieve SoPlex for research purposes as a member of

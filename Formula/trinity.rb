@@ -66,13 +66,13 @@ class Trinity < Formula
     system "make", "test"
     prefix.install Dir["*"]
 
-    (bin/"Trinity").write <<-EOS.undent
+    (bin/"Trinity").write <<~EOS
       #!/bin/bash
       PERL5LIB="#{prefix}/PerlLib" exec "#{prefix}/Trinity" "$@"
     EOS
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Trinity only officially supports Java 1.8. To skip this check pass the
     option --bypass_java_version_check to Trinity. A specific Java version may
     also be set via environment variable:

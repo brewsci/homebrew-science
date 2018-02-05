@@ -19,7 +19,7 @@ class Sisl < Formula
   end
 
   test do
-    (testpath/"s1013prob.C").write <<-EOS.undent
+    (testpath/"s1013prob.C").write <<~EOS
 
     #include "sisl.h"
     #include <iostream>

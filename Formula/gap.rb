@@ -94,7 +94,7 @@ class Gap < Formula
   #   given, not according to the options with which the formula is installed
   def caveats
     if build.without?("packages")
-      <<-EOS.undent
+      <<~EOS
         If the formula is installed without the `--with-packages' option,
         some packages in:
           #{libexec/"pkg"}
@@ -103,7 +103,7 @@ class Gap < Formula
         See the Section 7 of #{libexec/"INSTALL"} for more info.
       EOS
     else
-      <<-EOS.undent
+      <<~EOS
         When the formula is installed with the `--with-packages' option,
         some packages in
           #{libexec/"pkg"}
@@ -117,7 +117,7 @@ class Gap < Formula
 
   test do
     File.open("test_input.g", "w") do |f|
-      f.write <<-EOS.undent
+      f.write <<~EOS
         Print(Factorial(3), "\\n");
         Print(IsDocumentedWord("IsGroup"), "\\n");
         Print(IsDocumentedWord("MakeGAPDocDoc"), "\\n");
@@ -127,7 +127,7 @@ class Gap < Formula
     test_output = `#{bin/"gap"} -b test_input.g`
     assert_equal 0, $?.exitstatus
     expected_output =
-      <<-EOS.undent
+      <<~EOS
         6
         true
         true

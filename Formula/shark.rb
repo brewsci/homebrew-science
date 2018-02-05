@@ -16,12 +16,12 @@ class Shark < Formula
   end
 
   test do
-    (testpath/"data.csv").write <<-EOS.undent
+    (testpath/"data.csv").write <<~EOS
       1 1 0
       2 2 1
     EOS
 
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <shark/Data/Csv.h>
       using namespace shark;
 

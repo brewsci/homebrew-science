@@ -32,7 +32,7 @@ class Littler < Formula
     doc.install "README"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This formula installs `r` as `littler` to avoid conflicting
     with the Zsh builtin and case-insensitive filesystems.
     EOS

@@ -48,7 +48,7 @@ class KentTools < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The `calc` tool has been renamed to `kent-tools-calc`.
 
     This only installs the standalone tools located at

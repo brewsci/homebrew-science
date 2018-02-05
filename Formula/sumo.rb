@@ -75,7 +75,7 @@ class Sumo < Formula
     rm bin/"sumo-unittest"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Some SUMO scripts require SUMO_HOME environmental variable:
       export SUMO_HOME=#{prefix}
     EOS
@@ -84,7 +84,7 @@ class Sumo < Formula
   test do
     # A simple hand-made test to see if sumo compiled and linked well.
 
-    (testpath/"hello.nod.xml").write <<-EOS.undent
+    (testpath/"hello.nod.xml").write <<~EOS
       <nodes>
           <node id="1" x="-250.0" y="0.0" />
           <node id="2" x="+250.0" y="0.0" />
@@ -92,7 +92,7 @@ class Sumo < Formula
       </nodes>
     EOS
 
-    (testpath/"hello.edg.xml").write <<-EOS.undent
+    (testpath/"hello.edg.xml").write <<~EOS
       <edges>
           <edge from="1" id="1to2" to="2" />
           <edge from="2" id="out" to="3" />
@@ -101,7 +101,7 @@ class Sumo < Formula
 
     system "#{bin}/netconvert", "--node-files=#{testpath}/hello.nod.xml", "--edge-files=#{testpath}/hello.edg.xml", "--output-file=#{testpath}/hello.net.xml"
 
-    (testpath/"hello.rou.xml").write <<-EOS.undent
+    (testpath/"hello.rou.xml").write <<~EOS
       <routes>
           <vType accel="1.0" decel="5.0" id="Car" length="2.0" maxSpeed="100.0" sigma="0.0" />
           <route id="route0" edges="1to2 out"/>
@@ -109,7 +109,7 @@ class Sumo < Formula
       </routes>
     EOS
 
-    (testpath/"hello.sumocfg").write <<-EOS.undent
+    (testpath/"hello.sumocfg").write <<~EOS
       <configuration>
           <input>
               <net-file value="hello.net.xml"/>

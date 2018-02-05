@@ -44,7 +44,7 @@ class Repeatmasker < Formula
     # HMMER INSTALLATION PATH Enter path
     # Do you want HMMER to be your default search engine for Repeatmasker?
     # 5. Done
-    (libexec/"config.txt").write <<-EOS.undent
+    (libexec/"config.txt").write <<~EOS
 
       #{perl}
       #{libexec}
@@ -64,7 +64,7 @@ class Repeatmasker < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Congratulations!  RepeatMasker is now ready to use.
     The program is installed with a minimal repeat library
     by default.  This library only contains simple, low-complexity,

@@ -20,7 +20,7 @@ class Cdsclient < Formula
   end
 
   test do
-    (testpath/"data").write <<-EOS.undent
+    (testpath/"data").write <<~EOS
       12 34 12.5 -34 23 12
       13 24 57.1 +61 12 34
     EOS

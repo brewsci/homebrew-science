@@ -29,7 +29,7 @@ class Hotspot < Formula
     rm bin/"wavelets" unless OS.linux?
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Run the test suite (~1 hr):
       #{opt_pkgshare}/pipeline-scripts/test/runhotspot
     EOS

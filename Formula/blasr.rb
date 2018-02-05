@@ -20,7 +20,7 @@ class Blasr < Formula
   # https://github.com/PacificBiosciences/blasr/issues/28
   fails_with :clang do
     build 602
-    cause <<-EOS.undent
+    cause <<~EOS
       error: destructor type 'HDFWriteBuffer<int>' in object
       destruction expression does not match the type
       'BufferedHDFArray<int>' of the object being destroyed
@@ -29,7 +29,7 @@ class Blasr < Formula
 
   fails_with :gcc do
     build 5666
-    cause <<-EOS.undent
+    cause <<~EOS
       error: invalid conversion
       from 'void (*)(H5::H5Object&, std::string, void*)'
       to 'void (*)(H5::H5Location&, std::string, void*)'

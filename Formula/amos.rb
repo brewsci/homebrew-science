@@ -53,7 +53,7 @@ class Amos < Formula
     (bin/"amos").write_env_script("#{libexec}/bin/amos", :PERL5LIB => ENV["PERL5LIB"])
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The Perl modules have been installed in
       #{lib}/AMOS
       #{lib}/TIGR

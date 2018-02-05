@@ -29,7 +29,7 @@ class Phylip < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       The documentation has been installed to #{HOMEBREW_PREFIX}/share/phylip/
     EOS
   end

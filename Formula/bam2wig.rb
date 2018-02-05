@@ -16,7 +16,7 @@ class Bam2wig < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       The BAM2WIG JAR files are installed to
         #{HOMEBREW_PREFIX}/share/java
     EOS

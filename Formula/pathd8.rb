@@ -22,7 +22,7 @@ class Pathd8 < Formula
   end
 
   test do
-    (testpath/"infile").write <<-EOS.undent
+    (testpath/"infile").write <<~EOS
       Sequence length = 1823;
       ((((Rat:0.007148,Human:0.001808):0.024345,Platypus:0.016588):0.012920,(Ostrich:0.018119,Alligator:0.006232):0.004708):0.028037,Frog:0);
       mrca: Rat, Ostrich, minage=260;

@@ -17,7 +17,7 @@ class Mafft < Formula
 
   fails_with :clang do
     build 421
-    cause <<-EOS.undent
+    cause <<~EOS
       Clang does not allow default arguments in out-of-line definitions of
       class template members.
       EOS
@@ -39,7 +39,7 @@ class Mafft < Formula
 
   def caveats
     if MacOS.version <= :snow_leopard
-      <<-EOS.undent
+      <<~EOS
         This build of MAFFT is not multithreaded on Snow Leopard
         because its compiler does not support thread-local storage.
       EOS

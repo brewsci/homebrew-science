@@ -57,7 +57,7 @@ class OmeCommon < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <ome/common/xml/Platform.h>
       #include <ome/common/xsl/Platform.h>
 

@@ -26,7 +26,7 @@ class Centrifuge < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       The Makefile for building indices was installed to:
         #{pkgshare}/indices
     EOS

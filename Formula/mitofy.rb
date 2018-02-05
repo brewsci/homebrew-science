@@ -23,14 +23,14 @@ class Mitofy < Formula
     # Install a shell script to launch mitofy.
     bin.mkdir
     open(bin/"mitofy", "w") do |file|
-      file.write <<-EOS.undent
+      file.write <<~EOS
         #!/bin/sh
         exec perl -I#{prefix}/annotate #{prefix}/annotate/mitofy.pl "$@"
       EOS
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To use the Mitofy web app, run the following commands:
       sudo cp #{opt_prefix}/cgi/* /Library/WebServer/CGI-Executables/
       sudo mkdir /Library/WebServer/CGI-Executables/cgi_out

@@ -31,7 +31,7 @@ class Paml < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       Documentation and examples:
         #{HOMEBREW_PREFIX}/share/doc/paml
       Dat and ctl files:

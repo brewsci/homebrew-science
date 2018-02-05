@@ -22,7 +22,7 @@ class Galfit < Formula
     pkgshare.install resource("example")
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The documentation and examples are installed to
     #{HOMEBREW_PREFIX}/share/galfit
     EOS

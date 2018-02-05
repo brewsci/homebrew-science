@@ -69,13 +69,13 @@ class FastxToolkit < Formula
   end
 
   test do
-    fixture = <<-EOS.undent
+    fixture = <<~EOS
       >MY-ID
       AAAAAGGGGG
       CCCCCTTTTT
       AGCTN
       EOS
-    expect = <<-EOS.undent
+    expect = <<~EOS
       >MY-ID
       AAAAAGGGGGCCCCCTTTTTAGCTN
       EOS

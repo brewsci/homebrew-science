@@ -20,7 +20,7 @@ class Acado < Formula
   end
 
   test do
-    (testpath/"simple_ocp.cpp").write <<-EOS.undent
+    (testpath/"simple_ocp.cpp").write <<~EOS
       #include <acado_toolkit.hpp>
       USING_NAMESPACE_ACADO
 

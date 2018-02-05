@@ -47,7 +47,7 @@ class Blis < Formula
 
   def caveats
     unless ARGV.value("with-configuration")
-      <<-EOS.undent
+      <<~EOS
         BLIS was built with the reference configuration.  Performance is
         highly-dependent on the selected configuration and may not be optimal
         for this system.  Please consider specifying the --with-configuration

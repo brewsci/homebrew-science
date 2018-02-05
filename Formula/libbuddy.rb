@@ -20,7 +20,7 @@ class Libbuddy < Formula
   end
 
   test do
-    (testpath/"test.cc").write <<-EOS.undent
+    (testpath/"test.cc").write <<~EOS
       #include "bvec.h"
       using namespace std;
       int main(void) {

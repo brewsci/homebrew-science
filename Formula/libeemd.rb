@@ -35,7 +35,7 @@ class Libeemd < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <math.h>
       #include <stdio.h>
       #include <stdlib.h>

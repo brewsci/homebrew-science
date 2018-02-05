@@ -34,7 +34,7 @@ class Colpack < Formula
   test do
     ENV.libcxx
     cp pkgshare/"Graphs/column-compress.mtx", testpath
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "ColPack/ColPackHeaders.h"
 
       using namespace ColPack;

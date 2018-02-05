@@ -47,7 +47,7 @@ class Salt < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
     You should add the following to your .bashrc or equivalent:
       export SALTPATH=#{prefix}/data
     EOS

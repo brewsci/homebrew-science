@@ -21,7 +21,7 @@ class Libbigwig < Formula
   end
 
   test do
-    (testpath/"libbigwig.c").write <<-EOS.undent
+    (testpath/"libbigwig.c").write <<~EOS
     #include "bigWig.h"
     #include <stdio.h>
     #include <inttypes.h>

@@ -66,7 +66,7 @@ class Plasma < Formula
     pkgshare.install "timing"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     PLASMA should not be used in conjunction with a multithreaded BLAS to avoid
     creating more threads than actual cores. Please set
 

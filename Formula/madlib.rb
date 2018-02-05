@@ -66,7 +66,7 @@ class Madlib < Formula
     bin.write_exec_script("#{prefix}/Current/bin/madpack")
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     MADlib must be rebuilt if you upgrade PostgreSQL:
 
       brew reinstall madlib

@@ -106,7 +106,7 @@ class Xraylib < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <xraylib.h>
 
       int main()

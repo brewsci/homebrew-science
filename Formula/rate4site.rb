@@ -20,7 +20,7 @@ class Rate4site < Formula
   end
 
   test do
-    (testpath/"seq.aln").write <<-EOS.undent
+    (testpath/"seq.aln").write <<~EOS
       CLUSTAL V
 
 

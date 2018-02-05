@@ -30,7 +30,7 @@ class Cegma < Formula
     prefix.install "release_notes.md"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To use CEGMA, set the following environment variables:
       export CEGMA=#{HOMEBREW_PREFIX}/opt/cegma/libexec
       export PERL5LIB=#{HOMEBREW_PREFIX}/lib/perl5/site_perl:${PERL5LIB}

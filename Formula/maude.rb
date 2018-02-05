@@ -31,7 +31,7 @@ class Maude < Formula
   end
 
   test do
-    input = <<-EOS.undent
+    input = <<~EOS
       set show stats off .
       set show timing off .
       set show command off .

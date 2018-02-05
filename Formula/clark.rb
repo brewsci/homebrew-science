@@ -25,7 +25,7 @@ class Clark < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
     Additional helper scripts are installed in #{pkgshare}
     EOS
   end

@@ -25,7 +25,7 @@ class Gatk < Formula
     prefix.install_metafiles
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     GATK Official Release Repository: contains the core MIT-licensed GATK
     framework, plus "protected" tools restricted to non-commercial use only
     EOS
