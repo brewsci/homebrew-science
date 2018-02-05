@@ -15,15 +15,13 @@ class Minia < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "imagemagick" => :build if build.with? "tex"
-  depends_on :tex => [:build, :optional]
 
   def install
     mkdir "build" do
       args = std_cmake_args
       # Fix error: 'hdf5/hdf5.h' file not found
       args.delete "-DCMAKE_BUILD_TYPE=Release"
-      args << "-DSKIP_DOC=1" if build.without? "docs"
+      args << "-DSKIP_DOC=1"
       system "cmake", "..", *args
       system "make"
       system "make", "install"
