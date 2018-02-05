@@ -15,7 +15,7 @@ class Beast2 < Formula
     sha256 "305ee722435c5cab6d3b81b7a556df653a77f56c65a7a4a5c7b0342f87e94560" => :x86_64_linux
   end
 
-  depends_on :ant => :build
+  depends_on "ant" => :build
   depends_on :java => "1.8+"
 
   def install
