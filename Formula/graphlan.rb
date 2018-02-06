@@ -6,7 +6,7 @@ class Graphlan < Formula
   url "https://hg@bitbucket.org/nsegata/graphlan", :using => :hg, :tag => "1.0"
 
   depends_on LanguageModuleRequirement.new :python, "biopython", "Bio"
-  depends_on "matplotlib" => :python
+  depends_on "matplotlib"
 
   def install
     prefix.install Dir["*.py"], "src", "pyphlan"
