@@ -19,8 +19,8 @@ class Galsim < Formula
   depends_on "tmv-cpp"
 
   # FITS support should come from astropy.io.fits (PyFITS has been deprecated)
-  depends_on "astropy" => :python
-  depends_on "numpy" => :python
+  # Depends_on "astropy" => :python
+  depends_on "numpy"
   # Depends_on "nose" => :python if build.with? "test"
 
   needs :openmp if build.with? "openmp"
