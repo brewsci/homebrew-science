@@ -11,10 +11,7 @@ class Meme < Formula
 
   bottle :disable, "needs to be rebuilt with latest open-mpi"
 
-  keg_only <<-EOF.undent
-    MEME installs many commands, and some conflict
-    with other packages
-  EOF
+  keg_only "MEME installs many commands, and some conflict with other packages"
 
   depends_on "open-mpi" => :recommended
 
