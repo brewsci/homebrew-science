@@ -14,10 +14,7 @@ class UcscGenomeBrowser < Formula
     sha256 "34420c79358503243dd11ec436f81c4e2feea9b638dafe005bd3e0cd7c2598fa" => :yosemite
   end
 
-  keg_only <<-EOF.undent
-    the UCSC Genome Browser installs many commands, and some conflict
-    with other packages
-  EOF
+  keg_only "the UCSC Genome Browser installs many commands, and some conflict with other packages"
 
   depends_on "libpng"
   depends_on "mysql"
@@ -57,7 +54,7 @@ class UcscGenomeBrowser < Formula
   # TODO: Best would be if this formula would put a complete working
   #       apache virtual site into #{share} and instruct the user to just
   #       do a symlink.
-  def caveats; <<-EOF.undent
+  def caveats; <<~EOS
       To complete the installation of the UCSC Genome Browser, follow
       these instructions:
         http://genomewiki.ucsc.edu/index.php/Browser_Installation
@@ -85,14 +82,14 @@ class UcscGenomeBrowser < Formula
       mysql -uroot -proot -e "grant select on hgFixed.* to 'hguser'@'localhost'"
 
       Point your browser to http://localhost/cgi-bin/hgGateway
-    EOF
+    EOS
   end
 
   test do
-    (testpath/"test.fa").write <<-EOF.undent
+    (testpath/"test.fa").write <<~EOS
       >test
       ACTG
-    EOF
+    EOS
     system "#{bin}/faOneRecord test.fa test > out.fa"
     compare_file "test.fa", "out.fa"
   end
