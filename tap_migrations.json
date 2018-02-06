@@ -49,6 +49,7 @@
   "libmatio": "homebrew/core",
   "maxima": "homebrew/core",
   "metis": "homebrew/core",
+  "miniasm": "brewsci/bio",
   "nco": "homebrew/core",
   "ncview": "homebrew/core",
   "netcdf": "homebrew/core",
