@@ -26,7 +26,7 @@ class Blast < Formula
   depends_on "lzo" => :optional
   depends_on "mysql" => :optional
   depends_on "pcre" => :recommended
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
 
   patch do
     # Fixed upstream in future version > 2.6

@@ -28,7 +28,7 @@ class Simpleitk < Formula
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on :python => :recommended
+  depends_on "python" => :recommended
   depends_on "python3" => :optional
   depends_on :java => :optional
   depends_on "r" => :optional

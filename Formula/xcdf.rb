@@ -14,7 +14,7 @@ class Xcdf < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on :python
+  depends_on "python"
 
   def install
     dylib = OS.mac? ? "dylib" : "so"

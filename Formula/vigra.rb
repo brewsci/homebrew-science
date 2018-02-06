@@ -20,7 +20,7 @@ class Vigra < Formula
 
   deprecated_option "without-check" => "without-test"
 
-  depends_on :python => :optional
+  depends_on "python" => :optional
   depends_on "cmake" => :build
   depends_on "jpeg"
   depends_on "libpng"

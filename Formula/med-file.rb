@@ -18,7 +18,7 @@ class MedFile < Formula
   option "with-docs",      "Install documentation"
 
   depends_on "cmake"  => :build
-  depends_on :python  => :recommended
+  depends_on "python"  => :recommended
   depends_on "swig"   => :build if build.with? "python"
   depends_on "gcc"    => :build if build.with? "fortran" && OS.mac?
   depends_on "hdf5"

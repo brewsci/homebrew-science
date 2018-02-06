@@ -21,7 +21,7 @@ class Kat < Formula
 
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build if build.with? "docs"
-  depends_on :python unless OS.mac?
+  depends_on "python" unless OS.mac?
   depends_on "python3"
   depends_on "boost"
   depends_on "gnuplot"

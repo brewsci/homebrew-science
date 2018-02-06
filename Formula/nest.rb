@@ -23,7 +23,7 @@ class Nest < Formula
   depends_on "open-mpi" => :optional
 
   # Any Python >= 2.7 < 3.x is okay (either from macOS or brewed)
-  depends_on :python unless OS.mac?
+  depends_on "python" unless OS.mac?
   depends_on "python3" => :optional
 
   requires_py3 = []

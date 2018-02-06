@@ -16,7 +16,7 @@ class Metaphlan < Formula
     sha256 "61700d72a0a55c28e1471580eb2f12640fdc6b7f6c39454355dc9d0201d793f7" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "blast" => :optional
   depends_on "bowtie2" => :recommended
 

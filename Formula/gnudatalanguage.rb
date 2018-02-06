@@ -20,7 +20,7 @@ class Gnudatalanguage < Formula
   depends_on "fftw"
   depends_on "eigen"
   depends_on :x11
-  depends_on :python => :optional
+  depends_on "python" => :optional
 
   # Supplementary dependencies for plplot
   depends_on "cairo"

@@ -30,7 +30,7 @@ class Neuron < Formula
   # Dependencies of the simulator itself
   depends_on "inter-views" => :optional
   depends_on "open-mpi" => :optional
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python" if MacOS.version <= :snow_leopard
   depends_on "python3" => :optional
 
   # NEURON uses .la files to compile HOC files at runtime

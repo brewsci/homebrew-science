@@ -17,7 +17,7 @@ class Megahit < Formula
 
   needs :openmp
 
-  depends_on :python
+  depends_on "python"
 
   def install
     system "make"

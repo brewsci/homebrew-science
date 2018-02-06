@@ -18,7 +18,7 @@ class Openni2 < Formula
   option "with-docs", "Build documentation using javadoc (might fail with Java 1.8)"
   option "with-samples", "Install Samples"
 
-  depends_on :python
+  depends_on "python"
   depends_on :java
   depends_on "libusb"
   depends_on "doxygen" => :build if build.with? "docs"

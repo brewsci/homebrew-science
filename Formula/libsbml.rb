@@ -29,7 +29,7 @@ class Libsbml < Formula
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
-  depends_on :python => :optional
+  depends_on "python" => :optional
   depends_on "libxml2" unless OS.mac?
 
   # fix ruby's sitelib dir

@@ -17,7 +17,7 @@ class Paraview < Formula
   depends_on "ffmpeg" => :recommended
   depends_on "qt" => :recommended
   depends_on "open-mpi" => :optional
-  depends_on :python => :recommended
+  depends_on "python" => :recommended
 
   depends_on "freetype"
   depends_on "hdf5"

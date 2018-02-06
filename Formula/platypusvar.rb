@@ -14,7 +14,7 @@ class Platypusvar < Formula
   end
 
   depends_on "htslib"
-  depends_on :python unless OS.mac?
+  depends_on "python" unless OS.mac?
 
   def install
     system "python", "setup.py", "build"

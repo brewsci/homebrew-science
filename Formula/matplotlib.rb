@@ -52,7 +52,7 @@ class Matplotlib < Formula
   option "with-pygtk", "Build with pygtk backend support (python2 only)"
   option "with-tex", "Build with tex support"
 
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
   depends_on "python3" => :optional
 
   requires_py2 = []

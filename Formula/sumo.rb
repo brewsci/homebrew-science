@@ -26,7 +26,7 @@ class Sumo < Formula
   depends_on "proj"
   depends_on "gdal"
   depends_on "fox"
-  depends_on :python
+  depends_on "python"
 
   resource "gtest" do
     url "https://github.com/google/googletest/archive/release-1.7.0.tar.gz"

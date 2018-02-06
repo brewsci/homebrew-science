@@ -15,7 +15,7 @@ class Xraylib < Formula
   deprecated_option "without-fortran" => "without-gcc"
 
   depends_on "gcc" => :recommended if OS.mac? # for gfortran
-  depends_on :python => :recommended
+  depends_on "python" => :recommended
   depends_on "python3" => :optional
   depends_on "lua" => :optional
   depends_on "fpc" => :optional

@@ -27,7 +27,7 @@ class AstrometryNet < Formula
   depends_on "wget" if OS.mac?
 
   # this formula includes python bindings
-  depends_on :python => :recommended
+  depends_on "python" => :recommended
   depends_on "numpy"
 
   resource "pyfits" do
