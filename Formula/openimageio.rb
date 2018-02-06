@@ -36,7 +36,7 @@ class Openimageio < Formula
   depends_on "libraw" => :recommended
   depends_on "ptex" => :recommended
   depends_on "opencv@2" => :recommended
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
   depends_on "jpeg-turbo" => :optional
 
   depends_on "boost-python" => (build.with?("python3") ? ["with-python3", "without-python"] : [])

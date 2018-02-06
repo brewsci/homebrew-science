@@ -18,7 +18,7 @@ class Gubbins < Formula
   depends_on "automake"  => :build
   depends_on "libtool"   => :build
   depends_on "check"     => :build
-  depends_on :python3
+  depends_on "python3"
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "numpy"

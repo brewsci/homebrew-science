@@ -26,7 +26,7 @@ class GraphTool < Formula
   # Yosemite build fails with Boost >=1.64.0 due to thread-local storage error
   depends_on :macos => :el_capitan
 
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
   with_pythons = build.with?("python3") ? ["with-python3"] : []
 
   depends_on "pkg-config" => :build

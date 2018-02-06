@@ -17,7 +17,7 @@ class Cutadapt < Formula
     sha256 "dbeed8e0dc35c5838b3aa2be9a72e71e6d6dbfc76b3574b9f0a3fc1ed76d36f7" => :x86_64_linux
   end
 
-  depends_on :python3
+  depends_on "python3"
 
   resource "xopen" do
     url "https://files.pythonhosted.org/packages/53/1f/01d32269f01fccf1a6d8d5d795f939cb56274c82f7520cc25152ee8de486/xopen-0.2.1.tar.gz"

@@ -20,7 +20,7 @@ class Pulseview < Formula
   depends_on "boost"
   depends_on "libsigrokdecode"
   depends_on "qt"
-  depends_on :python3
+  depends_on "python3"
 
   def install
     ENV.delete "PYTHONPATH"

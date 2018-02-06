@@ -69,7 +69,7 @@ class Libsigrokdecode < Formula
   depends_on "glibmm"
   depends_on :java
   depends_on "libzip"
-  depends_on :python3
+  depends_on "python3"
   depends_on "check"    => :optional
   depends_on "libftdi0" => :optional
   depends_on "libusb"   => :optional

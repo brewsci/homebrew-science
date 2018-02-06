@@ -53,7 +53,7 @@ class Matplotlib < Formula
   option "with-tex", "Build with tex support"
 
   depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
 
   requires_py2 = []
   requires_py2 << "with-python" if build.with? "python"

@@ -24,7 +24,7 @@ class Insighttoolkit < Formula
   depends_on "cmake" => :build
   depends_on "opencv@2" => [:optional] + cxx11dep
   depends_on :python => :optional
-  depends_on :python3 => :optional
+  depends_on "python3" => :optional
   depends_on "fftw" => :recommended
   depends_on "hdf5" => [:recommended] + cxx11dep
   depends_on "jpeg" => :recommended

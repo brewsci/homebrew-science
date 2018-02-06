@@ -15,7 +15,7 @@ class Iva < Formula
     sha256 "85a3539747ae1b226d5e05ba5f1b6f4df77c5ae334bccc73a68eff6dd307677e" => :x86_64_linux
   end
 
-  depends_on :python3
+  depends_on "python3"
   depends_on "kmc"
   depends_on "mummer"
   depends_on "smalt"

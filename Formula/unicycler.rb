@@ -17,7 +17,7 @@ class Unicycler < Formula
 
   needs :cxx14
 
-  depends_on :python3
+  depends_on "python3"
   depends_on "blast"
   depends_on "bowtie2"
   depends_on "pilon"

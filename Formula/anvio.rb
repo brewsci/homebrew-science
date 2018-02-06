@@ -16,7 +16,7 @@ class Anvio < Formula
   # doi "10.7717/peerj.1319"
   # tag "bioinformatics"
 
-  depends_on :python3
+  depends_on "python3"
   depends_on "gcc" if OS.mac? # for gfortran
   depends_on "prodigal"
   depends_on "hmmer"

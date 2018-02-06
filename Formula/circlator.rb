@@ -17,7 +17,7 @@ class Circlator < Formula
 
   # tag "bioinformatics"
 
-  depends_on :python3
+  depends_on "python3"
   depends_on "bwa"
   depends_on "mummer"
   depends_on "prodigal"
