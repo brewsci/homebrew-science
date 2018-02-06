@@ -8,26 +8,26 @@ class Biopieces < Formula
   head "https://github.com/maasha/biopieces.git"
   # tag "bioinformatics"
 
-  depends_on "Bit::Vector" => :perl
-  depends_on "Carp::Clan" => :perl
-  depends_on "Class::Inspector" => :perl
-  depends_on "DBI" => :perl
-  depends_on "DB_File" => :perl
-  depends_on "HTML::Parser" => :perl
-  depends_on "Inline" => :perl
-  depends_on "LWP" => :perl
-  depends_on "Module::Build" => :perl
-  depends_on "Parse::RecDescent" => :perl
-  depends_on "SOAP::Lite" => :perl
-  depends_on "SVG" => :perl
-  depends_on "Term::ReadKey" => :perl
-  depends_on "Time::HiRes" => :perl
-  depends_on "URI" => :perl
-  depends_on "XML::Parser" => :perl
-  depends_on "version" => :perl
+  # Depends_on "Bit::Vector" => :perl
+  # Depends_on "Carp::Clan" => :perl
+  # Depends_on "Class::Inspector" => :perl
+  # Depends_on "DBI" => :perl
+  # Depends_on "DB_File" => :perl
+  # Depends_on "HTML::Parser" => :perl
+  # Depends_on "Inline" => :perl
+  # Depends_on "LWP" => :perl
+  # Depends_on "Module::Build" => :perl
+  # Depends_on "Parse::RecDescent" => :perl
+  # Depends_on "SOAP::Lite" => :perl
+  # Depends_on "SVG" => :perl
+  # Depends_on "Term::ReadKey" => :perl
+  # Depends_on "Time::HiRes" => :perl
+  # Depends_on "URI" => :perl
+  # Depends_on "XML::Parser" => :perl
+  # Depends_on "version" => :perl
 
-  depends_on "inline" => :ruby
-  depends_on "narray" => :ruby
+  # Depends_on "inline" => :ruby
+  # Depends_on "narray" => :ruby
 
   def install
     rm "bin/00README"
@@ -35,14 +35,14 @@ class Biopieces < Formula
   end
 
   def caveats; <<~EOS
-      To use Biopieces, set the following environment variables:
-        export BP_DIR=#{opt_prefix}
-        export BP_DATA="$BP_DIR/bp_data"
-        export BP_LOG=~/Library/Logs/Biopieces
-        export BP_TMP=/tmp
-        export PERL5LIB="$BP_DIR/src/perl:$PERL5LIB"
-        export RUBYLIB="$BP_DIR/src/ruby/lib:$RUBYLIB"
-        mkdir -p $BP_LOG
+    To use Biopieces, set the following environment variables:
+      export BP_DIR=#{opt_prefix}
+      export BP_DATA="$BP_DIR/bp_data"
+      export BP_LOG=~/Library/Logs/Biopieces
+      export BP_TMP=/tmp
+      export PERL5LIB="$BP_DIR/src/perl:$PERL5LIB"
+      export RUBYLIB="$BP_DIR/src/ruby/lib:$RUBYLIB"
+      mkdir -p $BP_LOG
     EOS
   end
 
