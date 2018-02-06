@@ -9,9 +9,9 @@ class Meraculous < Formula
 
   bottle :disable, "needs to be rebuilt with latest boost"
 
-  depends_on "Log::Log4perl" => :perl
   depends_on "boost"
   depends_on "cmake" => :build
+  # Depends_on "Log::Log4perl" => :perl
 
   fails_with :clang do
     build 600

@@ -11,14 +11,14 @@ class Ogdraw < Formula
 
   depends_on "imagemagick"
 
-  depends_on "Bio::Perl" => :perl
-  depends_on "Bio::Restriction::Analysis" => :perl
-  depends_on "Bio::Root::Root" => :perl
-  depends_on "Bio::SeqFeature::Generic" => :perl
-  depends_on "Bio::SeqIO" => :perl
-  depends_on "Image::Magick" => :perl
-  depends_on "PostScript::Simple" => :perl
-  depends_on "XML::Generator" => :perl
+  # Depends_on "Bio::Perl" => :perl
+  # Depends_on "Bio::Restriction::Analysis" => :perl
+  # Depends_on "Bio::Root::Root" => :perl
+  # Depends_on "Bio::SeqFeature::Generic" => :perl
+  # Depends_on "Bio::SeqIO" => :perl
+  # Depends_on "Image::Magick" => :perl
+  # Depends_on "PostScript::Simple" => :perl
+  # Depends_on "XML::Generator" => :perl
 
   # drawgenemap: Add --irscan and --ircoord options
   patch do

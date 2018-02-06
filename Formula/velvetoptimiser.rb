@@ -5,7 +5,7 @@ class Velvetoptimiser < Formula
   head "https://github.com/Victorian-Bioinformatics-Consortium/VelvetOptimiser.git"
 
   depends_on "velvet"
-  depends_on "Bio::Perl" => :perl
+  # Depends_on "Bio::Perl" => :perl
 
   def install
     bin.install "VelvetOptimiser.pl"

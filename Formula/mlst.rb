@@ -14,11 +14,12 @@ class Mlst < Formula
   end
 
   depends_on "blast"
-  depends_on "Moo" => :perl
-  depends_on "File::Temp" => :perl
-  depends_on "File::Spec" => :perl
-  depends_on "Data::Dumper" => :perl
-  depends_on "List::MoreUtils" => :perl
+
+  # Depends_on "Moo" => :perl
+  # Depends_on "File::Temp" => :perl
+  # Depends_on "File::Spec" => :perl
+  # Depends_on "Data::Dumper" => :perl
+  # Depends_on "List::MoreUtils" => :perl
 
   def install
     prefix.install Dir["*"]

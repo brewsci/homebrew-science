@@ -11,9 +11,9 @@ class Circos < Formula
 
   depends_on "gd"
 
-  depends_on "Params::Validate" => :perl
-  depends_on "Math::Round" => :perl
-  depends_on "Regexp::Common" => :perl
+  # Depends_on "Params::Validate" => :perl
+  # Depends_on "Math::Round" => :perl
+  # Depends_on "Regexp::Common" => :perl
 
   resource "Readonly" do
     url "https://cpan.metacpan.org/authors/id/S/SA/SANKO/Readonly-2.00.tar.gz"

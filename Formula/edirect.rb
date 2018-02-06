@@ -14,9 +14,9 @@ class Edirect < Formula
     sha256 "f908f5575cb894c3fa0ea2a7d2279dcdcc43ca709c5d85a7912a1076786d2f11" => :x86_64_linux
   end
 
-  depends_on "HTML::Entities" => :perl
-  depends_on "LWP::Simple" => :perl
-  depends_on "LWP::Protocol::https" => :perl
+  # Depends_on "HTML::Entities" => :perl
+  # Depends_on "LWP::Simple" => :perl
+  # Depends_on "LWP::Protocol::https" => :perl
 
   def install
     doc.install "README"

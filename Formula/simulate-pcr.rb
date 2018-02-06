@@ -9,8 +9,8 @@ class SimulatePcr < Formula
   bottle :unneeded
 
   depends_on "blast"
-  depends_on "Bio::Perl" => :perl
   depends_on "edirect" => :optional
+  # Depends_on "Bio::Perl" => :perl
 
   def install
     bin.install "simulate_PCR"

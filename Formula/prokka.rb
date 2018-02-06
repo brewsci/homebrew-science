@@ -1,18 +1,12 @@
 class Prokka < Formula
   desc "Rapid annotation of prokaryotic genomes"
   homepage "http://www.vicbioinformatics.com/software.prokka.shtml"
-
   url "https://github.com/tseemann/prokka/archive/v1.12.tar.gz"
   sha256 "845e46c9db167fb1fc9d16c934b7cfd89ddfeb6cd44bd8f42204ae7b4e87adba"
   revision 1
-
   head "https://github.com/tseemann/prokka.git"
   # doi "10.1093/bioinformatics/btu153"
   # tag "bioinformatics"
-
-  depends_on "Bio::Perl" => :perl
-  depends_on "XML::Simple" => :perl
-  depends_on "Time::Piece" => :perl if OS.linux?
 
   depends_on "aragorn"
   depends_on "barrnap"
@@ -25,6 +19,10 @@ class Prokka < Formula
   depends_on "tbl2asn"
 
   depends_on "rnammer" => :optional
+
+  # Depends_on "Bio::Perl" => :perl
+  # Depends_on "XML::Simple" => :perl
+  # Depends_on "Time::Piece" => :perl unless OS.mac?
 
   def install
     # remove all bundled binaries and use Brew for dependencies

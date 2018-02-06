@@ -17,8 +17,9 @@ class Proteinortho < Formula
   end
 
   depends_on "blast"
-  depends_on "Thread::Queue" => :perl
-  depends_on "File::Basename" => :perl
+
+  # Depends_on "Thread::Queue" => :perl
+  # Depends_on "File::Basename" => :perl
 
   def install
     system "make"

@@ -17,7 +17,7 @@ class Weblogo < Formula
 
   depends_on "imagemagick"
   depends_on "ghostscript"
-  depends_on "Getopt::Std" => :perl
+  # Depends_on "Getopt::Std" => :perl
 
   def install
     # this only installs the command line tool, not the CGI web scripts

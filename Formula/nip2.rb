@@ -15,7 +15,6 @@ class Nip2 < Formula
   deprecated_option "with-check" => "with-test"
 
   depends_on "pkg-config" => :build
-  depends_on "XML::Parser" => :perl
   depends_on "gettext"
   depends_on "glib"
   depends_on "gtk+"
@@ -26,6 +25,8 @@ class Nip2 < Formula
   depends_on "gsl" => :recommended
   depends_on "goffice" => :recommended
   depends_on "libgsf" => :recommended
+
+  # Depends_on "XML::Parser" => :perl
 
   def install
     args = %W[
