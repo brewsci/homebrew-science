@@ -12,8 +12,9 @@ class Xraylib < Formula
 
   option "with-perl", "Build with perl support"
   option "with-ruby", "Build with ruby support"
+  deprecated_option "without-fortran" => "without-gcc"
 
-  depends_on :fortran => :recommended
+  depends_on "gcc" => :recommended if OS.mac? # for gfortran
   depends_on :python => :recommended
   depends_on :python3 => :optional
   depends_on "lua" => :optional

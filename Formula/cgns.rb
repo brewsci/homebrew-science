@@ -11,7 +11,9 @@ class Cgns < Formula
     sha256 "9fcd6ee301f553ff0b4c174eda6de21593f991f9f8ecd22152b377a5b5a85a42" => :x86_64_linux
   end
 
-  depends_on :fortran => :optional
+  deprecated_option "with-fortran" => "with-gcc"
+
+  depends_on "gcc" => :optional if OS.mac? # for gfortran
   depends_on "cmake" => :build
   depends_on "hdf5" => :recommended
   depends_on "szip"

@@ -11,11 +11,7 @@ class EtsfIo < Formula
   option "without-test", "Skip build-time tests (not recommended)"
   deprecated_option "without-check" => "without-test"
 
-  if OS.mac?
-    depends_on "gcc@5"
-  else
-    depends_on :fortran
-  end
+  depends_on "gcc@5" if OS.mac? # for gfortran
   depends_on "netcdf" => "with-fortran"
 
   def install

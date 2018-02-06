@@ -12,10 +12,11 @@ class Zoltan < Formula
   option "without-test", "Skip build-time tests (not recommended)"
 
   deprecated_option "without-check" => "without-test"
+  deprecated_option "with-fortran" => "with-gcc"
 
   depends_on "scotch"   => :optional
   depends_on "parmetis" => :optional
-  depends_on :fortran   => :optional
+  depends_on "gcc"      => :optional if OS.mac? # for gfortran
   depends_on "open-mpi"
 
   def install
@@ -26,7 +27,7 @@ class Zoltan < Formula
     ]
     args << "--with-scotch" if build.with? "scotch"
     args << "--with-parmetis" if build.with? "parmetis"
-    args += ["--enable-f90interface", "FC=#{ENV["MPIFC"]}"] if build.with? :fortran
+    args += ["--enable-f90interface", "FC=#{ENV["MPIFC"]}"] if build.with? "fortran"
 
     mkdir "zoltan-build" do
       system "../configure", *args

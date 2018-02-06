@@ -20,7 +20,7 @@ class MedFile < Formula
   depends_on "cmake"  => :build
   depends_on :python  => :recommended
   depends_on "swig"   => :build if build.with? "python"
-  depends_on :fortran => :build if build.with? "fortran"
+  depends_on "gcc"    => :build if build.with? "fortran" && OS.mac?
   depends_on "hdf5"
 
   patch do

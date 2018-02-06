@@ -15,6 +15,7 @@ class Trilinos < Formula
 
   deprecated_option "with-check" => "with-test"
   deprecated_option "without-mpi" => "without-open-mpi"
+  deprecated_option "without-fortran" => "without-gcc"
 
   # options and dependencies not supported in the current version
   # are commented out with #- and failure reasons are documented.
@@ -23,8 +24,8 @@ class Trilinos < Formula
   # https://github.com/trilinos/Trilinos/issues/565
   option "with-csparse", "Build with CSparse (Experimental TPL) from suite-sparse"
 
-  depends_on "open-mpi" => :recommended
-  depends_on :fortran       => :recommended
+  depends_on "open-mpi"     => :recommended
+  depends_on "gcc"          => :recommended if OS.mac? # for gfortran
   depends_on :x11           => :recommended
   depends_on :python        => :recommended if MacOS.version <= :snow_leopard
   depends_on "numpy"        if build.with? "python"

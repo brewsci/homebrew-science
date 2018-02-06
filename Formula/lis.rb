@@ -18,15 +18,16 @@ class Lis < Formula
 
   deprecated_option "without-check" => "without-test"
   deprecated_option "without-mpi" => "without-open-mpi"
+  deprecated_option "without-fortran" => "without-gcc"
 
-  depends_on :fortran => :recommended
+  depends_on "gcc" => :recommended if OS.mac? # for gfortran
   depends_on "open-mpi" => :recommended
 
   def install
     ENV.deparallelize
 
     args = %W[--prefix=#{prefix} --disable-dependency-tracking --enable-shared]
-    args << "--enable-fortran" if build.with? :fortran
+    args << "--enable-fortran" if build.with? "fortran"
     args << "--enable-mpi"     if build.with? "open-mpi"
     args << "--enable-omp" unless ENV.compiler == :clang
     args << "--enable-saamg"   if build.with? "saamg"
