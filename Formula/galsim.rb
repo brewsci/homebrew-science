@@ -21,7 +21,7 @@ class Galsim < Formula
   # FITS support should come from astropy.io.fits (PyFITS has been deprecated)
   depends_on "astropy" => :python
   depends_on "numpy" => :python
-  depends_on "nose" => :python if build.with? "test"
+  # Depends_on "nose" => :python if build.with? "test"
 
   needs :openmp if build.with? "openmp"
 
