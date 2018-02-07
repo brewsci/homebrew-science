@@ -51,6 +51,7 @@
   "maxima": "homebrew/core",
   "metis": "homebrew/core",
   "miniasm": "brewsci/bio",
+  "mummer": "brewsci/bio",
   "nco": "homebrew/core",
   "ncview": "homebrew/core",
   "netcdf": "homebrew/core",
