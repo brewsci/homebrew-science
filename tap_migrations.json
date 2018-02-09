@@ -16,6 +16,7 @@
   "bowtie2": "homebrew/core",
   "busco": "brewsci/bio",
   "bwa": "homebrew/core",
+  "canu": "brewsci/bio",
   "ceres-solver": "homebrew/core",
   "cfitsio": "homebrew/core",
   "clblas": "homebrew/core",
