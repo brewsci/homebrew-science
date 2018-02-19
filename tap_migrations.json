@@ -50,6 +50,7 @@
   "kallisto": "homebrew/core",
   "lammps": "homebrew/core",
   "libmatio": "homebrew/core",
+  "libsequence": "brewsci/bio",
   "maxima": "homebrew/core",
   "metis": "homebrew/core",
   "miniasm": "brewsci/bio",
