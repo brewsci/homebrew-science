@@ -36,7 +36,7 @@ class Phylip < Formula
 
   test do
     # From http://evolution.genetics.washington.edu/phylip/doc/pars.html
-    (testpath/"infile").write <<-EOF.undent
+    (testpath/"infile").write <<~EOS
       7         6
       Alpha1    110110
       Alpha2    110110
@@ -45,7 +45,7 @@ class Phylip < Formula
       Gamma1    100110
       Delta     001001
       Epsilon   001110
-    EOF
+    EOS
     expected = "(((Epsilon:0.00,Delta:3.00):2.00,Gamma1:0.00):1.00,(Beta2:0.00,Beta1:0.00):2.00,Alpha2:0.00,Alpha1:0.00);"
     system "echo 'Y' | #{bin}/pars"
     assert_match expected, File.read("outtree")

@@ -45,7 +45,7 @@ class Qsopt < Formula
   end
 
   test do
-    (testpath/"test.lp").write <<-'EOF'.undent
+    (testpath/"test.lp").write <<~EOS
     Problem
            smallExample
     Maximize
@@ -54,7 +54,7 @@ class Qsopt < Formula
         c1: x - y + s <= 10.75
             -z + 2x - s >= -100
     End
-    EOF
+    EOS
     system "qsopt", "test.lp"
   end
 end

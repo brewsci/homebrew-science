@@ -63,10 +63,10 @@ class KentTools < Formula
   end
 
   test do
-    (testpath/"test.fa").write <<-EOF.undent
+    (testpath/"test.fa").write <<~EOS
       >test
       ACTG
-    EOF
+    EOS
     system "#{bin}/faOneRecord test.fa test > out.fa"
     compare_file "test.fa", "out.fa"
   end

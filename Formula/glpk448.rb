@@ -31,7 +31,7 @@ class Glpk448 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOF.undent
+    (testpath/"test.c").write <<~EOS
     #include "stdio.h"
     #include "glpk.h"
 
@@ -40,7 +40,7 @@ class Glpk448 < Formula
         printf("%s", glp_version());
         return 0;
     }
-    EOF
+    EOS
     system ENV.cc, "-I#{include}", "test.c", "-L#{lib}", "-lglpk", "-o", "test"
     assert_equal `./test`, version.to_s
   end

@@ -52,10 +52,10 @@ class Oce < Formula
     system "make", "install/strip"
   end
 
-  def caveats; <<-EOF.undent
+  def caveats; <<~EOS
     Some apps will require this enviroment variable:
       CASROOT=#{opt_share}/oce-#{version.to_s.split(".")[0..1].join(".")}
-    EOF
+    EOS
   end
 
   test do

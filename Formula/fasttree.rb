@@ -36,14 +36,14 @@ class Fasttree < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/FastTree -expert 2>&1")
-    (testpath/"test.fa").write <<-EOF.undent
+    (testpath/"test.fa").write <<~EOS
       >1
       LCLYTHIGRNIYYGSYLYSETWNTTTMLLLITMATAFMGYVLPWGQMSFWGATVITNLFSAIPYIGTNLV
       >2
       LCLYTHIGRNIYYGSYLYSETWNTGIMLLLITMATAFMGYVLPWGQMSFWGATVITNLFSAIPYIGTNLV
       >3
       LCLYTHIGRNIYYGSYLYSETWNTGIMLLLITMATAFMGTTLPWGQMSFWGATVITNLFSAIPYIGTNLV
-    EOF
+    EOS
     assert_match /1:0.\d+,2:0.\d+,3:0.\d+/, shell_output("#{bin}/FastTree test.fa 2>&1")
   end
 end

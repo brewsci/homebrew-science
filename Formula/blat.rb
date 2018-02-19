@@ -26,14 +26,14 @@ class Blat < Formula
   end
 
   test do
-    (testpath/"db.fa").write <<-EOF.undent
+    (testpath/"db.fa").write <<~EOS
       >gi|5524211|gb|AAD44166.1| cytochrome b [Elephas maximus maximus]
       LCLYTHIGRNIYYGSYLYSETWNTGIMLLLITMATAFMGYVLPWGQMSFWGATVITNLFSAIPYIGTNLV
-    EOF
-    (testpath/"query.fa").write <<-EOF.undent
+    EOS
+    (testpath/"query.fa").write <<~EOS
       >spam
       CLYTHIGRNIYYGSY
-    EOF
+    EOS
     system "#{bin}/blat", "-prot", "db.fa", "query.fa", "out.fa"
     system "grep", "spam", "out.fa"
   end
