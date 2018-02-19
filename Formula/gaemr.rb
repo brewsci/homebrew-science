@@ -1,4 +1,5 @@
 class Gaemr < Formula
+  desc "Genome Assembly Evaluation, Metrics and Reporting"
   homepage "https://www.broadinstitute.org/software/gaemr/"
   # tag "bioinformatics"
 
