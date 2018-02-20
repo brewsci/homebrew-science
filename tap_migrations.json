@@ -68,6 +68,7 @@
   "opencv3": "homebrew/core",
   "orocos-kdl": "homebrew/core",
   "packmol": "homebrew/core",
+  "pathvisio": "brewsci/bio",
   "pcb": "homebrew/core",
   "pcl": "homebrew/core",
   "picard-tools": "homebrew/core",
