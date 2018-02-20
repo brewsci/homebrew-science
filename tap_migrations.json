@@ -49,6 +49,7 @@
   "igraph": "homebrew/core",
   "igv": "homebrew/core",
   "kallisto": "homebrew/core",
+  "kat": "brewsci/bio",
   "lammps": "homebrew/core",
   "libmatio": "homebrew/core",
   "libsequence": "brewsci/bio",
