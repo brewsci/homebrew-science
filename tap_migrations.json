@@ -57,6 +57,7 @@
   "metaphlan": "brewsci/bio",
   "metis": "homebrew/core",
   "miniasm": "brewsci/bio",
+  "mothur": "brewsci/bio",
   "mummer": "brewsci/bio",
   "nco": "homebrew/core",
   "ncview": "homebrew/core",
