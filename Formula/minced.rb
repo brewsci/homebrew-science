@@ -14,7 +14,7 @@ class Minced < Formula
     sha256 "47c01ab05039209cc26031aaafe3a16e7a5685714de26ec789fb0e7c6654e514" => :x86_64_linux
   end
 
-  depends_on :java => "1.8"
+  depends_on :java => "1.8+"
 
   def install
     system "make"
