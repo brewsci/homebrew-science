@@ -54,6 +54,7 @@
   "libmatio": "homebrew/core",
   "libsequence": "brewsci/bio",
   "maxima": "homebrew/core",
+  "meme": "brewsci/bio",
   "metaphlan": "brewsci/bio",
   "metis": "homebrew/core",
   "miniasm": "brewsci/bio",
