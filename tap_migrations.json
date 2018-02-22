@@ -93,6 +93,7 @@
   "superlu": "homebrew/core",
   "tbl2asn": "brewsci/bio",
   "tensorflow": "homebrew/core",
+  "transdecoder": "brewsci/bio",
   "transfig": "homebrew/core",
   "vcftools": "homebrew/core",
   "veclibfort": "homebrew/core",
