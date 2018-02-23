@@ -53,6 +53,7 @@
   "lammps": "homebrew/core",
   "libmatio": "homebrew/core",
   "libsequence": "brewsci/bio",
+  "lmod": "homebrew/core",
   "maxima": "homebrew/core",
   "metaphlan": "brewsci/bio",
   "metis": "homebrew/core",
