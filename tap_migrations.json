@@ -74,6 +74,7 @@
   "pcb": "homebrew/core",
   "pcl": "homebrew/core",
   "picard-tools": "homebrew/core",
+  "pilon": "brewsci/bio",
   "prodigal": "homebrew/core",
   "qhull": "homebrew/core",
   "qrupdate": "homebrew/core",
