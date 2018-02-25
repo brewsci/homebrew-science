@@ -80,6 +80,7 @@
   "qrupdate": "homebrew/core",
   "r": "homebrew/core",
   "r-gui": "caskroom/cask/r-app",
+  "racon": "brewsci/bio",
   "root": "homebrew/core",
   "root6": "homebrew/core",
   "samtools": "homebrew/core",
