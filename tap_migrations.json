@@ -95,6 +95,7 @@
   "tbl2asn": "brewsci/bio",
   "tensorflow": "homebrew/core",
   "transfig": "homebrew/core",
+  "trimmomatic": "brewsci/bio",
   "vcftools": "homebrew/core",
   "veclibfort": "homebrew/core",
   "vips": "homebrew/core",
