@@ -88,6 +88,7 @@
   "samtools": "homebrew/core",
   "scalapack": "homebrew/core",
   "seqtk": "homebrew/core",
+  "sga": "brewsci/bio",
   "shogun": "homebrew/core",
   "sickle": "homebrew/core",
   "spades": "homebrew/core",
