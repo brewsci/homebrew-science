@@ -84,6 +84,7 @@
   "racon": "brewsci/bio",
   "root": "homebrew/core",
   "root6": "homebrew/core",
+  "salmon": "brewsci/bio",
   "samtools": "homebrew/core",
   "scalapack": "homebrew/core",
   "seqtk": "homebrew/core",
