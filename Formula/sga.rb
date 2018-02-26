@@ -13,6 +13,7 @@ class Sga < Formula
   depends_on "automake" => :build
   depends_on "google-sparsehash" => :build
   depends_on "bamtools"
+  depends_on "zlib" unless OS.mac?
 
   def install
     cd "src" do
