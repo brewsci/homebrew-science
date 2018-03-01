@@ -51,6 +51,7 @@
   "igv": "homebrew/core",
   "kallisto": "homebrew/core",
   "kat": "brewsci/bio",
+  "kmc": "brewsci/bio",
   "lammps": "homebrew/core",
   "libmatio": "homebrew/core",
   "libsequence": "brewsci/bio",
