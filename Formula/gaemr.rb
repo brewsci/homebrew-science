@@ -34,6 +34,6 @@ class Gaemr < Formula
   end
 
   test do
-    system "PYTHONPATH=#{libexec}", "#{bin}/GAEMR.py", "--help"
+    assert_match "Usage", shell_output("PYTHONPATH=#{libexec} #{bin}/GAEMR.py --help")
   end
 end
