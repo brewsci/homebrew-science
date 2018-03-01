@@ -31,6 +31,7 @@
   "fastqc": "homebrew/core",
   "field3d": "homebrew/core",
   "flann": "homebrew/core",
+  "flash": "brewsci/bio",
   "fwdpp": "brewsci/bio",
   "gatk": "brewsci/bio",
   "gdcm": "homebrew/core",
