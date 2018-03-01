@@ -66,6 +66,7 @@
   "ncview": "homebrew/core",
   "netcdf": "homebrew/core",
   "nlopt": "homebrew/core",
+  "ntcard": "brewsci/bio",
   "octave": "homebrew/core",
   "oma": "brewsci/bio",
   "openblas": "homebrew/core",
