@@ -50,6 +50,7 @@
   "hypre": "homebrew/core",
   "igraph": "homebrew/core",
   "igv": "homebrew/core",
+  "infernal": "brewsci/bio",
   "kallisto": "homebrew/core",
   "kat": "brewsci/bio",
   "kmc": "brewsci/bio",
