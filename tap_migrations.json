@@ -87,6 +87,7 @@
   "r": "homebrew/core",
   "r-gui": "caskroom/cask/r-app",
   "racon": "brewsci/bio",
+  "repeatmasker": "brewsci/bio",
   "rmblast": "brewsci/bio",
   "root": "homebrew/core",
   "root6": "homebrew/core",
