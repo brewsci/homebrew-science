@@ -61,6 +61,7 @@
   "maxima": "homebrew/core",
   "metaphlan": "brewsci/bio",
   "metis": "homebrew/core",
+  "minced": "brewsci/bio",
   "miniasm": "brewsci/bio",
   "mothur": "brewsci/bio",
   "mummer": "brewsci/bio",
