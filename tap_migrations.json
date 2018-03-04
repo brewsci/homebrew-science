@@ -112,6 +112,7 @@
   "tensorflow": "homebrew/core",
   "transfig": "homebrew/core",
   "trf": "brewsci/bio",
+  "trimal": "brewsci/bio",
   "trimmomatic": "brewsci/bio",
   "vcftools": "homebrew/core",
   "veclibfort": "homebrew/core",
