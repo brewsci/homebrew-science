@@ -21,6 +21,7 @@
   "canu": "brewsci/bio",
   "ceres-solver": "homebrew/core",
   "cfitsio": "homebrew/core",
+  "circos": "brewsci/bio",
   "clblas": "homebrew/core",
   "clfft": "homebrew/core",
   "clinfo": "homebrew/core",
