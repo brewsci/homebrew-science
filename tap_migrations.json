@@ -6,6 +6,7 @@
   "arcs": "brewsci/bio",
   "armadillo": "homebrew/core",
   "arpack": "homebrew/core",
+  "artemis": "brewsci/bio",
   "augustus": "homebrew/core",
   "bamtools": "homebrew/core",
   "barnapp": "brewsci/bio",
