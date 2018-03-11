@@ -115,6 +115,7 @@
   "superlu": "homebrew/core",
   "tbl2asn": "brewsci/bio",
   "tensorflow": "homebrew/core",
+  "transdecoder": "brewsci/bio",
   "transfig": "homebrew/core",
   "trf": "brewsci/bio",
   "trimal": "brewsci/bio",
