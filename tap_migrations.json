@@ -64,6 +64,7 @@
   "lighter": "brewsci/bio",
   "mash": "homebrew/core",
   "maxima": "homebrew/core",
+  "meme": "brewsci/bio",
   "metaphlan": "brewsci/bio",
   "metis": "homebrew/core",
   "minced": "brewsci/bio",
