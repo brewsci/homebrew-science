@@ -109,6 +109,7 @@
   "shogun": "homebrew/core",
   "sickle": "homebrew/core",
   "snap": "brewsci/bio",
+  "snoscan": "brewsci/bio",
   "spades": "homebrew/core",
   "sratoolkit": "homebrew/core",
   "stringtie": "brewsci/bio",
