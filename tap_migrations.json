@@ -122,6 +122,7 @@
   "trf": "brewsci/bio",
   "trimal": "brewsci/bio",
   "trimmomatic": "brewsci/bio",
+  "trnascan": "brewsci/bio",
   "unicycler": "brewsci/bio",
   "vcftools": "homebrew/core",
   "veclibfort": "homebrew/core",
