@@ -32,6 +32,7 @@
   "datamash": "homebrew/core",
   "diamond": "homebrew/core",
   "dlib": "homebrew/core",
+  "e-mem": "brewsci/bio",
   "exonerate": "brewsci/bio",
   "fastqc": "homebrew/core",
   "field3d": "homebrew/core",
