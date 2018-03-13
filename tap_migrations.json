@@ -64,6 +64,7 @@
   "libsequence": "brewsci/bio",
   "lighter": "brewsci/bio",
   "mash": "homebrew/core",
+  "matplotlib": "brewsci/bio",
   "maxima": "homebrew/core",
   "meme": "brewsci/bio",
   "metaphlan": "brewsci/bio",
