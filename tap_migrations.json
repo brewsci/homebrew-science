@@ -41,6 +41,7 @@
   "fwdpp": "brewsci/bio",
   "gatk": "brewsci/bio",
   "gdcm": "homebrew/core",
+  "genewise": "brewsci/bio",
   "genometools": "homebrew/core",
   "glpk": "homebrew/core",
   "gmsh": "homebrew/core",
