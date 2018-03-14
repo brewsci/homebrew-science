@@ -78,6 +78,7 @@
   "nco": "homebrew/core",
   "ncview": "homebrew/core",
   "netcdf": "homebrew/core",
+  "nextflow": "homebrew/core",
   "nlopt": "homebrew/core",
   "ntcard": "brewsci/bio",
   "octave": "homebrew/core",
