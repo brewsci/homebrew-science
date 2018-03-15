@@ -73,6 +73,7 @@
   "metis": "homebrew/core",
   "minced": "brewsci/bio",
   "miniasm": "brewsci/bio",
+  "minimap": "brewsci/bio",
   "mir-prefer": "brewsci/bio",
   "mothur": "brewsci/bio",
   "mummer": "brewsci/bio",
