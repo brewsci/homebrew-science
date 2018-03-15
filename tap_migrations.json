@@ -18,6 +18,7 @@
   "bioawk": "homebrew/core",
   "blast": "homebrew/core",
   "bowtie2": "homebrew/core",
+  "breseq": "brewsci/bio",
   "busco": "brewsci/bio",
   "bwa": "homebrew/core",
   "canu": "brewsci/bio",
