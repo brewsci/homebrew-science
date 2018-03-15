@@ -68,6 +68,7 @@
   "mash": "homebrew/core",
   "matplotlib": "brewsci/bio",
   "maxima": "homebrew/core",
+  "mcl": "brewsci/bio",
   "meme": "brewsci/bio",
   "metaphlan": "brewsci/bio",
   "metis": "homebrew/core",
