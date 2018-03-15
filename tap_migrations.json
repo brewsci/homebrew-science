@@ -77,6 +77,7 @@
   "mir-prefer": "brewsci/bio",
   "mothur": "brewsci/bio",
   "mummer": "brewsci/bio",
+  "muscle": "brewsci/bio",
   "nanopolish": "brewsci/bio",
   "nco": "homebrew/core",
   "ncview": "homebrew/core",
