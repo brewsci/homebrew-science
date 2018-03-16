@@ -73,6 +73,7 @@
   "meme": "brewsci/bio",
   "metaphlan": "brewsci/bio",
   "metis": "homebrew/core",
+  "mhap": "brewsci/bio",
   "minced": "brewsci/bio",
   "miniasm": "brewsci/bio",
   "minimap": "brewsci/bio",
