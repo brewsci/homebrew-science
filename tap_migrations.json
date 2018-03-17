@@ -66,6 +66,7 @@
   "libmatio": "homebrew/core",
   "libsequence": "brewsci/bio",
   "lighter": "brewsci/bio",
+  "lmod": "homebrew/core",
   "mash": "homebrew/core",
   "matplotlib": "brewsci/bio",
   "maxima": "homebrew/core",
