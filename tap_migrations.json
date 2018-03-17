@@ -88,6 +88,7 @@
   "nco": "homebrew/core",
   "ncview": "homebrew/core",
   "netcdf": "homebrew/core",
+  "newick-utils": "brewsci/bio",
   "nlopt": "homebrew/core",
   "ntcard": "brewsci/bio",
   "octave": "homebrew/core",
