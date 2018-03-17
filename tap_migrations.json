@@ -75,6 +75,7 @@
   "metaphlan": "brewsci/bio",
   "metis": "homebrew/core",
   "minced": "brewsci/bio",
+  "minia": "brewsci/bio",
   "miniasm": "brewsci/bio",
   "minimap": "brewsci/bio",
   "mir-prefer": "brewsci/bio",
