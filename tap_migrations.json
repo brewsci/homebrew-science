@@ -68,6 +68,7 @@
   "libsequence": "brewsci/bio",
   "lighter": "brewsci/bio",
   "lmod": "homebrew/core",
+  "maker": "brewsci/bio",
   "mash": "homebrew/core",
   "matplotlib": "brewsci/bio",
   "maxima": "homebrew/core",
