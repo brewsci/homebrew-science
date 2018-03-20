@@ -59,6 +59,7 @@
   "igraph": "homebrew/core",
   "igv": "homebrew/core",
   "infernal": "brewsci/bio",
+  "iqtree": "brewsci/bio",
   "kallisto": "homebrew/core",
   "kat": "brewsci/bio",
   "kent-tools": "brewsci/bio",
