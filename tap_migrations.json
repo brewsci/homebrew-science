@@ -109,6 +109,7 @@
   "qhull": "homebrew/core",
   "qrupdate": "homebrew/core",
   "quast": "brewsci/bio",
+  "quicktree": "brewsci/bio",
   "r": "homebrew/core",
   "r-gui": "caskroom/cask/r-app",
   "racon": "brewsci/bio",
