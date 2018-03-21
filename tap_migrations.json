@@ -149,6 +149,7 @@
   "vcftools": "homebrew/core",
   "veclibfort": "homebrew/core",
   "velvet": "brewsci/bio",
+  "velvetoptimiser": "brewsci/bio",
   "viennarna": "brewsci/bio",
   "vips": "homebrew/core",
   "visp": "homebrew/core",
