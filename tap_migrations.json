@@ -147,6 +147,7 @@
   "unicycler": "brewsci/bio",
   "vcftools": "homebrew/core",
   "veclibfort": "homebrew/core",
+  "velvet": "brewsci/bio",
   "viennarna": "brewsci/bio",
   "vips": "homebrew/core",
   "visp": "homebrew/core",
