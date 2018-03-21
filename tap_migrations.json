@@ -97,6 +97,7 @@
   "nlopt": "homebrew/core",
   "ntcard": "brewsci/bio",
   "octave": "homebrew/core",
+  "oases": "brewsci/bio",
   "oma": "brewsci/bio",
   "openblas": "homebrew/core",
   "opencascade": "homebrew/core",
