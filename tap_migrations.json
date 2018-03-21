@@ -13,6 +13,7 @@
   "barnapp": "brewsci/bio",
   "bcftools": "homebrew/core",
   "beast": "homebrew/core",
+  "beast2": "brewsci/bio",
   "bedops": "homebrew/core",
   "bedtools": "homebrew/core",
   "bioawk": "homebrew/core",
