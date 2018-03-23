@@ -149,6 +149,7 @@
   "trimmomatic": "brewsci/bio",
   "trnascan": "brewsci/bio",
   "unicycler": "brewsci/bio",
+  "varscan": "brewsci/bio",
   "vcftools": "homebrew/core",
   "veclibfort": "homebrew/core",
   "velvet": "brewsci/bio",
