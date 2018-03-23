@@ -1,4 +1,5 @@
 {
+  "abacas": "brewsci/bio",
   "abyss": "homebrew/core",
   "adam": "brewsci/bio",
   "ampl-mp": "homebrew/core",
@@ -119,6 +120,7 @@
   "r-gui": "caskroom/cask/r-app",
   "racon": "brewsci/bio",
   "readseq": "brewsci/bio",
+  "raxml": "brewsci/bio",
   "repeatmasker": "brewsci/bio",
   "rmblast": "brewsci/bio",
   "root": "homebrew/core",
