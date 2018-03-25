@@ -159,6 +159,7 @@
   "vips": "homebrew/core",
   "visp": "homebrew/core",
   "voro++": "homebrew/core",
+  "vt": "brewsci/bio",
   "vtk": "homebrew/core",
   "wxmaxima": "homebrew/core"
 }
