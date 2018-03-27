@@ -127,6 +127,7 @@
   "root": "homebrew/core",
   "root6": "homebrew/core",
   "salmon": "brewsci/bio",
+  "samblaster": "brewsci/bio",
   "samtools": "homebrew/core",
   "scalapack": "homebrew/core",
   "seqtk": "homebrew/core",
