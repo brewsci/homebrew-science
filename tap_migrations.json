@@ -106,6 +106,7 @@
   "opencv3": "homebrew/core",
   "orocos-kdl": "homebrew/core",
   "packmol": "homebrew/core",
+  "paml": "brewsci/bio",
   "pathvisio": "brewsci/bio",
   "pcb": "homebrew/core",
   "pcl": "homebrew/core",
