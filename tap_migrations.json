@@ -115,6 +115,7 @@
   "picard-tools": "homebrew/core",
   "pilon": "brewsci/bio",
   "prodigal": "homebrew/core",
+  "prokka": "brewsci/bio",
   "qhull": "homebrew/core",
   "qrupdate": "homebrew/core",
   "quast": "brewsci/bio",
