@@ -101,6 +101,7 @@
   "newick-utils": "brewsci/bio",
   "nextflow": "brewsci/bio",
   "nlopt": "homebrew/core",
+  "nonpareil": "brewsci/bio",
   "ntcard": "brewsci/bio",
   "oases": "brewsci/bio",
   "octave": "homebrew/core",
