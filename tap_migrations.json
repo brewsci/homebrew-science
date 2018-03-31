@@ -39,6 +39,7 @@
   "diamond": "homebrew/core",
   "dlib": "homebrew/core",
   "e-mem": "brewsci/bio",
+  "elph": "brewsci/bio",
   "emboss": "brewsci/bio",
   "exonerate": "brewsci/bio",
   "fastqc": "homebrew/core",
