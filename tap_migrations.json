@@ -72,7 +72,7 @@
   "kent-tools": "brewsci/bio",
   "kmc": "brewsci/bio",
   "kraken": "brewsci/bio",
-  "lammps": "homebrew/bio",
+  "lammps": "homebrew/core",
   "last": "brewsci/bio",
   "lastz": "brewsci/bio",
   "libmatio": "homebrew/core",
