@@ -4,7 +4,7 @@ class Meraculous < Formula
   # tag "bioinformatics
 
   url "https://sourceforge.net/projects/meraculous20/files/Meraculous-v2.2.5.tar.gz"
-  sha256 "b5847a44b6fe31bb0759dde576214dd41393cc46fcdbc49cce86f3c082f3bf78"
+  sha256 "d318097111c6fa9a96b030f4269b5d9a35fb20a40ee174db825071e649263364"
   revision 1
 
   bottle :disable, "needs to be rebuilt with latest boost"
