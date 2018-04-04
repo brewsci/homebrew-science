@@ -41,6 +41,7 @@
   "e-mem": "brewsci/bio",
   "dwgsim": "brewsci/bio",
   "emboss": "brewsci/bio",
+  "exabayes": "brewsci/bio",
   "exonerate": "brewsci/bio",
   "fastqc": "homebrew/core",
   "field3d": "homebrew/core",
