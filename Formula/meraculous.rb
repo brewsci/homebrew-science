@@ -3,8 +3,8 @@ class Meraculous < Formula
   # doi "10.1371/journal.pone.0023501"
   # tag "bioinformatics
 
-  url "https://downloads.sourceforge.net/project/meraculous20/release-2.0.4.tgz"
-  sha256 "3a5fc76524db9ab5a4af88898f5d91957f53819b42e16d3913622eb5a0f35b9b"
+  url "https://sourceforge.net/projects/meraculous20/files/Meraculous-v2.2.5.tar.gz"
+  sha256 "d318097111c6fa9a96b030f4269b5d9a35fb20a40ee174db825071e649263364"
   revision 1
 
   bottle :disable, "needs to be rebuilt with latest boost"
