@@ -20,6 +20,7 @@
   "blast": "homebrew/core",
   "bowtie": "brewsci/bio",
   "bowtie2": "homebrew/core",
+  "breseq": "brewsci/bio",
   "busco": "brewsci/bio",
   "bwa": "homebrew/core",
   "canu": "brewsci/bio",
