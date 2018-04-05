@@ -130,6 +130,7 @@
   "quicktree": "brewsci/bio",
   "r": "homebrew/core",
   "r-gui": "caskroom/cask/r-app",
+  "r8s": "brewsci/bio",
   "racon": "brewsci/bio",
   "raxml": "brewsci/bio",
   "readseq": "brewsci/bio",
