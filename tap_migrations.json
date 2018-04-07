@@ -38,6 +38,7 @@
   "cppad": "homebrew/core",
   "datamash": "homebrew/core",
   "diamond": "homebrew/core",
+  "dida": "brewsci/bio",
   "dlib": "homebrew/core",
   "dwgsim": "brewsci/bio",
   "e-mem": "brewsci/bio",
