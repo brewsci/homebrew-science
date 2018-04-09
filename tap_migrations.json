@@ -9,6 +9,7 @@
   "arpack": "homebrew/core",
   "art": "brewsci/bio",
   "artemis": "brewsci/bio",
+  "astral": "brewsci/bio",
   "augustus": "homebrew/core",
   "bamtools": "homebrew/core",
   "barnapp": "brewsci/bio",
