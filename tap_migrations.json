@@ -78,6 +78,7 @@
   "lammps": "homebrew/core",
   "last": "brewsci/bio",
   "lastz": "brewsci/bio",
+  "libpll": "brewsci/bio",
   "libmatio": "homebrew/core",
   "libsequence": "brewsci/bio",
   "lighter": "brewsci/bio",
