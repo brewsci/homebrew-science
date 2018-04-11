@@ -20,7 +20,7 @@ class Mlpack < Formula
   deprecated_option "with-check" => "with-test"
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :run
+  depends_on "pkg-config"
   depends_on "armadillo"
   depends_on "boost"
   depends_on "libxml2"

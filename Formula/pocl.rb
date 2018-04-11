@@ -15,7 +15,7 @@ class Pocl < Formula
   depends_on "pkg-config" => :build
   depends_on "llvm"
   depends_on "hwloc"
-  depends_on "libtool" => :run
+  depends_on "libtool"
 
   def install
     system "cmake", ".", *std_cmake_args
