@@ -16,8 +16,8 @@ class Reapr < Formula
 
   depends_on "bamtools"
   depends_on "htslib"
-  depends_on "r" => [:recommended, :run] # only needed for the test
   depends_on "smalt"
+  depends_on "r" => :test
 
   resource "manual" do
     url "ftp://ftp.sanger.ac.uk/pub/resources/software/reapr/Reapr_1.0.18.manual.pdf"

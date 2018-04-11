@@ -32,8 +32,8 @@ class Nest < Formula
   depends_on "scipy" => requires_py3
   depends_on "matplotlib" => requires_py3
 
-  depends_on "libtool" => :run
-  depends_on "readline" => :run
+  depends_on "libtool"
+  depends_on "readline"
   depends_on "cmake" => :build
 
   resource "Cython" do

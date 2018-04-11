@@ -26,7 +26,7 @@ class Gnudatalanguage < Formula
   depends_on "cairo"
   depends_on "pango"
   depends_on "freetype"
-  depends_on "libtool" => :run
+  depends_on "libtool"
 
   conflicts_with "plplot", :because => "both install a pltek executable"
 

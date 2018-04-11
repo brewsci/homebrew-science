@@ -13,7 +13,7 @@ class Ggobi < Formula
   depends_on "pkg-config" => :build
   depends_on "gtk+"
   depends_on "gettext"
-  depends_on "libtool" => :run
+  depends_on "libtool"
 
   def install
     # Necessary for ggobi to build - based on patch from MacPorts
