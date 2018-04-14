@@ -142,6 +142,7 @@
   "readseq": "brewsci/bio",
   "repeatmasker": "brewsci/bio",
   "rmblast": "brewsci/bio",
+  "rnammer": "brewsci/bio",
   "root": "homebrew/core",
   "root6": "homebrew/core",
   "salmon": "brewsci/bio",
