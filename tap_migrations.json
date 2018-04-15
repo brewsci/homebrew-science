@@ -48,6 +48,7 @@
   "emboss": "brewsci/bio",
   "exabayes": "brewsci/bio",
   "exonerate": "brewsci/bio",
+  "fasttree": "brewsci/bio",
   "fastqc": "homebrew/core",
   "field3d": "homebrew/core",
   "flann": "homebrew/core",
