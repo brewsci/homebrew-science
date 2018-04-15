@@ -33,6 +33,7 @@
   "clblas": "homebrew/core",
   "clfft": "homebrew/core",
   "clinfo": "homebrew/core",
+  "clonalframeml": "brewsci/bio",
   "clustal-omega": "brewsci/bio",
   "clustal-w": "brewsci/bio",
   "cminpack": "homebrew/core",
