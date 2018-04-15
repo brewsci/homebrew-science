@@ -94,6 +94,7 @@
   "matplotlib": "brewsci/bio",
   "maxima": "homebrew/core",
   "mcl": "brewsci/bio",
+  "megahit": "brewsci/bio",
   "meme": "brewsci/bio",
   "metaphlan": "brewsci/bio",
   "metis": "homebrew/core",
