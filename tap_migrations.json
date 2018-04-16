@@ -45,6 +45,7 @@
   "dlib": "homebrew/core",
   "dwgsim": "brewsci/bio",
   "e-mem": "brewsci/bio",
+  "elph": "brewsci/bio",
   "emboss": "brewsci/bio",
   "exabayes": "brewsci/bio",
   "exonerate": "brewsci/bio",
