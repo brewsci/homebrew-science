@@ -111,6 +111,7 @@
   "mir-prefer": "brewsci/bio",
   "mlst": "brewsci/bio",
   "mothur": "brewsci/bio",
+  "mrbayes": "brewsci/bio",
   "mummer": "brewsci/bio",
   "muscle": "brewsci/bio",
   "nanopolish": "brewsci/bio",
