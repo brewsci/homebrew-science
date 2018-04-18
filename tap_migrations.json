@@ -15,6 +15,7 @@
   "bamtools": "homebrew/core",
   "barnapp": "brewsci/bio",
   "bcftools": "homebrew/core",
+  "beagle": "brewsci/bio",
   "beast": "homebrew/core",
   "beast2": "brewsci/bio",
   "bedops": "homebrew/core",
