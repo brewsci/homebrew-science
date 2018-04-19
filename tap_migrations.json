@@ -79,6 +79,7 @@
   "htslib": "homebrew/core",
   "hwloc": "homebrew/core",
   "hypre": "homebrew/core",
+  "idba": "brewsci/bio",
   "igraph": "homebrew/core",
   "igv": "homebrew/core",
   "infernal": "brewsci/bio",
