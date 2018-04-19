@@ -24,6 +24,7 @@
   "bioawk": "homebrew/core",
   "biobloomtools": "brewsci/bio",
   "blast": "homebrew/core",
+  "blat": "brewsci/bio",
   "bowtie": "brewsci/bio",
   "bowtie2": "homebrew/core",
   "busco": "brewsci/bio",
