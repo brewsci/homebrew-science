@@ -30,6 +30,7 @@
   "bwa": "homebrew/core",
   "canu": "brewsci/bio",
   "cap3": "brewsci/bio",
+  "cd-hit": "brewsci/bio",
   "centrifuge": "brewsci/bio",
   "ceres-solver": "homebrew/core",
   "cfitsio": "homebrew/core",
