@@ -56,6 +56,7 @@
   "dwgsim": "brewsci/bio",
   "dynare": "homebrew/core",
   "e-mem": "brewsci/bio",
+  "edirect": "brewsci/bio",
   "elph": "brewsci/bio",
   "emboss": "brewsci/bio",
   "exabayes": "brewsci/bio",
