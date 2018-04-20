@@ -146,6 +146,7 @@
   "prank": "brewsci/bio",
   "prodigal": "homebrew/core",
   "prokka": "brewsci/bio",
+  "proteinortho": "brewsci/bio",
   "qhull": "homebrew/core",
   "qrupdate": "homebrew/core",
   "quast": "brewsci/bio",
