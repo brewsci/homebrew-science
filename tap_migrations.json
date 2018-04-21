@@ -58,6 +58,7 @@
   "fastqc": "homebrew/core",
   "fasttree": "brewsci/bio",
   "fastuniq": "brewsci/bio",
+  "fermi-lite": "brewsci/bio",
   "field3d": "homebrew/core",
   "flann": "homebrew/core",
   "flash": "brewsci/bio",
