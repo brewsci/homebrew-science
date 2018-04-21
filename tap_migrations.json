@@ -85,6 +85,7 @@
   "infernal": "brewsci/bio",
   "iqtree": "brewsci/bio",
   "kallisto": "homebrew/core",
+  "k8": "brewsci/bio",
   "kat": "brewsci/bio",
   "kent-tools": "brewsci/bio",
   "kmc": "brewsci/bio",
