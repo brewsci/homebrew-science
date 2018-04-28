@@ -18,7 +18,7 @@ class Geant4 < Formula
   option "with-usolids", "Use USolids (experimental)"
   option "without-multithreaded", "Build without multithreading support"
 
-  depends_on "cmake" => :run
+  depends_on "cmake"
   depends_on :x11
   depends_on "qt" => :optional
   depends_on "xerces-c" if build.with? "gdml"

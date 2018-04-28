@@ -14,7 +14,7 @@ class Dealii < Formula
   deprecated_option "without-mpi" => "without-open-mpi"
   deprecated_option "without-opencascade" => "without-oce"
 
-  depends_on "cmake"        => :run
+  depends_on "cmake"
   depends_on "openmpi"      => :recommended
   depends_on "openblas"     => :optional
 
