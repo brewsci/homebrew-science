@@ -185,6 +185,7 @@
   "snoscan": "brewsci/bio",
   "snp-sites": "brewsci/bio",
   "snpeff": "brewsci/bio",
+  "sortmerna": "brewsci/bio",
   "spades": "homebrew/core",
   "sratoolkit": "homebrew/core",
   "stringtie": "brewsci/bio",
