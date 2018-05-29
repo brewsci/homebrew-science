@@ -106,6 +106,7 @@
   "libsbol": "homebrew/core",
   "libsequence": "brewsci/bio",
   "lighter": "brewsci/bio",
+  "links-scaffolder": "brewsci/bio",
   "lmod": "homebrew/core",
   "mafft": "homebrew/core",
   "maker": "brewsci/bio",
