@@ -67,6 +67,7 @@
   "flash": "brewsci/bio",
   "freebayes": "brewsci/bio",
   "fwdpp": "brewsci/bio",
+  "gaemr": "brewsci/bio",
   "gatk": "brewsci/bio",
   "gdcm": "homebrew/core",
   "genewise": "brewsci/bio",
