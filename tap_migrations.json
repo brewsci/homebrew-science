@@ -179,6 +179,7 @@
   "samblaster": "brewsci/bio",
   "samtools": "homebrew/core",
   "scalapack": "homebrew/core",
+  "seq-gen": "brewsci/bio",
   "seqtk": "homebrew/core",
   "sga": "brewsci/bio",
   "shogun": "homebrew/core",
