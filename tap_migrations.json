@@ -24,6 +24,7 @@
   "bedtools": "homebrew/core",
   "bioawk": "homebrew/core",
   "biobloomtools": "brewsci/bio",
+  "biomake": "brewsci/bio",
   "blast": "homebrew/core",
   "blat": "brewsci/bio",
   "bowtie": "brewsci/bio",
