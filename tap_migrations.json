@@ -187,6 +187,7 @@
   "sga": "brewsci/bio",
   "shogun": "homebrew/core",
   "sickle": "homebrew/core",
+  "simulate-pcr": "brewsci/bio",
   "siril": "homebrew/core",
   "snap": "brewsci/bio",
   "snoscan": "brewsci/bio",
