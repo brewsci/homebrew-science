@@ -84,6 +84,7 @@
   "hmmer": "homebrew/core",
   "hmmer2": "brewsci/bio",
   "htslib": "homebrew/core",
+  "humann2": "brewsci/bio",
   "hwloc": "homebrew/core",
   "hypre": "homebrew/core",
   "idba": "brewsci/bio",
