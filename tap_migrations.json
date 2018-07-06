@@ -181,6 +181,7 @@
   "samblaster": "brewsci/bio",
   "samtools": "homebrew/core",
   "scalapack": "homebrew/core",
+  "sdsl-lite": "brewsci/bio",
   "seq-gen": "brewsci/bio",
   "seqtk": "homebrew/core",
   "sga": "brewsci/bio",
