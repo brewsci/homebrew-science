@@ -30,6 +30,7 @@ class LpSolve < Formula
     sha256 "40e0fb01f795a4e7583802dadd04c8c08fdbe4fe776ea5602a78997fc2575065" => :x86_64_linux
   end
 
+  option "with-java", "Install java API wrapper"
   depends_on "python" => :optional
   depends_on NumpyHasHeaders.new if build.with? "python"
 
@@ -37,6 +38,13 @@ class LpSolve < Formula
     # 'http://lpsolve.sourceforge.net/5.5/Python.htm'
     url "https://downloads.sourceforge.net/lpsolve/lp_solve_5.5.2.0_Python_source.tar.gz"
     sha256 "79683bc262e9da5b2fa7338ba190a9cd10559b9f2dbcb8f3bf07e2a81083ac51"
+    version "5.5.2.0"
+  end
+
+  resource "lp_solve_java" do
+    # http://lpsolve.sourceforge.net/5.5/Java.htm
+    url "https://downloads.sourceforge.net/lpsolve/lp_solve_5.5.2.0_java.zip"
+    sha256 "0a4dcd21e0c494f51b5de4e5e7bcd608c71bbab957e37ac776cba19808a2d6c9"
     version "5.5.2.0"
   end
 
@@ -117,6 +125,19 @@ class LpSolve < Formula
         end
       end
     end
+
+    if build.with? "java"
+      resource("lp_solve_java").stage(buildpath/"java")
+      cd "#{buildpath}/java/lib/mac" do
+        inreplace "build-osx" do |s|
+          s.gsub! /^LPSOLVE_DIR=.*$/, "LPSOLVE_DIR=#{include}"
+          s.gsub! /liblpsolve55j\.jnilib/, "liblpsolve55j.dylib"
+          s.gsub! /-llpsolve55/, "-L#{lib} -llpsolve55"
+        end
+        system "sh", "build-osx", "#", "lpsolve55j", "library"
+        lib.install "liblpsolve55j.dylib"
+      end
+    end
   end
 
   if build.with? "python"
@@ -164,6 +185,6 @@ index 2ef654f..7b06ef8 100644
  #define libBLAS                  2        /* 0: No, 1: Internal, 2: External */
 -#define libnameBLAS        "myBLAS"
 +#define libnameBLAS        "/System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Versions/Current/libBLAS.dylib"
- 
- 
+
+
  /* Active inverse logic (default is optimized original etaPFI)               */
