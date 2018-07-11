@@ -1,6 +1,6 @@
 class NumpyHasHeaders < Requirement
   def numpy_include_dir
-    "#{`python -c "import numpy.distutils.misc_util as u; print(u.get_numpy_include_dirs())[0]"`.strip}"
+    `python -c "import numpy.distutils.misc_util as u; print(u.get_numpy_include_dirs())[0]"`.strip.to_s
   end
 
   def satisfied?
@@ -15,11 +15,12 @@ class NumpyHasHeaders < Requirement
     lp_solve requires NumPy headers not provided by Apple.
     Install numpy via the Homebrew/python formula:
       `brew tap homebrew/python && brew install numpy`
-    EOS
+  EOS
   end
 end
 
 class LpSolve < Formula
+  desc "Mixed Integer Linear Programming (MILP) solver"
   homepage "https://sourceforge.net/projects/lpsolve/"
   url "https://downloads.sourceforge.net/lpsolve/lp_solve_5.5.2.0_source.tar.gz"
   version "5.5.2.0" # automatic version parser spits out "solve" as version
@@ -32,7 +33,7 @@ class LpSolve < Formula
 
   option "with-java", "Install java API wrapper"
   depends_on "python" => :optional
-  depends_on NumpyHasHeaders.new if build.with? "python"
+  depends_on NumpyHasHeaders if build.with? "python"
 
   resource "lp_solve_python" do
     # 'http://lpsolve.sourceforge.net/5.5/Python.htm'
@@ -121,7 +122,7 @@ class LpSolve < Formula
           system "python", "setup.py", "--no-user-cfg", "install", *args
 
           # Save the examples
-          (share/"lp_solve").install Dir["ex*.py"], "lpdemo.py", "Python.htm"
+          pkgshare.install Dir["ex*.py"], "lpdemo.py", "Python.htm"
         end
       end
     end
@@ -142,7 +143,7 @@ class LpSolve < Formula
 
   if build.with? "python"
     def numpy_include_dir
-      "#{`python -c "import numpy.distutils.misc_util as u; print(u.get_numpy_include_dirs())[0]"`.strip}"
+      `python -c "import numpy.distutils.misc_util as u; print(u.get_numpy_include_dirs())[0]"`.strip.to_s
     end
 
     def which_python
@@ -154,7 +155,7 @@ class LpSolve < Formula
         export PYTHONPATH=#{HOMEBREW_PREFIX}/lib/#{which_python}/site-packages:$PYTHONPATH
 
       Python examples and doc are installed to #{HOMEBREW_PREFIX}/share/lp_solve
-      EOS
+    EOS
     end
   end
 
