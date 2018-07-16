@@ -58,6 +58,7 @@
   "emboss": "brewsci/bio",
   "exabayes": "brewsci/bio",
   "exonerate": "brewsci/bio",
+  "express": "brewsci/bio",
   "fasta": "brewsci/bio",
   "fastqc": "homebrew/core",
   "fasttree": "brewsci/bio",
