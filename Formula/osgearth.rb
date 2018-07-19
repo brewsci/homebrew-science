@@ -23,7 +23,7 @@ class Osgearth < Formula
   depends_on "minizip" => :recommended
   depends_on "v8" => :optional
   depends_on "tinyxml" => :optional
-  depends_on MinimumMacOSRequirement => :mavericks
+  depends_on :macos => :mavericks
 
   resource "sphinx" do
     url "https://pypi.python.org/packages/source/S/Sphinx/Sphinx-1.2.1.tar.gz"

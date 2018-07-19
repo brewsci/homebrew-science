@@ -29,7 +29,7 @@ class OmeFiles < Formula
   depends_on "graphviz" => :build if build.with? "api-docs"
 
   # Needs clang/libc++ toolchain; mountain lion is too broken
-  depends_on MinimumMacOSRequirement => :mavericks
+  depends_on :macos => :mavericks
 
   # Required for testing
   resource "gtest" do
