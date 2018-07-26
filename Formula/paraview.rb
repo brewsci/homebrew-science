@@ -11,6 +11,7 @@ class Paraview < Formula
 
   depends_on "cmake" => :build
 
+  depends_on "expat"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "glu" if OS.linux? && (build.without? "osmesa")
@@ -28,6 +29,9 @@ class Paraview < Formula
   depends_on "open-mpi" => :optional
 
   def install
+    # Reduce memory usage below 4 GB for Circle CI.
+    ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
+    
     dylib = OS.mac? ? "dylib" : "so"
 
     args = std_cmake_args + %W[
