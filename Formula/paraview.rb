@@ -6,6 +6,8 @@ class Paraview < Formula
   revision 4
 
   head "https://gitlab.kitware.com/paraview/paraview.git"
+  
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-osmesa", "Build with off-sceen mesa(osmesa)"
 
