@@ -31,7 +31,7 @@ class Paraview < Formula
 
   def install
     # Reduce memory usage below 4 GB for Circle CI.
-    ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]
+    ENV["MAKEFLAGS"] = "-j2" if ENV["CIRCLECI"]
     
     dylib = OS.mac? ? "dylib" : "so"
 
