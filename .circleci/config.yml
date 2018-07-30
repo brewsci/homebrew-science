@@ -99,16 +99,6 @@ jobs:
       - store_artifacts:
           path: /tmp/workspace/bottles
           destination: bottles
-workflows:
-  version: 2
-  test-bot:
-    jobs:
-      - build-linux
-      - build-macos
-      - collect-bottles:
-          requires:
-            - build-linux
-            - build-macos
 notify:
   webhooks:
     - url: https://p4142ivuwk.execute-api.us-west-2.amazonaws.com/prod/ci-upload
