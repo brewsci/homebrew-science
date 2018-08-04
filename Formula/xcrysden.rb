@@ -5,15 +5,15 @@ class Xcrysden < Formula
   sha256 "a695729f1bb3e486b86a74106c06a392c8aca048dc6b0f20785c3c311cfb2ef4"
 
   depends_on "gcc"
-  depends_on "tcl-tk" => "with-x11"
+  depends_on "tcl-tk-x11"
   depends_on "fftw"
   depends_on "wget" => :build
   depends_on :x11
 
   # Fix togl -accum false in Tcl and modify Make.sys
   patch do
-    url "https://gist.githubusercontent.com/specter119/4f630e538d39edcf67ec742f78c23aab/raw/ff73b6838cc2efd8c4fac3608e1a3f63355382a9/xcrysden-homebrew.patch"
-    sha256 "ad55c57702345a0cfd99364bd7e9dc8982f002409537ef173040bc67ef67dda1"
+    url "https://gist.githubusercontent.com/specter119/4f630e538d39edcf67ec742f78c23aab/raw/464f0a813f209df5bd008b3ef4b2394e86117439/xcrysden-homebrew.patch"
+    sha256 "943241a5bc07e8a638cb09d7ee6e4ffb3705e567d7a7c411b2d5aebb9ce6c285"
   end
 
   def install
