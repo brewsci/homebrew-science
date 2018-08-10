@@ -155,6 +155,7 @@
   "pcb": "homebrew/core",
   "pcl": "homebrew/core",
   "phlawd": "brewsci/bio",
+  "phylip": "brewsci/bio",
   "phyml": "brewsci/bio",
   "phyx": "brewsci/bio",
   "picard-tools": "homebrew/core",
