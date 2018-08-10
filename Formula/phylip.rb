@@ -4,7 +4,7 @@ class Phylip < Formula
   # tag "bioinformatics"
   # doi "10.1007/BF01734359"
 
-  url "http://evolution.gs.washington.edu/phylip/download/phylip-3.696.tar.gz"
+  url "http://evolution.gs.washington.edu/phylip/download/phylip-3.697.tar.gz"
   sha256 "cd0a452ca51922142ad06d585e2ef98565536a227cbd2bd47a2243af72c84a06"
 
   bottle do
