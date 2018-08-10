@@ -222,6 +222,7 @@
   "visp": "homebrew/core",
   "voro++": "homebrew/core",
   "vt": "brewsci/bio",
+  "vsearch": "brewsci/bio",
   "vtk": "homebrew/core",
   "wxmaxima": "homebrew/core"
 }
