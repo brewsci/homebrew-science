@@ -151,6 +151,7 @@
   "orocos-kdl": "homebrew/core",
   "packmol": "homebrew/core",
   "paml": "brewsci/bio",
+  "parsnp": "brewsci/bio",
   "pathvisio": "brewsci/bio",
   "pcb": "homebrew/core",
   "pcl": "homebrew/core",
