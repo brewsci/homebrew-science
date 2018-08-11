@@ -78,6 +78,7 @@
   "gmt": "homebrew/core",
   "gmt4": "homebrew/core",
   "gromacs": "homebrew/core",
+  "harvest-tools": "brewsci/bio",
   "hdf5": "homebrew/core",
   "hdf5@1.8": "homebrew/core",
   "hisat2": "brewsci/bio",
