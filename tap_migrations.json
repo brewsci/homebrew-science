@@ -37,6 +37,7 @@
   "centrifuge": "brewsci/bio",
   "ceres-solver": "homebrew/core",
   "cfitsio": "homebrew/core",
+  "circlator": "brewsci/bio",
   "circos": "brewsci/bio",
   "clblas": "homebrew/core",
   "clfft": "homebrew/core",
@@ -222,8 +223,8 @@
   "vips": "homebrew/core",
   "visp": "homebrew/core",
   "voro++": "homebrew/core",
-  "vt": "brewsci/bio",
   "vsearch": "brewsci/bio",
+  "vt": "brewsci/bio",
   "vtk": "homebrew/core",
   "wxmaxima": "homebrew/core"
 }
