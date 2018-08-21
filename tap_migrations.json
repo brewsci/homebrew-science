@@ -12,6 +12,7 @@
   "artemis": "brewsci/bio",
   "astral": "brewsci/bio",
   "augustus": "homebrew/core",
+  "bam2wig": "brewsci/bio",
   "bamm": "brewsci/bio",
   "bamtools": "homebrew/core",
   "barnapp": "brewsci/bio",
