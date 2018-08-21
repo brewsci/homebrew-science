@@ -194,6 +194,7 @@
   "sickle": "homebrew/core",
   "simulate-pcr": "brewsci/bio",
   "siril": "homebrew/core",
+  "smalt": "brewsci/bio",
   "snap": "brewsci/bio",
   "snoscan": "brewsci/bio",
   "snp-sites": "brewsci/bio",
