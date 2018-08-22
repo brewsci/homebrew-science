@@ -114,6 +114,7 @@
   "lighter": "brewsci/bio",
   "links-scaffolder": "brewsci/bio",
   "lmod": "homebrew/core",
+  "lrsim": "brewsci/bio",
   "mafft": "homebrew/core",
   "maker": "brewsci/bio",
   "mash": "homebrew/core",
