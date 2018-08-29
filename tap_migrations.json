@@ -49,6 +49,7 @@
   "cminpack": "homebrew/core",
   "cp2k": "homebrew/core",
   "cppad": "homebrew/core",
+  "cutadapt": "brewsci/bio",
   "datamash": "homebrew/core",
   "diamond": "homebrew/core",
   "dida": "brewsci/bio",
