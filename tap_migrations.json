@@ -99,6 +99,7 @@
   "infernal": "brewsci/bio",
   "iqtree": "brewsci/bio",
   "iva": "brewsci/bio",
+  "jellyfish": "brewsci/bio",
   "k8": "brewsci/bio",
   "kallisto": "homebrew/core",
   "kat": "brewsci/bio",
