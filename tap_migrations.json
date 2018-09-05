@@ -218,6 +218,7 @@
   "trf": "brewsci/bio",
   "trimal": "brewsci/bio",
   "trimmomatic": "brewsci/bio",
+  "trinity": "brewsci/bio",
   "trnascan": "brewsci/bio",
   "unicycler": "brewsci/bio",
   "uniqtag": "brewsci/bio",
