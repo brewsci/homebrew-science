@@ -184,6 +184,7 @@
   "r8s": "brewsci/bio",
   "racon": "brewsci/bio",
   "raxml": "brewsci/bio",
+  "rcorrector": "brewsci/bio",
   "readseq": "brewsci/bio",
   "repeatmasker": "brewsci/bio",
   "rmblast": "brewsci/bio",
