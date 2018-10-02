@@ -219,6 +219,7 @@
   "transdecoder": "brewsci/bio",
   "transfig": "homebrew/core",
   "trf": "brewsci/bio",
+  "trimadap": "brewsci/bio",
   "trimal": "brewsci/bio",
   "trimmomatic": "brewsci/bio",
   "trinity": "brewsci/bio",
