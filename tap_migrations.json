@@ -22,6 +22,7 @@
   "beast2": "brewsci/bio",
   "bedops": "homebrew/core",
   "bedtools": "homebrew/core",
+  "bfc": "brewsci/bio",
   "bioawk": "homebrew/core",
   "biobloomtools": "brewsci/bio",
   "biomake": "brewsci/bio",
