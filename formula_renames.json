@@ -3,5 +3,6 @@
   "geant": "geant4",
   "hdf@4": "hdf4",
   "samtools-0.1": "samtools@0.1",
-  "snp_sites": "snp-sites"
+  "snp_sites": "snp-sites",
+  "trans-abyss": "transabyss"
 }
