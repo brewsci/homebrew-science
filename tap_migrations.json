@@ -106,6 +106,7 @@
   "kat": "brewsci/bio",
   "kent-tools": "brewsci/bio",
   "kmc": "brewsci/bio",
+  "kmergenie": "brewsci/bio",
   "kraken": "brewsci/bio",
   "lammps": "homebrew/core",
   "last": "brewsci/bio",
