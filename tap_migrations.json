@@ -103,6 +103,7 @@
   "jellyfish": "brewsci/bio",
   "k8": "brewsci/bio",
   "kallisto": "homebrew/core",
+  "kaiju": "brewsci/bio",
   "kat": "brewsci/bio",
   "kent-tools": "brewsci/bio",
   "kmc": "brewsci/bio",
