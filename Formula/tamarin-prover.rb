@@ -18,7 +18,6 @@ class TamarinProver < Formula
   depends_on "zlib" => :build unless OS.mac?
   depends_on "maude"
   depends_on "graphviz"
-  depends_on :macos => :mountain_lion
 
   # doi "10.1109/CSF.2012.25"
   # tag "security"
