@@ -12,7 +12,7 @@ class Tophat < Formula
   depends_on "boost"
   depends_on "bowtie2"
   depends_on "bowtie" => :optional
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python"
 
   patch :p0, :DATA
 

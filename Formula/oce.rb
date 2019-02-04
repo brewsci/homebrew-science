@@ -21,7 +21,6 @@ class Oce < Formula
 
   if OS.mac?
     depends_on :xcode => :build
-    depends_on :macos => :snow_leopard
   else
     depends_on "tcl-tk"
   end

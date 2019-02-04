@@ -47,13 +47,6 @@ class LpSolve < Formula
     # Thanks to superenv, we don't have to care if the ccc.osx build script
     # tells the compiler stupid things. And Xcode-only works like charm.
 
-    # Clang on :snow_leopard does not ignore `-Wno-long-double` and errors out.
-    if MacOS.version <= :snow_leopard
-      files = %w[configure configure.ac demo/ccc.osx
-                 lp_solve/ccc.osx lpsolve55/ccc.osx lpsolve55/cccLUSOL.osx]
-      files.each { |f| inreplace f, "-Wno-long-double", "" }
-    end
-
     cd "lpsolve55" do
       if OS.mac?
         system "sh", "ccc.osx", "#", "lpsolve55", "library"

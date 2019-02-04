@@ -15,7 +15,7 @@ class Elemental < Formula
     sha256 "4f27c55828f27ce1685aaf65018cc149849692b7dfbd9352fc203fed1a96c924"
 
     option "without-python", "Build without Python 2 bindings"
-    depends_on "python" => :recommended if MacOS.version <= :snow_leopard
+    depends_on "python" => :recommended
     depends_on "metis"
   end
 
