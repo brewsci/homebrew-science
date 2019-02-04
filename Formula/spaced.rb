@@ -16,7 +16,6 @@ class Spaced < Formula
     sha256 "6362837ffb2f8bd05dda5e1b1c4af1ef42bf3838bb9aa3d0e1dd8aaf3c7329bf" => :x86_64_linux
   end
 
-  needs :cxx11
   needs :openmp
 
   def install

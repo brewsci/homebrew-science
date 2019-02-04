@@ -24,7 +24,6 @@ class Arrayfire < Formula
   depends_on "fftw"
   depends_on "clblas"
   depends_on "clfft"
-  needs :cxx11
   # forge dependencies - remove once forge moves to its own formula
   depends_on "fontconfig"
   depends_on "glfw"

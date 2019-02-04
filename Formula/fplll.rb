@@ -11,8 +11,6 @@ class Fplll < Formula
     sha256 "46430c3ce03a664c7a14f22335bbfe99728a77f08e9447bca95ce5be66c42011" => :x86_64_linux
   end
 
-  needs :cxx11
-
   option "without-test", "Disable build-time checking (not recommended)"
 
   depends_on "gmp"

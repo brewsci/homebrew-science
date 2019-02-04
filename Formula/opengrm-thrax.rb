@@ -15,8 +15,6 @@ class OpengrmThrax < Formula
 
   depends_on "openfst"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--prefix=#{prefix}",

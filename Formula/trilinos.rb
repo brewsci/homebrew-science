@@ -91,8 +91,6 @@ class Trilinos < Formula
     s + (cond ? "ON" : "OFF")
   end
 
-  # Kokkos, Tpetra and Sacado will be OFF without cxx11
-  needs :cxx11
   needs :openmp if build.with? "openmp"
 
   def install

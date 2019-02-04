@@ -22,7 +22,6 @@ class AdolC < Formula
   colpack_opts << "with-openmp" if build.with? "openmp"
   depends_on "colpack" => [:recommended] + colpack_opts
 
-  needs :cxx11
   needs :openmp if build.with? "openmp"
 
   def install

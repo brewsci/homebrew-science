@@ -15,7 +15,6 @@ class Vigra < Formula
     sha256 "0ba6450f9069c7564cd97bd97e1c6537439a8623f1d4f1e2d9c1521f6c17015e" => :x86_64_linux
   end
 
-  needs :cxx11
   option "without-test", "skip tests"
 
   deprecated_option "without-check" => "without-test"

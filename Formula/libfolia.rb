@@ -22,8 +22,6 @@ class Libfolia < Formula
   depends_on "libxslt"
   depends_on "libxml2"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-debug",

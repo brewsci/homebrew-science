@@ -16,8 +16,6 @@ class Timbl < Formula
   depends_on "libxml2"
   depends_on "ticcutils"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking",

@@ -20,8 +20,6 @@ class Symengine < Formula
   depends_on "mpfr"
   depends_on "libmpc"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     args = std_cmake_args + [

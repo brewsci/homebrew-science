@@ -25,8 +25,6 @@ class Dssp < Formula
     sha256 "dddc01d4fe8263d32dab7b3ffd32f02859414a97bbc1d4688557dd493d93c4a6"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

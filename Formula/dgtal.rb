@@ -26,8 +26,6 @@ class Dgtal < Formula
   depends_on "graphicsmagick" => :optional
   depends_on "cgal" => [:optional, "with-eigen"]
 
-  needs :cxx11
-
   # GCC 4 works, and according to upstream issue, GCC <= 5.2.1 may also be fine
   ["5", "6"].each do |n|
     fails_with :gcc => n do

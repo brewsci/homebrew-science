@@ -12,8 +12,6 @@ class Openfst < Formula
     sha256 "b20ee657fe8fdd2c8bfde124e1aff050b0724eb061b2bb820a2d928299f24e6e" => :x86_64_linux
   end
 
-  needs :cxx11
-
   depends_on "zlib" unless OS.mac?
 
   def install

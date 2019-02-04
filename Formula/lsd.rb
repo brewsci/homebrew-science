@@ -16,8 +16,6 @@ class Lsd < Formula
   version "0.3b"
   sha256 "47a40730c53d82cbdae5466c061888e1f75bbcf52cbbfeb32b17d97a3b8f0b4a"
 
-  needs :cxx11
-
   def install
     rm_r "bin"
     system "make", "-C", "src"

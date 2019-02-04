@@ -33,8 +33,6 @@ class Elemental < Formula
   depends_on "qt5"       => :optional
   depends_on "scalapack" => :optional
 
-  needs :cxx11
-
   # The patch in :DATA patches a bug in Elemental that causes CMake
   # build system errors
   patch :DATA unless build.head?

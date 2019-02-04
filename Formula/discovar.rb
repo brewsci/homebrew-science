@@ -11,7 +11,6 @@ class Discovar < Formula
     sha256 "4a1224626458f35381238ce9f55c2105749dadfb6098d467e2601e2ec21feaff" => :x86_64_linux
   end
 
-  needs :cxx11
   needs :openmp
 
   fails_with :gcc => "5" do

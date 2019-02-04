@@ -19,8 +19,6 @@ class RnaStar < Formula
   # Fix error: 'omp.h' file not found
   needs :openmp
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     cd "source" do

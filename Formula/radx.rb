@@ -23,8 +23,6 @@ class Radx < Formula
   fails_with :gcc => "7"
   fails_with :gcc => "6"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

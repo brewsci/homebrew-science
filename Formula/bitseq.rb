@@ -14,7 +14,6 @@ class Bitseq < Formula
   end
 
   needs :openmp
-  needs :cxx11
 
   def install
     ENV.cxx11

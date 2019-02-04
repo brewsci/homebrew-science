@@ -15,8 +15,6 @@ class Itensor < Formula
 
   depends_on "openblas" => (OS.mac? ? :optional : :recommended)
 
-  needs :cxx11
-
   def install
     if build.with? "openblas"
       platform = "openblas"

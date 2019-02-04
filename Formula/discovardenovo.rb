@@ -5,7 +5,6 @@ class Discovardenovo < Formula
   sha256 "445445a3b75e17e276a6119434f13784a5a661a9c7277f5e10f3b6b3b8ac5771"
   # tag "bioinformatics"
 
-  needs :cxx11
   needs :openmp
 
   fails_with :gcc => "5" do

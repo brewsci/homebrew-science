@@ -25,8 +25,6 @@ class Mlpack < Formula
   depends_on "boost"
   depends_on "libxml2"
 
-  needs :cxx11
-
   def install
     # Reduce memory usage below 4 GB for Circle CI.
     ENV["MAKEFLAGS"] = "-j1" if ENV["CIRCLECI"]

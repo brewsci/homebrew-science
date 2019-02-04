@@ -16,8 +16,6 @@ class Quaff < Formula
   depends_on "gsl"
   depends_on "awscli" => :optional
 
-  needs :cxx11
-
   def install
     # .linuxbrew/lib/libpthread.so.0: error adding symbols: DSO missing from command line
     inreplace "Makefile", "LIBFLAGS = ", "LIBFLAGS = -lpthread "

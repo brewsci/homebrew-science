@@ -37,8 +37,6 @@ class Dealii < Formula
   depends_on "tbb"          => :recommended
   depends_on "trilinos"     => [:recommended] + openblasdep
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

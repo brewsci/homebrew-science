@@ -19,8 +19,6 @@ class Analysis < Formula
     sha256 "07fd87a8454b107afabc00a5b359f84f3766fd5a3629885bc87be17d25a937f1"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

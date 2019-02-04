@@ -28,7 +28,6 @@ class Beetl < Formula
   depends_on "boost" => :optional
   depends_on "seqan" => :optional
 
-  needs :cxx11
   needs :openmp
 
   def install

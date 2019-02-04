@@ -24,7 +24,6 @@ class Stacks < Formula
   # Fix error: 'tr1/functional' file not found
   patch :DATA
 
-  needs :cxx11
   fails_with :gcc => "4.8"
 
   def install

@@ -23,7 +23,6 @@ class Mantaflow < Formula
   depends_on "python" if MacOS.version <= :snow_leopard
 
   needs :openmp if build.with? "openmp"
-  needs :cxx11
 
   def install
     ENV.cxx11

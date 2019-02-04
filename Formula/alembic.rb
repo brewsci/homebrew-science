@@ -12,8 +12,6 @@ class Alembic < Formula
     sha256 "de699aea0628287445b6e2845e9fc40e154a22c194359f3f5f636eefacde7671" => :x86_64_linux
   end
 
-  needs :cxx11
-
   depends_on "cmake" => :build
   depends_on "hdf5"
   depends_on "ilmbase"

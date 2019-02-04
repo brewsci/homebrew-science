@@ -21,8 +21,6 @@ class Ticcutils < Formula
     depends_on "zlib"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking",
