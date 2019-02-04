@@ -36,11 +36,6 @@ class FastxToolkit < Formula
 
   depends_on "pkg-config" => :build
 
-  fails_with :clang do
-    build (MacOS.version >= :mavericks ? 425 : 503)
-    cause "clang build fails on Mountain Lion, but works on Mavericks. See issue #620"
-  end
-
   def install
     resource("libgtextutils").stage do
       if build.head?

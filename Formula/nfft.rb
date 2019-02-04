@@ -18,11 +18,6 @@ class Nfft < Formula
 
   needs :openmp if build.with? "openmp"
 
-  fails_with :clang do
-    build 425
-    cause "Cannot compile complex compound assignment (works for >=503)"
-  end
-
   def install
     args = %W[--disable-debug --disable-dependency-tracking --prefix=#{prefix}]
     args << "--enable-openmp" if build.with? "openmp"

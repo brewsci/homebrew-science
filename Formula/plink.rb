@@ -15,14 +15,6 @@ class Plink < Formula
     sha256 "e7de28c47171e77be9023fd4ced2a7b860be794811982cac768c58154e16fa60" => :x86_64_linux
   end
 
-  fails_with :clang do
-    build 425
-    cause <<~EOS
-      Old versions of clang are missing some symbols for
-      exception unwinding (Homebrew/science issue #4234).
-      EOS
-  end
-
   # allows plink to build with clang and new versions of gcc
   # borrowed from Debian; discussion at:
   # https://lists.debian.org/debian-mentors/2012/04/msg00410.html

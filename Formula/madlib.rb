@@ -29,11 +29,6 @@ class Madlib < Formula
     sha256 "04f8a4fa4afedaae721c1a1c756afeea20d3cdef0ce3293982cf1c518f178502"
   end
 
-  fails_with :clang do
-    build 503
-    cause "See http://jira.madlib.net/browse/MADLIB-865"
-  end
-
   fails_with :gcc do
     build 5666
     cause "See http://jira.madlib.net/browse/MADLIB-865"

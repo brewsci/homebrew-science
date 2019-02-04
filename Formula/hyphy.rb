@@ -21,11 +21,6 @@ class Hyphy < Formula
   depends_on "cmake" => :build
   depends_on "open-mpi" => :optional
 
-  fails_with :clang do
-    build 77
-    cause "cmake gets passed the wrong flags"
-  end
-
   patch :DATA # single-threaded builds
 
   def install
