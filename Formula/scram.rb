@@ -10,8 +10,6 @@ class Scram < Formula
 
   bottle :disable, "needs to be rebuilt with latest boost"
 
-  needs :cxx14
-
   # C++14 uses GCC 5.3, which is not ABI compatible with GCC 4.8
   depends_on :macos unless OS.mac?
 

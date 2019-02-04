@@ -19,8 +19,6 @@ class Flexbar < Formula
   depends_on "seqan" => :build
   depends_on "tbb"
 
-  needs :cxx14
-
   def install
     system "cmake", ".", *std_cmake_args
     system "make"
