@@ -25,7 +25,7 @@ class Concorde < Formula
       mkdir "cplex_files"
       cd "cplex_files" do
         ln_s Dir["#{cplex_path}/include/ilcplex/*.h"], "."
-        if MacOS.prefer_64_bit?
+        if MacOS.is_64_bit?
           ln_s "#{cplex_path}/lib/x86-64_osx/static_pic/libcplex.a", "."
         else
           ln_s "#{cplex_path}/lib/x86-32_osx/static_pic/libcplex.a", "."
