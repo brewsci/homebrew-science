@@ -114,6 +114,7 @@
   "lastz": "brewsci/bio",
   "libbi": "homebrew/core",
   "libccd": "homebrew/core",
+  "libdivsufsort": "brewsci/bio",
   "libmatio": "homebrew/core",
   "libpll": "brewsci/bio",
   "libsbol": "homebrew/core",
