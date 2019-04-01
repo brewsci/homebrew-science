@@ -1,6 +1,7 @@
 {
   "abacas": "brewsci/bio",
   "abyss": "homebrew/core",
+  "abyss-explorer": "brewsci/bio",
   "adam": "brewsci/bio",
   "ampl-mp": "homebrew/core",
   "andi": "brewsci/bio",
