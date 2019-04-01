@@ -126,6 +126,7 @@
   "mafft": "homebrew/core",
   "maker": "brewsci/bio",
   "mash": "homebrew/core",
+  "masurca": "brewsci/bio",
   "matplotlib": "brewsci/bio",
   "maxima": "homebrew/core",
   "mcl": "brewsci/bio",
