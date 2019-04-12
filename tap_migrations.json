@@ -114,6 +114,7 @@
   "last": "brewsci/bio",
   "lastz": "brewsci/bio",
   "libbi": "homebrew/core",
+  "libbigwig": "brewsci/bio",
   "libccd": "homebrew/core",
   "libdivsufsort": "brewsci/bio",
   "libmatio": "homebrew/core",
