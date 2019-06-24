@@ -19,7 +19,7 @@ class GedaGaf < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gtk+"
-  depends_on "guile@2.0"
+  depends_on "guile"
   depends_on "gawk"
 
   def install
@@ -47,7 +47,7 @@ class GedaGaf < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gmp = Formula["gmp"]
-    guile = Formula["guile@2.0"]
+    guile = Formula["guile"]
     libpng = Formula["libpng"]
     readline = Formula["readline"]
     flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
@@ -58,7 +58,7 @@ class GedaGaf < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gmp.opt_include}
-      -I#{guile.opt_include}/guile/2.0
+      -I#{guile.opt_include}/guile
       -I#{include}
       -I#{libpng.opt_include}/libpng16
       -I#{readline.opt_include}
@@ -76,7 +76,7 @@ class GedaGaf < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lguile-2.0
+      -lguile
       -lintl
     ]
     system ENV.cc, "test.c", "-o", "test", *flags
