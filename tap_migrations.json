@@ -16,6 +16,7 @@
   "bamm": "brewsci/bio",
   "bamtools": "homebrew/core",
   "barnapp": "brewsci/bio",
+  "bbtools": "brewsci/bio",
   "bcalm": "brewsci/bio",
   "bcftools": "homebrew/core",
   "beagle": "brewsci/bio",
