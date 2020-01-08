@@ -149,6 +149,7 @@
   "mummer": "brewsci/bio",
   "muscle": "brewsci/bio",
   "nanopolish": "brewsci/bio",
+  "nauty": "homebrew/core",
   "nco": "homebrew/core",
   "ncview": "homebrew/core",
   "netcdf": "homebrew/core",
