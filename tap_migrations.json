@@ -54,6 +54,7 @@
   "cppad": "homebrew/core",
   "cutadapt": "brewsci/bio",
   "datamash": "homebrew/core",
+  "delly": "brewsci/bio",
   "diamond": "homebrew/core",
   "dida": "brewsci/bio",
   "dlib": "homebrew/core",
