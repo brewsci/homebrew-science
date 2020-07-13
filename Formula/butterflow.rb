@@ -12,9 +12,6 @@ class Butterflow < Formula
     sha256 "04bad6a26382651b922394d2145914d2aa882e1daaf42b9b174e92fd276290e8" => :yosemite
   end
 
-  # To satisfy OpenCL 1.2 requirement
-  depends_on :macos => :mavericks
-
   depends_on "opencv@2"
 
   def install
