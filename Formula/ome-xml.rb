@@ -19,9 +19,6 @@ class OmeXml < Formula
   depends_on "doxygen" => :build if build.with? "api-docs"
   depends_on "graphviz" => :build if build.with? "api-docs"
 
-  # Needs clang/libc++ toolchain; mountain lion is too broken
-  depends_on :macos => :mavericks
-
   # Required for testing
   resource "gtest" do
     url "https://github.com/google/googletest/archive/release-1.8.0.tar.gz"
