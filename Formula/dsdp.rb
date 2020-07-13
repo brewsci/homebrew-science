@@ -11,11 +11,9 @@ class Dsdp < Formula
     sha256 "e13dbc58fb9629c4d18967991f95422ac6698db5000f2caa04d77d96f872480f" => :mavericks
   end
 
-  def patches
-    # let Homebrew choose compiler
-    # choose LAPACK library between Accelerate.framework and OpenBLAS
-    DATA
-  end
+  # let Homebrew choose compiler
+  # choose LAPACK library between Accelerate.framework and OpenBLAS
+  patch :DATA
 
   depends_on "openblas" => :optional
 
