@@ -11,11 +11,6 @@ class GedaGaf < Formula
     sha256 "37b19c3e1b3ee996f9162519dbc078f1d46939e5d7afcff966db05a1ba97ab7c" => :yosemite
   end
 
-  devel do
-    url "http://ftp.geda-project.org/geda-gaf/unstable/v1.9/1.9.1/geda-gaf-1.9.1.tar.gz"
-    sha256 "563c4ae8ba72824e873094d9133425b8f142f7e5b25cd6da33f69b2d99c980a3"
-  end
-
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gtk+"
