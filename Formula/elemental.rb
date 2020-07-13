@@ -10,15 +10,6 @@ class Elemental < Formula
 
   bottle :disable, "needs to be rebuilt with latest open-mpi"
 
-  devel do
-    url "https://github.com/elemental/Elemental/archive/0.86-rc1.tar.gz"
-    sha256 "4f27c55828f27ce1685aaf65018cc149849692b7dfbd9352fc203fed1a96c924"
-
-    option "without-python", "Build without Python 2 bindings"
-    depends_on "python" => :recommended
-    depends_on "metis"
-  end
-
   head do
     url "https://github.com/elemental/Elemental.git"
     depends_on "metis"
