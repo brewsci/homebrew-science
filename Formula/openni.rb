@@ -19,17 +19,6 @@ class Openni < Formula
     sha256 "cabb19d1ae8ae8166d7bad26d433ce1bfb4d2de27999fc7431024a750c0ab86d" => :mavericks
   end
 
-  devel do
-    url "https://github.com/OpenNI/OpenNI/archive/Unstable-1.5.8.5.tar.gz"
-    sha256 "766d3b9745e8d486ad2998e1437bb161188282cfc1553502386457d1438df42f"
-
-    # Fix for Mavericks
-    patch do
-      url "https://github.com/OpenNI/OpenNI/pull/95.diff"
-      sha256 "722fb0a6e6e99a5cc7c7e862ac802dfd3d03785c27af1d20d7f48314ff5154dd"
-    end
-  end
-
   head do
     url "https://github.com/OpenNI/OpenNI.git"
     patch do
