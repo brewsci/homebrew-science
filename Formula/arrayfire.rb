@@ -13,9 +13,6 @@ class Arrayfire < Formula
     sha256 "91b83c4455003497b83ef155f9b3846560f59216a8df2b7f9b117ea66513406f" => :yosemite_or_later
   end
 
-  # https://github.com/arrayfire/arrayfire/issues/794
-  depends_on :macos => :mavericks
-
   depends_on "cmake" => :build
   depends_on "boost" => :build
   depends_on "boost-compute" => :build
