@@ -11,7 +11,6 @@ class Insighttoolkit < Formula
     sha256 "450da49dcec1fa3a329bb444e51b1b65ab61f4ce82a438ee74fc3a7d0ef246f5" => :el_capitan
   end
 
-  option :cxx11
   option "with-examples", "Compile and install various examples"
   option "with-itkv3-compatibility", "Include ITKv3 compatibility"
   option "with-remove-legacy", "Disable legacy APIs"
@@ -19,26 +18,24 @@ class Insighttoolkit < Formula
   deprecated_option "examples" => "with-examples"
   deprecated_option "remove-legacy" => "with-remove-legacy"
 
-  cxx11dep = build.cxx11? ? ["c++11"] : []
-
   depends_on "cmake" => :build
-  depends_on "opencv@2" => [:optional] + cxx11dep
+  depends_on "opencv@2" => :optional
   depends_on "python" => :optional
   depends_on "python3" => :optional
   depends_on "fftw" => :recommended
-  depends_on "hdf5" => [:recommended] + cxx11dep
+  depends_on "hdf5" => :recommended
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
-  depends_on "gdcm" => [:optional] + cxx11dep
+  depends_on "gdcm" => :optional
   depends_on "expat" unless OS.mac?
 
   if build.with? "python3"
-    depends_on "vtk" => [:build, "with-python3", "without-python"] + cxx11dep
+    depends_on "vtk" => [:build, "with-python3", "without-python"]
   elsif build.with? "python"
-    depends_on "vtk" => [:build, "with-python"] + cxx11dep
+    depends_on "vtk" => [:build, "with-python"]
   else
-    depends_on "vtk" => [:build] + cxx11dep
+    depends_on "vtk" => [:build]
   end
 
   def install
@@ -71,9 +68,7 @@ class Insighttoolkit < Formula
     args << "-DModule_ITKReview=ON"
     args << "-DModule_ITKVtkGlue=ON"
     args << "-DITK_USE_GPU=" + (OS.mac? ? "ON" : "OFF")
-
-    args << "-DVCL_INCLUDE_CXX_0X=ON" if build.cxx11?
-    ENV.cxx11 if build.cxx11?
+    args << "-DVCL_INCLUDE_CXX_0X=ON"
 
     mkdir "itk-build" do
       if build.with?("python") || build.with?("python3")
