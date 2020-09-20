@@ -13,20 +13,16 @@ class Nexusformat < Formula
     sha256 "8db4ec51ef6966dc74e83b634b79af57379fbd6d6890646d58b54da61e910104" => :x86_64_linux
   end
 
-  option :cxx11
-
   deprecated_option "hdf@4" => "hdf4"
 
   depends_on "cmake" => :build
   depends_on "libmxml"
-  cxx11dep = build.cxx11? ? ["c++11"] : []
-  depends_on "hdf5" => cxx11dep
+  depends_on "hdf5"
   depends_on "readline" => :recommended
   depends_on "hdf4" => :recommended
   depends_on "doxygen" => :optional
 
   def install
-    ENV.cxx11 if build.cxx11?
     cmake_args = std_cmake_args
     cmake_args << "-DENABLE_APPS=TRUE"
     cmake_args << "-DENABLE_CXX=TRUE"
