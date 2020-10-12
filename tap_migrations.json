@@ -102,6 +102,7 @@
   "igraph": "homebrew/core",
   "igv": "homebrew/core",
   "infernal": "brewsci/bio",
+  "ipopt": "homebrew/core",
   "iqtree": "brewsci/bio",
   "iva": "brewsci/bio",
   "jellyfish": "brewsci/bio",
