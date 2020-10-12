@@ -175,6 +175,7 @@
   "pathvisio": "brewsci/bio",
   "pcb": "homebrew/core",
   "pcl": "homebrew/core",
+  "petsc": "homebrew/core",
   "phlawd": "brewsci/bio",
   "phylip": "brewsci/bio",
   "phyml": "brewsci/bio",
