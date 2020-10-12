@@ -6,7 +6,7 @@ class RmlMmc < Formula
 
   head "https://openmodelica.org/svn/MetaModelica/trunk", :using => :svn
 
-  depends_on "smlnj"
+  # Dependency "smlnj" has been removed from homebrew/core
 
   def install
     ENV.deparallelize
