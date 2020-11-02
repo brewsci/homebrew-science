@@ -91,6 +91,7 @@
   "harvest-tools": "brewsci/bio",
   "hdf5": "homebrew/core",
   "hdf5@1.8": "homebrew/core",
+  "healpix": "homebrew/core",
   "hisat2": "brewsci/bio",
   "hmmer": "homebrew/core",
   "hmmer2": "brewsci/bio",
