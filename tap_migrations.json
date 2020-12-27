@@ -166,6 +166,7 @@
   "oases": "brewsci/bio",
   "octave": "homebrew/core",
   "oma": "brewsci/bio",
+  "openalrp": "homebrew/core",
   "openblas": "homebrew/core",
   "opencascade": "homebrew/core",
   "opencv3": "homebrew/core",
