@@ -107,6 +107,7 @@
   "iqtree": "brewsci/bio",
   "iva": "brewsci/bio",
   "jellyfish": "brewsci/bio",
+  "jmol": "brewsci/bio",
   "k8": "brewsci/bio",
   "kaiju": "brewsci/bio",
   "kallisto": "homebrew/core",
