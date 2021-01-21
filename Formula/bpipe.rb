@@ -10,7 +10,7 @@ class Bpipe < Formula
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on :jdk
 
   def install
     libexec.install Dir["*"]

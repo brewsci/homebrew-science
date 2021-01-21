@@ -16,7 +16,7 @@ class AlienHunter < Formula
   version "1.7"
   sha256 "6970a84262b46a6361c829b4510878b70ce0375dd78a19e78bd68ea8b15460e1"
 
-  depends_on :java
+  depends_on :jdk
 
   def install
     inreplace "alien_hunter", "`dirname $0`", prefix

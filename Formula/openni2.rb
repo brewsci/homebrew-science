@@ -19,7 +19,7 @@ class Openni2 < Formula
   option "with-samples", "Install Samples"
 
   depends_on "python"
-  depends_on :java
+  depends_on :jdk
   depends_on "libusb"
   depends_on "doxygen" => :build if build.with? "docs"
   depends_on "linuxbrew/xorg/mesa" unless OS.mac?

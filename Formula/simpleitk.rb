@@ -30,7 +30,7 @@ class Simpleitk < Formula
   depends_on "swig" => :build
   depends_on "python" => :recommended
   depends_on "python3" => :optional
-  depends_on :java => :optional
+  depends_on :jdk => :optional
   depends_on "r" => :optional
   depends_on "lua" => :optional
   depends_on CIRequirement unless OS.mac?

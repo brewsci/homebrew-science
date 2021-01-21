@@ -18,7 +18,7 @@ class Rampart < Formula
     depends_on "maven" => :build
   end
 
-  depends_on :java => "1.7+"
+  depends_on :jdk => "1.7+"
 
   # Dataset improvement
   depends_on "sickle" => :optional

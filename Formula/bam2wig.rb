@@ -7,7 +7,7 @@ class Bam2wig < Formula
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on :jdk
 
   def install
     java = share/"java"

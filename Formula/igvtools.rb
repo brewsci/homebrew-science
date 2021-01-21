@@ -16,7 +16,7 @@ class Igvtools < Formula
   # tag "bioinformatics"
 
   depends_on "ant" => :build
-  depends_on :java
+  depends_on :jdk
 
   def install
     system "ant", "-lib", "ant/bcel-5.2.jar", "-buildfile", "scripts/build-tools.xml", "-Dversion=#{version}"

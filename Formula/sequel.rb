@@ -16,7 +16,7 @@ class Sequel < Formula
     sha256 "bc786a7338217018cdab279d62da60fa449add5ea8a9f833094fb56e903ad94c" => :x86_64_linux
   end
 
-  depends_on :java
+  depends_on :jdk
   depends_on "blat"
 
   def install
