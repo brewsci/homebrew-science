@@ -186,6 +186,7 @@
   "phyx": "brewsci/bio",
   "picard-tools": "homebrew/core",
   "pilon": "brewsci/bio",
+  "plink2": "brewsci/bio",
   "prank": "brewsci/bio",
   "primer3": "homebrew/core",
   "prodigal": "homebrew/core",
