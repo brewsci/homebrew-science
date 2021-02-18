@@ -5,6 +5,7 @@ class Lmfit < Formula
   sha256 "a667572ebd0d7474451a1bdde69e76f0965ddb3b4f0640585e6f5d65cb8554c2"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, high_sierra:  "bbd8fe5551040242d4520c43760f5425905b9cdd2a684002a204dc9ef377a481"
     sha256 cellar: :any, sierra:       "5f77f709999d25f8e3ee4b1d610890ffe818e0888a7fef02b9de914210aa75e8"
     sha256 cellar: :any, el_capitan:   "581ff0bf574fa30729fcd1da007d004e7c26af2ce0f014db46d99de984c4257a"

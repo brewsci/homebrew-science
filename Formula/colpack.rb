@@ -6,6 +6,7 @@ class Colpack < Formula
   head "https://github.com/CSCsw/ColPack.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     rebuild 1
     sha256 cellar: :any, sierra:     "7b604fc98de89fff87975d3f2d4bb12cdff2e34c42e7868d90903e045b365ed5"
     sha256 cellar: :any, el_capitan: "7ffdc149dbd86998420b86946124631640d9dbcf689e4880c7cbfc5aa1449142"

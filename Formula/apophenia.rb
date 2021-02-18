@@ -8,6 +8,7 @@ class Apophenia < Formula
   head "https://github.com/b-k/apophenia.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, sierra:       "cd78c8a651577d511679b79aa66f43f50fbc5644d3152846142215252a3a3c9c"
     sha256 cellar: :any, el_capitan:   "adf789318a1acc972ff0f1917f6b7006669b6b5f17aedc16e4cf413d7476dcf6"
     sha256 cellar: :any, yosemite:     "db04d9ea7bb72b6d51cdd35d509e488513a59f4d5eaa7c46cf8f3b6020f8b259"

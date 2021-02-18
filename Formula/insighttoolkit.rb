@@ -6,6 +6,7 @@ class Insighttoolkit < Formula
   head "git://itk.org/ITK.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 high_sierra: "d5ab1f5c66bdb0afbd9cde3e5be580bc78e114d604b9b4db4f5089e26208b48e"
     sha256 sierra:      "3ed156592517d0fde2ccc21f180e2a6e8487a216a0a260e84f13e945156e80ce"
     sha256 el_capitan:  "450da49dcec1fa3a329bb444e51b1b65ab61f4ce82a438ee74fc3a7d0ef246f5"

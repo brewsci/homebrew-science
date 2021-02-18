@@ -5,6 +5,7 @@ class Soplex < Formula
   sha256 "577d5719bc4c10d4b2e43222b4173fa830a050cb0ce2addd92ad5683c9fed276"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "c922367d9709352c5c4d7fb119f24c0ef868189b7e0193b005bf3ba06a40ba19" => :high_sierra
     sha256 "a06a6662c8cd61c49b27437ec927eeeccd7ab23c53382ab9581c22fee3d45c9d" => :sierra

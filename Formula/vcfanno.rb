@@ -8,6 +8,7 @@ class Vcfanno < Formula
   head "https://github.com/brentp/vcfanno.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "565ed1833d34af1854f4a666d7c67216e090b8e933c51fd06519e3c9a171cd8a" => :sierra
     sha256 "57f9990c7e35194f0cc10fbffd50d5b85c687ad755bd81098b12fff202ddc696" => :el_capitan

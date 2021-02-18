@@ -5,6 +5,7 @@ class M4ri < Formula
   sha256 "4bc3f53a5116e1ff0720c08f34ce415c88e2fb503437abfd15e196792ec6d5aa"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, sierra:     "19c8d8d8965ce7925f043f61bf87adb29ac3018a62f26ae8534c744817fa6aec"
     sha256 cellar: :any, el_capitan: "ce8d2f41a7abd3eb38b2b3fbe113d176dbc9925c56899000ae8142e9611ccf6a"
     sha256 cellar: :any, yosemite:   "8e7b50f2cd13755157be2464e47777dc5103a1aa98478d04ab00f48d7d9c1b9f"

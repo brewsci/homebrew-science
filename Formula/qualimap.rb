@@ -6,6 +6,7 @@ class Qualimap < Formula
   sha256 "12fd342a2ccc76ea09bbd5e9ae38c1ae9ae44aad5e6f0296298e584e55b0d8ae"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "87452d8d5cc0dc5a4a4a52952ac94c2804fa3935c2a66685026a595bc9d39c63" => :el_capitan
     sha256 "91e74025f9f2a738abecbdb3529f0e70bf427402a5ab06f18f41e793c1a46d6f" => :yosemite

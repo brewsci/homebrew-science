@@ -6,6 +6,7 @@ class Mathomatic < Formula
   head "https://github.com/mfillpot/mathomatic.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, el_capitan: "0a8706e8eed80d001e8e7d8b2ce6bab4ec61eaca3e7e2077f900377a4fb9a527"
     sha256 cellar: :any_skip_relocation, yosemite:   "7290a8d02d944b54330d9c2f5141b2d7443115e30e6a163c421f638877da6e8c"
     sha256 cellar: :any_skip_relocation, mavericks:  "d982a5a8fcc6a02e30b9b6d42f9af03759f2d9f9912a5d5c761811ee7d20ef4f"

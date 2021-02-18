@@ -7,6 +7,7 @@ class Glpk448 < Formula
   revision 1
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, el_capitan: "5390c3e30f24443713cd18c8e0c7b4e2b26550c211ede583e0011be5a4b37bbc"
     sha256 cellar: :any, yosemite:   "1b2b0fd04fa9c96f62af988af076e40366dfea5ed332b6436d440adf745dc407"
     sha256 cellar: :any, mavericks:  "24427a5e8d671ea3e305e1e26814957b03481f9e8850be8e0226ba47a8bcc35b"

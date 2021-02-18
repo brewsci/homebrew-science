@@ -8,6 +8,7 @@ class Molden < Formula
   # doi "10.1023/A:1008193805436"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, sierra:     "7090e6426c40c0a4adb6ec5f5ded9872b2df113d5405b81c835894f564700d2c"
     sha256 cellar: :any, el_capitan: "c90a972af21039dc32134854a1623379fd5f805a72db4a325246ad4f0baf70dd"
     sha256 cellar: :any, yosemite:   "ae95c0cad20b100600b9ba8271ed1d572e47a5896bede7c39315586e7ed8383b"

@@ -6,6 +6,7 @@ class Madlib < Formula
   head "https://github.com/apache/madlib.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 sierra:     "2b3b00b26a10a1a91c47b5110f97584ffa5fd3c32a0187d23af2c842b23840e4"
     sha256 el_capitan: "e2e20a7dabb02a1912685611f5cf2481a91794b6f4396a94b07b286815b8bffd"
     sha256 yosemite:   "307cb968d0799c3ac75db9cbfe691f2be89dd4170dcf3814df0b71be0f9d742b"

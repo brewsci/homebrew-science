@@ -7,6 +7,7 @@ class Libeemd < Formula
   # doi "10.1007/s00180-015-0603-9"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, sierra:       "071ec8487eb593553d0afe62e14f53f7c9c533922e520015e3bfee9f90b152cb"
     sha256 cellar: :any, el_capitan:   "58ca938d5577cdedc26943d7badcdfe6c86a6e3710b0022bb9a4bdf74d6c1acb"
     sha256 cellar: :any, yosemite:     "003419ec5ee70b9b7aa3606b4e3199e9a6427cd20689db6995519cb0a0a38d23"

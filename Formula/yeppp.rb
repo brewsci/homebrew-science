@@ -5,6 +5,7 @@ class Yeppp < Formula
   revision 1
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "dd36939c6d8c50aec543b70084f7dfda3ba9d82d538424af20ad537e5c785936" => :el_capitan
     sha256 "a859cb1831f8a7d105d21c288a74b86941833a6da3fec54b09b3304a8138080f" => :yosemite

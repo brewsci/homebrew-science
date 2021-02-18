@@ -5,6 +5,7 @@ class Cdo < Formula
   sha256 "d1c5092167034a48e4b8ada24cf78a1d4b84e364ffbb08b9ca70d13f428f300c"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, high_sierra:  "787310ee2158732c70585046aada3e8d79b77ae47c635505e73e19c5e7caefd6"
     sha256 cellar: :any, sierra:       "76253eaeb404fd01e949e59d43ec2fba66b2154c7b026ad032ac22f7330513b9"
     sha256 cellar: :any, el_capitan:   "9cc65d5e6a09abbfc6af4db8537fce8670c020f54feb18cf676c87cf144e49a4"

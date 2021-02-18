@@ -5,6 +5,7 @@ class Cgns < Formula
   sha256 "81093693b2e21a99c5640b82b267a495625b663d7b8125d5f1e9e7aaa1f8d469"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 sierra:       "fbe0a2d65790e3acc942bbb851b6f4eb6ad2f9e52fbc86d373a0cb4c0f299e95"
     sha256 el_capitan:   "b2635b61047108a422540b66cccebc927a0ebc738e5d2091c3d3e0a9e9127890"
     sha256 yosemite:     "27d4705b7b09b7c5991be0b8779a239301227196777d053f7e9e974680597705"

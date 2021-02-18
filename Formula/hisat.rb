@@ -7,6 +7,7 @@ class Hisat < Formula
   sha256 "69fbd79d8f29b221aa72f0db33148d67d44a3e2cfe16dadf0663a58b7741ff9c"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, yosemite:      "e34b8f4f30502f56398a2d261bb7da2ff3a597c3ca52a4feb4e460bb99006e8f"
     sha256 cellar: :any, mavericks:     "8d6569d480eaddde24e587df969e177a8fef78430aece34fb20e25429878c5ac"
     sha256 cellar: :any, mountain_lion: "27f1b26e3d83bc9ac3275b2b5d80c69205043813efd8677755ec671791d6cb89"

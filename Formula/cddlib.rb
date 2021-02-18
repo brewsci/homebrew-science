@@ -7,6 +7,7 @@ class Cddlib < Formula
   # doi "10.1007/3-540-61576-8_77"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, sierra:       "6ea3afa298bb082bf41e0bfd90759b4b4f0ee02736473d0c08a3ee8f211179e4"
     sha256 cellar: :any, el_capitan:   "74ba8c0e0191e3f26d3d5bf8b28c0fabddeffade51a4ae8b07df5e0d72c144c4"
     sha256 cellar: :any, yosemite:     "831968c40009b3450ceffe1c4abd2734e566a724ff6795265db7719cf6ea596b"

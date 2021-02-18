@@ -8,6 +8,7 @@ class Swrcfit < Formula
   head "https://github.com/sekika/swrcfit.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "038ee703eb781065e3cd83ca746752031f827c2a43bdb2ebd80f2e199bd42263" => :sierra
     sha256 "32186215c39d14fd7df94bdacc45660d82c8d33ac1af9002d58f7090d291a896" => :el_capitan

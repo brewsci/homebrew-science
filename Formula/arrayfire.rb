@@ -9,6 +9,7 @@ class Arrayfire < Formula
   revision 1
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 sierra:            "8711a68bb9739618efd2eadc57f42d1b7a3076f09a7a2915995ddf8f93e3ba9f"
     sha256 yosemite_or_later: "91b83c4455003497b83ef155f9b3846560f59216a8df2b7f9b117ea66513406f"
   end

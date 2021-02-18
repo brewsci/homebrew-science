@@ -6,6 +6,7 @@ class G2o < Formula
   sha256 "799a7a943de423f7514c6cfdc7ed1c7393a15a73ff88aa07ad3fdd571d777d22"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 sierra:     "5c1104b9f44890e978d249d42bc84f7ad41d36077ca316b6fb0b350dc3ddf899"
     sha256 el_capitan: "48a5f69bb96f362b3e37bbebe5731a902bc52d75e14133f9435f096919e8131b"
     sha256 yosemite:   "54bc2c08aaf6772ffd319e35897fab72ae30a4a06c6083e207f36ed1228a3235"

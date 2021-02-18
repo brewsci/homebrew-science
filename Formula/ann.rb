@@ -5,6 +5,7 @@ class Ann < Formula
   sha256 "1b54b58ae697202a09d793de51ee9200fe1d5c39def78d9e8f5c0d08e48afaf5"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     rebuild 1
     sha256 cellar: :any_skip_relocation, sierra:     "c53407253ccd9d5f5e32e3bc41b789ef143911e369522d20ff538bc02d346ad6"
     sha256 cellar: :any_skip_relocation, el_capitan: "61a6eecaed8aa80f604ee2c5997e29cb41c1e453965c00157e0f7fb22df64a20"

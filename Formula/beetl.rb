@@ -18,6 +18,7 @@ class Beetl < Formula
   end
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, el_capitan:   "32b190deb3501cb8fe2600860e97edbd78231cc0e400d1236ff09a82e222f5ee"
     sha256 cellar: :any, yosemite:     "f03a3fae57263a692697141f59ae103466b912939734d13d653156bbda59dfc2"
     sha256 cellar: :any, mavericks:    "afec472f36aaf5fb71f7d82e92419299be2c54479a2f50a02362407695dbc156"

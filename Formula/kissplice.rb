@@ -13,6 +13,7 @@ class Kissplice < Formula
   sha256 "f4569b444cd0b10eba2a5c3f883d3fcbaf092201a9ebdc4d4c0030b4641676f7"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, sierra:       "11d2fc4398c44899d258555b391ccd75895b1c84e0f3204c8e07627b4e166f10"
     sha256 cellar: :any_skip_relocation, el_capitan:   "bad8602b1046b940e9a5fec2ceec34c4bab7c26bb7f17a157c6b1c040066dbdc"
     sha256 cellar: :any_skip_relocation, yosemite:     "6ff193c28f3548b46aaf7a43b8ef91550e6ba74d4dd32052ac03175c0aea7f66"

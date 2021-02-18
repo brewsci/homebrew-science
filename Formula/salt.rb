@@ -6,6 +6,7 @@ class Salt < Formula
   revision 1
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "23fbf4a3c5c15634f415157979aee92c9eaf20cf435c59266c8361f458361fa1" => :sierra
     sha256 "7b43e7bb615bfa9105a306c5410d0997036ada34259b9d465ff7a876225ba3ef" => :el_capitan

@@ -6,6 +6,7 @@ class Xbyak < Formula
   head "https://github.com/herumi/xbyak.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "744b9153333bc23a5fe778402cf93a77b9b8039b0bf8f38bfd37c058fb1e269d" => :sierra
     sha256 "744b9153333bc23a5fe778402cf93a77b9b8039b0bf8f38bfd37c058fb1e269d" => :el_capitan

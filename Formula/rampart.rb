@@ -7,6 +7,7 @@ class Rampart < Formula
   sha256 "0dc1e71c40bc141aebfdf6c93960d119ecb19e64758b157320be29329acb0b9f"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "75891f2b1b8f591b13876b7f7efed3485d9acf1cf4d40dac60bcdf4fd4ab382c" => :sierra
     sha256 "d4f35d3f07cf0f38d5cb812611b3366803eed0b24e83fbde7cb3201256c03913" => :el_capitan

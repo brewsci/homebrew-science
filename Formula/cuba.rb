@@ -4,6 +4,7 @@ class Cuba < Formula
   sha256 "6b75bb8146ae6fb7da8ebb72ab7502ecd73920efc3ff77a69a656db9530a5eef"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, high_sierra: "06bc2a5f602de65f466164c075dfba2045bf63c270cf17bd6604a3854a694f5f"
     sha256 cellar: :any_skip_relocation, sierra:      "ce92a393821cb06d4f05ea8b33ff530fd387cfb580d2c24a51cccdfccfe3bcc6"
     sha256 cellar: :any_skip_relocation, el_capitan:  "37157372c09da329f43cdcdf031ca56657d6038ac7a8a44c479ec7a69dfc64de"

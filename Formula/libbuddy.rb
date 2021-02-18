@@ -5,6 +5,7 @@ class Libbuddy < Formula
   sha256 "d3df80a6a669d9ae408cb46012ff17bd33d855529d20f3a7e563d0d913358836"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, el_capitan: "5dc396c196d46646102d10c5d3ff32d8b37249cac78af2595417e6474494453b"
     sha256 cellar: :any, yosemite:   "451c34f54e575578a3b3cfaad5e5a860f012317ff32053097c6132bba60a7da9"
     sha256 cellar: :any, mavericks:  "f4a66068fc8b53b557e3c9f6be57574c1711aedd91e1f18e2b6c5111b62fdbe7"

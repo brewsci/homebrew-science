@@ -5,6 +5,7 @@ class Cvblob < Formula
   revision 1
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, sierra:       "c4a7e3257e7f79040a6ebd787bc1f6b36bd8c4ba9ee46a0f3948c118d0606a7b"
     sha256 cellar: :any, el_capitan:   "63fee00e482dfc23d0093653375c5a31452cbcd7a7695190ec510023c9174490"
     sha256 cellar: :any, yosemite:     "785fb1cbfccf5d2301d9648de027615acf2d9d7d97ab61ff0ed84d951c9cdcea"

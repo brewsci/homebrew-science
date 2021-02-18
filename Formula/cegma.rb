@@ -8,6 +8,7 @@ class Cegma < Formula
   sha256 "dd7381c0402622645404ea009c66e54f7c915d8b80a16e02b8e17ccdc1859e76"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, el_capitan:   "c0953276f654ad3f2696fd7ddb3c33fa6a61d6765b4b6ac4aae694618fb9a32b"
     sha256 cellar: :any_skip_relocation, yosemite:     "48c10c321a8868e69dd06bef16e48c41d5db331fd2ea460866d3a04770a56259"
     sha256 cellar: :any_skip_relocation, mavericks:    "2a827211542d44535a0b1525474e3cee46b950bc12c5f82932e4b84b0384e58f"

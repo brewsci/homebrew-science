@@ -5,6 +5,7 @@ class Lis < Formula
   sha256 "b9b17242c8dc0c7ef60a1e8053aedd5f7a04cc534634b0ae08551a0d59639ef9"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, high_sierra:  "fd673e526a8b0d09aaf1ebaac24225126169fca6b573043743378ecbf4f474c3"
     sha256 cellar: :any, sierra:       "5270c7b46956bbefcf51b34889f8c5f591a9961fc5d20c54b122ebfdbaec869f"
     sha256 cellar: :any, el_capitan:   "26b812f8b22b005b210322b456a17dcff9ef025d896759fda41d36358ba925b8"

@@ -5,6 +5,7 @@ class Tabtk < Formula
   sha256 "311df21ef04b4d396a7552ce1384bf056e1d6f87a5679d55e905ec6c8591b906"
   head "https://github.com/lh3/tabtk.git"
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "bf8c44ad2b333a40490e785a0fa9b71fec66c47f104c92791bab96ed4a07b41b" => :el_capitan
     sha256 "7e78e89f6582dc4ee90d35eacde0ed1e722dba7c01c3f4bca25eb9f4db59d37a" => :yosemite

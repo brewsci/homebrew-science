@@ -8,6 +8,7 @@ class Cerulean < Formula
   sha256 "b6b9046fb1cf9980a169ccfe1a57c1060c6afbbe12e6b201eb8c47be0849b688"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "728bc5f34edfe6119834b3686351632ff011ca0c14582bd119b1712e78677edd"
   end
 

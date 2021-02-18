@@ -9,6 +9,7 @@ class Sequel < Formula
   sha256 "7c2237eb0c99840eee1564e04eedf675219eadea882694b0d349caa38c2a2756"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "421e6e93d10691e279d5aa6aaae3ed8c371cb23425aba82a520d891bab212282" => :el_capitan
     sha256 "0663e912b943010a8049de6e8896dcacb21b346e43ba7299244814aa1dd35713" => :yosemite

@@ -6,6 +6,7 @@ class Perf < Formula
   sha256 "61b8d7adecc069e46c4fe9882350c69a0007c2f706be469458a9b41de0f65942"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "bf28fc7f7acd7c56aca805479d272f2ac2733036088071825ad337c152db077e" => :sierra
     sha256 "cbd2ecc8b489cec088d5d0d25cd6d9832f2a03a62ebbca65cc1c9b406954720c" => :el_capitan

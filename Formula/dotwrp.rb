@@ -7,6 +7,7 @@ class Dotwrp < Formula
   head "https://github.com/tenomoto/dotwrp.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, sierra:     "3c9081727f4434a735784d7717ad7ad0ce03270e9166e1cdfe92d59ab3d37d1c"
     sha256 cellar: :any_skip_relocation, el_capitan: "8be4bfea890ed8dc4c91c83a95647528e41a8e797c98251920aeaff158a2c379"
     sha256 cellar: :any_skip_relocation, yosemite:   "98ad7164ef80c760fc0c8d63d0b8d6ff2949d4067b68bfc521073d0654f66bf4"

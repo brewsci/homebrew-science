@@ -5,6 +5,7 @@ class Gnuastro < Formula
   sha256 "19e385b2ae17395937c855c269028aedc39ba4daf9be86d790100c977dff9d82"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 high_sierra:  "1bde26a005920b142fc665dbe056da4259a15d53694a0862b13257deb93468d1"
     sha256 sierra:       "e0fd88658cc25b0c82e93b85fbac8a2c38a291333cfc533d75946879b1ebeebf"
     sha256 el_capitan:   "446e651c43b315d2cb7728f4ebb2db6d2f9fd7500b7668bbe8bc733160225771"

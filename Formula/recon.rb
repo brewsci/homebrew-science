@@ -6,6 +6,7 @@ class Recon < Formula
   sha256 "699765fa49d18dbfac9f7a82ecd054464b468cb7521abe9c2bd8caccf08ee7d8"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "cd1fe441ff386d786943598239ec0dd39a3806f156f469b30e4039314f42abab" => :high_sierra
     sha256 "9d28e681fdc14d5f10906a20e55c04d93384b6d73975ab06157d42c2a578f2ac" => :sierra

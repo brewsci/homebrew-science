@@ -7,6 +7,7 @@ class Bamutil < Formula
   head "https://github.com/statgen/bamUtil.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, yosemite:      "fe2cef19aab52f2edf598ce2fae36d72b8d4c506e3ca3740a30c085c1f801618"
     sha256 cellar: :any_skip_relocation, mavericks:     "3446b278dabe53013db787888815423b9b52afb11f92243b12299f4ee0dfe39f"
     sha256 cellar: :any_skip_relocation, mountain_lion: "2ac9a6a23b1af9afe1c03eab6630a92cfabd0c3127155c8c3bc7865cde8c3eb4"

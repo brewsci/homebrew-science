@@ -6,6 +6,7 @@ class Mantaflow < Formula
   head "https://bitbucket.org/mantaflow/manta.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, sierra:       "bb137ecbc8a0efa265ec19adf1996f5f58de77b84f1f98d254e7190871b31c04"
     sha256 cellar: :any_skip_relocation, el_capitan:   "7d6ef2b3b1d3a15507233df6457aa88679977b7c9e292e041f19c254f8ad29e8"
     sha256 cellar: :any_skip_relocation, yosemite:     "b97b356016cdd76ad11ba9308c718abb61c396e5a95a1d33964c08a40a0a41ac"

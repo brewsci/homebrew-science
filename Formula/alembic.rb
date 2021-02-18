@@ -6,6 +6,7 @@ class Alembic < Formula
   head "https://github.com/alembic/alembic.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 high_sierra:  "4d53890aadc039a24fb978f50b5c59817bd3d6922feec33c24d4ccfb0a738901"
     sha256 sierra:       "bf451135a0a1c635d3cd2aeb3698e418842b2d7e157124ec563589359e4759ac"
     sha256 el_capitan:   "787fe1aab77578c547760a6a91ae5c4a8c795c48b281e2912f9406f5006f3acb"

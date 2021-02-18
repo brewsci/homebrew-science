@@ -6,6 +6,7 @@ class Oswitch < Formula
   # tag "bioinformatics"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "9116ee150225d41e743fd5c8bc6bbdee6d321bceef3965c98b4accd295f0274d" => :sierra
     sha256 "1b6a33ff6685f43895d6f83d1b5cdb0d7a92ffa75b99a11c056373f258c9fdf4" => :el_capitan

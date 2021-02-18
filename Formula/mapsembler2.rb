@@ -8,6 +8,7 @@ class Mapsembler2 < Formula
   # tag "bioinformatics"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 high_sierra:  "742ca2dfb2e550d1d839f0542a3809b939ad381fd18e1de336ca86eaad71a36a"
     sha256 sierra:       "87d29c6ce1f393616c1862c7effe4af85a749b33695e7c16c5ca3de5ac441580"
     sha256 el_capitan:   "87e6addec277034fc54f47a4895a62ffd5bf29208805568063308b7906cc8bfb"

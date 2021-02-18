@@ -16,6 +16,7 @@ class AllpathsLg < Formula
   sha256 "035b49cb21b871a6b111976757d7aee9c2513dd51af04678f33375e620998542"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "603ca72cab38d3852a9e3ae35600c3526751e021136cabc1201238edab8fc4f5"
   end
 

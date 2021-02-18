@@ -5,6 +5,7 @@ class Dsdp < Formula
   sha256 "26aa624525a636de272c0b329e2dfd01a0d5b7827f1c1c76f393d71e37dead70"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, el_capitan: "c647e5dd9882674846311d006d3055f947aa299959f77c57e4452e82f45ff811"
     sha256 cellar: :any_skip_relocation, yosemite:   "8eb175be666a98748ba0853645500e9e2a3fda4e513a185524afbd438e61c266"
     sha256 cellar: :any_skip_relocation, mavericks:  "e13dbc58fb9629c4d18967991f95422ac6698db5000f2caa04d77d96f872480f"

@@ -6,6 +6,7 @@ class Mfem < Formula
   sha256 "b17bd452593aada93dc0fee748fcfbbf4f04ce3e7d77fdd0341cc9103bcacd0b"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, sierra:       "35e84e4e8ba4fda6a97f6ced36ac561902488ca716bb88c3a3dc7a4cc23d835a"
     sha256 cellar: :any_skip_relocation, el_capitan:   "58714c6611442447e0f8ef57f6fbb2b812e43d76e3525915144a4115563aa605"
     sha256 cellar: :any_skip_relocation, yosemite:     "71941bca57236fec5493dd7e0bd40563cc3a52daf0a5fcc279fc29c254ed709e"

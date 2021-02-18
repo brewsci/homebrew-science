@@ -13,6 +13,7 @@ class A5 < Formula
   end
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, sierra:       "c212fd42f487bfa10b4d8c7d39fc22838590db1340cb1c799e760dbacb282e7a"
     sha256 cellar: :any_skip_relocation, el_capitan:   "fcf4927415227a5fe49b6d88f089c4c026862d37ead5ce4a2c4d17ac4c6dbd1f"
     sha256 cellar: :any_skip_relocation, yosemite:     "c212fd42f487bfa10b4d8c7d39fc22838590db1340cb1c799e760dbacb282e7a"

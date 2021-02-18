@@ -7,6 +7,7 @@ class Abinit < Formula
   # doi "10.1016/j.cpc.2009.07.007"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, high_sierra:  "6b9db81715b1f7f97c5b1126233d43b5116b1eafe1db655dd808457f0d1c45ac"
     sha256 cellar: :any, sierra:       "2634787d4c06474769bf0e7a914969856a9c2b0c4995dadd8c09008db8d66454"
     sha256 cellar: :any, el_capitan:   "c938b00283aa7fae29f41ae47a96b2096ab280b0f99fb7962a18db87f1c6adc5"

@@ -5,6 +5,7 @@ class Des < Formula
   sha256 "101fb96710a14253fb2fc5c50cc8a7c8adc64670315638c7c2f1aba2144a6c7f"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, high_sierra:  "6cb0f6aa606566fa735dda9524c900e3e51602dafa6cad01e821cabf5a3c1b7e"
     sha256 cellar: :any_skip_relocation, sierra:       "6cb0f6aa606566fa735dda9524c900e3e51602dafa6cad01e821cabf5a3c1b7e"
     sha256 cellar: :any_skip_relocation, el_capitan:   "6cb0f6aa606566fa735dda9524c900e3e51602dafa6cad01e821cabf5a3c1b7e"

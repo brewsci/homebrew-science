@@ -8,6 +8,7 @@ class Dsk < Formula
   sha256 "08b35e5aff5d17eb35a61b06ba7f440ae8a5a4197b72fb0a465b5ea4dd7becd0"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, el_capitan:   "e5d10fdaa56b3a05c43550d8b72fcfa9b0f19c6117920b0536fd2392cdb0207c"
     sha256 cellar: :any_skip_relocation, yosemite:     "e3540a5467facb3c8a5b1f8ad369c3c9655bd891233cd04d13bd446e9da86e9e"
     sha256 cellar: :any_skip_relocation, mavericks:    "3f6fbaf148c7d5d333dde9879331036ed9ad8afa5df9f19eb33f65ca15875408"

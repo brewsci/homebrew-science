@@ -9,6 +9,7 @@ class Kmerstream < Formula
   # tag "bioinformatics"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, sierra:       "ae57c28ea2005478bb32f78448d239e53ab0b4be50635086ee3753ee52256f69"
     sha256 cellar: :any, el_capitan:   "800c38f604b71b2048ff252168305be3855f9767b7dd183a487701707a7e2226"
     sha256 cellar: :any, yosemite:     "67af773688af575858ceee55a5d6b008b347f9c3101e63cb2e406bfb023b924b"

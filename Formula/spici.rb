@@ -2,6 +2,7 @@ class Spici < Formula
   desc "Fast local network clustering algorithm"
   homepage "http://compbio.cs.princeton.edu/spici/"
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "6adede55492eaf5a1f1dc54c9ac2834c0ded0dfd7112df19105101e1009de01f" => :el_capitan
     sha256 "8bd7d83bfa2281feb1015797a6e6d09ee8aa48e0881d03d7ab72da5ad2302ce6" => :yosemite

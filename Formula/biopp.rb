@@ -5,6 +5,7 @@ class Biopp < Formula
   sha256 "a48f4c6f0ea1758c1f6dc8a262d5cbad95769739d46ce9af08527107a548bfaa"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     rebuild 2
     sha256 cellar: :any, sierra:     "0a334099d68f8bd0edad8d0d92b1000ff966342b7916e87ddf50c327577625c3"
     sha256 cellar: :any, el_capitan: "1f0e4aa50929c5779cc07fcbfd0f6bc65aaba413bdeeeec0422b9a7ab49cc5a2"

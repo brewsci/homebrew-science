@@ -7,6 +7,7 @@ class Plink < Formula
   # doi "10.1086/519795"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     rebuild 1
     sha256 "92beceeafe1e15d5a0a4e6e6d78c9208256c402508f246035464c5842a9058d2" => :el_capitan

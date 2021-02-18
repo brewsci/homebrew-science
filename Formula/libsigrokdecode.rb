@@ -28,6 +28,7 @@ class Libsigrokdecode < Formula
   end
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 sierra:       "60a432705edac4a617e2260de724056518c7a90285291558f76a62b3fa0d33c0"
     sha256 el_capitan:   "52c241ba07cdd486946af95fa541e6ca1144546d0378df163a899df26a9a27f1"
     sha256 yosemite:     "df65b728fe688324cdf6ce2fa82e342b40036f495410bd31d54a8176ca0d6a05"

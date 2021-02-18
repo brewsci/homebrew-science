@@ -6,6 +6,7 @@ class AstrometryNet < Formula
   head "https://github.com/dstndstn/astrometry.net.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, high_sierra:  "6370ad57a1a5f3a7569caf87201d5a3726dc0181a902c423009a244265d092de"
     sha256 cellar: :any, sierra:       "1d749e2a0bd3c69012dbf8bfb2e1ac1971f68cc8e932361b57d0354c085f66ca"
     sha256 cellar: :any, el_capitan:   "74a3f7c9ac9a7c3263431194789c691a7f98fc2186fcbec1dbb52aaf9d73db2e"

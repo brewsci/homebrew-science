@@ -5,6 +5,7 @@ class Openfst < Formula
   sha256 "5c28b6ccd017fc6ff94ebd0c73ed8ab37d48f563dab1c603856fb05bc9333d99"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "62f64bd93abe2834f07e1ee79a363d1cfa106f4e9faaad8e1f3537f772e88b1e" => :sierra
     sha256 "695595240d43745060ecafa520178c8890dea8b34f47fb5f174f85bcddad9f63" => :el_capitan

@@ -5,6 +5,7 @@ class Gfan < Formula
   sha256 "a674d5e5dc43634397de0d55dd5da3c32bd358d05f72b73a50e62c1a1686f10a"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, high_sierra:  "be11d360134ecbf893d590ba31d1525397892f092f2c5883b757754aaee4dd9b"
     sha256 cellar: :any, sierra:       "1c8a1963c69ef59c55c8a4fed60a9ef688e0d4a1913910aa4991f99661538e7d"
     sha256 cellar: :any, el_capitan:   "04656be51b3d1b7ec247a21beb53863f6664da4e7974a282eff67b9339e332aa"

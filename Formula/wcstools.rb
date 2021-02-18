@@ -5,6 +5,7 @@ class Wcstools < Formula
   sha256 "b2f9be55fdec29f0c640028a9986771bfd6ab3d2f633953e4c7cc3b410e5fe9c"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "b0b7badef0e5ca704231f4e02ac72c4a4b26e165c40a48516ebd6e745eb17b13" => :high_sierra
     sha256 "e2dec9afd018c2cfa774d4a7f948160ecd51560a310a8b60b940e43db8f388ae" => :sierra

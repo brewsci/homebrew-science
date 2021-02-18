@@ -8,6 +8,7 @@ class Newicktools < Formula
   head "https://github.com/lindenb/newicktools.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "eabc593d7a86d921e5a30b12dd3a77bca324bf17b330845ca02f3437247a5722" => :yosemite
     sha256 "db56c0f4b53676560efa180b40d0de985c4698a79fc6a75b02a631bbf3e27a08" => :mavericks

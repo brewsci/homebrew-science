@@ -5,6 +5,7 @@ class Bact < Formula
   sha256 "4aa55c30621afd3793bd15471b3c0d77d3b489051cbfb30a9f0640de8928ab40"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, yosemite:      "8de8fd7cda5405a06d39eacd2615ee3629aeb87952f54539d795e273b1acdfe8"
     sha256 cellar: :any, mavericks:     "c778234069cb91598fcf7589cdfd8349bfbc09006087d4400491d1261a1c89b8"
     sha256 cellar: :any, mountain_lion: "70944f64bdf141a1f084e612e0e816785f89e07d8de5b1a1bc2d3d1c1b0b6708"

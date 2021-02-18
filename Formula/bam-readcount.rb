@@ -8,6 +8,7 @@ class BamReadcount < Formula
   head "https://github.com/genome/bam-readcount.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any_skip_relocation, sierra:       "17c0f2260c9fe12b1bfc6bf932ed6c103988e547ea68f1df0c972df73dfb0988"
     sha256 cellar: :any_skip_relocation, el_capitan:   "62c7ac502fdece44ec104177a97b37aa46e5244a82d3084e1e58f7f3bc528dba"
     sha256 cellar: :any_skip_relocation, yosemite:     "6e7c930c6275a04fc69791ae70f3de147face2068cb94a4b18070a727eedc90a"

@@ -8,6 +8,7 @@ class Gatb < Formula
   sha256 "d75fe178c97d85f11e3cf51bfb8ae4a6b9f864587f3762a7ca608abe48ed4a03"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 el_capitan:   "9140d235a079f1159f693405494ea29bea39bd2d5ec039933da375899e49a825"
     sha256 yosemite:     "8381c85fa3d43831ee3991ab509211e7297b43c8f4f4df28166d71ef8d313730"
     sha256 mavericks:    "6d8e8013b68a2bda35f0044c5272d94c99c85bae0199478690a3e13363997029"

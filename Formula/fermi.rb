@@ -8,6 +8,7 @@ class Fermi < Formula
   head "https://github.com/lh3/fermi.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, yosemite:     "4ad67cf62a8e1a20ab3fe935ed5646d233c0e23e88d590d6f95232784709e5c5"
     sha256 cellar: :any, mavericks:    "a2240c62dc918a11afd442021f88486f0c95a54767474e791a7cbde6485cf827"
     sha256 cellar: :any, x86_64_linux: "ea9409a0e5dca458b0f9f93bb6bbe35179b75341799331222941b76ee436ed65"

@@ -6,6 +6,7 @@ class Xcdf < Formula
   head "https://github.com/jimbraun/XCDF.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "b8f96d4b44fea3a30751f88f43779fdea50ee6588da74f4e1b639cae70b88703" => :sierra
     sha256 "e3c6f06ee0df724563e956fd7db74b851ca4668f8113f04fa085110a47fac1a4" => :el_capitan

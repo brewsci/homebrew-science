@@ -8,6 +8,7 @@ class Cantera < Formula
   # doi "10.5281/zenodo.170284"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 sierra:     "8e5df2d0c9e79c38653d56151d77aca0fda8bcf5fc66daab8b5008668f787a68"
     sha256 el_capitan: "b983abe48d16cf8c0be4b4ca114766eac28e9705f7ce77fffca967dcc3af33f9"
     sha256 yosemite:   "ad38326b63906ed692c51f5ccd9b2afbfa3832f8fe229d73b62964d0506498f4"

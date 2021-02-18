@@ -6,6 +6,7 @@ class Silo < Formula
   revision 4
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 "624de8ce662b6ce4f51cd100faf7c212ea7ad745ee66965c6cb0c045dddc830d" => :sierra
     sha256 "0c11bc3e37dfd10984a1475a0f6c15714c58e955a28395e5548f29d2dd8d4e0b" => :el_capitan
     sha256 "392947bac24a93a7a5e70ddeb6825ada3cc97de9c7a1cb7a2b0d9806a91b5ac0" => :yosemite

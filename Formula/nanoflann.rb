@@ -7,6 +7,7 @@ class Nanoflann < Formula
   head "https://github.com/jlblancoc/nanoflann.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "1ace2e2e1bb328cbce2c92c1a46970dcee5012ddae023274567a631a052b0cc3" => :sierra
     sha256 "1ace2e2e1bb328cbce2c92c1a46970dcee5012ddae023274567a631a052b0cc3" => :el_capitan

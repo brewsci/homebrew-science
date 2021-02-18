@@ -6,6 +6,7 @@ class GedaGaf < Formula
   revision 2
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 sierra:     "66d413cea61d456320f304f145115c841a68e0f4edcd21562ad3827314121576"
     sha256 el_capitan: "2e98acffbbd3920cd66eab256e3ceace0e2337a7a61eaa504a48cf58e6a206df"
     sha256 yosemite:   "37b19c3e1b3ee996f9162519dbc078f1d46939e5d7afcff966db05a1ba97ab7c"

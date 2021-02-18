@@ -6,6 +6,7 @@ class Hdf4 < Formula
   revision 3
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 cellar: :any, sierra:       "870c4bd97456d019e7c0bf95d54cefb03cd64e997453c550ca340cc1fb37c0ff"
     sha256 cellar: :any, el_capitan:   "44bbc921816b8c2002be1e814817199e59410dad2971172e62fce11cfd84d364"
     sha256 cellar: :any, yosemite:     "534c9fd10793bc1f21517092f23edf9087c8afcce59f722ca908d39dcf051db8"

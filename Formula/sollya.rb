@@ -7,6 +7,7 @@ class Sollya < Formula
   head "https://scm.gforge.inria.fr/anonscm/git/sollya/sollya.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "0bdf63143ce17ed5dfb2fb806fd035635d46f1f5b2e189afbaef419c3da878ee" => :sierra
     sha256 "430e46f8eb66ba72b757d44bf78bda39950536fff589994e68c7280798def4e9" => :el_capitan
