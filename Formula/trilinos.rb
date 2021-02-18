@@ -26,7 +26,7 @@ class Trilinos < Formula
 
   depends_on "open-mpi"     => :recommended
   depends_on "gcc"          => :recommended if OS.mac? # for gfortran
-  depends_on :x11           => :recommended
+  depends_on "libx11"       => :recommended
   depends_on "python"       => :recommended
   depends_on "numpy"        if build.with? "python"
   depends_on "swig"         => :build if build.with? "python"

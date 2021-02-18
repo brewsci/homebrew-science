@@ -11,7 +11,7 @@ class InterViews < Formula
     sha256 "9df2b7d27735b76e3a88e01718a430ad29118f167a57745ba3288d6a6a6fd2f4" => :mountain_lion
   end
 
-  depends_on :x11
+  depends_on "libx11"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--exec-prefix=#{prefix}"

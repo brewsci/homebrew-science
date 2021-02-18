@@ -11,7 +11,7 @@ class Xfig < Formula
     sha256 "d075ab9a33cadba801f7e4b568e8dbca32ad30edd7bde8ab8139c7dfbe450080" => :yosemite
   end
 
-  depends_on :x11
+  depends_on "libx11"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "ghostscript"

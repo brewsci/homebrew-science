@@ -8,7 +8,7 @@ class Xmgredit < Formula
 
   bottle :disable, "needs to be rebuilt with latest netcdf"
 
-  depends_on :x11
+  depends_on "libx11"
   depends_on "netcdf"
   depends_on "openmotif"
   depends_on "triangle"

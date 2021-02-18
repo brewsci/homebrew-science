@@ -19,7 +19,7 @@ class Gnudatalanguage < Formula
   depends_on "gsl"
   depends_on "fftw"
   depends_on "eigen"
-  depends_on :x11
+  depends_on "libx11"
   depends_on "python" => :optional
 
   # Supplementary dependencies for plplot

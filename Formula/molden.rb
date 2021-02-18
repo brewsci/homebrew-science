@@ -14,7 +14,7 @@ class Molden < Formula
     sha256 "ae95c0cad20b100600b9ba8271ed1d572e47a5896bede7c39315586e7ed8383b" => :yosemite
   end
 
-  depends_on :x11
+  depends_on "libx11"
   depends_on "gcc" if OS.mac? # for gfortran
 
   def install

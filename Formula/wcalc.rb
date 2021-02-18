@@ -10,7 +10,7 @@ class Wcalc < Formula
     sha256 "2c4b1887f6f365ee02a404c853e206cac436d3d02afcbacaae68ef43edc1cb56" => :mavericks
   end
 
-  depends_on :x11
+  depends_on "libx11"
   depends_on "gtk+"
   depends_on "gettext"
 

@@ -14,7 +14,7 @@ class Snid < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on :x11
+  depends_on "libx11"
   depends_on "gcc" if OS.mac? # for gfortran
   depends_on "pgplot"
 

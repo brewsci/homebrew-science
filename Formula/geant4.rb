@@ -19,7 +19,7 @@ class Geant4 < Formula
   option "without-multithreaded", "Build without multithreading support"
 
   depends_on "cmake"
-  depends_on :x11
+  depends_on "libx11"
   depends_on "qt" => :optional
   depends_on "xerces-c" if build.with? "gdml"
   depends_on "linuxbrew/xorg/glu" unless OS.mac?

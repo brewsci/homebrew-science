@@ -21,7 +21,7 @@ class Wcslib < Formula
 
   depends_on "cfitsio"
   depends_on "pgplot" => :optional
-  depends_on :x11 if build.with? "pgplot"
+  depends_on "libx11" if build.with? "pgplot"
   depends_on "gcc" if (build.with?("fortran") || build.with?("pgplot")) && OS.mac? # for gfortran
 
   def install

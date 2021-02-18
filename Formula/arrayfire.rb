@@ -24,7 +24,7 @@ class Arrayfire < Formula
   # forge dependencies - remove once forge moves to its own formula
   depends_on "fontconfig"
   depends_on "glfw"
-  depends_on :x11
+  depends_on "libx11"
 
   # build forge separately so we can tell it to use the system freetype
   resource "forge" do

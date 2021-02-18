@@ -24,7 +24,7 @@ class Mathgl < Formula
   depends_on "wxmac"   => :optional
   depends_on "giflib"  => :optional
   depends_on "qt"      => :optional
-  depends_on :x11 if build.with? "fltk"
+  depends_on "libx11" if build.with? "fltk"
 
   if OS.linux?
     depends_on "linuxbrew/xorg/xorg"
