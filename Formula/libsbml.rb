@@ -5,22 +5,21 @@ class Libsbml < Formula
   sha256 "c6855481434dd2a667fef73e1ff2feade509aa2f3a76d4d06e29022975ce1496"
 
   bottle do
-    cellar :any
-    sha256 "164571619c5e873e831679632454b0ec81841488e20b31fdec53bb267cdc617a" => :high_sierra
-    sha256 "e34da5cb0002c70afb996d6cecbd3e1bb4afd98799ccbcc0b0477c5568d42e7e" => :sierra
-    sha256 "9e6b76c0ab1f0f66a518329e1e51de13f61216c0c31ab70c2335e136d9c2206e" => :el_capitan
-    sha256 "195e62f7a0c0f0800e71163144b38e6acffc06ec54a6a3047e63749d58a5c13c" => :x86_64_linux
+    sha256 cellar: :any, high_sierra:  "164571619c5e873e831679632454b0ec81841488e20b31fdec53bb267cdc617a"
+    sha256 cellar: :any, sierra:       "e34da5cb0002c70afb996d6cecbd3e1bb4afd98799ccbcc0b0477c5568d42e7e"
+    sha256 cellar: :any, el_capitan:   "9e6b76c0ab1f0f66a518329e1e51de13f61216c0c31ab70c2335e136d9c2206e"
+    sha256 cellar: :any, x86_64_linux: "195e62f7a0c0f0800e71163144b38e6acffc06ec54a6a3047e63749d58a5c13c"
   end
 
   LANGUAGES_OPTIONAL = {
     "csharp" => "C#",
-    "java" => "Java",
+    "java"   => "Java",
     "matlab" => "MATLAB",
     "octave" => "Octave",
-    "perl" => "Perl",
-    "ruby" => "Ruby",
+    "perl"   => "Perl",
+    "ruby"   => "Ruby",
     "python" => "Python",
-    "r" => "R",
+    "r"      => "R",
   }.freeze
 
   LANGUAGES_OPTIONAL.each do |opt, lang|
@@ -40,9 +39,7 @@ class Libsbml < Formula
       args = std_cmake_args
       args << "-DCMAKE_INSTALL_PREFIX=#{prefix}"
 
-      unless OS.mac?
-        args << "-DLIBXML_INCLUDE_DIR=#{Formula["libxml2"].opt_include}/libxml2"
-      end
+      args << "-DLIBXML_INCLUDE_DIR=#{Formula["libxml2"].opt_include}/libxml2" unless OS.mac?
 
       if build.with? "python"
         args << "-DWITH_PYTHON=ON"

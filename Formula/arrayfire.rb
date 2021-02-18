@@ -2,27 +2,27 @@ class Arrayfire < Formula
   desc "General purpose GPU library"
   homepage "http://arrayfire.com"
   url "https://github.com/arrayfire/arrayfire.git",
-      :tag => "v3.3.2",
-      :revision => "f65dd9798f8efeea4d55efe34ba62f4fc3ae7ca0"
+      tag:      "v3.3.2",
+      revision: "f65dd9798f8efeea4d55efe34ba62f4fc3ae7ca0"
   mirror "http://arrayfire.com/arrayfire_source/arrayfire-full-3.2.2.tar.bz2"
   sha256 "7bcc13ff29bdfb647813ee0e9830ce8387217953427abe0d9904de671e600831"
   revision 1
 
   bottle do
-    sha256 "8711a68bb9739618efd2eadc57f42d1b7a3076f09a7a2915995ddf8f93e3ba9f" => :sierra
-    sha256 "91b83c4455003497b83ef155f9b3846560f59216a8df2b7f9b117ea66513406f" => :yosemite_or_later
+    sha256 sierra:            "8711a68bb9739618efd2eadc57f42d1b7a3076f09a7a2915995ddf8f93e3ba9f"
+    sha256 yosemite_or_later: "91b83c4455003497b83ef155f9b3846560f59216a8df2b7f9b117ea66513406f"
   end
 
-  depends_on "cmake" => :build
   depends_on "boost" => :build
   depends_on "boost-compute" => :build
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "freeimage"
-  depends_on "fftw"
   depends_on "clblas"
   depends_on "clfft"
-  # forge dependencies - remove once forge moves to its own formula
+  depends_on "fftw"
   depends_on "fontconfig"
+  depends_on "freeimage"
+  # forge dependencies - remove once forge moves to its own formula
   depends_on "glfw"
   depends_on "libx11"
 

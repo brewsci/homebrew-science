@@ -2,11 +2,10 @@ class Gingr < Formula
   homepage "https://github.com/marbl/harvest/blob/master/docs/content/gingr.rst"
   head "https://github.com/marbl/gingr.git"
   bottle do
-    cellar :any
-    sha256 "d69a4838bd3bd1b4a04350fb70edadf53fbe17483de891bd725137f0a7ae517e" => :yosemite
-    sha256 "78a2e101e83eecd5154d2fe1ca0e5d07e84fb347d4752a4558a2fd06614ff67d" => :mavericks
-    sha256 "0a44460b5bd6c4f046dafb223e80146b458e8480699dcc065f164e4e069a4036" => :mountain_lion
-    sha256 "3e1bc092e65cb6c15fdb087c7569a6e233879ee0686cc42eb95787fc89c5a141" => :x86_64_linux
+    sha256 cellar: :any, yosemite:      "d69a4838bd3bd1b4a04350fb70edadf53fbe17483de891bd725137f0a7ae517e"
+    sha256 cellar: :any, mavericks:     "78a2e101e83eecd5154d2fe1ca0e5d07e84fb347d4752a4558a2fd06614ff67d"
+    sha256 cellar: :any, mountain_lion: "0a44460b5bd6c4f046dafb223e80146b458e8480699dcc065f164e4e069a4036"
+    sha256 cellar: :any, x86_64_linux:  "3e1bc092e65cb6c15fdb087c7569a6e233879ee0686cc42eb95787fc89c5a141"
   end
 
   # tag "bioinformatics"

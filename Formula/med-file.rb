@@ -6,22 +6,21 @@ class MedFile < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "7306f7b36ada75fc21fd9ff9763ef9a1d1cf9c0d874aab06c1513a20fb6a66c5" => :sierra
-    sha256 "75313479ba3d7b238b3eef2979ee78fed583fb5be5902f337f72269bafa26879" => :el_capitan
-    sha256 "f082a9d31d2ba6caa98f34e16212aa8e0e22154efe3b4fd86933f324ddc642a9" => :yosemite
-    sha256 "6a90225707e24107baa16494ed49d9308f814e87a96bb616cf07b9a3b91fc256" => :x86_64_linux
+    sha256 cellar: :any, sierra:       "7306f7b36ada75fc21fd9ff9763ef9a1d1cf9c0d874aab06c1513a20fb6a66c5"
+    sha256 cellar: :any, el_capitan:   "75313479ba3d7b238b3eef2979ee78fed583fb5be5902f337f72269bafa26879"
+    sha256 cellar: :any, yosemite:     "f082a9d31d2ba6caa98f34e16212aa8e0e22154efe3b4fd86933f324ddc642a9"
+    sha256 cellar: :any, x86_64_linux: "6a90225707e24107baa16494ed49d9308f814e87a96bb616cf07b9a3b91fc256"
   end
 
   option "with-fortran",   "Install Fortran bindings"
   option "with-test",      "Install tests"
   option "with-docs",      "Install documentation"
 
-  depends_on "cmake"  => :build
-  depends_on "python"  => :recommended
-  depends_on "swig"   => :build if build.with? "python"
-  depends_on "gcc"    => :build if build.with? "fortran" && OS.mac?
+  depends_on "cmake" => :build
+  depends_on "gcc" => :build if build.with? "fortran" && OS.mac?
   depends_on "hdf5"
+  depends_on "python" => :recommended
+  depends_on "swig"   => :build if build.with? "python"
 
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/720fedf/med-file/libc%2B%2B_and_python_bindings_fixes.diff"
@@ -52,7 +51,8 @@ class MedFile < Formula
   end
 
   test do
-    assert_match "Nombre de parametre incorrect : medimport filein [fileout]", shell_output("#{bin}/medimport 2>&1", 255)
+    assert_match "Nombre de parametre incorrect : medimport filein [fileout]",
+shell_output("#{bin}/medimport 2>&1", 255)
     (testpath/"test.c").write <<~EOS
       #include <med.h>
       int main() {

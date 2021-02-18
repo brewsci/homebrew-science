@@ -7,18 +7,19 @@ class Discovar < Formula
   # tag "bioinformatics"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4a1224626458f35381238ce9f55c2105749dadfb6098d467e2601e2ec21feaff" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4a1224626458f35381238ce9f55c2105749dadfb6098d467e2601e2ec21feaff"
+  end
+
+  fails_with gcc: "5" do
+    cause "error: reference to 'align' is ambiguous. See https://groups.google.com/a/broadinstitute.org/forum/?hl=en&fromgroups=#!topic/discovar-user-forum/zuqNcaRUetA"
   end
 
   needs :openmp
 
-  fails_with :gcc => "5" do
-    cause "error: reference to 'align' is ambiguous. See https://groups.google.com/a/broadinstitute.org/forum/?hl=en&fromgroups=#!topic/discovar-user-forum/zuqNcaRUetA"
-  end
-
   def install
-    odie "DISCOVAR fails to build on Mac OS. See https://groups.google.com/a/broadinstitute.org/forum/?hl=en&fromgroups=#!topic/discovar-user-forum/zuqNcaRUetA" if OS.mac?
+    if OS.mac?
+      odie "DISCOVAR fails to build on Mac OS. See https://groups.google.com/a/broadinstitute.org/forum/?hl=en&fromgroups=#!topic/discovar-user-forum/zuqNcaRUetA"
+    end
 
     # Fix for GCC 5 error: redeclaration of 'template<class TAG> void
     # Contains(const vec<T>&, kmer_id_t, vec<long int>&, bool, int)' may not

@@ -1,18 +1,18 @@
 class Ggobi < Formula
-  desc "A visualization program for exploring high-dimensional data"
+  desc "Visualization program for exploring high-dimensional data"
   homepage "http://www.ggobi.org"
   url "http://www.ggobi.org/downloads/ggobi-2.1.11.tar.bz2"
   sha256 "2c4ddc3ab71877ba184523e47b0637526e6f3701bd9afb6472e6dfc25646aed7"
 
   bottle do
-    sha256 "b5c0ecade5536fff6c9309f5ced8ab76839b8d87f644ae18a11d13bbfd6fe231" => :el_capitan
-    sha256 "a62158696190196fddc92ad497b4b13096dbfddc26a30b5b029d4741354bf594" => :yosemite
-    sha256 "26209f33759bd90a90c260e78ffaa8c6ea78acccb7ca9bc000a66ffdf45db2d6" => :mavericks
+    sha256 el_capitan: "b5c0ecade5536fff6c9309f5ced8ab76839b8d87f644ae18a11d13bbfd6fe231"
+    sha256 yosemite:   "a62158696190196fddc92ad497b4b13096dbfddc26a30b5b029d4741354bf594"
+    sha256 mavericks:  "26209f33759bd90a90c260e78ffaa8c6ea78acccb7ca9bc000a66ffdf45db2d6"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gtk+"
   depends_on "gettext"
+  depends_on "gtk+"
   depends_on "libtool"
 
   def install

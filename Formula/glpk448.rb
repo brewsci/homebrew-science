@@ -7,10 +7,9 @@ class Glpk448 < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "5390c3e30f24443713cd18c8e0c7b4e2b26550c211ede583e0011be5a4b37bbc" => :el_capitan
-    sha256 "1b2b0fd04fa9c96f62af988af076e40366dfea5ed332b6436d440adf745dc407" => :yosemite
-    sha256 "24427a5e8d671ea3e305e1e26814957b03481f9e8850be8e0226ba47a8bcc35b" => :mavericks
+    sha256 cellar: :any, el_capitan: "5390c3e30f24443713cd18c8e0c7b4e2b26550c211ede583e0011be5a4b37bbc"
+    sha256 cellar: :any, yosemite:   "1b2b0fd04fa9c96f62af988af076e40366dfea5ed332b6436d440adf745dc407"
+    sha256 cellar: :any, mavericks:  "24427a5e8d671ea3e305e1e26814957b03481f9e8850be8e0226ba47a8bcc35b"
   end
 
   keg_only "this formula installs an older version of the GLPK libraries"
@@ -32,14 +31,14 @@ class Glpk448 < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-    #include "stdio.h"
-    #include "glpk.h"
+      #include "stdio.h"
+      #include "glpk.h"
 
-    int main(int argc, const char *argv[])
-    {
-        printf("%s", glp_version());
-        return 0;
-    }
+      int main(int argc, const char *argv[])
+      {
+          printf("%s", glp_version());
+          return 0;
+      }
     EOS
     system ENV.cc, "-I#{include}", "test.c", "-L#{lib}", "-lglpk", "-o", "test"
     assert_equal `./test`, version.to_s

@@ -5,11 +5,10 @@ class Harry < Formula
   sha256 "43315f616057cc1640dd87fc3d81453b97ce111683514ad99909d0033bcb578a"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "057ad501768616bf27dde8e542bc1105e94570f7bf8cb60c0bd433a611d59efe" => :sierra
-    sha256 "85bf33c44fdf156cfb097f39da759412c7261d482e568b32ff90f351dc8aa1e9" => :el_capitan
-    sha256 "a7d5942f0c3ecd0b2b4918e0c710f285cf5558843e0c9aff06a46aeae0b744f3" => :yosemite
+    sha256 cellar: :any, sierra:     "057ad501768616bf27dde8e542bc1105e94570f7bf8cb60c0bd433a611d59efe"
+    sha256 cellar: :any, el_capitan: "85bf33c44fdf156cfb097f39da759412c7261d482e568b32ff90f351dc8aa1e9"
+    sha256 cellar: :any, yosemite:   "a7d5942f0c3ecd0b2b4918e0c710f285cf5558843e0c9aff06a46aeae0b744f3"
   end
 
   head do

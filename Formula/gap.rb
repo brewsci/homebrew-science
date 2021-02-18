@@ -6,11 +6,10 @@ class Gap < Formula
   sha256 "4c5a5bbbdb5275213cc575174f7bfb8bfd61c12bd082770798162b2ae6ac577d"
 
   bottle do
-    cellar :any
-    sha256 "fa4c6eead2e2b6304d198e6b21e55fdf64f55e5d4e67aff7e5733de147a8495b" => :high_sierra
-    sha256 "2fc2788630fc337bf2c15b99b177abb04da3b4cca34b260cc7dc34fa1210ae1a" => :sierra
-    sha256 "249ea47d7e4659d62a5d19ff06909499244fc64a4ca171fa927144e8df301fb8" => :el_capitan
-    sha256 "038ea062c01ec6cf9ae93a16af3f20cd196873fe4e3c37e95fddaae171350781" => :x86_64_linux
+    sha256 cellar: :any, high_sierra:  "fa4c6eead2e2b6304d198e6b21e55fdf64f55e5d4e67aff7e5733de147a8495b"
+    sha256 cellar: :any, sierra:       "2fc2788630fc337bf2c15b99b177abb04da3b4cca34b260cc7dc34fa1210ae1a"
+    sha256 cellar: :any, el_capitan:   "249ea47d7e4659d62a5d19ff06909499244fc64a4ca171fa927144e8df301fb8"
+    sha256 cellar: :any, x86_64_linux: "038ea062c01ec6cf9ae93a16af3f20cd196873fe4e3c37e95fddaae171350781"
   end
 
   # NOTE:  the archive contains the [GMP library](https://gmplib.org/) under
@@ -66,6 +65,7 @@ class Gap < Formula
     # the value of `--prefix` option.
     ["bin/gap-default32.sh", "bin/gap-default64.sh"].each do |startup_script|
       next unless File.exist?(startup_script)
+
       inreplace startup_script, /^GAP_DIR="[^"]*"$/,
                                         "GAP_DIR=\"#{libexec}\""
     end
@@ -125,7 +125,7 @@ class Gap < Formula
       EOS
     end
     test_output = `#{bin/"gap"} -b test_input.g`
-    assert_equal 0, $?.exitstatus
+    assert_equal 0, $CHILD_STATUS.exitstatus
     expected_output =
       <<~EOS
         6

@@ -6,9 +6,9 @@ class Insighttoolkit < Formula
   head "git://itk.org/ITK.git"
 
   bottle do
-    sha256 "d5ab1f5c66bdb0afbd9cde3e5be580bc78e114d604b9b4db4f5089e26208b48e" => :high_sierra
-    sha256 "3ed156592517d0fde2ccc21f180e2a6e8487a216a0a260e84f13e945156e80ce" => :sierra
-    sha256 "450da49dcec1fa3a329bb444e51b1b65ab61f4ce82a438ee74fc3a7d0ef246f5" => :el_capitan
+    sha256 high_sierra: "d5ab1f5c66bdb0afbd9cde3e5be580bc78e114d604b9b4db4f5089e26208b48e"
+    sha256 sierra:      "3ed156592517d0fde2ccc21f180e2a6e8487a216a0a260e84f13e945156e80ce"
+    sha256 el_capitan:  "450da49dcec1fa3a329bb444e51b1b65ab61f4ce82a438ee74fc3a7d0ef246f5"
   end
 
   option "with-examples", "Compile and install various examples"
@@ -19,15 +19,15 @@ class Insighttoolkit < Formula
   deprecated_option "remove-legacy" => "with-remove-legacy"
 
   depends_on "cmake" => :build
-  depends_on "opencv@2" => :optional
-  depends_on "python" => :optional
-  depends_on "python3" => :optional
   depends_on "fftw" => :recommended
   depends_on "hdf5" => :recommended
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "gdcm" => :optional
+  depends_on "opencv@2" => :optional
+  depends_on "python" => :optional
+  depends_on "python3" => :optional
   depends_on "expat" unless OS.mac?
 
   if build.with? "python3"

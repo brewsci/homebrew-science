@@ -8,12 +8,11 @@ class Hlaminer < Formula
   # tag "bioinformatics"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "7a81914e6f4781791ec84a8a4eec2449c38bdefd8a848e658a4d5c5f3343f3b9" => :sierra
-    sha256 "a5ad58d7d29a571112a9848112a8d7f59924e0c8876a04bd22ce73103f0b9581" => :el_capitan
-    sha256 "433c03cb3ec3d0ab2ea78902064172e8f52e424dbbce9e492c4dd0aa28489628" => :yosemite
-    sha256 "898f7402a96f849c0598de4605848abef0ec7a491a792752867694f97bdd4020" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, sierra:       "7a81914e6f4781791ec84a8a4eec2449c38bdefd8a848e658a4d5c5f3343f3b9"
+    sha256 cellar: :any_skip_relocation, el_capitan:   "a5ad58d7d29a571112a9848112a8d7f59924e0c8876a04bd22ce73103f0b9581"
+    sha256 cellar: :any_skip_relocation, yosemite:     "433c03cb3ec3d0ab2ea78902064172e8f52e424dbbce9e492c4dd0aa28489628"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "898f7402a96f849c0598de4605848abef0ec7a491a792752867694f97bdd4020"
   end
 
   depends_on "blast"

@@ -4,13 +4,13 @@ class Libgpkg < Formula
   url "https://bitbucket.org/luciad/libgpkg/get/0.9.16.tar.gz"
   sha256 "be43a2725f5fcecbe3b1baf95e6c45847f7a9a3d8ac20978b9e11aa765e8d980"
 
-  head "https://bitbucket.org/luciad/libgpkg", :using => :hg, :branch => "default"
+  head "https://bitbucket.org/luciad/libgpkg", using: :hg, branch: "default"
 
   option "with-tests", "Run unit tests after build, prior to install"
 
   depends_on "cmake" => :build
-  depends_on "geos" => :recommended
   depends_on "ruby" if build.with? "tests"
+  depends_on "geos" => :recommended
 
   env :std
 
@@ -27,12 +27,13 @@ class Libgpkg < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Custom SQLite command-line shell that autoloads static GeoPackage extension:
-    #{opt_prefix}/bin/gpkg
+  def caveats
+    <<~EOS
+      Custom SQLite command-line shell that autoloads static GeoPackage extension:
+      #{opt_prefix}/bin/gpkg
 
-    Make sure to review Usage (extension loading) and Function Reference docs:
-    https://bitbucket.org/luciad/libgpkg/wiki/Home
-  EOS
+      Make sure to review Usage (extension loading) and Function Reference docs:
+      https://bitbucket.org/luciad/libgpkg/wiki/Home
+    EOS
   end
 end

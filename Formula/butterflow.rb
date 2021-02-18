@@ -6,10 +6,9 @@ class Butterflow < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "d8a9575b6f6f82dd97fbcbef7decbfe506662c16b0f241cf7d949b7b5a5e4102" => :sierra
-    sha256 "cdba4c5a27de847adaf9057b538a858aebe6ebd9a3cf8c084a2444a8d04dd52c" => :el_capitan
-    sha256 "04bad6a26382651b922394d2145914d2aa882e1daaf42b9b174e92fd276290e8" => :yosemite
+    sha256 cellar: :any, sierra:     "d8a9575b6f6f82dd97fbcbef7decbfe506662c16b0f241cf7d949b7b5a5e4102"
+    sha256 cellar: :any, el_capitan: "cdba4c5a27de847adaf9057b538a858aebe6ebd9a3cf8c084a2444a8d04dd52c"
+    sha256 cellar: :any, yosemite:   "04bad6a26382651b922394d2145914d2aa882e1daaf42b9b174e92fd276290e8"
   end
 
   depends_on "opencv@2"
@@ -20,7 +19,7 @@ class Butterflow < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do

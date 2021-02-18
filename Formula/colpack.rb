@@ -6,11 +6,10 @@ class Colpack < Formula
   head "https://github.com/CSCsw/ColPack.git"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "7b604fc98de89fff87975d3f2d4bb12cdff2e34c42e7868d90903e045b365ed5" => :sierra
-    sha256 "7ffdc149dbd86998420b86946124631640d9dbcf689e4880c7cbfc5aa1449142" => :el_capitan
-    sha256 "6a3a36e9714f47b9b0a0c1743687cdfb100f38f197d79cfe858f05084220ff9d" => :yosemite
+    sha256 cellar: :any, sierra:     "7b604fc98de89fff87975d3f2d4bb12cdff2e34c42e7868d90903e045b365ed5"
+    sha256 cellar: :any, el_capitan: "7ffdc149dbd86998420b86946124631640d9dbcf689e4880c7cbfc5aa1449142"
+    sha256 cellar: :any, yosemite:   "6a3a36e9714f47b9b0a0c1743687cdfb100f38f197d79cfe858f05084220ff9d"
   end
 
   option "with-openmp", "Build with OpenMP support"
@@ -69,7 +68,7 @@ class Colpack < Formula
       }
     EOS
     args = ["test.cpp", "-I#{opt_include}", "-L#{opt_lib}", "-lColPack", "-o", "test"]
-    system *(ENV.cxx.split + args)
+    system(*(ENV.cxx.split + args))
     system "./test"
     assert_equal `./test | grep 'SUCCESS'`.strip, "SUCCESS"
   end

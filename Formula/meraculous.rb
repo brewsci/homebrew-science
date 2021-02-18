@@ -9,8 +9,8 @@ class Meraculous < Formula
 
   bottle :disable, "needs to be rebuilt with latest boost"
 
-  depends_on "boost"
   depends_on "cmake" => :build
+  depends_on "boost"
   # Depends_on "Log::Log4perl" => :perl
 
   fails_with :clang do
@@ -26,19 +26,25 @@ class Meraculous < Formula
 
     # Fix error: asm/param.h: No such file or directory
     # Fix error: 'HZ' undeclared (first use in this function)
-    inreplace "src/c/linux.c",
-      "#include <asm/param.h>",
-      "#define HZ 100" if OS.mac?
+    if OS.mac?
+      inreplace "src/c/linux.c",
+        "#include <asm/param.h>",
+        "#define HZ 100"
+    end
 
     # Fix ld: library not found for -lrt
-    inreplace "src/c/CMakeLists.txt",
-      'set( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lrt" )',
-      "" if OS.mac?
+    if OS.mac?
+      inreplace "src/c/CMakeLists.txt",
+        'set( CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -lrt" )',
+        ""
+    end
 
     # Fix error: undefined reference to symbol 'pthread_setspecific'
-    inreplace "src/c/CMakeLists.txt",
-      "target_link_libraries( ${targetName} ${Boost_LIBRARIES} )",
-      "target_link_libraries( ${targetName} ${Boost_LIBRARIES} pthread )" if OS.linux?
+    if OS.linux?
+      inreplace "src/c/CMakeLists.txt",
+        "target_link_libraries( ${targetName} ${Boost_LIBRARIES} )",
+        "target_link_libraries( ${targetName} ${Boost_LIBRARIES} pthread )"
+    end
 
     # Fix env: perl\r: No such file or directory
     inreplace "src/perl/test_dependencies.pl", "\r", ""

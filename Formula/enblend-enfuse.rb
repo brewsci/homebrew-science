@@ -8,12 +8,12 @@ class EnblendEnfuse < Formula
   bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "cmake" => :build
-  depends_on "libpng"
   depends_on "boost"
   depends_on "gsl"
   depends_on "jpeg"
-  depends_on "little-cms2"
+  depends_on "libpng"
   depends_on "libtiff"
+  depends_on "little-cms2"
   depends_on "vigra"
   depends_on "openexr" => :optional
 

@@ -51,7 +51,7 @@ class Glimmer3 < Formula
     system "g3-from-scratch.csh", "#{share}/#{name}/tpall.fna", "test"
 
     if FileTest.exists? "test.predict"
-      `diff test.predict #{share}/#{name}/from-scratch.predict`.empty? ? true : false
+      `diff test.predict #{share}/#{name}/from-scratch.predict`.empty?
     else
       false
     end

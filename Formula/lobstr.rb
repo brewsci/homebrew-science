@@ -7,23 +7,23 @@ class Lobstr < Formula
   # doi "10.1101/gr.135780.111"
   # tag "bioinformatics"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   head do
     url "https://github.com/mgymrek/lobstr-code.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
 
+  bottle :disable, "needs to be rebuilt with latest boost"
+
   option "without-test", "Disable build-time checking (not recommended)"
 
   deprecated_option "without-check" => "without-test"
 
+  depends_on "cppunit" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "cppunit" => :build
-  depends_on "gsl"
   depends_on "boost"
+  depends_on "gsl"
 
   def install
     system "sh", "./reconf" if build.head?

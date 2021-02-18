@@ -1,22 +1,22 @@
 class Mfem < Formula
-  desc "Free, lightweight, scalable C++ library for FEM."
+  desc "Free, lightweight, scalable C++ library for FEM"
   homepage "http://www.mfem.org/"
   url "https://goo.gl/Vrpsns"
   version "3.3"
   sha256 "b17bd452593aada93dc0fee748fcfbbf4f04ce3e7d77fdd0341cc9103bcacd0b"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "35e84e4e8ba4fda6a97f6ced36ac561902488ca716bb88c3a3dc7a4cc23d835a" => :sierra
-    sha256 "58714c6611442447e0f8ef57f6fbb2b812e43d76e3525915144a4115563aa605" => :el_capitan
-    sha256 "71941bca57236fec5493dd7e0bd40563cc3a52daf0a5fcc279fc29c254ed709e" => :yosemite
-    sha256 "05341892c5f4530c5edead5b496894c2a6276c16dc4c3dd1febc2e1dd4faa478" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, sierra:       "35e84e4e8ba4fda6a97f6ced36ac561902488ca716bb88c3a3dc7a4cc23d835a"
+    sha256 cellar: :any_skip_relocation, el_capitan:   "58714c6611442447e0f8ef57f6fbb2b812e43d76e3525915144a4115563aa605"
+    sha256 cellar: :any_skip_relocation, yosemite:     "71941bca57236fec5493dd7e0bd40563cc3a52daf0a5fcc279fc29c254ed709e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "05341892c5f4530c5edead5b496894c2a6276c16dc4c3dd1febc2e1dd4faa478"
   end
 
   option "with-open-mpi", "Build with MPI support (implies --with-hypre --with-metis)"
   option "with-suite-sparse", "Build with suite-sparse support (implies --with-metis)"
   deprecated_option "with-mpi" => "with-open-mpi"
 
+  depends_on "netcdf" => :optional
   depends_on "open-mpi" => :optional
   if build.with?("open-mpi")
     depends_on "metis"
@@ -31,18 +31,16 @@ class Mfem < Formula
   else
     depends_on "openblas"
   end
-
   depends_on "suite-sparse" => :optional
-  depends_on "netcdf" => :optional
   depends_on "superlu_dist" => :optional
 
   def install
     make_args = ["PREFIX=#{prefix}"]
 
-    if build.with?("openblas")
-      lapack_lib = "-L#{Formula["openblas"].opt_lib} -lopenblas"
+    lapack_lib = if build.with?("openblas")
+      "-L#{Formula["openblas"].opt_lib} -lopenblas"
     else
-      lapack_lib = "-llapack -lblas"
+      "-llapack -lblas"
     end
     make_args += ["MFEM_USE_LAPACK=YES", "LAPACK_LIB=#{lapack_lib}"]
 
@@ -83,10 +81,10 @@ class Mfem < Formula
     if build.with?("netcdf")
       netcdf_lib = "-L#{Formula["netcdf"].opt_lib} -lnetcdf "
       netcdf_lib += "-L#{Formula["hdf5"].opt_lib} -lhdf5_hl -lhdf5 "
-      if OS.mac?
-        netcdf_lib += "-L/usr/lib -lz"
+      netcdf_lib += if OS.mac?
+        "-L/usr/lib -lz"
       else
-        netcdf_lib += "-L#{Formula["zlib"].opt_lib} -lz"
+        "-L#{Formula["zlib"].opt_lib} -lz"
       end
       zlib_dir = OS.mac? ? "/usr" : Formula["zlib"].opt_prefix.to_s
       make_args += ["MFEM_USE_NETCDF=YES",
@@ -115,7 +113,8 @@ class Mfem < Formula
     cp_r "#{Formula["mfem"].opt_pkgshare}/examples", "./"
     cd "examples" do
       cp "#{Formula["mfem"].opt_pkgshare}/data/star.mesh", "./"
-      system "make", "all", "MFEM_DIR=#{Formula["mfem"].opt_prefix}", "CONFIG_MK=$(MFEM_DIR)/config.mk", "TEST_MK=$(MFEM_DIR)/test.mk", "MFEM_LIB_FILE=$(MFEM_DIR)/lib/libmfem.a", "SRC="
+      system "make", "all", "MFEM_DIR=#{Formula["mfem"].opt_prefix}", "CONFIG_MK=$(MFEM_DIR)/config.mk",
+"TEST_MK=$(MFEM_DIR)/test.mk", "MFEM_LIB_FILE=$(MFEM_DIR)/lib/libmfem.a", "SRC="
       args = ["-m", "star.mesh", "--no-visualization"]
       if Tab.for_name("mfem").with? "open-mpi"
         system "mpirun", "-np", "4", "./ex1p", *args

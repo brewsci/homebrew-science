@@ -6,11 +6,10 @@ class Alpscore < Formula
   head "https://github.com/ALPSCore/ALPSCore.git"
 
   bottle do
-    cellar :any
-    sha256 "8cf520494570bdc24b61f289fd3d4a00220c2061bd99012bc966ac517aa11aa0" => :high_sierra
-    sha256 "717d2b0c0d6af1733fd0f3a9f1f4a410798d8b55cbc62cb9a5878fcc1d290db7" => :sierra
-    sha256 "93bf8395229b560063892082f6c7697545cc5a5684b3baba61b265bde12e3063" => :el_capitan
-    sha256 "e203c53c701532feeb5aa98128a097328d29cf80e13f4eef73460f922b646d4d" => :x86_64_linux
+    sha256 cellar: :any, high_sierra:  "8cf520494570bdc24b61f289fd3d4a00220c2061bd99012bc966ac517aa11aa0"
+    sha256 cellar: :any, sierra:       "717d2b0c0d6af1733fd0f3a9f1f4a410798d8b55cbc62cb9a5878fcc1d290db7"
+    sha256 cellar: :any, el_capitan:   "93bf8395229b560063892082f6c7697545cc5a5684b3baba61b265bde12e3063"
+    sha256 cellar: :any, x86_64_linux: "e203c53c701532feeb5aa98128a097328d29cf80e13f4eef73460f922b646d4d"
   end
 
   option "with-test",   "Build and run shipped tests"

@@ -8,12 +8,12 @@ class Elemental < Formula
     sha256 "ccf2b8d3b92e99fb0f248b2c82222bef15a7644d7dc3a2826935216b0bd82d9d"
   end
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
   head do
     url "https://github.com/elemental/Elemental.git"
     depends_on "metis"
   end
+
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
 
   option "with-test", "Run build time tests (lengthy, not recommended)"
 
@@ -66,10 +66,10 @@ class Elemental < Formula
 
     math_libs = ""
     math_libs += "-L#{Formula["scalapack"].opt_lib} -lscalapack " if build.with? "scalapack"
-    if build.with? "openblas"
-      math_libs += "-L#{Formula["openblas"].opt_lib} -lopenblas"
+    math_libs += if build.with? "openblas"
+      "-L#{Formula["openblas"].opt_lib} -lopenblas"
     else
-      math_libs += (OS.mac? ? "-framework Accelerate" : "-llapack -lblas -lm")
+      (OS.mac? ? "-framework Accelerate" : "-llapack -lblas -lm")
     end
     args << "-DMATH_LIBS=#{math_libs}"
 
@@ -105,9 +105,7 @@ class Elemental < Formula
       system "cmake", "..", *args
       system "make"
 
-      if build.with? "test"
-        system "make", "test"
-      end
+      system "make", "test" if build.with? "test"
 
       system "make", "install"
       include.install_symlink Dir[libexec/"include/*"]

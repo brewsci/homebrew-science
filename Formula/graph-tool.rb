@@ -1,11 +1,9 @@
 class GraphTool < Formula
-  desc "efficient network analysis"
+  desc "Efficient network analysis"
   homepage "https://graph-tool.skewed.de/"
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.26.tar.bz2"
   sha256 "df6273dc5ef327a0eaf1ef1c46751fce4c0b7573880944e544287b85a068f770"
   revision 1
-
-  bottle :disable, "needs to be rebuilt with latest boost"
 
   head do
     url "https://git.skewed.de/count0/graph-tool.git"
@@ -14,6 +12,8 @@ class GraphTool < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   option "without-cairo", "Build without cairo support for plotting"
   option "without-gtk+3", "Build without gtk+3 support for interactive plotting"
@@ -24,22 +24,19 @@ class GraphTool < Formula
   option "with-openmp", "Enable OpenMP multithreading"
 
   # Yosemite build fails with Boost >=1.64.0 due to thread-local storage error
-  depends_on :macos => :el_capitan
-
-  depends_on "python3" => :optional
-  with_pythons = build.with?("python3") ? ["with-python3"] : []
-
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "boost-python" => with_pythons
   depends_on "cairomm" if build.with? "cairo"
   depends_on "cgal"
+  depends_on macos: :el_capitan
   depends_on "google-sparsehash" => :recommended
   depends_on "gtk+3" => :recommended
-
+  depends_on "matplotlib" => [:recommended] + with_pythons
   depends_on "numpy" => [:recommended] + with_pythons
   depends_on "scipy" => [:recommended] + with_pythons
-  depends_on "matplotlib" => [:recommended] + with_pythons
+  depends_on "python3" => :optional
+  with_pythons = build.with?("python3") ? ["with-python3"] : []
 
   if build.with? "cairo"
     depends_on "py2cairo" if build.with? "python"
@@ -52,10 +49,10 @@ class GraphTool < Formula
     depends_on "pygobject3" => with_pythons
   end
 
-  fails_with :gcc => "4.8" do
+  fails_with gcc: "4.8" do
     cause "We need GCC 5.0 or above for sufficient c++14 support"
   end
-  fails_with :gcc => "4.9" do
+  fails_with gcc: "4.9" do
     cause "We need GCC 5.0 or above for sufficient c++14 support"
   end
 

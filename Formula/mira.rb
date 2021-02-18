@@ -11,17 +11,17 @@ class Mira < Formula
   bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "boost"
-  depends_on "gperftools" => :recommended # for tcmalloc
   depends_on "docbook"
-  # On Xcode-only systems, Mira's configure is unable to find expat
   depends_on "expat"
+  depends_on "flex"
+  depends_on "gperftools" => :recommended # for tcmalloc
+  # On Xcode-only systems, Mira's configure is unable to find expat
   # FlexLexer.h is not in the 10.8 SDK (only in 10.7 SDK and in xctoolchain/usr/include)
   # Further, an ugly patch would be needed to work with OS X's flex (on 10.8)
   # https://www.freelists.org/post/mira_talk/Type-mismatch-of-LexerInput-and-LexerOutput-PATCH
-  depends_on "flex"
 
   fails_with :clang
-  fails_with :gcc => "4.5" do
+  fails_with gcc: "4.5" do
     cause "gcc >= 4.6 is required to compile MIRA."
   end
 
@@ -37,8 +37,10 @@ class Mira < Formula
                       "--with-boost-system=boost_system-mt",
                       "--with-boost-filesystem=boost_filesystem-mt",
                       "--with-boost-iostreams=boost_iostreams-mt"]
-    configure_args += ["--with-tcmalloc",
-                       "--with-tcmalloc-dir=#{Formula["gperftools"].opt_prefix}/lib"] if build.with?("gperftools")
+    if build.with?("gperftools")
+      configure_args += ["--with-tcmalloc",
+                         "--with-tcmalloc-dir=#{Formula["gperftools"].opt_prefix}/lib"]
+    end
 
     system "./configure", *configure_args
 

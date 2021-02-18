@@ -7,11 +7,10 @@ class Macse < Formula
   # tag "bioinformatics"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "50827604861e1cf0430523cccadd6ecc8ae7ba4039a8134eef96f25d278c064a" => :el_capitan
-    sha256 "4a0c78063fc626c24a2e74a6e65970cf77e3243da3c49a6a1b24c0a08daad585" => :yosemite
-    sha256 "4a0c78063fc626c24a2e74a6e65970cf77e3243da3c49a6a1b24c0a08daad585" => :mavericks
-    sha256 "2ba1ae24bf5862fed33f0cb36a9a0a0c0ac3a6282d62d96a41008f006dae10e3" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, el_capitan:   "50827604861e1cf0430523cccadd6ecc8ae7ba4039a8134eef96f25d278c064a"
+    sha256 cellar: :any_skip_relocation, yosemite:     "4a0c78063fc626c24a2e74a6e65970cf77e3243da3c49a6a1b24c0a08daad585"
+    sha256 cellar: :any_skip_relocation, mavericks:    "4a0c78063fc626c24a2e74a6e65970cf77e3243da3c49a6a1b24c0a08daad585"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2ba1ae24bf5862fed33f0cb36a9a0a0c0ac3a6282d62d96a41008f006dae10e3"
   end
 
   depends_on "openjdk"

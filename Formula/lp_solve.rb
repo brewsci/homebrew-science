@@ -1,6 +1,6 @@
 class NumpyHasHeaders < Requirement
   def numpy_include_dir
-    "#{`python -c "import numpy.distutils.misc_util as u; print(u.get_numpy_include_dirs())[0]"`.strip}"
+    `python -c "import numpy.distutils.misc_util as u; print(u.get_numpy_include_dirs())[0]"`.strip.to_s
   end
 
   def satisfied?
@@ -11,10 +11,11 @@ class NumpyHasHeaders < Requirement
     true
   end
 
-  def message; <<~EOS
-    lp_solve requires NumPy headers not provided by Apple.
-    Install numpy via the Homebrew/python formula:
-      `brew tap homebrew/python && brew install numpy`
+  def message
+    <<~EOS
+      lp_solve requires NumPy headers not provided by Apple.
+      Install numpy via the Homebrew/python formula:
+        `brew tap homebrew/python && brew install numpy`
     EOS
   end
 end
@@ -26,8 +27,7 @@ class LpSolve < Formula
   sha256 "5827a30b143105283f398a09419ea608719a2d7699ecea165a66d521803bcc9c"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "40e0fb01f795a4e7583802dadd04c8c08fdbe4fe776ea5602a78997fc2575065" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "40e0fb01f795a4e7583802dadd04c8c08fdbe4fe776ea5602a78997fc2575065"
   end
 
   depends_on "python" => :optional
@@ -114,18 +114,19 @@ class LpSolve < Formula
 
   if build.with? "python"
     def numpy_include_dir
-      "#{`python -c "import numpy.distutils.misc_util as u; print(u.get_numpy_include_dirs())[0]"`.strip}"
+      `python -c "import numpy.distutils.misc_util as u; print(u.get_numpy_include_dirs())[0]"`.strip.to_s
     end
 
     def which_python
       "python" + `python -c 'import sys;print(sys.version[:3])'`.strip
     end
 
-    def caveats; <<~EOS
-      For non-homebrew Python, you need to amend your PYTHONPATH like so:
-        export PYTHONPATH=#{HOMEBREW_PREFIX}/lib/#{which_python}/site-packages:$PYTHONPATH
+    def caveats
+      <<~EOS
+        For non-homebrew Python, you need to amend your PYTHONPATH like so:
+          export PYTHONPATH=#{HOMEBREW_PREFIX}/lib/#{which_python}/site-packages:$PYTHONPATH
 
-      Python examples and doc are installed to #{HOMEBREW_PREFIX}/share/lp_solve
+        Python examples and doc are installed to #{HOMEBREW_PREFIX}/share/lp_solve
       EOS
     end
   end

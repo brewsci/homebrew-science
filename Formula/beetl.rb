@@ -1,7 +1,7 @@
 class Beetl < Formula
   desc "Burrows-Wheeler Extended Tool Library"
   homepage "https://github.com/BEETL/BEETL"
-  head "https://github.com/BEETL/BEETL.git", :branch => "RELEASE_1_1_0"
+  head "https://github.com/BEETL/BEETL.git", branch: "RELEASE_1_1_0"
   # doi "10.1093/bioinformatics/bts173"
   # tag "bioinformatics"
 
@@ -18,11 +18,10 @@ class Beetl < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "32b190deb3501cb8fe2600860e97edbd78231cc0e400d1236ff09a82e222f5ee" => :el_capitan
-    sha256 "f03a3fae57263a692697141f59ae103466b912939734d13d653156bbda59dfc2" => :yosemite
-    sha256 "afec472f36aaf5fb71f7d82e92419299be2c54479a2f50a02362407695dbc156" => :mavericks
-    sha256 "57c967ead12e01ffe2bd14b9a4b0caa02ad9e80eee5444a7369f26940c449f2c" => :x86_64_linux
+    sha256 cellar: :any, el_capitan:   "32b190deb3501cb8fe2600860e97edbd78231cc0e400d1236ff09a82e222f5ee"
+    sha256 cellar: :any, yosemite:     "f03a3fae57263a692697141f59ae103466b912939734d13d653156bbda59dfc2"
+    sha256 cellar: :any, mavericks:    "afec472f36aaf5fb71f7d82e92419299be2c54479a2f50a02362407695dbc156"
+    sha256 cellar: :any, x86_64_linux: "57c967ead12e01ffe2bd14b9a4b0caa02ad9e80eee5444a7369f26940c449f2c"
   end
 
   depends_on "boost" => :optional

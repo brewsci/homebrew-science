@@ -3,13 +3,13 @@ class AdolC < Formula
   homepage "https://projects.coin-or.org/ADOL-C"
   url "https://www.coin-or.org/download/source/ADOL-C/ADOL-C-2.6.3.tgz"
   sha256 "6ed74580695a0d2c960581e5430ebfcd380eb5da9337daf488bf2e89039e9c21"
-  head "https://projects.coin-or.org/svn/ADOL-C/trunk/", :using => :svn
+  head "https://projects.coin-or.org/svn/ADOL-C/trunk/", using: :svn
 
   bottle do
-    sha256 "dd84e59f5fda4bba97bb7ca7457e8e6dc73f21a863150d4e38c262a8ad8ac775" => :high_sierra
-    sha256 "0cc0d8caf1b150c4c30bb5f2d2b12238cc7e4812ce7985496d12a0d126ffec14" => :sierra
-    sha256 "54ac19495b3550860969967cbb4e16946de178893da483d441a5ff934dc35bce" => :el_capitan
-    sha256 "16d4410b5be94fcc331f729c2ec9c3e50a2e3aaa5efb0066b9b5c1e62b44dadc" => :x86_64_linux
+    sha256 high_sierra:  "dd84e59f5fda4bba97bb7ca7457e8e6dc73f21a863150d4e38c262a8ad8ac775"
+    sha256 sierra:       "0cc0d8caf1b150c4c30bb5f2d2b12238cc7e4812ce7985496d12a0d126ffec14"
+    sha256 el_capitan:   "54ac19495b3550860969967cbb4e16946de178893da483d441a5ff934dc35bce"
+    sha256 x86_64_linux: "16d4410b5be94fcc331f729c2ec9c3e50a2e3aaa5efb0066b9b5c1e62b44dadc"
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
@@ -98,7 +98,7 @@ class AdolC < Formula
       -L#{opt_lib} -ladolc
       -L#{Formula["colpack"].opt_lib} -lColPack
     ]
-    system *cxx_with_args
+    system(*cxx_with_args)
     output = `./test`.split
     output.each { |val| assert val.to_f < 1.0e-8 }
   end

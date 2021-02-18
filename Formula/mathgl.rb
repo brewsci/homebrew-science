@@ -6,10 +6,10 @@ class Mathgl < Formula
   revision 4
 
   bottle do
-    sha256 "ca5e138c7722336d414cff98c59d5c5bfcf1ff36b20c74035a032adf8ff0246d" => :sierra
-    sha256 "6fbe7bc574f7996873c1db9de80648f72f4fa43cce4be52a70b1b4c72c738878" => :el_capitan
-    sha256 "7a04bd671cad956798cb424745cd9fba651096f7e2561ca638710087db5ac4f3" => :yosemite
-    sha256 "7187fee2d695061e44ff520fc5076254a2aeb28636d66cda0bef9073a1a8bed7" => :x86_64_linux
+    sha256 sierra:       "ca5e138c7722336d414cff98c59d5c5bfcf1ff36b20c74035a032adf8ff0246d"
+    sha256 el_capitan:   "6fbe7bc574f7996873c1db9de80648f72f4fa43cce4be52a70b1b4c72c738878"
+    sha256 yosemite:     "7a04bd671cad956798cb424745cd9fba651096f7e2561ca638710087db5ac4f3"
+    sha256 x86_64_linux: "7187fee2d695061e44ff520fc5076254a2aeb28636d66cda0bef9073a1a8bed7"
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
@@ -19,12 +19,12 @@ class Mathgl < Formula
   depends_on "jpeg"    => :recommended
   depends_on "libharu" => :recommended
   depends_on "libpng"  => :recommended
-  depends_on "hdf5"    => :optional
   depends_on "fltk"    => :optional
-  depends_on "wxmac"   => :optional
-  depends_on "giflib"  => :optional
-  depends_on "qt"      => :optional
   depends_on "libx11" if build.with? "fltk"
+  depends_on "giflib"  => :optional
+  depends_on "hdf5" => :optional
+  depends_on "qt" => :optional
+  depends_on "wxmac" => :optional
 
   if OS.linux?
     depends_on "linuxbrew/xorg/xorg"

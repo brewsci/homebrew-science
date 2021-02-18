@@ -6,11 +6,10 @@ class Geant4 < Formula
   sha256 "a164f49c038859ab675eec474d08c9d02be8c4be9c0c2d3aa8e69adf89e1e138"
 
   bottle do
-    cellar :any
-    sha256 "c772638082c68d6610ee73325e4cea2559a000e0b0f954a55be26154019bf105" => :high_sierra
-    sha256 "ec5643125522f34ebfce1125a838c34519b9bf356c63870d5c6c328a64e63b63" => :sierra
-    sha256 "b9b5bafa9f756f11a2a5113b8f3e058af2f07c1c21010ca7fe0cf7271cdd4016" => :el_capitan
-    sha256 "ab2c884c84ace2445f714ef1a23482c4d902b6cae3ff5cb63befe37601e5a41e" => :x86_64_linux
+    sha256 cellar: :any, high_sierra:  "c772638082c68d6610ee73325e4cea2559a000e0b0f954a55be26154019bf105"
+    sha256 cellar: :any, sierra:       "ec5643125522f34ebfce1125a838c34519b9bf356c63870d5c6c328a64e63b63"
+    sha256 cellar: :any, el_capitan:   "b9b5bafa9f756f11a2a5113b8f3e058af2f07c1c21010ca7fe0cf7271cdd4016"
+    sha256 cellar: :any, x86_64_linux: "ab2c884c84ace2445f714ef1a23482c4d902b6cae3ff5cb63befe37601e5a41e"
   end
 
   option "with-g3tog4", "Use G3toG4 Library"
@@ -20,8 +19,8 @@ class Geant4 < Formula
 
   depends_on "cmake"
   depends_on "libx11"
-  depends_on "qt" => :optional
   depends_on "xerces-c" if build.with? "gdml"
+  depends_on "qt" => :optional
   depends_on "linuxbrew/xorg/glu" unless OS.mac?
 
   resource "G4NDL" do
