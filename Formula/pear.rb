@@ -11,6 +11,7 @@ class Pear < Formula
   patch :DATA
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "73b55d6cfc3954d6756fe67b20077268e9e973e3f26e9c8ce85fcbe289befe77" => :sierra
     sha256 "1b490a3d62ebd31b2cc826c9e0738a813d4df42232cd2c57ad9c8526222bcc29" => :el_capitan

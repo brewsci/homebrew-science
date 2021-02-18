@@ -13,11 +13,11 @@ class A5 < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c212fd42f487bfa10b4d8c7d39fc22838590db1340cb1c799e760dbacb282e7a" => :sierra
-    sha256 "fcf4927415227a5fe49b6d88f089c4c026862d37ead5ce4a2c4d17ac4c6dbd1f" => :el_capitan
-    sha256 "c212fd42f487bfa10b4d8c7d39fc22838590db1340cb1c799e760dbacb282e7a" => :yosemite
-    sha256 "2030fc095c10ee08ef57e68a6de19edf145b39404d1103f557fd0883c79f41f5" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any_skip_relocation, sierra:       "c212fd42f487bfa10b4d8c7d39fc22838590db1340cb1c799e760dbacb282e7a"
+    sha256 cellar: :any_skip_relocation, el_capitan:   "fcf4927415227a5fe49b6d88f089c4c026862d37ead5ce4a2c4d17ac4c6dbd1f"
+    sha256 cellar: :any_skip_relocation, yosemite:     "c212fd42f487bfa10b4d8c7d39fc22838590db1340cb1c799e760dbacb282e7a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2030fc095c10ee08ef57e68a6de19edf145b39404d1103f557fd0883c79f41f5"
   end
 
   def install

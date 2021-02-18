@@ -6,6 +6,7 @@ class QsoptEx < Formula
   sha256 "5949c65a8528fc170371d6f99461280f79313da91b1bc6d71d792c51601fa6bb"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "4cdde0071a2ae2a737772f90060d9997fed15f869a43b7cab7ebee8da8578d0f" => :el_capitan
     sha256 "ba7975b0a1ce2b9502e6eac784855c74502aef70fb3f20ce8a6f344d2956e0b2" => :yosemite

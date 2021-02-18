@@ -5,9 +5,10 @@ class Cryptoverif < Formula
   sha256 "016730f3171076ffd8a8cb0b84eb9423e5bc7f8434025534b4ee4dadc0aecb9d"
 
   bottle do
-    sha256 "70a19b5a89a92cb0459de738446037549d0066a7ff03332c5d528093d3286db4" => :el_capitan
-    sha256 "076d41cf705165e30f4595f6d89f4f37cc8ff363c608b14f4ddfd356629f8186" => :yosemite
-    sha256 "ce5eee122723cc4a72b7b817db586a8622453b3fc8c57333193059c30d80c9be" => :mavericks
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 el_capitan: "70a19b5a89a92cb0459de738446037549d0066a7ff03332c5d528093d3286db4"
+    sha256 yosemite:   "076d41cf705165e30f4595f6d89f4f37cc8ff363c608b14f4ddfd356629f8186"
+    sha256 mavericks:  "ce5eee122723cc4a72b7b817db586a8622453b3fc8c57333193059c30d80c9be"
   end
 
   depends_on "ocaml"
@@ -39,12 +40,13 @@ class Cryptoverif < Formula
     prefix.install_symlink libexec/"authexamples"
   end
 
-  def caveats; <<~EOS
-    Cryptoverif can be manually aliased to include the default lib:
-    - alias cryptoverif='cryptoverif -lib #{prefix}/stdlib/default'
+  def caveats
+    <<~EOS
+      Cryptoverif can be manually aliased to include the default lib:
+      - alias cryptoverif='cryptoverif -lib #{prefix}/stdlib/default'
 
-    Extensive checks can be perfomed manually using:
-    - #{prefix}/test
+      Extensive checks can be perfomed manually using:
+      - #{prefix}/test
     EOS
   end
 

@@ -30,9 +30,10 @@ class EnsemblTools < Formula
     ]
   end
 
-  def caveats; <<~EOS
-    You may need to append your PERL5LIB environment variable:
-      export PERL5LIB=#{opt_libexec}:$PERL5LIB
+  def caveats
+    <<~EOS
+      You may need to append your PERL5LIB environment variable:
+        export PERL5LIB=#{opt_libexec}:$PERL5LIB
     EOS
   end
 

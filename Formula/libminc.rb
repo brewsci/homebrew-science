@@ -8,9 +8,9 @@ class Libminc < Formula
 
   bottle :disable, "needs to be rebuilt with latest netcdf"
 
+  depends_on "cmake" => :build
   depends_on "hdf5"
   depends_on "netcdf"
-  depends_on "cmake" => :build
 
   def install
     system "cmake", ".", "-DCMAKE_INSTALL_PREFIX:PATH=#{libexec}"

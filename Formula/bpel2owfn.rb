@@ -9,12 +9,12 @@ class Bpel2owfn < Formula
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
-    depends_on "flex" => :build
     depends_on "bison" => :build
+    depends_on "flex" => :build
     depends_on "gengetopt" => :build
+    depends_on "gnu-sed" => :build
     depends_on "help2man" => :build
     depends_on "kimwitu++" => :build
-    depends_on "gnu-sed" => :build
   end
 
   def install

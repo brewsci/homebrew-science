@@ -1,15 +1,15 @@
 class Biopp < Formula
-  desc "Bio++ is a set of C++ libraries for Bioinformatics."
+  desc "Bio++ is a set of C++ libraries for Bioinformatics"
   homepage "http://biopp.univ-montp2.fr"
   url "http://biopp.univ-montp2.fr/repos/sources/bpp-phyl-omics-2.2.0.tar.gz"
   sha256 "a48f4c6f0ea1758c1f6dc8a262d5cbad95769739d46ce9af08527107a548bfaa"
 
   bottle do
-    cellar :any
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     rebuild 2
-    sha256 "0a334099d68f8bd0edad8d0d92b1000ff966342b7916e87ddf50c327577625c3" => :sierra
-    sha256 "1f0e4aa50929c5779cc07fcbfd0f6bc65aaba413bdeeeec0422b9a7ab49cc5a2" => :el_capitan
-    sha256 "cf17b2874d780309086794cda9d5c6d16d0c95cd47013b1cc001ca5ebfade78f" => :yosemite
+    sha256 cellar: :any, sierra:     "0a334099d68f8bd0edad8d0d92b1000ff966342b7916e87ddf50c327577625c3"
+    sha256 cellar: :any, el_capitan: "1f0e4aa50929c5779cc07fcbfd0f6bc65aaba413bdeeeec0422b9a7ab49cc5a2"
+    sha256 cellar: :any, yosemite:   "cf17b2874d780309086794cda9d5c6d16d0c95cd47013b1cc001ca5ebfade78f"
   end
 
   depends_on "cmake" => :build
@@ -98,7 +98,7 @@ class Biopp < Formula
           return(0);
       }
     EOS
-    libs = %W[-lbpp-core -lbpp-seq -lbpp-phyl -lbpp-raa -lbpp-seq-omics
+    libs = %w[-lbpp-core -lbpp-seq -lbpp-phyl -lbpp-raa -lbpp-seq-omics
               -lbpp-phyl-omics -lbpp-popgen]
     system ENV.cxx, "-o", "test", "bpp-phyl-test.cpp",
            "-I#{include}", "-L#{lib}", *libs

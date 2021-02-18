@@ -22,7 +22,7 @@ class Slepc < Formula
   depends_on "petsc" => openblasdep
   depends_on "gcc" if OS.mac? # for gfortran
   depends_on "hdf5"
-  depends_on :x11 => :optional
+  depends_on "libx11" => :optional
   depends_on "arpack" => [:recommended, "with-open-mpi"] + openblasdep
 
   def install

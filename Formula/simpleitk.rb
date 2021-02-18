@@ -14,6 +14,7 @@ class Simpleitk < Formula
   head "https://github.com/SimpleITK/SimpleITK.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 "09fc9272603aeb2e64f1ada657399d6e10194fc5ce29004823b20e8074d972a1" => :sierra
     sha256 "6cfdd1fb1518993f7ad0dd5088a34ed7028f1e0118f3ddc3b3d6cda28813d35b" => :el_capitan
     sha256 "469bd0b6bf658ae6b2ac967de45a6ccc4f5fbc98999eee6841b351b6c899eb25" => :yosemite
@@ -30,7 +31,7 @@ class Simpleitk < Formula
   depends_on "swig" => :build
   depends_on "python" => :recommended
   depends_on "python3" => :optional
-  depends_on :java => :optional
+  depends_on "openjdk" => :optional
   depends_on "r" => :optional
   depends_on "lua" => :optional
   depends_on CIRequirement unless OS.mac?
@@ -53,7 +54,7 @@ class Simpleitk < Formula
     args << "-DBUILD_EXAMPLES=" + (build.include?("examples") ? "ON" : "OFF")
     args << "-DWRAP_PYTHON=ON"
     args << "-DWRAP_CSHARP=" + (build.with?("csharp") ? "ON" : "OFF")
-    args << "-DWRAP_JAVA=" + (build.with?("java") ? "ON" : "OFF")
+    args << "-DWRAP_JAVA=" + (build.with?("openjdk") ? "ON" : "OFF")
     args << "-DWRAP_LUA=" + (build.with?("lua") ? "ON" : "OFF")
     args << "-DWRAP_R=" + (build.with?("r") ? "ON" : "OFF")
     args << "-DWRAP_RUBY=" + (build.with?("ruby") ? "ON" : "OFF")

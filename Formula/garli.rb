@@ -1,5 +1,5 @@
 class Garli < Formula
-  desc "genetic algorithm for rapid likelihood inference of phylogenies"
+  desc "Genetic algorithm for rapid likelihood inference of phylogenies"
   homepage "https://code.google.com/p/garli/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/garli/garli-2.01.tar.gz"
   sha256 "e7fd4c115f9112fd9a019dcb6314e3a9d989f56daa0f833a28dc8249e50988ef"
@@ -10,17 +10,18 @@ class Garli < Formula
 
   option "with-brewed-ncl", "Use Homebrew's NCL instead of building a separate copy"
   depends_on "ncl" if build.with? "brewed-ncl"
-  depends_on "open-mpi" => :recommended
   deprecated_option "without-mpi" => "without-open-mpi"
+
+  depends_on "open-mpi" => :recommended
 
   # Fix template instantiation errors by making GCC infer types rather than
   # explicitly specifying the types. Patch emailed to upstream 12-Jun-2016.
-  patch :DATA
-
   fails_with :clang do
     build 703
     cause "error: invalid operands to binary expression ('const ReconNode' and 'const ReconNode')"
   end
+
+  patch :DATA
 
   def install
     # Garli needs to link to NCL, which Homebrew provides. However Garli
@@ -48,7 +49,8 @@ class Garli < Formula
       args.push "--with-ncl=#{libexec}/ncl"
       system "tar", "xf", "ncl-2.1.18.tar.gz"
       cd "ncl-2.1.18" do
-        system "./configure", "--prefix=#{libexec}/ncl", "--disable-shared", "--enable-static", "CXXFLAGS=-DNCL_CONST_FUNCS"
+        system "./configure", "--prefix=#{libexec}/ncl", "--disable-shared", "--enable-static",
+"CXXFLAGS=-DNCL_CONST_FUNCS"
         system "make", "install"
       end
     end
@@ -60,11 +62,12 @@ class Garli < Formula
     pkgshare.install "example"
   end
 
-  def caveats; <<~EOS
-    The manual and examples have been installed to:
+  def caveats
+    <<~EOS
+      The manual and examples have been installed to:
 
-      #{opt_pkgshare}/doc
-      #{opt_pkgshare}/example
+        #{opt_pkgshare}/doc
+        #{opt_pkgshare}/example
     EOS
   end
 

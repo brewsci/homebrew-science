@@ -8,6 +8,7 @@ class SamtoolsAT01 < Formula
   sha256 "500019b4d1886ad995513d5ce8b413b14b51f16f251ce76bc0b35a446b182a47"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "94daeca01f8f12745a5e19eecd6fdf85e0202dd2dfdbfc999c9c57e591ab4f6b" => :sierra
     sha256 "5fb71541a4b39224489f36de9926fd1e95ae172b7a17eff0e11287861012ee4f" => :el_capitan

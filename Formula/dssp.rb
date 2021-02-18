@@ -6,10 +6,11 @@ class Dssp < Formula
   sha256 "25d39a2107767b622a59dd9fa790112c1516564b8518fc6ac0fab081d5ac3ab0"
 
   bottle do
-    sha256 "98a4c699451b212d3122a6078bd57f70c9e55f98655752a40abfed618f23533f" => :high_sierra
-    sha256 "a794e955d8d59b7c5e94f9259154e99ade3fe104b31a9eb7e98a71a39bf3ba38" => :sierra
-    sha256 "01a2dd97790b3234e22a0afe5b08fb8072922749aaf1457f9c64e509e0d4c11f" => :el_capitan
-    sha256 "ed18ff082794b74f61e28152d1401642f686a7c8e961843543069c856eb6a604" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 high_sierra:  "98a4c699451b212d3122a6078bd57f70c9e55f98655752a40abfed618f23533f"
+    sha256 sierra:       "a794e955d8d59b7c5e94f9259154e99ade3fe104b31a9eb7e98a71a39bf3ba38"
+    sha256 el_capitan:   "01a2dd97790b3234e22a0afe5b08fb8072922749aaf1457f9c64e509e0d4c11f"
+    sha256 x86_64_linux: "ed18ff082794b74f61e28152d1401642f686a7c8e961843543069c856eb6a604"
   end
 
   depends_on "boost"

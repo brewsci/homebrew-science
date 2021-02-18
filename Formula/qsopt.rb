@@ -12,6 +12,7 @@ class Qsopt < Formula
   revision 1
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "858c18d9b0427e53c23ee721d5006d85a053958bb36d77a37918509b04742304" => :el_capitan
     sha256 "cf2871b135eaa4b2baa8caf9448fdad2b792a27eb60665ec610904caa655f5a4" => :yosemite

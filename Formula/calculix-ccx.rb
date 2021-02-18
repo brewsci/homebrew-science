@@ -6,19 +6,19 @@ class CalculixCcx < Formula
   sha256 "7685f4ddd0dc698fa1ad0f82594a6fe52ffa8f604c1e74befa048d3d46f49ce2"
 
   bottle do
-    cellar :any
-    sha256 "fdeb7b65ae2970e878b61e80e81074e36a89e7489e9fe39816279531068d3099" => :high_sierra
-    sha256 "4c2595b652eb8b17e5875b7cfc57ae05c1f5dcf3dd94e350d9fa6a8c1ce2a260" => :sierra
-    sha256 "4f18ebce2ac2c8fd9780cc0e3493f34159f59032a12ef34fc26343d5aacdc405" => :el_capitan
-    sha256 "06699205b29b97ebc10c1f5385d0148b59ad745057578b2ba06b2ea9812ee6a0" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any, high_sierra:  "fdeb7b65ae2970e878b61e80e81074e36a89e7489e9fe39816279531068d3099"
+    sha256 cellar: :any, sierra:       "4c2595b652eb8b17e5875b7cfc57ae05c1f5dcf3dd94e350d9fa6a8c1ce2a260"
+    sha256 cellar: :any, el_capitan:   "4f18ebce2ac2c8fd9780cc0e3493f34159f59032a12ef34fc26343d5aacdc405"
+    sha256 cellar: :any, x86_64_linux: "06699205b29b97ebc10c1f5385d0148b59ad745057578b2ba06b2ea9812ee6a0"
   end
 
   option "with-openmp", "build with OpenMP support"
   needs :openmp if build.with? "openmp"
 
-  depends_on "gcc" if OS.mac? # for gfortran
-  depends_on "arpack"
   depends_on "pkg-config" => :build
+  depends_on "arpack"
+  depends_on "gcc" if OS.mac? # for gfortran
 
   resource "test" do
     url "http://www.dhondt.de/ccx_2.13.test.tar.bz2"

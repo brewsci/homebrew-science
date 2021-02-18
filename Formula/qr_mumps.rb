@@ -7,6 +7,7 @@ class QrMumps < Formula
   head "https://wwwsecu.irit.fr/svn/qr_mumps/tags/1.2", :using => :svn
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 "974dae7681a0dfbbf6c41bbba0d4d7d300de6db6f78f742ebb5e4301848653e9" => :sierra
     sha256 "aa3033e9fd661e18c05e607e96154d1895264aa8b0956137f610213bc0b325f0" => :el_capitan
     sha256 "b3a0b07ef14ba110550215308e21206f1d26ad1e13b300494a83534b50c79e50" => :yosemite

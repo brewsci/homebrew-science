@@ -6,6 +6,7 @@ class Platypusvar < Formula
   sha256 "a0f39e800ebdc5590e9b568a791bc6746df0fde4d1c3622140db64dea175622b"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "941e81e14e2237a2fea587f4843d9a4247dda9144f15d39556039072668f28cb" => :sierra
     sha256 "5b59b3e929a2b81030e76aecc1976674f50d10c5dd252586f8373f91a9ea0503" => :el_capitan

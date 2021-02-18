@@ -1,16 +1,16 @@
 class GetdpSvnStrategy < SubversionDownloadStrategy
   def quiet_safe_system(*args)
-    super *args + ["--username", "getdp", "--password", "getdp"]
+    super(*args + ["--username", "getdp", "--password", "getdp"])
   end
 end
 
 class Getdp < Formula
-  desc "Open source finite element solver using mixed elements."
+  desc "Open source finite element solver using mixed elements"
   homepage "https://www.geuz.org/getdp/"
   url "https://getdp.info/src/getdp-2.11.1-source.tgz"
   sha256 "bb32d1d24e110eab209e57701d0754289f62402d5ee6672be596310b1a359997"
   revision 3
-  head "https://geuz.org/svn/getdp/trunk", :using => GetdpSvnStrategy
+  head "https://geuz.org/svn/getdp/trunk", using: GetdpSvnStrategy
 
   bottle :disable, "needs to be rebuilt with latest open-mpi"
 
@@ -19,22 +19,22 @@ class Getdp < Formula
 
   depends_on "cmake" => :build
   depends_on "gcc" if OS.mac? # for gfortran
+  depends_on "gmsh" => :recommended
+  depends_on "gsl" => :recommended
+  depends_on "hdf5" => :recommended
+  depends_on "metis" => :recommended
+  depends_on "mumps" => :recommended
   depends_on "open-mpi" => :recommended
   if build.with? "open-mpi"
     depends_on "arpack" => [:recommended, "with-open-mpi"]
   else
     depends_on "arpack" => :recommended
   end
-  depends_on "gmsh" => :recommended
-  depends_on "gsl" => :recommended
-  depends_on "hdf5" => :recommended
   if build.with? "open-mpi"
     depends_on "hdf5" => [:recommended, "with-open-mpi"]
   else
     depends_on "hdf5" => :recommended
   end
-  depends_on "metis" => :recommended
-  depends_on "mumps" => :recommended
   depends_on "petsc" => :recommended
   depends_on "slepc" => :recommended
 
@@ -58,9 +58,7 @@ class Getdp < Formula
       args << "-DENABLE_SLEPC=OFF"
     end
 
-    if (build.with? "petsc") || (build.with? "slepc")
-      args << "-DENABLE_MPI=ON" if build.with? :open-mpi
-    end
+    args << "-DENABLE_MPI=ON" if ((build.with? "petsc") || (build.with? "slepc")) && (build.with? :open-mpi)
 
     mkdir "build" do
       system "cmake", "..", *args

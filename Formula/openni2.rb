@@ -5,6 +5,7 @@ class Openni2 < Formula
   version "2.2.0-debian"
   sha256 "08f6842f20d1098ab2ebafadaac0130ffae5abd34cdf464bb6100cbe01ed95a8"
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "4dcec1c28ee906abb3a40f9bb38825861f10fdf34f634581302ef5b87a75f3f0" => :sierra
     sha256 "4e8c80ba349f4bd832b9b5914d400a80bcebed7568b75c5d9677768fe2713e4c" => :el_capitan
@@ -18,8 +19,8 @@ class Openni2 < Formula
   option "with-docs", "Build documentation using javadoc (might fail with Java 1.8)"
   option "with-samples", "Install Samples"
 
+  depends_on "openjdk"
   depends_on "python"
-  depends_on :java
   depends_on "libusb"
   depends_on "doxygen" => :build if build.with? "docs"
   depends_on "linuxbrew/xorg/mesa" unless OS.mac?

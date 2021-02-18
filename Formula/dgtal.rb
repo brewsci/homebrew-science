@@ -20,15 +20,15 @@ class Dgtal < Formula
   boost_args = []
   boost_args << "c++11" if MacOS.version < "10.9"
   depends_on "boost" => boost_args
+  depends_on "cairo" => :optional
+  depends_on "cgal" => [:optional, "with-eigen"]
   depends_on "eigen" => :optional
   depends_on "gmp" => :optional
-  depends_on "cairo" => :optional
   depends_on "graphicsmagick" => :optional
-  depends_on "cgal" => [:optional, "with-eigen"]
 
   # GCC 4 works, and according to upstream issue, GCC <= 5.2.1 may also be fine
   ["5", "6"].each do |n|
-    fails_with :gcc => n do
+    fails_with gcc: n do
       cause "testClone2 fails: https://github.com/DGtal-team/DGtal/issues/1203"
     end
   end
@@ -43,9 +43,7 @@ class Dgtal < Formula
     args << "-DWITH_CAIRO=true" if build.with? "cairo"
     args << "-DWITH_MAGICK=true" if build.with? "graphicsmagick"
 
-    if build.with? "cgal"
-      args << "-DWITH_EIGEN=true" << "-DWITH_GMP=true" << "-DWITH_CGAL=true"
-    end
+    args << "-DWITH_EIGEN=true" << "-DWITH_GMP=true" << "-DWITH_CGAL=true" if build.with? "cgal"
 
     mkdir "build" do
       system "cmake", "..", *args

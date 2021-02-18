@@ -9,38 +9,38 @@ class Gnudatalanguage < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "gsl"
-  depends_on "readline"
+  depends_on "cairo"
+  depends_on "eigen"
+  depends_on "fftw"
+  depends_on "freetype"
   depends_on "graphicsmagick"
-  depends_on "netcdf"
+  depends_on "gsl"
+  depends_on "gsl"
   depends_on "hdf5"
   depends_on "libpng"
+  depends_on "libtool"
+  depends_on "libx11"
+  depends_on "netcdf"
+  depends_on "pango"
+  depends_on "readline"
   depends_on "udunits"
-  depends_on "gsl"
-  depends_on "fftw"
-  depends_on "eigen"
-  depends_on :x11
   depends_on "python" => :optional
 
   # Supplementary dependencies for plplot
-  depends_on "cairo"
-  depends_on "pango"
-  depends_on "freetype"
-  depends_on "libtool"
 
-  conflicts_with "plplot", :because => "both install a pltek executable"
+  conflicts_with "plplot", because: "both install a pltek executable"
 
-  fails_with :gcc => "5" unless OS.mac?
+  fails_with gcc: "5" unless OS.mac?
 
   # Support HDF5 1.10. See https://bugs.debian.org/841971
-  patch do
-    url "https://gist.githubusercontent.com/sjackman/00fb95e10b7775d16924efb6faf462f6/raw/71ed3e05138a20b824c9e68707e403afc0f92c98/gnudatalanguage-hdf5-1.10.patch"
-    sha256 "8400c3c17ac87704540a302673563c1e417801e729e3460f1565b8cd1ef9fc9d"
-  end
-
   resource "plplot-x11" do
     url "https://downloads.sourceforge.net/project/plplot/plplot/5.12.0%20Source/plplot-5.12.0.tar.gz"
     sha256 "8dc5da5ef80e4e19993d4c3ef2a84a24cc0e44a5dade83201fca7160a6d352ce"
+  end
+
+  patch do
+    url "https://gist.githubusercontent.com/sjackman/00fb95e10b7775d16924efb6faf462f6/raw/71ed3e05138a20b824c9e68707e403afc0f92c98/gnudatalanguage-hdf5-1.10.patch"
+    sha256 "8400c3c17ac87704540a302673563c1e417801e729e3460f1565b8cd1ef9fc9d"
   end
 
   def install

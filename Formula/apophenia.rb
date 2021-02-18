@@ -8,11 +8,11 @@ class Apophenia < Formula
   head "https://github.com/b-k/apophenia.git"
 
   bottle do
-    cellar :any
-    sha256 "cd78c8a651577d511679b79aa66f43f50fbc5644d3152846142215252a3a3c9c" => :sierra
-    sha256 "adf789318a1acc972ff0f1917f6b7006669b6b5f17aedc16e4cf413d7476dcf6" => :el_capitan
-    sha256 "db04d9ea7bb72b6d51cdd35d509e488513a59f4d5eaa7c46cf8f3b6020f8b259" => :yosemite
-    sha256 "1ccf3e976071d815b5618f057a8e9063f0434620df43f732dadc4a496435def8" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any, sierra:       "cd78c8a651577d511679b79aa66f43f50fbc5644d3152846142215252a3a3c9c"
+    sha256 cellar: :any, el_capitan:   "adf789318a1acc972ff0f1917f6b7006669b6b5f17aedc16e4cf413d7476dcf6"
+    sha256 cellar: :any, yosemite:     "db04d9ea7bb72b6d51cdd35d509e488513a59f4d5eaa7c46cf8f3b6020f8b259"
+    sha256 cellar: :any, x86_64_linux: "1ccf3e976071d815b5618f057a8e9063f0434620df43f732dadc4a496435def8"
   end
 
   # doi "arXiv:1502.02614"
@@ -24,7 +24,8 @@ class Apophenia < Formula
   depends_on "sqlite" unless OS.mac?
 
   def install
-    system "./configure", "--enable-extended-tests", "--prefix=#{prefix}", ("--with-mysql=no" if build.without? "mysql")
+    system "./configure", "--enable-extended-tests", "--prefix=#{prefix}",
+("--with-mysql=no" if build.without? "mysql")
     system "make"
     system "make", "install"
   end

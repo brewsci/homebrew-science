@@ -8,20 +8,20 @@ class Gubbins < Formula
   # doi "10.1093/nar/gku1196"
 
   bottle do
-    cellar :any
-    sha256 "d52cffe4cfee3666dc34da64f24893c8f74ce7e939956eadba6cbe4282bd5f1d" => :sierra
-    sha256 "cd1c10d8562734138ee3f7b2612728847a1b5f19fe900003d85c31efe005de6b" => :el_capitan
-    sha256 "c6fc0116ab14ab66020a9bcf78061335145d50b3ffafba75765cdab9d8afe7f1" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any, sierra:       "d52cffe4cfee3666dc34da64f24893c8f74ce7e939956eadba6cbe4282bd5f1d"
+    sha256 cellar: :any, el_capitan:   "cd1c10d8562734138ee3f7b2612728847a1b5f19fe900003d85c31efe005de6b"
+    sha256 cellar: :any, x86_64_linux: "c6fc0116ab14ab66020a9bcf78061335145d50b3ffafba75765cdab9d8afe7f1"
   end
 
   depends_on "autoconf"  => :build
   depends_on "automake"  => :build
-  depends_on "libtool"   => :build
   depends_on "check"     => :build
-  depends_on "python3"
+  depends_on "libtool"   => :build
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "numpy"
+  depends_on "python3"
   depends_on "raxml"
   depends_on "webp"
   depends_on "fasttree" => :recommended
@@ -67,14 +67,19 @@ class Gubbins < Formula
         sdkprefix = MacOS::CLT.installed? ? "" : MacOS.sdk_path
         s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
         s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
-        s.gsub! "JPEG_ROOT = None", "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
-        s.gsub! "FREETYPE_ROOT = None", "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"
+        s.gsub! "JPEG_ROOT = None",
+"JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
+        s.gsub! "FREETYPE_ROOT = None",
+"FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"
       end
 
       begin
         # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
         deleted = ENV.delete "SDKROOT"
-        ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers" unless MacOS::CLT.installed?
+        unless MacOS::CLT.installed?
+          ENV.append "CFLAGS",
+"-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+        end
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       ensure
         ENV["SDKROOT"] = deleted
@@ -106,7 +111,7 @@ class Gubbins < Formula
       system "python3", *Language::Python.setup_install_args(libexec)
     end
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do

@@ -5,23 +5,23 @@ class Dsdp < Formula
   sha256 "26aa624525a636de272c0b329e2dfd01a0d5b7827f1c1c76f393d71e37dead70"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c647e5dd9882674846311d006d3055f947aa299959f77c57e4452e82f45ff811" => :el_capitan
-    sha256 "8eb175be666a98748ba0853645500e9e2a3fda4e513a185524afbd438e61c266" => :yosemite
-    sha256 "e13dbc58fb9629c4d18967991f95422ac6698db5000f2caa04d77d96f872480f" => :mavericks
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any_skip_relocation, el_capitan: "c647e5dd9882674846311d006d3055f947aa299959f77c57e4452e82f45ff811"
+    sha256 cellar: :any_skip_relocation, yosemite:   "8eb175be666a98748ba0853645500e9e2a3fda4e513a185524afbd438e61c266"
+    sha256 cellar: :any_skip_relocation, mavericks:  "e13dbc58fb9629c4d18967991f95422ac6698db5000f2caa04d77d96f872480f"
   end
 
   # let Homebrew choose compiler
   # choose LAPACK library between Accelerate.framework and OpenBLAS
-  patch :DATA
-
   depends_on "openblas" => :optional
 
+  patch :DATA
+
   def install
-    if build.with? "openblas"
-      lapacklib = "-L#{Formula["openblas"].opt_lib} -lopenblas"
+    lapacklib = if build.with? "openblas"
+      "-L#{Formula["openblas"].opt_lib} -lopenblas"
     else
-      lapacklib = "-framework Accelerate"
+      "-framework Accelerate"
     end
 
     ENV["DSDPROOT"] = Dir.pwd
@@ -37,12 +37,13 @@ class Dsdp < Formula
   end
 
   test do
-    if Tab.for_name("dsdp").with? "openblas"
-      lapacklib = ["-L#{Formula["openblas"].opt_lib}", "-lopenblas"]
+    lapacklib = if Tab.for_name("dsdp").with? "openblas"
+      ["-L#{Formula["openblas"].opt_lib}", "-lopenblas"]
     else
-      lapacklib = ["-framework", "Accelerate"]
+      ["-framework", "Accelerate"]
     end
-    system ENV.cc, "-o", "maxcut", "-I#{opt_include}", "#{opt_pkgshare}/maxcut.c", "-L#{opt_lib}", "-ldsdp", *lapacklib
+    system ENV.cc, "-o", "maxcut", "-I#{opt_include}", "#{opt_pkgshare}/maxcut.c", "-L#{opt_lib}", "-ldsdp",
+*lapacklib
     system "./maxcut", "#{opt_pkgshare}/graph1"
   end
 end

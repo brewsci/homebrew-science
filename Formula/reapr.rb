@@ -8,6 +8,7 @@ class Reapr < Formula
   revision 2
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "9290a6fe394b119c2a0fc78ee496a2537c82cc5501f877610cdf2878b50d6f9a" => :sierra
     sha256 "1b1a226fe7e1e9816bd51d48b99728c1a908ee24653bc5c6978ce6bfbbe27091" => :el_capitan

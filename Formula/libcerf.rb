@@ -5,11 +5,11 @@ class Libcerf < Formula
   sha256 "e36dc147e7fff81143074a21550c259b5aac1b99fc314fc0ae33294231ca5c86"
 
   bottle do
-    cellar :any
-    sha256 "5f83e48ae2d92abbfc75d8807944371c926f3fe3c991c119e3243bd14cf1481f" => :sierra
-    sha256 "9bd8e5eda457b6ce7e78bdd56bb50e8d4185747d024c0d1973bb00f5dc01a800" => :el_capitan
-    sha256 "91a46dd259e87aa1f803e62b15fe760498b03010662bfaa57d2e5a71a82b5063" => :yosemite
-    sha256 "5a562cb94015f3a4d75a9caae77d36e4072ade6e5a58b41bbbb588769d8f43dc" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any, sierra:       "5f83e48ae2d92abbfc75d8807944371c926f3fe3c991c119e3243bd14cf1481f"
+    sha256 cellar: :any, el_capitan:   "9bd8e5eda457b6ce7e78bdd56bb50e8d4185747d024c0d1973bb00f5dc01a800"
+    sha256 cellar: :any, yosemite:     "91a46dd259e87aa1f803e62b15fe760498b03010662bfaa57d2e5a71a82b5063"
+    sha256 cellar: :any, x86_64_linux: "5a562cb94015f3a4d75a9caae77d36e4072ade6e5a58b41bbbb588769d8f43dc"
   end
 
   option "without-test", "Disable build-time testing (not recommended)"

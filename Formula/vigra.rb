@@ -8,6 +8,7 @@ class Vigra < Formula
   head "https://github.com/ukoethe/vigra.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "e1c0c61673b0d83abe655959b5b812468ad7b44e079c17f6c67d89d7f20ca6fb" => :sierra
     sha256 "f5229d63afd14beba5bf805e37e37ac00ff0de61518b09a0e5f44cb2442449fd" => :el_capitan

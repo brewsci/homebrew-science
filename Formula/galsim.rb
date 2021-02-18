@@ -1,5 +1,5 @@
 class Galsim < Formula
-  desc "The modular galaxy image simulation toolkit"
+  desc "Modular galaxy image simulation toolkit"
   homepage "https://github.com/GalSim-developers/GalSim"
   url "https://github.com/GalSim-developers/GalSim/archive/v1.3.0.tar.gz"
   sha256 "4afd3284adfd12845b045ea3c8e293b63057c7da57872bc9eecd005cf0a763c0"
@@ -13,14 +13,14 @@ class Galsim < Formula
   deprecated_option "without-check" => "without-test"
 
   depends_on "scons" => :build
-  depends_on "fftw"
   depends_on "boost"
   depends_on "boost-python"
+  depends_on "fftw"
+  depends_on "numpy"
   depends_on "tmv-cpp"
 
   # FITS support should come from astropy.io.fits (PyFITS has been deprecated)
   # Depends_on "astropy" => :python
-  depends_on "numpy"
   # Depends_on "nose" => :python if build.with? "test"
 
   needs :openmp if build.with? "openmp"
@@ -36,7 +36,7 @@ class Galsim < Formula
             "TMV_LINK=#{Formula["tmv-cpp"].opt_share}/tmv/tmv-link",
             "EXTRA_LIB_PATH=#{Formula["boost-python"].opt_lib}"]
     args << "WITH_OPENMP=true" if build.with? "openmp"
-    scons *args
+    scons(*args)
     scons "tests"
     scons "install", "PREFIX=#{prefix}", "PYPREFIX=#{lib}/python#{pyver}/site-packages"
     pkgshare.install "examples"
@@ -45,7 +45,7 @@ class Galsim < Formula
   def caveats
     homebrew_site_packages = Language::Python.homebrew_site_packages
     user_site_packages = Language::Python.user_site_packages "python"
-    s = <<~EOS
+    <<~EOS
       If you use the Apple-provided Python instead of one from Homebrew, you
       may want to add all Homebrew python packages to the default paths
       by running:
@@ -54,7 +54,6 @@ class Galsim < Formula
         echo 'import sys; sys.path.insert(1, "#{homebrew_site_packages}")' >> \\
             #{user_site_packages}/homebrew.pth
     EOS
-    s
   end
 
   test do

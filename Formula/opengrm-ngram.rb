@@ -7,6 +7,7 @@ class OpengrmNgram < Formula
   revision 2
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "2c018ccfc40596618d645052576fcf572e1a628ac3d489ca6be2c317a19f54ae" => :sierra
     sha256 "fd0d2eedc9f56beee097f2cab312367f27019fc31afcf40530790afea363cf46" => :el_capitan

@@ -9,10 +9,11 @@ class CeleraAssembler < Formula
   sha256 "2e000d04273df2cc3ce2514beb812d5772b7127d469d088bb9293e522ae32096"
 
   bottle do
-    sha256 "4e9e12f42fcc8dcc8929bd10317c4eca171c01c03692142ebec7f7520a91d12d" => :yosemite
-    sha256 "e3afa1a3b48f5e2711f5b11920ed0e5b6ce913971b410a24c368150720a8e4c8" => :mavericks
-    sha256 "7645009d791cae8322451e8796d756442b71a37de851f13fcc41f5b239ab3e8c" => :mountain_lion
-    sha256 "5e8fbd9db701ba6633ea0fd6bef2ca68af874efd67b68c52bb04b62baca81abf" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 yosemite:      "4e9e12f42fcc8dcc8929bd10317c4eca171c01c03692142ebec7f7520a91d12d"
+    sha256 mavericks:     "e3afa1a3b48f5e2711f5b11920ed0e5b6ce913971b410a24c368150720a8e4c8"
+    sha256 mountain_lion: "7645009d791cae8322451e8796d756442b71a37de851f13fcc41f5b239ab3e8c"
+    sha256 x86_64_linux:  "5e8fbd9db701ba6633ea0fd6bef2ca68af874efd67b68c52bb04b62baca81abf"
   end
 
   # Fails with clang: https://sourceforge.net/p/wgs-assembler/bugs/262/

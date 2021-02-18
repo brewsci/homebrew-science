@@ -9,6 +9,7 @@ class Spaced < Formula
   # tag "bioinformatics"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "226ae5554d19478f42ef93243edc23c51d8a14d392cf38ae4dc636cfe83fca77" => :sierra
     sha256 "c3c437713efc321bf373579effdbdfe41f180310555dcee9f3255dc0909eab5f" => :el_capitan

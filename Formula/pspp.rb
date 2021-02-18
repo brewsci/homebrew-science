@@ -6,6 +6,7 @@ class Pspp < Formula
   sha256 "ba281a2e5d7d40e22f36f07f434a4fbc5be49c6d15740b121c299d024aae1ae5"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 "16197a2755fcf8c15a57d8caea5994862073437b39de7b921ea695090e661d52" => :sierra
     sha256 "303af89c5baba2a558659ed6b83b8eef8ebdccc68500a7e007e0093ae6f00911" => :el_capitan
     sha256 "199674bd2b1d4a42285edceab3239cdabdede267269fa6750d42dd65d5c2d9a0" => :yosemite

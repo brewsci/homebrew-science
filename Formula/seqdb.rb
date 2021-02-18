@@ -7,6 +7,7 @@ class Seqdb < Formula
   # tag "bioinformatics"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "8c4b878ffc024f683bfad217172fbd112981acf8bc73e7df1332d57058ec1f39" => :sierra
     sha256 "5ff9b6b160d8adf93d7b4f9c7d89db573efdda3f0b2f2709502b44b6356eb6ae" => :el_capitan

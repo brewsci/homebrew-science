@@ -6,6 +6,7 @@ class TransProteomicPipeline < Formula
   sha256 "900365ccf0ba28a2e6c8401c809972cc33d28f1cfd4ca5624a8c37f24211492f"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 "f698520c827c0abb483f98f73ec6efdd277cb03e90d6ececd4159f0152e71d32" => :sierra
     sha256 "70ced32bd83184dd748702a9513ecf497c414bb351a632d6d1b21c85771a3918" => :el_capitan
     sha256 "bd472cae9ceee14834b7d12ac9c3fd142389c7cbb9b9eb182371d0d84e7987a8" => :yosemite

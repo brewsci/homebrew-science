@@ -11,12 +11,13 @@ class Bless < Formula
 
   bottle :disable, "needs to be rebuilt with latest boost and open-mpi"
 
-  needs :openmp
-
-  depends_on "boost"
   depends_on "google-sparsehash" => :build
-  depends_on "kmc" => :recommended
+  depends_on "google-sparsehash" => :build
+  depends_on "boost"
   depends_on "openmpi"
+  depends_on "kmc" => :recommended
+
+  needs :openmp
 
   def install
     # Do not build vendored dependency, kmc.

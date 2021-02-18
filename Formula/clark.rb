@@ -8,11 +8,11 @@ class Clark < Formula
   sha256 "3223daa518a3f5c9f08af6f1a8cca669286672f87197c0c7f2e03504c44b37da"
 
   bottle do
-    cellar :any
-    sha256 "1ef50d25121c19b6567f3e5112897a08887189672bf408abeb24979fdbd061b5" => :el_capitan
-    sha256 "361ed1106de564e044f96ce1ca82dd894c684ddf7ff58e417533cf567d71fa14" => :yosemite
-    sha256 "52acdda74cbcec8a4815d998136784d8769c7c1e7efc7eeb2eab8a44552cbf98" => :mavericks
-    sha256 "c7a4f65621a89f894109a50dda5c9614e64808fc30e6d449b8831f44a3be96bf" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any, el_capitan:   "1ef50d25121c19b6567f3e5112897a08887189672bf408abeb24979fdbd061b5"
+    sha256 cellar: :any, yosemite:     "361ed1106de564e044f96ce1ca82dd894c684ddf7ff58e417533cf567d71fa14"
+    sha256 cellar: :any, mavericks:    "52acdda74cbcec8a4815d998136784d8769c7c1e7efc7eeb2eab8a44552cbf98"
+    sha256 cellar: :any, x86_64_linux: "c7a4f65621a89f894109a50dda5c9614e64808fc30e6d449b8831f44a3be96bf"
   end
 
   needs :openmp
@@ -26,7 +26,7 @@ class Clark < Formula
 
   def caveats
     <<~EOS
-    Additional helper scripts are installed in #{pkgshare}
+      Additional helper scripts are installed in #{pkgshare}
     EOS
   end
 

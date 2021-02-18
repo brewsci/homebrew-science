@@ -6,6 +6,7 @@ class TmvCpp < Formula
   head "https://github.com/rmjarvis/tmv.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "18d80d1ab60aa4edaa4ae2f1a5e0853b8710fc7ba71ec436cd7dc3daa201c99c" => :high_sierra
     sha256 "aaaea5f9d8ead80b0ab7fa18d73e7a932022cbb468de99b17dc226d2434133e3" => :sierra

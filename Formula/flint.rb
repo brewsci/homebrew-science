@@ -6,13 +6,14 @@ class Flint < Formula
   url "http://flintlib.org/flint-2.5.2.tar.gz"
   sha256 "cbf1fe0034533c53c5c41761017065f85207a1b770483e98b2392315f6575e87"
   revision 1
-  head "https://github.com/wbhart/flint2.git", :branch => "trunk"
+  head "https://github.com/wbhart/flint2.git", branch: "trunk"
 
   bottle do
-    sha256 "84ea34a38641727ba22c55f9b1822fb3b7d6a7cf4aa7df3276b0414e02e13aa7" => :high_sierra
-    sha256 "1449026475aeb11f36bcd1d7406f6cf33df7ad63e67ccca034611e4383666281" => :sierra
-    sha256 "100c43d9c54a3ce171fdbea0156423e63f6a10e3fe53f291aabac7cb89d2aa2d" => :el_capitan
-    sha256 "2b5aa1e178f556652bdfca7db76f9adbfe781abfe9a2925e448b79656676ccad" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 high_sierra:  "84ea34a38641727ba22c55f9b1822fb3b7d6a7cf4aa7df3276b0414e02e13aa7"
+    sha256 sierra:       "1449026475aeb11f36bcd1d7406f6cf33df7ad63e67ccca034611e4383666281"
+    sha256 el_capitan:   "100c43d9c54a3ce171fdbea0156423e63f6a10e3fe53f291aabac7cb89d2aa2d"
+    sha256 x86_64_linux: "2b5aa1e178f556652bdfca7db76f9adbfe781abfe9a2925e448b79656676ccad"
   end
 
   depends_on "gmp"

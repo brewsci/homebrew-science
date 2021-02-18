@@ -6,6 +6,7 @@ class TamarinProver < Formula
   head "https://github.com/tamarin-prover/tamarin-prover.git", :branch => "develop"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "73d09465fd0af798b11f94d9a845342b4c97b1a4345d6a9425bef89242b34924" => :sierra
     sha256 "5f9265c596f44a2b508ef7cbe007e05fd9b63fd8a1cbaf9fbc3b88b609dcecbd" => :el_capitan

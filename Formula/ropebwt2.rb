@@ -9,6 +9,7 @@ class Ropebwt2 < Formula
   # tag "bioinformatics"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "407baaadb20ffd53b724b2298ab4c205a76e96f4c3958551939b93c72dcf2215" => :el_capitan
     sha256 "0162fa95c05f37dd58d1fb417f1943704d4f9d28c56b70ccc7aa3311cd310b9d" => :yosemite

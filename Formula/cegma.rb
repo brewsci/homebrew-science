@@ -8,11 +8,11 @@ class Cegma < Formula
   sha256 "dd7381c0402622645404ea009c66e54f7c915d8b80a16e02b8e17ccdc1859e76"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c0953276f654ad3f2696fd7ddb3c33fa6a61d6765b4b6ac4aae694618fb9a32b" => :el_capitan
-    sha256 "48c10c321a8868e69dd06bef16e48c41d5db331fd2ea460866d3a04770a56259" => :yosemite
-    sha256 "2a827211542d44535a0b1525474e3cee46b950bc12c5f82932e4b84b0384e58f" => :mavericks
-    sha256 "8b558845f19d3b2c6c79cf8cf69226bbb5934701d92b05d7952090d46a31ba1b" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any_skip_relocation, el_capitan:   "c0953276f654ad3f2696fd7ddb3c33fa6a61d6765b4b6ac4aae694618fb9a32b"
+    sha256 cellar: :any_skip_relocation, yosemite:     "48c10c321a8868e69dd06bef16e48c41d5db331fd2ea460866d3a04770a56259"
+    sha256 cellar: :any_skip_relocation, mavericks:    "2a827211542d44535a0b1525474e3cee46b950bc12c5f82932e4b84b0384e58f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "8b558845f19d3b2c6c79cf8cf69226bbb5934701d92b05d7952090d46a31ba1b"
   end
 
   depends_on "blast"
@@ -30,10 +30,11 @@ class Cegma < Formula
     prefix.install "release_notes.md"
   end
 
-  def caveats; <<~EOS
-    To use CEGMA, set the following environment variables:
-      export CEGMA=#{HOMEBREW_PREFIX}/opt/cegma/libexec
-      export PERL5LIB=#{HOMEBREW_PREFIX}/lib/perl5/site_perl:${PERL5LIB}
+  def caveats
+    <<~EOS
+      To use CEGMA, set the following environment variables:
+        export CEGMA=#{HOMEBREW_PREFIX}/opt/cegma/libexec
+        export PERL5LIB=#{HOMEBREW_PREFIX}/lib/perl5/site_perl:${PERL5LIB}
     EOS
   end
 

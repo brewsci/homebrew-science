@@ -8,9 +8,9 @@ class Genet < Formula
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
-    depends_on "libtool" => :build
     depends_on "gengetopt" => :build
     depends_on "help2man" => :build
+    depends_on "libtool" => :build
   end
 
   def install

@@ -1,23 +1,29 @@
 class Madlib < Formula
-  desc "Library for scalable in-database analytics."
+  desc "Library for scalable in-database analytics"
   homepage "https://madlib.incubator.apache.org/"
   url "https://github.com/apache/madlib/archive/rel/v1.12.tar.gz"
   sha256 "4f21b1f463f22ee7ddefbe2e4c52e254a7156aefef980f1b3f26479f5f8c1672"
   head "https://github.com/apache/madlib.git"
 
   bottle do
-    sha256 "2b3b00b26a10a1a91c47b5110f97584ffa5fd3c32a0187d23af2c842b23840e4" => :sierra
-    sha256 "e2e20a7dabb02a1912685611f5cf2481a91794b6f4396a94b07b286815b8bffd" => :el_capitan
-    sha256 "307cb968d0799c3ac75db9cbfe691f2be89dd4170dcf3814df0b71be0f9d742b" => :yosemite
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 sierra:     "2b3b00b26a10a1a91c47b5110f97584ffa5fd3c32a0187d23af2c842b23840e4"
+    sha256 el_capitan: "e2e20a7dabb02a1912685611f5cf2481a91794b6f4396a94b07b286815b8bffd"
+    sha256 yosemite:   "307cb968d0799c3ac75db9cbfe691f2be89dd4170dcf3814df0b71be0f9d742b"
   end
 
   boost_opts = []
   boost_opts << "c++11" if MacOS.version < :mavericks
-  depends_on "boost@1.59" => boost_opts
-  depends_on "boost-python@1.59" => boost_opts if build.with? "python"
   depends_on "cmake" => :build
+  depends_on "boost@1.59" => boost_opts
   depends_on "postgresql" => ["with-python"]
   depends_on "python" => :optional
+  depends_on "boost-python@1.59" => boost_opts if build.with? "python"
+
+  fails_with :gcc do
+    build 5666
+    cause "See http://jira.madlib.net/browse/MADLIB-865"
+  end
 
   resource "pyxb" do
     url "https://downloads.sourceforge.net/project/pyxb/pyxb/1.2.4/PyXB-1.2.4.tar.gz"
@@ -27,11 +33,6 @@ class Madlib < Formula
   resource "eigen" do
     url "https://bitbucket.org/eigen/eigen/get/3.2.10.tar.gz"
     sha256 "04f8a4fa4afedaae721c1a1c756afeea20d3cdef0ce3293982cf1c518f178502"
-  end
-
-  fails_with :gcc do
-    build 5666
-    cause "See http://jira.madlib.net/browse/MADLIB-865"
   end
 
   def install
@@ -61,10 +62,11 @@ class Madlib < Formula
     bin.write_exec_script("#{prefix}/Current/bin/madpack")
   end
 
-  def caveats; <<~EOS
-    MADlib must be rebuilt if you upgrade PostgreSQL:
+  def caveats
+    <<~EOS
+      MADlib must be rebuilt if you upgrade PostgreSQL:
 
-      brew reinstall madlib
+        brew reinstall madlib
     EOS
   end
 
@@ -81,7 +83,8 @@ class Madlib < Formula
       sleep 2
       system "#{pg_bin}/createdb", "-p", pg_port, "test_madpack"
       system "#{bin}/madpack", "-p", "postgres", "-c", "#{ENV["USER"]}/@localhost:#{pg_port}/test_madpack", "install"
-      system "#{bin}/madpack", "-p", "postgres", "-c", "#{ENV["USER"]}/@localhost:#{pg_port}/test_madpack", "install-check"
+      system "#{bin}/madpack", "-p", "postgres", "-c", "#{ENV["USER"]}/@localhost:#{pg_port}/test_madpack",
+"install-check"
     ensure
       Process.kill 9, pid
       Process.wait pid

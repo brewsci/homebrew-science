@@ -6,9 +6,10 @@ class Fplll < Formula
   sha256 "75e17fcaa4fc5fdddbe6eb42aca5f38c4c169a4b52756e74fbe2d1769737ac9c"
 
   bottle do
-    sha256 "30e57a63f3f73b7c6c0bf2483b77302e7f850c764b4676f9aaca75b2a8be7e13" => :sierra
-    sha256 "36ace8be9340aa6cf29ed1d431f56e0c8df9064005334d9ffae14aaf039ce7a3" => :el_capitan
-    sha256 "46430c3ce03a664c7a14f22335bbfe99728a77f08e9447bca95ce5be66c42011" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 sierra:       "30e57a63f3f73b7c6c0bf2483b77302e7f850c764b4676f9aaca75b2a8be7e13"
+    sha256 el_capitan:   "36ace8be9340aa6cf29ed1d431f56e0c8df9064005334d9ffae14aaf039ce7a3"
+    sha256 x86_64_linux: "46430c3ce03a664c7a14f22335bbfe99728a77f08e9447bca95ce5be66c42011"
   end
 
   option "without-test", "Disable build-time checking (not recommended)"
@@ -41,7 +42,7 @@ class Fplll < Formula
       }
     EOS
     cxx_with_flags = ENV.cxx.split + ["test.cpp", "-lgmp", "-lmpfr", "-lfplll", "-o", "test"]
-    system *cxx_with_flags
+    system(*cxx_with_flags)
     system "./test"
   end
 end

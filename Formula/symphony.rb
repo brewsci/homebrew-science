@@ -6,6 +6,7 @@ class Symphony < Formula
   revision 1
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "08806b4cf87ace05706b77c5344800d54ef1f386bcfbcae221dec19d6ac84622" => :sierra
     sha256 "9698ba6df20e9804258df4ec32213617f51437daf8169c08a902f0658e2ae85b" => :el_capitan

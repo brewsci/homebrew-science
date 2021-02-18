@@ -7,6 +7,7 @@ class Populations < Formula
   # tag "bioinformatics"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "9f95976745be9f265339f36966a5d4b4c7c94046fd86bb7ffd9ba43d20520d8b" => :sierra
     sha256 "6c2835403b79a0583bc27f7b3dcdac55db397091daa612f386aa71fc8b0cc930" => :el_capitan

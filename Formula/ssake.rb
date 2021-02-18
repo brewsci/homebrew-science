@@ -8,6 +8,7 @@ class Ssake < Formula
   sha256 "55fad26faa2b33841c58c7e52ed85c98bac2f65ffd48a40d09ba5e274ccb5d87"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "c51b0294aace8714001b1d3d08af9239262b751636bf1eb61a8c6dfb65e6bd92" => :el_capitan
     sha256 "8332def65e6f706db2371ef9fd7025ebb48ffcb2f3d5520ca4a8c784f8098f34" => :yosemite

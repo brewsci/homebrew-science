@@ -5,6 +5,7 @@ class Prooftree < Formula
   sha256 "b08949a7f6a1ea04f4f76c53f24c151ea803fc7309d525e0bcf771bc30273f7c"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "aa5262b4e473ac4cd9c4bc6a2b3c2df1fcde36eb1c1526de29a1afc25432f065" => :high_sierra
     sha256 "21059e20ae5f84eea358b535736cd7197f1a30fb4fb9a79cc21a5bc8f1b00dde" => :sierra

@@ -7,10 +7,10 @@ class EaUtils < Formula
   revision 2
 
   bottle do
-    cellar :any
-    sha256 "9cfceb70501fb9726c055ac1c6a58bffba2d50dbafa4fd5a8460b90fb000c740" => :sierra
-    sha256 "609855ef0c36229987e77d78a3c8eefef5d311c8b380908136a79a534c4dd714" => :el_capitan
-    sha256 "5b3aa815405d548781610d3704ca21a5ae53684ba2c4a56b8b3a56bf3d0bc9fe" => :yosemite
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any, sierra:     "9cfceb70501fb9726c055ac1c6a58bffba2d50dbafa4fd5a8460b90fb000c740"
+    sha256 cellar: :any, el_capitan: "609855ef0c36229987e77d78a3c8eefef5d311c8b380908136a79a534c4dd714"
+    sha256 cellar: :any, yosemite:   "5b3aa815405d548781610d3704ca21a5ae53684ba2c4a56b8b3a56bf3d0bc9fe"
   end
 
   depends_on "gsl"

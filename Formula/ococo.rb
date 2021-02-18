@@ -7,6 +7,7 @@ class Ococo < Formula
   head "https://github.com/karel-brinda/ococo.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "a487edf868f9f09f851d60d6d161642f683fd1ea1949ffaaf40ed0d57da01862" => :high_sierra
     sha256 "42a0faa2e0a24f6771f620cbb5fef35e7c6a9a6d07e6afe4cb682075af9dcbdd" => :sierra

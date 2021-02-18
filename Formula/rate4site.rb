@@ -5,6 +5,7 @@ class Rate4site < Formula
   sha256 "5f748131bc2d10383c35c3141a835efa4ec1e7088cd9d8970e8024021aa509ac"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "272159ce705abd98674ff30051b7221da34580a55b1d8045849dfc1035576f92" => :el_capitan
     sha256 "cde872f77a3cf3c808a813129e9c7da4f72eba1c167fc0fe6c7405c01172e65d" => :yosemite

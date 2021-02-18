@@ -4,12 +4,12 @@ class Mtl < Formula
   sha256 "b747922b25ccf3192de7f8a6b2035705d415ccbebc5d90dd9538a7087539008d"
   revision 2
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   head do
-    url "https://simunova.zih.tu-dresden.de/svn/mtl4/trunk", :using => :svn
+    url "https://simunova.zih.tu-dresden.de/svn/mtl4/trunk", using: :svn
     depends_on "cmake" => :build
   end
+
+  bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "boost"
 

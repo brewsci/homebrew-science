@@ -9,10 +9,11 @@ class Littler < Formula
   head "https://github.com/eddelbuettel/littler.git"
 
   bottle do
-    sha256 "e03f8e6b2601bf5f783637880c22e3c218e4111aeeb5c20377288f3e391794ea" => :sierra
-    sha256 "1c5ace2ab2899f1d2e0aaa86081bbf291f25fa0f9da82c6a5aa536b366d54aa4" => :el_capitan
-    sha256 "fb6b0ba9342eb301ff0ae34259d936bd2f06dad73abc929e48ac8d8ec8114deb" => :yosemite
-    sha256 "20aa581201bdf6a21bc974a1dc3432860011d1b4eea7c7b226bac123a283f5f7" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 sierra:       "e03f8e6b2601bf5f783637880c22e3c218e4111aeeb5c20377288f3e391794ea"
+    sha256 el_capitan:   "1c5ace2ab2899f1d2e0aaa86081bbf291f25fa0f9da82c6a5aa536b366d54aa4"
+    sha256 yosemite:     "fb6b0ba9342eb301ff0ae34259d936bd2f06dad73abc929e48ac8d8ec8114deb"
+    sha256 x86_64_linux: "20aa581201bdf6a21bc974a1dc3432860011d1b4eea7c7b226bac123a283f5f7"
   end
 
   depends_on "r"
@@ -32,9 +33,10 @@ class Littler < Formula
     doc.install "README"
   end
 
-  def caveats; <<~EOS
-    This formula installs `r` as `littler` to avoid conflicting
-    with the Zsh builtin and case-insensitive filesystems.
+  def caveats
+    <<~EOS
+      This formula installs `r` as `littler` to avoid conflicting
+      with the Zsh builtin and case-insensitive filesystems.
     EOS
   end
 

@@ -5,6 +5,7 @@ class Sfscode < Formula
   sha256 "fee60d244bb0d756770a1e26e25683bc84aad13695ddfb3eab5d8f0c33312e7d"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "4e44262e9ab34e4dc1b5d1892afee52b372605734c81d44b79c42946fbe6e54a" => :high_sierra
     sha256 "35bfa0e2fe611812febcb8059d6fe0a3dba64e3f28a1340621ea7bebbbea4973" => :sierra

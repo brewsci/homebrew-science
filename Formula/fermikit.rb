@@ -10,11 +10,11 @@ class Fermikit < Formula
   head "https://github.com/lh3/fermikit.git"
 
   bottle do
-    cellar :any
-    sha256 "b467bb944e76c9bac1631e99504af33ab246deff71d35f6ebe43b5cf6526f3a2" => :yosemite
-    sha256 "13cb6bc58404555edb8141637461336f18c2079ad931e8fe8806f656a7142745" => :mavericks
-    sha256 "7e3964a923ed60cd1c44cc8dab675b4bd4d988b5fd8bfd041d2a65ddc10eb33c" => :mountain_lion
-    sha256 "1e5597398b9a9d76768ad06ebeba772c4de6522bea7ed143ab56d87080f7770f" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any, yosemite:      "b467bb944e76c9bac1631e99504af33ab246deff71d35f6ebe43b5cf6526f3a2"
+    sha256 cellar: :any, mavericks:     "13cb6bc58404555edb8141637461336f18c2079ad931e8fe8806f656a7142745"
+    sha256 cellar: :any, mountain_lion: "7e3964a923ed60cd1c44cc8dab675b4bd4d988b5fd8bfd041d2a65ddc10eb33c"
+    sha256 cellar: :any, x86_64_linux:  "1e5597398b9a9d76768ad06ebeba772c4de6522bea7ed143ab56d87080f7770f"
   end
 
   depends_on "bfc"

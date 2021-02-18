@@ -8,14 +8,14 @@ class Corset < Formula
   sha256 "a4902035ad58e9a5896fe1951de83c3d6b64759919589ecc27cf714c6acfc487"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "67000ee4879523d782b8a57ec94772a863dae25fd6c29fe573cfc9c1be5c8be1" => :el_capitan
-    sha256 "ee530d4840361f257f7206097d995c04fa8745348e1999628582b9d54b86c80f" => :yosemite
-    sha256 "f6a43255fa86b7cb67ddd6abd614f05c349a3043225f81cfed1edfeae99ae818" => :mavericks
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any_skip_relocation, el_capitan: "67000ee4879523d782b8a57ec94772a863dae25fd6c29fe573cfc9c1be5c8be1"
+    sha256 cellar: :any_skip_relocation, yosemite:   "ee530d4840361f257f7206097d995c04fa8745348e1999628582b9d54b86c80f"
+    sha256 cellar: :any_skip_relocation, mavericks:  "f6a43255fa86b7cb67ddd6abd614f05c349a3043225f81cfed1edfeae99ae818"
   end
 
-  depends_on "samtools"
   depends_on "htslib"
+  depends_on "samtools"
 
   def install
     ENV.libcxx if MacOS.version < :mavericks

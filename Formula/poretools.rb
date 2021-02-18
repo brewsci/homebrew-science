@@ -12,6 +12,7 @@ class Poretools < Formula
   head "https://github.com/arq5x/poretools.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "e040d34e86d3b7989000ccd8d24d97a9e8025a11409bb4669a7afced55c6292e" => :sierra
     sha256 "ae1db4c366ce232875b07c3098b5be046b37a013fecd89f030698cd2525df434" => :el_capitan

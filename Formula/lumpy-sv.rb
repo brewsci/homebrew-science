@@ -7,21 +7,21 @@ class LumpySv < Formula
   # tag "bioinformatics"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "712abc8add7fb030e08ed367b0c752ba5c33631e047926346f2e79653e84e9cb" => :sierra
-    sha256 "344c9e24aa37ddd01a012a30aad17fa92780739e926ff5e65b1bcb5ac45d87c5" => :el_capitan
-    sha256 "225cb0dd852ebb98579f0c72f7f4b48e295e06e9182d4f32f5d05048ba42c15d" => :yosemite
-    sha256 "76ba5f96d725ea33703702852c6ced455eb0f160bb75240afbbdf20a17a3d642" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any_skip_relocation, sierra:       "712abc8add7fb030e08ed367b0c752ba5c33631e047926346f2e79653e84e9cb"
+    sha256 cellar: :any_skip_relocation, el_capitan:   "344c9e24aa37ddd01a012a30aad17fa92780739e926ff5e65b1bcb5ac45d87c5"
+    sha256 cellar: :any_skip_relocation, yosemite:     "225cb0dd852ebb98579f0c72f7f4b48e295e06e9182d4f32f5d05048ba42c15d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "76ba5f96d725ea33703702852c6ced455eb0f160bb75240afbbdf20a17a3d642"
   end
 
+  depends_on "bwa" => :optional
+  depends_on "sambamba" => :optional
   depends_on "samblaster" => :optional
   depends_on "samtools" => :optional
-  depends_on "sambamba" => :optional
-  depends_on "bwa" => :optional
 
   resource "bamkit" do
     url "https://github.com/cc2qe/bamkit.git",
-        :revision => "148ef1d3ac05ef7a033ed5ef42749c21956718d6"
+        revision: "148ef1d3ac05ef7a033ed5ef42749c21956718d6"
   end
 
   def install

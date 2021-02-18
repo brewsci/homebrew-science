@@ -6,16 +6,16 @@ class Jsbsim < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d26afc5d86e930816d2fb2e1c0d117aba24cbdee0a045c84a4806a89cce1ac27" => :el_capitan
-    sha256 "b2de90a1b12b98f50ba0d5ce9757d5b34615d89b7a028d1f6a4d84813e2ecf9e" => :yosemite
-    sha256 "5abf5c285d07246ed7ccfa021fe34ebc557f8f50e1c9d1ff99f12eb737d56ce9" => :mavericks
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any_skip_relocation, el_capitan: "d26afc5d86e930816d2fb2e1c0d117aba24cbdee0a045c84a4806a89cce1ac27"
+    sha256 cellar: :any_skip_relocation, yosemite:   "b2de90a1b12b98f50ba0d5ce9757d5b34615d89b7a028d1f6a4d84813e2ecf9e"
+    sha256 cellar: :any_skip_relocation, mavericks:  "5abf5c285d07246ed7ccfa021fe34ebc557f8f50e1c9d1ff99f12eb737d56ce9"
   end
 
   head do
     url "https://git.code.sf.net/p/jsbsim/code.git"
 
-    # Note: we are removing the compilation of Aeromatic, a web-based
+    # NOTE: we are removing the compilation of Aeromatic, a web-based
     # configuration file generator for JSBSim. Additionally, we are removing
     # a call to "feenableexcept" which is not available in Clang. We also
     # remove tests since there's a test that also relies on "feenableexcept".

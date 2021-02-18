@@ -1,5 +1,5 @@
 class Analysis < Formula
-  desc "Programs for the (pre-NGS-era) analysis of population-genetic data."
+  desc "Programs for the (pre-NGS-era)  of population-genetic data"
   homepage "https://github.com/molpopgen/analysis"
   url "https://github.com/molpopgen/analysis/archive/0.8.8.tar.gz"
   sha256 "f9ef9e0a90fce2c0f4fe462d6c05e22fef22df1c23b63a7c64ad7b538f6e8bb0"
@@ -8,8 +8,8 @@ class Analysis < Formula
 
   bottle :disable, "needs to be rebuilt with latest boost"
 
-  depends_on "gsl"
   depends_on "boost"
+  depends_on "gsl"
   depends_on "zlib" unless OS.mac?
 
   # vendor an older version of libsequence as analysis no longer

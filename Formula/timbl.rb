@@ -5,6 +5,7 @@ class Timbl < Formula
   sha256 "c95ad52e78136840245e7732ec6403282894ecf187b18b49a8271f34520c2dcb"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any
     sha256 "214e7accd71efb5a00c3e49a013c86364128c24849f6df261061dae470d3641a" => :high_sierra
     sha256 "87ccbd5562101e4b0ad2445f6879f98bfca2dbffee967ab983f92d96586a23b3" => :sierra

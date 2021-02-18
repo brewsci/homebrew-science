@@ -6,29 +6,30 @@ class AstrometryNet < Formula
   head "https://github.com/dstndstn/astrometry.net.git"
 
   bottle do
-    cellar :any
-    sha256 "6370ad57a1a5f3a7569caf87201d5a3726dc0181a902c423009a244265d092de" => :high_sierra
-    sha256 "1d749e2a0bd3c69012dbf8bfb2e1ac1971f68cc8e932361b57d0354c085f66ca" => :sierra
-    sha256 "74a3f7c9ac9a7c3263431194789c691a7f98fc2186fcbec1dbb52aaf9d73db2e" => :el_capitan
-    sha256 "c4f85a0037ba25a08f2038ff8b1eeb8d999015484c1f30e7f5479a8f9c6f0418" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any, high_sierra:  "6370ad57a1a5f3a7569caf87201d5a3726dc0181a902c423009a244265d092de"
+    sha256 cellar: :any, sierra:       "1d749e2a0bd3c69012dbf8bfb2e1ac1971f68cc8e932361b57d0354c085f66ca"
+    sha256 cellar: :any, el_capitan:   "74a3f7c9ac9a7c3263431194789c691a7f98fc2186fcbec1dbb52aaf9d73db2e"
+    sha256 cellar: :any, x86_64_linux: "c4f85a0037ba25a08f2038ff8b1eeb8d999015484c1f30e7f5479a8f9c6f0418"
   end
 
-  option "without-extras", "Don't try to build plotting code (actually it will still try, but homebrew won't halt the install if it fails)"
+  option "without-extras",
+"Don't try to build plotting code (actually it will still try, but homebrew won't halt the install if it fails)"
 
-  depends_on "swig" => :build
   depends_on "pkg-config" => :build
-  depends_on "netpbm"
+  depends_on "swig" => :build
   depends_on "cairo"
+  depends_on "cfitsio"
+  depends_on "gsl"
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on "netpbm"
+  depends_on "numpy"
   depends_on "wcslib"
-  depends_on "gsl"
-  depends_on "cfitsio"
   depends_on "wget" if OS.mac?
 
   # this formula includes python bindings
   depends_on "python" => :recommended
-  depends_on "numpy"
 
   resource "pyfits" do
     url "https://files.pythonhosted.org/packages/45/98/d6d25932e6a82fa8456d38ab307bfb8945a1e1dd4e896730555e3b61cfc5/pyfits-3.4.tar.gz"

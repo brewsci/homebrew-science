@@ -10,18 +10,18 @@ class Amos < Formula
   bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "expat" unless OS.mac?
-  depends_on "blat" => :optional # for minimus2-blat
-  depends_on "boost" => :recommended # for Bambus 2
-  depends_on "mummer" => :recommended # for minimus2
-
-  resource "Statistics::Descriptive" do
-    url "https://www.cpan.org/authors/id/S/SH/SHLOMIF/Statistics-Descriptive-3.0612.tar.gz"
-    sha256 "772413148e5e00efb32f277c4254aa78b9112490a896208dcd0025813afdbf7a"
-  end
+  depends_on "boost" => :recommended
+  depends_on "mummer" => :recommended
+  depends_on "blat" => :optional # for minimus2-blat # for Bambus 2 # for minimus2
 
   fails_with :clang do
     build 600
     cause "error: reference to 'hash' is ambiguous"
+  end
+
+  resource "Statistics::Descriptive" do
+    url "https://www.cpan.org/authors/id/S/SH/SHLOMIF/Statistics-Descriptive-3.0612.tar.gz"
+    sha256 "772413148e5e00efb32f277c4254aa78b9112490a896208dcd0025813afdbf7a"
   end
 
   def install
@@ -50,13 +50,14 @@ class Amos < Formula
 
     system "./configure", *args
     system "make", "install"
-    (bin/"amos").write_env_script("#{libexec}/bin/amos", :PERL5LIB => ENV["PERL5LIB"])
+    (bin/"amos").write_env_script("#{libexec}/bin/amos", PERL5LIB: ENV["PERL5LIB"])
   end
 
-  def caveats; <<~EOS
-    The Perl modules have been installed in
-      #{lib}/AMOS
-      #{lib}/TIGR
+  def caveats
+    <<~EOS
+      The Perl modules have been installed in
+        #{lib}/AMOS
+        #{lib}/TIGR
     EOS
   end
 

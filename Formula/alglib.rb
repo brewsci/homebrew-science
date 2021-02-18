@@ -6,11 +6,11 @@ class Alglib < Formula
   sha256 "8d72c36eeb8218baf580500348be4048b8392db262458211793a9e7b4809a560"
 
   bottle do
-    cellar :any
-    sha256 "71b980bb805b528934cfa45edfa5b265c36e74ddef220cc0c4664490e67e891e" => :high_sierra
-    sha256 "71b980bb805b528934cfa45edfa5b265c36e74ddef220cc0c4664490e67e891e" => :sierra
-    sha256 "3a4746bded5fbefb46ba03a60e3a5eb9ccc904ca6fb9cd90fcb5ac43c76c615f" => :el_capitan
-    sha256 "4ec7a29344b6fb584f72e7df00dfea8f6e9c0cfe1b4a2f7f1c5e4947c6848771" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any, high_sierra:  "71b980bb805b528934cfa45edfa5b265c36e74ddef220cc0c4664490e67e891e"
+    sha256 cellar: :any, sierra:       "71b980bb805b528934cfa45edfa5b265c36e74ddef220cc0c4664490e67e891e"
+    sha256 cellar: :any, el_capitan:   "3a4746bded5fbefb46ba03a60e3a5eb9ccc904ca6fb9cd90fcb5ac43c76c615f"
+    sha256 cellar: :any, x86_64_linux: "4ec7a29344b6fb584f72e7df00dfea8f6e9c0cfe1b4a2f7f1c5e4947c6848771"
   end
 
   depends_on "pkg-config" => :build

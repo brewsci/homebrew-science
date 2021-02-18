@@ -1,4 +1,4 @@
-require File.expand_path("../../Requirements/cuda_requirement", __FILE__)
+require File.expand_path("../Requirements/cuda_requirement", __dir__)
 
 class Einspline < Formula
   desc "C library for cubic B-splines in 1, 2 and 3D"
@@ -7,11 +7,11 @@ class Einspline < Formula
   sha256 "fc9ec0475f7711ef711c8b6ea28d3dd11a173adaa381df80c2df4c5cc22d4afe"
 
   bottle do
-    cellar :any
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     rebuild 1
-    sha256 "f66a26ba0e61f0787e41f2a35e3b8a71f408a1c8e755e27f14c777102ca1f4bc" => :el_capitan
-    sha256 "1200fc9020a7df9d4179b72c309bf1ee12c130140699f1c65762c3f59b611817" => :yosemite
-    sha256 "825439011bdb1fa953863b8b5a6af0b4faa328d1661c051946029e8ca7b9441a" => :mavericks
+    sha256 cellar: :any, el_capitan: "f66a26ba0e61f0787e41f2a35e3b8a71f408a1c8e755e27f14c777102ca1f4bc"
+    sha256 cellar: :any, yosemite:   "1200fc9020a7df9d4179b72c309bf1ee12c130140699f1c65762c3f59b611817"
+    sha256 cellar: :any, mavericks:  "825439011bdb1fa953863b8b5a6af0b4faa328d1661c051946029e8ca7b9441a"
   end
 
   option "without-openmp", "Disable OpenMP"
@@ -39,7 +39,7 @@ class Einspline < Formula
     ]
     args << "--enable-cuda" if build.with? "cuda"
     # args << "--enable-openmp" if build.with? "openmp" # leads to build errors.
-    cflags = %W[
+    cflags = %w[
       -DINLINE_ALL=inline
       -O3
       -Drestrict=__restrict__
@@ -56,10 +56,11 @@ class Einspline < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Spline evaluation functions have been inlined.
-    Do not forget to compile your code with
-    -O, -O2 or -O3.
+  def caveats
+    <<~EOS
+      Spline evaluation functions have been inlined.
+      Do not forget to compile your code with
+      -O, -O2 or -O3.
     EOS
   end
 

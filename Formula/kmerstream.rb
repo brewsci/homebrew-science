@@ -9,15 +9,16 @@ class Kmerstream < Formula
   # tag "bioinformatics"
 
   bottle do
-    cellar :any
-    sha256 "ae57c28ea2005478bb32f78448d239e53ab0b4be50635086ee3753ee52256f69" => :sierra
-    sha256 "800c38f604b71b2048ff252168305be3855f9767b7dd183a487701707a7e2226" => :el_capitan
-    sha256 "67af773688af575858ceee55a5d6b008b347f9c3101e63cb2e406bfb023b924b" => :yosemite
-    sha256 "bbcbe67ac973a7414b26322a81dc9c9e7ebddf8ed3b8be7fadb15994f2dc214b" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any, sierra:       "ae57c28ea2005478bb32f78448d239e53ab0b4be50635086ee3753ee52256f69"
+    sha256 cellar: :any, el_capitan:   "800c38f604b71b2048ff252168305be3855f9767b7dd183a487701707a7e2226"
+    sha256 cellar: :any, yosemite:     "67af773688af575858ceee55a5d6b008b347f9c3101e63cb2e406bfb023b924b"
+    sha256 cellar: :any, x86_64_linux: "bbcbe67ac973a7414b26322a81dc9c9e7ebddf8ed3b8be7fadb15994f2dc214b"
   end
 
-  needs :openmp
   depends_on "scipy"
+
+  needs :openmp
 
   def install
     system "make"

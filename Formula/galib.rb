@@ -5,7 +5,7 @@ class Galib < Formula
 
   def install
     # https://github.com/B0RJA/GAlib-mpi/issues/1
-    inreplace %W[ga/GA1DArrayGenome.C ga/GA2DArrayGenome.C ga/GA3DArrayGenome.C] do |s|
+    inreplace %w[ga/GA1DArrayGenome.C ga/GA2DArrayGenome.C ga/GA3DArrayGenome.C] do |s|
       s.gsub! "initializer(GA", "this->initializer(GA"
       s.gsub! "mutator(GA",     "this->mutator(GA"
       s.gsub! "comparator(GA",  "this->comparator(GA"

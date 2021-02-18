@@ -14,7 +14,8 @@ class BlazeLib < Formula
 
     # Set compiler flags for intel C++ compiler
     if ENV.cxx.include? "icpc"
-      inreplace "Configfile", "CXXFLAGS=\"-Werror -Wall -Wextra -Wshadow -Woverloaded-virtual -ansi -O3 -DNDEBUG\"", "CXXFLAGS=\"-Werror -Wshadow -w1 -ansi -O3 -DNDEBUG\""
+      inreplace "Configfile", "CXXFLAGS=\"-Werror -Wall -Wextra -Wshadow -Woverloaded-virtual -ansi -O3 -DNDEBUG\"",
+"CXXFLAGS=\"-Werror -Wshadow -w1 -ansi -O3 -DNDEBUG\""
     end
 
     system "./configure"

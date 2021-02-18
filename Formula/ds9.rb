@@ -7,13 +7,13 @@ class Ds9 < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "40e75509fb3fb53f2d3a391f6b1df3971ce0878d2625a2680a053ec1e7ca3edd" => :el_capitan
-    sha256 "a35573fb5f27b6e914711f1d98e7d616ebc2e27242beece1341c2d9c2f0ebca8" => :yosemite
-    sha256 "211226f72b21eef4059b09fba5072adca9fe1a3cc62e5f38730134a707edfd92" => :mavericks
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any_skip_relocation, el_capitan: "40e75509fb3fb53f2d3a391f6b1df3971ce0878d2625a2680a053ec1e7ca3edd"
+    sha256 cellar: :any_skip_relocation, yosemite:   "a35573fb5f27b6e914711f1d98e7d616ebc2e27242beece1341c2d9c2f0ebca8"
+    sha256 cellar: :any_skip_relocation, mavericks:  "211226f72b21eef4059b09fba5072adca9fe1a3cc62e5f38730134a707edfd92"
   end
 
-  depends_on :x11
+  depends_on "libx11"
 
   def install
     ENV.deparallelize

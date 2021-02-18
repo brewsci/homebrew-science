@@ -4,6 +4,7 @@ class Swetest < Formula
   sha256 "e2e3ac2cee53b38865b071f6d86ae0a05e0f608fbf3acc569104589d5a23576f"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 "9f4505f1cad7674e45f4e01f7a8897ae82f876cd99e93519a9c11f424c598e3e" => :sierra
     sha256 "0a0448ef411bf683adcb425a8abfae4c2d5c10ef788c4ee6b6835672313490e5" => :el_capitan
     sha256 "0224a908fb30d63663c06e73be5b2040802982c0c07005adf1b955664e60856e" => :yosemite

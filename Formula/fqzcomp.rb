@@ -6,11 +6,11 @@ class Fqzcomp < Formula
   sha256 "ff98f5a5e2c0351cdeacbd236aa25c7771ec8a4f547416c22a1b5c74a1875620"
 
   bottle do
-    cellar :any
-    sha256 "0881cb14d38d9332f38fbce082468ac1276e9d82ca5ac5d99e4473420079d8b5" => :yosemite
-    sha256 "ea9897a175a698b9bee04613af8a76f980c0b0e65ae8e755c6a40b3fd85ef0fc" => :mavericks
-    sha256 "6fbd97cc5f69d03805e703ed1f6a9b2d49f9eccf8afa8955368a5f45fd9f32f4" => :mountain_lion
-    sha256 "ac67a5aa867c6af624c5c6d9217e0b93c0ec2ec7f3a290f596693bbb4e9f58a3" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any, yosemite:      "0881cb14d38d9332f38fbce082468ac1276e9d82ca5ac5d99e4473420079d8b5"
+    sha256 cellar: :any, mavericks:     "ea9897a175a698b9bee04613af8a76f980c0b0e65ae8e755c6a40b3fd85ef0fc"
+    sha256 cellar: :any, mountain_lion: "6fbd97cc5f69d03805e703ed1f6a9b2d49f9eccf8afa8955368a5f45fd9f32f4"
+    sha256 cellar: :any, x86_64_linux:  "ac67a5aa867c6af624c5c6d9217e0b93c0ec2ec7f3a290f596693bbb4e9f58a3"
   end
 
   def install

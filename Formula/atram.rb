@@ -11,11 +11,11 @@ class Atram < Formula
   head "https://github.com/juliema/aTRAM.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0828d9e44444fdfd26f1b209c956cf130c9ba44915cfb4285a73f24c14804e0f" => :high_sierra
-    sha256 "3d4d87141fe67eb040f5abf3a25b9a8f88d134f40ab50ae329985a7ed574dae8" => :sierra
-    sha256 "5a957652fd330d42f1db80f5caeecebe18913473cfd8c45bd28de45fcbbf7fe0" => :el_capitan
-    sha256 "06a242ab83c7ce5d5eb5412da5de2c3deeffa4ae214b5802de9039dc65c4d2e3" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any_skip_relocation, high_sierra:  "0828d9e44444fdfd26f1b209c956cf130c9ba44915cfb4285a73f24c14804e0f"
+    sha256 cellar: :any_skip_relocation, sierra:       "3d4d87141fe67eb040f5abf3a25b9a8f88d134f40ab50ae329985a7ed574dae8"
+    sha256 cellar: :any_skip_relocation, el_capitan:   "5a957652fd330d42f1db80f5caeecebe18913473cfd8c45bd28de45fcbbf7fe0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "06a242ab83c7ce5d5eb5412da5de2c3deeffa4ae214b5802de9039dc65c4d2e3"
   end
 
   depends_on "blast"
@@ -31,6 +31,7 @@ class Atram < Formula
   end
 
   test do
-    assert_match /No shards to be made/, shell_output("perl #{prefix}/test/test_format_sra.pl -input #{prefix}/test/test_sra.fasta")
+    assert_match /No shards to be made/,
+shell_output("perl #{prefix}/test/test_format_sra.pl -input #{prefix}/test/test_sra.fasta")
   end
 end

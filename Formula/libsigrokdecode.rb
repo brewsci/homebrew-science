@@ -7,8 +7,8 @@ class Libsigrokdecode < Formula
     sha256 "4aa8579ecea9b421b8ac048a9b18c27e63206839f269374398d89c14a47bd1c1"
 
     resource "librevisa" do
-      url "http://www.librevisa.org/git/librevisa.git", :tag => "alpha-2013-08-12",
-                                                        :revision => "3e3e027ac7bcf2679089adc8886bb3c92574a042"
+      url "http://www.librevisa.org/git/librevisa.git", tag:      "alpha-2013-08-12",
+                                                        revision: "3e3e027ac7bcf2679089adc8886bb3c92574a042"
     end
 
     resource "libserialport" do
@@ -28,14 +28,15 @@ class Libsigrokdecode < Formula
   end
 
   bottle do
-    sha256 "60a432705edac4a617e2260de724056518c7a90285291558f76a62b3fa0d33c0" => :sierra
-    sha256 "52c241ba07cdd486946af95fa541e6ca1144546d0378df163a899df26a9a27f1" => :el_capitan
-    sha256 "df65b728fe688324cdf6ce2fa82e342b40036f495410bd31d54a8176ca0d6a05" => :yosemite
-    sha256 "502d100193fe55bf3aeb5576cf5c5b4540f51e38188eb8e9d9a0f5346b2b4e35" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 sierra:       "60a432705edac4a617e2260de724056518c7a90285291558f76a62b3fa0d33c0"
+    sha256 el_capitan:   "52c241ba07cdd486946af95fa541e6ca1144546d0378df163a899df26a9a27f1"
+    sha256 yosemite:     "df65b728fe688324cdf6ce2fa82e342b40036f495410bd31d54a8176ca0d6a05"
+    sha256 x86_64_linux: "502d100193fe55bf3aeb5576cf5c5b4540f51e38188eb8e9d9a0f5346b2b4e35"
   end
 
   head do
-    url "git://sigrok.org/libsigrokdecode", :shallow => false
+    url "git://sigrok.org/libsigrokdecode", shallow: false
 
     depends_on "libtool" => :build unless OS.mac?
     depends_on "autoconf" => :build
@@ -47,15 +48,15 @@ class Libsigrokdecode < Formula
     end
 
     resource "libserialport" do
-      url "git://sigrok.org/libserialport", :shallow => false
+      url "git://sigrok.org/libserialport", shallow: false
     end
 
     resource "libsigrok" do
-      url "git://sigrok.org/libsigrok", :shallow => false
+      url "git://sigrok.org/libsigrok", shallow: false
     end
 
     resource "fx2lafw" do
-      url "git://sigrok.org/sigrok-firmware-fx2lafw.git", :shallow => false
+      url "git://sigrok.org/sigrok-firmware-fx2lafw.git", shallow: false
     end
   end
 
@@ -64,20 +65,19 @@ class Libsigrokdecode < Formula
   option "with-fx2lafw", "Build with fx2lafw"
 
   depends_on "doxygen" => :build
+  depends_on "libtool" => :build if build.with?("librevisa")
   depends_on "pkg-config" => :build
+  depends_on "sdcc" => :build if build.with?("fx2lafw")
   depends_on "glib"
   depends_on "glibmm"
-  depends_on :java
   depends_on "libzip"
+  depends_on "openjdk"
   depends_on "python3"
-  depends_on "check"    => :optional
+  depends_on "check" => :optional
   depends_on "libftdi0" => :optional
-  depends_on "libusb"   => :optional
+  depends_on "libusb" => :optional
 
   # currently needed for librevisa due to errors in released alpha build
-  depends_on "libtool" => :build if build.with?("librevisa")
-
-  depends_on "sdcc" => :build if build.with?("fx2lafw")
 
   def install
     common_args = %W[
@@ -141,7 +141,8 @@ class Libsigrokdecode < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-o", "test", "test.c", "-L#{lib}", "-I#{Formula["glib"].opt_include}/glib-2.0", "-I#{Formula["glib"].opt_lib}/glib-2.0/include", "-L#{Formula["glib"].opt_lib}", "-lsigrokdecode"
+    system ENV.cc, "-o", "test", "test.c", "-L#{lib}", "-I#{Formula["glib"].opt_include}/glib-2.0",
+"-I#{Formula["glib"].opt_lib}/glib-2.0/include", "-L#{Formula["glib"].opt_lib}", "-lsigrokdecode"
     system "./test"
   end
 end

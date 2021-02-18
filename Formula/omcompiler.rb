@@ -6,6 +6,7 @@ class Omcompiler < Formula
       :revision => "e2917bff56c988565e60d30fd22a74012277f79f"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 "592d79550bf5e6730b16c07d5a57ff560a952c40417a91add81a3d72cc1882bb" => :high_sierra
     sha256 "991c6d31710144db9d1564a2ed6ed92676cf6dfc35fdf8b57f9e83a8094c9c45" => :sierra
     sha256 "fe5dbfd0b86da5e8f75456413573a0b1d4597364ca6d8983487fd36dc920bb33" => :el_capitan

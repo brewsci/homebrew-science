@@ -6,6 +6,7 @@ class Openmeeg < Formula
   head "https://github.com/openmeeg/openmeeg.git"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     sha256 "94a34600db09392fa39c2d2547e3db8fd383359deb530b4bd47469257e2a0bd1" => :sierra
     sha256 "f4031a9ebb02f8f4097596887ed188d771703b3b832dea5b699d7ace64524d4f" => :el_capitan
     sha256 "3d0a3e81f90f838ce050ccaa0c9b26a41155ccc83fa02f5961fff24b2fcd4247" => :yosemite

@@ -8,6 +8,7 @@ class Skewer < Formula
   # tag "bioinformatics"
 
   bottle do
+    root_url "https://linuxbrew.bintray.com/bottles-science"
     cellar :any_skip_relocation
     sha256 "c1efd9467a923be12559c55c57d8cf91e2d9054d4141356b91a16fcfb6622f33" => :el_capitan
     sha256 "1a1ed956768778eac2cab76e56c293cbab437822c3e8077e1a5c5c54bbcd4da4" => :yosemite

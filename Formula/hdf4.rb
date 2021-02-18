@@ -6,17 +6,17 @@ class Hdf4 < Formula
   revision 3
 
   bottle do
-    cellar :any
-    sha256 "870c4bd97456d019e7c0bf95d54cefb03cd64e997453c550ca340cc1fb37c0ff" => :sierra
-    sha256 "44bbc921816b8c2002be1e814817199e59410dad2971172e62fce11cfd84d364" => :el_capitan
-    sha256 "534c9fd10793bc1f21517092f23edf9087c8afcce59f722ca908d39dcf051db8" => :yosemite
-    sha256 "d869697d1b6d08f5a50e3ae5edab34ecc3e9b79b99ffb6a6f57c26b29090eb25" => :x86_64_linux
+    root_url "https://linuxbrew.bintray.com/bottles-science"
+    sha256 cellar: :any, sierra:       "870c4bd97456d019e7c0bf95d54cefb03cd64e997453c550ca340cc1fb37c0ff"
+    sha256 cellar: :any, el_capitan:   "44bbc921816b8c2002be1e814817199e59410dad2971172e62fce11cfd84d364"
+    sha256 cellar: :any, yosemite:     "534c9fd10793bc1f21517092f23edf9087c8afcce59f722ca908d39dcf051db8"
+    sha256 cellar: :any, x86_64_linux: "d869697d1b6d08f5a50e3ae5edab34ecc3e9b79b99ffb6a6f57c26b29090eb25"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "szip"
   depends_on "jpeg"
+  depends_on "szip"
 
   # redefine library name to "df" from "hdf".  this seems to be an artifact
   # of using cmake that needs to be corrected for compatibility with
@@ -51,7 +51,8 @@ class Hdf4 < Formula
     end
   end
 
-  def caveats; <<~EOS
+  def caveats
+    <<~EOS
       HDF4 has been superseeded by HDF5.  However, the API changed
       substantially and some programs still require the HDF4 libraries in order
       to function.
