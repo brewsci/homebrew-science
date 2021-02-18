@@ -30,7 +30,7 @@ class Simpleitk < Formula
   depends_on "swig" => :build
   depends_on "python" => :recommended
   depends_on "python3" => :optional
-  depends_on :java => :optional
+  depends_on "openjdk" => :optional
   depends_on "r" => :optional
   depends_on "lua" => :optional
   depends_on CIRequirement unless OS.mac?
@@ -53,7 +53,7 @@ class Simpleitk < Formula
     args << "-DBUILD_EXAMPLES=" + (build.include?("examples") ? "ON" : "OFF")
     args << "-DWRAP_PYTHON=ON"
     args << "-DWRAP_CSHARP=" + (build.with?("csharp") ? "ON" : "OFF")
-    args << "-DWRAP_JAVA=" + (build.with?("java") ? "ON" : "OFF")
+    args << "-DWRAP_JAVA=" + (build.with?("openjdk") ? "ON" : "OFF")
     args << "-DWRAP_LUA=" + (build.with?("lua") ? "ON" : "OFF")
     args << "-DWRAP_R=" + (build.with?("r") ? "ON" : "OFF")
     args << "-DWRAP_RUBY=" + (build.with?("ruby") ? "ON" : "OFF")

@@ -15,7 +15,7 @@ class Mallet < Formula
   sha256 "5b2d6fb9bcf600b1836b09881821a6781dd45a7d3032e61d7500d027a5b34faf"
   head "https://github.com/mimno/Mallet.git"
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     rm Dir["bin/*.{bat,dll,exe}"] # Remove all windows files

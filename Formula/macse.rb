@@ -14,7 +14,7 @@ class Macse < Formula
     sha256 "2ba1ae24bf5862fed33f0cb36a9a0a0c0ac3a6282d62d96a41008f006dae10e3" => :x86_64_linux
   end
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     opts = "-mx4000m -ms80m"

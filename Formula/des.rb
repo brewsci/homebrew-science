@@ -12,7 +12,7 @@ class Des < Formula
     sha256 "b4c1c5e10fdc28d1a9795fd43893235df6237f69243421ba00c1d33c6438c510" => :x86_64_linux
   end
 
-  depends_on :java => "1.6+"
+  depends_on "openjdk"
   depends_on "swi-prolog"
 
   def shim_script; <<~EOS

@@ -67,8 +67,8 @@ class Libsigrokdecode < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "glibmm"
-  depends_on :java
   depends_on "libzip"
+  depends_on "openjdk"
   depends_on "python3"
   depends_on "check"    => :optional
   depends_on "libftdi0" => :optional

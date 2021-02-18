@@ -16,7 +16,7 @@ class MultiWormTracker < Formula
     sha256 "74dc7a28cf58321c0431548434378d4fc8285bea3dac45477c2749226698227f" => :x86_64_linux
   end
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     prefix.install Dir["*"]
