@@ -7,7 +7,7 @@ class Kollector < Formula
   # tag "bioinformatics"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any_skip_relocation, sierra:       "93ef334ebe8c878898ffea334f662e9905b73327d1f9c77c2fa90c50af0f28c8"
     sha256 cellar: :any_skip_relocation, el_capitan:   "6843361fccee9fb0770f11d636cc457046da0f3173965a1d3d9ccba61e34bf65"
     sha256 cellar: :any_skip_relocation, yosemite:     "6843361fccee9fb0770f11d636cc457046da0f3173965a1d3d9ccba61e34bf65"

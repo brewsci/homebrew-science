@@ -5,7 +5,7 @@ class Hopdm < Formula
   revision 3
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, el_capitan: "a6fa19ffd74910c61fdac2244397d8f3dfa5e5eaf11b131a340cb683b2c59ff3"
     sha256 cellar: :any, yosemite:   "0166c1b332eff3c80b4fb77a110bb66478f997d484582d21c0ea11c6a5d98020"
     sha256 cellar: :any, mavericks:  "65c8c7ce0860bdd980d1e6280c3ea9a630c8acb5ff70c16632b4be4f69b56579"

@@ -5,7 +5,7 @@ class Yass < Formula
   sha256 "2ea4d2a32bb17fb6de590b0e8bce5231e2506b490b3456700b4bc029544a1982"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "6589335d6d86add715676f45dab2feaff1aa90e792938fa6a492a79e46df03da" => :yosemite
     sha256 "a92af72ef67cf58a6676b21bcfdcdad3a0fd32a4a4ca0f0c713db6b907f24846" => :mavericks

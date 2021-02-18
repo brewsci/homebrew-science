@@ -7,7 +7,7 @@ class Bayestraits < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, sierra:       "40298773f30495810c9a3de313bbf39fc0a4ce8dc6d3842a8ace1323fc529661"
     sha256 cellar: :any, el_capitan:   "c7866c39638a21127c14ca094e4de77215724321bb09e7ee134ac5b453769257"
     sha256 cellar: :any, yosemite:     "101a38c0377f79135651bc8c4e5f430ca3db68f2afcba00f3d2600b4e5bc3479"

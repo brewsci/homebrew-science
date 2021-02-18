@@ -6,7 +6,7 @@ class AdolC < Formula
   head "https://projects.coin-or.org/svn/ADOL-C/trunk/", using: :svn
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 high_sierra:  "dd84e59f5fda4bba97bb7ca7457e8e6dc73f21a863150d4e38c262a8ad8ac775"
     sha256 sierra:       "0cc0d8caf1b150c4c30bb5f2d2b12238cc7e4812ce7985496d12a0d126ffec14"
     sha256 el_capitan:   "54ac19495b3550860969967cbb4e16946de178893da483d441a5ff934dc35bce"

@@ -6,7 +6,7 @@ class Itensor < Formula
   head "https://github.com/ITensor/ITensor.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, sierra:       "adfd2ddce1898aafd8a82f0150e1adac148e5eb7d177a0203437b5947190708b"
     sha256 cellar: :any, el_capitan:   "cf5e854aa45d1e2d233e9e4017360f517b97947e1b14b2b57b86b0dff98cce6c"
     sha256 cellar: :any, yosemite:     "87b72c913c0fe34e2e9de07d5c51572e5fcba17ecb6602c3c6970a49a8f6d774"

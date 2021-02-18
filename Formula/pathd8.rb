@@ -5,7 +5,7 @@ class Pathd8 < Formula
   version "1.0"
   sha256 "6f92c1104b5fcdacdcc387024b5a1324790a165d0418795dec2ec68ebb946749"
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "7c528b0dc0e519835fdfff2747d1c7286754836775d520dc2192ce13bba61b39" => :yosemite
     sha256 "6adf43717f2e2044cb5e7f14a8449e4ff3edcaa6753198f0fdfc1422bcc1b0d9" => :mavericks

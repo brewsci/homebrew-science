@@ -6,7 +6,7 @@ class Plasma < Formula
   revision 2
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "ba79d2e61f0fcac5c4858f7ef7482852b94d89e15530e66e26adc2c1186acb2c" => :sierra
     sha256 "d375cf0b0598d1fea460f0e8a8f914944d5635133d6daa8deb02df6479e14249" => :el_capitan

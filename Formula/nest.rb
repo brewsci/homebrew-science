@@ -7,7 +7,7 @@ class Nest < Formula
   head "https://github.com/nest/nest-simulator.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 "4f7d765cd75ae3272ce15bb293c20a6cdfc9ccb551f0a07d00016c75ae0ef267" => :high_sierra
     sha256 "60e4b0595c5d11003ffe1eca3fdca3c197b8711336ead21eba67620db96454c0" => :sierra
     sha256 "8a4c8e6d0d2e4ce93d76af73197c693f8c303095800e82b7266b922848f1a39b" => :el_capitan

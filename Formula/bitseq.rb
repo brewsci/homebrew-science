@@ -7,7 +7,7 @@ class Bitseq < Formula
   head "https://github.com/BitSeq/BitSeq.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, el_capitan: "53a4eb9db5d4368738234abe42096d0658fd932b87d0b48841b638a4f8446654"
     sha256 cellar: :any, yosemite:   "17c3a8bc0ab1552eb0a00e9f51739dadbcfc0d647413dd542d498608a7a6b13b"
     sha256 cellar: :any, mavericks:  "c779feb24ca6061132f4d68af03b5301daa5a2c9eb1c85ffe21a0eda838d4fef"

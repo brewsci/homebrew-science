@@ -5,7 +5,7 @@ class Sara < Formula
   sha256 "2e1a616b6398bfc898b6a53aab16ef556ad59263b3ab71620592f83c43cd28ca"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     sha256 "60b8a6294382332b395b48cf3bb59288994866615b230454d5b0bd7bb53f9d08" => :sierra
     sha256 "683d93ac898b70ceca17ca8444c871661b9b4960d7dcbed16318005747616a86" => :el_capitan

@@ -8,7 +8,7 @@ class Poa < Formula
   sha256 "d98d8251af558f442d909a6527694825ef6f79881b7636cad4925792559092c2"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "ec70c14a392872c08ff2fd60e454dc05d76eb6edbd49ba8e8a011a6fce5c91b4" => :yosemite
     sha256 "223fd7362babcb755d3eedd60efde918351b8a304579ee50aa43f2d5734240e5" => :mavericks

@@ -9,7 +9,7 @@ class Repeatmodeler < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     sha256 "d3856db1196dd29a84120ac14461d64c5c3a9d10432830dcb6be94ecd2478ba1" => :el_capitan
     sha256 "e3be3d6078936510c6b79ed62c155ac876e61f7de9d5ed6ac1409ecbbc562f19" => :yosemite

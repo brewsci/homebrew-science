@@ -8,7 +8,7 @@ class Pilercr < Formula
   sha256 "50175f7aa171674cda5ba255631f340f9cc7f80e8cc25135a4cb857147d91068"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     sha256 "7a16c91e43acf94bc30d43be3fa2b34fff56ebca3e60ddc5b99d7193aa7ebf8f" => :el_capitan
     sha256 "148af9f887886cf0b0605f83e8a8ce3f1783c6248828ebe0caaa170d8f233737" => :yosemite

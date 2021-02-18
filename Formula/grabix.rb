@@ -7,7 +7,7 @@ class Grabix < Formula
   head "https://github.com/arq5x/grabix.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     rebuild 1
     sha256 cellar: :any, yosemite:      "25b161ba3f364c3d92d5b6ffa116e4ea6ee11bff9a6778394ae00b6e33b26b46"
     sha256 cellar: :any, mavericks:     "ba46405a755b4bca6d0819315c674b6b955f7f968a9e9ef64b2b8cacb24d537a"

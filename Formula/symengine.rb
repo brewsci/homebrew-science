@@ -6,7 +6,7 @@ class Symengine < Formula
   head "https://github.com/symengine/symengine.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "6e223e1128ccb85adcb29786f486647e6b67e007185e289912496a416a3b139c" => :sierra
     sha256 "2a4a25ee3df6baf76ebfcaeb11736a823ce162183b1a6efa935e8ef1fe5a2468" => :el_capitan

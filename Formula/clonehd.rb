@@ -7,7 +7,7 @@ class Clonehd < Formula
   head "https://github.com/ivazquez/cloneHD.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 sierra:       "3edb63f909f26b3de79d4ad84831cea510d9de2dc92147b4e1974215b81718e5"
     sha256 el_capitan:   "3b6afecd2818f5bfeba72226901629a60b0263ffd085ee3165bff3c04df7aeb2"
     sha256 yosemite:     "a76e462eeeea666f1fd731c180ced9a494e81848bc5291cd8aa3bf81aed28d58"

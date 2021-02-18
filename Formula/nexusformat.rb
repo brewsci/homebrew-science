@@ -6,7 +6,7 @@ class Nexusformat < Formula
   revision 6
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "ef2a356e9fa98b6efb9333e88ff242195cfa0d8af703942aedbba0b405f42981" => :sierra
     sha256 "cbe9d5e6f3f04f4783b38a194490ab9dda157df6b6b59a19d878cb5e5dd4d05b" => :el_capitan

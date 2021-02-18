@@ -9,7 +9,7 @@ class Fastml < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any_skip_relocation, el_capitan:   "39ad42b65eef737cbc91fe10dd50db050302d2ea100126d89e0cc2dcd720f11c"
     sha256 cellar: :any_skip_relocation, yosemite:     "45a87496b60c6812361ed76713250730302232cd2c0a0640699401f980777a77"
     sha256 cellar: :any_skip_relocation, mavericks:    "14a84be3f80228146106798f9265f7edc494cf1ad7b69baa41c1598f1034c35f"

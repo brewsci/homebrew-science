@@ -8,7 +8,7 @@ class Gubbins < Formula
   # doi "10.1093/nar/gku1196"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, sierra:       "d52cffe4cfee3666dc34da64f24893c8f74ce7e939956eadba6cbe4282bd5f1d"
     sha256 cellar: :any, el_capitan:   "cd1c10d8562734138ee3f7b2612728847a1b5f19fe900003d85c31efe005de6b"
     sha256 cellar: :any, x86_64_linux: "c6fc0116ab14ab66020a9bcf78061335145d50b3ffafba75765cdab9d8afe7f1"

@@ -9,7 +9,7 @@ class Tasr < Formula
   sha256 "8e92f58a4f0a5b986f581299b81c9447a2805b3da2a7b8afa1f5254ba8126207"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     sha256 "b146f9a09e036d98838511d022bdf7c5d8be7da715ec2b0fb28b4737ca191a6a" => :sierra
     sha256 "d1cafc9e722f0a11c0a3779f34beba08c0da433cefa203b1d0375a2a93195077" => :el_capitan

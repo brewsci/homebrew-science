@@ -6,7 +6,7 @@ class Superlu43 < Formula
   revision 3
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "3eef95c5de9ff87d3f459028b0f3227aa8be75b2e27ccb528722f12957cd77f5" => :sierra
     sha256 "42eb444b9180d20c567af8e1ef745771ea7e04440b961694b1892f1e745d6d59" => :el_capitan

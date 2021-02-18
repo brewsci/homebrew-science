@@ -4,7 +4,7 @@ class Cmor < Formula
   url "https://github.com/PCMDI/cmor/archive/cmor-3.3.0.tar.gz"
   sha256 "d09f24acbffd11c47791e2e86df0dc39ab7276cb46d449f89781d6cce5b488be"
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 high_sierra: "ff1afee32df6f96df3ea12fbb302156fc332e00e42536cd5863e82460d472997"
     sha256 sierra:      "271eec456e1f44ec961ad8044d47c8b14ae8cf75cfea3edd64cd5134f642738a"
     sha256 el_capitan:  "f72c93db27dba89a8923b70e8e77737f8d253d1ed3cf7e87dda3b3cb50df0d6b"

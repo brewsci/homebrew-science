@@ -7,7 +7,7 @@ class Einspline < Formula
   sha256 "fc9ec0475f7711ef711c8b6ea28d3dd11a173adaa381df80c2df4c5cc22d4afe"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     rebuild 1
     sha256 cellar: :any, el_capitan: "f66a26ba0e61f0787e41f2a35e3b8a71f408a1c8e755e27f14c777102ca1f4bc"
     sha256 cellar: :any, yosemite:   "1200fc9020a7df9d4179b72c309bf1ee12c130140699f1c65762c3f59b611817"

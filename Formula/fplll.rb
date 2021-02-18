@@ -6,7 +6,7 @@ class Fplll < Formula
   sha256 "75e17fcaa4fc5fdddbe6eb42aca5f38c4c169a4b52756e74fbe2d1769737ac9c"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 sierra:       "30e57a63f3f73b7c6c0bf2483b77302e7f850c764b4676f9aaca75b2a8be7e13"
     sha256 el_capitan:   "36ace8be9340aa6cf29ed1d431f56e0c8df9064005334d9ffae14aaf039ce7a3"
     sha256 x86_64_linux: "46430c3ce03a664c7a14f22335bbfe99728a77f08e9447bca95ce5be66c42011"

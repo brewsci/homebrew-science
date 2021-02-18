@@ -27,7 +27,7 @@ class LpSolve < Formula
   sha256 "5827a30b143105283f398a09419ea608719a2d7699ecea165a66d521803bcc9c"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "40e0fb01f795a4e7583802dadd04c8c08fdbe4fe776ea5602a78997fc2575065"
   end
 

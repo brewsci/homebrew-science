@@ -5,7 +5,7 @@ class BoostCompute < Formula
   sha256 "e8845fd33ca386e5a3ddb2f17cd6bc0e104ebd55ba32b15c1ff0da781c1ea7a8"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any_skip_relocation, high_sierra: "34f4336116b599a31763d2c10aac9b24e8e4c9ca269a4ce024a680352a2a72ca"
     sha256 cellar: :any_skip_relocation, sierra:      "34f4336116b599a31763d2c10aac9b24e8e4c9ca269a4ce024a680352a2a72ca"
     sha256 cellar: :any_skip_relocation, el_capitan:  "34f4336116b599a31763d2c10aac9b24e8e4c9ca269a4ce024a680352a2a72ca"

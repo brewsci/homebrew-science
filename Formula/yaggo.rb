@@ -6,7 +6,7 @@ class Yaggo < Formula
   head "https://github.com/gmarcais/yaggo.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     sha256 "eac780150769d36fca3a2719dacea9af18c96dfa05d642290da1a44557bd4dd4" => :sierra
     sha256 "bd5bc4bcdb8e818370832055bd77161c8137bf6ba83b1ccdce24c462e5de506a" => :el_capitan

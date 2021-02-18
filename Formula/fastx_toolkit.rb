@@ -15,7 +15,7 @@ class FastxToolkit < Formula
   end
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, sierra:       "cf10cdcfe2c2bc0adbf9a2c07ed23d5135486ab5ab55aebc96801d894261165f"
     sha256 cellar: :any, el_capitan:   "f3dbac857c75c60929ff580dc54de8469cb86f368806b2234f8bb656bd4288ad"
     sha256 cellar: :any, yosemite:     "ba43d2da9dbde551ddb2e1dddee3ac0aad224fa78df3de739a246bceb378eab4"

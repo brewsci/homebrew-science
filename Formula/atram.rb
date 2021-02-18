@@ -11,7 +11,7 @@ class Atram < Formula
   head "https://github.com/juliema/aTRAM.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any_skip_relocation, high_sierra:  "0828d9e44444fdfd26f1b209c956cf130c9ba44915cfb4285a73f24c14804e0f"
     sha256 cellar: :any_skip_relocation, sierra:       "3d4d87141fe67eb040f5abf3a25b9a8f88d134f40ab50ae329985a7ed574dae8"
     sha256 cellar: :any_skip_relocation, el_capitan:   "5a957652fd330d42f1db80f5caeecebe18913473cfd8c45bd28de45fcbbf7fe0"

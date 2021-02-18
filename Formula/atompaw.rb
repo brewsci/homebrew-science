@@ -6,7 +6,7 @@ class Atompaw < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 el_capitan: "cd45642d971fa91d287ee36ddfa6abf977ca213073ecb5ca027c6761695e486e"
     sha256 yosemite:   "7a164937d25106a74c492ebe3457952048d630a2ccef1efd856b96a36c87a637"
     sha256 mavericks:  "2861f7274926bb37c3b96d0e4bfc5d1f32a21e6793c291a3743a8eb7949c3a2c"

@@ -8,7 +8,7 @@ class Hlaminer < Formula
   # tag "bioinformatics"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     rebuild 1
     sha256 cellar: :any_skip_relocation, sierra:       "7a81914e6f4781791ec84a8a4eec2449c38bdefd8a848e658a4d5c5f3343f3b9"
     sha256 cellar: :any_skip_relocation, el_capitan:   "a5ad58d7d29a571112a9848112a8d7f59924e0c8876a04bd22ce73103f0b9581"

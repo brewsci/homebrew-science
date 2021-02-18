@@ -6,7 +6,7 @@ class Nglib < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "b196f891e9ee6bcbde3da4bed5b94ba5e781e41d229ec6086770ce17dcaf4481" => :sierra
     sha256 "b5c8261d19aa2f1f9c12a852329f914e6f870a951a91f46559c8ebcaa423e398" => :el_capitan

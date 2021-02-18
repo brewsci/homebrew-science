@@ -17,7 +17,7 @@ class Piler < Formula
   end
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     sha256 "dcb0a2bc15dd739eee21b80db14660b600308a612d0091bfe9cd3161dc3f009d" => :el_capitan
     sha256 "62f3c8a1acf4a28f266937011da857c63608d26c10c2f2a690ce05c9223de17f" => :yosemite

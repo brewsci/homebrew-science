@@ -11,7 +11,7 @@ class Dextractor < Formula
   head "https://github.com/thegenemyers/DEXTRACTOR.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, sierra:       "da723458ae41c38318d09f70d72caade2ca997eb714a53b7631c3469e9c00e3a"
     sha256 cellar: :any, el_capitan:   "d269e8f8e1c7fb1cb9b3c1ebcad2fbf02ed207e9ee77fbff7a0dc45c9f6c0089"
     sha256 cellar: :any, yosemite:     "aa4d5bbf96dcace4d0173ef7345a00ff53f06f3b7eff0dea5e10bc04b3dfb516"

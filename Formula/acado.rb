@@ -4,7 +4,7 @@ class Acado < Formula
   url "https://github.com/acado/acado/archive/v1.2.2beta.tar.gz"
   sha256 "cf0779e64dd5d20989e97340c04ecccf542fe8d993c96b53e5c465693cb354b7"
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 sierra:     "33b701b48e25c3ac74e6dacda3b4146d4d5c9b1316d6cdbea3a943c118f22ea6"
     sha256 el_capitan: "526d28da3f7f3504009cd517d50bec752151ab4810749838698c4c7f82d6a1ba"
     sha256 yosemite:   "e5ab45e223ef1e21440826b91cd72ccca0fa305a5fa0df00600be3a9e3ca04bd"

@@ -12,7 +12,7 @@ class Novoalign < Formula
     end)
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "e900cd36677ec495d0c6fa3a84e0700bd35680c509b28e2528b18fe40a0aa00b" => :yosemite
     sha256 "c4fd0e6b46ea57ec09014ea58f967229947dda33559bafdc93166ca4f797f30c" => :mavericks

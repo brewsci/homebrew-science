@@ -5,7 +5,7 @@ class Xrmc < Formula
   sha256 "89c2ca22c44ddb3bb15e1ce7a497146722e3f5a0c294618cae930a254cbbbb65"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 "3c98fe0a3b3e5ee6214c8dd7f2f5198db6b3551bab582869767824842fd385d9" => :sierra
     sha256 "b4c39cabc73c192a5d602147309a973ed4cd2d92fb6a22ec0f4fc4665d18f7e1" => :el_capitan
     sha256 "ae287f540f1925817c8b2be79b0ac1fa27853a58fef3393640494471ae711f1a" => :yosemite

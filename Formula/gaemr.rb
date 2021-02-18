@@ -7,7 +7,7 @@ class Gaemr < Formula
   sha256 "cab1818e33b8ce9db2b25268206d73b5883f6c40843c258a72daba79e841d70a"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, yosemite:      "95b6230d77b727f963437e3066b2c024054fea6087f145c946c8bcb47316999b"
     sha256 cellar: :any, mavericks:     "afb3ea09dea99f67b72f3395ad81dc3b369cb7c0b2ef29dafe9127b22585b36e"
     sha256 cellar: :any, mountain_lion: "15139afc47141dfd4df15b9ad8f75b6801624b26fadd63be6b5bbd61b7657fda"

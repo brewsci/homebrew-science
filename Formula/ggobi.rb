@@ -5,7 +5,7 @@ class Ggobi < Formula
   sha256 "2c4ddc3ab71877ba184523e47b0637526e6f3701bd9afb6472e6dfc25646aed7"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 el_capitan: "b5c0ecade5536fff6c9309f5ced8ab76839b8d87f644ae18a11d13bbfd6fe231"
     sha256 yosemite:   "a62158696190196fddc92ad497b4b13096dbfddc26a30b5b029d4741354bf594"
     sha256 mavericks:  "26209f33759bd90a90c260e78ffaa8c6ea78acccb7ca9bc000a66ffdf45db2d6"

@@ -6,7 +6,7 @@ class DazzDb < Formula
   head "https://github.com/thegenemyers/DAZZ_DB.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, yosemite:      "9d250aca96917cb8a33d0329a397468ce6e58b0a9fb3536741a6291cee646925"
     sha256 cellar: :any, mavericks:     "8ad2de72d4d6f0a1a51c65acec52d3ed220a96ffa804e1c4942667caf872dcb3"
     sha256 cellar: :any, mountain_lion: "5a911e0c31bb18d467455c196bf74a1f709fa5d538572489ba5d033921a5536a"

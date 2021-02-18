@@ -5,7 +5,7 @@ class Nfft < Formula
   sha256 "5c920f4be63230083756f36ad78bbdd083c4c2298ec361741dc74243c4d67818"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     rebuild 1
     sha256 "84139f9d6ff8086294af900a96c0127c7622505da1545284017d5e7d0b34c84c" => :sierra

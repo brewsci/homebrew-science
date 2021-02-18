@@ -8,7 +8,7 @@ class Hotspot < Formula
   head "https://github.com/rthurman/hotspot.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, sierra:       "e10854edf239f5e85f11b77ab48235aa9a68bfc2184e622a03e26d17be45f3df"
     sha256 cellar: :any, el_capitan:   "c32b4b12e774d784ce592bb565c1905eec6b007d0a587bb806b46c2d0a0be06f"
     sha256 cellar: :any, yosemite:     "35da611217337015692fadf3c41e7e0c24d59d419f20847ec3fd732bb6bf6637"

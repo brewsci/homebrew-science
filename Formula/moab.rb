@@ -6,7 +6,7 @@ class Moab < Formula
   head "https://bitbucket.org/fathomteam/moab.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, high_sierra:  "072821d3130afad401b2180a6d6bfe76ceb716d0899c2f8f3cad6c37addf67e1"
     sha256 cellar: :any, sierra:       "8b887f52a8acf00983caacbad8a6bab7fc93de480c78a0176695a1d6241fca6c"
     sha256 cellar: :any, el_capitan:   "a6c240f0e59505610982d58f8087529809485d5629be5d371a3560beb5dbc7fe"

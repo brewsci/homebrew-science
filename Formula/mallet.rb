@@ -6,7 +6,7 @@ class Mallet < Formula
   head "https://github.com/mimno/Mallet.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any_skip_relocation, sierra:       "da32cef7b10fcbfc1f5fc7878f779a5000d88f3363342b6c9ff1830f29d85803"
     sha256 cellar: :any_skip_relocation, el_capitan:   "f870d8dac822eeda26296f069d488547cb415c2eaaeb0fd0e822595308c0b390"
     sha256 cellar: :any_skip_relocation, yosemite:     "f870d8dac822eeda26296f069d488547cb415c2eaaeb0fd0e822595308c0b390"

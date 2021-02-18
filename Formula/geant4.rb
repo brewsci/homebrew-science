@@ -6,7 +6,7 @@ class Geant4 < Formula
   sha256 "a164f49c038859ab675eec474d08c9d02be8c4be9c0c2d3aa8e69adf89e1e138"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, high_sierra:  "c772638082c68d6610ee73325e4cea2559a000e0b0f954a55be26154019bf105"
     sha256 cellar: :any, sierra:       "ec5643125522f34ebfce1125a838c34519b9bf356c63870d5c6c328a64e63b63"
     sha256 cellar: :any, el_capitan:   "b9b5bafa9f756f11a2a5113b8f3e058af2f07c1c21010ca7fe0cf7271cdd4016"

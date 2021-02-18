@@ -7,7 +7,7 @@ class Weblogo < Formula
   sha256 "2d3e0040c0c1e363c1dfd57f8b585387eb682ed08b2cc2fe2e4cc2a33ac52266"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     rebuild 1
     sha256 "267edf2808b1d8dd8248b8c5d0696c703e92478d7c08f799272e3a6c290a2e50" => :yosemite

@@ -8,7 +8,7 @@ class Maq < Formula
   # doi "10.1101/gr.078212.108"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any_skip_relocation, sierra:       "83bda1812af30f94bb99097134977d38227dd8b99688ecca74c257fe07c52fee"
     sha256 cellar: :any_skip_relocation, el_capitan:   "fb4ab9e0b5169f4ceaa375ab79b0b0e829533ba51a1266a37faa840abc6cee81"
     sha256 cellar: :any_skip_relocation, yosemite:     "87085cf34c60f1b9f528ffc66018c4bf6824f96f1a4e2247280830e1b7425433"

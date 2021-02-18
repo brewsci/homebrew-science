@@ -6,7 +6,7 @@ class AtePairing < Formula
   head "https://github.com/herumi/ate-pairing.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, yosemite:      "ad541d7df1098a90e8adb0a7073b5389959981a200a47866af07d6c000484378"
     sha256 cellar: :any, mavericks:     "f6bc288cf0726b9364264cc973cb0307105d8f3e6bbd3c1df5c3d617d9e52049"
     sha256 cellar: :any, mountain_lion: "922f1755e308635d75f7e3903a5191db5074a46da82bf51ecd533367f435b455"

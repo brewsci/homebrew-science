@@ -6,7 +6,7 @@ class Cmdstan < Formula
   sha256 "9298927e734d557c8b73d344179eea4ce626816152190908756be73db36501ef"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any_skip_relocation, high_sierra: "8e4c34f902e36a437afecb64a66484965fdfb9aa2811d946adbc988404058568"
     sha256 cellar: :any_skip_relocation, sierra:      "b9382a4880936bf14077a59bf0cd4bce4204b7770fcc6e8bc72cefac21ba2ec3"
     sha256 cellar: :any_skip_relocation, el_capitan:  "4b977fa58386ed05dde04d157a36bd86ad2cad33512a49caba5fbb470925ec56"

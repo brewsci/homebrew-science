@@ -6,7 +6,7 @@ class Clips < Formula
   sha256 "01555b257efae281199b82621ad5cc1106a395acc095b9ba66f40fe50fe3ef1c"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, sierra:       "ec94762baa2bfef3fa4db448ea4ada3d7f876733a8edc68a9128f878d0d9ed04"
     sha256 cellar: :any, el_capitan:   "92882b712f7175ab121a87f5c6f12a2ecab6aa3fbfd67d3b59ca2703d48bbaca"
     sha256 cellar: :any, yosemite:     "82188bf3964afb67b0840ac3d41744be8d85c2a7056e8455e4f2ca2ea0d740df"

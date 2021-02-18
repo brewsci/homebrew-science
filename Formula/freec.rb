@@ -8,7 +8,7 @@ class Freec < Formula
   # doi "10.1093/bioinformatics/btr670"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any_skip_relocation, sierra:       "52ef46289fafd3f961496e8435c253ca8ad9eb2b8c71e347af151a945e0c931d"
     sha256 cellar: :any_skip_relocation, el_capitan:   "9b3f754d24a58fa2984ed909146517e69921ec64b9c07155e1137e198d1b7c44"
     sha256 cellar: :any_skip_relocation, yosemite:     "9d3e79f2ad412888dc27ec4d1a15f547de6f72d06794c9e61f4b62b83fb73357"

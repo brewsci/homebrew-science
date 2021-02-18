@@ -5,7 +5,7 @@ class SigrokCli < Formula
   sha256 "5669d968c2de3dfc6adfda76e83789b6ba76368407c832438cef5e7099a65e1c"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "a41bd3e0acc877ec54a8019cf2b7640834eb7d531b6bb74c3d4bf345cd58360a" => :sierra
     sha256 "50a9411021aa97979f58857e08a1f11034e0fadf52ca901dac0ab5b9deaa7a22" => :el_capitan
