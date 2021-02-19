@@ -14,6 +14,9 @@ class Dealii < Formula
   deprecated_option "without-mpi" => "without-open-mpi"
   deprecated_option "without-opencascade" => "without-oce"
 
+  mpidep      = build.with?("open-mpi") ? ["with-open-mpi"] : []
+  openblasdep = build.with?("openblas") ? ["with-openblas"] : []
+
   depends_on "cmake"
   depends_on "arpack"       => [:recommended] + mpidep + openblasdep
   depends_on "boost"        => :recommended
@@ -31,9 +34,6 @@ class Dealii < Formula
   depends_on "tbb"          => :recommended
   depends_on "trilinos"     => [:recommended] + openblasdep
   depends_on "openblas"     => :optional
-
-  openblasdep = build.with?("openblas") ? ["with-openblas"] : []
-  mpidep      = build.with?("open-mpi") ? ["with-open-mpi"] : []
   #-depends_on "doxygen"      => :optional # installation error: CMake Error at doc/doxygen/cmake_install.cmake:31 (file)
 
   def install

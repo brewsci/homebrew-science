@@ -23,20 +23,20 @@ class GraphTool < Formula
   option "without-scipy", "Use a scipy you've installed yourself instead of a Homebrew-packaged scipy"
   option "with-openmp", "Enable OpenMP multithreading"
 
-  # Yosemite build fails with Boost >=1.64.0 due to thread-local storage error
+  with_pythons = build.with?("python3") ? ["with-python3"] : []
+
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "boost-python" => with_pythons
   depends_on "cairomm" if build.with? "cairo"
   depends_on "cgal"
-  depends_on macos: :el_capitan
+  depends_on macos: :el_capitan # Yosemite build fails with Boost >=1.64.0 due to thread-local storage error
   depends_on "google-sparsehash" => :recommended
   depends_on "gtk+3" => :recommended
   depends_on "matplotlib" => [:recommended] + with_pythons
   depends_on "numpy" => [:recommended] + with_pythons
   depends_on "scipy" => [:recommended] + with_pythons
   depends_on "python3" => :optional
-  with_pythons = build.with?("python3") ? ["with-python3"] : []
 
   if build.with? "cairo"
     depends_on "py2cairo" if build.with? "python"
