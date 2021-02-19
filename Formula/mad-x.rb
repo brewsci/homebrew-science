@@ -6,7 +6,7 @@ class MadX < Formula
   head "http://svn.cern.ch/guest/madx/trunk/madX/"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, sierra:       "54d31a73ae0744b8093fff79a26bf797012086f00fcf65fdc9dae7251136c991"
     sha256 cellar: :any, el_capitan:   "3104a72c54c91f2899641da479137bfe837d4e3970922a9791e19ea6b8c0f5a6"
     sha256 cellar: :any, yosemite:     "1afe12d2cc762817778b54e944b7f40a917d6b605e8ad44bf041bf37a7991c2e"

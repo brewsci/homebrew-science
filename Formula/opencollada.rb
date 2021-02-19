@@ -5,7 +5,7 @@ class Opencollada < Formula
   sha256 "638ce67a3f8fe0ce99b69ba143f1ecf80813b41ed09438cfbb07aa913f1b89d7"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     sha256 "34252dd8c9f605f9f1ffdef4c5675820e14ccc586236f4eb095d7182dba13a55" => :sierra
     sha256 "8761610b920904e2a18b45b373fa79bcfebde96a6fb7cedb1b2b4352ccce3ffe" => :el_capitan

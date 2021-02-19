@@ -4,7 +4,7 @@ class Sllib < Formula
   sha256 "149e4677b7636b6feaebe9d2b6f72597829209cc4eda1386bdfa1d5dfb9cc6bc"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "e41419c2d18c872a48c2b5165c9d4a048471c3a9a81b8a6362d88f615ca472ec" => :high_sierra
     sha256 "65c7396911355831597843d36422ca1ca68cd40f5d56038e870a86b6bee3201d" => :sierra

@@ -6,7 +6,7 @@ class CalculixCcx < Formula
   sha256 "7685f4ddd0dc698fa1ad0f82594a6fe52ffa8f604c1e74befa048d3d46f49ce2"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, high_sierra:  "fdeb7b65ae2970e878b61e80e81074e36a89e7489e9fe39816279531068d3099"
     sha256 cellar: :any, sierra:       "4c2595b652eb8b17e5875b7cfc57ae05c1f5dcf3dd94e350d9fa6a8c1ce2a260"
     sha256 cellar: :any, el_capitan:   "4f18ebce2ac2c8fd9780cc0e3493f34159f59032a12ef34fc26343d5aacdc405"

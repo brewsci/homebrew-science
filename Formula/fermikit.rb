@@ -10,7 +10,7 @@ class Fermikit < Formula
   head "https://github.com/lh3/fermikit.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, yosemite:      "b467bb944e76c9bac1631e99504af33ab246deff71d35f6ebe43b5cf6526f3a2"
     sha256 cellar: :any, mavericks:     "13cb6bc58404555edb8141637461336f18c2079ad931e8fe8806f656a7142745"
     sha256 cellar: :any, mountain_lion: "7e3964a923ed60cd1c44cc8dab675b4bd4d988b5fd8bfd041d2a65ddc10eb33c"

@@ -6,7 +6,7 @@ class Wcslib < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "54bbcd8e7f8208f42901a13a637fa2994f0fa9d33e4b3326aba4fc8f171504d4" => :sierra
     sha256 "209c69286e567c4cc34b6b70a0cf9f3beeb1182bb5a63e4ede05f684a0341771" => :el_capitan

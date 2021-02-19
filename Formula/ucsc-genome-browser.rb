@@ -8,7 +8,7 @@ class UcscGenomeBrowser < Formula
   # tag "bioinformatics"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "fcc259c3a85c7c768c395ff08f73c967e6dee6871178737813896fe45f3def32" => :sierra
     sha256 "464c2f20b03aec8b07c8d2351d0fb9954dd25502fe52f4096b89c49294a5e021" => :el_capitan

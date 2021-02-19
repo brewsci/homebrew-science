@@ -5,7 +5,7 @@ class Libfolia < Formula
   sha256 "0e716281802df050bcced4826b470152308f7be93ce481f8f47528abafa1e2e1"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, high_sierra:  "0db59fd9d1f80c6616d5b7935e9d5f3307cbaa2fec366740a768efabd3794e3c"
     sha256 cellar: :any, sierra:       "c67dbd706bfe1af2ca072e61243f460e89b3b00e80207ef1513bb163269b7a8e"
     sha256 cellar: :any, el_capitan:   "25bb602a0d4d757aa91779948cc25f589a0475b32e14d4c0d1527a15a5d0d0a8"

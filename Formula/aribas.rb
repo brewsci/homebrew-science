@@ -5,7 +5,7 @@ class Aribas < Formula
   sha256 "11b2a934774088e2c66a9d9397806dbb8d33f0da48d6c800a492c2a43c258169"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, yosemite:      "527b9121f9ac87e6baaba446946dd0c77852f592591c152789aaa04f2e8cd2da"
     sha256 cellar: :any, mavericks:     "488254a6933194e7d6df5003ade3b24e09e1f98fd00b0adf697a1859a7ff26fd"
     sha256 cellar: :any, mountain_lion: "86c8efd01bc594f1857dc84fa638412f9918b2851d59361198f74cfb3d0ef63a"

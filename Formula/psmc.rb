@@ -2,7 +2,7 @@ class Psmc < Formula
   desc "Pairwise Sequentially Markovian Coalescent (PSMC) model"
   homepage "https://github.com/lh3/psmc"
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "fc899e94c6d9eaafaaacb1af70d3aa074bb0cd4c8f8d9895670c2ba8b3e6f761" => :yosemite
     sha256 "2c45d58d00910f8502bae0bf520ee345093bf57cb24edfb02252fccbdf062f53" => :mavericks

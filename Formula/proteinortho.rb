@@ -9,7 +9,7 @@ class Proteinortho < Formula
   sha256 "718af74289a4fc0075f9dce2b12fe3fa1c7d96718c7ec8d9ddca94beac658a17"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     sha256 "90278cd36c92e1f2470ddfbe67310b8af11146c5e1e7c2c0963fca6563cb57f2" => :el_capitan
     sha256 "310de812c9d5d37bb4b368e737b83bbdd7fafc025bd4acfce167d4cb14c05203" => :yosemite

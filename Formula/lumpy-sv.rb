@@ -7,7 +7,7 @@ class LumpySv < Formula
   # tag "bioinformatics"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any_skip_relocation, sierra:       "712abc8add7fb030e08ed367b0c752ba5c33631e047926346f2e79653e84e9cb"
     sha256 cellar: :any_skip_relocation, el_capitan:   "344c9e24aa37ddd01a012a30aad17fa92780739e926ff5e65b1bcb5ac45d87c5"
     sha256 cellar: :any_skip_relocation, yosemite:     "225cb0dd852ebb98579f0c72f7f4b48e295e06e9182d4f32f5d05048ba42c15d"

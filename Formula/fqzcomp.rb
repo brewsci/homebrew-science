@@ -6,7 +6,7 @@ class Fqzcomp < Formula
   sha256 "ff98f5a5e2c0351cdeacbd236aa25c7771ec8a4f547416c22a1b5c74a1875620"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, yosemite:      "0881cb14d38d9332f38fbce082468ac1276e9d82ca5ac5d99e4473420079d8b5"
     sha256 cellar: :any, mavericks:     "ea9897a175a698b9bee04613af8a76f980c0b0e65ae8e755c6a40b3fd85ef0fc"
     sha256 cellar: :any, mountain_lion: "6fbd97cc5f69d03805e703ed1f6a9b2d49f9eccf8afa8955368a5f45fd9f32f4"

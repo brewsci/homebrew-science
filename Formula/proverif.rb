@@ -5,7 +5,7 @@ class Proverif < Formula
   sha256 "8c7a83dbe36ed0b5fbecf477d35769a31f8c349950aa40495e69761306048da5"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     sha256 "f9c1a86d99a32269705b1c00ec4156e2ca051b02de1d7eca9b047c612b5800ca" => :el_capitan
     sha256 "1d17c42100fd86080e0f07ba9e7c5509a7e27d3188ba637492b9e091a4bfc99a" => :yosemite

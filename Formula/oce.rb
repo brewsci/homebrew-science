@@ -5,7 +5,7 @@ class Oce < Formula
   sha256 "dc21ddea678a500ad87c773e9a502ed7a71768cf83d9af0bd4c43294186a7fef"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 "8fd1f46830b86e1c1483cc6583e59bdab76f4ba9c625ae0b9b31b6df1fd43a86" => :sierra
     sha256 "7fc9cd843d45bed31aea9b77822a0473b54430e4595e8c50e2b9f1140a1db02d" => :el_capitan
     sha256 "475c4ac1a5da8e0cdc9d1925fd51fd5c7e37bb2c3c5695786470dba500ace354" => :yosemite

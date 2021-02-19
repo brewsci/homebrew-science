@@ -10,7 +10,7 @@ class Pandaseq < Formula
   head "https://github.com/neufeld/pandaseq.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 "ccee1bf80787340ab604c35e25ba6e304c841f8947b3353708ba58cade37ea45" => :sierra
     sha256 "6c18632499898dc6c236ee3c0cac241b93f91d4bfbb39ff5240d44e1e145b036" => :el_capitan
     sha256 "6cc3933dd125da534d7b86c588cdd28ee183d328a6a01e4a33a3692ed5b1d758" => :yosemite

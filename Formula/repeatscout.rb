@@ -7,7 +7,7 @@ class Repeatscout < Formula
   sha256 "bda6f782382f2b7dcb6a004b7da586d5046b3c12429b158e24787be62de6199c"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     rebuild 1
     sha256 "b03af9a3be3be79b556401d5270a8216c06aa54cd5dec861068ab6e2acd06454" => :sierra

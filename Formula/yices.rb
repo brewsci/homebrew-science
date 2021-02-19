@@ -5,7 +5,7 @@ class Yices < Formula
   sha256 "f7403328d7d0b3973ffac61fe674d5b8030dd4806c75f3de2cfb8fd81aad1ccd"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "4a7c1a5826539df6e4e1f4639e90810ca2e9b1e43272235d9e58de3d0a92d30d" => :high_sierra
     sha256 "36423ab1afd1f3d45a96f9ba18b1936b29d3eaab0116458ef2fc62f766a5a20c" => :sierra

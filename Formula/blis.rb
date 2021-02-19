@@ -6,7 +6,7 @@ class Blis < Formula
   head "https://github.com/flame/blis.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, sierra:     "cf0e1e538924bf819fc37282dcdefd7d73baefd17d6ceee796f2592e656479ea"
     sha256 cellar: :any, el_capitan: "964fbe2656d2f991879c5361b8ffa4132f70fe733ec0f596d3ac6152ae82dd19"
     sha256 cellar: :any, yosemite:   "46112ec1a9dda5cfa5f66974d54d0ccdf809e5fcc3507b0caf1bf5ca2dd6436c"

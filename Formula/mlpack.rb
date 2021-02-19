@@ -6,7 +6,7 @@ class Mlpack < Formula
   sha256 "e24e64d8451a3db23eafb7c94f9fa075dd540f5ac04953c82260a9d4d9fc4fcf"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, high_sierra:  "e9d8e97e3df78d48ccfff553fa46cfc6d61204133ce8bf86ead2022d43716ac4"
     sha256 cellar: :any, sierra:       "dee66abdc8257caba52d37b69bd2e5514d9a697841182553cc309424913e7739"
     sha256 cellar: :any, el_capitan:   "0bba3b4d17b38c2ca882b7f09fa694095674ef27853ffb140fc514cd143512e9"

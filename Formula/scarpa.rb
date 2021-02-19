@@ -7,7 +7,7 @@ class Scarpa < Formula
   sha256 "a5e71d63b8c828d4bd0ee081d1c5250ce25ffa52b4b2a8759d2a75ce2863d558"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "c8eca0370427c99c07735f9bf4d2db7149aa17cf221ee90f66b4fcc9c5f1a3f3" => :yosemite
     sha256 "8b1d2ffaa4981728042baac900544b43f2a384520d7a508da9c8242a21fa2bd9" => :mavericks

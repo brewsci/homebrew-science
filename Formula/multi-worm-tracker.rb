@@ -8,7 +8,7 @@ class MultiWormTracker < Formula
   sha256 "4f57f83314a14c74b1e463b5a2f9f495687da02b803e3b62a1af1ead09b57797"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     rebuild 1
     sha256 cellar: :any, yosemite:      "7a085b8be54b5a51e2a8971fb4f095a6d26dfd7d2c5dad753ec6c6d68abb19ab"
     sha256 cellar: :any, mavericks:     "a6294aad75e06433796ec033bf811de62c9509f697aa50446bbcaf89a9e2181b"

@@ -10,7 +10,7 @@ class RnaStar < Formula
   head "https://github.com/alexdobin/STAR.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 "9891475ea134f632ff3679bad0da0106788e1b973f4d599abafe02be9a96335b" => :sierra
     sha256 "14f4500e87c9b01a4c34dcdbb5ba7bc23f35de2ff314aea8c66c5e41854c5566" => :el_capitan
     sha256 "7e09fa7c1f504268451cbfc96e71d8e634acfd187baee282159dc28d5f1a1e53" => :yosemite

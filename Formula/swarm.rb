@@ -8,7 +8,7 @@ class Swarm < Formula
   # tag "bioinformatics"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     sha256 "58e38cb1046d4dff96066405ec4e55cbe1154f540dbc245d892630bb5275d141" => :high_sierra
     sha256 "43ad4be032757551445c54ff9eecba84ef479c56d3de98cce0f669e6b56b2841" => :sierra

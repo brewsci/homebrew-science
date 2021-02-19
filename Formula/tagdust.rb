@@ -4,7 +4,7 @@ class Tagdust < Formula
   url "https://downloads.sourceforge.net/tagdust/files/tagdust-2.33.tar.gz"
   sha256 "8825e2975eae11e19033f233b5951517b5126bd19e049a500b1e048eaa215f84"
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     sha256 "03d9c2100d4c4ec058ebe172099bce03881a9c15128c36fb26dfd329151dcae0" => :sierra
     sha256 "77127e578dddb67139e381f182776bc55f4d0f3d5879285e69de42310f0ca327" => :el_capitan

@@ -6,7 +6,7 @@ class Tisean < Formula
   revision 4
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "83b99fb7f0468ed2a6e1cb60d942fc92e089727b1b32be741a749a89950f59a9" => :sierra
     sha256 "bfe43d57e148f0a309bd2f26f74ee8239ed213015ad8e34867f5c67579779958" => :el_capitan

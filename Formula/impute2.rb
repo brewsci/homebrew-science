@@ -13,7 +13,7 @@ class Impute2 < Formula
   # doi "10.1371/journal.pgen.1000529"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any_skip_relocation, sierra:       "e38e3291995bf7ef9ab828637d511b76a975f8690122fedc15a11d0ac9c55623"
     sha256 cellar: :any_skip_relocation, el_capitan:   "5c10a86647eb4255cb2779916b0eaf7194f4459d80ff279a5d9ee606f3654d57"
     sha256 cellar: :any_skip_relocation, yosemite:     "5c10a86647eb4255cb2779916b0eaf7194f4459d80ff279a5d9ee606f3654d57"

@@ -6,7 +6,7 @@ class Ess < Formula
   sha256 "706c41237e1edf33a369902f503bb25254b2bbb750b9ed1adee244e875264afb"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any_skip_relocation, el_capitan: "33487613d5e6495e90bb0ef9c67769643e45ad01df1783bcf7b238517f687fa6"
     sha256 cellar: :any_skip_relocation, yosemite:   "faafee99a5a6b3715bce1dcb310313e0396cf29669178545086a7898f6935728"
     sha256 cellar: :any_skip_relocation, mavericks:  "ae72a98f8f4131a2cde8219f53df51d6470839eaa1299331fb13d3a8fd7c4f5e"

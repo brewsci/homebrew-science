@@ -9,7 +9,7 @@ class Bamhash < Formula
   head "https://github.com/DecodeGenetics/BamHash.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, yosemite:      "9855449314d5564d4b3ef17b352ba5e9b73b434abc33b8630216314845a38cc3"
     sha256 cellar: :any, mavericks:     "a8ed1f99684cce5919fff31c4a0cad8c0e2b7b3a1063800f61b217a3b0af1689"
     sha256 cellar: :any, mountain_lion: "5047df46a901e94da014a98802bd27143335ecb9beb2913f4586b3b428895984"

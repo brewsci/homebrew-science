@@ -5,7 +5,7 @@ class Libsbml < Formula
   sha256 "c6855481434dd2a667fef73e1ff2feade509aa2f3a76d4d06e29022975ce1496"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, high_sierra:  "164571619c5e873e831679632454b0ec81841488e20b31fdec53bb267cdc617a"
     sha256 cellar: :any, sierra:       "e34da5cb0002c70afb996d6cecbd3e1bb4afd98799ccbcc0b0477c5568d42e7e"
     sha256 cellar: :any, el_capitan:   "9e6b76c0ab1f0f66a518329e1e51de13f61216c0c31ab70c2335e136d9c2206e"

@@ -16,7 +16,7 @@ class Yaha < Formula
   sha256 "76e052cd92630c6e9871412e37e46f18bfbbf7fc5dd2f345b3b9a73eb74939ef"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     sha256 "910564c95a23c3ad0297e00f56177a5fb2f22244ecc924415e25e38af87c90e5" => :x86_64_linux
   end

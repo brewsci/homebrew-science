@@ -8,7 +8,7 @@ class Slicot < Formula
   revision 3
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     sha256 "8858d3476f8e51fc8725008fff3528216ac4510f712af26c158866da35194f53" => :sierra
     sha256 "0c3a86b77f39bd2302c67643c5adc4c117b2ced83179f5b431511d2f4f37adff" => :el_capitan

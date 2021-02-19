@@ -9,7 +9,7 @@ class Littler < Formula
   head "https://github.com/eddelbuettel/littler.git"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 sierra:       "e03f8e6b2601bf5f783637880c22e3c218e4111aeeb5c20377288f3e391794ea"
     sha256 el_capitan:   "1c5ace2ab2899f1d2e0aaa86081bbf291f25fa0f9da82c6a5aa536b366d54aa4"
     sha256 yosemite:     "fb6b0ba9342eb301ff0ae34259d936bd2f06dad73abc929e48ac8d8ec8114deb"

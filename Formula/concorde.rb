@@ -6,7 +6,7 @@ class Concorde < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any_skip_relocation, sierra:       "42ee02ecbd03e629acd5e4edf8acac452dacacb21909daa00e7aecdface139cb"
     sha256 cellar: :any_skip_relocation, el_capitan:   "6162a9d151beece4ac7b1b988be0ea04231616b3d2072f6f1d3fcffadf9b25b9"
     sha256 cellar: :any_skip_relocation, yosemite:     "2c48410d2ecf1de6fd3e6ffd3bd35dc7bd9554bf1f7750b5ae5d48a93f1fe170"

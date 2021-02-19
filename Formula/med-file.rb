@@ -6,7 +6,7 @@ class MedFile < Formula
   revision 1
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, sierra:       "7306f7b36ada75fc21fd9ff9763ef9a1d1cf9c0d874aab06c1513a20fb6a66c5"
     sha256 cellar: :any, el_capitan:   "75313479ba3d7b238b3eef2979ee78fed583fb5be5902f337f72269bafa26879"
     sha256 cellar: :any, yosemite:     "f082a9d31d2ba6caa98f34e16212aa8e0e22154efe3b4fd86933f324ddc642a9"

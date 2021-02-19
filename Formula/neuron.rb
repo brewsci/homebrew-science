@@ -11,7 +11,7 @@ class Neuron < Formula
   head "http://github.com/nrnhines/nrn", :using => :git
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     rebuild 2
     sha256 "01a0e1ca02160da4a9d78ff075755e0a9bc90f134ba12a20f793448cfd3769f7" => :high_sierra
     sha256 "74589160f1f400ce8125fb10c925d039991b6213bdd96b383c18fb7a7a0af6d3" => :sierra

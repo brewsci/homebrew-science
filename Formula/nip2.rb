@@ -5,7 +5,7 @@ class Nip2 < Formula
   sha256 "7a8c8b145216fbf2212de6eda4fbaff1884e3e1f8970f5e14e12a5df164e2c8a"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "e0af078a5d9786c71077ed55dd415e978d144c0ba2016cc61fdea009b62eaa74" => :sierra
     sha256 "2333489eaae68a285287ea418de1445bcd4cc7bdc758b8cbf260f99e25e0d7b0" => :el_capitan

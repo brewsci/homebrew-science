@@ -6,7 +6,7 @@ class Snid < Formula
   revision 5
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 "bc293aec48202ceee8a75a9b833251c0fbd7664ef749d5e732e452c2f0c95905" => :sierra
     sha256 "92d0fe0aebc1635bba087ba2b11afbc0bc0cb75ee97c33134009432fcda04c91" => :el_capitan
     sha256 "f97167fc4bc13827338ef498d44655c8b96c01c1a65186086d4bcbabadc0d169" => :yosemite

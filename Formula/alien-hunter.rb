@@ -5,7 +5,7 @@ class AlienHunter < Formula
   version "1.7"
   sha256 "6970a84262b46a6361c829b4510878b70ce0375dd78a19e78bd68ea8b15460e1"
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any_skip_relocation, sierra:       "d2bb9e4c3ca641bbdef8233e69eb5b36effd844cdeff6946dbc3dedd58e9632e"
     sha256 cellar: :any_skip_relocation, el_capitan:   "7095286b88c0b90a47d675ba2704bddc6092bb5bc9a8c43c1c8b576619242187"
     sha256 cellar: :any_skip_relocation, yosemite:     "7095286b88c0b90a47d675ba2704bddc6092bb5bc9a8c43c1c8b576619242187"

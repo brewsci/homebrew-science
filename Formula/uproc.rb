@@ -8,7 +8,7 @@ class Uproc < Formula
   # tag "bioinformatics"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any_skip_relocation
     sha256 "ae84e01f8936f83e8393a6b5ca4eb7ff669c6604ea27b2e5f34b47a92dc44aa4" => :x86_64_linux
   end

@@ -9,7 +9,7 @@ class Phipack < Formula
   sha256 "bee88a90c081caac427f7bc206a59ae9a51b9d4affdb3a53750d7f9da109e193"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     cellar :any
     sha256 "1fabe869b7a87d8fec85ca7cf7ee1899d12a38994a6046f203f83026733c91a3" => :yosemite
     sha256 "c0af865b47d6146ffa65ae63049933c0cebe523e8ea51edd3b43e85af63c43c8" => :mavericks

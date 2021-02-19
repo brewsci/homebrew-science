@@ -7,7 +7,7 @@ class Adapterremoval < Formula
   # tag "bioinformatics"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     sha256 cellar: :any, sierra:       "b1aae1b89e128b507e119d4ab94844a64e2e817c9b8dc62a50a6b89466d9fd33"
     sha256 cellar: :any, el_capitan:   "8f26751f1ac7176b73270270bfcf6ca917591c64e6bfd722017ed89664165b08"
     sha256 cellar: :any, yosemite:     "939e933e8d3cfd8b733eef9b0baf515813c6065d7b994613270895503a66a385"

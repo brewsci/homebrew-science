@@ -7,7 +7,7 @@ class Geneid < Formula
   # tag "bioinformatics"
 
   bottle do
-    root_url "https://linuxbrew.bintray.com/bottles-science"
+    root_url "https://archive.org/download/brewsci/bottles-science"
     rebuild 1
     sha256 cellar: :any_skip_relocation, el_capitan:   "b6004ab561a4abb8989ff842059c0d69c86b3aa65a496fb2d2ab73f584dfa290"
     sha256 cellar: :any_skip_relocation, yosemite:     "8343b87beee45227edcd3f7b523ae84773cc713f73e6e651ccba445cc223160b"
