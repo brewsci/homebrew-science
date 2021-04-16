@@ -22,7 +22,8 @@ class Triangle < Formula
     doc.install %w[README A.poly tricall.c]
   end
 
-  def caveats; <<~EOS
+  def caveats
+    <<~EOS
       Triangle is distributed under a license that places restrictions on how
       the code or library may be used in commercial products.  See the README
       file for more info:

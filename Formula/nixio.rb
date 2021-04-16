@@ -9,9 +9,9 @@ class Nixio < Formula
   bottle :disable, "needs to be rebuilt with latest boost"
 
   depends_on "cmake" => :build
-  depends_on "hdf5"
-  depends_on "cppunit"
   depends_on "boost"
+  depends_on "cppunit"
+  depends_on "hdf5"
 
   resource "demofile" do
     url "https://raw.githubusercontent.com/G-Node/nix-demo/master/data/spike_features.h5"

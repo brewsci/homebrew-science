@@ -8,11 +8,10 @@ class Nanoflann < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "1ace2e2e1bb328cbce2c92c1a46970dcee5012ddae023274567a631a052b0cc3" => :sierra
-    sha256 "1ace2e2e1bb328cbce2c92c1a46970dcee5012ddae023274567a631a052b0cc3" => :el_capitan
-    sha256 "1ace2e2e1bb328cbce2c92c1a46970dcee5012ddae023274567a631a052b0cc3" => :yosemite
-    sha256 "ca47b76a7411c34e13ca50f496a1e48bd347d07eaf3e544cad824f9fe0c6a505" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, sierra:       "1ace2e2e1bb328cbce2c92c1a46970dcee5012ddae023274567a631a052b0cc3"
+    sha256 cellar: :any_skip_relocation, el_capitan:   "1ace2e2e1bb328cbce2c92c1a46970dcee5012ddae023274567a631a052b0cc3"
+    sha256 cellar: :any_skip_relocation, yosemite:     "1ace2e2e1bb328cbce2c92c1a46970dcee5012ddae023274567a631a052b0cc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ca47b76a7411c34e13ca50f496a1e48bd347d07eaf3e544cad824f9fe0c6a505"
   end
 
   depends_on "cmake" => :build

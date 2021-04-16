@@ -9,8 +9,7 @@ class Squeezambler < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "247b949cefd6a92b4e7b4d952cdc83f1ec44204167896527de253b31f0173da2" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "247b949cefd6a92b4e7b4d952cdc83f1ec44204167896527de253b31f0173da2"
   end
 
   # Fix error: 'omp.h' file not found

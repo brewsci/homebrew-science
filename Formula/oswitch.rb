@@ -7,11 +7,10 @@ class Oswitch < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "9116ee150225d41e743fd5c8bc6bbdee6d321bceef3965c98b4accd295f0274d" => :sierra
-    sha256 "1b6a33ff6685f43895d6f83d1b5cdb0d7a92ffa75b99a11c056373f258c9fdf4" => :el_capitan
-    sha256 "f9302eed7c95b20561f3d4156bedd954e0c91683606748aa91640f10f01a04eb" => :yosemite
-    sha256 "a98bb8326752204b0e3117c37c8457a15026a9b4b83980d3affe210290b3efdd" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, sierra:       "9116ee150225d41e743fd5c8bc6bbdee6d321bceef3965c98b4accd295f0274d"
+    sha256 cellar: :any_skip_relocation, el_capitan:   "1b6a33ff6685f43895d6f83d1b5cdb0d7a92ffa75b99a11c056373f258c9fdf4"
+    sha256 cellar: :any_skip_relocation, yosemite:     "f9302eed7c95b20561f3d4156bedd954e0c91683606748aa91640f10f01a04eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a98bb8326752204b0e3117c37c8457a15026a9b4b83980d3affe210290b3efdd"
   end
 
   depends_on "ruby" unless OS.mac?

@@ -7,11 +7,10 @@ class Nglib < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "b196f891e9ee6bcbde3da4bed5b94ba5e781e41d229ec6086770ce17dcaf4481" => :sierra
-    sha256 "b5c8261d19aa2f1f9c12a852329f914e6f870a951a91f46559c8ebcaa423e398" => :el_capitan
-    sha256 "d83be6b9c3c153c1ef4c806be4013fe076cc34beb46a3ef671efc79dac728f30" => :yosemite
-    sha256 "7ef9d64db91c761ab96a348a12290b7f4ea05009405a35775af0850616fea956" => :x86_64_linux
+    sha256 cellar: :any, sierra:       "b196f891e9ee6bcbde3da4bed5b94ba5e781e41d229ec6086770ce17dcaf4481"
+    sha256 cellar: :any, el_capitan:   "b5c8261d19aa2f1f9c12a852329f914e6f870a951a91f46559c8ebcaa423e398"
+    sha256 cellar: :any, yosemite:     "d83be6b9c3c153c1ef4c806be4013fe076cc34beb46a3ef671efc79dac728f30"
+    sha256 cellar: :any, x86_64_linux: "7ef9d64db91c761ab96a348a12290b7f4ea05009405a35775af0850616fea956"
   end
 
   # These two conflict with each other, so we'll have at most one.
@@ -75,8 +74,8 @@ class Nglib < Formula
     # The nglib installer doesn't include some important headers by default.
     # This follows a pattern used on other platforms to make a set of sub
     # directories within include/ to contain these headers.
-    subdirs = ["csg", "general", "geom2d", "gprim", "include", "interface",
-               "linalg", "meshing", "occ", "stlgeom", "visualization"]
+    subdirs = %w[csg general geom2d gprim include interface
+                 linalg meshing occ stlgeom visualization]
     subdirs.each do |subdir|
       (include/"netgen"/subdir).mkpath
       (include/"netgen"/subdir).install Dir.glob("libsrc/#{subdir}/*.{h,hpp}")

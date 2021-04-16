@@ -1,16 +1,16 @@
 class NcbiCxxToolkit < Formula
-  desc "Collection of libraries for working with biological data."
+  desc "Collection of libraries for working with biological data"
   homepage "https://www.ncbi.nlm.nih.gov/toolkit/"
   # tag "bioinformatics"
 
   url "https://ftp.ncbi.nih.gov/toolbox/ncbi_tools++/ARCHIVE/12_0_0/ncbi_cxx--12_0_0.tar.gz"
   sha256 "432d5c72cc02dad263f1b2f1ab875e04e60b1ded0c5537ed54e8095b50554d20"
 
-  head "https://anonsvn.ncbi.nlm.nih.gov/repos/v1/trunk/c++", :using => :svn
+  head "https://anonsvn.ncbi.nlm.nih.gov/repos/v1/trunk/c++", using: :svn
 
   bottle :disable, "Installation is 2.1G so it's too big to bottle"
 
-  fails_with :gcc => "5" do
+  fails_with gcc: "5" do
     cause "5.1.0 is not fully supported."
   end
 
@@ -92,7 +92,7 @@ class NcbiCxxToolkit < Formula
     bin/vdb-unlock
     bin/vdb-validate
   ].freeze
-  CONFLICTS = CONFLICTS_BLAST + CONFLICTS_RMBLAST + CONFLICTS_SRATOOLKIT
+  CONFLICTS = (CONFLICTS_BLAST + CONFLICTS_RMBLAST + CONFLICTS_SRATOOLKIT).freeze
 
   # Fix error: static declaration of 'strndup' follows non-static declaration
   patch :DATA

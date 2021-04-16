@@ -8,20 +8,19 @@ class Sollya < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "0bdf63143ce17ed5dfb2fb806fd035635d46f1f5b2e189afbaef419c3da878ee" => :sierra
-    sha256 "430e46f8eb66ba72b757d44bf78bda39950536fff589994e68c7280798def4e9" => :el_capitan
-    sha256 "344b8d77fd5cabfee3698e18cd02b0106a03996ca9f185c3258b3f9dd664e0c8" => :x86_64_linux
+    sha256 cellar: :any, sierra:       "0bdf63143ce17ed5dfb2fb806fd035635d46f1f5b2e189afbaef419c3da878ee"
+    sha256 cellar: :any, el_capitan:   "430e46f8eb66ba72b757d44bf78bda39950536fff589994e68c7280798def4e9"
+    sha256 cellar: :any, x86_64_linux: "344b8d77fd5cabfee3698e18cd02b0106a03996ca9f185c3258b3f9dd664e0c8"
   end
 
   # doi "10.1007/978-3-642-15582-6_5"
 
   option "with-test", "Run full test suite (time consuming)"
 
-  depends_on "gmp"
-  depends_on "mpfr"
-  depends_on "mpfi"
   depends_on "fplll"
+  depends_on "gmp"
+  depends_on "mpfi"
+  depends_on "mpfr"
   depends_on "libxml2" unless OS.mac?
 
   def install
@@ -36,7 +35,7 @@ class Sollya < Formula
 
   test do
     (testpath/"sample.sollya").write <<~EOS
-    1+x==1+x;
+      1+x==1+x;
     EOS
     assert_match "true", shell_output("#{bin}/sollya sample.sollya", 3)
   end

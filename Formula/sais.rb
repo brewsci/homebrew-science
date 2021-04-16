@@ -11,6 +11,6 @@ class Sais < Formula
   end
 
   test do
-    system "pkg-config --modversion libsais"
+    system "pkg-config", "--modversion", "libsais"
   end
 end

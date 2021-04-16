@@ -9,16 +9,15 @@ class Reapr < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "9290a6fe394b119c2a0fc78ee496a2537c82cc5501f877610cdf2878b50d6f9a" => :sierra
-    sha256 "1b1a226fe7e1e9816bd51d48b99728c1a908ee24653bc5c6978ce6bfbbe27091" => :el_capitan
-    sha256 "4eb95ffaafb77525a0ae8ff54a0eb0ba853c519472ac7274aa1f915892ec0971" => :yosemite
+    sha256 cellar: :any, sierra:     "9290a6fe394b119c2a0fc78ee496a2537c82cc5501f877610cdf2878b50d6f9a"
+    sha256 cellar: :any, el_capitan: "1b1a226fe7e1e9816bd51d48b99728c1a908ee24653bc5c6978ce6bfbbe27091"
+    sha256 cellar: :any, yosemite:   "4eb95ffaafb77525a0ae8ff54a0eb0ba853c519472ac7274aa1f915892ec0971"
   end
 
+  depends_on "r" => :test
   depends_on "bamtools"
   depends_on "htslib"
   depends_on "smalt"
-  depends_on "r" => :test
 
   resource "manual" do
     url "ftp://ftp.sanger.ac.uk/pub/resources/software/reapr/Reapr_1.0.18.manual.pdf"
@@ -106,7 +105,7 @@ class Reapr < Formula
       ]
     end
     libexec.install "third_party/snpomatic/findknownsnps"
-    bin.env_script_all_files(libexec, :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec, PERL5LIB: ENV["PERL5LIB"])
     ln_s bin/"reapr", prefix/"reapr"
   end
 

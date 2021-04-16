@@ -7,19 +7,18 @@ class TransrateTools < Formula
   # url "https://github.com/Blahah/transrate-tools/archive/v1.0.0.beta4.tar.gz"
   # sha256 "d6edd8f06dc59beed9c70dc1ef16a4dd42675f85b81751b5e51716c1a4cbc4e8"
   url "https://github.com/Blahah/transrate-tools.git",
-    :revision => "08c4c5b02c946ed3ab286e492f972600538a3692",
-    :tag => "v1.0.0.beta4"
+    revision: "08c4c5b02c946ed3ab286e492f972600538a3692",
+    tag:      "v1.0.0.beta4"
   version "1.0.0.beta4"
 
   head "https://github.com/Blahah/transrate-tools.git"
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "47947f01e619d29edd4576c45a1114e0b454cf747295a5fae9e8cf87ee5d0dbe" => :yosemite
-    sha256 "c19b295330ce5c4c2d7db7900ee74ee0fdddb3ac41ca263e618afee4727ff3dc" => :mavericks
-    sha256 "ad076deade726b03813b300510467e385b6fce5f00a4577a5104bf164bef7407" => :mountain_lion
-    sha256 "432fe5d1a508221db5cfc5396768aae4fed19d2b7e09b679d798702731145987" => :x86_64_linux
+    sha256 cellar: :any, yosemite:      "47947f01e619d29edd4576c45a1114e0b454cf747295a5fae9e8cf87ee5d0dbe"
+    sha256 cellar: :any, mavericks:     "c19b295330ce5c4c2d7db7900ee74ee0fdddb3ac41ca263e618afee4727ff3dc"
+    sha256 cellar: :any, mountain_lion: "ad076deade726b03813b300510467e385b6fce5f00a4577a5104bf164bef7407"
+    sha256 cellar: :any, x86_64_linux:  "432fe5d1a508221db5cfc5396768aae4fed19d2b7e09b679d798702731145987"
   end
 
   depends_on "cmake" => :build

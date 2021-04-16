@@ -8,15 +8,15 @@ class Neuron < Formula
   version "7.5"
   # url "https://www.neuron.yale.edu/ftp/neuron/versions/v7.5/nrn-7.5.tar.gz"
   sha256 "1d5510033c35654edde04ad89dbb9568a4a7c50770018e7f2e1ca4cf167e6e2c"
-  head "http://github.com/nrnhines/nrn", :using => :git
+  head "http://github.com/nrnhines/nrn", using: :git
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
     rebuild 2
-    sha256 "01a0e1ca02160da4a9d78ff075755e0a9bc90f134ba12a20f793448cfd3769f7" => :high_sierra
-    sha256 "74589160f1f400ce8125fb10c925d039991b6213bdd96b383c18fb7a7a0af6d3" => :sierra
-    sha256 "87dc3f193b9e2dfc3bf5a666b5afc5b605c3a51d0df92a57b707d311a6a2535b" => :el_capitan
-    sha256 "33ecd408c7375b74bd3fbceb26aaab2c784871c4ff704e2aa59a9e4905dea9b8" => :x86_64_linux
+    sha256 high_sierra:  "01a0e1ca02160da4a9d78ff075755e0a9bc90f134ba12a20f793448cfd3769f7"
+    sha256 sierra:       "74589160f1f400ce8125fb10c925d039991b6213bdd96b383c18fb7a7a0af6d3"
+    sha256 el_capitan:   "87dc3f193b9e2dfc3bf5a666b5afc5b605c3a51d0df92a57b707d311a6a2535b"
+    sha256 x86_64_linux: "33ecd408c7375b74bd3fbceb26aaab2c784871c4ff704e2aa59a9e4905dea9b8"
   end
 
   deprecated_option "without-mpi" => "without-open-mpi"
@@ -24,14 +24,14 @@ class Neuron < Formula
   # Autotools goodies required to build Neuron from scratch
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "flex" => :build
   depends_on "bison" => :build
+  depends_on "flex" => :build
+  depends_on "libtool" => :build
 
   # Dependencies of the simulator itself
+  depends_on "python"
   depends_on "inter-views" => :optional
   depends_on "open-mpi" => :optional
-  depends_on "python"
   depends_on "python3" => :optional
 
   # NEURON uses .la files to compile HOC files at runtime
@@ -109,24 +109,25 @@ class Neuron < Formula
     end
   end
 
-  def caveats; <<~EOS
-    NEURON recommends that you set an X11 option that raises the window
-    under the mouse cursor on mouseover. If you don't set this option,
-    NEURON's GUI will still work, but you will have to click in each window
-    before you can interact with the widgets in that window.
+  def caveats
+    <<~EOS
+      NEURON recommends that you set an X11 option that raises the window
+      under the mouse cursor on mouseover. If you don't set this option,
+      NEURON's GUI will still work, but you will have to click in each window
+      before you can interact with the widgets in that window.
 
-    To raise the window on mouse hover, execute:
-        defaults write org.macosforge.xquartz.X11 wm_ffm -bool true
-    To revert this behavior, execute:
-        defaults write org.macosforge.xquartz.X11 wm_ffm -bool false
+      To raise the window on mouse hover, execute:
+          defaults write org.macosforge.xquartz.X11 wm_ffm -bool true
+      To revert this behavior, execute:
+          defaults write org.macosforge.xquartz.X11 wm_ffm -bool false
     EOS
   end
 
   test do
-    if build.with? "python3"
-      python_exec = "python3"
+    python_exec = if build.with? "python3"
+      "python3"
     else
-      python_exec = "python"
+      "python"
     end
     system "#{bin}/nrniv", "--version"
     system python_exec, "-c", "import neuron; neuron.h.Section()"

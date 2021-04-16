@@ -22,13 +22,13 @@ class Ogdraw < Formula
 
   # drawgenemap: Add --irscan and --ircoord options
   patch do
-    url "https://github.com/sjackman/OGDraw/commit/ac56bd6c871635588db1911b1f962929e2f13b88.diff"
+    url https://github.com/sjackman/OGDraw/commit/ac56bd6c871635588db1911b1f962929e2f13b88.patch?full_index=1
     sha256 "709fe070fcabc02039a608a4ec71a188caa945f10660607ad6895f033cefb77f"
   end
 
   # drawgenemap: Add --gc option to add %GC graph
   patch do
-    url "https://github.com/sjackman/OGDraw/commit/f650fdc23da46915e8d85f92dcc45cb35fad84d1.diff"
+    url https://github.com/sjackman/OGDraw/commit/f650fdc23da46915e8d85f92dcc45cb35fad84d1.patch?full_index=1
     sha256 "f2a2026185fbad270fa79c1f208d10f773925f6410668f573aabc755c1ec7945"
   end
 
@@ -39,7 +39,7 @@ class Ogdraw < Formula
 
     libexec.install bin/"drawgenemap"
     (bin/"drawgenemap").write_env_script libexec/"drawgenemap",
-      :PERL5LIB => lib/"perl5/site_perl:$PERL5LIB"
+      PERL5LIB: lib/"perl5/site_perl:$PERL5LIB"
   end
 
   test do

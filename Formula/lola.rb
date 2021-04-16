@@ -23,7 +23,7 @@ class Lola < Formula
   def install
     ENV.deparallelize
 
-    system "autoreconf -i" if build.head?
+    system "autoreconf", "-i" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
     system "make", "check" if build.with? "check"

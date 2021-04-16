@@ -10,11 +10,10 @@ class Ropebwt2 < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "407baaadb20ffd53b724b2298ab4c205a76e96f4c3958551939b93c72dcf2215" => :el_capitan
-    sha256 "0162fa95c05f37dd58d1fb417f1943704d4f9d28c56b70ccc7aa3311cd310b9d" => :yosemite
-    sha256 "0ba8646910d7315a29a073d9c30f420ee42504c38b0e9355c79644247abd3f42" => :mavericks
-    sha256 "3d31d89896a16ee30e0bf1d6d0ba2c12694330de80a1bc600a85fc8bdaeb04c7" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, el_capitan:   "407baaadb20ffd53b724b2298ab4c205a76e96f4c3958551939b93c72dcf2215"
+    sha256 cellar: :any_skip_relocation, yosemite:     "0162fa95c05f37dd58d1fb417f1943704d4f9d28c56b70ccc7aa3311cd310b9d"
+    sha256 cellar: :any_skip_relocation, mavericks:    "0ba8646910d7315a29a073d9c30f420ee42504c38b0e9355c79644247abd3f42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3d31d89896a16ee30e0bf1d6d0ba2c12694330de80a1bc600a85fc8bdaeb04c7"
   end
 
   def install

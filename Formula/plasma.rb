@@ -7,14 +7,13 @@ class Plasma < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "ba79d2e61f0fcac5c4858f7ef7482852b94d89e15530e66e26adc2c1186acb2c" => :sierra
-    sha256 "d375cf0b0598d1fea460f0e8a8f914944d5635133d6daa8deb02df6479e14249" => :el_capitan
-    sha256 "378183fd6da4a44635e0ffb5a964d1cccd8ecf193cf8123f18d16d836d36a175" => :yosemite
+    sha256 cellar: :any, sierra:     "ba79d2e61f0fcac5c4858f7ef7482852b94d89e15530e66e26adc2c1186acb2c"
+    sha256 cellar: :any, el_capitan: "d375cf0b0598d1fea460f0e8a8f914944d5635133d6daa8deb02df6479e14249"
+    sha256 cellar: :any, yosemite:   "378183fd6da4a44635e0ffb5a964d1cccd8ecf193cf8123f18d16d836d36a175"
   end
 
-  depends_on "hwloc"
-  depends_on "gcc" if OS.mac? # for gfortran
+  depends_on "gcc" if OS.mac?
+  depends_on "hwloc" # for gfortran
 
   resource "lapacke" do
     # LAPACKE is now included in the main LAPACK distribution.
@@ -67,13 +66,14 @@ class Plasma < Formula
     pkgshare.install "timing"
   end
 
-  def caveats; <<~EOS
-    PLASMA should not be used in conjunction with a multithreaded BLAS to avoid
-    creating more threads than actual cores. Please set
+  def caveats
+    <<~EOS
+      PLASMA should not be used in conjunction with a multithreaded BLAS to avoid
+      creating more threads than actual cores. Please set
 
-      export VECLIB_MAXIMUM_THREADS=1
+        export VECLIB_MAXIMUM_THREADS=1
 
-    when using PLASMA.
+      when using PLASMA.
     EOS
   end
 

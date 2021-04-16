@@ -6,11 +6,10 @@ class Pathd8 < Formula
   sha256 "6f92c1104b5fcdacdcc387024b5a1324790a165d0418795dec2ec68ebb946749"
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "7c528b0dc0e519835fdfff2747d1c7286754836775d520dc2192ce13bba61b39" => :yosemite
-    sha256 "6adf43717f2e2044cb5e7f14a8449e4ff3edcaa6753198f0fdfc1422bcc1b0d9" => :mavericks
-    sha256 "16a7b4f5c4c4997988ca2f8cf9f4930419d769ff2b69e82f4745ebef78ab31e7" => :mountain_lion
-    sha256 "835d60e92ce65c8bf00a33bc9ed79bfb959b22081d7dc8a041e4e07f64c846ac" => :x86_64_linux
+    sha256 cellar: :any, yosemite:      "7c528b0dc0e519835fdfff2747d1c7286754836775d520dc2192ce13bba61b39"
+    sha256 cellar: :any, mavericks:     "6adf43717f2e2044cb5e7f14a8449e4ff3edcaa6753198f0fdfc1422bcc1b0d9"
+    sha256 cellar: :any, mountain_lion: "16a7b4f5c4c4997988ca2f8cf9f4930419d769ff2b69e82f4745ebef78ab31e7"
+    sha256 cellar: :any, x86_64_linux:  "835d60e92ce65c8bf00a33bc9ed79bfb959b22081d7dc8a041e4e07f64c846ac"
   end
 
   # doi "10.1080/10635150701613783"

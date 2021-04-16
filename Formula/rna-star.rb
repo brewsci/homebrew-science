@@ -11,10 +11,10 @@ class RnaStar < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "9891475ea134f632ff3679bad0da0106788e1b973f4d599abafe02be9a96335b" => :sierra
-    sha256 "14f4500e87c9b01a4c34dcdbb5ba7bc23f35de2ff314aea8c66c5e41854c5566" => :el_capitan
-    sha256 "7e09fa7c1f504268451cbfc96e71d8e634acfd187baee282159dc28d5f1a1e53" => :yosemite
-    sha256 "37b3887f15a4dacf602748923b8bb401a95d261a1a08a1850c4b1ce3547c3403" => :x86_64_linux
+    sha256 sierra:       "9891475ea134f632ff3679bad0da0106788e1b973f4d599abafe02be9a96335b"
+    sha256 el_capitan:   "14f4500e87c9b01a4c34dcdbb5ba7bc23f35de2ff314aea8c66c5e41854c5566"
+    sha256 yosemite:     "7e09fa7c1f504268451cbfc96e71d8e634acfd187baee282159dc28d5f1a1e53"
+    sha256 x86_64_linux: "37b3887f15a4dacf602748923b8bb401a95d261a1a08a1850c4b1ce3547c3403"
   end
 
   # Fix error: 'omp.h' file not found

@@ -6,15 +6,13 @@ class Xrmc < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "3c98fe0a3b3e5ee6214c8dd7f2f5198db6b3551bab582869767824842fd385d9" => :sierra
-    sha256 "b4c39cabc73c192a5d602147309a973ed4cd2d92fb6a22ec0f4fc4665d18f7e1" => :el_capitan
-    sha256 "ae287f540f1925817c8b2be79b0ac1fa27853a58fef3393640494471ae711f1a" => :yosemite
-    sha256 "afbf7d38ce4db9fb9f4322b27ffbdd99486e786d4d93553fc05d295e67f8e221" => :x86_64_linux
+    sha256 sierra:       "3c98fe0a3b3e5ee6214c8dd7f2f5198db6b3551bab582869767824842fd385d9"
+    sha256 el_capitan:   "b4c39cabc73c192a5d602147309a973ed4cd2d92fb6a22ec0f4fc4665d18f7e1"
+    sha256 yosemite:     "ae287f540f1925817c8b2be79b0ac1fa27853a58fef3393640494471ae711f1a"
+    sha256 x86_64_linux: "afbf7d38ce4db9fb9f4322b27ffbdd99486e786d4d93553fc05d295e67f8e221"
   end
 
   option "without-test", "Don't run build-time tests (may take a long time)"
-
-  needs :openmp
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -22,6 +20,8 @@ class Xrmc < Formula
   depends_on "pkg-config" => :build
   depends_on "xraylib"
   depends_on "xmi-msim" => :optional
+
+  needs :openmp
 
   def install
     inreplace Dir.glob("{examples,test}/*/Makefile.am"),
@@ -36,10 +36,10 @@ class Xrmc < Formula
       --datarootdir=#{pkgshare}
     ]
 
-    if build.with? "xmi-msim"
-      args << "--enable-xmi-msim"
+    args << if build.with? "xmi-msim"
+      "--enable-xmi-msim"
     else
-      args << "--disable-xmi-msim"
+      "--disable-xmi-msim"
     end
 
     system "autoreconf", "-fiv"

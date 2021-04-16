@@ -5,8 +5,8 @@ class Sextractor < Formula
 
   option "without-check", "Disable build-time checking (not recommended); running check will take 5-10 minutes"
 
-  depends_on "fftw"
   depends_on "autoconf" => :build
+  depends_on "fftw"
 
   # these patches collectively make the changes needed to compile with the Accelerate
   # framework for linear algebra routines.

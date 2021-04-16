@@ -5,13 +5,14 @@ class Trilinos < Formula
   version "12.10.1"
   sha256 "ab81d917196ffbc21c4927d42df079dd94c83c1a08bda43fef2dd34d0c1a5512"
   revision 5
-  head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", :using => :git
+  head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", using: :git
 
   bottle :disable, "needs to be rebuilt with latest boost and open-mpi"
 
   option "with-test", "Perform build time checks (time consuming and contains failures)"
   option "without-python", "Build without python2 support"
   option "with-openmp", "Enable OpenMP multithreading"
+  option "with-csparse", "Build with CSparse (Experimental TPL) from suite-sparse"
 
   deprecated_option "with-check" => "with-test"
   deprecated_option "without-mpi" => "without-open-mpi"
@@ -22,17 +23,26 @@ class Trilinos < Formula
 
   # Undefined symbols for architecture x86_64: "Amesos_CSparse::Amesos_CSparse(Epetra_LinearProblem const&)"
   # https://github.com/trilinos/Trilinos/issues/565
-  option "with-csparse", "Build with CSparse (Experimental TPL) from suite-sparse"
-
-  depends_on "open-mpi"     => :recommended
-  depends_on "gcc"          => :recommended if OS.mac? # for gfortran
-  depends_on "libx11"       => :recommended
-  depends_on "python"       => :recommended
-  depends_on "numpy"        if build.with? "python"
-  depends_on "swig"         => :build if build.with? "python"
 
   depends_on "cmake"        => :build
   depends_on "pkg-config"   => :build
+  depends_on "adol-c"       => :recommended
+  depends_on "boost"        => :recommended
+  depends_on "cppunit"      => :recommended
+  depends_on "eigen"        => :recommended
+  depends_on "gcc"          => :recommended if OS.mac?
+  depends_on "glm"          => :recommended
+  depends_on "glpk"         => :recommended
+  depends_on "hwloc"        => :recommended
+  depends_on "libx11"       => :recommended
+  depends_on "metis"        => :recommended
+  depends_on "mumps"        => [:recommended] + openblasdep
+  depends_on "open-mpi"     => :recommended # for gfortran
+  depends_on "hypre"        => [:recommended] + ((build.with? "open-mpi") ? [] : ["without-open-mpi"]) + openblasdep
+  depends_on "parmetis"     => :recommended if build.with? "open-mpi"
+  depends_on "python"       => :recommended
+  depends_on "numpy"        if build.with? "python"
+  depends_on "swig"         => :build if build.with? "python"
 
   if OS.mac?
     depends_on "openblas" => :optional
@@ -41,36 +51,23 @@ class Trilinos < Formula
   end
 
   openblasdep = (build.with? "openblas") ? ["with-openblas"] : []
-  mpidep      = (build.with? "open-mpi") ? ["with-open-mpi"]      : []
-
-  depends_on "adol-c"       => :recommended
-  depends_on "boost"        => :recommended
-  depends_on "cppunit"      => :recommended
-  depends_on "doxygen"      => ["with-graphviz", :optional]
-  depends_on "hwloc"        => :recommended
-  depends_on "libmatio"     => [:recommended] + ((build.with? "hdf5") ? ["with-hdf5"] : [])
-  depends_on "metis"        => :recommended
-  depends_on "mumps"        => [:recommended] + openblasdep
-  depends_on "netcdf"       => ["with-fortran", :optional]
-  depends_on "parmetis"     => :recommended if build.with? "open-mpi"
+  mpidep      = (build.with? "open-mpi") ? ["with-open-mpi"] : []
   depends_on "scalapack"    => [:recommended] + openblasdep
   depends_on "scotch"       => :recommended
   depends_on "suite-sparse" => [:recommended] + openblasdep
-  depends_on "superlu"      => [:optional] + openblasdep # make recommended when bug is fixed (see below)
   depends_on "superlu_dist" => [:recommended] + openblasdep if build.with? "parmetis"
-
-  depends_on "petsc"        => :optional # ML packages currently do not compile with PETSc >= 3.3
+  depends_on "tbb"          => :recommended
+  depends_on "yaml-cpp"     => :recommended
+  depends_on "doxygen"      => ["with-graphviz", :optional]
+  depends_on "hdf5"         => [:optional] + mpidep
+  depends_on "libmatio"     => [:recommended] + ((build.with? "hdf5") ? ["with-hdf5"] : [])
+  depends_on "netcdf"       => ["with-fortran", :optional]
+  depends_on "petsc"        => :optional
+  depends_on "superlu"      => [:optional] + openblasdep # make recommended when bug is fixed (see below) # ML packages currently do not compile with PETSc >= 3.3
   #-depends_on "qd"           => :optional # Fails due to global namespace issues (std::pow vs qd::pow)
   #-depends_on "binutils"     => :optional # libiberty is deliberately omitted in Homebrew (see PR #35881)
 
-  # Experimental TPLs:
-  depends_on "eigen"        => :recommended
-  depends_on "hypre"        => [:recommended] + ((build.with? "open-mpi") ? [] : ["without-open-mpi"]) + openblasdep # EpetraExt tests fail to compile
-  depends_on "glpk"         => :recommended
-  depends_on "hdf5"         => [:optional] + mpidep
-  depends_on "tbb"          => :recommended
-  depends_on "glm"          => :recommended
-  depends_on "yaml-cpp"     => :recommended
+  # Experimental TPLs: # EpetraExt tests fail to compile
 
   #-depends_on "lemon"        => :optional # lemon is currently built as executable only, no libraries
   #-depends_on "cask"         => :optional # cask  is currently built as executable only, no libraries
@@ -246,7 +243,9 @@ class Trilinos < Formula
     # fix for 4.0:
     args << "-DHAVE_SUPERLUDIST_LUSTRUCTINIT_2ARG:BOOL=ON" if build.with? "superlu_dist"
     args << onoff("-DTPL_ENABLE_SuperLUDist:BOOL=", (build.with? "superlu_dist"))
-    args << "-DSuperLUDist_INCLUDE_DIRS=#{Formula["superlu_dist"].opt_include}/superlu_dist" if build.with? "superlu_dist"
+    if build.with? "superlu_dist"
+      args << "-DSuperLUDist_INCLUDE_DIRS=#{Formula["superlu_dist"].opt_include}/superlu_dist"
+    end
 
     args << onoff("-DTPL_ENABLE_QD:BOOL=", false) # (build.with? "qd"))
     args << onoff("-DTPL_ENABLE_Lemon:BOOL=", false) # (build.with? "lemon"))
@@ -289,7 +288,8 @@ class Trilinos < Formula
     end
   end
 
-  def caveats; <<-EOS
+  def caveats
+    <<-EOS
     The following Trilinos packages were disabled due to compile errors:
       FEI, MueLU, Pike, Piro, SEACAS, STK, Stokhos, Zoltan2, Amesos2
     EOS
@@ -297,9 +297,18 @@ class Trilinos < Formula
 
   test do
     system "#{bin}/Epetra_BasicPerfTest_test.exe", "16", "12", "1", "1", "25", "-v"
-    system "mpirun", "-np", "2", "#{bin}/Epetra_BasicPerfTest_test.exe", "10", "12", "1", "2", "9", "-v" if build.with? "open-mpi"
+    if build.with? "open-mpi"
+      system "mpirun", "-np", "2", "#{bin}/Epetra_BasicPerfTest_test.exe", "10", "12", "1", "2", "9",
+"-v"
+    end
     system "#{bin}/Epetra_BasicPerfTest_test_LL.exe", "16", "12", "1", "1", "25", "-v"
-    system "mpirun", "-np", "2", "#{bin}/Epetra_BasicPerfTest_test_LL.exe", "10", "12", "1", "2", "9", "-v" if build.with? "open-mpi"
-    system "python", "-c", "'from PyTrilinos import Epetra'" if Tab.for_name("trilinos").unused_options.include? "without-python"
+    if build.with? "open-mpi"
+      system "mpirun", "-np", "2", "#{bin}/Epetra_BasicPerfTest_test_LL.exe", "10", "12", "1", "2", "9",
+"-v"
+    end
+    if Tab.for_name("trilinos").unused_options.include? "without-python"
+      system "python", "-c",
+"'from PyTrilinos import Epetra'"
+    end
   end
 end

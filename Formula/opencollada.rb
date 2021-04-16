@@ -6,11 +6,10 @@ class Opencollada < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "34252dd8c9f605f9f1ffdef4c5675820e14ccc586236f4eb095d7182dba13a55" => :sierra
-    sha256 "8761610b920904e2a18b45b373fa79bcfebde96a6fb7cedb1b2b4352ccce3ffe" => :el_capitan
-    sha256 "ddb1baf16fd2afb9d49a24535ed743bfef8346812cb17881c2a0950ea75d67e5" => :yosemite
-    sha256 "752734452c9e55b5d0c9b5ba78560218a9150ef94d2c3046b5915ac7ea8e217d" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, sierra:       "34252dd8c9f605f9f1ffdef4c5675820e14ccc586236f4eb095d7182dba13a55"
+    sha256 cellar: :any_skip_relocation, el_capitan:   "8761610b920904e2a18b45b373fa79bcfebde96a6fb7cedb1b2b4352ccce3ffe"
+    sha256 cellar: :any_skip_relocation, yosemite:     "ddb1baf16fd2afb9d49a24535ed743bfef8346812cb17881c2a0950ea75d67e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "752734452c9e55b5d0c9b5ba78560218a9150ef94d2c3046b5915ac7ea8e217d"
   end
 
   depends_on "cmake" => :build

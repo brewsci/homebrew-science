@@ -6,22 +6,21 @@ class Xraylib < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "950360aad937107de19505c23f03e15b39ae159bf6e0ad0f2e5a7a7289263afd" => :sierra
-    sha256 "2ae0dad444b6ca321845f32974559615ce5c9f7374811e8b553acb23b23887d2" => :el_capitan
-    sha256 "f1c9bd2e31d95880cb1d95320352e4466f03c9a662a74281fb18dd1b3da01659" => :x86_64_linux
+    sha256 sierra:       "950360aad937107de19505c23f03e15b39ae159bf6e0ad0f2e5a7a7289263afd"
+    sha256 el_capitan:   "2ae0dad444b6ca321845f32974559615ce5c9f7374811e8b553acb23b23887d2"
+    sha256 x86_64_linux: "f1c9bd2e31d95880cb1d95320352e4466f03c9a662a74281fb18dd1b3da01659"
   end
 
   option "with-perl", "Build with perl support"
   option "with-ruby", "Build with ruby support"
   deprecated_option "without-fortran" => "without-gcc"
 
+  depends_on "swig" => :build
   depends_on "gcc" => :recommended if OS.mac? # for gfortran
   depends_on "python" => :recommended
-  depends_on "python3" => :optional
-  depends_on "lua" => :optional
   depends_on "fpc" => :optional
-
-  depends_on "swig" => :build
+  depends_on "lua" => :optional
+  depends_on "python3" => :optional
 
   def install
     args = %W[

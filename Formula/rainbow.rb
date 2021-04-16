@@ -6,11 +6,10 @@ class Rainbow < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "41925c1e06488b1f6128e71ee025a06cc459970edabc16f6d2534e5d532376cd" => :sierra
-    sha256 "95f66f941f0f33811728ee0a4eb31e7b9d108fe1d6925cc10d12cb7c85dbc270" => :el_capitan
-    sha256 "29a05932349dd5508d967e61f6524cc6a580b5a999935237587ec7563ef3272f" => :yosemite
-    sha256 "153ce4090e380240431b515141c0c940213ffa091766d8dc716983fec890127c" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, sierra:       "41925c1e06488b1f6128e71ee025a06cc459970edabc16f6d2534e5d532376cd"
+    sha256 cellar: :any_skip_relocation, el_capitan:   "95f66f941f0f33811728ee0a4eb31e7b9d108fe1d6925cc10d12cb7c85dbc270"
+    sha256 cellar: :any_skip_relocation, yosemite:     "29a05932349dd5508d967e61f6524cc6a580b5a999935237587ec7563ef3272f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "153ce4090e380240431b515141c0c940213ffa091766d8dc716983fec890127c"
   end
 
   def install

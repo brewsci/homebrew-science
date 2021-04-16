@@ -7,10 +7,9 @@ class Qualimap < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "87452d8d5cc0dc5a4a4a52952ac94c2804fa3935c2a66685026a595bc9d39c63" => :el_capitan
-    sha256 "91e74025f9f2a738abecbdb3529f0e70bf427402a5ab06f18f41e793c1a46d6f" => :yosemite
-    sha256 "5659d4fef01656d4e8e70394e125e579e1f67090c692434fad1f6244a578a234" => :mavericks
+    sha256 cellar: :any_skip_relocation, el_capitan: "87452d8d5cc0dc5a4a4a52952ac94c2804fa3935c2a66685026a595bc9d39c63"
+    sha256 cellar: :any_skip_relocation, yosemite:   "91e74025f9f2a738abecbdb3529f0e70bf427402a5ab06f18f41e793c1a46d6f"
+    sha256 cellar: :any_skip_relocation, mavericks:  "5659d4fef01656d4e8e70394e125e579e1f67090c692434fad1f6244a578a234"
   end
 
   depends_on "r" => :optional

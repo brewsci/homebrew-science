@@ -6,9 +6,9 @@ class Numdiff < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "cffef8a28c7fd0fa994af0058b7792e0d80102b50a26d99c61cac6b88d2cec11" => :sierra
-    sha256 "494b14d0ea41b2b5a4a5801958b5d51c926f04713f21079fc3b74480f1b941bb" => :el_capitan
-    sha256 "840b9cfbfc404af7fec7472c7cc4297660a94db9b73860fd3604c13d897c4ce4" => :yosemite
+    sha256 sierra:     "cffef8a28c7fd0fa994af0058b7792e0d80102b50a26d99c61cac6b88d2cec11"
+    sha256 el_capitan: "494b14d0ea41b2b5a4a5801958b5d51c926f04713f21079fc3b74480f1b941bb"
+    sha256 yosemite:   "840b9cfbfc404af7fec7472c7cc4297660a94db9b73860fd3604c13d897c4ce4"
   end
 
   # we need libintl.h which is normally a part of libc6-dev

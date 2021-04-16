@@ -7,19 +7,18 @@ class Symengine < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "6e223e1128ccb85adcb29786f486647e6b67e007185e289912496a416a3b139c" => :sierra
-    sha256 "2a4a25ee3df6baf76ebfcaeb11736a823ce162183b1a6efa935e8ef1fe5a2468" => :el_capitan
-    sha256 "0ef7fa831900d49bebc874eaf464d6aa422245720079dcef2967816a105e00e8" => :yosemite
-    sha256 "db0653b3e9b2484d3143593f7a8b80a6118fa8dd7addb2a9d2404aec056fe198" => :x86_64_linux
+    sha256 cellar: :any, sierra:       "6e223e1128ccb85adcb29786f486647e6b67e007185e289912496a416a3b139c"
+    sha256 cellar: :any, el_capitan:   "2a4a25ee3df6baf76ebfcaeb11736a823ce162183b1a6efa935e8ef1fe5a2468"
+    sha256 cellar: :any, yosemite:     "0ef7fa831900d49bebc874eaf464d6aa422245720079dcef2967816a105e00e8"
+    sha256 cellar: :any, x86_64_linux: "db0653b3e9b2484d3143593f7a8b80a6118fa8dd7addb2a9d2404aec056fe198"
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
 
   depends_on "cmake" => :build
   depends_on "gmp"
-  depends_on "mpfr"
   depends_on "libmpc"
+  depends_on "mpfr"
 
   def install
     ENV.cxx11

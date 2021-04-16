@@ -32,6 +32,6 @@ class BoostCompute < Formula
     EOS
     system ENV.cxx, "-o", "hello", "-I#{include}/compute", "-framework", "OpenCL", testpath/"hello.cpp"
     output = shell_output "./hello"
-    assert_match /^hello from /, output
+    assert_match(/^hello from /, output)
   end
 end

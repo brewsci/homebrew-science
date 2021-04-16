@@ -12,13 +12,14 @@ class Tetgen < Formula
     doc.install %w[README LICENSE example.poly]
   end
 
-  test do
-    system "#{bin}/tetgen", "#{doc}/example.poly"
+  def caveats
+    <<~EOS
+      Please register as a TetGen user at
+      http://wias-berlin.de/software/tetgen/download2.jsp.
+    EOS
   end
 
-  def caveats; <<~EOS
-    Please register as a TetGen user at
-    http://wias-berlin.de/software/tetgen/download2.jsp.
-    EOS
+  test do
+    system "#{bin}/tetgen", "#{doc}/example.poly"
   end
 end

@@ -7,28 +7,26 @@ class Superlu43 < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "3eef95c5de9ff87d3f459028b0f3227aa8be75b2e27ccb528722f12957cd77f5" => :sierra
-    sha256 "42eb444b9180d20c567af8e1ef745771ea7e04440b961694b1892f1e745d6d59" => :el_capitan
-    sha256 "5a379f864a3d041f034501bffba8d1266a5571498284aa241a9f43aad79a619e" => :yosemite
+    sha256 cellar: :any, sierra:     "3eef95c5de9ff87d3f459028b0f3227aa8be75b2e27ccb528722f12957cd77f5"
+    sha256 cellar: :any, el_capitan: "42eb444b9180d20c567af8e1ef745771ea7e04440b961694b1892f1e745d6d59"
+    sha256 cellar: :any, yosemite:   "5a379f864a3d041f034501bffba8d1266a5571498284aa241a9f43aad79a619e"
   end
 
-  keg_only "Conflicts with superlu"
-
-  deprecated_option "without-check" => "without-test"
+  keg_only "conflicts with superlu"
 
   option "with-matlab", "Build MEX files for use with Matlab"
   option "with-matlab-path=", "Directory that contains MATLAB bin and extern subdirectories"
-
   option "without-test", "skip build-time tests (not recommended)"
   option "with-openmp", "Enable OpenMP multithreading"
+
+  deprecated_option "without-check" => "without-test"
 
   depends_on "gcc" if OS.mac? # for gfortran
 
   # Accelerate single precision is buggy and causes certain single precision
   # tests to fail.
-  depends_on "openblas" => ((OS.mac?) ? :optional : :recommended)
   depends_on "veclibfort" if build.without?("openblas") && OS.mac?
+  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
 
   needs :openmp if build.with? "openmp"
 
@@ -39,13 +37,12 @@ class Superlu43 < Formula
                  "FORTRAN=#{ENV.fc}", "FFLAGS=#{ENV.fcflags}",
                  "SuperLUroot=#{buildpath}",
                  "SUPERLULIB=$(SuperLUroot)/lib/libsuperlu.a",
-                 "NOOPTS=-fPIC"
-                ]
+                 "NOOPTS=-fPIC"]
 
-    if build.with? "openblas"
-      blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
+    blas = if build.with? "openblas"
+      "-L#{Formula["openblas"].opt_lib} -lopenblas"
     else
-      blas = (OS.mac?) ? "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort" : "-lblas"
+      OS.mac? ? "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort" : "-lblas"
     end
     make_args << "BLASLIB=#{blas}"
     make_args << ("LOADOPTS=" + ((build.with? "openmp") ? "-fopenmp" : ""))
@@ -106,13 +103,12 @@ class Superlu43 < Formula
                  "SuperLUroot=#{opt_prefix}",
                  "SUPERLULIB=#{opt_lib}/libsuperlu.a",
                  "NOOPTS=-fPIC",
-                 "HEADER=#{opt_include}/superlu",
-                ]
+                 "HEADER=#{opt_include}/superlu"]
 
-    if build.with? "openblas"
-      blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
+    blas = if build.with? "openblas"
+      "-L#{Formula["openblas"].opt_lib} -lopenblas"
     else
-      blas = (OS.mac?) ? "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort" : "-lblas"
+      OS.mac? ? "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort" : "-lblas"
     end
     make_args << "BLASLIB=#{blas}"
     make_args << ("LOADOPTS=" + ((build.with? "openmp") ? "-fopenmp" : ""))

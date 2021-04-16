@@ -10,11 +10,10 @@ class Sequel < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "421e6e93d10691e279d5aa6aaae3ed8c371cb23425aba82a520d891bab212282" => :el_capitan
-    sha256 "0663e912b943010a8049de6e8896dcacb21b346e43ba7299244814aa1dd35713" => :yosemite
-    sha256 "0663e912b943010a8049de6e8896dcacb21b346e43ba7299244814aa1dd35713" => :mavericks
-    sha256 "bc786a7338217018cdab279d62da60fa449add5ea8a9f833094fb56e903ad94c" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, el_capitan:   "421e6e93d10691e279d5aa6aaae3ed8c371cb23425aba82a520d891bab212282"
+    sha256 cellar: :any_skip_relocation, yosemite:     "0663e912b943010a8049de6e8896dcacb21b346e43ba7299244814aa1dd35713"
+    sha256 cellar: :any_skip_relocation, mavericks:    "0663e912b943010a8049de6e8896dcacb21b346e43ba7299244814aa1dd35713"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "bc786a7338217018cdab279d62da60fa449add5ea8a9f833094fb56e903ad94c"
   end
 
   depends_on "blat"

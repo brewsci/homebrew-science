@@ -14,10 +14,9 @@ class Openni < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "32d787ed336f7e44ad706a46ae9e130c3684d0f7ec1559d3f418eece8812de4b" => :el_capitan
-    sha256 "c0084f6590d7fd79854868ac4e5d34e05f1a61e103589a2bcfbb46c09a0b2162" => :yosemite
-    sha256 "cabb19d1ae8ae8166d7bad26d433ce1bfb4d2de27999fc7431024a750c0ab86d" => :mavericks
+    sha256 cellar: :any, el_capitan: "32d787ed336f7e44ad706a46ae9e130c3684d0f7ec1559d3f418eece8812de4b"
+    sha256 cellar: :any, yosemite:   "c0084f6590d7fd79854868ac4e5d34e05f1a61e103589a2bcfbb46c09a0b2162"
+    sha256 cellar: :any, mavericks:  "cabb19d1ae8ae8166d7bad26d433ce1bfb4d2de27999fc7431024a750c0ab86d"
   end
 
   head do
@@ -31,9 +30,9 @@ class Openni < Formula
   option :universal
 
   depends_on "automake" => :build
+  depends_on "doxygen" => :build
   depends_on "libtool" => :build
   depends_on "libusb"
-  depends_on "doxygen" => :build
 
   def install
     ENV.universal_binary if build.universal?

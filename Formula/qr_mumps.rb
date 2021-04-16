@@ -4,23 +4,23 @@ class QrMumps < Formula
   url "http://buttari.perso.enseeiht.fr/qr_mumps/releases/1.2/qr_mumps-1.2.tgz"
   sha256 "6aacdab63c4d4160998f47ac736d4665f0dd5deb6002eeb2aa59de6eb274c337"
   revision 2
-  head "https://wwwsecu.irit.fr/svn/qr_mumps/tags/1.2", :using => :svn
+  head "https://wwwsecu.irit.fr/svn/qr_mumps/tags/1.2", using: :svn
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "974dae7681a0dfbbf6c41bbba0d4d7d300de6db6f78f742ebb5e4301848653e9" => :sierra
-    sha256 "aa3033e9fd661e18c05e607e96154d1895264aa8b0956137f610213bc0b325f0" => :el_capitan
-    sha256 "b3a0b07ef14ba110550215308e21206f1d26ad1e13b300494a83534b50c79e50" => :yosemite
+    sha256 sierra:     "974dae7681a0dfbbf6c41bbba0d4d7d300de6db6f78f742ebb5e4301848653e9"
+    sha256 el_capitan: "aa3033e9fd661e18c05e607e96154d1895264aa8b0956137f610213bc0b325f0"
+    sha256 yosemite:   "b3a0b07ef14ba110550215308e21206f1d26ad1e13b300494a83534b50c79e50"
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
 
   depends_on "gcc" if OS.mac? # for gfortran
 
-  depends_on "metis4" => :recommended
-  depends_on "scotch5" => :optional
-  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
   depends_on "veclibfort" if build.without?("openblas") && OS.mac?
+  depends_on "metis4" => :recommended
+  depends_on "openblas" => (OS.mac? ? :optional : :recommended)
+  depends_on "scotch5" => :optional
 
   needs :openmp
 
@@ -94,9 +94,10 @@ class QrMumps < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Fortran modules were installed to
-      "#{libexec}/modules"
+  def caveats
+    <<~EOS
+      Fortran modules were installed to
+        "#{libexec}/modules"
     EOS
   end
 
@@ -157,7 +158,8 @@ class QrMumps < Formula
 
     %w[s d c z].each do |p|
       system "perl #{pkgshare}/examples/#{p}.pl < test.f90 > #{p}test.f90"
-      system ENV["FC"], "#{p}test.f90", "-o", "#{p}test", "-I#{opt_libexec}/modules", "-L#{opt_lib}", "-lqrm_common", "-l#{p}qrm", "-lgomp"
+      system ENV["FC"], "#{p}test.f90", "-o", "#{p}test", "-I#{opt_libexec}/modules", "-L#{opt_lib}", "-lqrm_common",
+"-l#{p}qrm", "-lgomp"
       system "./#{p}test"
     end
   end

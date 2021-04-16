@@ -13,18 +13,17 @@ class Paraview < Formula
 
   depends_on "cmake" => :build
 
-  depends_on "boost" => :recommended
-  depends_on "ffmpeg" => :recommended
-  depends_on "qt" => :recommended
-  depends_on "open-mpi" => :optional
-  depends_on "python" => :recommended
-
+  depends_on "fontconfig"
   depends_on "freetype"
   depends_on "hdf5"
   depends_on "jpeg"
-  depends_on "libtiff"
-  depends_on "fontconfig"
   depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "boost" => :recommended
+  depends_on "ffmpeg" => :recommended
+  depends_on "python" => :recommended
+  depends_on "qt" => :recommended
+  depends_on "open-mpi" => :optional
 
   def install
     dylib = OS.mac? ? "dylib" : "so"
@@ -84,6 +83,6 @@ class Paraview < Formula
   end
 
   test do
-    assert_match "paraview version #{version}", shell_output("#{prefix}/paraview.app/Contents/MacOS/paraview --version 2>&1", 0)
+    assert_match "paraview version #{version}", shell_output("#{prefix}/paraview.app/Contents/MacOS/paraview --version 2>&1")
   end
 end

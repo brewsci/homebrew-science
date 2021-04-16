@@ -7,11 +7,10 @@ class Xbyak < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "744b9153333bc23a5fe778402cf93a77b9b8039b0bf8f38bfd37c058fb1e269d" => :sierra
-    sha256 "744b9153333bc23a5fe778402cf93a77b9b8039b0bf8f38bfd37c058fb1e269d" => :el_capitan
-    sha256 "744b9153333bc23a5fe778402cf93a77b9b8039b0bf8f38bfd37c058fb1e269d" => :yosemite
-    sha256 "9fb000c7df3a2e283c5dd42434c302367583f310d80bee94c85e1b001dad4ac1" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, sierra:       "744b9153333bc23a5fe778402cf93a77b9b8039b0bf8f38bfd37c058fb1e269d"
+    sha256 cellar: :any_skip_relocation, el_capitan:   "744b9153333bc23a5fe778402cf93a77b9b8039b0bf8f38bfd37c058fb1e269d"
+    sha256 cellar: :any_skip_relocation, yosemite:     "744b9153333bc23a5fe778402cf93a77b9b8039b0bf8f38bfd37c058fb1e269d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9fb000c7df3a2e283c5dd42434c302367583f310d80bee94c85e1b001dad4ac1"
   end
 
   def install

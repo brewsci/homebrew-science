@@ -12,7 +12,7 @@ class Beetl < Formula
     # Fixes "error: 'accumulate' is not a member of 'std'"
     # Upstream commit "Little fix for compilation on mac"
     patch do
-      url "https://github.com/BEETL/BEETL/commit/ba47b6f9.patch"
+      url https://github.com/BEETL/BEETL/commit/ba47b6f9.patch?full_index=1
       sha256 "63b67f3282893d1f74c66aa98f3bf2684aaba2fa9ce77858427b519f1f02807d"
     end
   end

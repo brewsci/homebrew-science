@@ -31,7 +31,7 @@ class Atram < Formula
   end
 
   test do
-    assert_match /No shards to be made/,
-shell_output("perl #{prefix}/test/test_format_sra.pl -input #{prefix}/test/test_sra.fasta")
+    assert_match(/No shards to be made/,
+shell_output("perl #{prefix}/test/test_format_sra.pl -input #{prefix}/test/test_sra.fasta"))
   end
 end

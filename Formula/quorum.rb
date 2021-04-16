@@ -8,11 +8,11 @@ class Quorum < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "fa5fc25145e21539ee3b27872c09f43f2072760ece657388ecbdff6a7d87208a" => :x86_64_linux
+    sha256 x86_64_linux: "fa5fc25145e21539ee3b27872c09f43f2072760ece657388ecbdff6a7d87208a"
   end
 
-  depends_on "jellyfish"
   depends_on "pkg-config" => :build
+  depends_on "jellyfish"
 
   fails_with :clang do
     build 600

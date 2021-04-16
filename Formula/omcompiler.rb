@@ -2,14 +2,14 @@ class Omcompiler < Formula
   desc "Modelica compiler translating Modelica to C/C++ code"
   homepage "https://www.openmodelica.org"
   url "https://github.com/OpenModelica/OMCompiler.git",
-      :tag => "v1.12.0",
-      :revision => "e2917bff56c988565e60d30fd22a74012277f79f"
+      tag:      "v1.12.0",
+      revision: "e2917bff56c988565e60d30fd22a74012277f79f"
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "592d79550bf5e6730b16c07d5a57ff560a952c40417a91add81a3d72cc1882bb" => :high_sierra
-    sha256 "991c6d31710144db9d1564a2ed6ed92676cf6dfc35fdf8b57f9e83a8094c9c45" => :sierra
-    sha256 "fe5dbfd0b86da5e8f75456413573a0b1d4597364ca6d8983487fd36dc920bb33" => :el_capitan
+    sha256 high_sierra: "592d79550bf5e6730b16c07d5a57ff560a952c40417a91add81a3d72cc1882bb"
+    sha256 sierra:      "991c6d31710144db9d1564a2ed6ed92676cf6dfc35fdf8b57f9e83a8094c9c45"
+    sha256 el_capitan:  "fe5dbfd0b86da5e8f75456413573a0b1d4597364ca6d8983487fd36dc920bb33"
   end
 
   # Options
@@ -20,19 +20,19 @@ class Omcompiler < Formula
   depends_on "autoconf"     => :build
   depends_on "automake"     => :build
   depends_on "cmake"        => :build
+  depends_on "gnu-sed"      => :build
   depends_on "libtool"      => :build
   depends_on "pkg-config"   => :build
-  depends_on "gnu-sed"      => :build
   depends_on "xz"           => :build
 
   # Essential dependencies
+  depends_on "boost" if build.with? "cppruntime"
   depends_on "gcc" if OS.mac? # for gfortran
-  depends_on "lp_solve"
-  depends_on "hwloc"
   depends_on "gettext"
+  depends_on "hwloc"
+  depends_on "lp_solve"
 
   # Optional dependencies
-  depends_on "boost" if build.with? "cppruntime"
   depends_on "sundials" => :optional
 
   def install

@@ -6,15 +6,15 @@ class Scamp < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "9e275906387075695bda5173a0464052db905f9ace8173a7fe4760e9109b5f37" => :el_capitan
-    sha256 "20060cd25e872112b131e3fa1839e5c8f87173812f738428b4c0829fdde9996b" => :yosemite
-    sha256 "32fa1439fad65d97d82fd8c5a23d64ddff5b3dec04e530800ff680444c803bf2" => :mavericks
+    sha256 el_capitan: "9e275906387075695bda5173a0464052db905f9ace8173a7fe4760e9109b5f37"
+    sha256 yosemite:   "20060cd25e872112b131e3fa1839e5c8f87173812f738428b4c0829fdde9996b"
+    sha256 mavericks:  "32fa1439fad65d97d82fd8c5a23d64ddff5b3dec04e530800ff680444c803bf2"
   end
 
-  depends_on "fftw"
-  depends_on "cdsclient"
-  depends_on "plplot" => :recommended
   depends_on "autoconf" => :build
+  depends_on "cdsclient"
+  depends_on "fftw"
+  depends_on "plplot" => :recommended
 
   # these patches collectively make the changes needed to compile with the Accelerate
   # framework for linear algebra routines.

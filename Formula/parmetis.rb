@@ -9,9 +9,8 @@ class Parmetis < Formula
 
   # METIS 5.* is required. It comes bundled with ParMETIS.
   # We prefer to brew it ourselves.
-  depends_on "metis"
-
   depends_on "cmake" => :build
+  depends_on "metis"
   depends_on "open-mpi"
 
   # Do not build the METIS 5.* that ships with ParMETIS.

@@ -5,29 +5,29 @@ class OmeFiles < Formula
   homepage "https://www.openmicroscopy.org/site/products/ome-files-cpp/"
   url "https://downloads.openmicroscopy.org/ome-files-cpp/0.5.0/source/ome-files-cpp-0.5.0.tar.xz"
   sha256 "5a89daea8be0efe74baa11431afda7e0b6e240b3ea8d2027e39db80ee67866d7"
-  head "https://github.com/ome/ome-files-cpp.git", :branch => "develop", :shallow => false
+  head "https://github.com/ome/ome-files-cpp.git", branch: "develop", shallow: false
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "bb7933a9bb5f4263f01eea70910d7fdf5b44bef2c2742fc35cc75fb77ad7de13" => :high_sierra
-    sha256 "024f527e864bf220360391adeeb84e93c42271d2bcfae52b923b37b2224e8b02" => :sierra
-    sha256 "a794c739420c10205cd46f6b4ac366044a11d746ecddc444a9f8850d481488de" => :el_capitan
-    sha256 "010cf8521188188cff8dd5836b6090635941c6e298c186d7bfb491013dbdf091" => :x86_64_linux
+    sha256 high_sierra:  "bb7933a9bb5f4263f01eea70910d7fdf5b44bef2c2742fc35cc75fb77ad7de13"
+    sha256 sierra:       "024f527e864bf220360391adeeb84e93c42271d2bcfae52b923b37b2224e8b02"
+    sha256 el_capitan:   "a794c739420c10205cd46f6b4ac366044a11d746ecddc444a9f8850d481488de"
+    sha256 x86_64_linux: "010cf8521188188cff8dd5836b6090635941c6e298c186d7bfb491013dbdf091"
   end
 
   option "with-api-docs", "Build API reference"
   option "without-docs", "Build man pages and manual using sphinx"
   option "without-test", "Skip build time tests (not recommended)"
 
-  depends_on "boost"
   depends_on "cmake" => :build
-  depends_on "libpng"
-  depends_on "libtiff"
-  depends_on "graphicsmagick" => :optional # For unit tests only
-  depends_on "ome-common"
-  depends_on "ome-xml"
   depends_on "doxygen" => :build if build.with? "api-docs"
   depends_on "graphviz" => :build if build.with? "api-docs"
+  depends_on "boost"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "ome-common"
+  depends_on "ome-xml"
+  depends_on "graphicsmagick" => :optional # For unit tests only
 
   # Required for testing
   resource "gtest" do

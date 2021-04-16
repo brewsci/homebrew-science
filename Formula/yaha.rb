@@ -17,8 +17,7 @@ class Yaha < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "910564c95a23c3ad0297e00f56177a5fb2f22244ecc924415e25e38af87c90e5" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "910564c95a23c3ad0297e00f56177a5fb2f22244ecc924415e25e38af87c90e5"
   end
 
   # Uses Linux header file: https://github.com/Homebrew/homebrew-science/pull/2373

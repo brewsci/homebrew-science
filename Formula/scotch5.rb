@@ -7,7 +7,7 @@ class Scotch5 < Formula
 
   bottle :disable, "needs to be rebuilt with latest open-mpi"
 
-  keg_only "Conflicts with scotch (6.x)"
+  keg_only "conflicts with scotch (6.x)"
 
   depends_on "open-mpi"
 

@@ -7,16 +7,16 @@ class Snid < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "bc293aec48202ceee8a75a9b833251c0fbd7664ef749d5e732e452c2f0c95905" => :sierra
-    sha256 "92d0fe0aebc1635bba087ba2b11afbc0bc0cb75ee97c33134009432fcda04c91" => :el_capitan
-    sha256 "f97167fc4bc13827338ef498d44655c8b96c01c1a65186086d4bcbabadc0d169" => :yosemite
+    sha256 sierra:     "bc293aec48202ceee8a75a9b833251c0fbd7664ef749d5e732e452c2f0c95905"
+    sha256 el_capitan: "92d0fe0aebc1635bba087ba2b11afbc0bc0cb75ee97c33134009432fcda04c91"
+    sha256 yosemite:   "f97167fc4bc13827338ef498d44655c8b96c01c1a65186086d4bcbabadc0d169"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "libx11"
-  depends_on "gcc" if OS.mac? # for gfortran
+  depends_on "gcc" if OS.mac?
+  depends_on "libx11" # for gfortran
   depends_on "pgplot"
 
   resource "templates" do
@@ -32,7 +32,7 @@ class Snid < Formula
 
   resource "button" do
     url "https://github.com/nicocardiel/button.git",
-        :revision => "208b91c9f20775583128b856d5a53dcff0aa610a"
+        revision: "208b91c9f20775583128b856d5a53dcff0aa610a"
   end
 
   # no libbutton compilation and patch for new templates
