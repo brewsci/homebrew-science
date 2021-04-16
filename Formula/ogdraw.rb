@@ -22,14 +22,14 @@ class Ogdraw < Formula
 
   # drawgenemap: Add --irscan and --ircoord options
   patch do
-    url https://github.com/sjackman/OGDraw/commit/ac56bd6c871635588db1911b1f962929e2f13b88.patch?full_index=1
-    sha256 "709fe070fcabc02039a608a4ec71a188caa945f10660607ad6895f033cefb77f"
+    url "https://github.com/sjackman/OGDraw/commit/ac56bd6c871635588db1911b1f962929e2f13b88.patch?full_index=1"
+    sha256 "5c0482d5e918fd45857745b257b0965d7170e3628025056077a859f2eb2e08f2"
   end
 
   # drawgenemap: Add --gc option to add %GC graph
   patch do
-    url https://github.com/sjackman/OGDraw/commit/f650fdc23da46915e8d85f92dcc45cb35fad84d1.patch?full_index=1
-    sha256 "f2a2026185fbad270fa79c1f208d10f773925f6410668f573aabc755c1ec7945"
+    url "https://github.com/sjackman/OGDraw/commit/f650fdc23da46915e8d85f92dcc45cb35fad84d1.patch?full_index=1"
+    sha256 "63a93e3517ea6187ca6d880bcf1350e782d60f5ed8c5bcd5bfeb0f41db4537b6"
   end
 
   def install

@@ -1,5 +1,5 @@
 class Nest < Formula
-  desc "Neural Simulation Tool () with Python2 bindings (PyNEST)"
+  desc "Neural Simulation Tool with Python2 bindings (PyNEST)"
   homepage "http://www.nest-simulator.org/"
   url "https://github.com/nest/nest-simulator/archive/v2.14.0.tar.gz"
   sha256 "afaf7d53c2d5305fac1257759cc0ea6d62c3cebf7d5cc4a07d4739af4dbb9caf"
@@ -20,6 +20,9 @@ class Nest < Formula
 
   needs :openmp if build.with? "openmp"
 
+  requires_py3 = []
+  requires_py3 << "with-python3" if build.with? "python3"
+
   depends_on "cmake" => :build
   depends_on "libtool"
   depends_on "matplotlib" => requires_py3
@@ -32,9 +35,6 @@ class Nest < Formula
   # Any Python >= 2.7 < 3.x is okay (either from macOS or brewed)
   depends_on "python" unless OS.mac?
   depends_on "python3" => :optional
-
-  requires_py3 = []
-  requires_py3 << "with-python3" if build.with? "python3"
 
   fails_with :clang do
     cause <<~EOS

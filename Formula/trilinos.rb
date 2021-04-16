@@ -9,20 +9,19 @@ class Trilinos < Formula
 
   bottle :disable, "needs to be rebuilt with latest boost and open-mpi"
 
+  # Undefined symbols for architecture x86_64: "Amesos_CSparse::Amesos_CSparse(Epetra_LinearProblem const&)"
+  # https://github.com/trilinos/Trilinos/issues/565
+  option "with-csparse", "Build with CSparse (Experimental TPL) from suite-sparse"
+  option "with-openmp", "Enable OpenMP multithreading"
   option "with-test", "Perform build time checks (time consuming and contains failures)"
   option "without-python", "Build without python2 support"
-  option "with-openmp", "Enable OpenMP multithreading"
-  option "with-csparse", "Build with CSparse (Experimental TPL) from suite-sparse"
 
   deprecated_option "with-check" => "with-test"
   deprecated_option "without-mpi" => "without-open-mpi"
   deprecated_option "without-fortran" => "without-gcc"
 
-  # options and dependencies not supported in the current version
-  # are commented out with #- and failure reasons are documented.
-
-  # Undefined symbols for architecture x86_64: "Amesos_CSparse::Amesos_CSparse(Epetra_LinearProblem const&)"
-  # https://github.com/trilinos/Trilinos/issues/565
+  openblasdep = (build.with? "openblas") ? ["with-openblas"] : []
+  mpidep      = (build.with? "open-mpi") ? ["with-open-mpi"] : []
 
   depends_on "cmake"        => :build
   depends_on "pkg-config"   => :build
@@ -50,8 +49,6 @@ class Trilinos < Formula
     depends_on "openblas"
   end
 
-  openblasdep = (build.with? "openblas") ? ["with-openblas"] : []
-  mpidep      = (build.with? "open-mpi") ? ["with-open-mpi"] : []
   depends_on "scalapack"    => [:recommended] + openblasdep
   depends_on "scotch"       => :recommended
   depends_on "suite-sparse" => [:recommended] + openblasdep
@@ -64,6 +61,10 @@ class Trilinos < Formula
   depends_on "netcdf"       => ["with-fortran", :optional]
   depends_on "petsc"        => :optional
   depends_on "superlu"      => [:optional] + openblasdep # make recommended when bug is fixed (see below) # ML packages currently do not compile with PETSc >= 3.3
+
+  # options and dependencies not supported in the current version
+  # are commented out with #- and failure reasons are documented.
+
   #-depends_on "qd"           => :optional # Fails due to global namespace issues (std::pow vs qd::pow)
   #-depends_on "binutils"     => :optional # libiberty is deliberately omitted in Homebrew (see PR #35881)
 
