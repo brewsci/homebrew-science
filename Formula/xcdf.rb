@@ -1,5 +1,5 @@
 class Xcdf < Formula
-  desc "High performance bitpacking algorithm."
+  desc "High performance bitpacking algorithm"
   homepage "https://github.com/jimbraun/XCDF"
   url "https://github.com/jimbraun/XCDF/archive/v3.00.02.tar.gz"
   sha256 "a69b2996c630400a7952695def833a4e2dfef970eedba6be50d119623a5733cd"
@@ -7,11 +7,10 @@ class Xcdf < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "b8f96d4b44fea3a30751f88f43779fdea50ee6588da74f4e1b639cae70b88703" => :sierra
-    sha256 "e3c6f06ee0df724563e956fd7db74b851ca4668f8113f04fa085110a47fac1a4" => :el_capitan
-    sha256 "5a423e15d21339f3db529cb6ccadae717c10bd9a1e9ad7e413a77b0fbe6acd4c" => :yosemite
-    sha256 "f634b5934dcc50144f273938e708ae9e5b609b7e68ac673448ce452ecff559f8" => :x86_64_linux
+    sha256 cellar: :any, sierra:       "b8f96d4b44fea3a30751f88f43779fdea50ee6588da74f4e1b639cae70b88703"
+    sha256 cellar: :any, el_capitan:   "e3c6f06ee0df724563e956fd7db74b851ca4668f8113f04fa085110a47fac1a4"
+    sha256 cellar: :any, yosemite:     "5a423e15d21339f3db529cb6ccadae717c10bd9a1e9ad7e413a77b0fbe6acd4c"
+    sha256 cellar: :any, x86_64_linux: "f634b5934dcc50144f273938e708ae9e5b609b7e68ac673448ce452ecff559f8"
   end
 
   depends_on "cmake" => :build

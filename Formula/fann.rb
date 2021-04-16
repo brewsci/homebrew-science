@@ -50,6 +50,6 @@ class Fann < Formula
     EOS
     system ENV.cc, "-o", "test", "test.c", "-lfann"
     system "./test"
-    system "cat xor_float.net"
+    system "cat", "xor_float.net"
   end
 end

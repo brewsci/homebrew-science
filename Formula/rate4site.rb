@@ -6,10 +6,9 @@ class Rate4site < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "272159ce705abd98674ff30051b7221da34580a55b1d8045849dfc1035576f92" => :el_capitan
-    sha256 "cde872f77a3cf3c808a813129e9c7da4f72eba1c167fc0fe6c7405c01172e65d" => :yosemite
-    sha256 "872e77f6f52c47466204ff0c5931c926208793a0f4e1a7a7e52f3c6bdd1dbe84" => :mavericks
+    sha256 cellar: :any_skip_relocation, el_capitan: "272159ce705abd98674ff30051b7221da34580a55b1d8045849dfc1035576f92"
+    sha256 cellar: :any_skip_relocation, yosemite:   "cde872f77a3cf3c808a813129e9c7da4f72eba1c167fc0fe6c7405c01172e65d"
+    sha256 cellar: :any_skip_relocation, mavericks:  "872e77f6f52c47466204ff0c5931c926208793a0f4e1a7a7e52f3c6bdd1dbe84"
   end
 
   def install
@@ -47,7 +46,7 @@ class Rate4site < Formula
       Rat              GYIRNCGV
       Cow              SYVEGCTL
       Baboon           QYVQGCGV
-      EOS
+    EOS
     system "#{bin}/rate4site", "-s", "seq.aln"
   end
 end

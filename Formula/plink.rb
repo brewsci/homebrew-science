@@ -8,22 +8,22 @@ class Plink < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "92beceeafe1e15d5a0a4e6e6d78c9208256c402508f246035464c5842a9058d2" => :el_capitan
-    sha256 "5e6555322bafaa569abacea7e62bded2ecfdd2ac3a01a79d6f82cf7e0a93238e" => :yosemite
-    sha256 "40506cd63be7f7fd9829f73de28d2f2ab5fccbd28a5eaa76d1146fd46316f0ee" => :mavericks
-    sha256 "e7de28c47171e77be9023fd4ced2a7b860be794811982cac768c58154e16fa60" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, el_capitan:   "92beceeafe1e15d5a0a4e6e6d78c9208256c402508f246035464c5842a9058d2"
+    sha256 cellar: :any_skip_relocation, yosemite:     "5e6555322bafaa569abacea7e62bded2ecfdd2ac3a01a79d6f82cf7e0a93238e"
+    sha256 cellar: :any_skip_relocation, mavericks:    "40506cd63be7f7fd9829f73de28d2f2ab5fccbd28a5eaa76d1146fd46316f0ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e7de28c47171e77be9023fd4ced2a7b860be794811982cac768c58154e16fa60"
   end
 
   # allows plink to build with clang and new versions of gcc
   # borrowed from Debian; discussion at:
   # https://lists.debian.org/debian-mentors/2012/04/msg00410.html
+  option "without-webcheck", "Build without default version webcheck"
+
   patch :DATA
 
   # plink delays in some circumstances due to webcheck timeout
   # build option to skip webcheck
-  option "without-webcheck", "Build without default version webcheck"
 
   def install
     make_args = OS.mac? ? ["SYS=MAC"] : ["FORCE_DYNAMIC=1"]

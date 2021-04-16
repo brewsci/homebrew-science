@@ -9,16 +9,16 @@ class Uproc < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "ae84e01f8936f83e8393a6b5ca4eb7ff669c6604ea27b2e5f34b47a92dc44aa4" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ae84e01f8936f83e8393a6b5ca4eb7ff669c6604ea27b2e5f34b47a92dc44aa4"
   end
 
-  needs :openmp # => :recommended
-
-  depends_on "doxygen" => :build
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "automake" => :build
+  depends_on "doxygen" => :build
   depends_on "libtool" => :build
+
+  needs :openmp # => :recommended
 
   def install
     system "autoreconf", "-fvi"

@@ -10,9 +10,9 @@ class Therion < Formula
   depends_on "freetype"
   depends_on "imagemagick"
   depends_on "lcdf-typetools"
+  depends_on "tcl-tk" if MacOS.version >= :sierra
   depends_on "vtk"
   depends_on "wxmac"
-  depends_on "tcl-tk" if MacOS.version >= :sierra
 
   def install
     inreplace "Makefile", "all: outdirs $(OUTDIR)/therion doc ",

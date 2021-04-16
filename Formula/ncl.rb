@@ -1,5 +1,5 @@
 class Ncl < Formula
-  desc "A C++ library for parsing NEXUS files"
+  desc "C++ library for parsing NEXUS files"
   homepage "https://ncl.sourceforge.io/"
   # doi "10.1093/bioinformatics/btg319"
   # tag "bioinformatics"
@@ -8,12 +8,11 @@ class Ncl < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
     rebuild 1
-    sha256 "ae9815430b8e5f3f13f15aa7a7721cded1418983207f19f6e42d39ee0fa732e3" => :yosemite
-    sha256 "ce0281513cf22d3c6dd7e419ced8f672fd649bb32ca57ed6de5872b292c8ddea" => :mavericks
-    sha256 "f800df10f205f1fe880877e18bcd7dee1c383b9e7b071f62484ea3c14404fb69" => :mountain_lion
-    sha256 "8f7d6a553123a642483c967fa5d18e929037a2f0c5167276dc2dc6a03c03f766" => :x86_64_linux
+    sha256 cellar: :any, yosemite:      "ae9815430b8e5f3f13f15aa7a7721cded1418983207f19f6e42d39ee0fa732e3"
+    sha256 cellar: :any, mavericks:     "ce0281513cf22d3c6dd7e419ced8f672fd649bb32ca57ed6de5872b292c8ddea"
+    sha256 cellar: :any, mountain_lion: "f800df10f205f1fe880877e18bcd7dee1c383b9e7b071f62484ea3c14404fb69"
+    sha256 cellar: :any, x86_64_linux:  "8f7d6a553123a642483c967fa5d18e929037a2f0c5167276dc2dc6a03c03f766"
   end
 
   def install

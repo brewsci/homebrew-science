@@ -1,5 +1,5 @@
 class OpengrmNgram < Formula
-  desc "Open-source library for constructing ngram language models, represented as weighted finite-state transducers."
+  desc "Open-source library for constructing ngram language models, represented as weighted finite-state transducers"
   homepage "http://www.openfst.org/twiki/bin/view/GRM/NGramLibrary"
   url "http://openfst.cs.nyu.edu/twiki/pub/GRM/NGramDownload/opengrm-ngram-1.3.2.tar.gz"
   sha256 "f44a2115e6f3ae7de3a9af6212592b1873fa4c1c1b3d2307f51df21c6dc87ea7"
@@ -8,11 +8,10 @@ class OpengrmNgram < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "2c018ccfc40596618d645052576fcf572e1a628ac3d489ca6be2c317a19f54ae" => :sierra
-    sha256 "fd0d2eedc9f56beee097f2cab312367f27019fc31afcf40530790afea363cf46" => :el_capitan
-    sha256 "cc29fec3a0f1934ab153ab2703c984076c7f854e9b9371891ca63b615028ead9" => :yosemite
-    sha256 "3e8fe1adce925bb4c424f8b4b8aec9a2d69b62b7d4b62eeeb1df5c72d3e0e43f" => :x86_64_linux
+    sha256 cellar: :any, sierra:       "2c018ccfc40596618d645052576fcf572e1a628ac3d489ca6be2c317a19f54ae"
+    sha256 cellar: :any, el_capitan:   "fd0d2eedc9f56beee097f2cab312367f27019fc31afcf40530790afea363cf46"
+    sha256 cellar: :any, yosemite:     "cc29fec3a0f1934ab153ab2703c984076c7f854e9b9371891ca63b615028ead9"
+    sha256 cellar: :any, x86_64_linux: "3e8fe1adce925bb4c424f8b4b8aec9a2d69b62b7d4b62eeeb1df5c72d3e0e43f"
   end
 
   depends_on "openfst"

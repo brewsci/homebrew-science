@@ -3,14 +3,14 @@ class Sbagen < Formula
   url "https://uazu.net/sbagen/sbagen-1.4.5.tgz"
   sha256 "02b05d0f89f1baa6e6b282f4a5db279b4c59ee6fc400a5a9686aa11287f220e4"
 
-  patch :DATA
-
   option "without-river", "Skip downloading loopable river sounds"
 
   resource "river" do
     url "https://uazu.net/sbagen/sbagen-river-1.4.1.tgz"
     sha256 "81545ec71461421f938dc2febd9379dc36886a84df30deee20cd43eae81a5765"
   end
+
+  patch :DATA
 
   def install
     system "./mk-macosx"

@@ -7,9 +7,9 @@ class Plr < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "f0523bd627bd88289063e126e11550dd1886c33a53c7e4d5a125325f01f06262" => :sierra
-    sha256 "d4fad1caca9998ca0f9f5daf34b26d6861e3f2b62e36dcaf4a07fd84a49a8aae" => :el_capitan
-    sha256 "e003f96fd5bb30bbd6d751eb18c233805d06fec61506aba7d6eb7c67d7a77007" => :yosemite
+    sha256 sierra:     "f0523bd627bd88289063e126e11550dd1886c33a53c7e4d5a125325f01f06262"
+    sha256 el_capitan: "d4fad1caca9998ca0f9f5daf34b26d6861e3f2b62e36dcaf4a07fd84a49a8aae"
+    sha256 yosemite:   "e003f96fd5bb30bbd6d751eb18c233805d06fec61506aba7d6eb7c67d7a77007"
   end
 
   depends_on "pkg-config" => :build

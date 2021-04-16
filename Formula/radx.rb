@@ -7,21 +7,21 @@ class Radx < Formula
 
   bottle :disable, "Test-bot cannot use the versioned gcc formulae"
 
-  depends_on "pkg-config" => :build
-  depends_on "libtool" => :build
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
-  depends_on "hdf5"
-  depends_on "udunits"
-  depends_on "netcdf"
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "fftw"
+  depends_on "hdf5"
+  depends_on "netcdf"
+  depends_on "udunits"
   depends_on "bzip2" unless OS.mac?
 
   patch :DATA if OS.mac?
 
   fails_with :clang
-  fails_with :gcc => "7"
-  fails_with :gcc => "6"
+  fails_with gcc: "7"
+  fails_with gcc: "6"
 
   def install
     ENV.cxx11

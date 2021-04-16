@@ -1,5 +1,5 @@
 class MultiWormTracker < Formula
-  desc "Multi-Worm Tracker: analyzes moving objects"
+  desc "Analyzes moving objects"
   homepage "https://sourceforge.net/projects/mwt/"
   # doi "10.1038/nmeth.1625"
   # tag "bioinformatics"

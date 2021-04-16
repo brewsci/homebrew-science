@@ -9,11 +9,10 @@ class Skewer < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "c1efd9467a923be12559c55c57d8cf91e2d9054d4141356b91a16fcfb6622f33" => :el_capitan
-    sha256 "1a1ed956768778eac2cab76e56c293cbab437822c3e8077e1a5c5c54bbcd4da4" => :yosemite
-    sha256 "381f84679b7e898b7dfb9a0f69ba657f53c9d85fc33ceae0d2b193d5311743c7" => :mavericks
-    sha256 "01c53596342c659090a5a989a06569e67fd380073cce301452002063ef98e2ea" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, el_capitan:   "c1efd9467a923be12559c55c57d8cf91e2d9054d4141356b91a16fcfb6622f33"
+    sha256 cellar: :any_skip_relocation, yosemite:     "1a1ed956768778eac2cab76e56c293cbab437822c3e8077e1a5c5c54bbcd4da4"
+    sha256 cellar: :any_skip_relocation, mavericks:    "381f84679b7e898b7dfb9a0f69ba657f53c9d85fc33ceae0d2b193d5311743c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "01c53596342c659090a5a989a06569e67fd380073cce301452002063ef98e2ea"
   end
 
   def install

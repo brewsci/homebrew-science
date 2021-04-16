@@ -18,17 +18,16 @@ class Piler < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "dcb0a2bc15dd739eee21b80db14660b600308a612d0091bfe9cd3161dc3f009d" => :el_capitan
-    sha256 "62f3c8a1acf4a28f266937011da857c63608d26c10c2f2a690ce05c9223de17f" => :yosemite
-    sha256 "0efdbf451eb1d240ed255ae1dfe2b907c417fb020a99c3496988b94ca721b225" => :mavericks
-    sha256 "ca33e46d6173d1b7008a3c6488cbe9c650cabb3383547acce611963d88da12a1" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, el_capitan:   "dcb0a2bc15dd739eee21b80db14660b600308a612d0091bfe9cd3161dc3f009d"
+    sha256 cellar: :any_skip_relocation, yosemite:     "62f3c8a1acf4a28f266937011da857c63608d26c10c2f2a690ce05c9223de17f"
+    sha256 cellar: :any_skip_relocation, mavericks:    "0efdbf451eb1d240ed255ae1dfe2b907c417fb020a99c3496988b94ca721b225"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ca33e46d6173d1b7008a3c6488cbe9c650cabb3383547acce611963d88da12a1"
   end
 
   depends_on "muscle"
 
   def install
-    cd (if OS.mac? then "piler" else "." end) do
+    cd (OS.mac? ? "piler" : ".") do
       system "make", "CC=#{ENV.cc} -c", "GPP=#{ENV.cxx}", "LDLIBS=-lm" # remove -static
       if OS.mac?
         bin.install "piler"

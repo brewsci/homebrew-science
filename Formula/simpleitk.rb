@@ -15,9 +15,9 @@ class Simpleitk < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "09fc9272603aeb2e64f1ada657399d6e10194fc5ce29004823b20e8074d972a1" => :sierra
-    sha256 "6cfdd1fb1518993f7ad0dd5088a34ed7028f1e0118f3ddc3b3d6cda28813d35b" => :el_capitan
-    sha256 "469bd0b6bf658ae6b2ac967de45a6ccc4f5fbc98999eee6841b351b6c899eb25" => :yosemite
+    sha256 sierra:     "09fc9272603aeb2e64f1ada657399d6e10194fc5ce29004823b20e8074d972a1"
+    sha256 el_capitan: "6cfdd1fb1518993f7ad0dd5088a34ed7028f1e0118f3ddc3b3d6cda28813d35b"
+    sha256 yosemite:   "469bd0b6bf658ae6b2ac967de45a6ccc4f5fbc98999eee6841b351b6c899eb25"
   end
 
   option "with-examples", "Compile and install various examples"
@@ -30,10 +30,10 @@ class Simpleitk < Formula
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "python" => :recommended
-  depends_on "python3" => :optional
-  depends_on "openjdk" => :optional
-  depends_on "r" => :optional
   depends_on "lua" => :optional
+  depends_on "openjdk" => :optional
+  depends_on "python3" => :optional
+  depends_on "r" => :optional
   depends_on CIRequirement unless OS.mac?
 
   def install
@@ -72,12 +72,12 @@ class Simpleitk < Formula
       args << "-DPYTHON_EXECUTABLE='#{python_executable}'"
       args << "-DPYTHON_INCLUDE_DIR='#{python_include}'"
       # CMake picks up the system's python dylib, even if we have a brewed one.
-      if File.exist? "#{python_prefix}/Python"
-        args << "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
+      args << if File.exist? "#{python_prefix}/Python"
+        "-DPYTHON_LIBRARY='#{python_prefix}/Python'"
       elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
-        args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
+        "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.a'"
       else
-        args << "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.dylib'"
+        "-DPYTHON_LIBRARY='#{python_prefix}/lib/lib#{python_version}.dylib'"
       end
 
       py_site_packages = "#{lib}/#{python_version}/site-packages"
@@ -88,7 +88,8 @@ class Simpleitk < Formula
       system "cmake", "../SuperBuild/", *args
       system "make"
 
-      system python_executable, "SimpleITK-build/Wrapping/Python/Packaging/setupegg.py", "install", "--prefix=#{prefix}", "--record=installed.txt", "--single-version-externally-managed"
+      system python_executable, "SimpleITK-build/Wrapping/Python/Packaging/setupegg.py", "install",
+"--prefix=#{prefix}", "--record=installed.txt", "--single-version-externally-managed"
     end
   end
 

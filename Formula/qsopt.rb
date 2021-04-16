@@ -13,11 +13,10 @@ class Qsopt < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "858c18d9b0427e53c23ee721d5006d85a053958bb36d77a37918509b04742304" => :el_capitan
-    sha256 "cf2871b135eaa4b2baa8caf9448fdad2b792a27eb60665ec610904caa655f5a4" => :yosemite
-    sha256 "cecf58bacb0e005dcbd27554c29e2397e5c9daf8eb57344424f7283ddfc631f8" => :mavericks
-    sha256 "08aeb8140fdffbf9c9e02d02b0828207686d3083ebbd8f948785320011e55de6" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, el_capitan:   "858c18d9b0427e53c23ee721d5006d85a053958bb36d77a37918509b04742304"
+    sha256 cellar: :any_skip_relocation, yosemite:     "cf2871b135eaa4b2baa8caf9448fdad2b792a27eb60665ec610904caa655f5a4"
+    sha256 cellar: :any_skip_relocation, mavericks:    "cecf58bacb0e005dcbd27554c29e2397e5c9daf8eb57344424f7283ddfc631f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "08aeb8140fdffbf9c9e02d02b0828207686d3083ebbd8f948785320011e55de6"
   end
 
   resource "qsopt.h" do
@@ -47,14 +46,14 @@ class Qsopt < Formula
 
   test do
     (testpath/"test.lp").write <<~EOS
-    Problem
-           smallExample
-    Maximize
-        obj: x - 2.3y + 0.5z
-    Subject
-        c1: x - y + s <= 10.75
-            -z + 2x - s >= -100
-    End
+      Problem
+             smallExample
+      Maximize
+          obj: x - 2.3y + 0.5z
+      Subject
+          c1: x - y + s <= 10.75
+              -z + 2x - s >= -100
+      End
     EOS
     system "qsopt", "test.lp"
   end

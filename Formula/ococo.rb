@@ -1,5 +1,5 @@
 class Ococo < Formula
-  desc "Ococo, the first online consensus caller"
+  desc ", the first online consensus caller"
   homepage "https://github.com/karel-brinda/ococo"
   url "https://github.com/karel-brinda/ococo/archive/0.1.2.6.tar.gz"
   sha256 "f563b0ba90d47efb476b59bed144a306bc2c0c4fbc062ab3a3b87564bfdf22e6"
@@ -8,11 +8,10 @@ class Ococo < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "a487edf868f9f09f851d60d6d161642f683fd1ea1949ffaaf40ed0d57da01862" => :high_sierra
-    sha256 "42a0faa2e0a24f6771f620cbb5fef35e7c6a9a6d07e6afe4cb682075af9dcbdd" => :sierra
-    sha256 "4ca6425e31e0546a910c5a4c5261c5ca3a455371c9ee251139eb86acb8ae3b40" => :el_capitan
-    sha256 "b52fabb6b7bf2944660c7ebd8db06c7e13c4298ee5891f2ed40b1dd57b4b4174" => :x86_64_linux
+    sha256 cellar: :any, high_sierra:  "a487edf868f9f09f851d60d6d161642f683fd1ea1949ffaaf40ed0d57da01862"
+    sha256 cellar: :any, sierra:       "42a0faa2e0a24f6771f620cbb5fef35e7c6a9a6d07e6afe4cb682075af9dcbdd"
+    sha256 cellar: :any, el_capitan:   "4ca6425e31e0546a910c5a4c5261c5ca3a455371c9ee251139eb86acb8ae3b40"
+    sha256 cellar: :any, x86_64_linux: "b52fabb6b7bf2944660c7ebd8db06c7e13c4298ee5891f2ed40b1dd57b4b4174"
   end
 
   depends_on "htslib"
@@ -20,7 +19,8 @@ class Ococo < Formula
 
   def install
     dylib = OS.mac? ? "dylib" : "so"
-    system "make", "HTSLIBINCLUDE=#{Formula["htslib"].opt_include}", "HTSLIB=#{Formula["htslib"].opt_lib}/libhts.#{dylib}"
+    system "make", "HTSLIBINCLUDE=#{Formula["htslib"].opt_include}",
+"HTSLIB=#{Formula["htslib"].opt_lib}/libhts.#{dylib}"
     bin.install "ococo"
     man1.install "ococo.1"
   end

@@ -9,14 +9,14 @@ class Quake < Formula
 
   bottle :disable, "Test-bot cannot use the versioned gcc formulae"
 
-  needs :openmp
-
   depends_on "boost"
+  depends_on "gcc@5" if OS.mac?
   depends_on "jellyfish"
   depends_on "r"
-  depends_on "gcc@5" if OS.mac?
 
-  fails_with :gcc => "6"
+  fails_with gcc: "6"
+
+  needs :openmp
 
   def install
     system "make", "-C", "src"

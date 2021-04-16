@@ -5,15 +5,15 @@ class Stiff < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "aab415dd0148fdaf0cffb79888351d7177f53c19a7f43ab13cbdf974fff0db68" => :yosemite
-    sha256 "a56055248ff914d1b3fea510d23dac1d47c7d7eee3f8123e878c7a7a6f97b85a" => :mavericks
-    sha256 "237a776dca0c927aa5d7d2e6c6be78d2c452fd305e6449daa3570858fe41985f" => :mountain_lion
+    sha256 yosemite:      "aab415dd0148fdaf0cffb79888351d7177f53c19a7f43ab13cbdf974fff0db68"
+    sha256 mavericks:     "a56055248ff914d1b3fea510d23dac1d47c7d7eee3f8123e878c7a7a6f97b85a"
+    sha256 mountain_lion: "237a776dca0c927aa5d7d2e6c6be78d2c452fd305e6449daa3570858fe41985f"
   end
 
   option "without-check", "Disable build-time checking (not recommended)"
 
-  depends_on "libtiff"
   depends_on "jpeg"
+  depends_on "libtiff"
 
   def install
     system "./configure", "--prefix=#{prefix}"

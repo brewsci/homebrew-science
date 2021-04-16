@@ -12,8 +12,8 @@ class Quaff < Formula
 
   depends_on "zlib" unless OS.mac?
   depends_on "pkg-config" => :build
-  depends_on "boost" => :recommended
   depends_on "gsl"
+  depends_on "boost" => :recommended
   depends_on "awscli" => :optional
 
   def install
@@ -30,6 +30,6 @@ class Quaff < Formula
   end
 
   test do
-    assert_match "Viterbi", shell_output("#{bin}/quaff help 2>&1", 0)
+    assert_match "Viterbi", shell_output("#{bin}/quaff help 2>&1")
   end
 end

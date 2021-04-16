@@ -1,5 +1,5 @@
 class Zoltan < Formula
-  desc "Zoltan: Parallel Partitioning, Load Balancing and Data-Management"
+  desc ": Parallel Partitioning, Load Balancing and Data-Management"
   homepage "http://www.cs.sandia.gov/Zoltan"
   url "http://www.cs.sandia.gov/~kddevin/Zoltan_Distributions/zoltan_distrib_v3.83.tar.gz"
   sha256 "d0d78fdeab7a385c87d3666b8a8dc748994ff04d3fd846872a4845e12d79c1bb"
@@ -14,10 +14,10 @@ class Zoltan < Formula
   deprecated_option "without-check" => "without-test"
   deprecated_option "with-fortran" => "with-gcc"
 
-  depends_on "scotch"   => :optional
-  depends_on "parmetis" => :optional
-  depends_on "gcc"      => :optional if OS.mac? # for gfortran
   depends_on "open-mpi"
+  depends_on "gcc" => :optional if OS.mac?
+  depends_on "parmetis" => :optional
+  depends_on "scotch" => :optional # for gfortran
 
   def install
     args = [
@@ -37,12 +37,13 @@ class Zoltan < Formula
     end
   end
 
-  def caveats; <<~EOS
-    To link against Zoltan, add
-      #{opt_include}
-    to the search path for includes and
-      #{opt_lib}
-    to the library search path.
+  def caveats
+    <<~EOS
+      To link against Zoltan, add
+        #{opt_include}
+      to the search path for includes and
+        #{opt_lib}
+      to the library search path.
     EOS
   end
 

@@ -6,11 +6,10 @@ class Timbl < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "214e7accd71efb5a00c3e49a013c86364128c24849f6df261061dae470d3641a" => :high_sierra
-    sha256 "87ccbd5562101e4b0ad2445f6879f98bfca2dbffee967ab983f92d96586a23b3" => :sierra
-    sha256 "e760bffe1dab2a76c2600072b16d24e019005598ca435cbd01fbfa621617d7c3" => :el_capitan
-    sha256 "ff87651babdda285e330764b07a595009bbcb2139927df5351f2491e1664a2f2" => :x86_64_linux
+    sha256 cellar: :any, high_sierra:  "214e7accd71efb5a00c3e49a013c86364128c24849f6df261061dae470d3641a"
+    sha256 cellar: :any, sierra:       "87ccbd5562101e4b0ad2445f6879f98bfca2dbffee967ab983f92d96586a23b3"
+    sha256 cellar: :any, el_capitan:   "e760bffe1dab2a76c2600072b16d24e019005598ca435cbd01fbfa621617d7c3"
+    sha256 cellar: :any, x86_64_linux: "ff87651babdda285e330764b07a595009bbcb2139927df5351f2491e1664a2f2"
   end
 
   depends_on "pkg-config" => :build

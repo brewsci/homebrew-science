@@ -7,10 +7,9 @@ class Symphony < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "08806b4cf87ace05706b77c5344800d54ef1f386bcfbcae221dec19d6ac84622" => :sierra
-    sha256 "9698ba6df20e9804258df4ec32213617f51437daf8169c08a902f0658e2ae85b" => :el_capitan
-    sha256 "9b2eb1a5a8989d6471004e62a79efd8fff3a21b956d72e3320f644b7e14cd2fa" => :yosemite
+    sha256 cellar: :any, sierra:     "08806b4cf87ace05706b77c5344800d54ef1f386bcfbcae221dec19d6ac84622"
+    sha256 cellar: :any, el_capitan: "9698ba6df20e9804258df4ec32213617f51437daf8169c08a902f0658e2ae85b"
+    sha256 cellar: :any, yosemite:   "9b2eb1a5a8989d6471004e62a79efd8fff3a21b956d72e3320f644b7e14cd2fa"
   end
 
   option "without-test", "Skip build-time tests (not recommended)"
@@ -22,7 +21,7 @@ class Symphony < Formula
   depends_on "mysql" => :build if build.with? "gmpl"
   depends_on "readline" => :recommended
 
-  conflicts_with "coinmp", :because => "Symphony and CoinMP contain CoinUtils"
+  conflicts_with "coinmp", because: "Symphony and CoinMP contain CoinUtils"
 
   def install
     args = ["--disable-debug", "--disable-dependency-tracking",
@@ -61,6 +60,9 @@ class Symphony < Formula
 
   test do
     system "#{bin}/symphony", "-F", "#{pkgshare}/Datasets/sample.mps"
-    system "#{bin}/symphony", "-F", "#{pkgshare}/Datasets/sample.mod", "-D", "#{pkgshare}/Datasets/sample.dat" if build.with? "gmpl"
+    if build.with? "gmpl"
+      system "#{bin}/symphony", "-F", "#{pkgshare}/Datasets/sample.mod", "-D",
+"#{pkgshare}/Datasets/sample.dat"
+    end
   end
 end

@@ -7,15 +7,15 @@ class Xfig < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "964981e25d43fa075b88db9d9926b7bf1695a4967508f289527130c3187dfdff" => :sierra
-    sha256 "6b2b699c0ffd866f0bf44230d6867dc178ead9e21361f8fbebf9505ea017a7c1" => :el_capitan
-    sha256 "d075ab9a33cadba801f7e4b568e8dbca32ad30edd7bde8ab8139c7dfbe450080" => :yosemite
+    sha256 sierra:     "964981e25d43fa075b88db9d9926b7bf1695a4967508f289527130c3187dfdff"
+    sha256 el_capitan: "6b2b699c0ffd866f0bf44230d6867dc178ead9e21361f8fbebf9505ea017a7c1"
+    sha256 yosemite:   "d075ab9a33cadba801f7e4b568e8dbca32ad30edd7bde8ab8139c7dfbe450080"
   end
 
-  depends_on "libx11"
+  depends_on "ghostscript"
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on "ghostscript"
+  depends_on "libx11"
 
   def install
     system "./configure", "--prefix=#{prefix}",

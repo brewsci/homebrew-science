@@ -6,11 +6,10 @@ class Nfft < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
     rebuild 1
-    sha256 "84139f9d6ff8086294af900a96c0127c7622505da1545284017d5e7d0b34c84c" => :sierra
-    sha256 "fb20ea3b10936307e4941509a097c78db2bb51e79d590f0a1002ee52cf1a9a6a" => :el_capitan
-    sha256 "e7693f10ebff1091b248bf432165f9931cfa3086f1cdc4c6145b5025e621faa4" => :yosemite
+    sha256 cellar: :any, sierra:     "84139f9d6ff8086294af900a96c0127c7622505da1545284017d5e7d0b34c84c"
+    sha256 cellar: :any, el_capitan: "fb20ea3b10936307e4941509a097c78db2bb51e79d590f0a1002ee52cf1a9a6a"
+    sha256 cellar: :any, yosemite:   "e7693f10ebff1091b248bf432165f9931cfa3086f1cdc4c6145b5025e621faa4"
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
@@ -29,24 +28,24 @@ class Nfft < Formula
 
   def caveats
     <<~EOS
-    NFFT is built as serial (not multi-threaded) library by default
-    when being built with clang, as this compiler doesn't support
-    OpenMP.
+      NFFT is built as serial (not multi-threaded) library by default
+      when being built with clang, as this compiler doesn't support
+      OpenMP.
 
-    A multi-threaded version of the NFFT library can be build with
-    Homebrew's GNU C compiler, using
+      A multi-threaded version of the NFFT library can be build with
+      Homebrew's GNU C compiler, using
 
-      brew install nfft --with-openmp
+        brew install nfft --with-openmp
 
-    which will create both serial and multi-threaded NFFT libraries.
+      which will create both serial and multi-threaded NFFT libraries.
 
-    Linking against the serial libraries:
+      Linking against the serial libraries:
 
-       ... -L#{opt_lib} -lnfft -lfftw3 ...
+         ... -L#{opt_lib} -lnfft -lfftw3 ...
 
-    Linking against the multi-threaded libraries (if built):
+      Linking against the multi-threaded libraries (if built):
 
-       ... -L#{opt_lib} -lnfft_threads -lfftw3_threads ...
+         ... -L#{opt_lib} -lnfft_threads -lfftw3_threads ...
 
     EOS
   end

@@ -4,19 +4,19 @@ class OmeCommon < Formula
   url "https://downloads.openmicroscopy.org/ome-common-cpp/5.5.0/source/ome-common-cpp-5.5.0.tar.xz"
   sha256 "96ae1824fffcc405de53666133b009d32ee304b6aa1b086c1738d7a05d98853d"
   revision 1
-  head "https://github.com/ome/ome-common-cpp.git", :branch => "develop", :shallow => false
+  head "https://github.com/ome/ome-common-cpp.git", branch: "develop", shallow: false
 
   bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-api-docs", "Build API reference"
   option "without-test", "Skip build time tests (not recommended)"
 
-  depends_on "boost"
   depends_on "cmake" => :build
-  depends_on "xalan-c"
-  depends_on "xerces-c"
   depends_on "doxygen" => :build if build.with? "api-docs"
   depends_on "graphviz" => :build if build.with? "api-docs"
+  depends_on "boost"
+  depends_on "xalan-c"
+  depends_on "xerces-c"
 
   # Required for testing
   resource "gtest" do

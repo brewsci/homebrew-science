@@ -1,5 +1,5 @@
 class Spaced < Formula
-  desc "Spaced-Words for alignment-free sequence comparison"
+  desc "-Words for alignment-free sequence comparison"
   homepage "http://spaced.gobics.de/"
   url "http://spaced.gobics.de/content/spaced.tar.gz"
   version "20160804"
@@ -10,11 +10,10 @@ class Spaced < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "226ae5554d19478f42ef93243edc23c51d8a14d392cf38ae4dc636cfe83fca77" => :sierra
-    sha256 "c3c437713efc321bf373579effdbdfe41f180310555dcee9f3255dc0909eab5f" => :el_capitan
-    sha256 "081b68362c87edd54abe102fdcc0b6f8b48f2c1512d653501332529875014e83" => :yosemite
-    sha256 "6362837ffb2f8bd05dda5e1b1c4af1ef42bf3838bb9aa3d0e1dd8aaf3c7329bf" => :x86_64_linux
+    sha256 cellar: :any, sierra:       "226ae5554d19478f42ef93243edc23c51d8a14d392cf38ae4dc636cfe83fca77"
+    sha256 cellar: :any, el_capitan:   "c3c437713efc321bf373579effdbdfe41f180310555dcee9f3255dc0909eab5f"
+    sha256 cellar: :any, yosemite:     "081b68362c87edd54abe102fdcc0b6f8b48f2c1512d653501332529875014e83"
+    sha256 cellar: :any, x86_64_linux: "6362837ffb2f8bd05dda5e1b1c4af1ef42bf3838bb9aa3d0e1dd8aaf3c7329bf"
   end
 
   needs :openmp
@@ -28,6 +27,6 @@ class Spaced < Formula
   end
 
   test do
-    assert_match "Jensen-Shannon", shell_output("#{bin}/spaced 2>&1", 0)
+    assert_match "Jensen-Shannon", shell_output("#{bin}/spaced 2>&1")
   end
 end

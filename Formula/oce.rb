@@ -6,9 +6,9 @@ class Oce < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "8fd1f46830b86e1c1483cc6583e59bdab76f4ba9c625ae0b9b31b6df1fd43a86" => :sierra
-    sha256 "7fc9cd843d45bed31aea9b77822a0473b54430e4595e8c50e2b9f1140a1db02d" => :el_capitan
-    sha256 "475c4ac1a5da8e0cdc9d1925fd51fd5c7e37bb2c3c5695786470dba500ace354" => :yosemite
+    sha256 sierra:     "8fd1f46830b86e1c1483cc6583e59bdab76f4ba9c625ae0b9b31b6df1fd43a86"
+    sha256 el_capitan: "7fc9cd843d45bed31aea9b77822a0473b54430e4595e8c50e2b9f1140a1db02d"
+    sha256 yosemite:   "475c4ac1a5da8e0cdc9d1925fd51fd5c7e37bb2c3c5695786470dba500ace354"
   end
 
   option "without-opencl", "Build without OpenCL support"
@@ -21,12 +21,12 @@ class Oce < Formula
   depends_on "tbb" => :recommended
 
   if OS.mac?
-    depends_on :xcode => :build
+    depends_on xcode: :build
   else
     depends_on "tcl-tk"
   end
 
-  conflicts_with "opencascade", :because => "OCE is a fork for patches/improvements/experiments over OpenCascade"
+  conflicts_with "opencascade", because: "OCE is a fork for patches/improvements/experiments over OpenCascade"
 
   def install
     cmake_args = std_cmake_args
@@ -52,9 +52,10 @@ class Oce < Formula
     system "make", "install/strip"
   end
 
-  def caveats; <<~EOS
-    Some apps will require this enviroment variable:
-      CASROOT=#{opt_share}/oce-#{version.to_s.split(".")[0..1].join(".")}
+  def caveats
+    <<~EOS
+      Some apps will require this enviroment variable:
+        CASROOT=#{opt_share}/oce-#{version.to_s.split(".")[0..1].join(".")}
     EOS
   end
 

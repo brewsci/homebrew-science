@@ -20,6 +20,6 @@ class Fqzcomp < Formula
   end
 
   test do
-    system "#{bin}/fqz_comp -h"
+    system "#{bin}/fqz_comp", "-h"
   end
 end

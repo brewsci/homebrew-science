@@ -10,11 +10,10 @@ class Repeatmodeler < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "d3856db1196dd29a84120ac14461d64c5c3a9d10432830dcb6be94ecd2478ba1" => :el_capitan
-    sha256 "e3be3d6078936510c6b79ed62c155ac876e61f7de9d5ed6ac1409ecbbc562f19" => :yosemite
-    sha256 "ef4c93df7fbcca97851ad7e3de571c0c6a1b94843384eaea32a53c27cfde11ab" => :mavericks
-    sha256 "0495628e44f390035e2b0ad596016e156e22b2be448cae26fdca317bdad88cc5" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, el_capitan:   "d3856db1196dd29a84120ac14461d64c5c3a9d10432830dcb6be94ecd2478ba1"
+    sha256 cellar: :any_skip_relocation, yosemite:     "e3be3d6078936510c6b79ed62c155ac876e61f7de9d5ed6ac1409ecbbc562f19"
+    sha256 cellar: :any_skip_relocation, mavericks:    "ef4c93df7fbcca97851ad7e3de571c0c6a1b94843384eaea32a53c27cfde11ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "0495628e44f390035e2b0ad596016e156e22b2be448cae26fdca317bdad88cc5"
   end
 
   option "without-configure", "Do not run configure"
@@ -52,20 +51,23 @@ class Repeatmodeler < Formula
       #{HOMEBREW_PREFIX}/bin
       Y
       3
-      EOS
+    EOS
   end
 
   def post_install
-    cd prefix do
-      system "perl ./configure <config.txt"
-    end if build.with? "configure"
+    if build.with? "configure"
+      cd prefix do
+        system "perl ./configure <config.txt"
+      end
+    end
   end
 
-  def caveats; <<~EOS
-    To reconfigure RepeatModeler, run
-      brew postinstall repeatmodeler
-    or
-      cd #{prefix} && perl ./configure <config.txt
+  def caveats
+    <<~EOS
+      To reconfigure RepeatModeler, run
+        brew postinstall repeatmodeler
+      or
+        cd #{prefix} && perl ./configure <config.txt
     EOS
   end
 

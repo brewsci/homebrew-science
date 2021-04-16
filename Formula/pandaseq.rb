@@ -11,10 +11,10 @@ class Pandaseq < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "ccee1bf80787340ab604c35e25ba6e304c841f8947b3353708ba58cade37ea45" => :sierra
-    sha256 "6c18632499898dc6c236ee3c0cac241b93f91d4bfbb39ff5240d44e1e145b036" => :el_capitan
-    sha256 "6cc3933dd125da534d7b86c588cdd28ee183d328a6a01e4a33a3692ed5b1d758" => :yosemite
-    sha256 "e41b46503c1fe69397d52901a9e39e369f14b05661d7b1969887fee28f45c598" => :x86_64_linux
+    sha256 sierra:       "ccee1bf80787340ab604c35e25ba6e304c841f8947b3353708ba58cade37ea45"
+    sha256 el_capitan:   "6c18632499898dc6c236ee3c0cac241b93f91d4bfbb39ff5240d44e1e145b036"
+    sha256 yosemite:     "6cc3933dd125da534d7b86c588cdd28ee183d328a6a01e4a33a3692ed5b1d758"
+    sha256 x86_64_linux: "e41b46503c1fe69397d52901a9e39e369f14b05661d7b1969887fee28f45c598"
   end
 
   depends_on "autoconf" => :build

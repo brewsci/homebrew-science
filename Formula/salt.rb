@@ -1,21 +1,20 @@
 class Salt < Formula
   homepage "http://supernovae.in2p3.fr/salt/doku.php?id=start"
   url "http://supernovae.in2p3.fr/salt/lib/exe/fetch.php?media=snfit-2.4.0.tar.gz"
-  sha256 "c38bbf8765aadf321ee138457544264b9f3f5e33c0b178dd5f079d117a2befb8"
   version "2.4"
+  sha256 "c38bbf8765aadf321ee138457544264b9f3f5e33c0b178dd5f079d117a2befb8"
   revision 1
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "23fbf4a3c5c15634f415157979aee92c9eaf20cf435c59266c8361f458361fa1" => :sierra
-    sha256 "7b43e7bb615bfa9105a306c5410d0997036ada34259b9d465ff7a876225ba3ef" => :el_capitan
-    sha256 "51e4079277a0068c0a14622297e59ee4db6b645b93068eeb2514ffeab03e0a47" => :yosemite
+    sha256 cellar: :any, sierra:     "23fbf4a3c5c15634f415157979aee92c9eaf20cf435c59266c8361f458361fa1"
+    sha256 cellar: :any, el_capitan: "7b43e7bb615bfa9105a306c5410d0997036ada34259b9d465ff7a876225ba3ef"
+    sha256 cellar: :any, yosemite:   "51e4079277a0068c0a14622297e59ee4db6b645b93068eeb2514ffeab03e0a47"
   end
 
   depends_on "gcc" if OS.mac? # for gfortran
 
-  conflicts_with "fastbit", :because => "both install `include/filter.h`"
+  conflicts_with "fastbit", because: "both install `include/filter.h`"
 
   resource "data" do
     url "http://supernovae.in2p3.fr/salt/lib/exe/fetch.php?media=salt2-4_data.tgz"
@@ -40,17 +39,17 @@ class Salt < Formula
     (prefix/"03d4ag").install resource("03d4ag")
   end
 
+  def caveats
+    <<~EOS
+      You should add the following to your .bashrc or equivalent:
+        export SALTPATH=#{prefix}/data
+    EOS
+  end
+
   test do
     ENV["SALTPATH"] = "#{prefix}/data"
     cp_r Dir["#{prefix}/03d4ag/*"], "."
     system bin/"snfit", testpath/"lc-03D4ag.list"
     assert File.exist?("result_salt2.dat")
-  end
-
-  def caveats
-    <<~EOS
-    You should add the following to your .bashrc or equivalent:
-      export SALTPATH=#{prefix}/data
-    EOS
   end
 end

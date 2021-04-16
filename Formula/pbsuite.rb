@@ -8,18 +8,19 @@ class Pbsuite < Formula
 
   bottle :unneeded
 
-  depends_on "blasr" => :recommended
   depends_on "python"
+  depends_on "blasr" => :recommended
 
-  conflicts_with "bedtools", :because => "Both install bin/bamToFastq"
+  conflicts_with "bedtools", because: "both install bin/bamToFastq"
 
   def install
     prefix.install Dir["*"]
   end
 
-  def caveats; <<~EOS
-    Set the PYTHONPATH environment variable:
-      export PYTHONPATH=#{opt_prefix}:$PYTHONPATH
+  def caveats
+    <<~EOS
+      Set the PYTHONPATH environment variable:
+        export PYTHONPATH=#{opt_prefix}:$PYTHONPATH
     EOS
   end
 

@@ -5,7 +5,7 @@ class Transtermhp < Formula
 
   def install
     system "make"
-    bin.install %W[transterm calibrate.sh]
+    bin.install %w[transterm calibrate.sh]
     (share/"transtermhp").install "USAGE.txt"
   end
 

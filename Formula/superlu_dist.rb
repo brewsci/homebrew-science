@@ -16,8 +16,8 @@ class SuperluDist < Formula
   depends_on "open-mpi"
 
   depends_on "parmetis"
-  depends_on "openblas" => OS.mac? ? :optional : :recommended
   depends_on "veclibfort" if build.without?("openblas") && OS.mac?
+  depends_on "openblas" => OS.mac? ? :optional : :recommended
 
   def install
     # prevent linking errors on linuxbrew:
@@ -53,7 +53,8 @@ class SuperluDist < Formula
     cp pkgshare/"EXAMPLE/dcreate_matrix.c", testpath
     cp pkgshare/"EXAMPLE/pddrive.c", testpath
     cp pkgshare/"EXAMPLE/g20.rua", testpath
-    system "mpicc", "-o", "pddrive", "pddrive.c", "dcreate_matrix.c", "-L#{Formula["superlu_dist"].opt_lib}", "-lsuperlu_dist"
+    system "mpicc", "-o", "pddrive", "pddrive.c", "dcreate_matrix.c", "-L#{Formula["superlu_dist"].opt_lib}",
+"-lsuperlu_dist"
     system "mpirun", "-np", "4", "./pddrive", "-r", "2", "-c", "2", "g20.rua"
   end
 end

@@ -5,17 +5,17 @@ class P4est < Formula
   sha256 "0b5327a35f0c869bf920b8cab5f20caa4eb55692eaaf1f451d5de30285b25139"
   revision 4
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
   head do
-    url "https://github.com/cburstedde/p4est.git", :branch => "master"
+    url "https://github.com/cburstedde/p4est.git", branch: "master"
     version "1.2pre"
   end
 
+  bottle :disable, "needs to be rebuilt with latest open-mpi"
+
   option "without-check", "Skip build-time tests (not recommended)"
 
-  depends_on "open-mpi"
-  depends_on "gcc" if OS.mac? # for gfortran
+  depends_on "gcc" if OS.mac?
+  depends_on "open-mpi" # for gfortran
   depends_on "openblas" => :optional
 
   def install
@@ -26,18 +26,18 @@ class P4est < Formula
     ENV["CFLAGS"]   = "-O2"
     ENV["CPPFLAGS"] = "-DSC_LOG_PRIORITY=SC_LP_ESSENTIAL"
 
-    if build.with? "openblas"
-      blas = "BLAS_LIBS=-L#{Formula["openblas"].opt_lib} -lopenblas"
+    blas = if build.with? "openblas"
+      "BLAS_LIBS=-L#{Formula["openblas"].opt_lib} -lopenblas"
     elsif OS.mac?
-      blas = "BLAS_LIBS=-framework Accelerate"
+      "BLAS_LIBS=-framework Accelerate"
     else
-      blas = "BLAS_LIBS=-lblas -llapack"
+      "BLAS_LIBS=-lblas -llapack"
     end
 
     system "./configure", "--enable-mpi",
                           "--enable-shared",
                           "--disable-vtk-binary",
-                          "#{blas}",
+                          blas.to_s,
                           "--prefix=#{prefix}"
 
     system "make"

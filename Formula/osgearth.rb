@@ -4,13 +4,12 @@ class Osgearth < Formula
   url "https://github.com/gwaldron/osgearth/archive/osgearth-2.7.tar.gz"
   sha256 "945bd4d0bc65143a14caeb434b07384eccef1ba89ae11282fc499903a251ec18"
 
-  head "https://github.com/gwaldron/osgearth.git", :branch => "master"
+  head "https://github.com/gwaldron/osgearth.git", branch: "master"
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "48cba11c49074ecbb6dda61a8a5a44881bb7aa121ecfb0eb9a61fb4eb5f05ad7" => :yosemite
-    sha256 "289d4169172f3a15c3e84b966fab8114bb0e92358af8274aecea8a098e923dda" => :mavericks
+    sha256 cellar: :any, yosemite:  "48cba11c49074ecbb6dda61a8a5a44881bb7aa121ecfb0eb9a61fb4eb5f05ad7"
+    sha256 cellar: :any, mavericks: "289d4169172f3a15c3e84b966fab8114bb0e92358af8274aecea8a098e923dda"
   end
 
   option "without-minizip", "Build without Google KMZ file access support"
@@ -22,8 +21,8 @@ class Osgearth < Formula
   depends_on "gdal"
   depends_on "sqlite"
   depends_on "minizip" => :recommended
-  depends_on "v8" => :optional
   depends_on "tinyxml" => :optional
+  depends_on "v8" => :optional
 
   resource "sphinx" do
     url "https://pypi.python.org/packages/source/S/Sphinx/Sphinx-1.2.1.tar.gz"
@@ -31,7 +30,7 @@ class Osgearth < Formula
   end
 
   def install
-    if (build.with? "docs-examples") && (!which("sphinx-build"))
+    if (build.with? "docs-examples") && !which("sphinx-build")
       # temporarily vendor a local sphinx install
       sphinx_dir = prefix/"sphinx"
       sphinx_site = sphinx_dir/"lib/python2.7/site-packages"
@@ -42,10 +41,10 @@ class Osgearth < Formula
     end
 
     args = std_cmake_args
-    if MacOS.prefer_64_bit?
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.arch_64_bit}"
+    args << if MacOS.prefer_64_bit?
+      "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.arch_64_bit}"
     else
-      args << "-DCMAKE_OSX_ARCHITECTURES=i386"
+      "-DCMAKE_OSX_ARCHITECTURES=i386"
     end
 
     args << "-DOSGEARTH_USE_QT=OFF"
@@ -79,12 +78,12 @@ class Osgearth < Formula
 
   def caveats
     osg = Formula["open-scene-graph"]
-    osgver = (osg.linked_keg.exist?) ? osg.version : "#.#.# (version)"
+    osgver = osg.linked_keg.exist? ? osg.version : "#.#.# (version)"
     <<~EOS
-    This formula installs Open Scene Graph plugins. To ensure access when using
-    the osgEarth toolset, set the OSG_LIBRARY_PATH enviroment variable to:
+      This formula installs Open Scene Graph plugins. To ensure access when using
+      the osgEarth toolset, set the OSG_LIBRARY_PATH enviroment variable to:
 
-      #{HOMEBREW_PREFIX}/lib/osgPlugins-#{osgver}
+        #{HOMEBREW_PREFIX}/lib/osgPlugins-#{osgver}
 
     EOS
   end

@@ -14,7 +14,7 @@ class Genet < Formula
   end
 
   def install
-    system "autoreconf -i" if build.head?
+    system "autoreconf", "-i" if build.head?
     system "./configure", "--disable-assert",
                           "--disable-debug",
                           "--disable-dependency-tracking",

@@ -9,11 +9,10 @@ class Pilercr < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "7a16c91e43acf94bc30d43be3fa2b34fff56ebca3e60ddc5b99d7193aa7ebf8f" => :el_capitan
-    sha256 "148af9f887886cf0b0605f83e8a8ce3f1783c6248828ebe0caaa170d8f233737" => :yosemite
-    sha256 "6dda505f38845aa031b274637985c99dbc3060e01f85ee303af2536522e505f3" => :mavericks
-    sha256 "cba523fc568944de3a6b7408af159d0b11483a433781b57a26f7e102e484185a" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, el_capitan:   "7a16c91e43acf94bc30d43be3fa2b34fff56ebca3e60ddc5b99d7193aa7ebf8f"
+    sha256 cellar: :any_skip_relocation, yosemite:     "148af9f887886cf0b0605f83e8a8ce3f1783c6248828ebe0caaa170d8f233737"
+    sha256 cellar: :any_skip_relocation, mavericks:    "6dda505f38845aa031b274637985c99dbc3060e01f85ee303af2536522e505f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "cba523fc568944de3a6b7408af159d0b11483a433781b57a26f7e102e484185a"
   end
 
   depends_on "muscle"

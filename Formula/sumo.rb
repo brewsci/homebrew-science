@@ -6,10 +6,9 @@ class Sumo < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "77437f69530f290dd60195011731eb963b9d5208a1d215d686bf61e023dbd576" => :high_sierra
-    sha256 "679ffb6422dcc02ce0ba36a2074934238c7d264811c417b25d8096e2ff1e558a" => :sierra
-    sha256 "94d0279ed3d90cfbdfe68e3cdd6265c09d4167275d37507a1f650508cc24f860" => :el_capitan
+    sha256 cellar: :any, high_sierra: "77437f69530f290dd60195011731eb963b9d5208a1d215d686bf61e023dbd576"
+    sha256 cellar: :any, sierra:      "679ffb6422dcc02ce0ba36a2074934238c7d264811c417b25d8096e2ff1e558a"
+    sha256 cellar: :any, el_capitan:  "94d0279ed3d90cfbdfe68e3cdd6265c09d4167275d37507a1f650508cc24f860"
   end
 
   option "with-test", "Enable additional build-time checking"
@@ -19,15 +18,15 @@ class Sumo < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "libx11"
-  depends_on "xerces-c"
-  depends_on "libpng"
-  depends_on "jpeg"
-  depends_on "libtiff"
-  depends_on "proj"
-  depends_on "gdal"
   depends_on "fox"
+  depends_on "gdal"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "libx11"
+  depends_on "proj"
   depends_on "python"
+  depends_on "xerces-c"
 
   resource "gtest" do
     url "https://github.com/google/googletest/archive/release-1.7.0.tar.gz"
@@ -76,9 +75,10 @@ class Sumo < Formula
     rm bin/"sumo-unittest"
   end
 
-  def caveats; <<~EOS
-    Some SUMO scripts require SUMO_HOME environmental variable:
-      export SUMO_HOME=#{prefix}
+  def caveats
+    <<~EOS
+      Some SUMO scripts require SUMO_HOME environmental variable:
+        export SUMO_HOME=#{prefix}
     EOS
   end
 
@@ -100,7 +100,8 @@ class Sumo < Formula
       </edges>
     EOS
 
-    system "#{bin}/netconvert", "--node-files=#{testpath}/hello.nod.xml", "--edge-files=#{testpath}/hello.edg.xml", "--output-file=#{testpath}/hello.net.xml"
+    system "#{bin}/netconvert", "--node-files=#{testpath}/hello.nod.xml", "--edge-files=#{testpath}/hello.edg.xml",
+"--output-file=#{testpath}/hello.net.xml"
 
     (testpath/"hello.rou.xml").write <<~EOS
       <routes>

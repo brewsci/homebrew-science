@@ -6,11 +6,10 @@ class Sfscode < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "4e44262e9ab34e4dc1b5d1892afee52b372605734c81d44b79c42946fbe6e54a" => :high_sierra
-    sha256 "35bfa0e2fe611812febcb8059d6fe0a3dba64e3f28a1340621ea7bebbbea4973" => :sierra
-    sha256 "99c13636f500c799eeda98cf7d5fe70a46030d7f211c94da8c9e8f13dbac0a10" => :el_capitan
-    sha256 "b913b821adb0a665abdc68c4c773d215fa5508aaa7632750df19ba5d0d4069f3" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, high_sierra:  "4e44262e9ab34e4dc1b5d1892afee52b372605734c81d44b79c42946fbe6e54a"
+    sha256 cellar: :any_skip_relocation, sierra:       "35bfa0e2fe611812febcb8059d6fe0a3dba64e3f28a1340621ea7bebbbea4973"
+    sha256 cellar: :any_skip_relocation, el_capitan:   "99c13636f500c799eeda98cf7d5fe70a46030d7f211c94da8c9e8f13dbac0a10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b913b821adb0a665abdc68c4c773d215fa5508aaa7632750df19ba5d0d4069f3"
   end
 
   def install

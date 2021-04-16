@@ -4,20 +4,20 @@ class OmeXml < Formula
   url "https://downloads.openmicroscopy.org/ome-model/5.6.0/source/ome-model-5.6.0.tar.xz"
   sha256 "0658788b839b40a15883caa99d9a0f43a6ea1f547a8df8043256293aec81a4cc"
   revision 1
-  head "https://github.com/ome/ome-model.git", :branch => "master", :shallow => false
+  head "https://github.com/ome/ome-model.git", branch: "master", shallow: false
 
   bottle :disable, "needs to be rebuilt with latest boost"
 
   option "with-api-docs", "Build API reference"
   option "without-test", "Skip build time tests (not recommended)"
 
-  depends_on "boost"
   depends_on "cmake" => :build
-  depends_on "xalan-c"
-  depends_on "xerces-c"
-  depends_on "ome-common"
   depends_on "doxygen" => :build if build.with? "api-docs"
   depends_on "graphviz" => :build if build.with? "api-docs"
+  depends_on "boost"
+  depends_on "ome-common"
+  depends_on "xalan-c"
+  depends_on "xerces-c"
 
   # Required for testing
   resource "gtest" do
@@ -38,6 +38,7 @@ class OmeXml < Formula
     ENV.prepend_create_path "CMAKE_PROGRAM_PATH", buildpath/"python/bin"
     resources.each do |r|
       next unless r.name == "genshi"
+
       r.stage do
         system "python", *Language::Python.setup_install_args(buildpath/"python")
       end

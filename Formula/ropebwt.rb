@@ -7,7 +7,7 @@ class Ropebwt < Formula
 
   def install
     system "make"
-    bin.install *%w[bcr-demo bpr-mt ropebwt]
+    bin.install(*%w[bcr-demo bpr-mt ropebwt])
   end
 
   test do

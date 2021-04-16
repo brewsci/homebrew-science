@@ -1,5 +1,5 @@
 class Nest < Formula
-  desc "The Neural Simulation Tool (NEST) with Python2 bindings (PyNEST)"
+  desc "Neural Simulation Tool with Python2 bindings (PyNEST)"
   homepage "http://www.nest-simulator.org/"
   url "https://github.com/nest/nest-simulator/archive/v2.14.0.tar.gz"
   sha256 "afaf7d53c2d5305fac1257759cc0ea6d62c3cebf7d5cc4a07d4739af4dbb9caf"
@@ -8,10 +8,10 @@ class Nest < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "4f7d765cd75ae3272ce15bb293c20a6cdfc9ccb551f0a07d00016c75ae0ef267" => :high_sierra
-    sha256 "60e4b0595c5d11003ffe1eca3fdca3c197b8711336ead21eba67620db96454c0" => :sierra
-    sha256 "8a4c8e6d0d2e4ce93d76af73197c693f8c303095800e82b7266b922848f1a39b" => :el_capitan
-    sha256 "6207dea13f90b17a95313b964323f7971cd5e2507a38b0ffd5d64b2f346e7851" => :x86_64_linux
+    sha256 high_sierra:  "4f7d765cd75ae3272ce15bb293c20a6cdfc9ccb551f0a07d00016c75ae0ef267"
+    sha256 sierra:       "60e4b0595c5d11003ffe1eca3fdca3c197b8711336ead21eba67620db96454c0"
+    sha256 el_capitan:   "8a4c8e6d0d2e4ce93d76af73197c693f8c303095800e82b7266b922848f1a39b"
+    sha256 x86_64_linux: "6207dea13f90b17a95313b964323f7971cd5e2507a38b0ffd5d64b2f346e7851"
   end
 
   option "with-python3", "Build Python3 bindings (PyNEST) instead of Python2 bindings."
@@ -20,6 +20,15 @@ class Nest < Formula
 
   needs :openmp if build.with? "openmp"
 
+  requires_py3 = []
+  requires_py3 << "with-python3" if build.with? "python3"
+
+  depends_on "cmake" => :build
+  depends_on "libtool"
+  depends_on "matplotlib" => requires_py3
+  depends_on "numpy" => requires_py3
+  depends_on "readline"
+  depends_on "scipy" => requires_py3
   depends_on "gsl" => :recommended
   depends_on "open-mpi" => :optional
 
@@ -27,15 +36,11 @@ class Nest < Formula
   depends_on "python" unless OS.mac?
   depends_on "python3" => :optional
 
-  requires_py3 = []
-  requires_py3 << "with-python3" if build.with? "python3"
-  depends_on "numpy" => requires_py3
-  depends_on "scipy" => requires_py3
-  depends_on "matplotlib" => requires_py3
-
-  depends_on "libtool"
-  depends_on "readline"
-  depends_on "cmake" => :build
+  fails_with :clang do
+    cause <<~EOS
+      Building NEST with clang is not stable. See https://github.com/nest/nest-simulator/issues/74 .
+    EOS
+  end
 
   resource "Cython" do
     url "https://files.pythonhosted.org/packages/ee/2a/c4d2cdd19c84c32d978d18e9355d1ba9982a383de87d0fcb5928553d37f4/Cython-0.27.3.tar.gz"
@@ -45,12 +50,6 @@ class Nest < Formula
   resource "nose" do
     url "https://files.pythonhosted.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
     sha256 "f1bffef9cbc82628f6e7d7b40d7e255aefaa1adb6a1b1d26c69a8b79e6208a98"
-  end
-
-  fails_with :clang do
-    cause <<~EOS
-      Building NEST with clang is not stable. See https://github.com/nest/nest-simulator/issues/74 .
-    EOS
   end
 
   def install
@@ -107,9 +106,9 @@ class Nest < Formula
     # Replace internally accessible gcc with externally accesible version
     # in nest-config if required
     inreplace bin/"nest-config",
-        %r{#{HOMEBREW_REPOSITORY}/Library/Homebrew/shims.*/super},
+        %r{#{HOMEBREW_REPOSITORY}/Library/Homebrew/shims.*/super}o,
         "#{HOMEBREW_PREFIX}/bin",
-        FALSE
+        false
   end
 
   test do
@@ -119,12 +118,12 @@ class Nest < Formula
     # necessary for the python tests
     ENV["exec_prefix"] = prefix
     # if build.head? does not seem to work
-    if !File.directory?(pkgshare/"sources")
-      # Skip tests for correct copyright headers
-      ENV["NEST_SOURCE"] = "SKIP"
-    else
+    ENV["NEST_SOURCE"] = if File.directory?(pkgshare/"sources")
       # necessary for one regression on the sources
-      ENV["NEST_SOURCE"] = pkgshare/"sources"
+      pkgshare/"sources"
+    else
+      # Skip tests for correct copyright headers
+      "SKIP"
     end
 
     if build.with? "open-mpi"

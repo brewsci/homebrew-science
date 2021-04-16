@@ -14,15 +14,16 @@ class Phyutility < Formula
     pkgshare.install "examples", "manual.pdf"
   end
 
-  def caveats; <<~EOS
-    The manual and examples are in:
-      #{opt_pkgshare}
+  def caveats
+    <<~EOS
+      The manual and examples are in:
+        #{opt_pkgshare}
     EOS
   end
 
   test do
     cp Dir[pkgshare/"examples/*"], testpath
-    system *%W[#{bin}/phyutility -concat -in test.aln test2.aln -out test_new.aln]
+    system(*%W[#{bin}/phyutility -concat -in test.aln test2.aln -out test_new.aln])
     compare_file "test_new.aln", "test_all.aln"
   end
 end

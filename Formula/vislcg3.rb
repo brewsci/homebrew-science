@@ -29,7 +29,7 @@ class Vislcg3 < Formula
     system "make"
 
     if build.with? "test"
-      Open3.popen3("./test/runall.pl", :err => [:child, :out]) do |_, output|
+      Open3.popen3("./test/runall.pl", err: [:child, :out]) do |_, output|
         output.read.each_line do |line|
           raise line if line.start_with?("T_") && !line.end_with?("Success Success.\n")
         end

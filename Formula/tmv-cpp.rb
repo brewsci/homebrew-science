@@ -1,5 +1,5 @@
 class TmvCpp < Formula
-  desc "user-friendly C++ interface to BLAS and LAPACK"
+  desc "User-friendly C++ interface to BLAS and LAPACK"
   homepage "https://github.com/rmjarvis/tmv"
   url "https://github.com/rmjarvis/tmv/archive/v0.75.tar.gz"
   sha256 "f0ed1b500c5f4ee12f9d018a7d6a883f06df4a345a1010e3f96223410c9b3dea"
@@ -7,18 +7,16 @@ class TmvCpp < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "18d80d1ab60aa4edaa4ae2f1a5e0853b8710fc7ba71ec436cd7dc3daa201c99c" => :high_sierra
-    sha256 "aaaea5f9d8ead80b0ab7fa18d73e7a932022cbb468de99b17dc226d2434133e3" => :sierra
-    sha256 "0d1af7e8958e5334e8c149c93ef1ce8d3fd4503e28cb748e88d114efa756c504" => :el_capitan
-    sha256 "d840dd1ac713697096c9d976b19b0337c0ce75411750c1e77328ff83ccb602a1" => :x86_64_linux
+    sha256 cellar: :any, high_sierra:  "18d80d1ab60aa4edaa4ae2f1a5e0853b8710fc7ba71ec436cd7dc3daa201c99c"
+    sha256 cellar: :any, sierra:       "aaaea5f9d8ead80b0ab7fa18d73e7a932022cbb468de99b17dc226d2434133e3"
+    sha256 cellar: :any, el_capitan:   "0d1af7e8958e5334e8c149c93ef1ce8d3fd4503e28cb748e88d114efa756c504"
+    sha256 cellar: :any, x86_64_linux: "d840dd1ac713697096c9d976b19b0337c0ce75411750c1e77328ff83ccb602a1"
   end
 
   option "without-test", "Do not build tests (not recommended)"
-  deprecated_option "without-check" => "without-test"
-
   option "with-full-check", "Go through all tests (time consuming)"
   option "with-openmp", "Enable OpenMP multithreading"
+  deprecated_option "without-check" => "without-test"
 
   depends_on "scons" => :build
 
@@ -35,7 +33,7 @@ class TmvCpp < Formula
     args << "XTEST=1111111" if build.with? "full-check"
     args << ("WITH_OPENMP=" + (build.with?("openmp") ? "true" : "false"))
 
-    scons *args
+    scons(*args)
     scons "tests" if build.with? "test"
     scons "examples"
     scons "install"

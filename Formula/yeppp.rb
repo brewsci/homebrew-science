@@ -6,10 +6,9 @@ class Yeppp < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "dd36939c6d8c50aec543b70084f7dfda3ba9d82d538424af20ad537e5c785936" => :el_capitan
-    sha256 "a859cb1831f8a7d105d21c288a74b86941833a6da3fec54b09b3304a8138080f" => :yosemite
-    sha256 "ed279698e594303995a64fbc84569e8aa377f881272bbdb5c938c203d90ba6fe" => :mavericks
+    sha256 cellar: :any, el_capitan: "dd36939c6d8c50aec543b70084f7dfda3ba9d82d538424af20ad537e5c785936"
+    sha256 cellar: :any, yosemite:   "a859cb1831f8a7d105d21c288a74b86941833a6da3fec54b09b3304a8138080f"
+    sha256 cellar: :any, mavericks:  "ed279698e594303995a64fbc84569e8aa377f881272bbdb5c938c203d90ba6fe"
   end
 
   def install

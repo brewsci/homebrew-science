@@ -6,10 +6,9 @@ class Nip2 < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "e0af078a5d9786c71077ed55dd415e978d144c0ba2016cc61fdea009b62eaa74" => :sierra
-    sha256 "2333489eaae68a285287ea418de1445bcd4cc7bdc758b8cbf260f99e25e0d7b0" => :el_capitan
-    sha256 "073238e0e5b4d984e66f8eedd3b458d553e16edf047eb6696ae1fd752d68e0a8" => :yosemite
+    sha256 cellar: :any, sierra:     "e0af078a5d9786c71077ed55dd415e978d144c0ba2016cc61fdea009b62eaa74"
+    sha256 cellar: :any, el_capitan: "2333489eaae68a285287ea418de1445bcd4cc7bdc758b8cbf260f99e25e0d7b0"
+    sha256 cellar: :any, yosemite:   "073238e0e5b4d984e66f8eedd3b458d553e16edf047eb6696ae1fd752d68e0a8"
   end
 
   option "with-test", "Enable build-time testing"
@@ -23,8 +22,8 @@ class Nip2 < Formula
   depends_on "vips"
 
   depends_on "fftw" => :recommended
-  depends_on "gsl" => :recommended
   depends_on "goffice" => :recommended
+  depends_on "gsl" => :recommended
   depends_on "libgsf" => :recommended
 
   # Depends_on "XML::Parser" => :perl

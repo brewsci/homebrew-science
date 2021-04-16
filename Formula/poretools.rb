@@ -2,7 +2,7 @@ class Poretools < Formula
   include Language::Python::Virtualenv
 
   desc "Tools for working with nanopore sequencing data"
-  homepage "https://poretools.readthedocs.org"
+  homepage "https://poretools.readthedocs.io"
   # doi "10.1093/bioinformatics/btu555"
   # tag "bioinformatics"
 
@@ -13,20 +13,19 @@ class Poretools < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "e040d34e86d3b7989000ccd8d24d97a9e8025a11409bb4669a7afced55c6292e" => :sierra
-    sha256 "ae1db4c366ce232875b07c3098b5be046b37a013fecd89f030698cd2525df434" => :el_capitan
-    sha256 "42305e75f8b288c1a269bf6e79ffc7e4bd67d58b95a4bd7fb8110a9a0f82a195" => :yosemite
-    sha256 "c0c5f3eec88ed7b278b2cfe1a2e0f12dbf7b1f0f1b8491579d54fb4f030d4f84" => :x86_64_linux
+    sha256 cellar: :any, sierra:       "e040d34e86d3b7989000ccd8d24d97a9e8025a11409bb4669a7afced55c6292e"
+    sha256 cellar: :any, el_capitan:   "ae1db4c366ce232875b07c3098b5be046b37a013fecd89f030698cd2525df434"
+    sha256 cellar: :any, yosemite:     "42305e75f8b288c1a269bf6e79ffc7e4bd67d58b95a4bd7fb8110a9a0f82a195"
+    sha256 cellar: :any, x86_64_linux: "c0c5f3eec88ed7b278b2cfe1a2e0f12dbf7b1f0f1b8491579d54fb4f030d4f84"
   end
 
   depends_on "pkg-config" => :build # for h5py
   depends_on "freetype" # for matplotlib
-  depends_on "hdf5"
-  depends_on "gcc" if OS.mac? # for gfortran for scipy
+  depends_on "gcc" if OS.mac?
+  depends_on "hdf5" # for gfortran for scipy
+  depends_on "numpy"
   depends_on "python"
   depends_on "scipy"
-  depends_on "numpy"
 
   cxxstdlib_check :skip
 

@@ -1,5 +1,5 @@
 class Scrm < Formula
-  desc "Coalescent simulator for biological sequences."
+  desc "Coalescent simulator for biological sequences"
   homepage "https://scrm.github.io/"
   url "https://github.com/scrm/scrm/releases/download/v1.7.2/scrm-src.tar.gz"
   version "1.7.2"
@@ -7,10 +7,9 @@ class Scrm < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "efa9671e2aa0d2bca94b6505d5a1a3a0a7ef060baf74cd993a7f2be3398ec6c1" => :el_capitan
-    sha256 "e310107e1c849fe48f62aee22587e933a466b8966fcb12e244066640c0bfa9b2" => :yosemite
-    sha256 "6c10eb18ffd42087d567d06f15f94edf1082da57ee903435e5532b618cb92f41" => :mavericks
+    sha256 cellar: :any_skip_relocation, el_capitan: "efa9671e2aa0d2bca94b6505d5a1a3a0a7ef060baf74cd993a7f2be3398ec6c1"
+    sha256 cellar: :any_skip_relocation, yosemite:   "e310107e1c849fe48f62aee22587e933a466b8966fcb12e244066640c0bfa9b2"
+    sha256 cellar: :any_skip_relocation, mavericks:  "6c10eb18ffd42087d567d06f15f94edf1082da57ee903435e5532b618cb92f41"
   end
 
   option "without-test", "Disable build-time testing (not recommended)"

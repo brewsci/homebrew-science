@@ -16,6 +16,7 @@ class Smrtanalysis < Formula
 
   def install
     raise "SMRT Analysis cannot be installed on Mac OS" if OS.mac?
+
     system "sh", "./smrtanalysis_#{version}.run", "--extract-only",
       "--patchfile", resource("patch").cached_download,
       "--rootdir", prefix

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "requirement"
 
 class CudaRequirement < Requirement
@@ -5,13 +7,14 @@ class CudaRequirement < Requirement
   cask "cuda"
 
   def initialize(tags)
-    @version = tags.shift if /\d+\.*\d*/ === tags.first
+    @version = tags.shift if /\d+\.*\d*/.match?(tags.first)
     super
   end
 
-  satisfy :build_env => false do
+  satisfy build_env: false do
     next false unless which "nvcc"
     next true unless @version
+
     cuda_version = /\d\.\d/.match Utils.popen_read("nvcc", "-V")
     Version.new(cuda_version.to_s) >= Version.new(@version)
   end
@@ -25,10 +28,10 @@ class CudaRequirement < Requirement
   end
 
   def message
-    if @version
-      s = "CUDA #{@version} or later is required."
+    s = if @version
+      "CUDA #{@version} or later is required."
     else
-      s = "CUDA is required."
+      "CUDA is required."
     end
     s += <<-EOS.undent
       To use this formula with NVIDIA graphics cards you will need to

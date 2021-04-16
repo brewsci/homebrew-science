@@ -11,8 +11,8 @@ class ParallelNetcdf < Formula
   option "without-fortran", "Don't compile Fortran bindings"
   # disabled (see comment below): option "without-test", "Disable checks (not recommended)"
 
-  depends_on "open-mpi"
-  depends_on "gcc" if OS.mac? # for gfortran
+  depends_on "gcc" if OS.mac?
+  depends_on "open-mpi" # for gfortran
 
   def install
     args = "--prefix=#{prefix}"
@@ -127,23 +127,23 @@ class ParallelNetcdf < Formula
       }
     EOS
     (testpath/"output.expected").write <<~EOS
-    netcdf output {
-    // file format: CDF-2 (large file)
-    dimensions:
-        d1 = 4 ;
-    variables:
-        int v1(d1) ;
-        int v2(d1) ;
+      netcdf output {
+      // file format: CDF-2 (large file)
+      dimensions:
+          d1 = 4 ;
+      variables:
+          int v1(d1) ;
+          int v2(d1) ;
 
-    // global attributes:
-                :string = "Hello World\\n",
-        "" ;
-    data:
+      // global attributes:
+                  :string = "Hello World\\n",
+          "" ;
+      data:
 
-     v1 = 0, 1, 2, 3 ;
+       v1 = 0, 1, 2, 3 ;
 
-     v2 = 0, 1, 2, 3 ;
-    }
+       v2 = 0, 1, 2, 3 ;
+      }
     EOS
     system ENV.cc, "test.c", "-o", "test"
     assert_match "version: 1.7", shell_output("./test")

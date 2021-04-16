@@ -7,11 +7,10 @@ class Quest < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "d6a7bdafb4229d4bca2837884c9ee50a073f7bfce181b0a34db94cb3c3455885" => :yosemite
-    sha256 "68dca3f3bcb940b146768e18579dfbd7969ed3a6626f0e19bdf3fb1257620b53" => :mavericks
-    sha256 "533ff62d0823dfcb74bbc3aaa6de47c61f65401585a36c3660a86d91f4eabfe4" => :mountain_lion
-    sha256 "9521a762435f1d30ac5c12dc0f38ee5282987e23fdf200440521e6cfd7ba8bfc" => :x86_64_linux
+    sha256 cellar: :any, yosemite:      "d6a7bdafb4229d4bca2837884c9ee50a073f7bfce181b0a34db94cb3c3455885"
+    sha256 cellar: :any, mavericks:     "68dca3f3bcb940b146768e18579dfbd7969ed3a6626f0e19bdf3fb1257620b53"
+    sha256 cellar: :any, mountain_lion: "533ff62d0823dfcb74bbc3aaa6de47c61f65401585a36c3660a86d91f4eabfe4"
+    sha256 cellar: :any, x86_64_linux:  "9521a762435f1d30ac5c12dc0f38ee5282987e23fdf200440521e6cfd7ba8bfc"
   end
 
   def install

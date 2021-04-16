@@ -9,11 +9,10 @@ class Slicot < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any_skip_relocation
-    sha256 "8858d3476f8e51fc8725008fff3528216ac4510f712af26c158866da35194f53" => :sierra
-    sha256 "0c3a86b77f39bd2302c67643c5adc4c117b2ced83179f5b431511d2f4f37adff" => :el_capitan
-    sha256 "02e1f8d798ae9217639a2a2af6b561d4d32dbe2f90c2d75b47a3e577306ca7fc" => :yosemite
-    sha256 "be0eb9dba27c75222eee021d8ca8ac1385fff0e3388587671efc7e169d98ff96" => :x86_64_linux
+    sha256 cellar: :any_skip_relocation, sierra:       "8858d3476f8e51fc8725008fff3528216ac4510f712af26c158866da35194f53"
+    sha256 cellar: :any_skip_relocation, el_capitan:   "0c3a86b77f39bd2302c67643c5adc4c117b2ced83179f5b431511d2f4f37adff"
+    sha256 cellar: :any_skip_relocation, yosemite:     "02e1f8d798ae9217639a2a2af6b561d4d32dbe2f90c2d75b47a3e577306ca7fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "be0eb9dba27c75222eee021d8ca8ac1385fff0e3388587671efc7e169d98ff96"
   end
 
   depends_on "gcc" if OS.mac? # for gfortran

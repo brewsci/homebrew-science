@@ -7,10 +7,10 @@ class Pspp < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "16197a2755fcf8c15a57d8caea5994862073437b39de7b921ea695090e661d52" => :sierra
-    sha256 "303af89c5baba2a558659ed6b83b8eef8ebdccc68500a7e007e0093ae6f00911" => :el_capitan
-    sha256 "199674bd2b1d4a42285edceab3239cdabdede267269fa6750d42dd65d5c2d9a0" => :yosemite
-    sha256 "bf38c1cb76fc83069460792a930335b940564a9e36abca63882b03d54e803c67" => :x86_64_linux
+    sha256 sierra:       "16197a2755fcf8c15a57d8caea5994862073437b39de7b921ea695090e661d52"
+    sha256 el_capitan:   "303af89c5baba2a558659ed6b83b8eef8ebdccc68500a7e007e0093ae6f00911"
+    sha256 yosemite:     "199674bd2b1d4a42285edceab3239cdabdede267269fa6750d42dd65d5c2d9a0"
+    sha256 x86_64_linux: "bf38c1cb76fc83069460792a930335b940564a9e36abca63882b03d54e803c67"
   end
 
   option "without-test", "Skip running the PSPP test suite"
@@ -21,13 +21,13 @@ class Pspp < Formula
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
 
-  depends_on "gsl"
-  depends_on "glib"
-  depends_on "gettext"
-  depends_on "readline"
-  depends_on "libxml2"
   depends_on "cairo"
+  depends_on "gettext"
+  depends_on "glib"
+  depends_on "gsl"
+  depends_on "libxml2"
   depends_on "pango"
+  depends_on "readline"
 
   depends_on "postgresql" => :optional
 

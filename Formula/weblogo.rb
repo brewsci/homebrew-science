@@ -8,16 +8,15 @@ class Weblogo < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
     rebuild 1
-    sha256 "267edf2808b1d8dd8248b8c5d0696c703e92478d7c08f799272e3a6c290a2e50" => :yosemite
-    sha256 "927f1ca59e1bc45ac75759480b12bf0bb57864be5f0e2998cf6eb7739061efcd" => :mavericks
-    sha256 "7a9a5e874106d63aeaafacba7e31b767d5c95a738ba628c953ba5d90e1b3f6b6" => :mountain_lion
-    sha256 "0795bd6424589c43c029ea047e54d21c24384d916b862b273d5ae5c684b6f5ab" => :x86_64_linux
+    sha256 cellar: :any, yosemite:      "267edf2808b1d8dd8248b8c5d0696c703e92478d7c08f799272e3a6c290a2e50"
+    sha256 cellar: :any, mavericks:     "927f1ca59e1bc45ac75759480b12bf0bb57864be5f0e2998cf6eb7739061efcd"
+    sha256 cellar: :any, mountain_lion: "7a9a5e874106d63aeaafacba7e31b767d5c95a738ba628c953ba5d90e1b3f6b6"
+    sha256 cellar: :any, x86_64_linux:  "0795bd6424589c43c029ea047e54d21c24384d916b862b273d5ae5c684b6f5ab"
   end
 
-  depends_on "imagemagick"
   depends_on "ghostscript"
+  depends_on "imagemagick"
   # Depends_on "Getopt::Std" => :perl
 
   def install

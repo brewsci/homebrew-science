@@ -8,10 +8,9 @@ class Populations < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "9f95976745be9f265339f36966a5d4b4c7c94046fd86bb7ffd9ba43d20520d8b" => :sierra
-    sha256 "6c2835403b79a0583bc27f7b3dcdac55db397091daa612f386aa71fc8b0cc930" => :el_capitan
-    sha256 "996d10aaa6c180071e8e1f4220dd9b00b22e1c32ad412bb35f3ca0da91af8510" => :yosemite
+    sha256 cellar: :any, sierra:     "9f95976745be9f265339f36966a5d4b4c7c94046fd86bb7ffd9ba43d20520d8b"
+    sha256 cellar: :any, el_capitan: "6c2835403b79a0583bc27f7b3dcdac55db397091daa612f386aa71fc8b0cc930"
+    sha256 cellar: :any, yosemite:   "996d10aaa6c180071e8e1f4220dd9b00b22e1c32ad412bb35f3ca0da91af8510"
   end
 
   depends_on "cmake" => :build

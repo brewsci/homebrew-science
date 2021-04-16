@@ -6,17 +6,17 @@ class Pnapi < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    sha256 "96f1232332d350e2a5fd55bcf040ba88b500b6bdb13cfa322ec37d43e4e38732" => :sierra
-    sha256 "6cc3c17d3f75c12c7785b67be26e0ae9f7c3d1a26a17455ee7bc56af0e21c53d" => :el_capitan
-    sha256 "bdf20541df9f3af23277e207715654c1905de28b44e63771de10741e57312511" => :yosemite
+    sha256 sierra:     "96f1232332d350e2a5fd55bcf040ba88b500b6bdb13cfa322ec37d43e4e38732"
+    sha256 el_capitan: "6cc3c17d3f75c12c7785b67be26e0ae9f7c3d1a26a17455ee7bc56af0e21c53d"
+    sha256 yosemite:   "bdf20541df9f3af23277e207715654c1905de28b44e63771de10741e57312511"
   end
 
   head do
     url "http://svn.gna.org/svn/service-tech/trunk/pnapi"
-    depends_on "libtool" => :build
     depends_on "gengetopt" => :build
-    depends_on "help2man" => :build
     depends_on "gnu-sed" => :build
+    depends_on "help2man" => :build
+    depends_on "libtool" => :build
   end
 
   option "with-test", "perform build-time checks"
@@ -24,9 +24,9 @@ class Pnapi < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "pkg-config" => :build
   depends_on "graphviz"
   depends_on "lola"
-  depends_on "pkg-config" => :build
   depends_on "genet" => :optional
 
   def install

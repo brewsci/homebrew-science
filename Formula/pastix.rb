@@ -9,14 +9,13 @@ class Pastix < Formula
 
   bottle :disable, "needs to be rebuilt with latest open-mpi"
 
-  depends_on "scotch"
-  depends_on "hwloc"
-  depends_on "metis4"   => :optional     # Use METIS ordering.
-  depends_on "openblas" => :optional     # Use Accelerate by default.
-
-  depends_on "open-mpi"
-  depends_on "gcc" if OS.mac? # for gfortran
   depends_on "gcc"
+  depends_on "gcc" if OS.mac?
+  depends_on "hwloc"
+  depends_on "open-mpi"
+  depends_on "scotch"
+  depends_on "metis4" => :optional     # Use METIS ordering.
+  depends_on "openblas" => :optional # Use Accelerate by default. # for gfortran
 
   def install
     ENV.deparallelize
@@ -36,41 +35,44 @@ class Pastix < Formula
         s.change_make_var! "EXTRALIB", "-L#{File.dirname(libgfortran)} -lgfortran -lm"
 
         # set prefix
-        s.gsub! /#\s*ROOT\s*=/, "ROOT = "
+        s.gsub!(/#\s*ROOT\s*=/, "ROOT = ")
         s.change_make_var! "ROOT", prefix
-        s.gsub! /#\s*INCLUDEDIR\s*=/, "INCLUDEDIR = "
+        s.gsub!(/#\s*INCLUDEDIR\s*=/, "INCLUDEDIR = ")
         s.change_make_var! "INCLUDEDIR", include
-        s.gsub! /#\s*LIBDIR\s*=/, "LIBDIR = "
+        s.gsub!(/#\s*LIBDIR\s*=/, "LIBDIR = ")
         s.change_make_var! "LIBDIR", lib
-        s.gsub! /#\s*BINDIR\s*=/, "BINDIR = "
+        s.gsub!(/#\s*BINDIR\s*=/, "BINDIR = ")
         s.change_make_var! "BINDIR", bin
-        s.gsub! /#\s*PYTHON_PREFIX\s*=/, " PYTHON_PREFIX = "
+        s.gsub!(/#\s*PYTHON_PREFIX\s*=/, " PYTHON_PREFIX = ")
 
         # shared library building
-        s.gsub! /#\s*SHARED\s*=/, "SHARED = "
+        s.gsub!(/#\s*SHARED\s*=/, "SHARED = ")
         s.change_make_var! "SHARED", 1
-        s.gsub! /#\s*SOEXT\s*=/, "SOEXT = "
-        s.gsub! /#\s*SHARED_FLAGS\s*=/, "SHARED_FLAGS = "
+        s.gsub!(/#\s*SOEXT\s*=/, "SOEXT = ")
+        s.gsub!(/#\s*SHARED_FLAGS\s*=/, "SHARED_FLAGS = ")
 
         # activate FUNNELED mode
-        s.gsub! /#\s*CCPASTIX\s*:=\s*\$\(CCPASTIX\)\s+-DPASTIX_FUNNELED/, "CCPASTIX := \$(CCPASTIX) -DPASTIX_FUNNELED"
+        s.gsub!(/#\s*CCPASTIX\s*:=\s*\$\(CCPASTIX\)\s+-DPASTIX_FUNNELED/,
+"CCPASTIX := \$(CCPASTIX) -DPASTIX_FUNNELED")
 
-        s.gsub! /#\s*CCFDEB\s*:=/, "CCFDEB := "
-        s.gsub! /#\s*CCFOPT\s*:=/, "CCFOPT := "
-        s.gsub! /#\s*CFPROG\s*:=/, "CFPROG := "
+        s.gsub!(/#\s*CCFDEB\s*:=/, "CCFDEB := ")
+        s.gsub!(/#\s*CCFOPT\s*:=/, "CCFOPT := ")
+        s.gsub!(/#\s*CFPROG\s*:=/, "CFPROG := ")
 
-        s.gsub! /SCOTCH_HOME\s*\?=/, "SCOTCH_HOME="
+        s.gsub!(/SCOTCH_HOME\s*\?=/, "SCOTCH_HOME=")
         s.change_make_var! "SCOTCH_HOME", Formula["scotch"].opt_prefix
 
-        s.gsub! /HWLOC_HOME\s*\?=/, "HWLOC_HOME="
+        s.gsub!(/HWLOC_HOME\s*\?=/, "HWLOC_HOME=")
         s.change_make_var! "HWLOC_HOME", Formula["hwloc"].opt_prefix
 
         if build.with? "metis4"
-          s.gsub! /#\s*VERSIONORD\s*=\s*_metis/, "VERSIONORD = _metis"
-          s.gsub! /#\s*METIS_HOME/, "METIS_HOME"
+          s.gsub!(/#\s*VERSIONORD\s*=\s*_metis/, "VERSIONORD = _metis")
+          s.gsub!(/#\s*METIS_HOME/, "METIS_HOME")
           s.change_make_var! "METIS_HOME", Formula["metis4"].opt_prefix
-          s.gsub! %r{#\s*CCPASTIX\s*:=\s*\$\(CCPASTIX\)\s+-DMETIS\s+-I\$\(METIS_HOME\)/Lib}, "CCPASTIX := \$(CCPASTIX) -DMETIS -I#{Formula["metis4"].opt_include}"
-          s.gsub! /#\s*EXTRALIB\s*:=\s*\$\(EXTRALIB\)\s+-L\$\(METIS_HOME\)\s+-lmetis/, "EXTRALIB := \$\(EXTRALIB\) -L#{Formula["metis4"].opt_lib} -lmetis"
+          s.gsub! %r{#\s*CCPASTIX\s*:=\s*\$\(CCPASTIX\)\s+-DMETIS\s+-I\$\(METIS_HOME\)/Lib},
+"CCPASTIX := \$(CCPASTIX) -DMETIS -I#{Formula["metis4"].opt_include}"
+          s.gsub!(/#\s*EXTRALIB\s*:=\s*\$\(EXTRALIB\)\s+-L\$\(METIS_HOME\)\s+-lmetis/,
+"EXTRALIB := \$\(EXTRALIB\) -L#{Formula["metis4"].opt_lib} -lmetis")
         end
 
         if build.with? "openblas"
@@ -95,11 +97,15 @@ class Pastix < Formula
 
   test do
     Dir.foreach("#{pkgshare}/example/bin") do |example|
-      next if example =~ /^\./ || example =~ /plot_memory_usage/ || example =~ /mem_trace.o/ || example =~ /murge_sequence/
+      if example =~ /^\./ || example =~ /plot_memory_usage/ || example =~ /mem_trace.o/ || example =~ /murge_sequence/
+        next
+      end
       next if example == "reentrant" # May fail due to thread handling. See https://goo.gl/SKDGPV
-      if example == "murge-product"
+
+      case example
+      when "murge-product"
         system "#{pkgshare}/example/bin/#{example}", "100", "10", "1"
-      elsif example =~ /murge/
+      when /murge/
         system "#{pkgshare}/example/bin/#{example}", "100", "4"
       else
         system "#{pkgshare}/example/bin/#{example}", "-lap", "100"

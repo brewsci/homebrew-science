@@ -11,15 +11,15 @@ class Tophat < Formula
 
   depends_on "boost"
   depends_on "bowtie2"
-  depends_on "bowtie" => :optional
   depends_on "python"
-
-  patch :p0, :DATA
+  depends_on "bowtie" => :optional
 
   resource "test" do
     url "https://ccb.jhu.edu/software/tophat/downloads/test_data.tar.gz"
     sha256 "18840bd020dd23f4fe298d935c82f4b8ef7974de62ff755c21d7f88dc40054e1"
   end
+
+  patch :p0, :DATA
 
   def install
     ENV.deparallelize
@@ -35,7 +35,7 @@ class Tophat < Formula
     (libexec/"python").install bin/"intervaltree", bin/"sortedcontainers"
     (libexec/"bin").install bin/"tophat-fusion-post"
     (bin/"tophat-fusion-post").write_env_script libexec/"bin/tophat-fusion-post",
-      :PYTHONPATH => libexec/"python"
+      PYTHONPATH: libexec/"python"
   end
 
   test do

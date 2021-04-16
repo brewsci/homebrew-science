@@ -9,11 +9,10 @@ class Newicktools < Formula
 
   bottle do
     root_url "https://archive.org/download/brewsci/bottles-science"
-    cellar :any
-    sha256 "eabc593d7a86d921e5a30b12dd3a77bca324bf17b330845ca02f3437247a5722" => :yosemite
-    sha256 "db56c0f4b53676560efa180b40d0de985c4698a79fc6a75b02a631bbf3e27a08" => :mavericks
-    sha256 "be6886dfb589ee2f9c72580ef4c5e150aebc38daf7f3ca7c5d17c73e40aa901d" => :mountain_lion
-    sha256 "097f3a467f0062f2bf151a16c683f87b12be9144d080a2e4bbc1de5dd228e26f" => :x86_64_linux
+    sha256 cellar: :any, yosemite:      "eabc593d7a86d921e5a30b12dd3a77bca324bf17b330845ca02f3437247a5722"
+    sha256 cellar: :any, mavericks:     "db56c0f4b53676560efa180b40d0de985c4698a79fc6a75b02a631bbf3e27a08"
+    sha256 cellar: :any, mountain_lion: "be6886dfb589ee2f9c72580ef4c5e150aebc38daf7f3ca7c5d17c73e40aa901d"
+    sha256 cellar: :any, x86_64_linux:  "097f3a467f0062f2bf151a16c683f87b12be9144d080a2e4bbc1de5dd228e26f"
   end
 
   depends_on "flex" unless OS.mac?
