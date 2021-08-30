@@ -11,6 +11,7 @@
   "arcs": "brewsci/bio",
   "armadillo": "homebrew/core",
   "arpack": "homebrew/core",
+  "arrayfire": "homebrew/core",
   "art": "brewsci/bio",
   "artemis": "brewsci/bio",
   "astral": "brewsci/bio",
