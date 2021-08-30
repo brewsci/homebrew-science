@@ -41,6 +41,7 @@
   "canu": "brewsci/bio",
   "cap3": "brewsci/bio",
   "cd-hit": "brewsci/bio",
+  "cddlib": "homebrew/core",
   "centrifuge": "brewsci/bio",
   "ceres-solver": "homebrew/core",
   "cfitsio": "homebrew/core",
