@@ -7,6 +7,7 @@
   "ampl-mp": "homebrew/core",
   "andi": "brewsci/bio",
   "aragorn": "brewsci/bio",
+  "arb": "homebrew/core",
   "arcs": "brewsci/bio",
   "armadillo": "homebrew/core",
   "arpack": "homebrew/core",
