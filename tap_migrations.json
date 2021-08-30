@@ -79,6 +79,7 @@
   "field3d": "homebrew/core",
   "flann": "homebrew/core",
   "flash": "brewsci/bio",
+  "flint": "homebrew/core",
   "freebayes": "brewsci/bio",
   "fwdpp": "brewsci/bio",
   "gatk": "brewsci/bio",
