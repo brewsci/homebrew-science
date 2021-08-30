@@ -55,6 +55,7 @@
   "cminpack": "homebrew/core",
   "cp2k": "homebrew/core",
   "cppad": "homebrew/core",
+  "cuba": "homebrew/core",
   "cutadapt": "brewsci/bio",
   "datamash": "homebrew/core",
   "delly": "brewsci/bio",
