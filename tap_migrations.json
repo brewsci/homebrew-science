@@ -74,6 +74,7 @@
   "exonerate": "brewsci/bio",
   "express": "brewsci/bio",
   "fasta": "brewsci/bio",
+  "fastq-tools": "homebrew/core",
   "fastqc": "homebrew/core",
   "fasttree": "brewsci/bio",
   "fastuniq": "brewsci/bio",
