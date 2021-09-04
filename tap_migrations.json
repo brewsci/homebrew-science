@@ -159,6 +159,7 @@
   "mrbayes": "brewsci/bio",
   "mummer": "brewsci/bio",
   "muscle": "brewsci/bio",
+  "nanoflann": "homebrew/core",
   "nanopolish": "brewsci/bio",
   "nauty": "homebrew/core",
   "nco": "homebrew/core",
