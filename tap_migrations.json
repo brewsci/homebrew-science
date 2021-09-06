@@ -73,6 +73,7 @@
   "exabayes": "brewsci/bio",
   "exonerate": "brewsci/bio",
   "express": "brewsci/bio",
+  "fann": "homebrew/core",
   "fasta": "brewsci/bio",
   "fastq-tools": "homebrew/core",
   "fastqc": "homebrew/core",
