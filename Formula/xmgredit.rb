@@ -6,8 +6,6 @@ class Xmgredit < Formula
   sha256 "442abbe1e81e3ea33f310a0a43020ef5165768c4b57cf5a97757bd87a758e9f1"
   revision 1
 
-  bottle :disable, "needs to be rebuilt with latest netcdf"
-
   depends_on "libx11"
   depends_on "netcdf"
   depends_on "openmotif"
