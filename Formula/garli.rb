@@ -6,8 +6,6 @@ class Garli < Formula
   revision 2
   # tag "bioinformatics"
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
   option "with-brewed-ncl", "Use Homebrew's NCL instead of building a separate copy"
   depends_on "ncl" if build.with? "brewed-ncl"
   deprecated_option "without-mpi" => "without-open-mpi"
