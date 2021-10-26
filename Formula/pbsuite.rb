@@ -6,8 +6,6 @@ class Pbsuite < Formula
   # doi "10.1371/journal.pone.0047768", "10.1186/1471-2105-15-180"
   # tag "bioinformatics"
 
-  bottle :unneeded
-
   depends_on "python"
   depends_on "blasr" => :recommended
 
