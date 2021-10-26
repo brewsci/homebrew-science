@@ -6,8 +6,6 @@ class Libminc < Formula
   sha256 "8c00e0383575ace1f941a5b35b99678db2a0dd5e023f8671d25debc949c7cf12"
   revision 5
 
-  bottle :disable, "needs to be rebuilt with latest netcdf"
-
   depends_on "cmake" => :build
   depends_on "hdf5"
   depends_on "netcdf"
