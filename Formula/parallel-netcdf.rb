@@ -5,8 +5,6 @@ class ParallelNetcdf < Formula
   sha256 "52f0d106c470a843c6176318141f74a21e6ece3f70ee8fe261c6b93e35f70a94"
   revision 2
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
   option "without-cxx", "Don't compile C++ bindings"
   option "without-fortran", "Don't compile Fortran bindings"
   # disabled (see comment below): option "without-test", "Disable checks (not recommended)"
