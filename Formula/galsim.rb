@@ -6,8 +6,6 @@ class Galsim < Formula
   revision 2
   head "https://github.com/GalSim-developers/GalSim.git"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   option "with-openmp", "Enable OpenMP multithreading"
   option "without-test", "Skip build-time tests (not recommended)"
   deprecated_option "without-check" => "without-test"
