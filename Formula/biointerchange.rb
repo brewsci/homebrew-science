@@ -13,8 +13,6 @@ class Biointerchange < Formula
     sha256 "7629eb6a6be98eb0083ea4347b3893a05769c385f43f5d2805576eb967589431"
   end
 
-  bottle :unneeded
-
   def install
     bin.install "biointerchange"
     doc.install "license.txt"
