@@ -6,8 +6,6 @@ class Ckon < Formula
   revision 6
   head "https://github.com/tschaume/ckon.git"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
