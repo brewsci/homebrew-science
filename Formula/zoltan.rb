@@ -5,8 +5,6 @@ class Zoltan < Formula
   sha256 "d0d78fdeab7a385c87d3666b8a8dc748994ff04d3fd846872a4845e12d79c1bb"
   revision 3
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
   keg_only "conflicts with trilinos"
 
   option "without-test", "Skip build-time tests (not recommended)"
