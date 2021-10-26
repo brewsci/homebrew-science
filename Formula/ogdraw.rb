@@ -7,8 +7,6 @@ class Ogdraw < Formula
   url "http://ogdraw.mpimp-golm.mpg.de/resources/GeneMap-1.1.1.tar.gz"
   sha256 "d850aabd3c273e965ece148178a60ec9a097aad6cfa08c94a0e06a924fc9e063"
 
-  bottle :disable, "Unsatisfied Perl dependencies"
-
   depends_on "imagemagick"
 
   # Depends_on "Bio::Perl" => :perl
