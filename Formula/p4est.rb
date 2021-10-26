@@ -10,8 +10,6 @@ class P4est < Formula
     version "1.2pre"
   end
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
   option "without-check", "Skip build-time tests (not recommended)"
 
   depends_on "gcc" if OS.mac?
