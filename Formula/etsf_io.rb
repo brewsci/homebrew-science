@@ -6,8 +6,6 @@ class EtsfIo < Formula
   revision 6
   # doi "10.1016/j.cpc.2008.05.007"
 
-  bottle :disable, "needs to be rebuilt with latest netcdf"
-
   option "without-test", "Skip build-time tests (not recommended)"
   deprecated_option "without-check" => "without-test"
 
