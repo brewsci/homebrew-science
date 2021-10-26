@@ -7,8 +7,6 @@ class Orthofinder < Formula
   # doi "10.1186/s13059-015-0721-2"
   # tag "bioinformatics"
 
-  bottle :unneeded
-
   depends_on "blast"
   depends_on "mcl"
   depends_on "scipy"
