@@ -13,8 +13,6 @@ class GraphTool < Formula
     depends_on "libtool" => :build
   end
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   option "without-cairo", "Build without cairo support for plotting"
   option "without-gtk+3", "Build without gtk+3 support for interactive plotting"
   option "without-matplotlib", "Use a matplotlib you've installed yourself instead of a Homebrew-packaged matplotlib"
