@@ -7,8 +7,6 @@ class Sailfish < Formula
   sha256 "a0d6d944382f2e07ffbfd0371132588e2f22bb846ecfc3d3435ff3d81b30d6c6"
   revision 2
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
