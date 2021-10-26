@@ -5,8 +5,6 @@ class Gnudatalanguage < Formula
   sha256 "2b5945d06e4d95f01cb70a3c432ac2fa4c81e1b3ac7c02687a6704ab042a7e21"
   revision 4
 
-  bottle :disable, "needs to be rebuilt with latest netcdf"
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
