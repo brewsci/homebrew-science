@@ -6,8 +6,6 @@ class Dealii < Formula
   revision 2
   head "https://github.com/dealii/dealii.git"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   option "with-testsuite", "Run full test suite (7000+ tests). Takes a lot of time."
   option "without-oce", "Build without oce support (conflicts with opencascade)"
 
