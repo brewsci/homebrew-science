@@ -5,8 +5,6 @@ class SuperluDist < Formula
   sha256 "30ac554a992441e6041c6fb07772da4fa2fa6b30714279de03573c2cad6e4b60"
   revision 3
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
   option "without-test", "skip build-time tests (not recommended)"
   option "with-openmp", "Enable OpenMP multithreading"
   needs :openmp if build.with? "openmp"
