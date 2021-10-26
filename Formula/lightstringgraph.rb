@@ -7,8 +7,6 @@ class Lightstringgraph < Formula
   revision 4
   head "https://github.com/AlgoLab/LightStringGraph.git"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "boost"
   depends_on "beetl" => :recommended
 
