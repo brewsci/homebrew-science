@@ -5,8 +5,6 @@ class EnblendEnfuse < Formula
   sha256 "8703e324939ebd70d76afd350e56800f5ea2c053a040a5f5218b2a1a4300bd48"
   revision 3
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gsl"
