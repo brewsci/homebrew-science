@@ -8,8 +8,6 @@ class Bpipe < Formula
   sha256 "0f4dfa3f96327d3e467cbebfd7690278d74f5194ec3628a2ce17e90b1064eaad"
   head "https://github.com/ssadedin/bpipe.git"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
