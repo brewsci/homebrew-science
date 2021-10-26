@@ -8,8 +8,6 @@ class Rapsearch2 < Formula
   # tag "bioinformatics"
   # doi "10.1093/bioinformatics/btr595"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "boost"
 
   def install
