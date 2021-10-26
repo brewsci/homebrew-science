@@ -6,8 +6,6 @@ class Smrtanalysis < Formula
   url "http://files.pacb.com/software/smrtanalysis/2.3.0/smrtanalysis_2.3.0.140936.run"
   sha256 "242cd175816949f2cd649244fa38b49045c86026244481d34a6f6d254c49f5cd"
 
-  bottle :unneeded
-
   # Patch
   resource "patch" do
     url "https://s3.amazonaws.com/files.pacb.com/software/smrtanalysis/2.3.0/smrtanalysis-patch_2.3.0.140936.p5.run"
