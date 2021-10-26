@@ -13,8 +13,6 @@ class Elemental < Formula
     depends_on "metis"
   end
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
   option "with-test", "Run build time tests (lengthy, not recommended)"
 
   depends_on "cmake" => :build
