@@ -5,8 +5,6 @@ class Parmetis < Formula
   sha256 "f2d9a231b7cf97f1fee6e8c9663113ebf6c240d407d3c118c55b3633d6be6e5f"
   revision 5
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
   # METIS 5.* is required. It comes bundled with ParMETIS.
   # We prefer to brew it ourselves.
   depends_on "cmake" => :build
