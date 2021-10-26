@@ -7,8 +7,6 @@ class Meraculous < Formula
   sha256 "3a5fc76524db9ab5a4af88898f5d91957f53819b42e16d3913622eb5a0f35b9b"
   revision 1
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "cmake" => :build
   depends_on "boost"
   # Depends_on "Log::Log4perl" => :perl
