@@ -6,8 +6,6 @@ class Methpipe < Formula
   head "https://github.com/smithlabcode/methpipe.git"
   # tag "bioinformatics"
 
-  bottle :disable, "Missing library: libgsl.19.dylib"
-
   depends_on "gsl"
 
   def install
