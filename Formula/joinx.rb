@@ -4,8 +4,6 @@ class Joinx < Formula
     tag: "v1.7.4", revision: "350f063c9213f64d9db669ce6f94d162cb0075ab"
   revision 1
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "cmake" => :build
   depends_on "boost"
 
