@@ -7,8 +7,6 @@ class Dgtal < Formula
   revision 2
   head "https://github.com/DGtal-team/DGtal.git"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   option "without-test", "Skip build-time tests"
   option "without-examples", "Don't build the examples"
 
