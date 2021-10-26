@@ -7,8 +7,6 @@ class DlPolyClassic < Formula
   # tag "chemistry"
   # doi "10.1016/S0263-7855(96)00043-4"
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
   depends_on "gcc" if OS.mac? # for gfortran
   depends_on "open-mpi"
 
