@@ -5,8 +5,6 @@ class BlazeLib < Formula
   sha256 "34af70c8bb4da5fd0017b7c47e5efbfef9aadbabc5aae416582901a4059d1fa3"
   revision 2
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "boost"
 
   def install
