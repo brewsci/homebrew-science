@@ -5,8 +5,6 @@ class Deeplearning4jCli < Formula
   version "0.4-rc3.8"
   sha256 "aaa664958f5d53570d02d75e7f61a491f5f75372d5721bf4f6c1efe31e971fcb"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
