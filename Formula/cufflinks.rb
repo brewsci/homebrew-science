@@ -5,8 +5,6 @@ class Cufflinks < Formula
   sha256 "e8316b66177914f14b3a0c317e436d386a46c4c212ca1b2326f89f8a2e08d5ae"
   revision 4
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   if OS.mac? && MacOS.version == :mavericks
     depends_on "boost@1.55"
   else
