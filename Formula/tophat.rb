@@ -7,8 +7,6 @@ class Tophat < Formula
   # doi "10.1093/bioinformatics/btp120"
   # tag "bioinformatics"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "boost"
   depends_on "bowtie2"
   depends_on "python"
