@@ -9,8 +9,6 @@ class Mtl < Formula
     depends_on "cmake" => :build
   end
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "boost"
 
   def install
