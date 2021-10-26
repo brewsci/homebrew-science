@@ -7,8 +7,6 @@ class Pastix < Formula
 
   head "https://scm.gforge.inria.fr/anonscm/git/ricar/ricar.git"
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
   depends_on "gcc"
   depends_on "gcc" if OS.mac?
   depends_on "hwloc"
