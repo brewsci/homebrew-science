@@ -7,8 +7,6 @@ class Paraview < Formula
 
   head "https://gitlab.kitware.com/paraview/paraview.git"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   deprecated_option "with-mpi" => "with-open-mpi"
 
   depends_on "cmake" => :build
