@@ -5,8 +5,6 @@ class Slepc < Formula
   sha256 "2fb782844e3bc265a8d181c3c3e2632a4ca073111c874c654f1365d33ca2eb8a"
   revision 1
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
   option "with-complex", "Use complex version by default. Otherwise, real-valued version will be symlinked"
   option "without-test", "Skip run-time tests (not recommended)"
   option "with-openblas", "Install dependencies with openblas"
