@@ -6,8 +6,6 @@ class Nixio < Formula
   revision 2
   head "https://github.com/G-Node/nix.git"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "cppunit"
