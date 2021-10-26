@@ -12,8 +12,6 @@ class Getdp < Formula
   revision 3
   head "https://geuz.org/svn/getdp/trunk", using: GetdpSvnStrategy
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
   option "without-test", "skip build-time tests (not recommended)"
   deprecated_option "without-check" => "without-test"
 
