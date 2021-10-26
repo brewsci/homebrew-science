@@ -8,8 +8,6 @@ class Scram < Formula
   revision 1
   head "https://github.com/rakhimov/scram.git"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   # C++14 uses GCC 5.3, which is not ABI compatible with GCC 4.8
   depends_on :macos unless OS.mac?
 
