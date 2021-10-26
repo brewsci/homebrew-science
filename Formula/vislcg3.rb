@@ -10,8 +10,6 @@ class Vislcg3 < Formula
   version_scheme 1
   head "https://github.com/TinoDidriksen/cg3.git"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   option "without-test", "Disable build-time checking (not recommended)"
   deprecated_option "without-check" => "without-test"
 
