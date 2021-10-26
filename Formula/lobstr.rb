@@ -13,8 +13,6 @@ class Lobstr < Formula
     depends_on "automake" => :build
   end
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   option "without-test", "Disable build-time checking (not recommended)"
 
   deprecated_option "without-check" => "without-test"
