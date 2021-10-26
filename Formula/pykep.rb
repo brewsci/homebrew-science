@@ -18,8 +18,6 @@ class Pykep < Formula
     end
   end
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "boost-python"
