@@ -6,8 +6,6 @@ class OmeCommon < Formula
   revision 1
   head "https://github.com/ome/ome-common-cpp.git", branch: "develop", shallow: false
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   option "with-api-docs", "Build API reference"
   option "without-test", "Skip build time tests (not recommended)"
 
