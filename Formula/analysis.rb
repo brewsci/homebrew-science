@@ -6,8 +6,6 @@ class Analysis < Formula
   revision 4
   # tag "bioinformatics"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "boost"
   depends_on "gsl"
   depends_on "zlib" unless OS.mac?
