@@ -7,8 +7,6 @@ class Vague < Formula
   # doi "10.1093/bioinformatics/bts664"
   # tag "bioinformatics"
 
-  bottle :unneeded
-
   depends_on "velvet"
 
   def install
