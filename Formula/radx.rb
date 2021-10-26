@@ -5,8 +5,6 @@ class Radx < Formula
   version "20171016"
   sha256 "a60dbaf2256fe71f97f444c1fd0e21a59e9340a6f90acc5d7594e8e9c2fd4ef6"
 
-  bottle :disable, "Test-bot cannot use the versioned gcc formulae"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
