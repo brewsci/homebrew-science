@@ -5,8 +5,6 @@ class Shark < Formula
   sha256 "160c35ddeae3f6aeac3ce132ea4ba2611ece39eee347de2faa3ca52639dc6311"
   revision 3
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "cmake" => :build
   depends_on "boost"
 
