@@ -8,8 +8,6 @@ class Quaff < Formula
   head "https://github.com/ihh/quaff.git"
   # tag "bioinformatics"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "zlib" unless OS.mac?
   depends_on "pkg-config" => :build
   depends_on "gsl"
