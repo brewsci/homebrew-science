@@ -9,8 +9,6 @@ class Bless < Formula
   sha256 "4214a7f9277e92c02acc132f0f8ba88e7d05a7fd3135a59fc1c6e52ca37d181a"
   revision 6
 
-  bottle :disable, "needs to be rebuilt with latest boost and open-mpi"
-
   depends_on "google-sparsehash" => :build
   depends_on "google-sparsehash" => :build
   depends_on "boost"
