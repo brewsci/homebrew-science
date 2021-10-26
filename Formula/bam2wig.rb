@@ -5,8 +5,6 @@ class Bam2wig < Formula
   sha256 "133f961de9f394973322ac7b3f01622fcc85a6e29c697c2df3652e8cf0aa690e"
   # tag "bioinformatics"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
