@@ -12,8 +12,6 @@ class Pulseview < Formula
     depends_on "glib"
   end
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
