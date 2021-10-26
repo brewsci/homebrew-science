@@ -8,8 +8,6 @@ class Mira < Formula
   sha256 "a32cb2b21e0968a5536446287c895fe9e03d11d78957554e355c1080b7b92a80"
   revision 1
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "boost"
   depends_on "docbook"
   depends_on "expat"
