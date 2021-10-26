@@ -5,8 +5,6 @@ class Therion < Formula
   sha256 "73cda5225725d3e8cadd6fada9e506ab94b093d4e7a9fc90eaf23f8c7be6eb85"
   revision 4
 
-  bottle :disable, "needs to be rebuilt with latest netcdf"
-
   depends_on "freetype"
   depends_on "imagemagick"
   depends_on "lcdf-typetools"
