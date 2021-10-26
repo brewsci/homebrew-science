@@ -7,8 +7,6 @@ class Quake < Formula
   sha256 "8ded707213117463675553bb989c4c69c5d01b122945b1e265c79d7e4e34eebd"
   revision 3
 
-  bottle :disable, "Test-bot cannot use the versioned gcc formulae"
-
   depends_on "boost"
   depends_on "gcc@5" if OS.mac?
   depends_on "jellyfish"
