@@ -7,8 +7,6 @@ class Trilinos < Formula
   revision 5
   head "https://software.sandia.gov/trilinos/repositories/publicTrilinos", using: :git
 
-  bottle :disable, "needs to be rebuilt with latest boost and open-mpi"
-
   # Undefined symbols for architecture x86_64: "Amesos_CSparse::Amesos_CSparse(Epetra_LinearProblem const&)"
   # https://github.com/trilinos/Trilinos/issues/565
   option "with-csparse", "Build with CSparse (Experimental TPL) from suite-sparse"
