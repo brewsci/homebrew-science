@@ -10,8 +10,6 @@ class Ray < Formula
 
   head "https://github.com/sebhtml/ray.git"
 
-  bottle :disable, "needs to be rebuilt with latest open-mpi"
-
   depends_on "open-mpi"
 
   fails_with :gcc do
