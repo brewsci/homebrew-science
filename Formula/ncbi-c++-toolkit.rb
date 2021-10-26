@@ -8,8 +8,6 @@ class NcbiCxxToolkit < Formula
 
   head "https://anonsvn.ncbi.nlm.nih.gov/repos/v1/trunk/c++", using: :svn
 
-  bottle :disable, "Installation is 2.1G so it's too big to bottle"
-
   fails_with gcc: "5" do
     cause "5.1.0 is not fully supported."
   end
