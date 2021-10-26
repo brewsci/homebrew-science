@@ -7,8 +7,6 @@ class Amos < Formula
   # doi "10.1002/0471250953.bi1108s33"
   # tag "bioinformatics"
 
-  bottle :disable, "needs to be rebuilt with latest boost"
-
   depends_on "expat" unless OS.mac?
   depends_on "boost" => :recommended
   depends_on "mummer" => :recommended
