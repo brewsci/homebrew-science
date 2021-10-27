@@ -226,6 +226,7 @@
   "seq-gen": "brewsci/bio",
   "seqan": "brewsci/bio",
   "seqtk": "homebrew/core",
+  "sextractor": "homebrew/core",
   "sga": "brewsci/bio",
   "shogun": "homebrew/core",
   "sickle": "homebrew/core",
