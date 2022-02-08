@@ -173,6 +173,7 @@
   "nlopt": "homebrew/core",
   "nonpareil": "brewsci/bio",
   "ntcard": "brewsci/bio",
+  "numdiff": "homebrew/core",
   "nxtrim": "brewsci/bio",
   "oases": "brewsci/bio",
   "octave": "homebrew/core",
