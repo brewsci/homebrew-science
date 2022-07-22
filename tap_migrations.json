@@ -41,6 +41,7 @@
   "bwa": "homebrew/core",
   "canu": "brewsci/bio",
   "cap3": "brewsci/bio",
+  "ccfits": "homebrew/core",
   "cd-hit": "brewsci/bio",
   "cddlib": "homebrew/core",
   "centrifuge": "brewsci/bio",
