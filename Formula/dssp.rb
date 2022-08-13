@@ -16,7 +16,8 @@ class Dssp < Formula
   depends_on "boost"
 
   resource "pdb" do
-    url "ftp://ftp.cmbi.ru.nl/pub/molbio/data/pdb_redo/zz/3zzz/3zzz_0cyc.pdb.gz"
+    #url "ftp://ftp.cmbi.ru.nl/pub/molbio/data/pdb_redo/zz/3zzz/3zzz_0cyc.pdb.gz" # The old one.
+    url "ftp://ftp.cmbi.umcn.nl/pub/molbio/data/pdb_redo/zz/3zzz/3zzz_0cyc.pdb.gz" # Update url. This is the new one.
     sha256 "970c00f922829fb3b2de50aee191027c16069a1a50d2ae594175010674f08c33"
   end
 
