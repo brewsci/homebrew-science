@@ -120,6 +120,7 @@
   "jmol": "brewsci/bio",
   "k8": "brewsci/bio",
   "kaiju": "brewsci/bio",
+  "kalign": "homebrew/core",
   "kallisto": "homebrew/core",
   "kat": "brewsci/bio",
   "kent-tools": "brewsci/bio",
