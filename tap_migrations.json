@@ -131,6 +131,7 @@
   "lammps": "homebrew/core",
   "last": "brewsci/bio",
   "lastz": "brewsci/bio",
+  "liblbfgs": "homebrew/core",
   "libbi": "homebrew/core",
   "libbigwig": "brewsci/bio",
   "libccd": "homebrew/core",
