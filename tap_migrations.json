@@ -143,6 +143,7 @@
   "libsequence": "brewsci/bio",
   "lighter": "brewsci/bio",
   "links-scaffolder": "brewsci/bio",
+  "lmfit": "homebrew/core",
   "lmod": "homebrew/core",
   "lrsim": "brewsci/bio",
   "mafft": "homebrew/core",
