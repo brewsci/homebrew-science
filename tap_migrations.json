@@ -226,7 +226,7 @@
   "root": "homebrew/core",
   "root6": "homebrew/core",
   "salmon": "brewsci/bio",
-  "sambamba": "brewsci/bio",
+  "sambamba": "homebrew/core",
   "samblaster": "brewsci/bio",
   "samtools": "homebrew/core",
   "scalapack": "homebrew/core",
