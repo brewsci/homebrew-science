@@ -45,6 +45,7 @@
   "ccfits": "homebrew/core",
   "cd-hit": "brewsci/bio",
   "cddlib": "homebrew/core",
+  "cdsclient": "homebrew/core",
   "centrifuge": "brewsci/bio",
   "ceres-solver": "homebrew/core",
   "cfitsio": "homebrew/core",
