@@ -3,6 +3,7 @@
   "abyss": "homebrew/core",
   "abyss-explorer": "brewsci/bio",
   "adam": "brewsci/bio",
+  "adapterremoval": "homebrew/core",
   "alembic": "homebrew/core",
   "alpscore": "homebrew/core",
   "ampl-mp": "homebrew/core",
