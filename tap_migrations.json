@@ -224,6 +224,7 @@
   "picard-tools": "homebrew/core",
   "pilon": "brewsci/bio",
   "plink2": "brewsci/bio",
+  "pocl": "homebrew/core",
   "prank": "brewsci/bio",
   "primer3": "homebrew/core",
   "prodigal": "homebrew/core",
